@@ -3,7 +3,6 @@ package sample
 import (
 	"bitmap-usage/model"
 	"fmt"
-	"github.com/google/uuid"
 	"testing"
 )
 
@@ -13,16 +12,6 @@ func TestGenerateJson(t *testing.T) {
 	GenerateJson(1000)
 	GenerateJson(10000)
 	GenerateJson(100000)
-}
-
-func TestGenerateUUID(t *testing.T) {
-	fmt.Println(uuid.New().String())
-	fmt.Println(uuid.New().String())
-	fmt.Println(uuid.New().String())
-	fmt.Println(uuid.New().String())
-	fmt.Println(uuid.New().String())
-	fmt.Println(uuid.New().String())
-
 }
 
 func TestGeneratePrice(t *testing.T) {
