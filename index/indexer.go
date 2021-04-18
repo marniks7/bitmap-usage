@@ -34,26 +34,34 @@ func (s *Service) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
 }
 
 func offeringBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[string]uint32) {
-	var count32 uint32 = 0
-	offeringIdToIndex := make(map[string]uint32, 100)
-	offeringBitmaps := make([]*roaring.Bitmap, 0, len(offeringIdToIndex))
+	var count uint32 = 0
+	index := make(map[string]uint32, 100)
+
+	//find all unique values
 	for _, v := range prices {
-		if u, ok := offeringIdToIndex[v.OfferingID]; ok {
-			offeringBitmaps[u].Add(v.IndexId)
-		} else {
-			bmp := roaring.NewBitmap()
-			bmp.Add(v.IndexId)
-			offeringBitmaps = append(offeringBitmaps, bmp)
-			offeringIdToIndex[v.OfferingID] = count32
-			count32++
+		if _, ok := index[v.OfferingID]; !ok {
+			index[v.OfferingID] = count
+			count++
 		}
 	}
-	return offeringBitmaps, offeringIdToIndex
+
+	//pre-init bitmaps
+	bitmaps := make([]*roaring.Bitmap, len(index))
+	for i := 0; i < len(bitmaps); i++ {
+		bitmaps[i] = roaring.NewBitmap()
+	}
+	//add prices to bitmaps
+	for _, v := range prices {
+		u := index[v.OfferingID]
+		bitmap := bitmaps[u]
+		bitmap.Add(v.IndexId)
+	}
+	return bitmaps, index
 }
 
 func conditionBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[string]uint32, []*roaring.Bitmap, map[string]uint32) {
-	var charCount32 uint32 = 0
-	var valueCount32 uint32 = 0
+	var charCount uint32 = 0
+	var valueCount uint32 = 0
 	characteristicBitmaps := make([]*roaring.Bitmap, 0, 10)
 	characteristicToIndex := make(map[string]uint32, 100)
 
@@ -65,22 +73,22 @@ func conditionBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[s
 			if u, ok := characteristicToIndex[cc]; ok {
 				characteristicBitmaps[u].Add(v.IndexId)
 			} else {
-				characteristicToIndex[cc] = charCount32
+				characteristicToIndex[cc] = charCount
 				bitmap := roaring.NewBitmap()
 				bitmap.Add(v.IndexId)
 				characteristicBitmaps = append(characteristicBitmaps, bitmap)
-				charCount32++
+				charCount++
 			}
 
 			val := v.Values[i]
 			if u, ok := valuesToIndex[val]; ok {
 				valueBitmaps[u].Add(v.IndexId)
 			} else {
-				valuesToIndex[val] = valueCount32
+				valuesToIndex[val] = valueCount
 				bitmap := roaring.NewBitmap()
 				bitmap.Add(v.IndexId)
 				valueBitmaps = append(valueBitmaps, bitmap)
-				valueCount32++
+				valueCount++
 			}
 		}
 	}

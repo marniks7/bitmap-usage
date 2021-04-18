@@ -6,14 +6,14 @@ type CharValue struct {
 }
 type FindPriceRequest struct {
 	OfferingId  string      `json:"offeringId"`
-	PriceListId string      `json:"priceListId"`
+	GroupId     string      `json:"groupId"`
 	PriceSpecId string      `json:"priceSpecId"`
 	CharValues  []CharValue `json:"charValues"`
 }
 
 type FindPriceRequestBulk struct {
 	OfferingId  string      `json:"offeringId"`
-	PriceListId string      `json:"priceListId"`
+	GroupId     string      `json:"groupId"`
 	PriceSpecId string      `json:"priceSpecId"`
 	CharValues  []CharValue `json:"charValues"`
 	Id          uint16      `json:"id"`

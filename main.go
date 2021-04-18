@@ -46,11 +46,12 @@ func Setup() {
 		log.Panic().Err(err).Msg("Unable to InitTestData")
 		return
 	}
-	cs.FinishInitialization()
 
 	ind := index.NewService(log.Logger)
-	as := handlers.NewAggregateService(log.Logger, cs, ind)
 	ind.IndexPrices(cs.Catalog)
+
+	as := handlers.NewAggregateService(log.Logger, cs, ind)
+	cs.FinishInitialization()
 	runtime.GC()
 
 	//long-live workers
@@ -94,16 +95,7 @@ func Setup() {
 		WriteTimeout:      10 * time.Minute,
 		IdleTimeout:       120 * time.Second,
 	}
-	//
-	//f, err := os.Create("mem-profile")
-	//if err != nil {
-	//	log.Fatal("could not create memory profile: ", err)
-	//}
-	//defer f.Close() // error handling omitted for example
-	//runtime.GC()    // get up-to-date statistics
-	//if err := pprof.WriteHeapProfile(f); err != nil {
-	//	log.Fatal("could not write memory profile: ", err)
-	//}
+
 	//start server in separate goroutine
 	go func() {
 		log.Info().Str("addr", addr).Msg("Starting server")

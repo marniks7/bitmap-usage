@@ -113,7 +113,7 @@ func (as *AggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *http.Req
 		//single threaded execution
 		rw.Write([]byte{'['})
 		for i, findPriceRequest := range findPriceRequests {
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.PriceListId,
+			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			var price *model.Price
 			if err != nil {
@@ -160,7 +160,7 @@ func (as *AggregateService) worker(ch chan model.FindPriceRequestBulk,
 	for {
 		findPriceRequest := <-ch
 
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.PriceListId,
+		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
 			errch <- err
@@ -187,7 +187,7 @@ func (as *AggregateService) worker1(ch chan model.FindPriceRequestBulk,
 	resp chan model.FindPriceResponseBulk,
 	errch chan error) {
 	for findPriceRequest := range ch {
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.PriceListId,
+		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
 			errch <- err
@@ -213,7 +213,7 @@ func (as *AggregateService) worker1(ch chan model.FindPriceRequestBulk,
 func (as *AggregateService) Worker2(errch chan error) {
 	for fpr := range as.RequestChan {
 		findPriceRequest := fpr.FPRB
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.PriceListId,
+		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
 			errch <- err

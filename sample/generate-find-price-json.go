@@ -14,7 +14,7 @@ func GenerateJson(size int) {
 	max := len(termValues)
 	for i := 0; i < size; i++ {
 		frb = append(frb, model.FindPriceRequestBulk{Id: uint16(i), OfferingId: "00d3a020-08c4-4c94-be0a-e29794756f9e",
-			PriceSpecId: "MRC", PriceListId: "Default",
+			PriceSpecId: "MRC", GroupId: "Default",
 			CharValues: []model.CharValue{{"Term", termValues[i%max]},
 				{"B2B Traffic", "5GB"}, {"B2B Bandwidth", "900Mbps"},
 				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},

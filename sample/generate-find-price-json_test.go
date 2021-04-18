@@ -14,6 +14,12 @@ func TestGenerateJson(t *testing.T) {
 	GenerateJson(100000)
 }
 
+//func TestGenerateUUIDPool(t *testing.T) {
+//	for i:=0; i < 30; i++ {
+//		fmt.Println("\"" + uuid.NewString() + "\",")
+//	}
+//}
+
 func TestGeneratePrice(t *testing.T) {
 	chars := []string{"Term",
 		"B2B Traffic", "VPN", "B2B Bandwidth", "Router"}

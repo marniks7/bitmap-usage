@@ -77,21 +77,21 @@ func (as *AggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Request
 		return
 	}
 
-	pind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.PriceListId,
+	index, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 		findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusBadRequest)
 		return
 	}
-	index, err := as.Index.FindPriceIdByIndex(pind)
+	priceId, err := as.Index.FindPriceIdByIndex(index)
 	if err != nil {
 		as.L.Err(err).Msg("Unable to find price id by index")
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	price := as.CS.Catalog.Prices[index]
+	price := as.CS.Catalog.Prices[priceId]
 	if price == nil {
-		as.L.Error().Uint32("index", pind).Msg("Unable to find price by index")
+		as.L.Error().Uint32("index", index).Msg("Unable to find price by index")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}

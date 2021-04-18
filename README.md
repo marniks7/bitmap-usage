@@ -39,5 +39,5 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
   ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/prices```
 * Single Request Concurrent
   ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/prices```
-  8 Bulk Request One Threaded
+* Bulk Request One Threaded
   ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://localhost:8091/v1/search/bulk/prices```

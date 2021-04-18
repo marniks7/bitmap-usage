@@ -25,7 +25,6 @@ func TestFindPrice(t *testing.T) {
 			{"B2B Bandwidth", "900Mbps"},
 			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
 			{"Router", "Not Included"}})
-	//fmt.Println(Prices)
 	if err != nil {
 		t.Error("Prices is not found")
 		t.Fail()
