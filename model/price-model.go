@@ -20,7 +20,7 @@ type PriceConditions struct {
 }
 
 type Price struct {
-	ID       string  `json:"id"`
+	Id       string  `json:"id"`
 	Spec     string  `json:"spec"`
 	Value    float64 `json:"value"`
 	Currency string  `json:"currency"`

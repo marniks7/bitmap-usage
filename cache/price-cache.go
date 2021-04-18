@@ -29,7 +29,7 @@ func NewCatalogService(l zerolog.Logger, catalog *Catalog) *CatalogService {
 func (cs *CatalogService) FinishInitialization() {
 	cs.Catalog.Prices = make(map[string]*model.Price, len(cs.Catalog.PriceConditions))
 	for _, v := range cs.Catalog.PriceConditions {
-		cs.Catalog.Prices[v.ID] = &model.Price{ID: v.ID, Spec: v.Spec, Value: v.Value, Currency: v.Currency}
+		cs.Catalog.Prices[v.ID] = &model.Price{Id: v.ID, Spec: v.Spec, Value: v.Value, Currency: v.Currency}
 	}
 	cs.Catalog.PriceConditions = nil
 }
