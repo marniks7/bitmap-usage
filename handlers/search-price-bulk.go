@@ -210,23 +210,23 @@ func (as *AggregateService) worker1(ch chan model.FindPriceRequestBulk,
 
 //TODO error channel doesn't work yet
 //TODO add cancel
-func (as *AggregateService) Worker2(errch chan error) {
+func (as *AggregateService) LongLiveWorker() {
 	for fpr := range as.RequestChan {
 		findPriceRequest := fpr.FPRB
 		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
-			errch <- err
+			fpr.Err <- err
 		} else {
 			priceId, err := as.Index.FindPriceIdByIndex(ind)
 			if err != nil {
-				errch <- err
+				fpr.Err <- err
 			} else {
 				price := as.CS.Catalog.Prices[priceId]
 				if price != nil {
 					fpr.Result <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 				} else {
-					errch <- ErrUnableToFindPrice
+					fpr.Err <- ErrUnableToFindPrice
 				}
 			}
 		}

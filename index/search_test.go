@@ -10,9 +10,9 @@ import (
 
 func TestFindPrice(t *testing.T) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.InitTestData(cs)
+	err := sample.GenerateTestData(cs)
 	if err != nil {
-		log.Err(err).Msg("Unable to InitTestData")
+		log.Err(err).Msg("Unable to GenerateTestData")
 		t.Fail()
 		return
 	}

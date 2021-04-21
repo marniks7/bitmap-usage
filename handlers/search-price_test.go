@@ -16,7 +16,7 @@ func TestFindPriceBy(t *testing.T) {
 	// Create a request to pass to our handler. We don't have any query parameters for now, so we'll
 	// pass 'nil' as the third parameter.
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.InitTestData(cs)
+	err := sample.GenerateTestData(cs)
 	if err != nil {
 		t.Fatal(err)
 		return

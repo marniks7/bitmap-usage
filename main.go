@@ -41,9 +41,9 @@ func Setup() {
 	zerolog.SetGlobalLevel(level)
 
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err = sample.InitTestData(cs)
+	err = sample.GenerateTestData(cs)
 	if err != nil {
-		log.Panic().Err(err).Msg("Unable to InitTestData")
+		log.Panic().Err(err).Msg("Unable to GenerateTestData")
 		return
 	}
 
@@ -55,19 +55,19 @@ func Setup() {
 	runtime.GC()
 
 	//long-live workers
-	go as.Worker2(nil)
-	go as.Worker2(nil)
-	go as.Worker2(nil)
-	go as.Worker2(nil)
-	go as.Worker2(nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
-	//go cs.Worker2(cs.Ch, nil)
+	go as.LongLiveWorker()
+	go as.LongLiveWorker()
+	go as.LongLiveWorker()
+	go as.LongLiveWorker()
+	go as.LongLiveWorker()
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
+	//go cs.LongLiveWorker(cs.Ch, nil)
 
 	// create router
 	r := mux.NewRouter()
@@ -76,6 +76,12 @@ func Setup() {
 
 	findPriceBulk := r.Methods(http.MethodPost).Subrouter()
 	findPriceBulk.HandleFunc("/v1/search/bulk/prices", as.FindPriceBulkByX)
+
+	findPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
+	findPriceBulkv2.HandleFunc("/v2/search/bulk/prices", as.FindPriceBulkByXV2)
+
+	findPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
+	findPriceBulkv3.HandleFunc("/v3/search/bulk/prices", as.FindPriceBulkByXV3)
 
 	// Register pprof handlers
 	r.HandleFunc("/debug/pprof/", pprof.Index)

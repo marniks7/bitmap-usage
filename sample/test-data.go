@@ -95,11 +95,13 @@ var OfferingPool = []string{
 
 var UnableToFindValuesForChar = errors.New("unable to find values for Char")
 
-func InitTestData(cs *cache.CatalogService) error {
+func GenerateTestData(cs *cache.CatalogService) error {
 	const OfferingsCnt = 50
 	h := &Holder{
 		prices: make([]*model.PriceConditions, 0, 100),
 	}
+	chars := []string{"Term",
+		"B2B Traffic", "VPN", "B2B Bandwidth", "Router"}
 	for i := 0; i < OfferingsCnt; i++ {
 		var offeringId string
 		if i < len(OfferingPool)-1 {
@@ -107,9 +109,6 @@ func InitTestData(cs *cache.CatalogService) error {
 		} else {
 			offeringId = uuid.NewString()
 		}
-
-		chars := []string{"Term",
-			"B2B Traffic", "VPN", "B2B Bandwidth", "Router"}
 		cnt := 1
 		for _, cc := range chars {
 			if values, ok := ValuePool[cc]; ok {
