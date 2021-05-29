@@ -7,7 +7,7 @@ import (
 
 type Catalog struct {
 	L               zerolog.Logger
-	PriceConditions []*model.PriceConditions
+	PriceConditions []*model.PriceCondition
 	Prices          map[string]*model.Price
 }
 
@@ -21,15 +21,22 @@ type CatalogService struct {
 }
 
 func NewCatalogService(l zerolog.Logger, catalog *Catalog) *CatalogService {
-
 	return &CatalogService{L: l, Catalog: catalog}
 }
 
-// FinishInitialization creates prices and removes price conditions
-func (cs *CatalogService) FinishInitialization() {
+// GeneratePricesByConditionsAndClear creates prices and removes price conditions
+func (cs *CatalogService) GeneratePricesByConditionsAndClear() {
 	cs.Catalog.Prices = make(map[string]*model.Price, len(cs.Catalog.PriceConditions))
 	for _, v := range cs.Catalog.PriceConditions {
 		cs.Catalog.Prices[v.ID] = &model.Price{Id: v.ID, Spec: v.Spec, Value: v.Value, Currency: v.Currency}
 	}
 	cs.Catalog.PriceConditions = nil
+}
+
+// GeneratePricesByConditions creates prices
+func (cs *CatalogService) GeneratePricesByConditions() {
+	cs.Catalog.Prices = make(map[string]*model.Price, len(cs.Catalog.PriceConditions))
+	for _, v := range cs.Catalog.PriceConditions {
+		cs.Catalog.Prices[v.ID] = &model.Price{Id: v.ID, Spec: v.Spec, Value: v.Value, Currency: v.Currency}
+	}
 }

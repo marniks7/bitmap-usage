@@ -5,6 +5,7 @@ import (
 	"bitmap-usage/model"
 	"fmt"
 	"github.com/rs/zerolog/log"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -20,25 +21,20 @@ func TestGeneratePrice(t *testing.T) {
 			return
 		}
 	}
-	fmt.Println("Maximum Possible PriceConditions For Char Conditions", cnt)
+	fmt.Println("Maximum Possible PriceCondition For Char Conditions", cnt)
 	h := &Holder{
-		prices: make([]*model.PriceConditions, 0, cnt),
+		prices: make([]*model.PriceCondition, 0, cnt),
 	}
-	cache := make([]string, len(chars))
-	h.generatePrice(chars, cache, 0, "offering")
-	fmt.Println("PriceConditions generated", len(h.prices))
-	if cnt != len(h.prices) {
-		t.Error("Generated prices is not as expected", "expected", cnt, "actual", len(h.prices))
-		t.Fail()
-	}
+	charsCache := make([]string, len(chars))
+	h.generatePrice(chars, charsCache, 0, "offering")
+	fmt.Println("PriceCondition generated", len(h.prices))
+	assert.Equal(t, cnt, len(h.prices), "Generated prices amount are not as expected")
 }
 
 func TestGenerateTestData(t *testing.T) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := GenerateTestData(cs)
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
+	err := GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(t, err)
+
 	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
 }

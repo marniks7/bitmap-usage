@@ -6,7 +6,7 @@ import (
 	"github.com/RoaringBitmap/roaring"
 )
 
-func (s *Service) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
+func (s *BitMapIndexService) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
 	groupBitmaps, groupIndex := mapGroupBitmaps(catalog.PriceConditions)
 	specBitmaps, specIdToIndex := mapSpecBitmaps(catalog.PriceConditions)
 	offeringBitmaps, offeringIdToIndex := offeringBitmaps(catalog.PriceConditions)
@@ -33,9 +33,9 @@ func (s *Service) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
 	return bmi
 }
 
-func offeringBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[string]uint32) {
+func offeringBitmaps(prices []*model.PriceCondition) ([]*roaring.Bitmap, map[string]uint32) {
 	var count uint32 = 0
-	index := make(map[string]uint32, 100)
+	index := make(map[string]uint32, 128)
 
 	//find all unique values
 	for _, v := range prices {
@@ -59,14 +59,14 @@ func offeringBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[st
 	return bitmaps, index
 }
 
-func conditionBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[string]uint32, []*roaring.Bitmap, map[string]uint32) {
+func conditionBitmaps(prices []*model.PriceCondition) ([]*roaring.Bitmap, map[string]uint32, []*roaring.Bitmap, map[string]uint32) {
 	var charCount uint32 = 0
 	var valueCount uint32 = 0
 	characteristicBitmaps := make([]*roaring.Bitmap, 0, 10)
-	characteristicToIndex := make(map[string]uint32, 100)
+	characteristicToIndex := make(map[string]uint32, 128)
 
 	valueBitmaps := make([]*roaring.Bitmap, 0, 10)
-	valuesToIndex := make(map[string]uint32, 100)
+	valuesToIndex := make(map[string]uint32, 128)
 	for _, v := range prices {
 		for i, cc := range v.Chars {
 
@@ -96,7 +96,7 @@ func conditionBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[s
 	return characteristicBitmaps, characteristicToIndex, valueBitmaps, valuesToIndex
 }
 
-func mapGroupBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[string]uint16) {
+func mapGroupBitmaps(prices []*model.PriceCondition) ([]*roaring.Bitmap, map[string]uint16) {
 	index := make(map[string]uint16)
 
 	//find all unique groups
@@ -122,7 +122,7 @@ func mapGroupBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[st
 	return bitmaps, index
 }
 
-func mapSpecBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[string]uint8) {
+func mapSpecBitmaps(prices []*model.PriceCondition) ([]*roaring.Bitmap, map[string]uint8) {
 	index := make(map[string]uint8)
 
 	//find all unique list keys
@@ -147,7 +147,7 @@ func mapSpecBitmaps(prices []*model.PriceConditions) ([]*roaring.Bitmap, map[str
 	return bitmaps, index
 }
 
-func mapDefaultBitmaps(prices []*model.PriceConditions) *roaring.Bitmap {
+func mapDefaultBitmaps(prices []*model.PriceCondition) *roaring.Bitmap {
 	bitmap := roaring.NewBitmap()
 	for _, v := range prices {
 		if v.IsDefault {

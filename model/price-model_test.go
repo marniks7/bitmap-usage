@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/google/uuid"
+	"github.com/stretchr/testify/assert"
 	"os"
 	"runtime"
 	"strconv"
@@ -14,12 +15,11 @@ import (
 var p = fmt.Fprintln
 var f = fmt.Fprintf
 
+//goland:noinspection GoUnhandledErrorResult
 func TestPriceSize(t *testing.T) {
 	file, err := os.Create("price-memory-" + strconv.Itoa(strconv.IntSize) + ".md")
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
+	assert.NoError(t, err)
+
 	defer file.Close()
 
 	w := bufio.NewWriter(file)
@@ -45,8 +45,8 @@ func TestPriceSize(t *testing.T) {
 }
 
 func TestPriceConditionsSize(t *testing.T) {
-	priceCondition := unsafe.Sizeof(PriceConditions{})
-	fmt.Println("# PriceConditions")
+	priceCondition := unsafe.Sizeof(PriceCondition{})
+	fmt.Println("# PriceCondition")
 	fmt.Printf("Single PriceCondition %v bytes\n\n", priceCondition)
 	fmt.Printf("|Amount|MB|\n")
 	fmt.Printf("---|----|\n")

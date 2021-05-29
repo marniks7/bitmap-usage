@@ -1,7 +1,6 @@
 package index
 
 import (
-	"bitmap-usage/cache"
 	"bitmap-usage/model"
 	"errors"
 	"github.com/RoaringBitmap/roaring"
@@ -13,9 +12,10 @@ var ErrUnableToFindOfferingId = errors.New("unable find offeringId in index")
 var ErrUnableToFindGroupId = errors.New("unable find groupId in index")
 var ErrUnableToFindSpecId = errors.New("unable find specId in index")
 var ErrUnableToFindPrice = errors.New("unable find price")
+var ErrUnableToFindPriceDefaults = errors.New("unable find price, >1 default prices")
 
 // FindPriceIndexBy search for price based on parameters and return index
-func (s *Service) FindPriceIndexBy(offeringId, groupId, specId string,
+func (s *BitMapIndexService) FindPriceIndexBy(offeringId, groupId, specId string,
 	charValues []model.CharValue) (uint32, error) {
 
 	var ob *roaring.Bitmap
@@ -113,23 +113,14 @@ func (s *Service) FindPriceIndexBy(offeringId, groupId, specId string,
 			candidate := iterator.Next()
 			return candidate, nil
 		}
+	} else if cardinality > 1 {
+		return 0, ErrUnableToFindPriceDefaults
 	} else {
 		return 0, ErrUnableToFindPrice
 	}
 	return 0, ErrUnableToFindPrice
 }
 
-func (s *Service) FindPriceIdByIndex(ind uint32) (string, error) {
+func (s *BitMapIndexService) FindPriceIdByIndex(ind uint32) (string, error) {
 	return s.Index.indexToPriceId[ind], nil
-}
-
-func FindPriceByIteration(cs *cache.CatalogService, listKey, specId string) *model.PriceConditions {
-	counter := 0
-	for _, v := range cs.Catalog.PriceConditions {
-		counter++
-		if v.GroupId == listKey && v.Spec == specId && counter > 5000 {
-			return v
-		}
-	}
-	return nil
 }

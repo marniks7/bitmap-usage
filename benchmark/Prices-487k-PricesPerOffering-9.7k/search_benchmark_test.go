@@ -1,0 +1,116 @@
+package Prices_487k_PricesPerOffering_9_7k
+
+import (
+	"bitmap-usage/cache"
+	"bitmap-usage/index"
+	"bitmap-usage/index-map"
+	"bitmap-usage/model"
+	"bitmap-usage/sample"
+	"github.com/rs/zerolog/log"
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
+
+func BenchmarkBitmapFindPriceIndexId_Conditions8(b *testing.B) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	if err != nil {
+		log.Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
+		b.Fail()
+		return
+	}
+	ind := index.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+
+	_, err = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+		[]model.CharValue{{"Term", "24"},
+			{"B2B Traffic", "5GB"},
+			{"B2B Bandwidth", "900Mbps"},
+			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+			{"Router", "Not Included"}})
+
+	b.ResetTimer()
+	var price uint32
+	for i := 0; i < b.N; i++ {
+		price, _ = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+				{"Router", "Not Included"}})
+	}
+	if price == 0 {
+		b.Fail()
+	}
+}
+
+func BenchmarkBitmapFindPrice_Conditions8(b *testing.B) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(b, err)
+
+	ind := index.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+	cs.GeneratePricesByConditions()
+
+	_, err = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+		[]model.CharValue{{"Term", "24"},
+			{"B2B Traffic", "5GB"},
+			{"B2B Bandwidth", "900Mbps"},
+			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+			{"Router", "Not Included"}})
+
+	b.ResetTimer()
+	var priceIndex uint32
+	var price *model.Price
+	for i := 0; i < b.N; i++ {
+		priceIndex, _ = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+				{"Router", "Not Included"}})
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			b.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
+	}
+	if price == nil {
+		b.FailNow()
+	}
+}
+
+func BenchmarkOfferingIndexFindPrice_Conditions8(b *testing.B) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(b, err)
+
+	ind := indexMap.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+	cs.GeneratePricesByConditions()
+
+	_, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+		[]model.CharValue{{"Term", "24"},
+			{"B2B Traffic", "5GB"},
+			{"B2B Bandwidth", "900Mbps"},
+			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+			{"Router", "Not Included"}})
+
+	assert.NoError(b, err)
+	assert.Equal(b, 3824, position)
+
+	b.ResetTimer()
+	var price *model.PriceCondition
+	for i := 0; i < b.N; i++ {
+		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+				{"Router", "Not Included"}})
+	}
+	if price == nil {
+		b.Fail()
+	}
+}

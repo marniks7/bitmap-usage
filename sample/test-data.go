@@ -120,10 +120,10 @@ var OfferingPool = []string{
 
 var UnableToFindValuesForChar = errors.New("unable to find values for Char")
 
-func GenerateTestData(cs *cache.CatalogService) error {
+func GenerateTestData5Chars5Offerings(cs *cache.CatalogService) error {
 	const OfferingsCnt = 50
 	h := &Holder{
-		prices: make([]*model.PriceConditions, 0, 100),
+		prices: make([]*model.PriceCondition, 0, 100),
 	}
 	chars := []string{"Term",
 		"B2B Traffic", "VPN", "B2B Bandwidth", "Router"}
@@ -143,7 +143,7 @@ func GenerateTestData(cs *cache.CatalogService) error {
 				return UnableToFindValuesForChar
 			}
 		}
-		//fmt.Println("Maximum Possible PriceConditions For Char Conditions", cnt)
+		//fmt.Println("Maximum Possible PriceCondition For Char Conditions", cnt)
 		charCache := make([]string, len(chars))
 		h.generatePrice(chars, charCache, 0, offeringId)
 	}
@@ -167,7 +167,7 @@ func (h *Holder) generatePrice(chars []string,
 		} else {
 			result := make([]string, len(chars))
 			copy(result, priceValues)
-			price := &model.PriceConditions{
+			price := &model.PriceCondition{
 				ID:         uuid.NewString(),
 				IsDefault:  false,
 				Spec:       "MRC",
@@ -185,5 +185,5 @@ func (h *Holder) generatePrice(chars []string,
 }
 
 type Holder struct {
-	prices []*model.PriceConditions
+	prices []*model.PriceCondition
 }

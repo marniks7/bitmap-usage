@@ -41,9 +41,9 @@ func Setup() {
 	zerolog.SetGlobalLevel(level)
 
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err = sample.GenerateTestData(cs)
+	err = sample.GenerateTestData5Chars5Offerings(cs)
 	if err != nil {
-		log.Panic().Err(err).Msg("Unable to GenerateTestData")
+		log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
 		return
 	}
 
@@ -51,7 +51,7 @@ func Setup() {
 	ind.IndexPrices(cs.Catalog)
 
 	as := handlers.NewAggregateService(log.Logger, cs, ind)
-	cs.FinishInitialization()
+	cs.GeneratePricesByConditionsAndClear()
 	runtime.GC()
 
 	//long-live workers

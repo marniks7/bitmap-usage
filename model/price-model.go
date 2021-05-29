@@ -4,7 +4,7 @@ import "time"
 
 // Price contains information about prices.
 // TODO this should NOT contain information regarding the search conditions
-type PriceConditions struct {
+type PriceCondition struct {
 	ID                 string
 	OfferingID         string
 	GroupId            string

@@ -5,13 +5,13 @@ import (
 	"github.com/rs/zerolog"
 )
 
-type Service struct {
+type BitMapIndexService struct {
 	L     zerolog.Logger
 	Index *PriceBitmaps
 }
 
-func NewService(l zerolog.Logger) *Service {
-	return &Service{L: l}
+func NewService(l zerolog.Logger) *BitMapIndexService {
+	return &BitMapIndexService{L: l}
 }
 
 type PriceBitmaps struct {
