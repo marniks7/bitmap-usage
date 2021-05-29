@@ -102,22 +102,22 @@ func Setup() {
 		IdleTimeout:       120 * time.Second,
 	}
 
+	// receiving the signal from OS for graceful shutdown
+	signals := make(chan os.Signal)
 	//start server in separate goroutine
 	go func() {
 		log.Info().Str("addr", addr).Msg("Starting server")
-		err := server.ListenAndServe()
+		err = server.ListenAndServe()
 		if err != nil {
 			if err == http.ErrServerClosed {
 				log.Info().Msg("Server is shutdown")
 			} else {
 				log.Err(err).Msg("Unable to start server")
 			}
-
+			signals <- os.Kill
 		}
 	}()
 
-	// receiving the signal from OS for graceful shutdown
-	signals := make(chan os.Signal)
 	signal.Notify(signals, os.Interrupt)
 	signal.Notify(signals, os.Kill)
 	//blocks until receiving the signal

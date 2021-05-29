@@ -5,13 +5,8 @@ import (
 	"bitmap-usage/model"
 	"errors"
 	"github.com/google/uuid"
+	"time"
 )
-
-var CharPool = []string{"Term", "B2C Bandwidth",
-	"B2B Bandwidth",
-	"Connection Type", "Port Bandwidth",
-	"VPN", "Antivirus",
-	"Router", "B2C Traffic", "B2B Traffic", "Access Point Traffic"}
 
 var ValuePool = map[string][]string{
 	"Term":                 {"12", "18", "24", "36", "48", "60"},
@@ -91,6 +86,36 @@ var OfferingPool = []string{
 	"f5c56b5a-49de-4d50-bb66-12b685f562c6",
 	"a4e12f41-3e99-4165-aba4-c242d583504b",
 	"eecff436-e525-48d4-806b-cd42a8f40bce",
+	"92d005e7-b8e3-4631-ad25-b0e8d6fb5aef",
+	"b694c4a9-345f-4d07-a37e-eabebd2195b8",
+	"26296cab-a3de-4104-a458-2a548c8973bd",
+	"afab959f-7366-4859-a152-7a46fd53c0df",
+	"e27b07ee-3a2c-41e9-86e1-932c804b6c07",
+	"5995c13b-82f5-4daf-aa4b-a77a735243e7",
+	"970a4374-e158-4758-b9cd-817980ff67b0",
+	"5aafedcd-f3a9-4987-af24-5fa49ee0861a",
+	"314b2348-4db6-44ce-98d0-6388a2d202c9",
+	"e720cca1-567e-4710-8097-9b655cc42e8b",
+	"2557c91e-a3e7-4c15-9cf0-f44e3c133d0e",
+	"c6e9a5dc-821c-4899-b069-7191fa781498",
+	"61e9c254-f164-472f-bd9f-1b0bdc91b6b9",
+	"85dc39cd-52dc-49fa-9d00-051a1ff15cd6",
+	"67ebe8f2-a17b-44a7-a6e1-3b3ceb86e723",
+	"144f119b-1f4c-4f06-a7cf-aa6e9e73c67a",
+	"45dd65ee-74db-42ba-9ddc-ec31b496e9d4",
+	"136c984f-2465-4608-9d6f-abc44e317c28",
+	"072d595b-4256-402e-b717-3a8df1b2dfe6",
+	"87f4da45-9eb9-4b58-91aa-c2ca00e7bb9e",
+	"c33b3fdd-135b-4eae-9c02-c95205cb77f1",
+	"7672ca4b-2ca3-4281-afee-caee5f7841be",
+	"e7b54090-c015-4f55-a17d-d14761f30ca2",
+	"bbda69e5-e785-4e9f-a80e-cafcd58b7baa",
+	"373e9b13-f51b-4413-90dd-576738c95183",
+	"209e517a-d450-4a91-90c9-adc661a83e41",
+	"c6dc88cf-4dd7-4d60-a97f-d73e331cbaf4",
+	"6161b4ba-f153-4473-a508-66743bc40742",
+	"545bc005-f710-4676-89c3-80cb23df67b6",
+	"69ff38fb-e4a9-480b-bb94-b6e701ea72fd",
 }
 
 var UnableToFindValuesForChar = errors.New("unable to find values for Char")
@@ -150,6 +175,8 @@ func (h *Holder) generatePrice(chars []string,
 				OfferingID: offering,
 				Chars:      chars,
 				Values:     result,
+				StartDate:  time.Date(2019, time.May, 10, 5, 0, 0, 0, time.UTC),
+				EndDate:    time.Date(2022, time.January, 5, 3, 0, 0, 0, time.UTC),
 			}
 			h.prices = append(h.prices, price)
 		}

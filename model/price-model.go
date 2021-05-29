@@ -1,5 +1,7 @@
 package model
 
+import "time"
+
 // Price contains information about prices.
 // TODO this should NOT contain information regarding the search conditions
 type PriceConditions struct {
@@ -7,8 +9,8 @@ type PriceConditions struct {
 	OfferingID         string
 	GroupId            string
 	Spec               string
-	StartDate          string
-	EndDate            string
+	StartDate          time.Time
+	EndDate            time.Time
 	Markets            []string
 	CustomerCategories []string
 	Chars              []string //connection by index with chars

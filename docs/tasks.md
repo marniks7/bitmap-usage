@@ -1,5 +1,5 @@
 # Tasks
-* See [Consider Improvements](documentation.md)
+* See [Consider Improvements](design.md)
 * Support dates and between
 * Support integers and between
 * GZip for bulk
@@ -7,4 +7,4 @@
 * Update index
 * Scalability - distributed cache?
 * Time of app start (store index?)
-
+* Test Pilosa
