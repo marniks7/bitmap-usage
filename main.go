@@ -3,7 +3,7 @@ package main
 import (
 	"bitmap-usage/cache"
 	"bitmap-usage/handlers"
-	"bitmap-usage/index"
+	"bitmap-usage/index-roaring"
 	"bitmap-usage/sample"
 	"context"
 	"github.com/gorilla/mux"
@@ -47,7 +47,7 @@ func Setup() {
 		return
 	}
 
-	ind := index.NewService(log.Logger)
+	ind := index_roaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
 	as := handlers.NewAggregateService(log.Logger, cs, ind)
@@ -138,6 +138,7 @@ func Setup() {
 
 // getEnvOrDefault wrapper to provide ability to return default value if not found
 // behavior is similar to flags
+//goland:noinspection GoUnusedParameter
 func getEnvOrDefault(key string, def, description string) string {
 	if getenv, ok := os.LookupEnv(key); ok {
 		return getenv

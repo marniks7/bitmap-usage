@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/index"
+	"bitmap-usage/index-roaring"
 	"bitmap-usage/sample"
 	"bytes"
 	"fmt"
@@ -20,7 +20,7 @@ func TestFindPriceBy(t *testing.T) {
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(t, err)
 
-	indexer := index.NewService(log.Logger)
+	indexer := index_roaring.NewService(log.Logger)
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewAggregateService(log.Logger, cs, indexer)

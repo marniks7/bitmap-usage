@@ -2,7 +2,7 @@ package indexMap
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/index"
+	"bitmap-usage/index-roaring"
 	"bitmap-usage/model"
 	"bitmap-usage/sample"
 	"github.com/rs/zerolog/log"
@@ -53,7 +53,7 @@ func TestFindPriceCompareSearches(t *testing.T) {
 
 	priceMapIndex := cs.Catalog.Prices[price.ID]
 
-	indBitmap := index.NewService(log.Logger)
+	indBitmap := index_roaring.NewService(log.Logger)
 	indBitmap.IndexPrices(cs.Catalog)
 
 	priceBitmapIndex, err := indBitmap.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",

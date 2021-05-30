@@ -2,8 +2,8 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/index"
 	"bitmap-usage/index-map"
+	"bitmap-usage/index-roaring"
 	"bitmap-usage/model"
 	"bitmap-usage/sample"
 	"github.com/rs/zerolog/log"
@@ -19,7 +19,7 @@ func BenchmarkBitmapFindPriceIndexId_Conditions8(b *testing.B) {
 		b.Fail()
 		return
 	}
-	ind := index.NewService(log.Logger)
+	ind := index_roaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
 	_, err = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
@@ -49,7 +49,7 @@ func BenchmarkBitmapFindPrice_Conditions8(b *testing.B) {
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := index.NewService(log.Logger)
+	ind := index_roaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 

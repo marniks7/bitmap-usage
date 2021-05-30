@@ -1,4 +1,4 @@
-package index
+package index_roaring
 
 import (
 	"bitmap-usage/cache"
