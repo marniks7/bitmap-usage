@@ -6,8 +6,9 @@ import (
 )
 
 type MapIndexService struct {
-	L   zerolog.Logger
-	Ind map[string][]*model.PriceCondition
+	L                   zerolog.Logger
+	Index               map[string][]*model.PriceCondition
+	OfferingToCharIndex map[string]map[string]uint16
 }
 
 func NewService(l zerolog.Logger) *MapIndexService {

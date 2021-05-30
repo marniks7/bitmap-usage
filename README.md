@@ -7,6 +7,10 @@ Efficient storage and efficient search for prices based on many conditions (attr
 * [Design](docs/design.md)
 * [Tasks](docs/tasks.md)
 
+## Disclaimer
+> The work is in progress, there are not enough unit tests to cover logic,
+> so benchmarks may change drastically
+ 
 ## Usage
 
 ### Single Request

@@ -7,17 +7,18 @@ import (
 
 var ErrUnableToFindPrice = errors.New("unable find price")
 var ErrUnableToFindPriceMoreThenOneNoDefault = errors.New("unable find price, no default and >1 found")
-var ErrUnableToFindPriceDefaults = errors.New("unable find price, >1 default prices")
 
+// FindPriceBy search price based on criterias.
+// In case if there are >1 prices found - return first default price
+// If price is not found or there are >1 price and no default - return error
 func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 	charValues []model.CharValue) (*model.PriceCondition, error, int) {
 	var pc *model.PriceCondition
-	defaultPriceFound := false
 	count := 0
 	// this is just for benchmarking purposes to understand where price is
-	firstValueIndex := 0
+	valueIndex := 0
 	moreThen1PriceFound := false
-	for _, v := range ind.Ind[offeringId] {
+	for _, v := range ind.Index[offeringId] {
 		count++
 		if v.OfferingID == offeringId && v.Spec == specId && v.GroupId == groupId {
 			foundByChars := false
@@ -43,22 +44,14 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 				}
 			}
 			if foundByChars == true {
-				firstValueIndex = count
+				valueIndex = count
 				if pc == nil {
 					pc = v
-					if v.IsDefault {
-						defaultPriceFound = true
-					}
 				} else {
 					moreThen1PriceFound = true
-					if v.IsDefault {
-						if defaultPriceFound {
-							return nil, ErrUnableToFindPriceDefaults, -1
-						} else {
-							defaultPriceFound = true
-							pc = v
-						}
-					}
+				}
+				if v.IsDefault {
+					return v, nil, valueIndex
 				}
 			}
 		}
@@ -66,8 +59,8 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 	if pc == nil {
 		return nil, ErrUnableToFindPrice, -1
 	}
-	if moreThen1PriceFound && !defaultPriceFound {
+	if moreThen1PriceFound {
 		return nil, ErrUnableToFindPriceMoreThenOneNoDefault, -1
 	}
-	return pc, nil, firstValueIndex
+	return pc, nil, valueIndex
 }

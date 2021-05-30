@@ -9,6 +9,7 @@ require (
 	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/gorilla/mux v1.8.0
+	github.com/jinzhu/copier v0.3.0 // indirect
 	github.com/pilosa/go-pilosa v1.3.0
 	github.com/rs/zerolog v1.21.0
 	github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4 // indirect

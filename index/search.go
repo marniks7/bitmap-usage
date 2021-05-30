@@ -12,7 +12,6 @@ var ErrUnableToFindOfferingId = errors.New("unable find offeringId in index")
 var ErrUnableToFindGroupId = errors.New("unable find groupId in index")
 var ErrUnableToFindSpecId = errors.New("unable find specId in index")
 var ErrUnableToFindPrice = errors.New("unable find price")
-var ErrUnableToFindPriceDefaults = errors.New("unable find price, >1 default prices")
 
 // FindPriceIndexBy search for price based on parameters and return index
 func (s *BitMapIndexService) FindPriceIndexBy(offeringId, groupId, specId string,
@@ -107,14 +106,14 @@ func (s *BitMapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 		return 0, ErrUnableToFindPrice
 	}
 	cardinality = result.GetCardinality()
-	if cardinality == 1 {
+	if cardinality >= 1 {
+		//return any default price (iterator provides sorted data, so retries will be idempotent)
+		//however this can fail in case of rebuild entire cache with different indexes
 		iterator := result.Iterator()
 		if iterator.HasNext() {
 			candidate := iterator.Next()
 			return candidate, nil
 		}
-	} else if cardinality > 1 {
-		return 0, ErrUnableToFindPriceDefaults
 	} else {
 		return 0, ErrUnableToFindPrice
 	}
