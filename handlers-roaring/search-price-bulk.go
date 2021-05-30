@@ -1,4 +1,4 @@
-package handlers
+package handlers_roaring
 
 import (
 	"bitmap-usage/index-roaring"

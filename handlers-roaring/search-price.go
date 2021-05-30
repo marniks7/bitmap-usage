@@ -1,40 +1,21 @@
-package handlers
+package handlers_roaring
 
 import (
 	"bitmap-usage/model"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/francoispqt/gojay"
-	"golang.org/x/sync/errgroup"
 	"io"
 	"log"
 	"net/http"
 	"strings"
 )
 
-type EncodeError struct {
-	Err error
-}
-
-func (e *EncodeError) Error() string { return e.Err.Error() }
-
-type StreamChan chan *model.FindPriceResponseBulk
-
-func (s StreamChan) MarshalStream(enc *gojay.StreamEncoder) {
-	select {
-	case <-enc.Done():
-		return
-	case o := <-s:
-		enc.Object(o)
-	}
-}
-
-func (as *AggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *http.Request) {
+func (as *AggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 
-	var findPriceRequests []model.FindPriceRequestBulk
-	err := dec.Decode(&findPriceRequests)
+	var findPriceRequest model.FindPriceRequest
+	err := dec.Decode(&findPriceRequest)
 
 	if err != nil {
 		var syntaxError *json.SyntaxError
@@ -95,45 +76,30 @@ func (as *AggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *http.R
 		}
 		return
 	}
-	g, _ := errgroup.WithContext(r.Context())
 
-	enc := gojay.Stream.BorrowEncoder(rw).NConsumer(10).LineDelimited()
-	defer enc.Release()
-	s := StreamChan(make(chan *model.FindPriceResponseBulk))
-	go enc.EncodeStream(s)
-
-	for _, fpreq := range findPriceRequests {
-		findPriceRequest := fpreq
-		g.Go(func() error {
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
-				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
-			if err != nil {
-				return err
-			} else {
-				priceId, err := as.Index.FindPriceIdByIndex(ind)
-				if err != nil {
-					return err
-				} else {
-					price := as.CS.Catalog.Prices[priceId]
-					if price != nil {
-						s <- &model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-					} else {
-						return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
-					}
-				}
-			}
-			return nil
-		})
-	}
-	if err := g.Wait(); err != nil {
-		if _, ok := err.(*EncodeError); ok {
-			as.L.Err(err).Msg("Unable to encode")
-			http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
-		} else {
-			http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
-		}
-
+	index, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+		findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
+	if err != nil {
+		http.Error(rw, err.Error(), http.StatusBadRequest)
 		return
 	}
-	<-enc.Done()
+	priceId, err := as.Index.FindPriceIdByIndex(index)
+	if err != nil {
+		as.L.Err(err).Msg("Unable to find price id by index")
+		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	price := as.CS.Catalog.Prices[priceId]
+	if price == nil {
+		as.L.Error().Uint32("index", index).Msg("Unable to find price by index")
+		http.Error(rw, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+	encoder := json.NewEncoder(rw)
+	err = encoder.Encode(price)
+	if err != nil {
+		as.L.Err(err).Msg("Unable to encode object")
+		http.Error(rw, "Internal server error", http.StatusInternalServerError)
+		return
+	}
 }

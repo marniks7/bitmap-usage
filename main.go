@@ -2,7 +2,7 @@ package main
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/handlers"
+	"bitmap-usage/handlers-roaring"
 	"bitmap-usage/index-roaring"
 	"bitmap-usage/sample"
 	"context"
@@ -50,7 +50,7 @@ func Setup() {
 	ind := index_roaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
-	as := handlers.NewAggregateService(log.Logger, cs, ind)
+	as := handlers_roaring.NewAggregateService(log.Logger, cs, ind)
 	cs.GeneratePricesByConditionsAndClear()
 	runtime.GC()
 
