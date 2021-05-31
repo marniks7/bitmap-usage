@@ -2,202 +2,295 @@ package indexMap
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/index-roaring"
 	"bitmap-usage/model"
-	"bitmap-usage/sample"
-	"bitmap-usage/validator"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
+	"os"
+	"strconv"
 	"testing"
 )
 
-func TestFindPrice(t *testing.T) {
-	//given
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(t, err)
-
-	ind := NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-
-	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	//then
-	log.Info().Int("position", position).Msg("Found price on")
-	assert.NoError(t, err)
-	assert.NotNil(t, price)
+func TestMapIndexService_Optimized_FindPriceBy(t *testing.T) {
+	os.Setenv("TEST_OPTIMIZED", "true")
+	defer os.Unsetenv("TEST_OPTIMIZED")
+	TestMapIndexService_FindPriceBy(t)
 }
 
-func TestFindPrice_MultipleFound(t *testing.T) {
-	//given
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(t, err)
+func TestMapIndexService_FindPriceBy(t *testing.T) {
+	optimized := false
+	optimizedEnv := os.Getenv("TEST_OPTIMIZED")
+	if optimizedEnv != "" {
+		r, err := strconv.ParseBool(optimizedEnv)
+		optimized = r
+		assert.NoError(t, err)
+	}
+	type fields struct {
+		priceConditions []*model.PriceCondition
+		optimized       bool
+	}
+	type args struct {
+		offeringId string
+		groupId    string
+		specId     string
+		charValues []model.CharValue
+	}
 
-	ind := NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
+	type test struct {
+		name   string
+		fields fields
+		args   args
+		want   *model.Price
+		want1  error
+		want2  int
+	}
+	tests := []test{
+		{
+			name: "Find Price",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  &model.Price{Id: "id1", Spec: "spec1", Value: 100.00, Currency: "USD"},
+			want1: nil,
+			want2: 1,
+		},
+		{
+			name: "Find Price. Not found. Char",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char2", "value1"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Not found. Value",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value2"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Not found. Group",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group2",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Not found. Spec",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec2", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Not found. Offering",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering2", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Two chars",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value2"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}, {"char2", "value2"}}},
+			want:  &model.Price{Id: "id1", Spec: "spec1", Value: 100.00, Currency: "USD"},
+			want1: nil,
+			want2: 1,
+		},
+		{
+			name: "Find Price. Two chars. Not Found Second Char Key",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value2"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}, {"char3", "value2"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Two chars. Not Found Second Value Key",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value2"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}, {"char2", "value3"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Single price found amount two",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group2",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  &model.Price{Id: "id2", Spec: "spec1", Value: 120.00, Currency: "USD"},
+			want1: nil,
+			want2: 2,
+		},
+		{
+			name: "Find Price. Test position",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id3", OfferingID: "offering1", GroupId: "group3", Spec: "spec1",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group2",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  &model.Price{Id: "id2", Spec: "spec1", Value: 120.00, Currency: "USD"},
+			want1: nil,
+			want2: 2,
+		},
+		{
+			name: "Find Price. Multiple Prices found. Search without chars",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id3", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1"}, Values: []string{"value2"}},
+			}, optimized: optimized},
+			args:  args{offeringId: "offering1", groupId: "group2", specId: "spec1"},
+			want:  nil,
+			want1: ErrUnableToFindPriceMoreThenOneNoDefault,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Multiple Prices found. Search with chars",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value2"}},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value2"}},
+				{ID: "id3", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value4"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group2",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  nil,
+			want1: ErrUnableToFindPriceMoreThenOneNoDefault,
+			want2: -1,
+		},
+		{
+			name: "Find Price. Default found amount multiple prices",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"}, IsDefault: true},
+				{ID: "id3", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1"}, Values: []string{"value2"}},
+			}, optimized: optimized},
+			args:  args{offeringId: "offering1", groupId: "group2", specId: "spec1"},
+			want:  &model.Price{Id: "id2", Spec: "spec1", Value: 120, Currency: "USD"},
+			want1: nil,
+			want2: 2,
+		},
+		{
+			name: "Find Price. First default found amount multiple default prices",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"}, IsDefault: true},
+				{ID: "id3", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1"}, Values: []string{"value2"}, IsDefault: true},
+			}, optimized: optimized},
+			args:  args{offeringId: "offering1", groupId: "group2", specId: "spec1"},
+			want:  &model.Price{Id: "id2", Spec: "spec1", Value: 120, Currency: "USD"},
+			want1: nil,
+			want2: 2,
+		},
+		{
+			name: "Find Price. Non applicable default is skipped",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}, IsDefault: true},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group2", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"}, IsDefault: true},
+			}, optimized: optimized},
+			args:  args{offeringId: "offering1", groupId: "group2", specId: "spec1"},
+			want:  &model.Price{Id: "id2", Spec: "spec1", Value: 120, Currency: "USD"},
+			want1: nil,
+			want2: 2,
+		},
+	}
+	//length := len(tests)
+	//for i := 0; i < length; i++ {
+	//	//var optimizedTest test
+	//	//err := copier.CopyWithOption(optimizedTest, tests[i], copier.Option{DeepCopy: true})
+	//	//assert.NoError(t, err)
+	//	tests[i].fields.optimized = true
+	//	//optimizedTest.name += "Optimized"
+	//	//tests = append(tests, optimizedTest)
+	//}
 
-	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
+	isAtLeastOneOptimized := false
+	isAtLeastOneNonOptimized := false
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+			cs.Catalog = cache.NewCatalog(log.Logger)
+			cs.Catalog.PriceConditions = tt.fields.priceConditions
+			ind := NewService(log.Logger)
+			ind.IndexPrices(cs.Catalog)
+			if tt.fields.optimized {
+				isAtLeastOneOptimized = true
+				_, err := ind.Optimize(cs.Catalog)
+				assert.NoError(t, err)
+			} else {
+				isAtLeastOneNonOptimized = true
+			}
+			if isAtLeastOneOptimized && isAtLeastOneNonOptimized {
+				assert.FailNow(t, "Found non-optimized and optimized tests at the same run. Forgot to add 'optimized' field to test?")
+			}
 
-	//then
-	assert.Error(t, err)
-	assert.ErrorIs(t, err, ErrUnableToFindPriceMoreThenOneNoDefault)
-	assert.Nil(t, price)
-	assert.Equal(t, -1, position)
+			got, got1, got2 := ind.FindPriceBy(tt.args.offeringId, tt.args.groupId, tt.args.specId, tt.args.charValues)
+			assert.Equal(t, tt.want, got)
+			assert.Equal(t, tt.want1, got1)
+			assert.Equal(t, tt.want2, got2)
+		})
+	}
 }
-func TestFindPrice_NotFoundChar(t *testing.T) {
-	//given
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(t, err)
-
-	ind := NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-
-	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN2", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	//then
-	assert.Error(t, err)
-	assert.ErrorIs(t, err, ErrUnableToFindPrice)
-	assert.Nil(t, price)
-	assert.Equal(t, -1, position)
-}
-
-func TestFindPriceWhenOptimized(t *testing.T) {
-	//given
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(t, err)
-
-	ind := NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-	err = validator.Validate(cs.Catalog)
-	assert.NoError(t, err)
-	quality, err := ind.Optimize(cs.Catalog)
-	assert.NoError(t, err)
-	assert.Equal(t, 100.00, quality)
-
-	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	//then
-	log.Info().Int("position", position).Msg("Found price on")
-	assert.NoError(t, err)
-	assert.NotNil(t, price)
-}
-
-func TestFindPriceCompareSearches(t *testing.T) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(t, err)
-
-	ind := NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-
-	price, err, _ := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	assert.NoError(t, err)
-	assert.NotNil(t, price)
-
-	priceMapIndex := cs.Catalog.Prices[price.ID]
-
-	indBitmap := index_roaring.NewService(log.Logger)
-	indBitmap.IndexPrices(cs.Catalog)
-
-	priceBitmapIndex, err := indBitmap.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	assert.NoError(t, err)
-	assert.NotZero(t, priceBitmapIndex)
-
-	priceId, err := indBitmap.FindPriceIdByIndex(priceBitmapIndex)
-	priceBitmap := cs.Catalog.Prices[priceId]
-
-	assert.Equal(t, priceBitmap, priceMapIndex)
-}
-
-//func TestMapIndexService_FindPriceBy(t *testing.T) {
-//	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-//	err := sample.GenerateTestData5Chars5Offerings(cs)
-//	assert.NoError(t, err)
-//
-//	ind := NewService(log.Logger)
-//	ind.IndexPrices(cs.Catalog)
-//
-//	type args struct {
-//		offeringId string
-//		groupId    string
-//		specId     string
-//		charValues []model.CharValue
-//	}
-//	tests := []struct {
-//		name   string
-//		fields *MapIndexService
-//		args   args
-//		want   *model.PriceCondition
-//		want1  error
-//		want2  int
-//	}{
-//		{
-//			name:   "Find Price. Single price found",
-//			fields: ind,
-//			args: args{offeringId: "00d3a020-08c4-4c94-be0a-e29794756f9e", groupId: "Default",
-//				specId: "MRC", charValues: []model.CharValue{{"Term", "24"},
-//					{"B2B Traffic", "5GB"},
-//					{"B2B Bandwidth", "900Mbps"},
-//					{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-//					{"Router", "Not Included"}}},
-//			want: &model.PriceCondition{OfferingID: "00d3a020-08c4-4c94-be0a-e29794756f9e",
-//				GroupId: "Default", Spec: "MRC", Chars: []string{"Term",
-//					"B2B Traffic", "VPN", "B2B Bandwidth", "Router"},
-//				Values: []string{"24", "5GB", "900Mbps", "5739614e-6c52-402c-ba3a-534c51b3201a",
-//					"Not Included"}},
-//			want1: nil,
-//			want2: 3824,
-//		},
-//	}
-//	for _, tt := range tests {
-//		t.Run(tt.name, func(t *testing.T) {
-//			ind := &MapIndexService{
-//				L:                   tt.fields.L,
-//				Index:               tt.fields.Index,
-//				OfferingToCharIndex: tt.fields.OfferingToCharIndex,
-//			}
-//			got, got1, got2 := ind.FindPriceBy(tt.args.offeringId, tt.args.groupId, tt.args.specId, tt.args.charValues)
-//			assert.Equal(t, tt.want, got)
-//			assert.Equal(t, tt.want1, got1)
-//			assert.Equal(t, tt.want2, got2)
-//		})
-//	}
-//}

@@ -2,6 +2,7 @@ package model
 
 import "time"
 
+// PriceCondition contains information about conditions and price
 type PriceCondition struct {
 	ID                 string
 	OfferingID         string

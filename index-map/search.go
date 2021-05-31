@@ -12,24 +12,26 @@ var ErrUnableToFindPriceMoreThenOneNoDefault = errors.New("unable find price, no
 // FindPriceBy search price based on criterias.
 // In case if there are >1 prices found - return first default price
 // If price is not found or there are >1 price and no default - return error
-//
-// Note: This find price returns model.PriceCondition instead model.Price.
-// This can be changed in future
 func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
-	charValues []model.CharValue) (*model.PriceCondition, error, int) {
+	charValues []model.CharValue) (*model.Price, error, int) {
 	var pc *model.PriceCondition
 	count := 0
 	// this is just for benchmarking purposes to understand where price is
 	valueIndex := 0
-	moreThen1PriceFound := false
-	isOptimizationTurnedOn := false
-	if ind.OfferingToCharIndex != nil {
+	moreThen1PriceFoundNoDefaultYet := false
+	isOptimizationApplied := false
+	if ind.OfferingToCharIndex != nil && len(ind.OfferingToCharIndex) != 0 {
 		m := ind.OfferingToCharIndex[offeringId]
 		if m != nil {
-			isOptimizationTurnedOn = true
-			sort.Slice(charValues, func(i, j int) bool {
-				return m[charValues[i].Char] < m[charValues[j].Char]
-			})
+			if len(m) != len(charValues) {
+				//optimization is not applicable
+			} else {
+				isOptimizationApplied = true
+				sort.Slice(charValues, func(i, j int) bool {
+					return m[charValues[i].Char] < m[charValues[j].Char]
+				})
+			}
+
 		}
 	}
 	for _, v := range ind.Index[offeringId] {
@@ -41,7 +43,7 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 			} else {
 				for i, inpt := range charValues {
 					found := false
-					if isOptimizationTurnedOn {
+					if isOptimizationApplied {
 						found = v.Chars[i] == inpt.Char && v.Values[i] == inpt.Value
 					} else {
 						for i, ch := range v.Chars {
@@ -63,16 +65,16 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 			}
 			if foundByChars == true {
 				valueIndex = count
-				if isOptimizationTurnedOn {
-					return v, nil, valueIndex
+				if isOptimizationApplied {
+					return &model.Price{Id: v.ID, Spec: v.Spec, Value: v.Value, Currency: v.Currency}, nil, valueIndex
 				}
 				if pc == nil {
 					pc = v
 				} else {
-					moreThen1PriceFound = true
+					moreThen1PriceFoundNoDefaultYet = true
 				}
 				if v.IsDefault {
-					return v, nil, valueIndex
+					return &model.Price{Id: v.ID, Spec: v.Spec, Value: v.Value, Currency: v.Currency}, nil, valueIndex
 				}
 			}
 		}
@@ -80,8 +82,8 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 	if pc == nil {
 		return nil, ErrUnableToFindPrice, -1
 	}
-	if moreThen1PriceFound {
+	if moreThen1PriceFoundNoDefaultYet {
 		return nil, ErrUnableToFindPriceMoreThenOneNoDefault, -1
 	}
-	return pc, nil, valueIndex
+	return &model.Price{Id: pc.ID, Spec: pc.Spec, Value: pc.Value, Currency: pc.Currency}, nil, valueIndex
 }

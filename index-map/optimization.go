@@ -9,6 +9,7 @@ import (
 // Optimize - the primary idea of that optimization is data.
 // It is assumed that prices are configured based on Templates:
 // All (or almost all) prices for one offering depends on the same list of characteristics.
+// And if the whole list is passed from client - the only one price exists
 //
 // Example when this optimization is useful:
 // char1 value1 - 20 (Default)
@@ -105,5 +106,9 @@ func (s *MapIndexService) Optimize(catalog *cache.Catalog) (float64, error) {
 	}
 	s.OfferingToCharIndex = mk
 
-	return math.Round(float64(100 * totalQuality / total)), nil
+	if total != 0 {
+		return math.Round(float64(100 * totalQuality / total)), nil
+	}
+
+	return 0, nil
 }

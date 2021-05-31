@@ -11,27 +11,11 @@ import (
 	"testing"
 )
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8(b *testing.B) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(b, err)
-
-	ind := indexMap.NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-	cs.GeneratePricesByConditions()
-
-	_, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	assert.NoError(b, err)
-	assert.Equal(b, 3824, position)
+func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position(b *testing.B) {
+	ind := prepareData(b)
 
 	b.ResetTimer()
-	var price *model.PriceCondition
+	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
 			[]model.CharValue{{"Term", "24"},
@@ -45,7 +29,69 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8(b *testing.B) {
 	}
 }
 
-func BenchmarkMapOfferingIndex_Optimized_FindPrice_Conditions8_3824position(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
+	ind := prepareData(b)
+
+	b.ResetTimer()
+	var errFindPrice error
+	for i := 0; i < b.N; i++ {
+		_, errFindPrice, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
+	}
+	if errFindPrice == nil {
+		b.Fail()
+	}
+}
+
+func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized(b *testing.B) {
+	ind := prepareDataOptimized(b)
+
+	b.ResetTimer()
+	var price *model.Price
+	for i := 0; i < b.N; i++ {
+		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+				{"Router", "Not Included"}})
+	}
+	if price == nil {
+		b.Fail()
+	}
+}
+
+func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized(b *testing.B) {
+	ind := prepareDataOptimized(b)
+
+	b.ResetTimer()
+	var errFindPrice error
+	for i := 0; i < b.N; i++ {
+		_, errFindPrice, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
+	}
+	if errFindPrice == nil {
+		b.Fail()
+	}
+}
+
+func prepareData(b *testing.B) *indexMap.MapIndexService {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(b, err)
+
+	ind := indexMap.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+	return ind
+}
+
+func prepareDataOptimized(b *testing.B) *indexMap.MapIndexService {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
@@ -57,69 +103,5 @@ func BenchmarkMapOfferingIndex_Optimized_FindPrice_Conditions8_3824position(b *t
 	quality, err := ind.Optimize(cs.Catalog)
 	assert.NoError(b, err)
 	assert.Equal(b, 100.00, quality)
-
-	cs.GeneratePricesByConditions()
-
-	_, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	assert.NoError(b, err)
-	assert.Equal(b, 3824, position)
-
-	b.ResetTimer()
-	var price *model.PriceCondition
-	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-			[]model.CharValue{{"Term", "24"},
-				{"B2B Traffic", "5GB"},
-				{"B2B Bandwidth", "900Mbps"},
-				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-				{"Router", "Not Included"}})
-	}
-	if price == nil {
-		b.Fail()
-	}
+	return ind
 }
-
-//func BenchmarkMapOfferingIndex_Optimized_FindPrice_Conditions8_WorstCase(b *testing.B) {
-//	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-//	err := sample.GenerateTestData5Chars5Offerings(cs)
-//	assert.NoError(b, err)
-//
-//	ind := indexMap.NewService(log.Logger)
-//	ind.IndexPrices(cs.Catalog)
-//	err = validator.Validate(cs.Catalog)
-//	assert.NoError(b, err)
-//	quality, err := ind.Optimize(cs.Catalog)
-//	assert.NoError(b, err)
-//	assert.Equal(b, 100.00, quality)
-//
-//	cs.GeneratePricesByConditions()
-//
-//	_, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-//		[]model.CharValue{{"Term", "24"},
-//			{"B2B Traffic", "5GB"},
-//			{"B2B Bandwidth", "900Mbps"},
-//			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-//			{"Router", "Not Included"}})
-//
-//	assert.NoError(b, err)
-//	assert.Equal(b, 3824, position)
-//
-//	b.ResetTimer()
-//	var price *model.PriceCondition
-//	for i := 0; i < b.N; i++ {
-//		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-//			[]model.CharValue{{"Term", "24"},
-//				{"B2B Traffic", "5GB"},
-//				{"B2B Bandwidth", "900Mbps"},
-//				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
-//	}
-//	if price == nil {
-//		b.Fail()
-//	}
-//}
