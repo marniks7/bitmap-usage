@@ -117,7 +117,7 @@ func (as *AggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *http.Req
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			var price *model.Price
 			if err != nil {
-				if err == index_roaring.ErrUnableToFindPrice {
+				if err == indexRoaring.ErrUnableToFindPrice {
 					price = nil
 				} else {
 					http.Error(rw, err.Error(), http.StatusBadRequest)

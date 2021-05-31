@@ -1,4 +1,4 @@
-package index_roaring
+package indexRoaring
 
 import (
 	"bitmap-usage/model"
@@ -12,9 +12,10 @@ var ErrUnableToFindOfferingId = errors.New("unable find offeringId in index")
 var ErrUnableToFindGroupId = errors.New("unable find groupId in index")
 var ErrUnableToFindSpecId = errors.New("unable find specId in index")
 var ErrUnableToFindPrice = errors.New("unable find price")
+var ErrUnableToFindPriceMoreThenOneNoDefault = errors.New("unable find price, no default and >1 found")
 
 // FindPriceIndexBy search for price based on parameters and return index
-func (s *BitMapIndexService) FindPriceIndexBy(offeringId, groupId, specId string,
+func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string,
 	charValues []model.CharValue) (uint32, error) {
 
 	var ob *roaring.Bitmap
@@ -92,19 +93,20 @@ func (s *BitMapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 		return 0, nil
 	}
 	cardinality := result.GetCardinality()
+	moreThenOnePriceFound := false
 	if cardinality == 1 {
 		iterator := result.Iterator()
 		if iterator.HasNext() {
 			candidate := iterator.Next()
 			return candidate, nil
 		}
+	} else if cardinality > 1 {
+		moreThenOnePriceFound = true
 	} else {
-		result.And(bmi.defaultBitmaps)
-	}
-
-	if result.IsEmpty() {
 		return 0, ErrUnableToFindPrice
 	}
+	result.And(bmi.defaultBitmaps)
+
 	cardinality = result.GetCardinality()
 	if cardinality >= 1 {
 		//return any default price (iterator provides sorted data, so retries will be idempotent)
@@ -114,12 +116,15 @@ func (s *BitMapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 			candidate := iterator.Next()
 			return candidate, nil
 		}
-	} else {
+	} else if cardinality == 0 {
+		if moreThenOnePriceFound {
+			return 0, ErrUnableToFindPriceMoreThenOneNoDefault
+		}
 		return 0, ErrUnableToFindPrice
 	}
 	return 0, ErrUnableToFindPrice
 }
 
-func (s *BitMapIndexService) FindPriceIdByIndex(ind uint32) (string, error) {
+func (s *BitmapIndexService) FindPriceIdByIndex(ind uint32) (string, error) {
 	return s.Index.indexToPriceId[ind], nil
 }

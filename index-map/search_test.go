@@ -11,8 +11,12 @@ import (
 )
 
 func TestMapIndexService_Optimized_FindPriceBy(t *testing.T) {
-	os.Setenv("TEST_OPTIMIZED", "true")
-	defer os.Unsetenv("TEST_OPTIMIZED")
+	err := os.Setenv("TEST_OPTIMIZED", "true")
+	assert.Error(t, err)
+	defer func() {
+		err := os.Unsetenv("TEST_OPTIMIZED")
+		assert.Error(t, err)
+	}()
 	TestMapIndexService_FindPriceBy(t)
 }
 
@@ -257,15 +261,6 @@ func TestMapIndexService_FindPriceBy(t *testing.T) {
 			want2: 2,
 		},
 	}
-	//length := len(tests)
-	//for i := 0; i < length; i++ {
-	//	//var optimizedTest test
-	//	//err := copier.CopyWithOption(optimizedTest, tests[i], copier.Option{DeepCopy: true})
-	//	//assert.NoError(t, err)
-	//	tests[i].fields.optimized = true
-	//	//optimizedTest.name += "Optimized"
-	//	//tests = append(tests, optimizedTest)
-	//}
 
 	isAtLeastOneOptimized := false
 	isAtLeastOneNonOptimized := false

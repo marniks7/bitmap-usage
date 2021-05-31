@@ -1,4 +1,4 @@
-package index_roaring
+package indexRoaring
 
 import (
 	"bitmap-usage/cache"
@@ -6,7 +6,11 @@ import (
 	"github.com/RoaringBitmap/roaring"
 )
 
-func (s *BitMapIndexService) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
+func (s *BitmapIndexService) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
+	for key, v := range catalog.PriceConditions {
+		v.IndexId = uint32(key)
+	}
+
 	groupBitmaps, groupIndex := mapGroupBitmaps(catalog.PriceConditions)
 	specBitmaps, specIdToIndex := mapSpecBitmaps(catalog.PriceConditions)
 	offeringBitmaps, offeringIdToIndex := offeringBitmaps(catalog.PriceConditions)

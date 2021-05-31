@@ -1,17 +1,17 @@
-package index_roaring
+package indexRoaring
 
 import (
 	"github.com/RoaringBitmap/roaring"
 	"github.com/rs/zerolog"
 )
 
-type BitMapIndexService struct {
+type BitmapIndexService struct {
 	L     zerolog.Logger
 	Index *PriceBitmaps
 }
 
-func NewService(l zerolog.Logger) *BitMapIndexService {
-	return &BitMapIndexService{L: l}
+func NewService(l zerolog.Logger) *BitmapIndexService {
+	return &BitmapIndexService{L: l}
 }
 
 type PriceBitmaps struct {

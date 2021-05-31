@@ -20,7 +20,7 @@ func TestFindPriceBy(t *testing.T) {
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(t, err)
 
-	indexer := index_roaring.NewService(log.Logger)
+	indexer := indexRoaring.NewService(log.Logger)
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewAggregateService(log.Logger, cs, indexer)

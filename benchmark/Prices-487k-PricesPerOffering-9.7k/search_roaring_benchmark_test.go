@@ -18,7 +18,7 @@ func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
 		b.Fail()
 		return
 	}
-	ind := index_roaring.NewService(log.Logger)
+	ind := indexRoaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
 	_, err = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
@@ -48,7 +48,7 @@ func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := index_roaring.NewService(log.Logger)
+	ind := indexRoaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 

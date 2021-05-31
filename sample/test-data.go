@@ -148,9 +148,6 @@ func GenerateTestData5Chars5Offerings(cs *cache.CatalogService) error {
 		h.generatePrice(chars, charCache, 0, offeringId)
 	}
 
-	for key, v := range h.prices {
-		v.IndexId = uint32(key)
-	}
 	cs.Catalog.PriceConditions = h.prices
 
 	return nil

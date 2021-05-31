@@ -10,12 +10,12 @@ import (
 type AggregateService struct {
 	L           zerolog.Logger
 	CS          *cache.CatalogService
-	Index       *index_roaring.BitMapIndexService
+	Index       *indexRoaring.BitmapIndexService
 	RequestChan chan model.ChanFindPriceRequestBulk
 }
 
 func NewAggregateService(l zerolog.Logger, cs *cache.CatalogService,
-	ind *index_roaring.BitMapIndexService) *AggregateService {
+	ind *indexRoaring.BitmapIndexService) *AggregateService {
 	ch := make(chan model.ChanFindPriceRequestBulk, 50)
 	return &AggregateService{L: l, CS: cs, Index: ind, RequestChan: ch}
 }

@@ -47,7 +47,7 @@ func Setup() {
 		return
 	}
 
-	ind := index_roaring.NewService(log.Logger)
+	ind := indexRoaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
 	as := handlers_roaring.NewAggregateService(log.Logger, cs, ind)
@@ -125,6 +125,7 @@ func Setup() {
 
 	log.Info().Interface("sig", sig).Msg("Received terminate, graceful shutdown")
 	// graceful shutdown timeout for transaction\calls finish (if any)
+	//goland:noinspection GoVetLostCancel
 	timeout, _ := context.WithTimeout(context.Background(), 10*time.Second)
 
 	err = server.Shutdown(timeout)
