@@ -38,19 +38,22 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 ```
 
 ## Benchmarks (low level)
+* 2021/05/30
 ```
 goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-BenchmarkBitmapFindPriceIndexId_Conditions8
-BenchmarkBitmapFindPriceIndexId_Conditions8-12    	   94910	     11513 ns/op
-BenchmarkBitmapFindPrice_Conditions8
-BenchmarkBitmapFindPrice_Conditions8-12           	   99379	     11680 ns/op
-BenchmarkOfferingIndexFindPrice_Conditions8
-BenchmarkOfferingIndexFindPrice_Conditions8-12    	    6036	    199207 ns/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8
+BenchmarkMapOfferingIndex_FindPrice_Conditions8-12              	    4920	    207133 ns/op
+BenchmarkMapOfferingIndex_Optimized_FindPrice_Conditions8
+BenchmarkMapOfferingIndex_Optimized_FindPrice_Conditions8-12    	   15822	     77085 ns/op
+BenchmarkBitmap_FindPriceIndexId_Conditions8
+BenchmarkBitmap_FindPriceIndexId_Conditions8-12                 	   99075	     11059 ns/op
+BenchmarkBitmap_FindPrice_Conditions8
+BenchmarkBitmap_FindPrice_Conditions8-12                        	   84208	     12368 ns/op
 PASS
-ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	22.210s
+ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	29.292s
 ```
 
 ## Performance Testing

@@ -3,7 +3,6 @@ package indexMap
 import (
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
-	"github.com/rs/zerolog/log"
 	"math"
 )
 
@@ -45,7 +44,10 @@ import (
 // At the same time to ensure that all prices are unique could be used validator.Validate
 //
 // To ensure quality of the optimization it prints the results in percentage. Closer to 100% - the better.
-func (s *MapIndexService) Optimize(catalog *cache.Catalog) error {
+//
+// Works for 'Equals' and could be adopted for 'In'. In case if there are prices with `Not Equals` or `Not in` -
+// should be carefully analyzed.
+func (s *MapIndexService) Optimize(catalog *cache.Catalog) (float64, error) {
 	//group by offering
 	offeringToConditions := make(map[string][]*model.PriceCondition)
 	for _, v := range catalog.PriceConditions {
@@ -61,7 +63,7 @@ func (s *MapIndexService) Optimize(catalog *cache.Catalog) error {
 	for offering, v := range offeringToConditions {
 		//find all price impacting chars
 		count := 0
-		//todo make deduplication for this mp
+		//todo make deduplication of this map (reuse it)
 		mp := make(map[string]uint16)
 		for _, cond := range v {
 			for _, ch := range cond.Chars {
@@ -85,7 +87,7 @@ func (s *MapIndexService) Optimize(catalog *cache.Catalog) error {
 				}
 			} else {
 				qualityPerOffering--
-				//todo make deduplication for char array, reuse slices for chars
+				//todo make deduplication of this char array (reuse it)
 				newChars := make([]string, len(mp))
 				newCharValues := make([]string, len(mp))
 				for i := 0; i < len(cond.Chars); i++ {
@@ -101,8 +103,7 @@ func (s *MapIndexService) Optimize(catalog *cache.Catalog) error {
 		total += totalPerOffering
 		totalQuality += qualityPerOffering
 	}
-	log.Info().Float64("quality, %", math.Round(float64(100*totalQuality/total))).Msg("Optimization finished")
 	s.OfferingToCharIndex = mk
 
-	return nil
+	return math.Round(float64(100 * totalQuality / total)), nil
 }

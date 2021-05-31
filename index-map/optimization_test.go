@@ -78,7 +78,7 @@ func TestMapIndexService_Optimize(t *testing.T) {
 				Index:               tt.expected.Index,
 				OfferingToCharIndex: tt.expected.OfferingToCharIndex,
 			}
-			if err := s.Optimize(tt.args.catalog); (err != nil) != tt.wantErr {
+			if _, err := s.Optimize(tt.args.catalog); (err != nil) != tt.wantErr {
 				t.Errorf("Optimize() error = %v, wantErr %v", err, tt.wantErr)
 			}
 			if tt.expected.OfferingToCharIndex != nil {

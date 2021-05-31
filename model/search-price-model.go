@@ -2,6 +2,8 @@ package model
 
 import "github.com/francoispqt/gojay"
 
+// CharValue - search parameters for characteristics
+// Note: used as swallow copy
 type CharValue struct {
 	Char  string `json:"char"`
 	Value string `json:"value"`

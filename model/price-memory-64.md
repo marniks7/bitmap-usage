@@ -1,6 +1,6 @@
 # Price
 * Architecture (IntSize) -  64
-* Single Price - 56 bytes
+* Price - 56 bytes
 
 |FieldName|Size|Offset|
 ---|----|----|

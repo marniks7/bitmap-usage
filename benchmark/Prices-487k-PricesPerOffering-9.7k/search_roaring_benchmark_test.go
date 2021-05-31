@@ -2,7 +2,6 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/index-map"
 	"bitmap-usage/index-roaring"
 	"bitmap-usage/model"
 	"bitmap-usage/sample"
@@ -11,7 +10,7 @@ import (
 	"testing"
 )
 
-func BenchmarkBitmapFindPriceIndexId_Conditions8(b *testing.B) {
+func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	if err != nil {
@@ -44,7 +43,7 @@ func BenchmarkBitmapFindPriceIndexId_Conditions8(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmapFindPrice_Conditions8(b *testing.B) {
+func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
@@ -78,39 +77,5 @@ func BenchmarkBitmapFindPrice_Conditions8(b *testing.B) {
 	}
 	if price == nil {
 		b.FailNow()
-	}
-}
-
-func BenchmarkOfferingIndexFindPrice_Conditions8(b *testing.B) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(b, err)
-
-	ind := indexMap.NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-	cs.GeneratePricesByConditions()
-
-	_, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
-	assert.NoError(b, err)
-	assert.Equal(b, 3824, position)
-
-	b.ResetTimer()
-	var price *model.PriceCondition
-	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-			[]model.CharValue{{"Term", "24"},
-				{"B2B Traffic", "5GB"},
-				{"B2B Bandwidth", "900Mbps"},
-				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-				{"Router", "Not Included"}})
-	}
-	if price == nil {
-		b.Fail()
 	}
 }

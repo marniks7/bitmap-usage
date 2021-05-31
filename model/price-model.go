@@ -2,8 +2,6 @@ package model
 
 import "time"
 
-// Price contains information about prices.
-// TODO this should NOT contain information regarding the search conditions
 type PriceCondition struct {
 	ID                 string
 	OfferingID         string
@@ -13,7 +11,7 @@ type PriceCondition struct {
 	EndDate            time.Time
 	Markets            []string
 	CustomerCategories []string
-	Chars              []string //connection by index with chars
+	Chars              []string //connection by index with values
 	Values             []string //connection by index with chars
 	Value              float64
 	Currency           string
