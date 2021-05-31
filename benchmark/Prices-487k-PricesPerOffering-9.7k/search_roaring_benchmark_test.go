@@ -11,22 +11,7 @@ import (
 )
 
 func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	if err != nil {
-		log.Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
-		b.Fail()
-		return
-	}
-	ind := indexRoaring.NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-
-	_, err = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
+	_, ind := generateData(b)
 
 	b.ResetTimer()
 	var price uint32
@@ -44,20 +29,7 @@ func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
 }
 
 func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(b, err)
-
-	ind := indexRoaring.NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-	cs.GeneratePricesByConditions()
-
-	_, err = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
+	cs, ind := generateData(b)
 
 	b.ResetTimer()
 	var priceIndex uint32
@@ -78,4 +50,35 @@ func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
 	if price == nil {
 		b.FailNow()
 	}
+}
+
+func BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
+	_, ind := generateData(b)
+
+	b.ResetTimer()
+	var errFindPrice error
+	for i := 0; i < b.N; i++ {
+		_, errFindPrice = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
+		if errFindPrice == nil {
+			b.FailNow()
+		}
+	}
+	if errFindPrice == nil {
+		b.FailNow()
+	}
+}
+
+func generateData(b *testing.B) (*cache.CatalogService, *indexRoaring.BitmapIndexService) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(b, err)
+
+	ind := indexRoaring.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+	cs.GeneratePricesByConditions()
+	return cs, ind
 }
