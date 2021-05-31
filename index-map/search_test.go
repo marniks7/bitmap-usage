@@ -12,10 +12,10 @@ import (
 
 func TestMapIndexService_Optimized_FindPriceBy(t *testing.T) {
 	err := os.Setenv("TEST_OPTIMIZED", "true")
-	assert.Error(t, err)
+	assert.NoError(t, err)
 	defer func() {
 		err := os.Unsetenv("TEST_OPTIMIZED")
-		assert.Error(t, err)
+		assert.NoError(t, err)
 	}()
 	TestMapIndexService_FindPriceBy(t)
 }
