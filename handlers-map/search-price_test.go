@@ -1,8 +1,8 @@
-package handlers_roaring
+package handlers_map
 
 import (
 	"bitmap-usage/cache"
-	"bitmap-usage/index-roaring"
+	indexMap "bitmap-usage/index-map"
 	"bitmap-usage/model"
 	"bytes"
 	"encoding/json"
@@ -22,10 +22,10 @@ func TestFindPriceBy(t *testing.T) {
 	}
 
 	//index
-	indexer := indexRoaring.NewService(log.Logger)
+	indexer := indexMap.NewService(log.Logger)
 	indexer.IndexPrices(cs.Catalog)
 
-	as := NewBitmapAggregateService(log.Logger, cs, indexer)
+	as := NewMapAggregateService(log.Logger, cs, indexer)
 	cs.GeneratePricesByConditionsAndClear()
 
 	//use function
@@ -57,10 +57,10 @@ func TestFindPriceBy_NotFound(t *testing.T) {
 	}
 
 	//given index
-	indexer := indexRoaring.NewService(log.Logger)
+	indexer := indexMap.NewService(log.Logger)
 	indexer.IndexPrices(cs.Catalog)
 
-	as := NewBitmapAggregateService(log.Logger, cs, indexer)
+	as := NewMapAggregateService(log.Logger, cs, indexer)
 	cs.GeneratePricesByConditionsAndClear()
 
 	//given function

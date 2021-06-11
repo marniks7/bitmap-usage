@@ -12,7 +12,7 @@ import (
 )
 
 func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position(b *testing.B) {
-	ind := prepareData(b)
+	_, ind := prepareMapIndex(b)
 
 	b.ResetTimer()
 	var price *model.Price
@@ -30,7 +30,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position(b *testing.B) 
 }
 
 func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
-	ind := prepareData(b)
+	_, ind := prepareMapIndex(b)
 
 	b.ResetTimer()
 	var errFindPrice error
@@ -47,7 +47,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr(b *testin
 }
 
 func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized(b *testing.B) {
-	ind := prepareDataOptimized(b)
+	_, ind := prepareMapIndexOptimized(b)
 
 	b.ResetTimer()
 	var price *model.Price
@@ -65,7 +65,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized(b *t
 }
 
 func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized(b *testing.B) {
-	ind := prepareDataOptimized(b)
+	_, ind := prepareMapIndexOptimized(b)
 
 	b.ResetTimer()
 	var errFindPrice error
@@ -81,17 +81,17 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized
 	}
 }
 
-func prepareData(b *testing.B) *indexMap.MapIndexService {
+func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexMap.MapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
 	ind := indexMap.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
-	return ind
+	return cs, ind
 }
 
-func prepareDataOptimized(b *testing.B) *indexMap.MapIndexService {
+func prepareMapIndexOptimized(b *testing.B) (*cache.CatalogService, *indexMap.MapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
@@ -103,5 +103,5 @@ func prepareDataOptimized(b *testing.B) *indexMap.MapIndexService {
 	quality, err := ind.Optimize(cs.Catalog)
 	assert.NoError(b, err)
 	assert.Equal(b, 100.00, quality)
-	return ind
+	return cs, ind
 }

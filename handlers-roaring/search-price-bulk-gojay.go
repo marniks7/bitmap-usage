@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/francoispqt/gojay"
 	"golang.org/x/sync/errgroup"
 	"io"
 	"log"
@@ -12,7 +13,24 @@ import (
 	"strings"
 )
 
-func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *http.Request) {
+type EncodeError struct {
+	Err error
+}
+
+func (e *EncodeError) Error() string { return e.Err.Error() }
+
+type StreamChan chan *model.FindPriceResponseBulk
+
+func (s StreamChan) MarshalStream(enc *gojay.StreamEncoder) {
+	select {
+	case <-enc.Done():
+		return
+	case o := <-s:
+		enc.Object(o)
+	}
+}
+
+func (as *BitmapAggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 
 	var findPriceRequests []model.FindPriceRequestBulk
@@ -77,16 +95,16 @@ func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *
 		}
 		return
 	}
-	encoder := json.NewEncoder(rw)
-	encoder.SetIndent("", "")
-
 	g, _ := errgroup.WithContext(r.Context())
 
-	results := make([]model.FindPriceResponseBulk, len(findPriceRequests))
-	for i, fpreq := range findPriceRequests {
-		i, findPriceRequest := i, fpreq
-		g.Go(func() error {
+	enc := gojay.Stream.BorrowEncoder(rw).NConsumer(10).LineDelimited()
+	defer enc.Release()
+	s := StreamChan(make(chan *model.FindPriceResponseBulk))
+	go enc.EncodeStream(s)
 
+	for _, fpreq := range findPriceRequests {
+		findPriceRequest := fpreq
+		g.Go(func() error {
 			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			if err != nil {
@@ -98,7 +116,7 @@ func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *
 				} else {
 					price := as.CS.Catalog.Prices[priceId]
 					if price != nil {
-						results[i] = model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
+						s <- &model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 					} else {
 						return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
 					}
@@ -106,17 +124,16 @@ func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *
 			}
 			return nil
 		})
-
 	}
 	if err := g.Wait(); err != nil {
-		http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
-		return
-	}
-	err = encoder.Encode(results)
-	if err != nil {
-		as.L.Err(err).Msg("Unable to encode")
-		http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
+		if _, ok := err.(*EncodeError); ok {
+			as.L.Err(err).Msg("Unable to encode")
+			http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
+		} else {
+			http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
+		}
 
+		return
+	}
+	<-enc.Done()
 }

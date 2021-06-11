@@ -11,7 +11,7 @@ import (
 )
 
 func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
-	_, ind := generateData(b)
+	_, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
 	var price uint32
@@ -29,7 +29,7 @@ func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
 }
 
 func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
-	cs, ind := generateData(b)
+	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
 	var priceIndex uint32
@@ -53,7 +53,7 @@ func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
 }
 
 func BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
-	_, ind := generateData(b)
+	_, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
 	var errFindPrice error
@@ -72,7 +72,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
 	}
 }
 
-func generateData(b *testing.B) (*cache.CatalogService, *indexRoaring.BitmapIndexService) {
+func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexRoaring.BitmapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)

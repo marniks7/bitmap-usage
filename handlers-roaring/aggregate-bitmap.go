@@ -7,15 +7,15 @@ import (
 	"github.com/rs/zerolog"
 )
 
-type AggregateService struct {
+type BitmapAggregateService struct {
 	L           zerolog.Logger
 	CS          *cache.CatalogService
 	Index       *indexRoaring.BitmapIndexService
 	RequestChan chan model.ChanFindPriceRequestBulk
 }
 
-func NewAggregateService(l zerolog.Logger, cs *cache.CatalogService,
-	ind *indexRoaring.BitmapIndexService) *AggregateService {
+func NewBitmapAggregateService(l zerolog.Logger, cs *cache.CatalogService,
+	ind *indexRoaring.BitmapIndexService) *BitmapAggregateService {
 	ch := make(chan model.ChanFindPriceRequestBulk, 50)
-	return &AggregateService{L: l, CS: cs, Index: ind, RequestChan: ch}
+	return &BitmapAggregateService{L: l, CS: cs, Index: ind, RequestChan: ch}
 }

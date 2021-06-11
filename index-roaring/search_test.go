@@ -51,7 +51,6 @@ func TestFindPrice(t *testing.T) {
 
 	price := cs.Catalog.Prices[priceId]
 	assert.NotNil(t, price)
-
 }
 
 //goland:noinspection GoBoolExpressions

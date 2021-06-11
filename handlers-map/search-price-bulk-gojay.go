@@ -1,4 +1,4 @@
-package handlers_roaring
+package handlers_map
 
 import (
 	"bitmap-usage/model"
@@ -30,7 +30,7 @@ func (s StreamChan) MarshalStream(enc *gojay.StreamEncoder) {
 	}
 }
 
-func (as *AggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *http.Request) {
+func (as *MapAggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 
 	var findPriceRequests []model.FindPriceRequestBulk
@@ -105,22 +105,15 @@ func (as *AggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *http.R
 	for _, fpreq := range findPriceRequests {
 		findPriceRequest := fpreq
 		g.Go(func() error {
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+			price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			if err != nil {
 				return err
+			}
+			if price != nil {
+				s <- &model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 			} else {
-				priceId, err := as.Index.FindPriceIdByIndex(ind)
-				if err != nil {
-					return err
-				} else {
-					price := as.CS.Catalog.Prices[priceId]
-					if price != nil {
-						s <- &model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-					} else {
-						return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
-					}
-				}
+				return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
 			}
 			return nil
 		})

@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-func (as *AggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Request) {
+func (as *BitmapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 
 	var findPriceRequest model.FindPriceRequest
@@ -80,7 +80,7 @@ func (as *AggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Request
 	index, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 		findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusBadRequest)
+		http.Error(rw, err.Error(), http.StatusNotFound)
 		return
 	}
 	priceId, err := as.Index.FindPriceIdByIndex(index)

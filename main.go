@@ -50,7 +50,7 @@ func Setup() {
 	ind := indexRoaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
-	as := handlers_roaring.NewAggregateService(log.Logger, cs, ind)
+	as := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
 	cs.GeneratePricesByConditionsAndClear()
 	runtime.GC()
 
@@ -72,7 +72,7 @@ func Setup() {
 	// create router
 	r := mux.NewRouter()
 	findPriceBy := r.Methods(http.MethodPost).Subrouter()
-	findPriceBy.HandleFunc("/v1/search/prices", as.FindPriceByX)
+	findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
 	findPriceBulk := r.Methods(http.MethodPost).Subrouter()
 	findPriceBulk.HandleFunc("/v1/search/bulk/prices", as.FindPriceBulkByX)

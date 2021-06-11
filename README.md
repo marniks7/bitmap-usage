@@ -38,29 +38,33 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 ```
 
 ## Benchmarks (low level)
-* 2021/05/31
+* 2021/06/11
 ```
 go test  -v ./benchmark/... -bench . -run ^$ -cpu 1 -benchmem -failfast
 goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+BenchmarkHttpClientServer_Map_FindPrice_Conditions8
+BenchmarkHttpClientServer_Map_FindPrice_Conditions8                         	    3498	    351127 ns/op	    8291 B/op	     112 allocs/op
+BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8
+BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8                      	   11841	     95266 ns/op	   20131 B/op	     121 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position                	    4976	    218842 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position                	    5802	    207368 ns/op	     224 B/op	       2 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr           	    5562	    219952 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr           	    4423	    226238 ns/op	     128 B/op	       1 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized      	   15632	     76106 ns/op	     328 B/op	       5 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized      	   15778	     75852 ns/op	     328 B/op	       5 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized 	    5631	    210092 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized 	    5798	    209028 ns/op	     128 B/op	       1 allocs/op
 BenchmarkBitmap_FindPriceIndexId_Conditions8
-BenchmarkBitmap_FindPriceIndexId_Conditions8                                	   79185	     13058 ns/op	   11896 B/op	      10 allocs/op
+BenchmarkBitmap_FindPriceIndexId_Conditions8                                	   87271	     13124 ns/op	   11896 B/op	      10 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8
-BenchmarkBitmap_FindPrice_Conditions8                                       	   56360	     18128 ns/op	   11896 B/op	      10 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8                                       	   56082	     18246 ns/op	   11896 B/op	      10 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr
-BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr                     	   91278	     12944 ns/op	   11816 B/op	       8 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr                     	  114678	     12790 ns/op	   11816 B/op	       8 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	62.674s
+ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	72.528s
 ```
 
 ## Performance Testing

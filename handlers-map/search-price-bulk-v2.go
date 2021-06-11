@@ -1,4 +1,4 @@
-package handlers_roaring
+package handlers_map
 
 import (
 	"bitmap-usage/model"
@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *http.Request) {
+func (as *MapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 
 	var findPriceRequests []model.FindPriceRequestBulk
@@ -87,22 +87,15 @@ func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *
 		i, findPriceRequest := i, fpreq
 		g.Go(func() error {
 
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+			price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			if err != nil {
 				return err
+			}
+			if price != nil {
+				results[i] = model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 			} else {
-				priceId, err := as.Index.FindPriceIdByIndex(ind)
-				if err != nil {
-					return err
-				} else {
-					price := as.CS.Catalog.Prices[priceId]
-					if price != nil {
-						results[i] = model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-					} else {
-						return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
-					}
-				}
+				return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
 			}
 			return nil
 		})

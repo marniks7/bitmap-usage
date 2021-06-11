@@ -1,4 +1,4 @@
-package handlers_roaring
+package handlers_map
 
 import (
 	"bitmap-usage/index-roaring"
@@ -15,7 +15,7 @@ import (
 
 var ConcurrentModeRequestSize = 4
 
-func (as *BitmapAggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *http.Request) {
+func (as *MapAggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 
 	var findPriceRequests []model.FindPriceRequestBulk
@@ -113,27 +113,13 @@ func (as *BitmapAggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *ht
 		//single threaded execution
 		rw.Write([]byte{'['})
 		for i, findPriceRequest := range findPriceRequests {
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+			price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
-			var price *model.Price
 			if err != nil {
 				if err == indexRoaring.ErrUnableToFindPrice {
 					price = nil
 				} else {
 					http.Error(rw, err.Error(), http.StatusBadRequest)
-					return
-				}
-			} else {
-				priceId, err := as.Index.FindPriceIdByIndex(ind)
-				if err != nil {
-					as.L.Err(err).Msg("Unable to find price id by index")
-					http.Error(rw, err.Error(), http.StatusInternalServerError)
-					return
-				}
-				price := as.CS.Catalog.Prices[priceId]
-				if price == nil {
-					as.L.Error().Str("priceId", priceId).Msg("Unable to find price by priceId")
-					http.Error(rw, "Internal server error", http.StatusInternalServerError)
 					return
 				}
 			}
@@ -154,28 +140,21 @@ func (as *BitmapAggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *ht
 
 var ErrUnableToFindPrice = errors.New("unable to find price by priceId")
 
-func (as *BitmapAggregateService) worker(ch chan model.FindPriceRequestBulk,
+func (as *MapAggregateService) worker(ch chan model.FindPriceRequestBulk,
 	resp chan model.FindPriceResponseBulk,
 	errch chan error, wg *sync.WaitGroup) {
 	for {
 		findPriceRequest := <-ch
 
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+		price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
 			errch <- err
+		}
+		if price != nil {
+			resp <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 		} else {
-			priceId, err := as.Index.FindPriceIdByIndex(ind)
-			if err != nil {
-				errch <- err
-			} else {
-				price := as.CS.Catalog.Prices[priceId]
-				if price != nil {
-					resp <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-				} else {
-					errch <- ErrUnableToFindPrice
-				}
-			}
+			errch <- ErrUnableToFindPrice
 		}
 		wg.Done()
 
@@ -183,26 +162,19 @@ func (as *BitmapAggregateService) worker(ch chan model.FindPriceRequestBulk,
 }
 
 // Deprecated: another approach, not used right now
-func (as *BitmapAggregateService) worker1(ch chan model.FindPriceRequestBulk,
+func (as *MapAggregateService) worker1(ch chan model.FindPriceRequestBulk,
 	resp chan model.FindPriceResponseBulk,
 	errch chan error) {
 	for findPriceRequest := range ch {
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+		price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
 			errch <- err
+		}
+		if price != nil {
+			resp <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 		} else {
-			priceId, err := as.Index.FindPriceIdByIndex(ind)
-			if err != nil {
-				errch <- err
-			} else {
-				price := as.CS.Catalog.Prices[priceId]
-				if price != nil {
-					resp <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-				} else {
-					errch <- ErrUnableToFindPrice
-				}
-			}
+			errch <- ErrUnableToFindPrice
 		}
 
 	}
@@ -210,25 +182,18 @@ func (as *BitmapAggregateService) worker1(ch chan model.FindPriceRequestBulk,
 
 //TODO error channel doesn't work yet
 //TODO add cancel
-func (as *BitmapAggregateService) LongLiveWorker() {
+func (as *MapAggregateService) LongLiveWorker() {
 	for fpr := range as.RequestChan {
 		findPriceRequest := fpr.FPRB
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+		price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
 			fpr.Err <- err
+		}
+		if price != nil {
+			fpr.Result <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 		} else {
-			priceId, err := as.Index.FindPriceIdByIndex(ind)
-			if err != nil {
-				fpr.Err <- err
-			} else {
-				price := as.CS.Catalog.Prices[priceId]
-				if price != nil {
-					fpr.Result <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-				} else {
-					fpr.Err <- ErrUnableToFindPrice
-				}
-			}
+			fpr.Err <- ErrUnableToFindPrice
 		}
 
 	}

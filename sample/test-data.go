@@ -172,6 +172,7 @@ func (h *Holder) generatePrice(chars []string,
 				OfferingID: offering,
 				Chars:      chars,
 				Values:     result,
+				Value:      float64(len(h.prices)),
 				StartDate:  time.Date(2019, time.May, 10, 5, 0, 0, 0, time.UTC),
 				EndDate:    time.Date(2022, time.January, 5, 3, 0, 0, 0, time.UTC),
 			}
