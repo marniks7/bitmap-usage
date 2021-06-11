@@ -1,4 +1,4 @@
-package handlers_roaring
+package handlersroaring
 
 import (
 	"bitmap-usage/index-roaring"
@@ -117,7 +117,7 @@ func (as *BitmapAggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *ht
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			var price *model.Price
 			if err != nil {
-				if err == indexRoaring.ErrUnableToFindPrice {
+				if err == indexroaring.ErrUnableToFindPrice {
 					price = nil
 				} else {
 					http.Error(rw, err.Error(), http.StatusBadRequest)

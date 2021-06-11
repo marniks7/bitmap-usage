@@ -1,4 +1,4 @@
-package indexMap
+package indexmap
 
 import (
 	"bitmap-usage/cache"

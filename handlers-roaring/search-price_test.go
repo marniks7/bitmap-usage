@@ -1,4 +1,4 @@
-package handlers_roaring
+package handlersroaring
 
 import (
 	"bitmap-usage/cache"
@@ -22,7 +22,7 @@ func TestFindPriceBy(t *testing.T) {
 	}
 
 	//index
-	indexer := indexRoaring.NewService(log.Logger)
+	indexer := indexroaring.NewService(log.Logger)
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewBitmapAggregateService(log.Logger, cs, indexer)
@@ -57,7 +57,7 @@ func TestFindPriceBy_NotFound(t *testing.T) {
 	}
 
 	//given index
-	indexer := indexRoaring.NewService(log.Logger)
+	indexer := indexroaring.NewService(log.Logger)
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewBitmapAggregateService(log.Logger, cs, indexer)

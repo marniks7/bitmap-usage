@@ -72,12 +72,12 @@ func BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
 	}
 }
 
-func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexRoaring.BitmapIndexService) {
+func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := indexRoaring.NewService(log.Logger)
+	ind := indexroaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 	return cs, ind

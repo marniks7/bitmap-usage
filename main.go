@@ -47,10 +47,10 @@ func Setup() {
 		return
 	}
 
-	ind := indexRoaring.NewService(log.Logger)
+	ind := indexroaring.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
-	as := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
+	as := handlersroaring.NewBitmapAggregateService(log.Logger, cs, ind)
 	cs.GeneratePricesByConditionsAndClear()
 	runtime.GC()
 

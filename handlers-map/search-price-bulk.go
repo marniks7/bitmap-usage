@@ -1,4 +1,4 @@
-package handlers_map
+package handlersmap
 
 import (
 	"bitmap-usage/index-roaring"
@@ -116,7 +116,7 @@ func (as *MapAggregateService) FindPriceBulkByX(rw http.ResponseWriter, r *http.
 			price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			if err != nil {
-				if err == indexRoaring.ErrUnableToFindPrice {
+				if err == indexroaring.ErrUnableToFindPrice {
 					price = nil
 				} else {
 					http.Error(rw, err.Error(), http.StatusBadRequest)

@@ -1,4 +1,4 @@
-package handlers_roaring
+package handlersroaring
 
 import (
 	"bitmap-usage/model"

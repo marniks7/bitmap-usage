@@ -1,4 +1,4 @@
-package indexRoaring
+package indexroaring
 
 import (
 	"bitmap-usage/model"

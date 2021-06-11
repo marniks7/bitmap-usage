@@ -81,22 +81,22 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized
 	}
 }
 
-func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexMap.MapIndexService) {
+func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := indexMap.NewService(log.Logger)
+	ind := indexmap.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 	return cs, ind
 }
 
-func prepareMapIndexOptimized(b *testing.B) (*cache.CatalogService, *indexMap.MapIndexService) {
+func prepareMapIndexOptimized(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := indexMap.NewService(log.Logger)
+	ind := indexmap.NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 	err = validator.Validate(cs.Catalog)
 	assert.NoError(b, err)

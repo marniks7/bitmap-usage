@@ -1,4 +1,4 @@
-package handlers_map
+package handlersmap
 
 import (
 	"bitmap-usage/model"
