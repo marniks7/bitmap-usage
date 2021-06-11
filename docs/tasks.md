@@ -8,3 +8,6 @@
 * Scalability - distributed cache?
 * Time of app start (store index?)
 * Test Pilosa
+* Add benchmarks for default price search
+* Add optimization for default prices - move them to the beginning of the index
+* Add memory statistic

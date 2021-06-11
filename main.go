@@ -2,7 +2,9 @@ package main
 
 import (
 	"bitmap-usage/cache"
+	handlersmap "bitmap-usage/handlers-map"
 	"bitmap-usage/handlers-roaring"
+	indexMap "bitmap-usage/index-map"
 	"bitmap-usage/index-roaring"
 	"bitmap-usage/sample"
 	"context"
@@ -51,7 +53,7 @@ func Setup() {
 	ind.IndexPrices(cs.Catalog)
 
 	as := handlersroaring.NewBitmapAggregateService(log.Logger, cs, ind)
-	cs.GeneratePricesByConditionsAndClear()
+	cs.GeneratePricesByConditions()
 	runtime.GC()
 
 	//long-live workers
@@ -75,13 +77,29 @@ func Setup() {
 	findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
 	findPriceBulk := r.Methods(http.MethodPost).Subrouter()
-	findPriceBulk.HandleFunc("/v1/search/bulk/prices", as.FindPriceBulkByX)
+	findPriceBulk.HandleFunc("/v1/search/bitmap/bulk/prices", as.FindPriceBulkByX)
 
 	findPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
-	findPriceBulkv2.HandleFunc("/v2/search/bulk/prices", as.FindPriceBulkByXV2)
+	findPriceBulkv2.HandleFunc("/v2/search/bitmap/bulk/prices", as.FindPriceBulkByXV2)
 
 	findPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
-	findPriceBulkv3.HandleFunc("/v3/search/bulk/prices", as.FindPriceBulkByXV3)
+	findPriceBulkv3.HandleFunc("/v3/search/bitmap/bulk/prices", as.FindPriceBulkByXV3)
+
+	indMap := indexMap.NewService(log.Logger)
+	indMap.IndexPrices(cs.Catalog)
+	asMap := handlersmap.NewMapAggregateService(log.Logger, cs, indMap)
+
+	mapFindPriceBy := r.Methods(http.MethodPost).Subrouter()
+	mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
+
+	mapFindPriceBulk := r.Methods(http.MethodPost).Subrouter()
+	mapFindPriceBulk.HandleFunc("/v1/search/map/bulk/prices", asMap.FindPriceBulkByX)
+
+	mapFindPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
+	mapFindPriceBulkv2.HandleFunc("/v2/search/map/bulk/prices", asMap.FindPriceBulkByXV2)
+
+	mapFindPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
+	mapFindPriceBulkv3.HandleFunc("/v3/search/map/bulk/prices", asMap.FindPriceBulkByXV3)
 
 	// Register pprof handlers
 	r.HandleFunc("/debug/pprof/", pprof.Index)

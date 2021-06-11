@@ -14,26 +14,31 @@ Efficient storage and efficient search for prices based on many conditions (attr
 ## Usage
 
 ### Single Request
-
-```bash
-curl -POST http://localhost:8091/v1/search/prices \
-    -H "Content-Type: application/json" \
-    -d @sample/search-price-request.json
-```
-
+* Bitmap 
+  ```bash
+  curl -POST http://localhost:8091/v1/search/bitmap/prices \
+      -H "Content-Type: application/json" \
+      -d @sample/search-price-request.json
+  ```
+* Simple map
+  ```bash
+  curl -POST http://localhost:8091/v1/search/map/prices \
+      -H "Content-Type: application/json" \
+      -d @sample/search-price-request.json
+  ```
 ### Bulk Request
 
 * 0-5
 
 ```bash
-curl -H "Content-Type: application/json" -POST http://localhost:8091/v1/search/bulk/prices \
+curl -H "Content-Type: application/json" -POST http://localhost:8091/v1/search/bitmap/bulk/prices \
     -d @sample/search-price-bulk-request-5.json
 ```
 
 * 5+
 
 ```bash
-time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v1/search/bulk/prices \
+time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v1/search/bitmap/bulk/prices \
     -d @sample/search-price-bulk-request-10000.json
 ```
 
@@ -66,12 +71,20 @@ BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr                     	  1
 PASS
 ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	72.528s
 ```
+* [Interpret results](docs/benchmark.md)
 
-## Performance Testing
+## Performance Testing with wrk
+* One thread
+  * `wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua`  
+  * `wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua`
+* Concurrent, 20 threads
+  * `wrk -c400 -t20 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua`
+  * `wrk -c400 -t20 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua`
 
-* Single Request One Threaded
-  ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/prices```
-* Single Request Concurrent
-  ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/prices```
-* Bulk Request One Threaded
-  ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://localhost:8091/v1/search/bulk/prices```
+## Performance Testing with AB
+* One thread
+  ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/bitmap/prices```
+* Concurrent, 20 threads
+  ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/bitmap/prices```
+* Bulk Request One Thread
+  ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://localhost:8091/v1/search/bitmap/bulk/prices```
