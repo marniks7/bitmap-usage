@@ -2,8 +2,6 @@
 
 ## Run
 * see [Readme](../README.md)
-* `go tool pprof -inuse_space -lines -nodefraction=0 benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-heapdump`
-* `go tool pprof -inuse_space -lines -nodefraction=0 benchmark/Prices-487k-PricesPerOffering-9.7k/map-heapdump`
 
 ## Results
 * 487k prices, 9.7k prices per offering
@@ -52,11 +50,19 @@
 ### Memory
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
-|Memory, Total|90MB|180MB|90MB|
-|Memory, Prices Storage|57MB|153MB|96MB. But this value might be decreased to 59MB (-37MB)|
-|Memory, Index to UUID Map|7.44MB|0MB|-7.44MB difference|
-|Memory. UUIDs for prices|22.3MB|22.3MB|no difference|
-|Memory, Index|2.67MB|4.69MB|2MB|
+|Total|90MB|180MB|90MB|
+|Price Storage|57MB|153MB|96MB. But this value might be decreased to 59MB (-37MB)|
+|Index to UUID Map|7.44MB|0MB|-7.44MB difference|
+|Index|2.67MB|4.69MB|2MB|
+|UUIDs for prices|22MB|22MB|no difference|
+
+#### Minimum Memory Calculation
+|Case|Bitmap|Map|Benefit|
+|---|---|---|---|
+|LRU|6MB (10%)|175MB (not used)|166MB|
+|Mandatory|22MB|0MB|-22MB|
+|Index|10MB|5MB|-5MB|
+|Results|38MB|180MB|142MB|
 
 ## Notes. Memory
 * Bitmap allows storing Price which is needed for response-only. This is small and efficient object.
@@ -80,3 +86,11 @@ This adds 77020 ns/op for bitmap and 143759 ns/op for map index. Such difference
 cause the code is the same. This benchmark requires deeper investigation to properly interpret results.
 
 *This is a part of go test on mocks, just for illustration purposes here. Prefer `Timing (high level)`
+
+## Performance Testing with AB (OLD)
+* One thread
+  ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/bitmap/prices```
+* Concurrent, 20 threads
+  ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/bitmap/prices```
+* Bulk Request One Thread
+  ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://localhost:8091/v1/search/bitmap/bulk/prices```
