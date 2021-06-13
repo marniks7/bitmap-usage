@@ -16,20 +16,20 @@ func NewService(l zerolog.Logger) *BitmapIndexService {
 
 type PriceBitmaps struct {
 	//bitmaps
-	groupBitmaps      []*roaring.Bitmap
-	specBitmaps       []*roaring.Bitmap
-	offeringBitmaps   []*roaring.Bitmap
-	defaultBitmaps    *roaring.Bitmap
-	charBitmaps       []*roaring.Bitmap
-	charValuesBitmaps []*roaring.Bitmap
+	GroupBitmaps      []*roaring.Bitmap
+	SpecBitmaps       []*roaring.Bitmap
+	OfferingBitmaps   []*roaring.Bitmap
+	DefaultBitmaps    *roaring.Bitmap
+	CharBitmaps       []*roaring.Bitmap
+	CharValuesBitmaps []*roaring.Bitmap
 	//from bitmaps to original id
-	indexToPriceId []string
+	IndexToPriceId []string
 	//indexes for other values
-	groupIdIndex       map[string]uint16
-	specIdToIndex      map[string]uint8
-	offeringIdToIndex  map[string]uint32
-	charIdToIndex      map[string]uint32
-	charValueIdToIndex map[string]uint32
+	GroupIdIndex       map[string]uint16
+	SpecIdToIndex      map[string]uint8
+	OfferingIdToIndex  map[string]uint32
+	CharIdToIndex      map[string]uint32
+	CharValueIdToIndex map[string]uint32
 }
 type GlobalIndex struct {
 	//indexes

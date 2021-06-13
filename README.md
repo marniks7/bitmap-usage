@@ -71,15 +71,20 @@ BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr                     	  1
 PASS
 ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	72.528s
 ```
-* [Interpret results](docs/benchmark.md)
+* [Interpret results](benchmark/benchmark.md)
 
 ## Performance Testing with wrk
-* One thread
-  * `wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua`  
-  * `wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua`
-* Concurrent, 20 threads
-  * `wrk -c400 -t20 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua`
-  * `wrk -c400 -t20 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua`
+* 1, 10 and 20 connections on 1, 1 and 6 OS threads respectively
+```
+wrk -c1 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-c1-t1.txt
+wrk -c1 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-c1-t1.txt
+
+wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-c10-t1.txt
+wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-c10-t1.txt
+
+wrk -c20 -t6 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-c20-t6.txt
+wrk -c20 -t6 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-c20-t6.txt
+```
 
 ## Performance Testing with AB
 * One thread

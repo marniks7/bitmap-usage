@@ -1,6 +1,7 @@
 package model
 
 import (
+	"bitmap-usage/benchmark"
 	"bufio"
 	"fmt"
 	"github.com/google/uuid"
@@ -60,59 +61,21 @@ func TestNewFunction2(t *testing.T) {
 	fmt.Println(unsafe.Sizeof(make(map[string]*Price, 0)))
 }
 
-func PrintMemUsage() *runtime.MemStats {
-	var m runtime.MemStats
-	runtime.ReadMemStats(&m)
-	// For info on each, see: https://golang.org/pkg/runtime/#MemStats
-	conv := bytesToMB
-	convStr := "MB"
-	fmt.Printf("Alloc = %v%v", conv(m.Alloc), convStr)
-	fmt.Printf("\tHeapAlloc = %v%v", conv(m.HeapAlloc), convStr)
-	fmt.Printf("\tTotalAlloc = %v%v", conv(m.TotalAlloc), convStr)
-	fmt.Printf("\tStackSys = %v%v", conv(m.StackSys), convStr)
-	fmt.Printf("\tSys = %v%v", conv(m.Sys), convStr)
-	fmt.Printf("\tNumGC = %v\n", m.NumGC)
-	//var mem syscall.Rusage
-	//syscall.Getrusage(syscall.RUSAGE_SELF, &mem)
-	//fmt.Println(mem.Maxrss)
-	return &m
-}
-
-func PrintMemUsageArgs(m1, m2 *runtime.MemStats) {
-	// For info on each, see: https://golang.org/pkg/runtime/#MemStats
-	conv := bytesToMB
-	convStr := "MB"
-	PrintMemUsageFormat(m1, m2, conv, convStr)
-}
-
-func PrintMemUsageFormat(m1 *runtime.MemStats, m2 *runtime.MemStats, conv func(b uint64) uint64, convStr string) {
-	fmt.Printf("Alloc = %v%v", conv(m1.Alloc-m2.Alloc), convStr)
-	fmt.Printf("\tHeapAlloc = %v%v", conv(m1.HeapAlloc-m2.HeapAlloc), convStr)
-	fmt.Printf("\tTotalAlloc = %v%v", conv(m1.TotalAlloc-m2.TotalAlloc), convStr)
-	fmt.Printf("\tStackSys = %v%v", conv(m1.StackSys-m2.StackSys), convStr)
-	fmt.Printf("\tSys = %v%v", conv(m1.Sys-m2.Sys), convStr)
-	fmt.Printf("\tNumGC = %v\n", m1.NumGC-m2.NumGC)
-}
-
-func bytesToMB(b uint64) uint64 {
-	return b / 1024 / 1024
-}
-
 func TestMap(t *testing.T) {
 	runtime.GC()
-	before := PrintMemUsage()
+	before := benchmark.PrintMemStats()
 	l := make(map[string]*Price, 500000)
 	runtime.GC()
-	after := PrintMemUsage()
-	PrintMemUsageArgs(after, before)
+	after := benchmark.PrintMemStats()
+	benchmark.PrintMemStatsBetween(after, before)
 	fmt.Println(l)
 }
 
 func TestMap2(t *testing.T) {
-	before := PrintMemUsage()
+	before := benchmark.PrintMemStats()
 	l := make(map[string]*Price, 1)
-	after := PrintMemUsage()
-	PrintMemUsageFormat(after, before, func(u uint64) uint64 {
+	after := benchmark.PrintMemStats()
+	benchmark.PrintMemStatsFormat(after, before, func(u int64) int64 {
 		return u
 	}, "B")
 	fmt.Println(l)

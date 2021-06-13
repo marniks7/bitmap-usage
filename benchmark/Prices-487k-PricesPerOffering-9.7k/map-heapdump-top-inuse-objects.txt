@@ -1,0 +1,17 @@
+File: Prices-487k-PricesPerOffering-9.7k.test
+Type: inuse_objects
+Time: Jun 12, 2021 at 10:32pm (EDT)
+Showing nodes accounting for 1461600, 100% of 1461765 total
+Dropped 133 nodes (cum <= 7308)
+      flat  flat%   sum%        cum   cum%
+    487200 33.33% 33.33%     487200 33.33%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:165
+    487200 33.33% 66.66%     487200 33.33%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:167
+    487200 33.33%   100%     487200 33.33%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.2.0/uuid.go:173 (inline)
+         0     0%   100%    1461655   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:65
+         0     0%   100%    1461602   100%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/map-memory_test.go:19
+         0     0%   100%    1461602   100%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/map-memory_test.go:20
+         0     0%   100%    1461602   100%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:163
+         0     0%   100%     487201 33.33%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:168
+         0     0%   100%    1461602   100%  bitmap-usage/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:148
+         0     0%   100%     487201 33.33%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.2.0/version4.go:22
+         0     0%   100%    1461668   100%  testing.tRunner /home/malerome/go/go1.16.4/src/testing/testing.go:1193

@@ -21,18 +21,18 @@ func (s *BitmapIndexService) IndexPrices(catalog *cache.Catalog) *PriceBitmaps {
 	for i, v := range catalog.PriceConditions {
 		indexToId[i] = v.ID
 	}
-	bmi := &PriceBitmaps{groupBitmaps: groupBitmaps,
-		specBitmaps:        specBitmaps,
-		groupIdIndex:       groupIndex,
-		specIdToIndex:      specIdToIndex,
-		offeringIdToIndex:  offeringIdToIndex,
-		offeringBitmaps:    offeringBitmaps,
-		defaultBitmaps:     defaultBitmaps,
-		charBitmaps:        charBitmaps,
-		charIdToIndex:      charIdToIndex,
-		charValueIdToIndex: charValueToIndex,
-		charValuesBitmaps:  charValuesBitmaps,
-		indexToPriceId:     indexToId}
+	bmi := &PriceBitmaps{GroupBitmaps: groupBitmaps,
+		SpecBitmaps:        specBitmaps,
+		GroupIdIndex:       groupIndex,
+		SpecIdToIndex:      specIdToIndex,
+		OfferingIdToIndex:  offeringIdToIndex,
+		OfferingBitmaps:    offeringBitmaps,
+		DefaultBitmaps:     defaultBitmaps,
+		CharBitmaps:        charBitmaps,
+		CharIdToIndex:      charIdToIndex,
+		CharValueIdToIndex: charValueToIndex,
+		CharValuesBitmaps:  charValuesBitmaps,
+		IndexToPriceId:     indexToId}
 	s.Index = bmi
 	return bmi
 }
