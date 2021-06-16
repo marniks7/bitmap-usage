@@ -51,23 +51,29 @@
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
 |Total|90MB|180MB|90MB|
+|Price Storage (all)|86MB|175MB|89MB. But this value might be decreased to 52MB (-37MB)|
+|Index|2.67MB|4.69MB|2MB|
+
+#### Memory with LRU*
+|Case|Bitmap|Map|Benefit|
+|---|---|---|---|
+|LRU|10%-100%. 9MB-86MB| 100% 175MB (harder to use)|
+|Index|3MB|5MB|-2MB|
+|Results|12MB-89MB|180MB|90MB-168MB|
+
+#### Memory Detailed
+|Case|Bitmap|Map|Benefit|
+|---|---|---|---|
+|Total|90MB|180MB|90MB|
 |Price Storage|57MB|153MB|96MB. But this value might be decreased to 59MB (-37MB)|
 |Index to UUID Map|7.44MB|0MB|-7.44MB difference|
 |Index|2.67MB|4.69MB|2MB|
 |UUIDs for prices|22MB|22MB|no difference|
 
-#### Minimum Memory Calculation
-|Case|Bitmap|Map|Benefit|
-|---|---|---|---|
-|LRU|6MB (10%)|175MB (not used)|166MB|
-|Mandatory|22MB|0MB|-22MB|
-|Index|10MB|5MB|-5MB|
-|Results|38MB|180MB|142MB|
-
 ## Notes. Memory
-* Bitmap allows storing Price which is needed for response-only. This is small and efficient object.
-More over, it allows using LRU cache and evict entire Prices Storage and load what is ofter used.
-In case of 'map' stored prices contains all data needed for price search, that is why LRU cache is not efficient. 
+* *Bitmap allows storing Price which is needed for response-only. This is small and efficient object.
+More over, it allows using LRU cache and evict entire Prices Storage and load what is often used only.
+In case of 'map' stored prices contains all data needed for price search, that is why LRU cache is not that efficient. 
 It will force eviction and loading ALL prices per offering.
 
 ## Notes. Search based on simple map index
