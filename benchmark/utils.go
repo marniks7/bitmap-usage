@@ -2,6 +2,7 @@ package benchmark
 
 import (
 	"fmt"
+	"github.com/RoaringBitmap/roaring"
 	"os"
 	"os/exec"
 	"runtime"
@@ -80,13 +81,11 @@ func ReadMemStats() *runtime.MemStats {
 func PrintMemStats() *runtime.MemStats {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
-	conv := bytesToMB
-	convStr := "MB"
-	fmt.Printf("Alloc = %v%v", conv(m.Alloc), convStr)
-	fmt.Printf("\tHeapAlloc = %v%v", conv(m.HeapAlloc), convStr)
-	fmt.Printf("\tTotalAlloc = %v%v", conv(m.TotalAlloc), convStr)
-	fmt.Printf("\tStackSys = %v%v", conv(m.StackSys), convStr)
-	fmt.Printf("\tSys = %v%v", conv(m.Sys), convStr)
+	fmt.Printf("Alloc = %v", ConvertToHumanReadableSizeUint64(m.Alloc))
+	fmt.Printf("\tHeapAlloc = %v", ConvertToHumanReadableSizeUint64(m.HeapAlloc))
+	fmt.Printf("\tTotalAlloc = %v", ConvertToHumanReadableSizeUint64(m.TotalAlloc))
+	fmt.Printf("\tStackSys = %v", ConvertToHumanReadableSizeUint64(m.StackSys))
+	fmt.Printf("\tSys = %v", ConvertToHumanReadableSizeUint64(m.Sys))
 	fmt.Printf("\tNumGC = %v\n", m.NumGC)
 	//var mem syscall.Rusage
 	//syscall.Getrusage(syscall.RUSAGE_SELF, &mem)
@@ -95,22 +94,57 @@ func PrintMemStats() *runtime.MemStats {
 }
 
 func PrintMemStatsBetween(after, before *runtime.MemStats) {
-	PrintMemStatsFormat(after, before, bytesToMBInt64, "MB")
+	PrintMemStatsFormat(after, before, ConvertToHumanReadableSize)
 }
 
-func PrintMemStatsFormat(m1 *runtime.MemStats, m2 *runtime.MemStats, conv func(b int64) int64, convStr string) {
-	fmt.Printf("Alloc = %v%v", conv(int64(m1.Alloc-m2.Alloc)), convStr)
-	fmt.Printf("\tHeapAlloc = %v%v", conv(int64(m1.HeapAlloc-m2.HeapAlloc)), convStr)
-	fmt.Printf("\tTotalAlloc = %v%v", conv(int64(m1.TotalAlloc-m2.TotalAlloc)), convStr)
-	fmt.Printf("\tStackSys = %v%v", conv(int64(m1.StackSys-m2.StackSys)), convStr)
-	fmt.Printf("\tSys = %v%v", conv(int64(m1.Sys-m2.Sys)), convStr)
+func PrintMemStatsFormat(m1 *runtime.MemStats, m2 *runtime.MemStats, conv func(b int64) string) {
+	fmt.Printf("Alloc = %v", conv(int64(m1.Alloc-m2.Alloc)))
+	fmt.Printf("\tHeapAlloc = %v", conv(int64(m1.HeapAlloc-m2.HeapAlloc)))
+	fmt.Printf("\tTotalAlloc = %v", conv(int64(m1.TotalAlloc-m2.TotalAlloc)))
+	fmt.Printf("\tStackSys = %v", conv(int64(m1.StackSys-m2.StackSys)))
+	fmt.Printf("\tSys = %v", conv(int64(m1.Sys-m2.Sys)))
 	fmt.Printf("\tNumGC = %v\n", m1.NumGC-m2.NumGC)
 }
 
-func bytesToMB(b uint64) uint64 {
-	return b / 1024 / 1024
+func PrintBitmapStats(f *os.File, ind []*roaring.Bitmap, name string) ([]roaring.Statistics, uint64, uint64) {
+	fmt.Fprint(f, "\n"+name+" ==========================================================\n")
+	var sInB uint64
+	var sInBS uint64
+	var stats []roaring.Statistics
+	for i, bm := range ind {
+		fmt.Fprintf(f, "========== %v ==========\n", i)
+		fmt.Fprintf(f, "%+v\n", bm.Stats())
+		stats = append(stats, bm.Stats())
+		fmt.Fprintf(f, "SizeInBytes: %v\n", bm.GetSizeInBytes())
+		sInB += bm.GetSizeInBytes()
+		fmt.Fprintf(f, "SerializedSizeInBytes: %v\n", bm.GetSerializedSizeInBytes())
+		sInBS += bm.GetSerializedSizeInBytes()
+	}
+	return stats, sInB, sInBS
 }
 
-func bytesToMBInt64(b int64) int64 {
-	return b / 1024 / 1024
+func ConvertToHumanReadableSize(b int64) string {
+	const unit = 1000
+	if b < unit {
+		return fmt.Sprintf("%d B", b)
+	}
+	div, exp := int64(unit), 0
+	for n := b / unit; n >= unit; n /= unit {
+		div *= unit
+		exp++
+	}
+	return fmt.Sprintf("%.1f %cB", float64(b)/float64(div), "kMGTPE"[exp])
+}
+
+func ConvertToHumanReadableSizeUint64(b uint64) string {
+	const unit = 1000
+	if b < unit {
+		return fmt.Sprintf("%d B", b)
+	}
+	div, exp := int64(unit), 0
+	for n := b / unit; n >= unit; n /= unit {
+		div *= unit
+		exp++
+	}
+	return fmt.Sprintf("%.1f %cB", float64(b)/float64(div), "kMGTPE"[exp])
 }

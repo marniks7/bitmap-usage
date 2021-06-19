@@ -21,9 +21,11 @@
 |50%|58.00us|796.00us|738us|
 |75%|80.00us|1.28ms|1.2ms|
 |90%|125.00us|1.35ms|1.2ms|
-|99%|5.26ms|1.49ms|3.77ms|
+|99%|5.26ms**|1.49ms|3.77ms|
 |request/sec|13612|1127|12485|
 |total requests|408784|33836|374948|
+
+** with `export GOGC=1000000000` - it is 325.00us and throughput decreased
 
 * 10 connections (1 OS thread)
 
@@ -95,8 +97,16 @@ cause the code is the same. This benchmark requires deeper investigation to prop
 
 ## Performance Testing with AB (OLD)
 * One thread
-  ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/bitmap/prices```
+  ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://127.0.0.1:8091/v1/search/bitmap/prices```
 * Concurrent, 20 threads
-  ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://localhost:8091/v1/search/bitmap/prices```
+  ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://127.0.0.1:8091/v1/search/bitmap/prices```
 * Bulk Request One Thread
-  ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://localhost:8091/v1/search/bitmap/bulk/prices```
+  ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://127.0.0.1:8091/v1/search/bitmap/bulk/prices```
+
+## Machine, Software and Run notes
+* OS: linux, arch: amd64
+* CPU: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+* benchmark tool: [wrk2](https://github.com/giltene/wrk2)
+* The same machine used to run app and benchmark
+* Browser and other software might be open during execution
+    * Benchmarks executed with the same conditions

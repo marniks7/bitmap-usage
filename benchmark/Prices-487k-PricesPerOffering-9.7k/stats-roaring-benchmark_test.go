@@ -1,0 +1,60 @@
+package Prices_487k_PricesPerOffering_9_7k
+
+import (
+	"bitmap-usage/benchmark"
+	"bitmap-usage/cache"
+	indexroaring "bitmap-usage/index-roaring"
+	"bitmap-usage/sample"
+	"fmt"
+	"github.com/RoaringBitmap/roaring"
+	"github.com/rs/zerolog/log"
+	"github.com/stretchr/testify/assert"
+	"os"
+	"testing"
+)
+
+func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
+	_, ind := prepareBitmapIndexT(t)
+
+	f, err := os.Create("bitmap-stats")
+	if err != nil {
+		panic(err)
+	}
+	var bSum uint64
+	var sbSum uint64
+
+	_, b, sb := benchmark.PrintBitmapStats(f, ind.Index.CharBitmaps, "CharBitmaps")
+	bSum += b
+	sbSum += sb
+	_, b, sb = benchmark.PrintBitmapStats(f, ind.Index.SpecBitmaps, "SpecBitmaps")
+	bSum += b
+	sbSum += sb
+	_, b, sb = benchmark.PrintBitmapStats(f, ind.Index.GroupBitmaps, "GroupBitmaps")
+	bSum += b
+	sbSum += sb
+	_, b, sb = benchmark.PrintBitmapStats(f, ind.Index.OfferingBitmaps, "OfferingBitmaps")
+	bSum += b
+	sbSum += sb
+	_, b, sb = benchmark.PrintBitmapStats(f, ind.Index.CharValuesBitmaps, "CharValuesBitmaps")
+	bSum += b
+	sbSum += sb
+	arr := make([]*roaring.Bitmap, 1)
+	arr[0] = ind.Index.DefaultBitmaps
+	_, b, sb = benchmark.PrintBitmapStats(f, arr, "DefaultBitmaps")
+	bSum += b
+	sbSum += sb
+	fmt.Fprintln(f, "============================== Total ==============================================")
+	fmt.Fprintf(f, "Size: %v\n", benchmark.ConvertToHumanReadableSizeUint64(bSum))
+	fmt.Fprintf(f, "Serialized Size: %v\n", benchmark.ConvertToHumanReadableSizeUint64(sbSum))
+}
+
+func prepareBitmapIndexT(t *testing.T) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(t, err)
+
+	ind := indexroaring.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+	cs.GeneratePricesByConditions()
+	return cs, ind
+}
