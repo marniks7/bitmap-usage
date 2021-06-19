@@ -107,7 +107,7 @@ func PrintMemStatsFormat(m1 *runtime.MemStats, m2 *runtime.MemStats, conv func(b
 }
 
 func PrintBitmapStats(f *os.File, ind []*roaring.Bitmap, name string) ([]roaring.Statistics, uint64, uint64) {
-	fmt.Fprint(f, "\n"+name+" ==========================================================\n")
+	fmt.Fprint(f, name+" ==========================================================\n")
 	var sInB uint64
 	var sInBS uint64
 	var stats []roaring.Statistics

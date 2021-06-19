@@ -5,6 +5,7 @@ import (
 	"bitmap-usage/index-roaring"
 	"bitmap-usage/model"
 	"github.com/rs/zerolog"
+	"github.com/ugorji/go/codec"
 )
 
 type BitmapAggregateService struct {
@@ -12,6 +13,7 @@ type BitmapAggregateService struct {
 	CS          *cache.CatalogService
 	Index       *indexroaring.BitmapIndexService
 	RequestChan chan model.ChanFindPriceRequestBulk
+	Codec       *codec.JsonHandle //temporary holder for 'code' lib testing
 }
 
 func NewBitmapAggregateService(l zerolog.Logger, cs *cache.CatalogService,

@@ -1,6 +1,8 @@
 package model
 
-import "github.com/francoispqt/gojay"
+import (
+	"github.com/francoispqt/gojay"
+)
 
 // CharValue - search parameters for characteristics
 // Note: used as swallow copy
@@ -31,6 +33,11 @@ type ChanFindPriceRequestBulk struct {
 
 type FindPriceResponseBulk struct {
 	Price *Price `json:"price"`
+	Id    uint16 `json:"id"`
+}
+
+type FindPriceResponseBulkError struct {
+	Error error
 	Id    uint16 `json:"id"`
 }
 

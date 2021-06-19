@@ -1,4 +1,3 @@
-
 CharBitmaps ==========================================================
 ========== 0 ==========
 {Cardinality:487200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:28448 RunContainers:7 RunContainerBytes:252 RunContainerValues:458752}
@@ -20,19 +19,16 @@ SerializedSizeInBytes: 8303
 {Cardinality:487200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:28448 RunContainers:7 RunContainerBytes:252 RunContainerValues:458752}
 SizeInBytes: 8468
 SerializedSizeInBytes: 8303
-
 SpecBitmaps ==========================================================
 ========== 0 ==========
 {Cardinality:487200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:28448 RunContainers:7 RunContainerBytes:252 RunContainerValues:458752}
 SizeInBytes: 8468
 SerializedSizeInBytes: 8303
-
 GroupBitmaps ==========================================================
 ========== 0 ==========
 {Cardinality:487200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:28448 RunContainers:7 RunContainerBytes:252 RunContainerValues:458752}
 SizeInBytes: 8468
 SerializedSizeInBytes: 8303
-
 OfferingBitmaps ==========================================================
 ========== 0 ==========
 {Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
@@ -234,7 +230,6 @@ SerializedSizeInBytes: 8208
 {Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
 SizeInBytes: 8202
 SerializedSizeInBytes: 8208
-
 CharValuesBitmaps ==========================================================
 ========== 0 ==========
 {Cardinality:81200 Containers:8 ArrayContainers:1 ArrayContainerBytes:8176 ArrayContainerValues:4088 BitmapContainers:7 BitmapContainerBytes:57344 BitmapContainerValues:77112 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
@@ -428,7 +423,6 @@ SerializedSizeInBytes: 65608
 {Cardinality:81200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:81200 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
 SizeInBytes: 65560
 SerializedSizeInBytes: 65608
-
 DefaultBitmaps ==========================================================
 ========== 0 ==========
 {Cardinality:0 Containers:0 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}

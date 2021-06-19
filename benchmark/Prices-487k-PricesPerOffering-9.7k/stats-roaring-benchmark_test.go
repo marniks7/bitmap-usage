@@ -16,7 +16,7 @@ import (
 func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
 	_, ind := prepareBitmapIndexT(t)
 
-	f, err := os.Create("bitmap-stats")
+	f, err := os.Create("bitmap-stats.txt")
 	if err != nil {
 		panic(err)
 	}

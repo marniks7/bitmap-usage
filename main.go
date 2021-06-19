@@ -2,6 +2,7 @@ package main
 
 import (
 	"bitmap-usage/cache"
+	"bitmap-usage/handlers"
 	handlersmap "bitmap-usage/handlers-map"
 	"bitmap-usage/handlers-roaring"
 	indexMap "bitmap-usage/index-map"
@@ -11,6 +12,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
+	"github.com/ugorji/go/codec"
 	"net/http"
 	"net/http/pprof"
 	_ "net/http/pprof"
@@ -30,8 +32,8 @@ func main() {
 }
 
 func Setup() {
-	//ballast is 10MB
-	//_ = make([]byte, 10 << 20)
+	//ballast is 1GB
+	_ = make([]byte, 10<<30)
 	// create default logger
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: time.RFC3339})
 
@@ -76,6 +78,18 @@ func Setup() {
 	findPriceBy := r.Methods(http.MethodPost).Subrouter()
 	findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
+	as.Codec = new(codec.JsonHandle)
+	as.Codec.ReaderBufferSize = 8192
+	as.Codec.WriterBufferSize = 8192
+	findPriceByUgorji := r.Methods(http.MethodPost).Subrouter()
+	findPriceByUgorji.HandleFunc("/v1/search/bitmap/prices/ugorji", as.FindPriceByX_Ugorji)
+
+	findProceByXJsoniter := r.Methods(http.MethodPost).Subrouter()
+	findProceByXJsoniter.HandleFunc("/v1/search/bitmap/prices/jsoniter", as.FindPriceByXJsoniter)
+
+	findProceByXFFJson := r.Methods(http.MethodPost).Subrouter()
+	findProceByXFFJson.HandleFunc("/v1/search/bitmap/prices/ffjson", as.FindPriceByX_FFJson)
+
 	findPriceBulk := r.Methods(http.MethodPost).Subrouter()
 	findPriceBulk.HandleFunc("/v1/search/bitmap/bulk/prices", as.FindPriceBulkByX)
 
@@ -85,12 +99,18 @@ func Setup() {
 	findPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
 	findPriceBulkv3.HandleFunc("/v3/search/bitmap/bulk/prices", as.FindPriceBulkByXV3)
 
+	findPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
+	findPriceBulkv4.HandleFunc("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4)
+
 	indMap := indexMap.NewService(log.Logger)
 	indMap.IndexPrices(cs.Catalog)
 	asMap := handlersmap.NewMapAggregateService(log.Logger, cs, indMap)
 
 	mapFindPriceBy := r.Methods(http.MethodPost).Subrouter()
 	mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
+
+	mapFindPriceByUgorji := r.Methods(http.MethodPost).Subrouter()
+	mapFindPriceByUgorji.HandleFunc("/v1/search/map/prices/ugorji", asMap.FindPriceByXUgorji)
 
 	mapFindPriceBulk := r.Methods(http.MethodPost).Subrouter()
 	mapFindPriceBulk.HandleFunc("/v1/search/map/bulk/prices", asMap.FindPriceBulkByX)
@@ -101,6 +121,12 @@ func Setup() {
 	mapFindPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
 	mapFindPriceBulkv3.HandleFunc("/v3/search/map/bulk/prices", asMap.FindPriceBulkByXV3)
 
+	mapFindPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
+	mapFindPriceBulkv4.HandleFunc("/v4/search/map/bulk/prices", asMap.FindPriceBulkByXV4)
+
+	health := r.Methods(http.MethodGet).Subrouter()
+	health.HandleFunc("/health", handlers.Health)
+	health.HandleFunc("/ready", handlers.Ready)
 	// Register pprof handlers
 	r.HandleFunc("/debug/pprof/", pprof.Index)
 	r.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
@@ -112,6 +138,7 @@ func Setup() {
 	r.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
 	r.Handle("/debug/pprof/block", pprof.Handler("block"))
 
+	runtime.GC()
 	server := &http.Server{Addr: addr,
 		Handler:           r,
 		ReadTimeout:       10 * time.Minute,

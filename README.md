@@ -9,7 +9,8 @@ Efficient storage and efficient search for prices based on many conditions (attr
 
 ## Disclaimer
 > Work in progress. A lot of unit tests added recently to cover logic, however there still might be issues,
-> so benchmarks may change drastically
+> so benchmarks may change drastically.
+> Benchmarks and 
  
 ## Usage
 
@@ -31,19 +32,19 @@ Efficient storage and efficient search for prices based on many conditions (attr
 * 0-5
 
 ```bash
-curl -H "Content-Type: application/json" -POST http://localhost:8091/v1/search/bitmap/bulk/prices \
+curl -H "Content-Type: application/json" -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
     -d @sample/search-price-bulk-request-5.json
 ```
 
 * 5+
 
 ```bash
-time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v1/search/bitmap/bulk/prices \
+time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
     -d @sample/search-price-bulk-request-10000.json
 ```
 
 ## Benchmarks
-* [Benchmark Results](benchmark/benchmark.md)
+* [Benchmark Results](docs/benchmark.md)
 
 ### Benchmarks (low level)
 ```

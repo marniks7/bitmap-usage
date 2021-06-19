@@ -125,32 +125,6 @@ func (as *BitmapAggregateService) worker(ch chan model.FindPriceRequestBulk,
 	}
 }
 
-// Deprecated: another approach, not used right now
-func (as *BitmapAggregateService) worker1(ch chan model.FindPriceRequestBulk,
-	resp chan model.FindPriceResponseBulk,
-	errch chan error) {
-	for findPriceRequest := range ch {
-		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
-			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
-		if err != nil {
-			errch <- err
-		} else {
-			priceId, err := as.Index.FindPriceIdByIndex(ind)
-			if err != nil {
-				errch <- err
-			} else {
-				price := as.CS.Catalog.Prices[priceId]
-				if price != nil {
-					resp <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-				} else {
-					errch <- ErrUnableToFindPrice
-				}
-			}
-		}
-
-	}
-}
-
 //TODO error channel doesn't work yet
 //TODO add cancel
 func (as *BitmapAggregateService) LongLiveWorker() {

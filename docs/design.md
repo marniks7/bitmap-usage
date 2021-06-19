@@ -1,14 +1,14 @@
 # Design & Research
 
 ## Pre-requisites
-* All prices are stored in another system
+* All prices stored in another system
 * There is small chance to influence the way how it is organized there
 
 ## Conditions
 * `equals` - supported
-* `not equals` - NOT supported
-* `between` NOT supported
-* `in` - NOT supported
+* `not equals` - NOT supported (yet)
+* `between` NOT supported (yet)
+* `in` - NOT supported (yet)
 
 ## DataTypes
 * string - supported
@@ -54,8 +54,6 @@ In this case, it has sense to store PriceConditions in database directly with th
 |3|Group|c54a1b6e-03a6-469a-81b0-03ac77ce5d0|
 |4|Default|true|
 |5|Default|false|
-
-In that case list of bitmaps will go from many to one
 
 from
 ```go

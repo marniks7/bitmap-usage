@@ -31,7 +31,6 @@ func (as *MapAggregateService) FindPriceBulkByXV3(rw http.ResponseWriter, r *htt
 
 	var findPriceRequests []model.FindPriceRequestBulk
 	err := dec.Decode(&findPriceRequests)
-
 	if err != nil {
 		misc.HandleDecodeError(rw, err)
 		return
