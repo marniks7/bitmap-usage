@@ -16,17 +16,17 @@ Efficient storage and efficient search for prices based on many conditions (attr
 
 ## Usage  
 * Search 1 price. Bitmap 
-  ```bash
-  curl -POST http://localhost:8091/v1/search/bitmap/prices \
+```bash
+curl -POST http://localhost:8091/v1/search/bitmap/prices \
       -H "Content-Type: application/json" \
       -d @sample/search-price-request.json
-  ```
+```
 * Search 1 price. Map
-  ```bash
-  curl -POST http://localhost:8091/v1/search/map/prices \
+```bash
+curl -POST http://localhost:8091/v1/search/map/prices \
       -H "Content-Type: application/json" \
       -d @sample/search-price-request.json
-  ```
+```
 * Search 5 prices. Bitmap
 ```bash
 curl -H "Content-Type: application/json" -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
