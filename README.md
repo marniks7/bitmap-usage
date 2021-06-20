@@ -8,9 +8,8 @@ Efficient storage and efficient search for prices based on many conditions (attr
 * [Tasks](docs/tasks.md)
 
 ## Disclaimer
-> Work in progress. A lot of unit tests added recently to cover logic, however there still might be issues,
-> so benchmarks may change drastically.
-> Benchmarks and 
+> Work in progress. There are still a lot todo to get the 'right' results.
+> Unit tests, different data cases, more business cases, challenges with benchmarking and env configuration
  
 ## Usage
 
