@@ -95,18 +95,16 @@ cause the code is the same. This benchmark requires deeper investigation to prop
 
 *This is a part of go test on mocks, just for illustration purposes here. Prefer `Timing (high level)`
 
-## Performance Testing with AB (OLD)
-* One thread
-  ```ab -k -c 1 -n 1000 -T application/json -p sample/search-price-request.json http://127.0.0.1:8091/v1/search/bitmap/prices```
-* Concurrent, 20 threads
-  ```ab -k -c 20 -n 100000 -T application/json -p sample/search-price-request.json http://127.0.0.1:8091/v1/search/bitmap/prices```
-* Bulk Request One Thread
-  ```ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json http://127.0.0.1:8091/v1/search/bitmap/bulk/prices```
-
 ## Machine, Software and Run notes
 * OS: linux, arch: amd64
 * CPU: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-* benchmark tool: [wrk2](https://github.com/giltene/wrk2)
+    * 6 cores (12 processors)
 * The same machine used to run app and benchmark
-* Browser and other software might be open during execution
-    * Benchmarks executed with the same conditions
+* Processors are limited to `2` for app plus `2` more on benchmark tool
+* Browser and other applications might work during execution  
+* Benchmark tools: 
+  * [wrk](https://github.com/wg/wrk/)
+    * wrk is the only choice - it supports microseconds
+  * [wrk2](https://github.com/giltene/wrk2)
+  * [hey](https://github.com/rakyll/hey)
+  * [ab](http://httpd.apache.org/docs/current/programs/ab.html)  
