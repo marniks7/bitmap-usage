@@ -3,7 +3,9 @@ build:
 run:
 	GOMAXPROCS=2 ./bitmap-usage
 test:
-	go test --short -coverprofile -v ./...
+	go test -v -covermode=count -coverprofile=coverprofile.out ./... -short
+test-cover:
+	go tool cover -html=coverprofile.out
 run-profile-gc:
 	GOMAXPROCS=2 GODEBUG=gctrace=1 ./bitmap-usage
 run-no-gc:
