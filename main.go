@@ -14,7 +14,8 @@ import (
 	"github.com/rs/zerolog/log"
 	"github.com/ugorji/go/codec"
 	"net/http"
-	//_ "net/http/pprof"
+	"net/http/pprof"
+	_ "net/http/pprof"
 	"os"
 	"os/signal"
 	"runtime"
@@ -31,8 +32,6 @@ func main() {
 }
 
 func Setup() {
-	//ballast is 1GB
-	//_ = make([]byte, 10<<30)
 	// create default logger
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: time.RFC3339})
 
@@ -126,16 +125,19 @@ func Setup() {
 	health := r.Methods(http.MethodGet).Subrouter()
 	health.HandleFunc("/health", handlers.Health)
 	health.HandleFunc("/ready", handlers.Ready)
+	//additional
+	r.HandleFunc("/debug/pprof/gc", TriggerGC)
 	// Register pprof handlers
-	//r.HandleFunc("/debug/pprof/", pprof.Index)
-	//r.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
-	//r.HandleFunc("/debug/pprof/profile", pprof.Profile)
-	//r.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
-	//r.HandleFunc("/debug/pprof/trace", pprof.Trace)
-	//r.Handle("/debug/pprof/heap", pprof.Handler("heap"))
-	//r.Handle("/debug/pprof/goroutine", pprof.Handler("goroutine"))
-	//r.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
-	//r.Handle("/debug/pprof/block", pprof.Handler("block"))
+	r.HandleFunc("/debug/pprof/", pprof.Index)
+	r.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
+	r.HandleFunc("/debug/pprof/profile", pprof.Profile)
+	r.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
+	r.HandleFunc("/debug/pprof/trace", pprof.Trace)
+	r.Handle("/debug/pprof/heap", pprof.Handler("heap"))
+	r.Handle("/debug/pprof/goroutine", pprof.Handler("goroutine"))
+	r.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
+	r.Handle("/debug/pprof/allocs", pprof.Handler("allocs"))
+	r.Handle("/debug/pprof/block", pprof.Handler("block"))
 
 	runtime.GC()
 	server := &http.Server{Addr: addr,
@@ -189,4 +191,8 @@ func getEnvOrDefault(key string, def, description string) string {
 		return getenv
 	}
 	return def
+}
+
+func TriggerGC(_ http.ResponseWriter, _ *http.Request) {
+	runtime.GC()
 }

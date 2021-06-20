@@ -44,6 +44,6 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 
 ## Benchmarks
 * [Benchmark Results](docs/benchmark.md)
-* Low-level `make benchmark`
+* Low-level `make bench`
 * High-level `make wrk`
-* Memory `make benchmark-memory`
+* Memory `make bench-memory`

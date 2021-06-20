@@ -10,25 +10,30 @@ import (
 	"testing"
 )
 
-func BenchmarkBitmap_FindPriceIndexId_Conditions8(b *testing.B) {
-	_, ind := prepareBitmapIndex(b)
+func BenchmarkBitmap_FindPrice_Conditions8_11position(b *testing.B) {
+	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
-	var price uint32
+	var price *model.Price
 	for i := 0; i < b.N; i++ {
-		price, _ = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-			[]model.CharValue{{"Term", "24"},
-				{"B2B Traffic", "5GB"},
-				{"B2B Bandwidth", "900Mbps"},
-				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-				{"Router", "Not Included"}})
+		priceIndex, _ := ind.FindPriceIndexBy("a38e432c-3965-4c74-8251-aa640002d2b2", "Default", "MRC",
+			[]model.CharValue{{"Term", "12"},
+				{"B2B Traffic", "1GB"},
+				{"B2B Bandwidth", "30Mbps"},
+				{"VPN", "ad796998-f1c7-4fcc-9a6b-1b33042fb375"},
+				{"Router", "Included"}})
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			b.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
 	}
-	if price == 0 {
+	if price == nil {
 		b.Fail()
 	}
 }
 
-func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
+func BenchmarkBitmap_FindPrice_Conditions8_3824Position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -49,6 +54,47 @@ func BenchmarkBitmap_FindPrice_Conditions8(b *testing.B) {
 	}
 	if price == nil {
 		b.FailNow()
+	}
+}
+
+func BenchmarkBitmap_FindPrice_Conditions8_9701position(b *testing.B) {
+	cs, ind := prepareBitmapIndex(b)
+
+	b.ResetTimer()
+	var price *model.Price
+	for i := 0; i < b.N; i++ {
+		priceIndex, _ := ind.FindPriceIndexBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
+			[]model.CharValue{{"Term", "60"},
+				{"B2B Traffic", "100GB"},
+				{"B2B Bandwidth", "75Mbps"},
+				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
+				{"Router", "Included"}})
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			b.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
+	}
+	if price == nil {
+		b.Fail()
+	}
+}
+
+func BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position(b *testing.B) {
+	_, ind := prepareBitmapIndex(b)
+
+	b.ResetTimer()
+	var price uint32
+	for i := 0; i < b.N; i++ {
+		price, _ = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+			[]model.CharValue{{"Term", "24"},
+				{"B2B Traffic", "5GB"},
+				{"B2B Bandwidth", "900Mbps"},
+				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+				{"Router", "Not Included"}})
+	}
+	if price == 0 {
+		b.Fail()
 	}
 }
 
