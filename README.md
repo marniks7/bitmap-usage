@@ -45,26 +45,6 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 
 ## Benchmarks
 * [Benchmark Results](docs/benchmark.md)
-
-### Benchmarks (low level)
-```
-go test  -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... -bench . -run ^$ -cpu 1 -benchmem -failfast > benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt
-```
-
-### Benchmarks (high level)
-* 1, 10 and 20 connections on 1, 1 and 6 OS threads respectively
-```
-wrk -c1 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-c1-t1.txt
-wrk -c1 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-c1-t1.txt
-
-wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-c10-t1.txt
-wrk -c10 -t1 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-c10-t1.txt
-
-wrk -c20 -t6 -d30s --latency http://127.0.0.1:8091/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-c20-t6.txt
-wrk -c20 -t6 -d30s --latency http://127.0.0.1:8091/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-c20-t6.txt
-```
-
-### Memory
-```
-go test  -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... . -failfast -test.memprofilerate=1
-```
+* Low-level `make benchmark`
+* High-level `make wrk`
+* Memory `make benchmark-memory`

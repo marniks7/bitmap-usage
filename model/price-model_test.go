@@ -75,10 +75,8 @@ func TestMap2(t *testing.T) {
 	before := benchmark.PrintMemStats()
 	l := make(map[string]*Price, 1)
 	after := benchmark.PrintMemStats()
-	benchmark.PrintMemStatsFormat(after, before, func(u int64) int64 {
-		return u
-	}, "B")
-	fmt.Println(l)
+	benchmark.PrintMemStatsFormat(after, before, benchmark.ConvertToHumanReadableSize)
+	assert.Len(t, l, 0)
 }
 
 func Test3(t *testing.T) {

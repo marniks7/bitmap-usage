@@ -6,6 +6,7 @@ import (
 
 // CharValue - search parameters for characteristics
 // Note: used as swallow copy
+//go:generate ffjson $GOFILE
 type CharValue struct {
 	Char  string `json:"char"`
 	Value string `json:"value"`

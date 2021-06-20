@@ -1,0 +1,20 @@
+# exclude idea
+.idea
+*.iml
+
+# exclude app internals
+**/*.log
+**/*.json
+**/*.wrk
+**/*.md
+docs
+README.md
+Dockerfile
+Makefile
+
+# exclude app if build locally
+bitmap-usage
+
+# docker ignore that doesn't work - ignore everything + exclusion folders !**/*.go
+!go.mod
+!go.sum
