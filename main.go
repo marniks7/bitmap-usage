@@ -15,7 +15,6 @@ import (
 	"github.com/ugorji/go/codec"
 	"net/http"
 	"net/http/pprof"
-	_ "net/http/pprof"
 	"os"
 	"os/signal"
 	"runtime"

@@ -10,44 +10,37 @@
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
 |FindPrice|18246 ns/op|207368 ns/op|~11 times less, 1 order of magnitude|
-|FindPrice_MapOptimized|18246 ns/op|75852 ns/op|~4 times less|
+|FindPrice_MapOptimized_3824_of_9700|18246 ns/op|75852 ns/op|~4 times less|
 |FindPrice_HTTPClientServer*|95266 ns/op|351127 ns/op|~3.7 times less|
 
 ### Timing (high level)
-* 1 connection (1 OS thread)
+* 1 connection (1 processor)
 
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
-|50%|58.00us|796.00us|738us|
-|75%|80.00us|1.28ms|1.2ms|
-|90%|125.00us|1.35ms|1.2ms|
-|99%|5.26ms**|1.49ms|3.77ms|
-|request/sec|13612|1127|12485|
-|total requests|408784|33836|374948|
+|50%|57us|455.00us|398us|
+|75%|65us|581.00us|516ms|
+|90%|87us|0.9ms|0.8ms|
+|95%|103us|1.00ms|0.9ms|
+|97%|120us|1.07ms|1ms|
+|98%|136us|1.14ms|1ms|
+|99%|192us|1.33ms|1.1ms|
+|request/sec|15.5k|2k|13.5k|
+|total requests|470k|55.5k|414k|
 
-** with `export GOGC=1000000000` - it is 325.00us and throughput decreased
-
-* 10 connections (1 OS thread)
-
-|Case|Bitmap|Map|Benefit|
-|---|---|---|---|
-|50%|116.00us|709.00us|593us|
-|75%|143.00us|771.00us|593us|
-|90%|250.00us|1.00ms|628us|
-|99%|7.51ms|2.70ms|-4.81ms|
-|request/sec|70407|13875|56532|
-|total requests|2117336|416435|1700901|
-
-* 20 connections (6 OS threads)
+* 20 connections (2 processors)
 
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
-|50%|180.00us|0.95ms|770us|
-|75%|292.00us|1.63ms|1338us|
-|90%|616.00us|2.03ms|1414us|
-|99%|8.74ms|5.57ms|-3.17ms|
-|requests/sec|76189|14403|61786|
-|total requests|2288549|432554|1855995|
+|50%|485us|3.31ms|3ms|
+|75%|737us|4.84ms|4ms|
+|90%|1.02ms|6.36ms|5.3ms|
+|95%|1.02ms|7.39ms|6.3ms|
+|97%|1.54ms|7.85ms|6.3us|
+|98%|2.02ms|8.11ms|6ms|
+|99%|3.88ms|8.56ms|4.7ms|
+|requests/sec|40k|6k|34k|
+|total requests|1.1kk|180k|0.9kk|
 
 ### Memory
 |Case|Bitmap|Map|Benefit|
@@ -77,7 +70,11 @@
 More over, it allows using LRU cache and evict entire Prices Storage and load what is often used only.
 In case of 'map' stored prices contains all data needed for price search, that is why LRU cache is not that efficient. 
 It will force eviction and loading ALL prices per offering.
-
+* Calculations and memory results looks promising, but there is one huge pitfall - 
+  benchmark executed with no memory limits. In case if _strict_ memory limits will be introduced, in current version of 
+  roaring bitmaps TPS should be limited, otherwise GC pressure will drop timings significantly.
+  There is one project that looks promising - [sroar](https://github.com/dgraph-io/sroar/) - huge memory allocations drop
+  
 ## Notes. Search based on simple map index
 1. **BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position**
    * Search doesn't depend on element position and requires iteration over all elements

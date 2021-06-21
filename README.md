@@ -2,7 +2,7 @@
 
 ## Goal
 
-Efficient storage and efficient search for prices based on many conditions (attributes)
+Efficient storage and efficient search for prices based on many conditions
 
 * [Design](docs/design.md)
 * [Tasks](docs/tasks.md)
