@@ -46,15 +46,15 @@
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
 |Total|90MB|180MB|90MB|
-|Price Storage (all)|86MB|175MB|89MB. But this value might be decreased to 52MB (-37MB)|
+|Price Storage (all)|87MB|175MB|89MB. But this value might be decreased to 52MB (-37MB)|
 |Index|2.67MB|4.69MB|2MB|
 
 #### Memory with LRU*
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
-|LRU|10%-100%. 9MB-86MB| 100% 175MB (harder to use)|
+|LRU|10%-100%. 9MB-87MB| 100% 175MB (harder to use)|
 |Index|3MB|5MB|-2MB|
-|Results|12MB-89MB|180MB|90MB-168MB|
+|Results|12MB-90MB|180MB|90MB-168MB|
 
 #### Memory Detailed
 |Case|Bitmap|Map|Benefit|
