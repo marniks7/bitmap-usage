@@ -3,8 +3,9 @@ module bitmap-usage
 go 1.16
 
 require (
-	github.com/RoaringBitmap/roaring v0.6.0
+	github.com/RoaringBitmap/roaring v0.6.1
 	github.com/StackExchange/wmi v0.0.0-20210224194228-fe8f1750fd46 // indirect
+	github.com/dgraph-io/sroar v0.0.0-20210604145002-865050cb7465 // indirect
 	github.com/francoispqt/gojay v1.2.13
 	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/google/uuid v1.2.0

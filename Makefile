@@ -5,9 +5,13 @@ build:
 	go generate ./... && go build .
 run:
 	GOMAXPROCS=2 GOGC=1000 ADDR=:${APP_PORT} ./bitmap-usage
+run-64:
+	GOMAXPROCS=2 GOGC=1000 ROARING64=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
+run-sroar:
+	GOMAXPROCS=2 GOGC=1000 SROAR=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
 build-run: build run
 test:
-	go test -v -covermode=count -coverprofile=coverprofile.out ./... -short
+	go test -covermode=count -coverprofile=coverprofile.out ./... -short
 test-cover:
 	go tool cover -html=coverprofile.out
 run-profile-gc:
@@ -20,18 +24,24 @@ docker-run:
 	docker run -p ${APP_PORT}:8080 --cpus="2" --env GOMAXPROCS=2 GOGC=1000 bitmap-usage
 bench:
 	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... -bench . -run ^$$ -cpu 1 -benchmem -failfast > benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt
+bench-64:
+	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast > benchmark/Prices-487k-PricesPerOffering-9.7k-64/benchmark-results.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k-64/benchmark-results.txt
+bench-sroar:
+	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast > benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/benchmark-results.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/benchmark-results.txt
 bench-memory:
 	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... . -failfast -test.memprofilerate=1
+bench-memory-sroar:
+	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... . -failfast -test.memprofilerate=1
 docker-run-profile-gc:
 	docker run -p ${APP_PORT}:8080 --cpus="2" --env GOMAXPROCS=2 --env GODEBUG=gctrace=1 bitmap-usage
 wrk-map-t1-c1:
-	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-t1-c1.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k/map-t1-c1.txt
+	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/map-t1-c1.txt && cat benchmark/wrk/map-t1-c1.txt
 wrk-map-t2-c20:
-	wrk -t2 -c20 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/map-t2-c20.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k/map-t2-c20.txt
+	wrk -t2 -c20 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/map-t2-c20.txt && cat benchmark/wrk/map-t2-c20.txt
 wrk-bitmap-t1-c1:
-	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-t1-c1.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-t1-c1.txt
+	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/bitmap-t1-c1.txt && cat benchmark/wrk/bitmap-t1-c1.txt
 wrk-bitmap-t2-c20:
-	wrk -t2 -c20 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-t2-c20.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-t2-c20.txt
+	wrk -t2 -c20 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/bitmap-t2-c20.txt && cat benchmark/wrk/bitmap-t2-c20.txt
 trigger-gc:
 	curl ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/gc && sleep 1
 wrk: wrk-map-t1-c1 trigger-gc wrk-map-t2-c20 trigger-gc wrk-bitmap-t1-c1 trigger-gc wrk-bitmap-t2-c20 trigger-gc

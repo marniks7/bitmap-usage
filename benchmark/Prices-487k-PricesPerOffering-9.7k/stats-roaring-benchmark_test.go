@@ -2,13 +2,8 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	"bitmap-usage/benchmark"
-	"bitmap-usage/cache"
-	indexroaring "bitmap-usage/index-roaring"
-	"bitmap-usage/sample"
 	"fmt"
 	"github.com/RoaringBitmap/roaring"
-	"github.com/rs/zerolog/log"
-	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
 )
@@ -57,15 +52,4 @@ func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
 	fmt.Fprintf(f, "Size: %v\n", benchmark.ConvertToHumanReadableSizeUint64(bSum))
 	fmt.Fprintf(f, "Serialized Size: %v\n", benchmark.ConvertToHumanReadableSizeUint64(sbSum))
 	fmt.Fprintf(f, "Count: %v\n", cnt)
-}
-
-func prepareBitmapIndexT(t *testing.T) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
-	assert.NoError(t, err)
-
-	ind := indexroaring.NewService(log.Logger)
-	ind.IndexPrices(cs.Catalog)
-	cs.GeneratePricesByConditions()
-	return cs, ind
 }

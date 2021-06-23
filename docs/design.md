@@ -15,6 +15,16 @@
 * integer - supported (as string and only for equals)
 * date - NOT supported
 
+## Limitations
+* Amount of prices is limited to uint32 ~4.2billions
+
+## Prices CRUD
+CRUD - all operations should be supported and implemented, but there are some expectations that might be useful.
+* Read (or search for price) - the most used operation
+* Create - used operation
+* Update - is for closing the date (end date). Other changes only for testing scenarios. 
+* Delete - only for testing scenarios.
+
 ## Mapping
 
 All attributes have their own Ids (externalIds), which are not integers. To be able to use it, it is required to create

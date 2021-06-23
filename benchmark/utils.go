@@ -3,6 +3,7 @@ package benchmark
 import (
 	"fmt"
 	"github.com/RoaringBitmap/roaring"
+	"github.com/RoaringBitmap/roaring/roaring64"
 	"os"
 	"os/exec"
 	"runtime"
@@ -123,6 +124,22 @@ func PrintBitmapStats(f *os.File, ind []*roaring.Bitmap, name string) ([]roaring
 	return stats, sInB, sInBS
 }
 
+func PrintBitmapStats64(f *os.File, ind []*roaring64.Bitmap, name string) ([]roaring.Statistics, uint64, uint64) {
+	fmt.Fprint(f, name+" ==========================================================\n")
+	var sInB uint64
+	var sInBS uint64
+	var stats []roaring.Statistics
+	for i, bm := range ind {
+		fmt.Fprintf(f, "========== %v ==========\n", i)
+		fmt.Fprintf(f, "%+v\n", bm.Stats())
+		stats = append(stats, bm.Stats())
+		fmt.Fprintf(f, "SizeInBytes: %v\n", bm.GetSizeInBytes())
+		sInB += bm.GetSizeInBytes()
+		fmt.Fprintf(f, "SerializedSizeInBytes: %v\n", bm.GetSerializedSizeInBytes())
+		sInBS += bm.GetSerializedSizeInBytes()
+	}
+	return stats, sInB, sInBS
+}
 func ConvertToHumanReadableSize(b int64) string {
 	const unit = 1000
 	if b < unit {
