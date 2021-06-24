@@ -2,6 +2,7 @@ package Prices_487k_PricesPerOffering_9_7k_64
 
 import (
 	"bitmap-usage/benchmark"
+	"bitmap-usage/misc"
 	"fmt"
 	"github.com/RoaringBitmap/roaring/roaring64"
 	"os"
@@ -42,6 +43,6 @@ func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
 	bSum += b
 	sbSum += sb
 	fmt.Fprintln(f, "============================== Total ==============================================")
-	fmt.Fprintf(f, "Size: %v\n", benchmark.ConvertToHumanReadableSizeUint64(bSum))
-	fmt.Fprintf(f, "Serialized Size: %v\n", benchmark.ConvertToHumanReadableSizeUint64(sbSum))
+	fmt.Fprintf(f, "Size: %v\n", misc.ConvertToHumanReadableSizeUint64(bSum))
+	fmt.Fprintf(f, "Serialized Size: %v\n", misc.ConvertToHumanReadableSizeUint64(sbSum))
 }

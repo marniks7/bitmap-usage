@@ -2,6 +2,7 @@ package model
 
 import (
 	"bitmap-usage/benchmark"
+	"bitmap-usage/misc"
 	"bufio"
 	"fmt"
 	"github.com/google/uuid"
@@ -75,7 +76,7 @@ func TestMap2(t *testing.T) {
 	before := benchmark.PrintMemStats()
 	l := make(map[string]*Price, 1)
 	after := benchmark.PrintMemStats()
-	benchmark.PrintMemStatsFormat(after, before, benchmark.ConvertToHumanReadableSize)
+	benchmark.PrintMemStatsFormat(after, before, misc.ConvertToHumanReadableSize)
 	assert.Len(t, l, 0)
 }
 

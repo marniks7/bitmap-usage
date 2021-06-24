@@ -73,12 +73,9 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 
 	if result == nil {
 		result = roaring.And(ob, groupBitmap)
-		//cs.L.Info("Result size 1", result.GetCardinality())
 	} else {
 		result.And(groupBitmap)
-		//cs.L.Info("Result size 2", result.GetCardinality())
 	}
-	//cs.L.Info("Result size 3", result.GetCardinality())
 	var specBitmap *roaring.Bitmap
 	if u, ok := bmi.SpecIdToIndex[specId]; ok {
 		specBitmap = bmi.SpecBitmaps[u]

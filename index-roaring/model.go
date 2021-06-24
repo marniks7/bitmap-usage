@@ -42,3 +42,23 @@ type GlobalIndex struct {
 	//from bitmaps to original id
 	indexToPriceId []string
 }
+
+type GroupBitmapsStatistics struct {
+	Name             string
+	Cnt              int
+	SizeHR           string
+	Size             uint64
+	SerializedSizeHR string
+	SerializedSize   uint64
+	Stats            []*BitmapStatistics
+}
+
+type BitmapStatistics struct {
+	Name             string
+	Cnt              int
+	SizeHR           string
+	Size             uint64
+	SerializedSizeHR string
+	SerializedSize   uint64
+	Stats            []roaring.Statistics
+}

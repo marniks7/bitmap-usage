@@ -34,7 +34,7 @@ func TestMapMemoryStats(t *testing.T) {
 	benchmark.PrintMemStatsBetween(after, before)
 	fmt.Println("Memory stats after finish of initialization:")
 	benchmark.PrintMemStats()
-	f, err := os.Create("map-heapdump")
+	f, err := os.Create("memory/map-heapdump")
 	if err != nil {
 		panic(err)
 	}
@@ -42,8 +42,8 @@ func TestMapMemoryStats(t *testing.T) {
 	runtime.GC()
 	err = pprof.WriteHeapProfile(f)
 	assert.NoError(t, err)
-	benchmark.ReadAndWritePprofTop("map-heapdump", "map-heapdump-top.txt")
-	benchmark.ReadAndWritePprofTopWithInuseObjects("map-heapdump", "map-heapdump-top-inuse-objects.txt")
+	benchmark.ReadAndWritePprofTop("memory/map-heapdump", "memory/map-heapdump-top.txt")
+	benchmark.ReadAndWritePprofTopWithInuseObjects("memory/map-heapdump", "memory/map-heapdump-top-inuse-objects.txt")
 	assert.NotZero(t, len(cs.Catalog.PriceConditions))
 	assert.NotZero(t, len(ind.Index))
 }
