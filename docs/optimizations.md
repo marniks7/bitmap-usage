@@ -17,6 +17,7 @@
 |Bulk. Gzip output|Test|
 |Bulk. Concurrency Level|Test|
 |Bulk. Long-Live Goroutines|For bulk cases to avoid goroutine creation. Can be used global or pool per call|
+|Bulk. Group|There are a lot of cases when the data for bulk is the same. Is it possible somehow to group it?|
 |GC|Tune|
 |Protobuf instead of json|Json marshal and unmarshal is slow, check protobuf|
 |Json codec libraries|Test|

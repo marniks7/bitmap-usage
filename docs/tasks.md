@@ -1,14 +1,17 @@
 # Tasks
 * [ ] See [Consider Improvements](design.md)
 * [ ] See [Optimizations](optimizations.md)
+  
+## Functionality
 * [ ] Support dates and between
 * [ ] Support integers and between
-* [ ] GZip for bulk
-* [ ] Grouping for bulk
 * [ ] Update index
 * [ ] Scalability - distributed cache?
 * [ ] Time of app start (index or load index)
+  
+## Libraries
 * [ ] Test Pilosa
-* [ ]Add benchmarks for default price search
-* [ ] Add optimization for default prices - move them to the beginning of the index
+  
+## Benchmarking
 * [x] Add memory statistic
+* [ ] Add benchmarks for default price search

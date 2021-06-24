@@ -10,7 +10,9 @@ Efficient storage and efficient search for prices based on many conditions
 ## Disclaimer
 > Work in progress. There are still a lot todo to get the 'right' results.
 > Unit tests, different data cases, more business cases, challenges with benchmarking and env configuration
- 
+
+* See [Status](docs/status.md) for details
+
 ## Build & Run
 * `make build-run`
 
