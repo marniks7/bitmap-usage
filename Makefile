@@ -9,6 +9,8 @@ run-64:
 	GOMAXPROCS=2 GOGC=1000 ROARING64=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
 run-sroar:
 	GOMAXPROCS=2 GOGC=1000 SROAR=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
+run-fiber:
+	FIBER=true GOMAXPROCS=2 GOGC=1000 SROAR=false MAP64=false ADDR=:${APP_PORT} ./bitmap-usage
 build-run: build run
 test:
 	go test -covermode=count -coverprofile=coverprofile.out ./... -short

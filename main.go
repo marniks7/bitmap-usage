@@ -17,6 +17,7 @@ import (
 	"bitmap-usage/sample"
 	sample64 "bitmap-usage/sample64"
 	"context"
+	"github.com/gofiber/fiber/v2"
 	"github.com/gorilla/mux"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -35,6 +36,7 @@ var (
 	roaring64    = getEnvOrDefault("ROARING64", "false", "Use roaring 64")
 	sroar        = getEnvOrDefault("SROAR", "false", "Use 64 bit sroar")
 	map64        = getEnvOrDefault("MAP64", "false", "Use 64 bit maps")
+	turnOnFiber  = getEnvOrDefault("FIBER", "false", "Use Fiber framework")
 )
 
 func main() {
@@ -56,6 +58,8 @@ func Setup() {
 	var cs64 *cache64.CatalogService
 	// create router
 	r := mux.NewRouter()
+	// create another router for fiber
+	app := fiber.New()
 	if "true" == roaring64 {
 		log.Info().Msg("Use Roaring64")
 		cs64 = cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
@@ -136,6 +140,8 @@ func Setup() {
 		findPriceBy := r.Methods(http.MethodPost).Subrouter()
 		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
+		app.Post("/v1/search/bitmap/prices", as.FindPriceByX_Fiber)
+
 		findPriceBulk := r.Methods(http.MethodPost).Subrouter()
 		findPriceBulk.HandleFunc("/v1/search/bitmap/bulk/prices", as.FindPriceBulkByX)
 
@@ -167,6 +173,8 @@ func Setup() {
 		indMap := indexMap.NewService(log.Logger)
 		indMap.IndexPrices(cs.Catalog)
 		asMap := handlersmap.NewMapAggregateService(log.Logger, cs, indMap)
+
+		app.Post("/v1/search/map/prices", asMap.FindPriceByX_Fiber)
 
 		mapFindPriceBy := r.Methods(http.MethodPost).Subrouter()
 		mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
@@ -219,7 +227,12 @@ func Setup() {
 	//start server in separate goroutine
 	go func() {
 		log.Info().Str("addr", addr).Msg("Starting server")
-		err = server.ListenAndServe()
+		if turnOnFiber == "true" {
+			err = app.Listen(addr)
+		} else {
+			err = server.ListenAndServe()
+		}
+
 		if err != nil {
 			if err == http.ErrServerClosed {
 				log.Info().Msg("Server is shutdown")

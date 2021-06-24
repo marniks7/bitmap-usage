@@ -26,3 +26,4 @@
 |Defragmentation for bitmaps|During updates bitmaps may become 'fragmented'. Test the influence of that|
 |Map - default prices reordering|This is based on previous optimization for `templates`. It is known if request will target specific price or default. Reorder and place default in the beginning|
 |Order of bitmap operations|Start from bitmap with smallest cardinality|
+|Avoid price marshaling|We can try to store bytes directly to avoid marshaling|
