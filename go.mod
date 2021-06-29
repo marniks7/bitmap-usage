@@ -7,8 +7,8 @@ require (
 	github.com/StackExchange/wmi v0.0.0-20210224194228-fe8f1750fd46 // indirect
 	github.com/andybalholm/brotli v1.0.3 // indirect
 	github.com/dgraph-io/sroar v0.0.0-20210604145002-865050cb7465 // indirect
-	github.com/francoispqt/gojay v1.2.13
 	github.com/go-ole/go-ole v1.2.5 // indirect
+	github.com/gofiber/adaptor/v2 v2.1.7 // indirect
 	github.com/gofiber/fiber/v2 v2.13.0 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/gorilla/mux v1.8.0

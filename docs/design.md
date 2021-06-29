@@ -32,8 +32,8 @@ internalId with types, like uint8, uint16 or uint32. As well, as mapping between
 Whenever request comes - this mapping will be used to find internalId by externalId. InternalId will be
 used to find related Bitmap.
 
-## Consider Improvements
-### Database: Store indexId in database
+## Database Integration
+### Attribute Index
 It is possible to generate it ahead of indexer. For example, store in database. 
 * Benefits
     * Stable
@@ -47,15 +47,7 @@ Table: SpecToIndex
 |1|db108b38-04fa-41fd-a681-9e1ad3ae0fce|
 |2|9ead77df-24d1-43e3-b39e-fdc806b7fc98|
 
-### Database:Store indexId for PriceCondition table
-In this case, it has sense to store PriceConditions in database directly with those ids.
-* Benefits
-    * Decrease space requirement to database
-* Drawbacks
-    * Bounded to that index in database
-    * Joins in database
-
-### Database: Global Attribute Index
+### Global Attribute Index
 
 |id|type|external_id|
 --- |--- |--- |
@@ -83,11 +75,9 @@ attributes []*roaring.Bitmap
 ### App: LRU Cache
 Prices can use a lot of memory, to address that issue can be used LRU cache
 
-### Database: Store Prices and PriceConditions in separate tables
-* Benefits
-  * Faster price query
-* Drawbacks
-  * Manage and update 2 tables instead of 1
+### Ordering matters
+For bitmaps important to order data to get the expected ones as close as possible.
+It means that we need to sort indexId
 
 ### Improvement criterias (unordered)
 1. Database Memory \ Disk Usage

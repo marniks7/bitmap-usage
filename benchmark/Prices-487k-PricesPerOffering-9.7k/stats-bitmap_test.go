@@ -13,6 +13,20 @@ func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
 	}
 	_, ind := prepareBitmapIndexT(t)
 
+	for _, sb := range ind.Index.SpecBitmaps {
+		sb.RunOptimize()
+	}
+	for _, sb := range ind.Index.OfferingBitmaps {
+		sb.RunOptimize()
+	}
+	for _, sb := range ind.Index.GroupBitmaps {
+		sb.RunOptimize()
+	}
+
+	for _, sb := range ind.Index.CharBitmaps {
+		sb.RunOptimize()
+	}
+	ind.Index.DefaultBitmaps.RunOptimize()
 	statistics := ind.GenerateBitmapStatistics()
 	statistics.Name = "Prices-487k-PricesPerOffering-9.7k"
 	f, err := os.Create("stats/bitmap-stats.json")

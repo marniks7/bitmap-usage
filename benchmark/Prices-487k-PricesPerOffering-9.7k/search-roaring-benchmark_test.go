@@ -2,6 +2,7 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	"bitmap-usage/model"
+	"runtime"
 	"testing"
 )
 
@@ -30,7 +31,21 @@ func BenchmarkBitmap_FindPrice_Conditions8_11position(b *testing.B) {
 
 func BenchmarkBitmap_FindPrice_Conditions8_3824Position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
+	for _, sb := range ind.Index.SpecBitmaps {
+		sb.RunOptimize()
+	}
+	for _, sb := range ind.Index.OfferingBitmaps {
+		sb.RunOptimize()
+	}
+	for _, sb := range ind.Index.GroupBitmaps {
+		sb.RunOptimize()
+	}
 
+	for _, sb := range ind.Index.CharBitmaps {
+		sb.RunOptimize()
+	}
+	ind.Index.DefaultBitmaps.RunOptimize()
+	runtime.GC()
 	b.ResetTimer()
 	var priceIndex uint32
 	var price *model.Price

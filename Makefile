@@ -1,29 +1,36 @@
 APP_PROTOCOL = http
 APP_HOST = 127.0.0.1
 APP_PORT = 8091
+FIBER = false
+GOGC = 1000
+GOMAXPROCS = 2
+SROAR = false
+ROARING64 = false
+MAP64 = false
+
 build:
 	go generate ./... && go build .
 run:
-	GOMAXPROCS=2 GOGC=1000 ADDR=:${APP_PORT} ./bitmap-usage
+	FIBER=${FIBER} GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} SROAR=${SROAR} ROARING64=${ROARING64} MAP64=${MAP64} ADDR=:${APP_PORT} ./bitmap-usage
 run-64:
-	GOMAXPROCS=2 GOGC=1000 ROARING64=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
+	FIBER=${FIBER} GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} SROAR=${SROAR} ROARING64=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
 run-sroar:
-	GOMAXPROCS=2 GOGC=1000 SROAR=true MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
+	FIBER=${FIBER} GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} SROAR=true ROARING64=${ROARING64} MAP64=true ADDR=:${APP_PORT} ./bitmap-usage
 run-fiber:
-	FIBER=true GOMAXPROCS=2 GOGC=1000 SROAR=false MAP64=false ADDR=:${APP_PORT} ./bitmap-usage
+	FIBER=true GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} SROAR=${SROAR} ROARING64=${ROARING64} MAP64=${MAP64} ADDR=:${APP_PORT} ./bitmap-usage
 build-run: build run
 test:
 	go test -covermode=count -coverprofile=coverprofile.out ./... -short
 test-cover:
 	go tool cover -html=coverprofile.out
 run-profile-gc:
-	GOMAXPROCS=2 GODEBUG=gctrace=1 ADDR=:${APP_PORT} ./bitmap-usage
+	GOMAXPROCS=${GOMAXPROCS} GODEBUG=gctrace=1 ADDR=:${APP_PORT} ./bitmap-usage
 run-no-gc:
-	GOMAXPROCS=2 GOGC=off ./bitmap-usage
+	GOMAXPROCS=${GOMAXPROCS} GOGC=off ./bitmap-usage
 docker-build:
 	docker build . -t bitmap-usage
 docker-run:
-	docker run -p ${APP_PORT}:8080 --cpus="2" --env GOMAXPROCS=2 GOGC=1000 bitmap-usage
+	docker run -p ${APP_PORT}:8080 --cpus="2" --env GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} bitmap-usage
 bench:
 	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... -bench . -run ^$$ -cpu 1 -benchmem -failfast > benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt && cat benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt
 bench-64:
@@ -40,6 +47,8 @@ wrk-map-t1-c1:
 	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/map-t1-c1.txt && cat benchmark/wrk/map-t1-c1.txt
 wrk-map-t2-c20:
 	wrk -t2 -c20 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/map/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/map-t2-c20.txt && cat benchmark/wrk/map-t2-c20.txt
+wrk-bitmap-bulk-1000-t1-c1:
+	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v4/search/bitmap/bulk/prices -s sample/wrk-search-price-bulk-request-1000.lua > benchmark/wrk/bitmap-bulk-1000-t1-c1.txt && cat benchmark/wrk/bitmap-bulk-1000-t1-c1.txt
 wrk-bitmap-t1-c1:
 	wrk -t1 -c1 -d30s --latency ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/bitmap/prices -s sample/wrk-search-price-request.lua > benchmark/wrk/bitmap-t1-c1.txt && cat benchmark/wrk/bitmap-t1-c1.txt
 wrk-bitmap-t2-c20:

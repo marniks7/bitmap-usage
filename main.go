@@ -17,6 +17,7 @@ import (
 	"bitmap-usage/sample"
 	sample64 "bitmap-usage/sample64"
 	"context"
+	"github.com/gofiber/adaptor/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gorilla/mux"
 	"github.com/rs/zerolog"
@@ -109,7 +110,20 @@ func Setup() {
 
 		as := handlersroaring.NewBitmapAggregateService(log.Logger, cs, ind)
 		cs.GeneratePricesByConditions()
-
+		//for _, sb := range ind.Index.SpecBitmaps {
+		//	sb.RunOptimize()
+		//}
+		//for _, sb := range ind.Index.OfferingBitmaps {
+		//	sb.RunOptimize()
+		//}
+		//for _, sb := range ind.Index.GroupBitmaps {
+		//	sb.RunOptimize()
+		//}
+		//
+		//for _, sb := range ind.Index.CharBitmaps {
+		//	sb.RunOptimize()
+		//}
+		//ind.Index.DefaultBitmaps.RunOptimize()
 		//long-live workers
 		go as.LongLiveWorker()
 		go as.LongLiveWorker()
@@ -131,11 +145,10 @@ func Setup() {
 		findPriceByUgorji := r.Methods(http.MethodPost).Subrouter()
 		findPriceByUgorji.HandleFunc("/v1/search/bitmap/prices/ugorji", as.FindPriceByX_Ugorji)
 
+		app.Post("/v1/search/bitmap/prices/ugorji", as.FindPriceByX_Ugorji_FIber)
+
 		findProceByXJsoniter := r.Methods(http.MethodPost).Subrouter()
 		findProceByXJsoniter.HandleFunc("/v1/search/bitmap/prices/jsoniter", as.FindPriceByXJsoniter)
-
-		findProceByXFFJson := r.Methods(http.MethodPost).Subrouter()
-		findProceByXFFJson.HandleFunc("/v1/search/bitmap/prices/ffjson", as.FindPriceByX_FFJson)
 
 		findPriceBy := r.Methods(http.MethodPost).Subrouter()
 		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
@@ -148,12 +161,11 @@ func Setup() {
 		findPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
 		findPriceBulkv2.HandleFunc("/v2/search/bitmap/bulk/prices", as.FindPriceBulkByXV2)
 
-		findPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
-		findPriceBulkv3.HandleFunc("/v3/search/bitmap/bulk/prices", as.FindPriceBulkByXV3)
-
 		findPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
 		findPriceBulkv4.HandleFunc("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4)
 
+		app.Post("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4_Fiber)
+		app.Post("/v4/search/bitmap/bulk/prices/ugorji", as.FindPriceBulkByXV4_Ugorji_Fiber)
 	}
 
 	runtime.GC()
@@ -188,15 +200,14 @@ func Setup() {
 		mapFindPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
 		mapFindPriceBulkv2.HandleFunc("/v2/search/map/bulk/prices", asMap.FindPriceBulkByXV2)
 
-		mapFindPriceBulkv3 := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceBulkv3.HandleFunc("/v3/search/map/bulk/prices", asMap.FindPriceBulkByXV3)
-
 		mapFindPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
 		mapFindPriceBulkv4.HandleFunc("/v4/search/map/bulk/prices", asMap.FindPriceBulkByXV4)
 
 	}
 
 	health := r.Methods(http.MethodGet).Subrouter()
+	app.Get("/health", handlers.HealthFiber)
+	app.Get("/ready", handlers.ReadyFiber)
 	health.HandleFunc("/health", handlers.Health)
 	health.HandleFunc("/ready", handlers.Ready)
 	//additional
@@ -212,6 +223,18 @@ func Setup() {
 	r.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
 	r.Handle("/debug/pprof/allocs", pprof.Handler("allocs"))
 	r.Handle("/debug/pprof/block", pprof.Handler("block"))
+
+	app.All("/debug/pprof/gc", adaptor.HTTPHandlerFunc(TriggerGC))
+	app.All("/debug/pprof/", adaptor.HTTPHandlerFunc(pprof.Index))
+	app.All("/debug/pprof/cmdline", adaptor.HTTPHandlerFunc(pprof.Cmdline))
+	app.All("/debug/pprof/profile", adaptor.HTTPHandlerFunc(pprof.Profile))
+	app.All("/debug/pprof/symbol", adaptor.HTTPHandlerFunc(pprof.Symbol))
+	app.All("/debug/pprof/trace", adaptor.HTTPHandlerFunc(pprof.Trace))
+	app.All("/debug/pprof/heap", adaptor.HTTPHandler(pprof.Handler("heap")))
+	app.All("/debug/pprof/goroutine", adaptor.HTTPHandler(pprof.Handler("goroutine")))
+	app.All("/debug/pprof/threadcreate", adaptor.HTTPHandler(pprof.Handler("threadcreate")))
+	app.All("/debug/pprof/allocs", adaptor.HTTPHandler(pprof.Handler("allocs")))
+	app.All("/debug/pprof/block", adaptor.HTTPHandler(pprof.Handler("block")))
 
 	runtime.GC()
 	server := &http.Server{Addr: addr,
