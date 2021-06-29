@@ -1,18 +1,18 @@
 File: Prices-487k-PricesPerOffering-9.7k.test
 Type: inuse_objects
-Time: Jun 12, 2021 at 10:32pm (EDT)
-Showing nodes accounting for 974400, 99.85% of 975904 total
-Dropped 159 nodes (cum <= 4879)
+Time: Jun 28, 2021 at 10:47pm (EDT)
+Showing nodes accounting for 974400, 99.85% of 975899 total
+Dropped 152 nodes (cum <= 4879)
       flat  flat%   sum%        cum   cum%
-    487200 49.92% 49.92%     487200 49.92%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:31
+    487200 49.92% 49.92%     487200 49.92%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:64
     487200 49.92% 99.85%     487200 49.92%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.2.0/uuid.go:173 (inline)
-         0     0% 99.85%     975799   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:65
-         0     0% 99.85%     487201 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:19
-         0     0% 99.85%     487203 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:33
-         0     0% 99.85%     487201 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:20
-         0     0% 99.85%     487203 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:34
+         0     0% 99.85%     975799   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:68
+         0     0% 99.85%     487201 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:22
+         0     0% 99.85%     487203 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:36
+         0     0% 99.85%     487201 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:23
+         0     0% 99.85%     487203 49.92%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:37
          0     0% 99.85%     487201 49.92%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:163
          0     0% 99.85%     487201 49.92%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:168
          0     0% 99.85%     487201 49.92%  bitmap-usage/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:148
          0     0% 99.85%     487201 49.92%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.2.0/version4.go:22
-         0     0% 99.85%     975811   100%  testing.tRunner /home/malerome/go/go1.16.4/src/testing/testing.go:1193
+         0     0% 99.85%     975811   100%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193
