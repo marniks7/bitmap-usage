@@ -71,7 +71,7 @@ ab-bulk-bitmap-1:
 ab-bulk-map-1:
 	ab -k -c 1 -n 100 -T application/json -p sample/search-price-bulk-request-10000.json ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v4/search/bitmap/bulk/prices
 ab:	ab-bitmap-1 trigger-gc ab-bitmap-20 trigger-gc ab-map-1 trigger-gc ab-map-20 trigger-gc
-pprof-allocs: # Memory allocations profiler. Run test, run it
+pprof-allocs: # Memory allocations profiler. Run test, wait till the end, run this command
 	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/allocs
 pprof-profile: # CPU profiler. Run it and run test
 	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
