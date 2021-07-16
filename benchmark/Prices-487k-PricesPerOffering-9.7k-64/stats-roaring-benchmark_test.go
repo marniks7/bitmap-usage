@@ -22,10 +22,7 @@ func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
 	var bSum uint64
 	var sbSum uint64
 
-	_, b, sb := benchmark.PrintBitmapStats64(f, ind.Index.CharBitmaps, "CharBitmaps")
-	bSum += b
-	sbSum += sb
-	_, b, sb = benchmark.PrintBitmapStats64(f, ind.Index.SpecBitmaps, "SpecBitmaps")
+	_, b, sb := benchmark.PrintBitmapStats64(f, ind.Index.SpecBitmaps, "SpecBitmaps")
 	bSum += b
 	sbSum += sb
 	_, b, sb = benchmark.PrintBitmapStats64(f, ind.Index.GroupBitmaps, "GroupBitmaps")

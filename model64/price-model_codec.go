@@ -14,28 +14,28 @@ import (
 
 const (
 	// ----- content types ----
-	codecSelferCcUTF87490 = 1
-	codecSelferCcRAW7490  = 255
+	codecSelferCcUTF84712 = 1
+	codecSelferCcRAW4712  = 255
 	// ----- value types used ----
-	codecSelferValueTypeArray7490     = 10
-	codecSelferValueTypeMap7490       = 9
-	codecSelferValueTypeString7490    = 6
-	codecSelferValueTypeInt7490       = 2
-	codecSelferValueTypeUint7490      = 3
-	codecSelferValueTypeFloat7490     = 4
-	codecSelferValueTypeNil7490       = 1
-	codecSelferBitsize7490            = uint8(32 << (^uint(0) >> 63))
-	codecSelferDecContainerLenNil7490 = -2147483648
+	codecSelferValueTypeArray4712     = 10
+	codecSelferValueTypeMap4712       = 9
+	codecSelferValueTypeString4712    = 6
+	codecSelferValueTypeInt4712       = 2
+	codecSelferValueTypeUint4712      = 3
+	codecSelferValueTypeFloat4712     = 4
+	codecSelferValueTypeNil4712       = 1
+	codecSelferBitsize4712            = uint8(32 << (^uint(0) >> 63))
+	codecSelferDecContainerLenNil4712 = -2147483648
 )
 
 var (
-	errCodecSelferOnlyMapOrArrayEncodeToStruct7490 = errors.New(`only encoded map or array can be decoded into a struct`)
+	errCodecSelferOnlyMapOrArrayEncodeToStruct4712 = errors.New(`only encoded map or array can be decoded into a struct`)
 )
 
-type codecSelfer7490 struct{}
+type codecSelfer4712 struct{}
 
-func codecSelfer7490False() bool { return false }
-func codecSelfer7490True() bool  { return true }
+func codecSelfer4712False() bool { return false }
+func codecSelfer4712True() bool  { return true }
 
 func init() {
 	if codec1978.GenVersion != 25 {
@@ -50,7 +50,7 @@ func init() {
 
 func (PriceCondition) codecSelferViaCodecgen() {}
 func (x *PriceCondition) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -286,32 +286,32 @@ func (x *PriceCondition) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *PriceCondition) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = PriceCondition{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *PriceCondition) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -384,7 +384,7 @@ func (x *PriceCondition) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *PriceCondition) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj24 int
@@ -599,7 +599,7 @@ func (x *PriceCondition) IsCodecEmpty() bool {
 
 func (Price) codecSelferViaCodecgen() {}
 func (x *Price) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -663,32 +663,32 @@ func (x *Price) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *Price) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = Price{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *Price) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -721,7 +721,7 @@ func (x *Price) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *Price) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj8 int
@@ -796,7 +796,7 @@ func (x *Price) IsCodecEmpty() bool {
 
 func (CharValue) codecSelferViaCodecgen() {}
 func (x *CharValue) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -840,32 +840,32 @@ func (x *CharValue) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *CharValue) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = CharValue{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *CharValue) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -894,7 +894,7 @@ func (x *CharValue) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *CharValue) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj6 int
@@ -945,7 +945,7 @@ func (x *CharValue) IsCodecEmpty() bool {
 
 func (FindPriceRequest) codecSelferViaCodecgen() {}
 func (x *FindPriceRequest) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -1017,32 +1017,32 @@ func (x *FindPriceRequest) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *FindPriceRequest) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = FindPriceRequest{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *FindPriceRequest) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -1075,7 +1075,7 @@ func (x *FindPriceRequest) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *FindPriceRequest) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj9 int
@@ -1150,7 +1150,7 @@ func (x *FindPriceRequest) IsCodecEmpty() bool {
 
 func (FindPriceRequestBulk) codecSelferViaCodecgen() {}
 func (x *FindPriceRequestBulk) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -1232,32 +1232,32 @@ func (x *FindPriceRequestBulk) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *FindPriceRequestBulk) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = FindPriceRequestBulk{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *FindPriceRequestBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -1292,7 +1292,7 @@ func (x *FindPriceRequestBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decode
 }
 
 func (x *FindPriceRequestBulk) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj10 int
@@ -1379,7 +1379,7 @@ func (x *FindPriceRequestBulk) IsCodecEmpty() bool {
 
 func (ChanFindPriceRequestBulk) codecSelferViaCodecgen() {}
 func (x *ChanFindPriceRequestBulk) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -1451,32 +1451,32 @@ func (x *ChanFindPriceRequestBulk) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *ChanFindPriceRequestBulk) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = ChanFindPriceRequestBulk{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *ChanFindPriceRequestBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -1520,7 +1520,7 @@ func (x *ChanFindPriceRequestBulk) codecDecodeSelfFromMap(l int, d *codec1978.De
 }
 
 func (x *ChanFindPriceRequestBulk) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj10 int
@@ -1596,7 +1596,7 @@ func (x *ChanFindPriceRequestBulk) IsCodecEmpty() bool {
 
 func (FindPriceResponseBulk) codecSelferViaCodecgen() {}
 func (x *FindPriceResponseBulk) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -1658,32 +1658,32 @@ func (x *FindPriceResponseBulk) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *FindPriceResponseBulk) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = FindPriceResponseBulk{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *FindPriceResponseBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -1725,7 +1725,7 @@ func (x *FindPriceResponseBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decod
 }
 
 func (x *FindPriceResponseBulk) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj7 int
@@ -1789,7 +1789,7 @@ func (x *FindPriceResponseBulk) IsCodecEmpty() bool {
 
 func (FindPriceResponseBulkError) codecSelferViaCodecgen() {}
 func (x *FindPriceResponseBulkError) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -1833,32 +1833,32 @@ func (x *FindPriceResponseBulkError) CodecEncodeSelf(e *codec1978.Encoder) {
 }
 
 func (x *FindPriceResponseBulkError) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil7490 {
+	if yyct2 == codecSelferValueTypeNil4712 {
 		*(x) = FindPriceResponseBulkError{}
-	} else if yyct2 == codecSelferValueTypeMap7490 {
+	} else if yyct2 == codecSelferValueTypeMap4712 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray7490 {
+	} else if yyct2 == codecSelferValueTypeArray4712 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7490)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct4712)
 	}
 }
 
 func (x *FindPriceResponseBulkError) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -1887,7 +1887,7 @@ func (x *FindPriceResponseBulkError) codecDecodeSelfFromMap(l int, d *codec1978.
 }
 
 func (x *FindPriceResponseBulkError) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer7490
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj7 int
@@ -1936,8 +1936,8 @@ func (x *FindPriceResponseBulkError) IsCodecEmpty() bool {
 	return !(x.Error != nil || x.Id != 0 || false)
 }
 
-func (x codecSelfer7490) encSliceCharValue(v []CharValue, e *codec1978.Encoder) {
-	var h codecSelfer7490
+func (x codecSelfer4712) encSliceCharValue(v []CharValue, e *codec1978.Encoder) {
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if v == nil {
@@ -1957,8 +1957,8 @@ func (x codecSelfer7490) encSliceCharValue(v []CharValue, e *codec1978.Encoder) 
 	z.EncWriteArrayEnd()
 }
 
-func (x codecSelfer7490) decSliceCharValue(v *[]CharValue, d *codec1978.Decoder) {
-	var h codecSelfer7490
+func (x codecSelfer4712) decSliceCharValue(v *[]CharValue, d *codec1978.Decoder) {
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 
@@ -2038,8 +2038,8 @@ func (x codecSelfer7490) decSliceCharValue(v *[]CharValue, d *codec1978.Decoder)
 	}
 }
 
-func (x codecSelfer7490) encChanFindPriceResponseBulk(v chan FindPriceResponseBulk, e *codec1978.Encoder) {
-	var h codecSelfer7490
+func (x codecSelfer4712) encChanFindPriceResponseBulk(v chan FindPriceResponseBulk, e *codec1978.Encoder) {
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if v == nil {
@@ -2092,8 +2092,8 @@ func (x codecSelfer7490) encChanFindPriceResponseBulk(v chan FindPriceResponseBu
 	}
 }
 
-func (x codecSelfer7490) decChanFindPriceResponseBulk(v *chan FindPriceResponseBulk, d *codec1978.Decoder) {
-	var h codecSelfer7490
+func (x codecSelfer4712) decChanFindPriceResponseBulk(v *chan FindPriceResponseBulk, d *codec1978.Decoder) {
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 
@@ -2142,8 +2142,8 @@ func (x codecSelfer7490) decChanFindPriceResponseBulk(v *chan FindPriceResponseB
 	}
 }
 
-func (x codecSelfer7490) encChanerror(v chan error, e *codec1978.Encoder) {
-	var h codecSelfer7490
+func (x codecSelfer4712) encChanerror(v chan error, e *codec1978.Encoder) {
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if v == nil {
@@ -2195,8 +2195,8 @@ func (x codecSelfer7490) encChanerror(v chan error, e *codec1978.Encoder) {
 	}
 }
 
-func (x codecSelfer7490) decChanerror(v *chan error, d *codec1978.Decoder) {
-	var h codecSelfer7490
+func (x codecSelfer4712) decChanerror(v *chan error, d *codec1978.Decoder) {
+	var h codecSelfer4712
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 

@@ -15,8 +15,6 @@ func (s *BitmapIndexService) GenerateBitmapStatistics() *GroupBitmapsStatistics 
 	AppendStats(&gbs, r)
 	r = GatherBitmapStats([]*roaring.Bitmap{s.Index.DefaultBitmaps}, "Default")
 	AppendStats(&gbs, r)
-	r = GatherBitmapStats(s.Index.CharBitmaps, "Char")
-	AppendStats(&gbs, r)
 	r = GatherBitmapStats(s.Index.CharValuesBitmaps, "CharValues")
 	AppendStats(&gbs, r)
 	gbs.SizeHR = misc.ConvertToHumanReadableSizeUint64(gbs.Size)

@@ -1,16 +1,16 @@
 {
    "Name": "Prices-487k-PricesPerOffering-9.7k",
-   "Cnt": 106,
+   "Cnt": 101,
    "SizeHR": "2.2 MB",
-   "Size": 2224550,
+   "Size": 2222406,
    "SerializedSizeHR": "2.2 MB",
-   "SerializedSize": 2223743,
+   "SerializedSize": 2223158,
    "Stats": [
       {
          "Name": "Spec",
          "Cnt": 1,
-         "SizeHR": "312 B",
-         "Size": 312,
+         "SizeHR": "248 B",
+         "Size": 248,
          "SerializedSizeHR": "117 B",
          "SerializedSize": 117,
          "Stats": [
@@ -24,7 +24,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 8,
-               "RunContainerBytes": 288,
+               "RunContainerBytes": 224,
                "RunContainerValues": 487200
             }
          ]
@@ -32,8 +32,8 @@
       {
          "Name": "Offering",
          "Cnt": 50,
-         "SizeHR": "2.6 kB",
-         "Size": 2566,
+         "SizeHR": "2.1 kB",
+         "Size": 2110,
          "SerializedSizeHR": "820 B",
          "SerializedSize": 820,
          "Stats": [
@@ -47,7 +47,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -60,7 +60,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -73,7 +73,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -86,7 +86,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -99,7 +99,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -112,7 +112,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -125,7 +125,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -138,7 +138,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -151,7 +151,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -164,7 +164,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -177,7 +177,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -190,7 +190,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -203,7 +203,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -216,7 +216,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -229,7 +229,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -242,7 +242,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -255,7 +255,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -268,7 +268,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -281,7 +281,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -294,7 +294,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -307,7 +307,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -320,7 +320,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -333,7 +333,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -346,7 +346,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -359,7 +359,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -372,7 +372,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -385,7 +385,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -398,7 +398,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -411,7 +411,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -424,7 +424,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -437,7 +437,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -450,7 +450,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -463,7 +463,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -476,7 +476,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -489,7 +489,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -502,7 +502,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -515,7 +515,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -528,7 +528,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -541,7 +541,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -554,7 +554,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -567,7 +567,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -580,7 +580,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -593,7 +593,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -606,7 +606,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -619,7 +619,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -632,7 +632,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -645,7 +645,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -658,7 +658,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 2,
-               "RunContainerBytes": 72,
+               "RunContainerBytes": 56,
                "RunContainerValues": 9744
             },
             {
@@ -671,7 +671,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             },
             {
@@ -684,7 +684,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 1,
-               "RunContainerBytes": 36,
+               "RunContainerBytes": 28,
                "RunContainerValues": 9744
             }
          ]
@@ -692,8 +692,8 @@
       {
          "Name": "Group",
          "Cnt": 1,
-         "SizeHR": "312 B",
-         "Size": 312,
+         "SizeHR": "248 B",
+         "Size": 248,
          "SerializedSizeHR": "117 B",
          "SerializedSize": 117,
          "Stats": [
@@ -707,7 +707,7 @@
                "BitmapContainerBytes": 0,
                "BitmapContainerValues": 0,
                "RunContainers": 8,
-               "RunContainerBytes": 288,
+               "RunContainerBytes": 224,
                "RunContainerValues": 487200
             }
          ]
@@ -737,78 +737,12 @@
       },
       {
          "Name": "Char",
-         "Cnt": 5,
-         "SizeHR": "1.6 kB",
-         "Size": 1560,
-         "SerializedSizeHR": "585 B",
-         "SerializedSize": 585,
-         "Stats": [
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 0,
-               "BitmapContainerBytes": 0,
-               "BitmapContainerValues": 0,
-               "RunContainers": 8,
-               "RunContainerBytes": 288,
-               "RunContainerValues": 487200
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 0,
-               "BitmapContainerBytes": 0,
-               "BitmapContainerValues": 0,
-               "RunContainers": 8,
-               "RunContainerBytes": 288,
-               "RunContainerValues": 487200
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 0,
-               "BitmapContainerBytes": 0,
-               "BitmapContainerValues": 0,
-               "RunContainers": 8,
-               "RunContainerBytes": 288,
-               "RunContainerValues": 487200
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 0,
-               "BitmapContainerBytes": 0,
-               "BitmapContainerValues": 0,
-               "RunContainers": 8,
-               "RunContainerBytes": 288,
-               "RunContainerValues": 487200
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 0,
-               "BitmapContainerBytes": 0,
-               "BitmapContainerValues": 0,
-               "RunContainers": 8,
-               "RunContainerBytes": 288,
-               "RunContainerValues": 487200
-            }
-         ]
+         "Cnt": 0,
+         "SizeHR": "0 B",
+         "Size": 0,
+         "SerializedSizeHR": "0 B",
+         "SerializedSize": 0,
+         "Stats": null
       },
       {
          "Name": "CharValues",

@@ -30,36 +30,31 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 	var result *sroar.Bitmap
 	if len(charValues) > 0 {
 		cv := charValues[0]
-		if u, ok := bmi.CharIdToIndex[cv.Char]; ok {
-			bitmap := bmi.CharBitmaps[u]
-			result = sroar.And(ob, bitmap)
-			sroar.FastAnd()
+		if u, ok := bmi.CharsToValuesIndex[cv.Char]; ok {
+			if u2, ok2 := u[cv.Value]; ok2 {
+				bitmap := bmi.CharValuesBitmaps[u2]
+				result = sroar.And(ob, bitmap)
+			} else {
+				s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
+				return 0, ErrUnableToFindCharValue
+			}
 		} else {
 			s.L.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
 			return 0, ErrUnableToFindCharId
 		}
-		if u, ok := bmi.CharValueIdToIndex[cv.Value]; ok {
-			bitmap := bmi.CharValuesBitmaps[u]
-			result.And(bitmap)
-		} else {
-			s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
-			return 0, ErrUnableToFindCharValue
-		}
 		for i := 1; i < len(charValues); i++ {
 			cv = charValues[i]
-			if u, ok := bmi.CharIdToIndex[cv.Char]; ok {
-				bitmap := bmi.CharBitmaps[u]
-				result.And(bitmap)
+			if u, ok := bmi.CharsToValuesIndex[cv.Char]; ok {
+				if u2, ok2 := u[cv.Value]; ok2 {
+					bitmap := bmi.CharValuesBitmaps[u2]
+					result.And(bitmap)
+				} else {
+					s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
+					return 0, ErrUnableToFindCharValue
+				}
 			} else {
 				s.L.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
 				return 0, ErrUnableToFindCharId
-			}
-			if u, ok := bmi.CharValueIdToIndex[cv.Value]; ok {
-				bitmap := bmi.CharValuesBitmaps[u]
-				result.And(bitmap)
-			} else {
-				s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
-				return 0, ErrUnableToFindCharValue
 			}
 		}
 	}

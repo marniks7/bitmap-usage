@@ -1,33 +1,29 @@
 File: Prices-487k-PricesPerOffering-9.7k.test
 Type: inuse_space
-Time: Jun 28, 2021 at 10:47pm (EDT)
-Showing nodes accounting for 90.33MB, 99.91% of 90.41MB total
-Dropped 137 nodes (cum <= 0.45MB)
+Time: Jul 16, 2021 at 12:56am (EDT)
+Showing nodes accounting for 89.73MB, 99.92% of 89.81MB total
+Dropped 140 nodes (cum <= 0.45MB)
       flat  flat%   sum%        cum   cum%
-   29.74MB 32.89% 32.89%    29.74MB 32.89%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:64
-   27.63MB 30.56% 63.45%    27.63MB 30.56%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:62
-   22.30MB 24.67% 88.11%    22.30MB 24.67%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.2.0/uuid.go:173 (inline)
-    7.44MB  8.23% 96.34%     7.44MB  8.23%  bitmap-usage/index-roaring.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:20
-    1.60MB  1.77% 98.11%     1.60MB  1.77%  github.com/RoaringBitmap/roaring.newBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.6.1/bitmapcontainer.go:24 (inline)
-    1.07MB  1.18% 99.29%     1.07MB  1.18%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.6.1/arraycontainer.go:260
-    0.56MB  0.62% 99.91%     0.56MB  0.62%  github.com/valyala/fasthttp/stackless.NewFunc /home/malerome/go/pkg/mod/github.com/valyala/fasthttp@v1.27.0/stackless/func.go:26
-         0     0% 99.91%    89.82MB 99.35%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:68
-         0     0% 99.91%    22.30MB 24.67%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:22
-         0     0% 99.91%    10.16MB 11.23%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:30
-         0     0% 99.91%    57.36MB 63.45%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:36
-         0     0% 99.91%    22.30MB 24.67%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:23
-         0     0% 99.91%    10.16MB 11.23%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:31
-         0     0% 99.91%    57.36MB 63.45%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:37
-         0     0% 99.91%     2.26MB  2.50%  bitmap-usage/index-roaring.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:18
-         0     0% 99.91%     2.20MB  2.44%  bitmap-usage/index-roaring.conditionBitmaps /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:89
-         0     0% 99.91%    22.30MB 24.67%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:163
-         0     0% 99.91%    22.30MB 24.67%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:168
-         0     0% 99.91%    22.30MB 24.67%  bitmap-usage/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:148
-         0     0% 99.91%     2.68MB  2.96%  github.com/RoaringBitmap/roaring.(*Bitmap).Add /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.6.1/roaring.go:578
-         0     0% 99.91%     1.61MB  1.78%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.6.1/arraycontainer.go:268
-         0     0% 99.91%     1.61MB  1.78%  github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.6.1/arraycontainer.go:229
-         0     0% 99.91%    22.30MB 24.67%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.2.0/version4.go:22
-         0     0% 99.91%     0.56MB  0.62%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6286
-         0     0% 99.91%     0.56MB  0.62%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6309
-         0     0% 99.91%     0.56MB  0.62%  runtime.main /home/malerome/go/src/runtime/proc.go:208
-         0     0% 99.91%    89.82MB 99.35%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193
+   29.74MB 33.11% 33.11%    29.74MB 33.11%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:64
+   27.63MB 30.76% 63.87%    27.63MB 30.76%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:62
+   22.30MB 24.83% 88.71%    22.30MB 24.83%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    7.44MB  8.28% 96.99%     7.44MB  8.28%  bitmap-usage/index-roaring.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:20
+    1.56MB  1.74% 98.73%     1.56MB  1.74%  github.com/RoaringBitmap/roaring.newBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.1/bitmapcontainer.go:24 (inline)
+    1.07MB  1.19% 99.92%     1.07MB  1.19%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.1/arraycontainer.go:261
+         0     0% 99.92%    89.78MB   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:68
+         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:22
+         0     0% 99.92%    10.11MB 11.26%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:30
+         0     0% 99.92%    57.36MB 63.87%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:36
+         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:23
+         0     0% 99.92%    10.11MB 11.26%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:31
+         0     0% 99.92%    57.36MB 63.87%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap-memory_test.go:37
+         0     0% 99.92%     2.22MB  2.47%  bitmap-usage/index-roaring.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:18
+         0     0% 99.92%     2.20MB  2.45%  bitmap-usage/index-roaring.conditionBitmaps /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:85
+         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:163
+         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:168
+         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:148
+         0     0% 99.92%     2.64MB  2.93%  github.com/RoaringBitmap/roaring.(*Bitmap).Add /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.1/roaring.go:577
+         0     0% 99.92%     1.57MB  1.75%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.1/arraycontainer.go:269
+         0     0% 99.92%     1.57MB  1.75%  github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.1/arraycontainer.go:230
+         0     0% 99.92%    22.30MB 24.83%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0% 99.92%    89.78MB   100%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193

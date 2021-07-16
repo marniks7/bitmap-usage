@@ -1,16 +1,16 @@
 {
    "Name": "Prices-487k-PricesPerOffering-9.7k",
-   "Cnt": 106,
+   "Cnt": 101,
    "SizeHR": "2.7 MB",
-   "Size": 2723782,
+   "Size": 2681330,
    "SerializedSizeHR": "2.7 MB",
-   "SerializedSize": 2725273,
+   "SerializedSize": 2683758,
    "Stats": [
       {
          "Name": "Spec",
          "Cnt": 1,
-         "SizeHR": "8.5 kB",
-         "Size": 8468,
+         "SizeHR": "8.4 kB",
+         "Size": 8412,
          "SerializedSizeHR": "8.3 kB",
          "SerializedSize": 8303,
          "Stats": [
@@ -24,7 +24,7 @@
                "BitmapContainerBytes": 8192,
                "BitmapContainerValues": 28448,
                "RunContainers": 7,
-               "RunContainerBytes": 252,
+               "RunContainerBytes": 196,
                "RunContainerValues": 458752
             }
          ]
@@ -692,8 +692,8 @@
       {
          "Name": "Group",
          "Cnt": 1,
-         "SizeHR": "8.5 kB",
-         "Size": 8468,
+         "SizeHR": "8.4 kB",
+         "Size": 8412,
          "SerializedSizeHR": "8.3 kB",
          "SerializedSize": 8303,
          "Stats": [
@@ -707,7 +707,7 @@
                "BitmapContainerBytes": 8192,
                "BitmapContainerValues": 28448,
                "RunContainers": 7,
-               "RunContainerBytes": 252,
+               "RunContainerBytes": 196,
                "RunContainerValues": 458752
             }
          ]
@@ -737,78 +737,12 @@
       },
       {
          "Name": "Char",
-         "Cnt": 5,
-         "SizeHR": "42.3 kB",
-         "Size": 42340,
-         "SerializedSizeHR": "41.5 kB",
-         "SerializedSize": 41515,
-         "Stats": [
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 1,
-               "BitmapContainerBytes": 8192,
-               "BitmapContainerValues": 28448,
-               "RunContainers": 7,
-               "RunContainerBytes": 252,
-               "RunContainerValues": 458752
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 1,
-               "BitmapContainerBytes": 8192,
-               "BitmapContainerValues": 28448,
-               "RunContainers": 7,
-               "RunContainerBytes": 252,
-               "RunContainerValues": 458752
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 1,
-               "BitmapContainerBytes": 8192,
-               "BitmapContainerValues": 28448,
-               "RunContainers": 7,
-               "RunContainerBytes": 252,
-               "RunContainerValues": 458752
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 1,
-               "BitmapContainerBytes": 8192,
-               "BitmapContainerValues": 28448,
-               "RunContainers": 7,
-               "RunContainerBytes": 252,
-               "RunContainerValues": 458752
-            },
-            {
-               "Cardinality": 487200,
-               "Containers": 8,
-               "ArrayContainers": 0,
-               "ArrayContainerBytes": 0,
-               "ArrayContainerValues": 0,
-               "BitmapContainers": 1,
-               "BitmapContainerBytes": 8192,
-               "BitmapContainerValues": 28448,
-               "RunContainers": 7,
-               "RunContainerBytes": 252,
-               "RunContainerValues": 458752
-            }
-         ]
+         "Cnt": 0,
+         "SizeHR": "0 B",
+         "Size": 0,
+         "SerializedSizeHR": "0 B",
+         "SerializedSize": 0,
+         "Stats": null
       },
       {
          "Name": "CharValues",

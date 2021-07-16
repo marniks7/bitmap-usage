@@ -15,7 +15,7 @@ func (s *BitmapIndexService) IndexPrices(catalog *cache64.Catalog) *PriceBitmaps
 	specBitmaps, specIdToIndex := mapSpecBitmaps(catalog.PriceConditions)
 	offeringBitmaps, offeringIdToIndex := offeringBitmaps(catalog.PriceConditions)
 	defaultBitmaps := mapDefaultBitmaps(catalog.PriceConditions)
-	charBitmaps, charIdToIndex, charValuesBitmaps, charValueToIndex := conditionBitmaps(catalog.PriceConditions)
+	charValuesBitmaps, charsToValuesIndex := conditionBitmaps(catalog.PriceConditions)
 
 	indexToId := make([]string, len(catalog.PriceConditions))
 	for i, v := range catalog.PriceConditions {
@@ -28,10 +28,8 @@ func (s *BitmapIndexService) IndexPrices(catalog *cache64.Catalog) *PriceBitmaps
 		OfferingIdToIndex:  offeringIdToIndex,
 		OfferingBitmaps:    offeringBitmaps,
 		DefaultBitmaps:     defaultBitmaps,
-		CharBitmaps:        charBitmaps,
-		CharIdToIndex:      charIdToIndex,
-		CharValueIdToIndex: charValueToIndex,
 		CharValuesBitmaps:  charValuesBitmaps,
+		CharsToValuesIndex: charsToValuesIndex,
 		IndexToPriceId:     indexToId}
 	s.Index = bmi
 	return bmi
@@ -63,32 +61,27 @@ func offeringBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map
 	return bitmaps, index
 }
 
-func conditionBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]uint32, []*roaring64.Bitmap, map[string]uint32) {
-	var charCount uint32 = 0
+func conditionBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]map[string]uint32) {
 	var valueCount uint32 = 0
-	characteristicBitmaps := make([]*roaring64.Bitmap, 0, 10)
-	characteristicToIndex := make(map[string]uint32, 128)
 
 	valueBitmaps := make([]*roaring64.Bitmap, 0, 10)
-	valuesToIndex := make(map[string]uint32, 128)
+	charsToValuesIndex := make(map[string]map[string]uint32, 128)
 	for _, v := range prices {
 		for i, cc := range v.Chars {
 
-			if u, ok := characteristicToIndex[cc]; ok {
-				characteristicBitmaps[u].Add(v.IndexId)
+			var valueToIndex map[string]uint32
+			if u, ok := charsToValuesIndex[cc]; ok {
+				valueToIndex = u
 			} else {
-				characteristicToIndex[cc] = charCount
-				bitmap := roaring64.NewBitmap()
-				bitmap.Add(v.IndexId)
-				characteristicBitmaps = append(characteristicBitmaps, bitmap)
-				charCount++
+				valueToIndex = make(map[string]uint32, 8)
+				charsToValuesIndex[cc] = valueToIndex
 			}
 
 			val := v.Values[i]
-			if u, ok := valuesToIndex[val]; ok {
+			if u, ok := valueToIndex[val]; ok {
 				valueBitmaps[u].Add(v.IndexId)
 			} else {
-				valuesToIndex[val] = valueCount
+				valueToIndex[val] = valueCount
 				bitmap := roaring64.NewBitmap()
 				bitmap.Add(v.IndexId)
 				valueBitmaps = append(valueBitmaps, bitmap)
@@ -97,7 +90,7 @@ func conditionBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, ma
 		}
 	}
 
-	return characteristicBitmaps, characteristicToIndex, valueBitmaps, valuesToIndex
+	return valueBitmaps, charsToValuesIndex
 }
 
 func mapGroupBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]uint16) {

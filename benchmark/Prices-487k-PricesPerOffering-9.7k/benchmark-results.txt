@@ -3,34 +3,34 @@ goarch: amd64
 pkg: bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
 BenchmarkHttpClientServer_Map_FindPrice_Conditions8
-BenchmarkHttpClientServer_Map_FindPrice_Conditions8                         	    2337	    496501 ns/op	    8297 B/op	     112 allocs/op
+BenchmarkHttpClientServer_Map_FindPrice_Conditions8                         	    3283	    373513 ns/op	    8292 B/op	     112 allocs/op
 BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8
-BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8                      	   10000	    105430 ns/op	   20308 B/op	     122 allocs/op
+BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8                      	   10000	    102521 ns/op	   12084 B/op	     120 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_11position
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_11position                  	    5223	    216504 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_11position                  	    5019	    229391 ns/op	     224 B/op	       2 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position                	    5193	    241329 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position                	    4556	    242734 ns/op	     224 B/op	       2 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_9701position
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_9701position                	    5552	    203887 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_9701position                	    6009	    279541 ns/op	     224 B/op	       2 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr           	    5629	    215865 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr           	    4634	    249198 ns/op	     128 B/op	       1 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized      	   16028	     74407 ns/op	     328 B/op	       5 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized      	   15288	     82023 ns/op	     328 B/op	       5 allocs/op
 BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized
-BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized 	    5685	    210686 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized 	    5434	    236006 ns/op	     128 B/op	       1 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8_11position
-BenchmarkBitmap_FindPrice_Conditions8_11position                            	   69590	     16172 ns/op	   11896 B/op	      10 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_11position                            	  156163	     10078 ns/op	    3672 B/op	       8 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8_3824Position
-BenchmarkBitmap_FindPrice_Conditions8_3824Position                          	  118224	     17359 ns/op	   11896 B/op	      10 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_3824Position                          	  152588	      9880 ns/op	    3672 B/op	       8 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8_3824Position_Optimized
-BenchmarkBitmap_FindPrice_Conditions8_3824Position_Optimized                	   31374	     32934 ns/op	   25672 B/op	      26 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_3824Position_Optimized                	  628027	      4621 ns/op	    5184 B/op	      14 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8_9701position
-BenchmarkBitmap_FindPrice_Conditions8_9701position                          	   64418	     19936 ns/op	   11896 B/op	      10 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_9701position                          	  157807	      9630 ns/op	    3672 B/op	       8 allocs/op
 BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position
-BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position                   	  111214	     12799 ns/op	   11896 B/op	      10 allocs/op
+BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position                   	  127021	      9053 ns/op	    3672 B/op	       8 allocs/op
 BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr
-BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr                     	   82603	     12558 ns/op	   11816 B/op	       8 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr                     	  142681	      8592 ns/op	    3592 B/op	       6 allocs/op
 BenchmarkUnmarshalFindMarshal_Bitmap_FindPrice_Conditions8
-BenchmarkUnmarshalFindMarshal_Bitmap_FindPrice_Conditions8                  	   69702	     28604 ns/op	   12928 B/op	      36 allocs/op
+BenchmarkUnmarshalFindMarshal_Bitmap_FindPrice_Conditions8                  	   82971	     20376 ns/op	    4704 B/op	      34 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	130.582s
+ok  	bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k	126.230s

@@ -64,8 +64,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_3824Position_Optimized(b *testing.B) 
 	for _, sb := range ind.Index.GroupBitmaps {
 		sb.RunOptimize()
 	}
-
-	for _, sb := range ind.Index.CharBitmaps {
+	for _, sb := range ind.Index.CharValuesBitmaps {
 		sb.RunOptimize()
 	}
 	ind.Index.DefaultBitmaps.RunOptimize()

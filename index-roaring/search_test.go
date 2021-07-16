@@ -151,6 +151,10 @@ func TestFindPriceBy(t *testing.T) {
 		{
 			name: "Find Price. Two chars",
 			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id2", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value3"}},
+				{ID: "id3", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1", "char3"}, Values: []string{"value1", "value3"}},
 				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
 					Currency: "USD", Value: 100.00, Chars: []string{"char1", "char2"}, Values: []string{"value1", "value2"}},
 			}, optimized: optimized},
@@ -158,7 +162,7 @@ func TestFindPriceBy(t *testing.T) {
 				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}, {"char2", "value2"}}},
 			want:  &model.Price{Id: "id1", Spec: "spec1", Value: 100.00, Currency: "USD"},
 			want1: nil,
-			want2: 1,
+			want2: 3,
 		},
 		{
 			name: "Find Price. Two chars. Not Found Second Char Key",
@@ -197,6 +201,18 @@ func TestFindPriceBy(t *testing.T) {
 			want:  &model.Price{Id: "id2", Spec: "spec1", Value: 120.00, Currency: "USD"},
 			want1: nil,
 			want2: 2,
+		},
+		{
+			name: "Find Price. Not Found. Value from different char",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1", "char2"}, Values: []string{"value2", "value1"}},
+			}, optimized: optimized},
+			args: args{offeringId: "offering1", groupId: "group1",
+				specId: "spec1", charValues: []model.CharValue{{"char1", "value1"}}},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
 		},
 		{
 			name: "Find Price. Test position",

@@ -40,8 +40,7 @@ func TestBitmap_Optimized_CalculateAndPrintRoaringStats(t *testing.T) {
 	for _, sb := range ind.Index.GroupBitmaps {
 		sb.RunOptimize()
 	}
-
-	for _, sb := range ind.Index.CharBitmaps {
+	for _, sb := range ind.Index.CharValuesBitmaps {
 		sb.RunOptimize()
 	}
 	ind.Index.DefaultBitmaps.RunOptimize()
