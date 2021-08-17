@@ -27,7 +27,7 @@ APP_BULK_API = /v4/search/${APP_API_PART}/bulk/prices
 # -----------------------------------------------------------------------------
 # WRK Configuration (used for WRK2 as well)
 # -----------------------------------------------------------------------------
-WRK_DURATION = 5s
+WRK_DURATION = 30s
 WRK_THREADS = 1
 WRK_CONNECTIONS = 1
 WRK_REQUEST = sample/wrk-search-price-request.lua# used in main runner
@@ -49,7 +49,7 @@ AB_BULK_REQUEST = sample/search-price-bulk-request-10000.json
 # -----------------------------------------------------------------------------
 export#this export is used to pass all variables to sub-make (along with '-e' command to pass target-specific)
 MAKE = make --no-print-directory
-.PHONY: clean
+.PHONY: clean trigger-gc
 .DEFAULT_GOAL := build
 # Set source dir and scan source dir for all go files
 build:
@@ -114,18 +114,20 @@ bench-memory-sroar:
 wrk-run:
 	./wrk -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -s ${WRK_REQUEST} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} -- \
-		  benchmark/wrk/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
+		  benchmark/wrk/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
 		  | tee benchmark/wrk/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
 wrk-map-t1-c1: WRK_THREADS = 1
 wrk-map-t1-c1: WRK_CONNECTIONS = 1
 wrk-map-t1-c1: APP_API_PART = map
 wrk-map-t1-c1:
 	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
 wrk-map-t2-c20: WRK_THREADS = 2
 wrk-map-t2-c20: WRK_CONNECTIONS = 20
 wrk-map-t2-c20: APP_API_PART = map
 wrk-map-t2-c20:
 	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
 wrk-bitmap-bulk-1000-t1-c1: WRK_THREADS=1
 wrk-bitmap-bulk-1000-t1-c1: WRK_CONNECTIONS=1
 wrk-bitmap-bulk-1000-t1-c1: WRK_REQUEST=sample/wrk-search-price-bulk-request-1000.lua
@@ -134,35 +136,40 @@ wrk-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
 wrk-bitmap-bulk-1000-t1-c1:
 	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
 wrk-bitmap-t1-c1: WRK_THREADS=1
 wrk-bitmap-t1-c1: WRK_CONNECTIONS=1
 wrk-bitmap-t1-c1: APP_API_PART=bitmap
 wrk-bitmap-t1-c1:
 	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
 wrk-bitmap-t2-c20: WRK_THREADS=2
 wrk-bitmap-t2-c20: WRK_CONNECTIONS=20
 wrk-bitmap-t2-c20: APP_API_PART=bitmap
 wrk-bitmap-t2-c20:
 	$(MAKE) -e wrk-run
-wrk: wrk-map-t1-c1 trigger-gc wrk-map-t2-c20 trigger-gc wrk-bitmap-t1-c1 trigger-gc wrk-bitmap-t2-c20 trigger-gc
+	$(MAKE) trigger-gc
+wrk: wrk-map-t1-c1 wrk-map-t2-c20 wrk-bitmap-t1-c1 wrk-bitmap-t2-c20
 # -----------------------------------------------------------------------------
 # WRK2 tool for performance measurement https://github.com/giltene/wrk2
 # -----------------------------------------------------------------------------
 wrk2-run:
 	./wrk2 -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -R${WRK2_RATE} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} \
-    	-s ${WRK_REQUEST} -- benchmark/wrk2/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
-    	| tee benchmark/wrk2/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
+    	-s ${WRK_REQUEST} -- benchmark/wrk2/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
+    	| tee benchmark/wrk2/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
 wrk2-map-t1-c1: WRK_THREADS = 1
 wrk2-map-t1-c1: WRK_CONNECTIONS = 1
 wrk2-map-t1-c1: APP_API_PART = map
 wrk2-map-t1-c1:
 	$(MAKE) -e wrk2-run
+	$(MAKE) trigger-gc
 wrk2-map-t2-c20: WRK_THREADS=2
 wrk2-map-t2-c20: WRK_CONNECTIONS=20
 wrk2-map-t2-c20: APP_API_PART=map
 wrk2-map-t2-c20:
 	$(MAKE) -e wrk2-run
+	$(MAKE) trigger-gc
 wrk2-bitmap-bulk-1000-t1-c1: WRK_THREADS=1
 wrk2-bitmap-bulk-1000-t1-c1: WRK_CONNECTIONS=1
 wrk2-bitmap-bulk-1000-t1-c1: WRK_REQUEST=sample/wrk-search-price-bulk-request-1000.lua
@@ -171,17 +178,20 @@ wrk2-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk2-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
 wrk2-bitmap-bulk-1000-t1-c1:
 	$(MAKE) -e wrk2-run
+	$(MAKE) trigger-gc
 wrk2-bitmap-t1-c1: WRK_THREADS=1
 wrk2-bitmap-t1-c1: WRK_CONNECTIONS=1
 wrk2-bitmap-t1-c1: APP_API_PART=bitmap
 wrk2-bitmap-t1-c1:
 	$(MAKE) -e wrk2-run
+	$(MAKE) trigger-gc
 wrk2-bitmap-t2-c20: WRK_THREADS=2
 wrk2-bitmap-t2-c20: WRK_CONNECTIONS=20
 wrk2-bitmap-t2-c20: APP_API_PART=bitmap
 wrk2-bitmap-t2-c20:
 	$(MAKE) -e wrk2-run
-wrk2: wrk2-map-t1-c1 trigger-gc wrk2-map-t2-c20 trigger-gc wrk2-bitmap-t1-c1 trigger-gc wrk2-bitmap-t2-c20 trigger-gc
+	$(MAKE) trigger-gc
+wrk2: wrk2-map-t1-c1 wrk2-map-t2-c20 wrk2-bitmap-t1-c1 wrk2-bitmap-t2-c20
 # -----------------------------------------------------------------------------
 # Hey Tool for performance measurement (tested once) https://github.com/rakyll/hey
 # -----------------------------------------------------------------------------
@@ -199,21 +209,25 @@ ab-bitmap-1: AB_CONCURRENCY=1
 ab-bitmap-1: AB_REQUESTS_NUMBER=1000
 ab-bitmap-1:
 	$(MAKE) -e ab-run
+	$(MAKE) trigger-gc
 ab-map-1: APP_API_PART=map
 ab-map-1: AB_CONCURRENCY=1
 ab-map-1: AB_REQUESTS_NUMBER=1000
 ab-map-1:
 	$(MAKE) -e ab-run
+	$(MAKE) trigger-gc
 ab-bitmap-20: APP_API_PART=bitmap
 ab-bitmap-20: AB_CONCURRENCY=20
 ab-bitmap-20: AB_REQUESTS_NUMBER=100000
 ab-bitmap-20:
 	$(MAKE) -e ab-run
+	$(MAKE) trigger-gc
 ab-map-20: APP_API_PART=map
 ab-map-20: AB_CONCURRENCY=20
 ab-map-20: AB_REQUESTS_NUMBER=100000
 ab-map-20:
 	$(MAKE) -e ab-run
+	$(MAKE) trigger-gc
 ab-bulk-bitmap-1: APP_API_PART=bitmap
 ab-bulk-bitmap-1: APP_API=${APP_BULK_API}
 ab-bulk-bitmap-1: AB_CONCURRENCY=1
@@ -221,6 +235,7 @@ ab-bulk-bitmap-1: AB_REQUESTS_NUMBER=100
 ab-bulk-bitmap-1: AB_REQUEST=${AB_BULK_REQUEST}
 ab-bulk-bitmap-1:
 	$(MAKE) -e ab-run
+	$(MAKE) trigger-gc
 ab-bulk-map-1: APP_API_PART=map
 ab-bulk-map-1: APP_API=${APP_BULK_API}
 ab-bulk-map-1: AB_CONCURRENCY=1
@@ -228,12 +243,13 @@ ab-bulk-map-1: AB_REQUESTS_NUMBER=100
 ab-bulk-map-1: AB_REQUEST=${AB_BULK_REQUEST}
 ab-bulk-map-1:
 	$(MAKE) -e ab-run
-ab:	ab-bitmap-1 trigger-gc ab-bitmap-20 trigger-gc ab-map-1 trigger-gc ab-map-20 trigger-gc
+	$(MAKE) trigger-gc
+ab:	ab-bitmap-1 ab-bitmap-20 ab-map-1 ab-map-20
 # -----------------------------------------------------------------------------
 # Utils
 # -----------------------------------------------------------------------------
 trigger-gc:
-	curl ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/gc
+	curl ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/gc && sleep 1
 curl-info:
 	curl ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/info
 clean:
