@@ -28,16 +28,20 @@ import (
 	"os"
 	"os/signal"
 	"runtime"
+	"strconv"
+	"strings"
 	"time"
 )
 
 var (
 	addr         = getEnvOrDefault("ADDR", ":8091", "TCP Address")
 	loggingLevel = getEnvOrDefault("LOGGING_LEVEL", "info", "Logging Level")
-	roaring64    = getEnvOrDefault("ROARING64", "false", "Use roaring 64")
-	sroar        = getEnvOrDefault("SROAR", "false", "Use 64 bit sroar")
-	map64        = getEnvOrDefault("MAP64", "false", "Use 64 bit maps")
-	turnOnFiber  = getEnvOrDefault("FIBER", "false", "Use Fiber framework")
+	roaring32    = getEnvOrDefaultBool("ROARING32", true, "Use roaring 32, by default")
+	map32        = getEnvOrDefaultBool("MAP32", true, "Use map 32, by default")
+	roaring64    = getEnvOrDefaultBool("ROARING64", false, "Use roaring 64")
+	sroar        = getEnvOrDefaultBool("SROAR", false, "Use 64 bit sroar")
+	map64        = getEnvOrDefaultBool("MAP64", false, "Use 64 bit maps")
+	useFiber     = getEnvOrDefaultBool("FIBER", false, "Use Fiber framework")
 )
 
 func main() {
@@ -54,6 +58,13 @@ func Setup() {
 		return
 	}
 	zerolog.SetGlobalLevel(level)
+	if sroar || roaring64 {
+		map64 = true
+		map32 = false
+		roaring32 = false
+	}
+	//fail fast init part
+	goGCInt := getGOGC(err)
 
 	var cs *cache.CatalogService
 	var cs64 *cache64.CatalogService
@@ -61,7 +72,7 @@ func Setup() {
 	r := mux.NewRouter()
 	// create another router for fiber
 	app := fiber.New()
-	if "true" == roaring64 {
+	if roaring64 {
 		log.Info().Msg("Use Roaring64")
 		cs64 = cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
 		err = sample64.GenerateTestData5Chars5Offerings(cs64)
@@ -79,7 +90,7 @@ func Setup() {
 		findPriceBy := r.Methods(http.MethodPost).Subrouter()
 		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
-	} else if "true" == sroar {
+	} else if sroar {
 		log.Info().Msg("Use Sroar")
 		cs64 = cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
 		err = sample64.GenerateTestData5Chars5Offerings(cs64)
@@ -98,6 +109,7 @@ func Setup() {
 		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
 	} else {
+		log.Info().Msg("Use Roaring32")
 		cs = cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 		err = sample.GenerateTestData5Chars5Offerings(cs)
 		if err != nil {
@@ -170,10 +182,7 @@ func Setup() {
 
 	runtime.GC()
 
-	if "true" == sroar || "true" == roaring64 {
-		map64 = "true"
-	}
-	if "true" == map64 {
+	if map64 {
 		log.Info().Msg("Use Map64")
 		indMap := indexmap64.NewService(log.Logger)
 		indMap.IndexPrices(cs64.Catalog)
@@ -182,6 +191,7 @@ func Setup() {
 		mapFindPriceBy := r.Methods(http.MethodPost).Subrouter()
 		mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
 	} else {
+		log.Info().Msg("Use Map32")
 		indMap := indexMap.NewService(log.Logger)
 		indMap.IndexPrices(cs.Catalog)
 		asMap := handlersmap.NewMapAggregateService(log.Logger, cs, indMap)
@@ -202,16 +212,22 @@ func Setup() {
 
 		mapFindPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
 		mapFindPriceBulkv4.HandleFunc("/v4/search/map/bulk/prices", asMap.FindPriceBulkByXV4)
-
 	}
 
-	health := r.Methods(http.MethodGet).Subrouter()
-	app.Get("/health", handlers.HealthFiber)
-	app.Get("/ready", handlers.ReadyFiber)
-	health.HandleFunc("/health", handlers.Health)
-	health.HandleFunc("/ready", handlers.Ready)
+	misc := r.Methods(http.MethodGet).Subrouter()
+	app.Get("/health", adaptor.HTTPHandlerFunc(handlers.Health))
+	app.Get("/ready", adaptor.HTTPHandlerFunc(handlers.Ready))
+	app.Get("/info", adaptor.HTTPHandlerFunc(handlers.Info))
+	misc.HandleFunc("/health", handlers.Health)
+	misc.HandleFunc("/ready", handlers.Ready)
+	misc.HandleFunc("/info", handlers.Info)
+
+	handlers.AppInfoI = handlers.AppInfo{HttpServer: string(httpServerType()), Roaring32: roaring32,
+		Map32: map32, Sroar: sroar, Roaring64: roaring64, Map64: map64,
+		GOGC: goGCInt, GOMAXPROCS: runtime.GOMAXPROCS(0)}
+
 	//additional
-	r.HandleFunc("/debug/pprof/gc", TriggerGC)
+	r.HandleFunc("/debug/pprof/gc", handlers.TriggerGC)
 	// Register pprof handlers
 	r.HandleFunc("/debug/pprof/", pprof.Index)
 	r.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
@@ -224,7 +240,7 @@ func Setup() {
 	r.Handle("/debug/pprof/allocs", pprof.Handler("allocs"))
 	r.Handle("/debug/pprof/block", pprof.Handler("block"))
 
-	app.All("/debug/pprof/gc", adaptor.HTTPHandlerFunc(TriggerGC))
+	app.All("/debug/pprof/gc", adaptor.HTTPHandlerFunc(handlers.TriggerGC))
 	app.All("/debug/pprof/", adaptor.HTTPHandlerFunc(pprof.Index))
 	app.All("/debug/pprof/cmdline", adaptor.HTTPHandlerFunc(pprof.Cmdline))
 	app.All("/debug/pprof/profile", adaptor.HTTPHandlerFunc(pprof.Profile))
@@ -250,7 +266,7 @@ func Setup() {
 	//start server in separate goroutine
 	go func() {
 		log.Info().Str("addr", addr).Msg("Starting server")
-		if turnOnFiber == "true" {
+		if useFiber {
 			err = app.Listen(addr)
 		} else {
 			err = server.ListenAndServe()
@@ -285,6 +301,35 @@ func Setup() {
 	}
 }
 
+func getGOGC(err error) int {
+	goGcEnv := os.Getenv("GOGC")
+	var goGCInt int
+	if goGcEnv != "" {
+		if strings.ToLower(goGcEnv) == "off" {
+			goGCInt = -1
+		} else {
+			goGCInt, err = strconv.Atoi(goGcEnv)
+			if err != nil {
+				panic(err)
+			}
+		}
+	} else {
+		goGCInt = 100 // default GOGC as of go 1.16
+	}
+	return goGCInt
+}
+
+// httpServerType - part of app ino
+func httpServerType() handlers.HttpServerType {
+	var httpServer handlers.HttpServerType
+	if useFiber {
+		httpServer = handlers.FiberServer
+	} else {
+		httpServer = handlers.DefaultServer
+	}
+	return httpServer
+}
+
 // getEnvOrDefault wrapper to provide ability to return default value if not found
 // behavior is similar to flags
 //goland:noinspection GoUnusedParameter
@@ -295,6 +340,17 @@ func getEnvOrDefault(key string, def, description string) string {
 	return def
 }
 
-func TriggerGC(_ http.ResponseWriter, _ *http.Request) {
-	runtime.GC()
+// getEnvOrDefaultBool wrapper to provide ability to parse bool or return default value if not found
+// behavior is similar to flags
+// panic if provided non-boolean value
+//goland:noinspection GoUnusedParameter
+func getEnvOrDefaultBool(key string, def bool, description string) bool {
+	if getenv, ok := os.LookupEnv(key); ok {
+		boolValue, err := strconv.ParseBool(getenv)
+		if err != nil {
+			panic(err)
+		}
+		return boolValue
+	}
+	return def
 }

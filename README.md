@@ -2,10 +2,8 @@
 
 ## Goal
 
-Efficient storage and efficient search for prices based on many conditions
-
-* [Design](docs/design.md)
-* [Tasks](docs/tasks.md)
+1. Business: Efficient storage and efficient search for prices based on many conditions
+2. Technical: Prepare infrastructure for performance analyze
 
 ## Disclaimer
 > Work in progress. There are still a lot todo to get the 'right' results.
@@ -14,7 +12,7 @@ Efficient storage and efficient search for prices based on many conditions
 * See [Status](docs/status.md) for details
 
 ## Build & Run
-* `make build-run`
+* `make build run-fiber`
 
 ## Usage  
 * Search 1 price. Bitmap 
@@ -42,6 +40,9 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 
 ## Benchmarks
 * [Benchmark Results](docs/benchmark.md)
-* Low-level `make bench`
+* Low-level `make bench` (`go` tests)
 * High-level `make wrk`
-* Memory `make bench-memory`
+
+## Design & more
+* [Design](docs/design.md)
+* [Tasks](docs/tasks.md)

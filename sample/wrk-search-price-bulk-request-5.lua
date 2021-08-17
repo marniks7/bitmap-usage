@@ -1,3 +1,40 @@
+json = require "json"
+
+function setup(thread)
+    thread0 = thread0 or thread
+end
+
+function init(args)
+    file = args[1] or "/dev/null"
+end
+
+function done(summary, latency, requests)
+    file = io.open(thread0:get("file"), "w")
+
+    percentiles = {}
+
+    for _, p in pairs({ 50, 90, 95, 97, 98, 99, 99.999 }) do
+        k = string.format("%g%%", p)
+        v = latency:percentile(p)
+        percentiles[k] = v
+    end
+
+    file:write(json.encode({
+        duration = summary.duration,
+        requests = summary.requests,
+        bytes    = summary.bytes,
+        errors   = summary.errors,
+        latency  = {
+            min         = latency.min,
+            max         = latency.max,
+            mean        = latency.mean,
+            stdev       = latency.stdev,
+            percentiles = percentiles,
+        },
+    }))
+    file:close()
+end
+
 wrk.method = "POST"
 wrk.body   = "[{\"offeringId\":\"00d3a020-08c4-4c94-be0a-e29794756f9e\",\"groupId\":\"Default\",\"priceSpecId\":\"MRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"12\"},{\"char\":\"B2B Traffic\",\"value\":\"5GB\"},{\"char\":\"B2B Bandwidth\",\"value\":\"900Mbps\"},{\"char\":\"VPN\",\"value\":\"5739614e-6c52-402c-ba3a-534c51b3201a\"},{\"char\":\"Router\",\"value\":\"Not Included\"}],\"id\":0},{\"offeringId\":\"00d3a020-08c4-4c94-be0a-e29794756f9e\",\"groupId\":\"Default\",\"priceSpecId\":\"MRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"18\"},{\"char\":\"B2B Traffic\",\"value\":\"5GB\"},{\"char\":\"B2B Bandwidth\",\"value\":\"900Mbps\"},{\"char\":\"VPN\",\"value\":\"5739614e-6c52-402c-ba3a-534c51b3201a\"},{\"char\":\"Router\",\"value\":\"Not Included\"}],\"id\":1},{\"offeringId\":\"00d3a020-08c4-4c94-be0a-e29794756f9e\",\"groupId\":\"Default\",\"priceSpecId\":\"MRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"24\"},{\"char\":\"B2B Traffic\",\"value\":\"5GB\"},{\"char\":\"B2B Bandwidth\",\"value\":\"900Mbps\"},{\"char\":\"VPN\",\"value\":\"5739614e-6c52-402c-ba3a-534c51b3201a\"},{\"char\":\"Router\",\"value\":\"Not Included\"}],\"id\":2},{\"offeringId\":\"00d3a020-08c4-4c94-be0a-e29794756f9e\",\"groupId\":\"Default\",\"priceSpecId\":\"MRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"36\"},{\"char\":\"B2B Traffic\",\"value\":\"5GB\"},{\"char\":\"B2B Bandwidth\",\"value\":\"900Mbps\"},{\"char\":\"VPN\",\"value\":\"5739614e-6c52-402c-ba3a-534c51b3201a\"},{\"char\":\"Router\",\"value\":\"Not Included\"}],\"id\":3},{\"offeringId\":\"00d3a020-08c4-4c94-be0a-e29794756f9e\",\"groupId\":\"Default\",\"priceSpecId\":\"MRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"48\"},{\"char\":\"B2B Traffic\",\"value\":\"5GB\"},{\"char\":\"B2B Bandwidth\",\"value\":\"900Mbps\"},{\"char\":\"VPN\",\"value\":\"5739614e-6c52-402c-ba3a-534c51b3201a\"},{\"char\":\"Router\",\"value\":\"Not Included\"}],\"id\":4}]"
 wrk.headers["Content-Type"] = "application/json"
