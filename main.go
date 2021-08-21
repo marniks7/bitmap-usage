@@ -126,20 +126,11 @@ func Setup() {
 
 		as := handlersroaring.NewBitmapAggregateService(log.Logger, cs, ind)
 		cs.GeneratePricesByConditions()
-		//for _, sb := range ind.Index.SpecBitmaps {
-		//	sb.RunOptimize()
+		//err = ind.OptimizeBitmapsInternalStructure()
+		//if err != nil {
+		//	log.Panic().Err(err).Msg("Unable to OptimizeBitmapsInternalStructure")
+		//	return
 		//}
-		//for _, sb := range ind.Index.OfferingBitmaps {
-		//	sb.RunOptimize()
-		//}
-		//for _, sb := range ind.Index.GroupBitmaps {
-		//	sb.RunOptimize()
-		//}
-		//
-		//for _, sb := range ind.Index.CharBitmaps {
-		//	sb.RunOptimize()
-		//}
-		//ind.Index.DefaultBitmaps.RunOptimize()
 		//long-live workers
 		go as.LongLiveWorker()
 		go as.LongLiveWorker()
