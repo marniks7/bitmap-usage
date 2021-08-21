@@ -13,6 +13,10 @@ ROARING64 = false
 MAP64 = false
 APP_CMD =# whatever command to add to run
 APP_DOCKER_CMD =# whatever command to add to Docker run
+# IN_DOCKER used to tell that app is executed in docker (for saving results in separate folder)
+# Provide on executing manually as `true`.
+# Example: `make wrk -e IN_DOCKER=true`
+IN_DOCKER =
 # -----------------------------------------------------------------------------
 # App performance configuration
 # -----------------------------------------------------------------------------
@@ -33,6 +37,10 @@ WRK_CONNECTIONS = 1
 WRK_REQUEST = sample/wrk-search-price-request.lua# used in main runner
 WRK_FILENAME_PART = ${APP_API_PART}# first part of filename with results
 WRK2_RATE = 2000
+WRK_FOLDER = wrk
+WRK2_FOLDER = wrk2
+WRK_FOLDER_IN_DOCKER = docker/wrk
+WRK2_FOLDER_IN_DOCKER = docker/wrk2
 # -----------------------------------------------------------------------------
 # AB Configuration
 # -----------------------------------------------------------------------------
@@ -88,6 +96,9 @@ docker-run:
 	docker run -p ${APP_PORT}:8080 --cpus=${GOMAXPROCS} --env GOMAXPROCS=${GOMAXPROCS} \
 		--env GOGC=${GOGC} --env FIBER=${FIBER} --env SROAR=${SROAR} \
 		--env ROARING64=${ROARING64} --env MAP64=${MAP64} ${APP_DOCKER_CMD} bitmap-usage
+docker-run-fiber: FIBER=true
+docker-run-fiber:
+	$(MAKE) -e docker-run
 docker-run-profile-gc: APP_DOCKER_CMD=--env GODEBUG=gctrace=1
 docker-run-profile-gc:
 	$(MAKE) -e docker-run
@@ -111,11 +122,14 @@ bench-memory-sroar:
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------
+ifeq ($(IN_DOCKER),true)
+  WRK_FOLDER = ${WRK_FOLDER_IN_DOCKER}
+endif
 wrk-run:
 	./wrk -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -s ${WRK_REQUEST} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} -- \
-		  benchmark/wrk/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
-		  | tee benchmark/wrk/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
+		  benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
+		  | tee benchmark/${WRK_FOLDER}/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
 wrk-map-t1-c1: WRK_THREADS = 1
 wrk-map-t1-c1: WRK_CONNECTIONS = 1
 wrk-map-t1-c1: APP_API_PART = map
@@ -153,11 +167,14 @@ wrk: wrk-map-t1-c1 wrk-map-t2-c20 wrk-bitmap-t1-c1 wrk-bitmap-t2-c20
 # -----------------------------------------------------------------------------
 # WRK2 tool for performance measurement https://github.com/giltene/wrk2
 # -----------------------------------------------------------------------------
+ifeq ($(IN_DOCKER),true)
+  WRK2_FOLDER = ${WRK2_FOLDER_IN_DOCKER}
+endif
 wrk2-run:
 	./wrk2 -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -R${WRK2_RATE} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} \
-    	-s ${WRK_REQUEST} -- benchmark/wrk2/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
-    	| tee benchmark/wrk2/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
+    	-s ${WRK_REQUEST} -- benchmark/${WRK2_FOLDER}/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
+    	| tee benchmark/${WRK2_FOLDER}/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
 wrk2-map-t1-c1: WRK_THREADS = 1
 wrk2-map-t1-c1: WRK_CONNECTIONS = 1
 wrk2-map-t1-c1: APP_API_PART = map

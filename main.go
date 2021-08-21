@@ -70,8 +70,12 @@ func Setup() {
 	var cs64 *cache64.CatalogService
 	// create router
 	r := mux.NewRouter()
-	// create another router for fiber
-	app := fiber.New()
+
+	app := fiber.New(fiber.Config{ //make sure it is synced with http.Server below
+		ReadTimeout:  10 * time.Minute,
+		WriteTimeout: 1 * time.Minute,
+		IdleTimeout:  120 * time.Second,
+	})
 	if roaring64 {
 		log.Info().Msg("Use Roaring64")
 		cs64 = cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
@@ -257,7 +261,7 @@ func Setup() {
 		Handler:           r,
 		ReadTimeout:       10 * time.Minute,
 		ReadHeaderTimeout: 5 * time.Second,
-		WriteTimeout:      10 * time.Minute,
+		WriteTimeout:      1 * time.Minute,
 		IdleTimeout:       120 * time.Second,
 	}
 
@@ -292,7 +296,11 @@ func Setup() {
 	//goland:noinspection GoVetLostCancel
 	timeout, _ := context.WithTimeout(context.Background(), 10*time.Second)
 
-	err = server.Shutdown(timeout)
+	if useFiber {
+		err = app.Shutdown()
+	} else {
+		err = server.Shutdown(timeout)
+	}
 
 	if err != nil {
 		if err != http.ErrServerClosed {
