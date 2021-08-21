@@ -32,6 +32,9 @@ type PriceBitmaps struct {
 	//Term -> 24 -> 101
 	//Bandwidth -> 100Mbps -> 102
 	CharsToValuesIndex map[string]map[string]uint32
+
+	// StatisticOptimizer small analog of Database statistics
+	StatisticOptimizer *BitmapOptimizerStatistic
 }
 
 type GroupBitmapsStatistics struct {
@@ -52,4 +55,25 @@ type BitmapStatistics struct {
 	SerializedSizeHR string
 	SerializedSize   uint64
 	Stats            []roaring.Statistics
+}
+
+type BitmapSearchStatistic struct {
+	//ordered list of bitmap searches
+	Stats []SingleBitmapSearchStats
+}
+
+type SingleBitmapSearchStats struct {
+	//cardinality after operation
+	Cardinality uint64
+	//cardinality of original bitmap itself
+	OriginalCardinality uint64
+	//value applied
+	Value string
+	//bitmap name
+	BitmapName string
+	//index of bitmap in bitmaps array
+	//0 if single bitmap in cache used
+	BitmapIndex *uint32
+	//order
+	Order int
 }

@@ -44,9 +44,6 @@ func TestGenerateTestData(t *testing.T) {
 
 	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
 }
-func TestA(t *testing.T) {
-	fmt.Println(500 << 20 / 1024 / 1024)
-}
 
 func TestMapOfferingIndex_FindPrice_3824Position(t *testing.T) {
 	//given

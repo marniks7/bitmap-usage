@@ -2,6 +2,7 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	"bitmap-usage/model"
+	"github.com/stretchr/testify/assert"
 	"runtime"
 	"testing"
 )
@@ -55,19 +56,9 @@ func BenchmarkBitmap_FindPrice_Conditions8_3824Position(b *testing.B) {
 
 func BenchmarkBitmap_FindPrice_Conditions8_3824Position_Optimized(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	for _, sb := range ind.Index.SpecBitmaps {
-		sb.RunOptimize()
-	}
-	for _, sb := range ind.Index.OfferingBitmaps {
-		sb.RunOptimize()
-	}
-	for _, sb := range ind.Index.GroupBitmaps {
-		sb.RunOptimize()
-	}
-	for _, sb := range ind.Index.CharValuesBitmaps {
-		sb.RunOptimize()
-	}
-	ind.Index.DefaultBitmaps.RunOptimize()
+	err := ind.OptimizeBitmapsInternalStructure()
+	assert.NoError(b, err)
+
 	runtime.GC()
 	b.ResetTimer()
 	var priceIndex uint32
@@ -93,6 +84,57 @@ func BenchmarkBitmap_FindPrice_Conditions8_3824Position_Optimized(b *testing.B) 
 func BenchmarkBitmap_FindPrice_Conditions8_9701position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
+	b.ResetTimer()
+	var price *model.Price
+	for i := 0; i < b.N; i++ {
+		priceIndex, _ := ind.FindPriceIndexBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
+			[]model.CharValue{{"Term", "60"},
+				{"B2B Traffic", "100GB"},
+				{"B2B Bandwidth", "75Mbps"},
+				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
+				{"Router", "Included"}})
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			b.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
+	}
+	if price == nil {
+		b.Fail()
+	}
+}
+
+func BenchmarkBitmap_FindPrice_Conditions8_9701position_OptStats(b *testing.B) {
+	cs, ind := prepareBitmapIndex(b)
+	_, err := ind.OptimizeBuildStats()
+	assert.NoError(b, err)
+
+	b.ResetTimer()
+	var price *model.Price
+	for i := 0; i < b.N; i++ {
+		priceIndex, _ := ind.FindPriceIndexBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
+			[]model.CharValue{{"Term", "60"},
+				{"B2B Traffic", "100GB"},
+				{"B2B Bandwidth", "75Mbps"},
+				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
+				{"Router", "Included"}})
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			b.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
+	}
+	if price == nil {
+		b.Fail()
+	}
+}
+
+func BenchmarkBitmap_FindPrice_Conditions8_9701position_OptAll(b *testing.B) {
+	cs, ind := prepareBitmapIndex(b)
+	err := ind.OptimizeBitmapsInternalStructure()
+	assert.NoError(b, err)
+	_, err = ind.OptimizeBuildStats()
+	assert.NoError(b, err)
 	b.ResetTimer()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {

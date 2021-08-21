@@ -1,16 +1,18 @@
 # Optimizations
 
 ## Applied
-|Name|Description|
-|---|---|
-|Bitmap|Bitmap usage itself is optimization compare to map usage|
-|GC|Bitmap creates high pressure on GC. Now used GOGC=1000, otherwise there is huge performance degradation for 9X % percentiles|
-|Templates|This is optimization for map based on the data - allows to stop iteration earlier.
+|Name|Description|Status|
+|---|---|---|
+|Bitmap|Bitmap usage itself is optimization compare to map usage|Done|
+|GC|Bitmap creates high pressure on GC, especially for 9X percentiles|GOGC=1000 used. 2021.07.16: after issue fix GC pressure drops, so GOGC can be decreased|
+|Templates. Map|This is optimization for map based on the data - allows to stop iteration earlier.|[Optimize](../index-map/optimization.go)|
+|Fiber usage|Standard go http server is not that performant|[Fiber](https://github.com/gofiber/fiber) makes huge difference| 
+|Order of bitmap operations|Start from bitmap with smallest cardinality, join smallest|[OptimizeBuildStats](../index-roaring/optimization.go). Next level - `Database Optimizer Statistics`|
 
 ## Test
 
-|Name|Description|
-|---|---|
+|Name|Description|Status|
+|---|---|---|
 |Bulk. Stream. Unmarshal input data|Test|
 |Bulk. Stream. Marshal output data|Test|
 |Bulk. Gzip input|Test|
@@ -25,5 +27,5 @@
 |Store intermediate bitmaps|Find the way to identify the best way from performance\memory perspective| 
 |Defragmentation for bitmaps|During updates bitmaps may become 'fragmented'. Test the influence of that|
 |Map - default prices reordering|This is based on previous optimization for `templates`. It is known if request will target specific price or default. Reorder and place default in the beginning|
-|Order of bitmap operations|Start from bitmap with smallest cardinality|
 |Avoid price marshaling|We can try to store bytes directly to avoid marshaling|
+|Database Optimizer Statistics|Research & implement Oracle's Optimizer|Primitive version in [OptimizeBuildStats](../index-roaring/optimization.go)|
