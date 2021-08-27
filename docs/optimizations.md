@@ -29,3 +29,5 @@
 |Map - default prices reordering|This is based on previous optimization for `templates`. It is known if request will target specific price or default. Reorder and place default in the beginning|
 |Avoid price marshaling|We can try to store bytes directly to avoid marshaling|
 |Database Optimizer Statistics|Research & implement Oracle's Optimizer|Primitive version in [OptimizeBuildStats](../index-roaring/optimization.go)|
+|GPU|Research GPU usage|It looks like too much for such a small data size and has sense to test it only with other data|
+|New hardware|Test on more powerful CPU||

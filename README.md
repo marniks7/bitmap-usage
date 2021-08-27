@@ -2,8 +2,10 @@
 
 ## Goal
 
-1. Business: Efficient storage and efficient search for prices based on many conditions
-2. Technical: Prepare infrastructure for performance analyze
+For data size <2M
+1. Efficient storage data in memory 
+2. Efficient search
+3. Prepare infrastructure for performance analyze
 
 ## Disclaimer
 > Work in progress. There are still a lot todo to get the 'right' results.
