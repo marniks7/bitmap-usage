@@ -2,7 +2,7 @@
 
 ## Goal
 
-For data size <2M
+For data size <2M entities
 1. Efficient storage data in memory 
 2. Efficient search
 3. Prepare infrastructure for performance analyze
