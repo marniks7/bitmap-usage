@@ -47,6 +47,17 @@ func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.Bitm
 	return cs, ind
 }
 
+func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexroaring.Holder) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(b, err)
+
+	ind := indexroaring.NewHolder(log.Logger)
+	ind.IndexPricesV2(cs.Catalog)
+	cs.GeneratePricesByConditions()
+	return cs, ind
+}
+
 func prepareBitmapIndexT(t *testing.T) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
