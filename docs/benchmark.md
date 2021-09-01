@@ -10,12 +10,12 @@
 * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt)
 * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt)
 
-|Case|Bitmap|Map|Benefit|
+|Case|Bitmap, ns|Map, ns|Benefit|
 |---|---|---|---|
-|FindPrice|8466 ns/op|233692 ns/op|96% less, ~27 times less, 1 order of magnitude|
-|FindPrice_MapOptimized_3824_of_9700|8466 ns/op|75852 ns/op|88% less, ~9 times less|
-|FindPrice_BitmapAndMapOptimized|3047 ns/op|75852 ns/op|96% less, ~25 times less|
-|FindPrice_HTTPClientServer*|75890 ns/op|417117 ns/op|82% less, ~5.4 times less|
+|FindPrice|8466|233692|96% less, ~27 times less, 1 order of magnitude|
+|FindPrice_MapOptimized_3824_of_9700|8466|75852|88% less, ~9 times less|
+|FindPrice_BitmapAndMapOptimized|3047|75852|96% less, ~25 times less|
+|FindPrice_HTTPClientServer*|75890|417117|82% less, ~5.4 times less|
 
 ### Timing (high level)
 
@@ -23,33 +23,31 @@
   * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t1-c1.txt)
   * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t1-c1.txt)
 
-|Case|Bitmap|Map|Benefit|
+|Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
-|50%|57us|455.00us|398us|
-|75%|65us|581.00us|516ms|
-|90%|87us|0.9ms|0.8ms|
-|95%|103us|1.00ms|0.9ms|
-|97%|120us|1.07ms|1ms|
-|98%|136us|1.14ms|1ms|
-|99%|192us|1.33ms|1.1ms|
-|request/sec|15.5k|2k|13.5k|
-|total requests|470k|55.5k|414k|
+|50%|34000|395000|91.39% better, in 11.6 times better, 1 order of magnitude|
+|90%|45000|541000|91.68% better, in 12.0 times better, 1 order of magnitude|
+|95%|52000|647000|91.96% better, in 12.4 times better, 1 order of magnitude|
+|97%|62000|747000|91.70% better, in 12.0 times better, 1 order of magnitude|
+|98%|76000|848000|91.04% better, in 11.2 times better, 1 order of magnitude|
+|99%|97000|1077000|90.99% better, in 11.1 times better, 2 order of magnitude|
+|99.999%|7170000|9466000|24.26% better, in 1.3 times better|
+|Requests|785931|70829|1009.6% more, in 11.1 times more|
 
 * 20 connections (2 processors)
   * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t2-c20.txt)
   * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t2-c20.txt)
 
-|Case|Bitmap|Map|Benefit|
+|Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
-|50%|485us|3.31ms|3ms|
-|75%|737us|4.84ms|4ms|
-|90%|1.02ms|6.36ms|5.3ms|
-|95%|1.02ms|7.39ms|6.3ms|
-|97%|1.54ms|7.85ms|6.3us|
-|98%|2.02ms|8.11ms|6ms|
-|99%|3.88ms|8.56ms|4.7ms|
-|requests/sec|40k|6k|34k|
-|total requests|1.1kk|180k|0.9kk|
+|50%|270000|3299000|91.82% better, in 12.2 times better, 1 order of magnitude|
+|90%|550000|6668000|91.75% better, in 12.1 times better, 1 order of magnitude|
+|95%|635000|7694000|91.75% better, in 12.1 times better, 1 order of magnitude|
+|97%|707000|8354000|91.54% better, in 11.8 times better, 1 order of magnitude|
+|98%|781000|8968000|91.29% better, in 11.5 times better, 1 order of magnitude|
+|99%|951000|10087000|90.57% better, in 10.6 times better, 2 order of magnitude|
+|99.999%|20000000|21471000|6.85% better, in 1.1 times better|
+|Requests|2138513|176831|1109.4% more, in 12.1 times more|
 
 ### Memory
 

@@ -41,13 +41,17 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 ```
 
 ## Benchmarks
-* Low-level `make bench` (go tests). [bench results](benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt)
-* High-level `make wrk`. [wrk results](benchmark/wrk)
-  * Wrk2: `make wrk2`. [wrk2 results](benchmark/wrk2)
+[Benchmark Aggregation](docs/benchmark.md)
+
+* Low-level: `make bench` (go tests)
+* High-level 
+  * Wrk: `make wrk`
+  * Wrk2: `make wrk2`
 * Docker (beta) 
   * Build & Run app: `make build docker docker-run-fiber`
-  * Benchmarks: `make wrk -e IN_DOCKER=true`. [docker wrk results](benchmark/docker/wrk)
-    * `make wrk2 -e IN_DOCKER=true`. [docker wrk2 results](benchmark/docker/wrk2)
+  * Benchmarks
+    * Wrk: `make wrk -e IN_DOCKER=true`
+    * Wrk2: `make wrk2 -e IN_DOCKER=true`
 
 ## Design & more
 * [Design](docs/design.md)
