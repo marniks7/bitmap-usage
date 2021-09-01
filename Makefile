@@ -37,10 +37,14 @@ WRK_CONNECTIONS = 1
 WRK_REQUEST = sample/wrk-search-price-request.lua# used in main runner
 WRK_FILENAME_PART = ${APP_API_PART}# first part of filename with results
 WRK2_RATE = 2000
-WRK_FOLDER = wrk
-WRK2_FOLDER = wrk2
-WRK_FOLDER_IN_DOCKER = docker/wrk
-WRK2_FOLDER_IN_DOCKER = docker/wrk2
+WRK_BITMAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk
+WRK_MAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk
+WRK2_BITMAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk2
+WRK2_MAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk2
+WRK_BITMAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk
+WRK_MAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk
+WRK2_BITMAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk2
+WRK2_MAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk2
 # -----------------------------------------------------------------------------
 # AB Configuration
 # -----------------------------------------------------------------------------
@@ -107,8 +111,10 @@ docker-run-profile-gc:
 # -----------------------------------------------------------------------------
 bench: bench-32 bench-64 bench-sroar bench-memory bench-memory-sroar
 bench-32:
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
-		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/benchmark-results.txt
+	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/map/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt
+	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+    		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt
 bench-64:
 	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
 		| tee benchmark/Prices-487k-PricesPerOffering-9.7k-64/benchmark-results.txt
@@ -123,7 +129,7 @@ bench-memory-sroar:
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------
 ifeq ($(IN_DOCKER),true)
-  WRK_FOLDER = ${WRK_FOLDER_IN_DOCKER}
+  WRK_FILENAME_PART = docker-${WRK_FILENAME_PART}
 endif
 wrk-run:
 	./wrk -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -s ${WRK_REQUEST} \
@@ -133,12 +139,14 @@ wrk-run:
 wrk-map-t1-c1: WRK_THREADS = 1
 wrk-map-t1-c1: WRK_CONNECTIONS = 1
 wrk-map-t1-c1: APP_API_PART = map
+wrk-map-t1-c1: WRK_FOLDER = ${WRK_MAP_FOLDER}
 wrk-map-t1-c1:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk-map-t2-c20: WRK_THREADS = 2
 wrk-map-t2-c20: WRK_CONNECTIONS = 20
 wrk-map-t2-c20: APP_API_PART = map
+wrk-map-t2-c20: WRK_FOLDER = ${WRK_MAP_FOLDER}
 wrk-map-t2-c20:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
@@ -148,18 +156,21 @@ wrk-bitmap-bulk-1000-t1-c1: WRK_REQUEST=sample/wrk-search-price-bulk-request-100
 wrk-bitmap-bulk-1000-t1-c1: APP_API_PART=bitmap
 wrk-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
+wrk-bitmap-bulk-1000-t1-c1: WRK_FOLDER=${WRK_BITMAP_FOLDER}
 wrk-bitmap-bulk-1000-t1-c1:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk-bitmap-t1-c1: WRK_THREADS=1
 wrk-bitmap-t1-c1: WRK_CONNECTIONS=1
 wrk-bitmap-t1-c1: APP_API_PART=bitmap
+wrk-bitmap-t1-c1: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
 wrk-bitmap-t1-c1:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk-bitmap-t2-c20: WRK_THREADS=2
 wrk-bitmap-t2-c20: WRK_CONNECTIONS=20
 wrk-bitmap-t2-c20: APP_API_PART=bitmap
+wrk-bitmap-t2-c20: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
 wrk-bitmap-t2-c20:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
@@ -168,22 +179,24 @@ wrk: wrk-map-t1-c1 wrk-map-t2-c20 wrk-bitmap-t1-c1 wrk-bitmap-t2-c20
 # WRK2 tool for performance measurement https://github.com/giltene/wrk2
 # -----------------------------------------------------------------------------
 ifeq ($(IN_DOCKER),true)
-  WRK2_FOLDER = ${WRK2_FOLDER_IN_DOCKER}
+  WRK_FILENAME_PART = docker-${WRK_FILENAME_PART}
 endif
 wrk2-run:
 	./wrk2 -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -R${WRK2_RATE} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} \
-    	-s ${WRK_REQUEST} -- benchmark/${WRK2_FOLDER}/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
+    	-s ${WRK_REQUEST} -- benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
     	| tee benchmark/${WRK2_FOLDER}/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
 wrk2-map-t1-c1: WRK_THREADS = 1
 wrk2-map-t1-c1: WRK_CONNECTIONS = 1
 wrk2-map-t1-c1: APP_API_PART = map
+wrk2-map-t1-c1: WRK_FOLDER = ${WRK2_MAP_FOLDER}
 wrk2-map-t1-c1:
 	$(MAKE) -e wrk2-run
 	$(MAKE) trigger-gc
 wrk2-map-t2-c20: WRK_THREADS=2
 wrk2-map-t2-c20: WRK_CONNECTIONS=20
 wrk2-map-t2-c20: APP_API_PART=map
+wrk2-map-t2-c20: WRK_FOLDER = ${WRK2_MAP_FOLDER}
 wrk2-map-t2-c20:
 	$(MAKE) -e wrk2-run
 	$(MAKE) trigger-gc
@@ -193,18 +206,21 @@ wrk2-bitmap-bulk-1000-t1-c1: WRK_REQUEST=sample/wrk-search-price-bulk-request-10
 wrk2-bitmap-bulk-1000-t1-c1: APP_API_PART=bitmap
 wrk2-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk2-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
+wrk2-bitmap-bulk-1000-t1-c1: WRK_FOLDER = ${WRK2_BITMAP_FOLDER}
 wrk2-bitmap-bulk-1000-t1-c1:
 	$(MAKE) -e wrk2-run
 	$(MAKE) trigger-gc
 wrk2-bitmap-t1-c1: WRK_THREADS=1
 wrk2-bitmap-t1-c1: WRK_CONNECTIONS=1
 wrk2-bitmap-t1-c1: APP_API_PART=bitmap
+wrk2-bitmap-t1-c1: WRK_FOLDER = ${WRK2_BITMAP_FOLDER}
 wrk2-bitmap-t1-c1:
 	$(MAKE) -e wrk2-run
 	$(MAKE) trigger-gc
 wrk2-bitmap-t2-c20: WRK_THREADS=2
 wrk2-bitmap-t2-c20: WRK_CONNECTIONS=20
 wrk2-bitmap-t2-c20: APP_API_PART=bitmap
+wrk2-bitmap-t2-c20: WRK_FOLDER = ${WRK2_BITMAP_FOLDER}
 wrk2-bitmap-t2-c20:
 	$(MAKE) -e wrk2-run
 	$(MAKE) trigger-gc

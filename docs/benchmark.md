@@ -7,14 +7,23 @@
 * 487k prices, 9.7k prices per offering
 
 ### Timing (low level)
+* [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt)
+* [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt)
+
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
-|FindPrice|18246 ns/op|207368 ns/op|~11 times less, 1 order of magnitude|
-|FindPrice_MapOptimized_3824_of_9700|18246 ns/op|75852 ns/op|~4 times less|
-|FindPrice_HTTPClientServer*|95266 ns/op|351127 ns/op|~3.7 times less|
+|FindPrice|8466 ns/op|233692 ns/op|96% less, ~27 times less, 1 order of magnitude|
+|FindPrice_MapOptimized_3824_of_9700|8466 ns/op|75852 ns/op|88% less, ~9 times less|
+|FindPrice_BitmapAndMapOptimized|3047 ns/op|75852 ns/op|96% less, ~25 times less|
+|FindPrice_HTTPClientServer*|75890 ns/op|417117 ns/op|82% less, ~5.4 times less|
 
 ### Timing (high level)
+
 * 1 connection (1 processor)
+
+* [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt)
+* [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt)
+
 
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
