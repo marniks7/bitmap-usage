@@ -20,10 +20,8 @@
 ### Timing (high level)
 
 * 1 connection (1 processor)
-
-* [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt)
-* [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt)
-
+  * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t1-c1.txt)
+  * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t1-c1.txt)
 
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
@@ -38,6 +36,8 @@
 |total requests|470k|55.5k|414k|
 
 * 20 connections (2 processors)
+  * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t2-c20.txt)
+  * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t2-c20.txt)
 
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
@@ -52,6 +52,10 @@
 |total requests|1.1kk|180k|0.9kk|
 
 ### Memory
+
+* [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/memory/map-heapdump-top.txt)
+* [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/memory/bitmap-heapdump-top.txt)
+
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|
 |Total|90MB|180MB|90MB|

@@ -25,7 +25,7 @@ GOMAXPROCS = 2# used for Go runtime and for Docker as well
 # -----------------------------------------------------------------------------
 # API urls
 # -----------------------------------------------------------------------------
-APP_API_PART = bitmap# could be 'bitmap' or 'map'. Used in URL
+APP_API_PART =# could be 'bitmap' or 'map'. Used in URL
 APP_API = v1/search/${APP_API_PART}/prices
 APP_BULK_API = /v4/search/${APP_API_PART}/bulk/prices
 # -----------------------------------------------------------------------------
@@ -35,7 +35,8 @@ WRK_DURATION = 30s
 WRK_THREADS = 1
 WRK_CONNECTIONS = 1
 WRK_REQUEST = sample/wrk-search-price-request.lua# used in main runner
-WRK_FILENAME_PART = ${APP_API_PART}# first part of filename with results
+WRK_FILENAME_APPROACH_PART = ${APP_API_PART}# first part of filename with results
+WRK_FILENAME_WHERE_PART =# 'docker-' or empty by default
 WRK2_RATE = 2000
 WRK_BITMAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk
 WRK_MAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk
@@ -129,13 +130,13 @@ bench-memory-sroar:
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------
 ifeq ($(IN_DOCKER),true)
-  WRK_FILENAME_PART = docker-${WRK_FILENAME_PART}
+  WRK_FILENAME_WHERE_PART = docker-
 endif
 wrk-run:
 	./wrk -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -s ${WRK_REQUEST} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} -- \
-		  benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
-		  | tee benchmark/${WRK_FOLDER}/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
+		  benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
+		  | tee benchmark/${WRK_FOLDER}/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
 wrk-map-t1-c1: WRK_THREADS = 1
 wrk-map-t1-c1: WRK_CONNECTIONS = 1
 wrk-map-t1-c1: APP_API_PART = map
@@ -179,13 +180,13 @@ wrk: wrk-map-t1-c1 wrk-map-t2-c20 wrk-bitmap-t1-c1 wrk-bitmap-t2-c20
 # WRK2 tool for performance measurement https://github.com/giltene/wrk2
 # -----------------------------------------------------------------------------
 ifeq ($(IN_DOCKER),true)
-  WRK_FILENAME_PART = docker-${WRK_FILENAME_PART}
+	WRK_FILENAME_WHERE_PART = docker-
 endif
 wrk2-run:
 	./wrk2 -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -R${WRK2_RATE} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} \
-    	-s ${WRK_REQUEST} -- benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
-    	| tee benchmark/${WRK2_FOLDER}/${APP_API_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
+    	-s ${WRK_REQUEST} -- benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
+    	| tee benchmark/${WRK_FOLDER}/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
 wrk2-map-t1-c1: WRK_THREADS = 1
 wrk2-map-t1-c1: WRK_CONNECTIONS = 1
 wrk2-map-t1-c1: APP_API_PART = map
