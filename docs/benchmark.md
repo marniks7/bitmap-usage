@@ -9,6 +9,7 @@
 ### Timing (low level)
 * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt)
 * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt)
+* [diff latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/diff/benchmark-results.txt)
 
 |Case|Bitmap, ns|Map, ns|Benefit|
 |---|---|---|---|
@@ -22,6 +23,7 @@
 * 1 connection (1 processor)
   * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t1-c1.txt)
   * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t1-c1.txt)
+  * [diff latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/diff/wrk/diff.md)
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
@@ -37,6 +39,7 @@
 * 20 connections (2 processors)
   * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t2-c20.txt)
   * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t2-c20.txt)
+  * [diff latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/diff/wrk/diff.md)
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
