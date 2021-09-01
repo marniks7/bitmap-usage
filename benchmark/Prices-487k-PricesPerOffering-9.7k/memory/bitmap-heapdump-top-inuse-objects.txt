@@ -1,8 +1,8 @@
 File: Prices-487k-PricesPerOffering-9.7k.test
 Type: inuse_objects
-Time: Jul 16, 2021 at 12:56am (EDT)
-Showing nodes accounting for 974400, 99.86% of 975813 total
-Dropped 151 nodes (cum <= 4879)
+Time: Aug 31, 2021 at 8:22pm (EDT)
+Showing nodes accounting for 974400, 99.86% of 975753 total
+Dropped 136 nodes (cum <= 4878)
       flat  flat%   sum%        cum   cum%
     487200 49.93% 49.93%     487200 49.93%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:64
     487200 49.93% 99.86%     487200 49.93%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)

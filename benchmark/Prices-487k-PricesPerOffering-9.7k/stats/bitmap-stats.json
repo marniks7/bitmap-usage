@@ -736,15 +736,6 @@
          ]
       },
       {
-         "Name": "Char",
-         "Cnt": 0,
-         "SizeHR": "0 B",
-         "Size": 0,
-         "SerializedSizeHR": "0 B",
-         "SerializedSize": 0,
-         "Stats": null
-      },
-      {
          "Name": "CharValues",
          "Cnt": 48,
          "SizeHR": "2.2 MB",

@@ -134,7 +134,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_9701position(b *testing.B) {
 
 func BenchmarkBitmap_FindPrice_Conditions8_3824position_OptStats(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	_, err := ind.OptimizeBuildStats()
+	_, err := ind.OptimizeBasedOnStats()
 	assert.NoError(b, err)
 
 	b.ResetTimer()
@@ -196,7 +196,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_3824position_OptAll(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	err := ind.OptimizeBitmapsInternalStructure()
 	assert.NoError(b, err)
-	_, err = ind.OptimizeBuildStats()
+	_, err = ind.OptimizeBasedOnStats()
 	assert.NoError(b, err)
 	b.ResetTimer()
 	var price *model.Price

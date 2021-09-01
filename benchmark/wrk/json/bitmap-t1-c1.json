@@ -1,1 +1,1 @@
-{"latency":{"min":32,"max":7593,"percentiles":{"99.999%":7423,"50%":39,"90%":44,"95%":48,"97%":53,"98%":59,"99%":75},"stdev":147.54780571404,"mean":45.76335744426},"requests":732322,"duration":30100063,"bytes":149393688,"errors":{"timeout":0,"connect":0,"write":0,"status":0,"read":0}}
+{"latency":{"max":7474,"percentiles":{"99.999%":7170,"50%":34,"90%":45,"95%":52,"97%":62,"98%":76,"99%":97},"min":25,"stdev":90.969676579758,"mean":40.482161385585},"duration":30099541,"bytes":160329924,"errors":{"timeout":0,"connect":0,"read":0,"status":0,"write":0},"requests":785931}

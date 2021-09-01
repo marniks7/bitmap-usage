@@ -406,7 +406,7 @@ func TestFindPriceBy(t *testing.T) {
 					err := ind.OptimizeBitmapsInternalStructure()
 					assert.NoError(t, err)
 				} else if tt.fields.optimized[i] == OptimizerStatistic {
-					_, err := ind.OptimizeBuildStats()
+					_, err := ind.OptimizeBasedOnStats()
 					assert.NoError(t, err)
 				}
 			}

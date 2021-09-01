@@ -1,8 +1,8 @@
 File: Prices-487k-PricesPerOffering-9.7k.test
 Type: inuse_objects
-Time: Jul 16, 2021 at 12:56am (EDT)
-Showing nodes accounting for 1461600, 100% of 1461804 total
-Dropped 171 nodes (cum <= 7309)
+Time: Aug 31, 2021 at 8:27pm (EDT)
+Showing nodes accounting for 1461600, 100% of 1461740 total
+Dropped 162 nodes (cum <= 7308)
       flat  flat%   sum%        cum   cum%
     487200 33.33% 33.33%     487200 33.33%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:165
     487200 33.33% 66.66%     487200 33.33%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:167
@@ -14,4 +14,4 @@ Dropped 171 nodes (cum <= 7309)
          0     0%   100%     487201 33.33%  bitmap-usage/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:168
          0     0%   100%    1461602   100%  bitmap-usage/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/sample/test-data.go:148
          0     0%   100%     487201 33.33%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0%   100%    1461711   100%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193
+         0     0%   100%    1461713   100%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193

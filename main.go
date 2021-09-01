@@ -34,14 +34,16 @@ import (
 )
 
 var (
-	addr         = getEnvOrDefault("ADDR", ":8091", "TCP Address")
-	loggingLevel = getEnvOrDefault("LOGGING_LEVEL", "info", "Logging Level")
-	roaring32    = getEnvOrDefaultBool("ROARING32", true, "Use roaring 32, by default")
-	map32        = getEnvOrDefaultBool("MAP32", true, "Use map 32, by default")
-	roaring64    = getEnvOrDefaultBool("ROARING64", false, "Use roaring 64")
-	sroar        = getEnvOrDefaultBool("SROAR", false, "Use 64 bit sroar")
-	map64        = getEnvOrDefaultBool("MAP64", false, "Use 64 bit maps")
-	useFiber     = getEnvOrDefaultBool("FIBER", false, "Use Fiber framework")
+	addr                = getEnvOrDefault("ADDR", ":8091", "TCP Address")
+	loggingLevel        = getEnvOrDefault("LOGGING_LEVEL", "info", "Logging Level")
+	roaring32           = getEnvOrDefaultBool("ROARING32", true, "Use roaring 32, by default")
+	map32               = getEnvOrDefaultBool("MAP32", true, "Use map 32, by default")
+	roaring64           = getEnvOrDefaultBool("ROARING64", false, "Use roaring 64")
+	sroar               = getEnvOrDefaultBool("SROAR", false, "Use 64 bit sroar")
+	map64               = getEnvOrDefaultBool("MAP64", false, "Use 64 bit maps")
+	useFiber            = getEnvOrDefaultBool("FIBER", false, "Use Fiber framework")
+	optimizeBitmapStr   = getEnvOrDefaultBool("BITMAP_OPT_STR", true, "Optimize Bitmap Structure")
+	optimizeBitmapStats = getEnvOrDefaultBool("BITMAP_OPT_STATS", false, "Optimize Bitmap based on statistic")
 )
 
 func main() {
@@ -126,11 +128,24 @@ func Setup() {
 
 		as := handlersroaring.NewBitmapAggregateService(log.Logger, cs, ind)
 		cs.GeneratePricesByConditions()
-		//err = ind.OptimizeBitmapsInternalStructure()
-		//if err != nil {
-		//	log.Panic().Err(err).Msg("Unable to OptimizeBitmapsInternalStructure")
-		//	return
-		//}
+		if optimizeBitmapStr {
+			log.Info().Msg("Optimize Bitmap Structure")
+			err = ind.OptimizeBitmapsInternalStructure()
+			if err != nil {
+				log.Panic().Err(err).Msg("Unable to OptimizeBitmapsInternalStructure")
+				return
+			}
+		}
+
+		if optimizeBitmapStats {
+			log.Info().Msg("Optimize Bitmap based on statistic")
+			_, err = ind.OptimizeBasedOnStats()
+			if err != nil {
+				log.Panic().Err(err).Msg("Unable to OptimizeBasedOnStats")
+				return
+			}
+		}
+
 		//long-live workers
 		go as.LongLiveWorker()
 		go as.LongLiveWorker()

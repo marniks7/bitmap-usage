@@ -1,14 +1,14 @@
 File: Prices-487k-PricesPerOffering-9.7k-sroar.test
 Type: inuse_space
-Time: Jul 16, 2021 at 1:16am (EDT)
+Time: Aug 31, 2021 at 8:27pm (EDT)
 Showing nodes accounting for 124.04MB, 100% of 124.08MB total
-Dropped 117 nodes (cum <= 0.62MB)
+Dropped 113 nodes (cum <= 0.62MB)
       flat  flat%   sum%        cum   cum%
       32MB 25.79% 25.79%       32MB 25.79%  github.com/dgraph-io/sroar.init /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210624194305-2cc5980b720b/bitmap.go:28
-   29.74MB 23.96% 49.75%    29.74MB 23.96%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache64/price-cache.go:31
+   29.74MB 23.97% 49.76%    29.74MB 23.97%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache64/price-cache.go:31
    27.63MB 22.26% 72.02%    27.63MB 22.26%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache64/price-cache.go:29
    22.30MB 17.97% 89.99%    22.30MB 17.97%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    7.44MB  5.99% 95.98%     7.44MB  5.99%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-sroar/indexer.go:20
+    7.44MB  5.99% 95.99%     7.44MB  5.99%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-sroar/indexer.go:20
     4.94MB  3.98%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).fastExpand /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210624194305-2cc5980b720b/bitmap.go:158
          0     0%   100%    92.07MB 74.20%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:68
          0     0%   100%    22.30MB 17.97%  bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9%2e7k-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/bitmap-memory_test.go:22
@@ -28,7 +28,7 @@ Dropped 117 nodes (cum <= 0.62MB)
          0     0%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).expandContainer /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210624194305-2cc5980b720b/bitmap.go:205
          0     0%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).scootRight /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210624194305-2cc5980b720b/bitmap.go:171
          0     0%   100%    22.30MB 17.97%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0%   100%       32MB 25.79%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6286
-         0     0%   100%       32MB 25.79%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6309
-         0     0%   100%       32MB 25.79%  runtime.main /home/malerome/go/src/runtime/proc.go:208
+         0     0%   100%    32.01MB 25.79%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6286
+         0     0%   100%    32.01MB 25.79%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6309
+         0     0%   100%    32.01MB 25.79%  runtime.main /home/malerome/go/src/runtime/proc.go:208
          0     0%   100%    92.07MB 74.20%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193
