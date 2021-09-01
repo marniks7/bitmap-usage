@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func BenchmarkBitmap_FindPriceV2_Conditions8_3824Position(b *testing.B) {
+func BenchmarkFindPriceV2_Conditions8_3824position(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 	runtime.GC()
 	b.ResetTimer()
@@ -26,7 +26,7 @@ func BenchmarkBitmap_FindPriceV2_Conditions8_3824Position(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPriceV2_Conditions8_3824Position_OptStr(b *testing.B) {
+func BenchmarkFindPriceV2_Conditions8_3824position_OptStr(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 	err := ind.OptimizeBitmapsInternalStructure()
 	assert.NoError(b, err)
@@ -47,7 +47,7 @@ func BenchmarkBitmap_FindPriceV2_Conditions8_3824Position_OptStr(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPriceV2_Conditions8_9701position(b *testing.B) {
+func BenchmarkFindPriceV2_Conditions8_9701position(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 
 	b.ResetTimer()
@@ -70,7 +70,7 @@ func BenchmarkBitmap_FindPriceV2_Conditions8_9701position(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPriceV2_Conditions8_3824position_OptStats(b *testing.B) {
+func BenchmarkFindPriceV2_Conditions8_3824position_OptStats(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 	_, err := ind.OptimizeBuildStats()
 	assert.NoError(b, err)
@@ -100,7 +100,7 @@ func findPrice3824PositionV2(ind *indexroaring.Holder) uint32 {
 	return priceIndex
 }
 
-func BenchmarkBitmap_FindPriceV2_Conditions8_3824position_OptAll(b *testing.B) {
+func BenchmarkFindPriceV2_Conditions8_3824position_OptAll(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 	err := ind.OptimizeBitmapsInternalStructure()
 	assert.NoError(b, err)
@@ -121,7 +121,7 @@ func BenchmarkBitmap_FindPriceV2_Conditions8_3824position_OptAll(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPriceV2_Conditions8_MultiplePricesErr(b *testing.B) {
+func BenchmarkFindPriceV2_Conditions8_MultiplePricesErr(b *testing.B) {
 	_, ind := prepareBitmapIndexV2(b)
 
 	b.ResetTimer()

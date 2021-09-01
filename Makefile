@@ -112,20 +112,20 @@ docker-run-profile-gc:
 # -----------------------------------------------------------------------------
 bench: bench-32 bench-64 bench-sroar bench-memory bench-memory-sroar
 bench-32:
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/map/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k/map/... -bench=. -run ^$$ -cpu 1 -benchmem \
 		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/... -bench=. -run ^$$ -cpu 1 -benchmem \
     		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt
 bench-64:
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k-64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
 		| tee benchmark/Prices-487k-PricesPerOffering-9.7k-64/benchmark-results.txt
 bench-sroar:
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
  		| tee benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/benchmark-results.txt
 bench-memory:
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k/... . -failfast -test.memprofilerate=1
+	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k/... . -failfast -test.memprofilerate=1
 bench-memory-sroar:
-	go test -v ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... . -failfast -test.memprofilerate=1
+	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... . -failfast -test.memprofilerate=1
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------
@@ -295,3 +295,7 @@ pprof-allocs: # Memory allocations profiler. Run test, wait till the end, run th
 	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/allocs
 pprof-profile: # CPU profiler. Run it and run test
 	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
+bench-diff:
+	go run benchmark/analyze/main.go
+	benchcmp benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt \
+		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/diff/benchmark-results.txt
