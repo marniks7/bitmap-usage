@@ -16,7 +16,16 @@ type BitmapOptimizerStatistic struct {
 	CharValueStatistic map[string]map[string]uint64
 }
 
-// OptimizeBasedOnStats the idea of this optimization is Database Optimizer Statistics.
+func (s *BitmapIndexService) RunOptimize() error {
+	err := s.RunOptimizeBitmapsInternalStructure()
+	if err != nil {
+		return err
+	}
+	_, err = s.RunOptimizeBasedOnStats()
+	return err
+}
+
+// RunOptimizeBasedOnStats the idea of this optimization is Database Optimizer Statistics.
 // First selection - find bitmap with the smallest cardinality
 // First join - make sure that result of join between first bitmap and second
 //		will give the smallest cardinality
@@ -34,7 +43,7 @@ type BitmapOptimizerStatistic struct {
 // 2) Price: depends on the input data, there might be few very expensive restaurants (so, it could be better than Michelin criteria)
 // 3) Location: in case if it is South America - there are no Michelin (0). So it is our best first join
 //	If Europe or North America - it depends on other criterias.
-func (s *BitmapIndexService) OptimizeBasedOnStats() (*BitmapOptimizerStatistic, error) {
+func (s *BitmapIndexService) RunOptimizeBasedOnStats() (*BitmapOptimizerStatistic, error) {
 	offeringStatistic := make(map[string]uint64)
 	for k, v := range s.Index.OfferingIdToIndex {
 		offeringStatistic[k] = s.Index.OfferingBitmaps[v].GetCardinality()
@@ -68,12 +77,12 @@ func (s *BitmapIndexService) OptimizeBasedOnStats() (*BitmapOptimizerStatistic, 
 	return b, nil
 }
 
-// OptimizeBitmapsInternalStructure change internal roaring bitmap containers to whatever is better for memory.
+// RunOptimizeBitmapsInternalStructure change internal roaring bitmap containers to whatever is better for memory.
 // In most cases it means faster access bitmap operations
 //
 // However it is not always true, that is why check benchmarks and\or add more
 // Make sure there are fewer allocations, otherwise it can cave huge impact on real testing with memory constraints
-func (s *BitmapIndexService) OptimizeBitmapsInternalStructure() error {
+func (s *BitmapIndexService) RunOptimizeBitmapsInternalStructure() error {
 	for _, sb := range s.Index.SpecBitmaps {
 		sb.RunOptimize()
 	}

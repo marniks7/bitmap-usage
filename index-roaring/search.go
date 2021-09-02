@@ -120,7 +120,6 @@ func (s *BitmapIndexService) findPriceByStatisticOptimized(offeringId string, gr
 	sort.Slice(bitmapOperations, func(i, j int) bool {
 		return bitmapOperations[i].Order < bitmapOperations[j].Order
 	})
-	bitmapOperations = bitmapOperations[0:2]
 
 	var result *roaring.Bitmap = nil
 	for i, bo := range bitmapOperations {

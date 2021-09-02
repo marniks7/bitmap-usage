@@ -130,18 +130,18 @@ func Setup() {
 		cs.GeneratePricesByConditions()
 		if optimizeBitmapStr {
 			log.Info().Msg("Optimize Bitmap Structure")
-			err = ind.OptimizeBitmapsInternalStructure()
+			err = ind.RunOptimizeBitmapsInternalStructure()
 			if err != nil {
-				log.Panic().Err(err).Msg("Unable to OptimizeBitmapsInternalStructure")
+				log.Panic().Err(err).Msg("Unable to RunOptimizeBitmapsInternalStructure")
 				return
 			}
 		}
 
 		if optimizeBitmapStats {
 			log.Info().Msg("Optimize Bitmap based on statistic")
-			_, err = ind.OptimizeBasedOnStats()
+			_, err = ind.RunOptimizeBasedOnStats()
 			if err != nil {
-				log.Panic().Err(err).Msg("Unable to OptimizeBasedOnStats")
+				log.Panic().Err(err).Msg("Unable to RunOptimizeBasedOnStats")
 				return
 			}
 		}

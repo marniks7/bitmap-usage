@@ -14,6 +14,28 @@ import (
 	"testing"
 )
 
+func BenchmarkUnmarshalFindMarshal_Bitmap_FindPrice_Conditions8(b *testing.B) {
+	cs, ind := prepareBitmapIndex(b)
+	as := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
+	request := []byte(`{"offeringId":"00d3a020-08c4-4c94-be0a-e29794756f9e","groupId":"Default","priceSpecId":"MRC","charValues":[{"char":"Term","value":"12"},{"char":"B2B Traffic","value":"5GB"},{"char":"B2B Bandwidth","value":"900Mbps"},{"char":"VPN","value":"5739614e-6c52-402c-ba3a-534c51b3201a"},{"char":"Router","value":"Not Included"}],"id":0}`)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		var findPriceRequest model.FindPriceRequest
+		err := json.Unmarshal(request, &findPriceRequest)
+		assert.NoError(b, err)
+		index, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
+			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
+		assert.NoError(b, err)
+		priceId, err := as.Index.FindPriceIdByIndex(index)
+		assert.NoError(b, err)
+		price := cs.Catalog.Prices[priceId]
+		assert.NoError(b, err)
+		marshal, err := json.Marshal(price)
+		assert.NoError(b, err)
+		assert.NotEmpty(b, marshal)
+	}
+}
+
 func BenchmarkHttpClientServer_FindPrice_Conditions8(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	bitmapAggregateService := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
@@ -81,7 +103,7 @@ func BenchmarkFindPrice_Conditions8_3824position(b *testing.B) {
 
 func BenchmarkFindPrice_Conditions8_3824position_OptStr(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	err := ind.OptimizeBitmapsInternalStructure()
+	err := ind.RunOptimizeBitmapsInternalStructure()
 	assert.NoError(b, err)
 
 	runtime.GC()
@@ -125,7 +147,7 @@ func BenchmarkFindPrice_Conditions8_9701position(b *testing.B) {
 
 func BenchmarkFindPrice_Conditions8_3824position_OptStats(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	_, err := ind.OptimizeBasedOnStats()
+	_, err := ind.RunOptimizeBasedOnStats()
 	assert.NoError(b, err)
 
 	b.ResetTimer()
@@ -155,9 +177,7 @@ func findPrice3824Position(ind *indexroaring.BitmapIndexService) uint32 {
 
 func BenchmarkFindPrice_Conditions8_3824position_OptAll(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	err := ind.OptimizeBitmapsInternalStructure()
-	assert.NoError(b, err)
-	_, err = ind.OptimizeBasedOnStats()
+	err := ind.RunOptimize()
 	assert.NoError(b, err)
 	b.ResetTimer()
 	var price *model.Price

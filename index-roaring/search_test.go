@@ -403,10 +403,10 @@ func TestFindPriceBy(t *testing.T) {
 			cs.GeneratePricesByConditionsAndClear()
 			for i := 0; i < len(tt.fields.optimized); i++ {
 				if tt.fields.optimized[i] == BitmapStructure {
-					err := ind.OptimizeBitmapsInternalStructure()
+					err := ind.RunOptimizeBitmapsInternalStructure()
 					assert.NoError(t, err)
 				} else if tt.fields.optimized[i] == OptimizerStatistic {
-					_, err := ind.OptimizeBasedOnStats()
+					_, err := ind.RunOptimizeBasedOnStats()
 					assert.NoError(t, err)
 				}
 			}

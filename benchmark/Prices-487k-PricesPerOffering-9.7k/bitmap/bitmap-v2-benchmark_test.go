@@ -28,7 +28,7 @@ func BenchmarkFindPriceV2_Conditions8_3824position(b *testing.B) {
 
 func BenchmarkFindPriceV2_Conditions8_3824position_OptStr(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
-	err := ind.OptimizeBitmapsInternalStructure()
+	err := ind.RunOptimizeBitmapsInternalStructure()
 	assert.NoError(b, err)
 
 	runtime.GC()
@@ -72,7 +72,7 @@ func BenchmarkFindPriceV2_Conditions8_9701position(b *testing.B) {
 
 func BenchmarkFindPriceV2_Conditions8_3824position_OptStats(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
-	_, err := ind.OptimizeBuildStats()
+	_, err := ind.RunOptimizeBasedOnStats()
 	assert.NoError(b, err)
 
 	b.ResetTimer()
@@ -102,9 +102,7 @@ func findPrice3824PositionV2(ind *indexroaring.Holder) uint32 {
 
 func BenchmarkFindPriceV2_Conditions8_3824position_OptAll(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
-	err := ind.OptimizeBitmapsInternalStructure()
-	assert.NoError(b, err)
-	_, err = ind.OptimizeBuildStats()
+	err := ind.RunOptimize()
 	assert.NoError(b, err)
 	b.ResetTimer()
 	var price *model.Price
