@@ -7,9 +7,9 @@
 * 487k prices, 9.7k prices per offering
 
 ### Timing (low level)
-* [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt)
-* [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt)
-* [diff latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/diff/benchmark-results.txt)
+* [map latest](../benchmark/500k-large-groups/map/benchmark-results.txt)
+* [bitmap latest](../benchmark/500k-large-groups/bitmap/benchmark-results.txt)
+* [diff latest](../benchmark/500k-large-groups/diff/benchmark-results.txt)
 
 |Case|Bitmap, ns|Map, ns|Benefit|
 |---|---|---|---|
@@ -21,9 +21,9 @@
 ### Timing (high level)
 
 * 1 connection (1 processor)
-  * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t1-c1.txt)
-  * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t1-c1.txt)
-  * [diff latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/diff/wrk/diff.md)
+  * [map latest](../benchmark/500k-large-groups/map/wrk/map-t1-c1.txt)
+  * [bitmap latest](../benchmark/500k-large-groups/bitmap/wrk/bitmap-t1-c1.txt)
+  * [diff latest](../benchmark/500k-large-groups/diff/wrk/diff.md)
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
@@ -37,9 +37,9 @@
 |Requests|785931|70829|1009.6% more, in 11.1 times more|
 
 * 20 connections (2 processors)
-  * [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/map-t2-c20.txt)
-  * [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/bitmap-t2-c20.txt)
-  * [diff latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/diff/wrk/diff.md)
+  * [map latest](../benchmark/500k-large-groups/map/wrk/map-t2-c20.txt)
+  * [bitmap latest](../benchmark/500k-large-groups/bitmap/wrk/bitmap-t2-c20.txt)
+  * [diff latest](../benchmark/500k-large-groups/diff/wrk/diff.md)
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
@@ -54,8 +54,8 @@
 
 ### Memory
 
-* [map latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/map/memory/map-heapdump-top.txt)
-* [bitmap latest](../benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/memory/bitmap-heapdump-top.txt)
+* [map latest](../benchmark/500k-large-groups/map/memory/map-heapdump-top.txt)
+* [bitmap latest](../benchmark/500k-large-groups/bitmap/memory/bitmap-heapdump-top.txt)
 
 |Case|Bitmap|Map|Benefit|
 |---|---|---|---|

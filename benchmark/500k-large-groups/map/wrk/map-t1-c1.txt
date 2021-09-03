@@ -1,0 +1,16 @@
+Running 30s test @ http://127.0.0.1:8091/v1/search/map/prices
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   616.09us  563.29us  11.65ms   91.38%
+    Req/Sec     1.92k   519.92     2.57k    76.33%
+  Latency Distribution
+     50%  434.00us
+     75%  547.00us
+     90%    1.04ms
+     95%    1.73ms
+     97%    2.23ms
+     98%    2.63ms
+     99%    3.30ms
+  57439 requests in 30.00s, 11.17MB read
+Requests/sec:   1914.34
+Transfer/sec:    381.37KB

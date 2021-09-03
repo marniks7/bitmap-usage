@@ -1,0 +1,16 @@
+Running 30s test @ http://127.0.0.1:8091/v1/search/bitmap/prices
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    49.99us  213.03us  12.12ms   99.44%
+    Req/Sec    24.75k     2.39k   27.81k    85.00%
+  Latency Distribution
+     50%   36.00us
+     75%   40.00us
+     90%   49.00us
+     95%   64.00us
+     97%   86.00us
+     98%  100.00us
+     99%  146.00us
+  738557 requests in 30.00s, 143.69MB read
+Requests/sec:  24618.15
+Transfer/sec:      4.79MB

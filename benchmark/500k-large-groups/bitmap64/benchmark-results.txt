@@ -1,0 +1,12 @@
+goos: linux
+goarch: amd64
+pkg: bitmap-usage/benchmark/500k-large-groups/bitmap64
+cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8    	   15859	     71329 ns/op	   12057 B/op	     124 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_11position          	  120859	      9579 ns/op	    3824 B/op	      13 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_3824Position        	   99547	     11040 ns/op	    3824 B/op	      13 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_9701position        	  100959	     11041 ns/op	    3824 B/op	      13 allocs/op
+BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position 	  142087	     10351 ns/op	    3824 B/op	      13 allocs/op
+BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr   	  131661	      9553 ns/op	    3696 B/op	      10 allocs/op
+PASS
+ok  	bitmap-usage/benchmark/500k-large-groups/bitmap64	57.023s

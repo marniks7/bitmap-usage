@@ -34,26 +34,26 @@ APP_BULK_API = /v4/search/${APP_API_PART}/bulk/prices
 WRK_DURATION = 30s
 WRK_THREADS = 1
 WRK_CONNECTIONS = 1
-WRK_REQUEST = sample/wrk-search-price-request.lua# used in main runner
+WRK_REQUEST = benchmark/500k-large-groups/sample/wrk-search-price-request.lua# used in main runner
 WRK_FILENAME_APPROACH_PART = ${APP_API_PART}# first part of filename with results
 WRK_FILENAME_WHERE_PART =# 'docker-' or empty by default
 WRK2_RATE = 2000
-WRK_BITMAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk
-WRK_MAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk
-WRK2_BITMAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk2
-WRK2_MAP_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk2
-WRK_BITMAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk
-WRK_MAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk
-WRK2_BITMAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/bitmap/wrk2
-WRK2_MAP_IN_DOCKER_FOLDER = Prices-487k-PricesPerOffering-9.7k/map/wrk2
+WRK_BITMAP_FOLDER = 500k-large-groups/bitmap/wrk
+WRK_MAP_FOLDER = 500k-large-groups/map/wrk
+WRK2_BITMAP_FOLDER = 500k-large-groups/bitmap/wrk2
+WRK2_MAP_FOLDER = 500k-large-groups/map/wrk2
+WRK_BITMAP_IN_DOCKER_FOLDER = 500k-large-groups/bitmap/wrk
+WRK_MAP_IN_DOCKER_FOLDER = 500k-large-groups/map/wrk
+WRK2_BITMAP_IN_DOCKER_FOLDER = 500k-large-groups/bitmap/wrk2
+WRK2_MAP_IN_DOCKER_FOLDER = 500k-large-groups/map/wrk2
 # -----------------------------------------------------------------------------
 # AB Configuration
 # -----------------------------------------------------------------------------
 # Number of multiple requests to make at a time
 AB_CONCURRENCY = 1
 AB_REQUESTS_NUMBER = 1000# Number of requests to perform
-AB_REQUEST = sample/search-price-request.json# used in main runner
-AB_BULK_REQUEST = sample/search-price-bulk-request-10000.json
+AB_REQUEST = benchmark/500k-large-groups/sample/search-price-request.json# used in main runner
+AB_BULK_REQUEST = benchmark/500k-large-groups/sample/search-price-bulk-request-10000.json
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -112,20 +112,22 @@ docker-run-profile-gc:
 # -----------------------------------------------------------------------------
 bench: bench-32 bench-64 bench-sroar bench-memory bench-memory-sroar
 bench-32:
-	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k/map/... -bench=. -run ^$$ -cpu 1 -benchmem \
-		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt
-	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/... -bench=. -run ^$$ -cpu 1 -benchmem \
-    		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt
+	go test ./benchmark/500k-large-groups/map/... -bench=. -run ^$$ -cpu 1 -benchmem \
+		| tee benchmark/500k-large-groups/map/benchmark-results.txt
+	go test ./benchmark/500k-large-groups/bitmap/... -bench=. -run ^$$ -cpu 1 -benchmem \
+    		| tee benchmark/500k-large-groups/bitmap/benchmark-results.txt
 bench-64:
-	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k-64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
-		| tee benchmark/Prices-487k-PricesPerOffering-9.7k-64/benchmark-results.txt
+	go test ./benchmark/500k-large-groups/map64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+		| tee benchmark/500k-large-groups/map64/benchmark-results.txt
+	go test ./benchmark/500k-large-groups/bitmap64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+		| tee benchmark/500k-large-groups/bitmap64/benchmark-results.txt
 bench-sroar:
-	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
- 		| tee benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/benchmark-results.txt
+	go test ./benchmark/500k-large-groups/bitmap-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+ 		| tee benchmark/500k-large-groups/bitmap-sroar/benchmark-results.txt
 bench-memory:
-	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k/... . -failfast -test.memprofilerate=1
+	go test ./benchmark/500k-large-groups/... . -failfast -test.memprofilerate=1
 bench-memory-sroar:
-	go test ./benchmark/Prices-487k-PricesPerOffering-9.7k-sroar/... . -failfast -test.memprofilerate=1
+	go test ./benchmark/500k-large-groups/sroar/... . -failfast -test.memprofilerate=1
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------
@@ -153,7 +155,7 @@ wrk-map-t2-c20:
 	$(MAKE) trigger-gc
 wrk-bitmap-bulk-1000-t1-c1: WRK_THREADS=1
 wrk-bitmap-bulk-1000-t1-c1: WRK_CONNECTIONS=1
-wrk-bitmap-bulk-1000-t1-c1: WRK_REQUEST=sample/wrk-search-price-bulk-request-1000.lua
+wrk-bitmap-bulk-1000-t1-c1: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua
 wrk-bitmap-bulk-1000-t1-c1: APP_API_PART=bitmap
 wrk-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
@@ -203,7 +205,7 @@ wrk2-map-t2-c20:
 	$(MAKE) trigger-gc
 wrk2-bitmap-bulk-1000-t1-c1: WRK_THREADS=1
 wrk2-bitmap-bulk-1000-t1-c1: WRK_CONNECTIONS=1
-wrk2-bitmap-bulk-1000-t1-c1: WRK_REQUEST=sample/wrk-search-price-bulk-request-1000.lua
+wrk2-bitmap-bulk-1000-t1-c1: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua
 wrk2-bitmap-bulk-1000-t1-c1: APP_API_PART=bitmap
 wrk2-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk2-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
@@ -230,13 +232,13 @@ wrk2: wrk2-map-t1-c1 wrk2-map-t2-c20 wrk2-bitmap-t1-c1 wrk2-bitmap-t2-c20
 # Hey Tool for performance measurement (tested once) https://github.com/rakyll/hey
 # -----------------------------------------------------------------------------
 hey:
-	hey -cpus 2 -c 200 -n 1000000 -m POST -D sample/search-price-request.json -T "application/json" \
+	hey -cpus 2 -c 200 -n 1000000 -m POST -D benchmark/500k-large-groups/sample/search-price-request.json -T "application/json" \
  		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/v1/search/bitmap/prices
 # -----------------------------------------------------------------------------
 # AB Tool for performance measurement (used few times)
 # -----------------------------------------------------------------------------
 ab-run:
-	ab -k -c ${AB_CONCURRENCY} -n ${AB_REQUESTS_NUMBER} -T application/json -p sample/search-price-request.json \
+	ab -k -c ${AB_CONCURRENCY} -n ${AB_REQUESTS_NUMBER} -T application/json -benchmark/500k-large-groups/sample/search-price-request.json \
     		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API}
 ab-bitmap-1: APP_API_PART=bitmap
 ab-bitmap-1: AB_CONCURRENCY=1
@@ -297,5 +299,5 @@ pprof-profile: # CPU profiler. Run it and run test
 	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
 bench-diff:
 	go run benchmark/analyze/main.go
-	benchcmp benchmark/Prices-487k-PricesPerOffering-9.7k/map/benchmark-results.txt benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/benchmark-results.txt \
-		| tee benchmark/Prices-487k-PricesPerOffering-9.7k/diff/benchmark-results.txt
+	benchcmp benchmark/500k-large-groups/map/benchmark-results.txt benchmark/500k-large-groups/bitmap/benchmark-results.txt \
+		| tee benchmark/500k-large-groups/diff/benchmark-results.txt

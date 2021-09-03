@@ -30,7 +30,7 @@ func main() {
 		return
 	}
 
-	abs, err := filepath.Abs("benchmark/Prices-487k-PricesPerOffering-9.7k/diff/wrk/diff.md")
+	abs, err := filepath.Abs("benchmark/500k-large-groups/diff/wrk/diff.md")
 	if err != nil {
 		log.Err(err).Msg("unable to get path to file")
 		return
@@ -48,11 +48,11 @@ func main() {
 }
 
 func diffWrkT1C1(buffer *bytes.Buffer) error {
-	statsBitmap, err := readFile("benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/json/bitmap-t1-c1.json")
+	statsBitmap, err := readFile("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t1-c1.json")
 	if err != nil {
 		return err
 	}
-	statsMap, err := readFile("benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/json/map-t1-c1.json")
+	statsMap, err := readFile("benchmark/500k-large-groups/map/wrk/json/map-t1-c1.json")
 	if err != nil {
 		return err
 	}
@@ -68,11 +68,11 @@ func diffWrkT1C1(buffer *bytes.Buffer) error {
 }
 
 func diffWrkT2C20(buffer *bytes.Buffer) error {
-	statsBitmap, err := readFile("benchmark/Prices-487k-PricesPerOffering-9.7k/bitmap/wrk/json/bitmap-t2-c20.json")
+	statsBitmap, err := readFile("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t2-c20.json")
 	if err != nil {
 		return err
 	}
-	statsMap, err := readFile("benchmark/Prices-487k-PricesPerOffering-9.7k/map/wrk/json/map-t2-c20.json")
+	statsMap, err := readFile("benchmark/500k-large-groups/map/wrk/json/map-t2-c20.json")
 	if err != nil {
 		return err
 	}

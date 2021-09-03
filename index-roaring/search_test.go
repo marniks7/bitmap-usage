@@ -1,9 +1,9 @@
 package indexroaring
 
 import (
+	"bitmap-usage/benchmark/500k-large-groups/sample"
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
-	"bitmap-usage/sample"
 	"encoding/json"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"

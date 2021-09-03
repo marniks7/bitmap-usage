@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bitmap-usage/benchmark/500k-large-groups/sample"
+	"bitmap-usage/benchmark/500k-large-groups/sample64"
 	"bitmap-usage/cache"
 	cache64 "bitmap-usage/cache64"
 	"bitmap-usage/handlers"
@@ -14,8 +16,6 @@ import (
 	"bitmap-usage/index-roaring"
 	indexroaring64 "bitmap-usage/index-roaring64"
 	indexsroar "bitmap-usage/index-sroar"
-	"bitmap-usage/sample"
-	sample64 "bitmap-usage/sample64"
 	"context"
 	"github.com/gofiber/adaptor/v2"
 	"github.com/gofiber/fiber/v2"

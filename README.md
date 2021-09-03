@@ -21,23 +21,23 @@ For data size <2M entities
 ```bash
 curl -POST http://localhost:8091/v1/search/bitmap/prices \
       -H "Content-Type: application/json" \
-      -d @sample/search-price-request.json
+      -d @benchmark/500k-large-groups/sample/search-price-request.json
 ```
 * Search 1 price. Map
 ```bash
 curl -POST http://localhost:8091/v1/search/map/prices \
       -H "Content-Type: application/json" \
-      -d @sample/search-price-request.json
+      -d @benchmark/500k-large-groups/sample/search-price-request.json
 ```
 * Search 5 prices. Bitmap
 ```bash
 curl -H "Content-Type: application/json" -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
-    -d @sample/search-price-bulk-request-5.json
+    -d @benchmark/500k-large-groups/sample/search-price-bulk-request-5.json
 ```
 * Search 10000 prices. Bitmap
 ```bash
 time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
-    -d @sample/search-price-bulk-request-10000.json
+    -d @benchmark/500k-large-groups/sample/search-price-bulk-request-10000.json
 ```
 
 ## Benchmarks

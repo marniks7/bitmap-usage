@@ -1,9 +1,9 @@
 package indexroaring64
 
 import (
+	"bitmap-usage/benchmark/500k-large-groups/sample64"
 	"bitmap-usage/cache64"
 	"bitmap-usage/model64"
-	"bitmap-usage/sample64"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
