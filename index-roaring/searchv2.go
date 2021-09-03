@@ -70,9 +70,10 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	//no default row 'true' at all
 	if defRow != nil {
 		result.And(defRow.segments[0].bitmap)
+		cardinality = result.GetCardinality()
+	} else {
+		cardinality = 0
 	}
-
-	cardinality = result.GetCardinality()
 	if cardinality >= 1 {
 		//return any default price (iterator provides sorted data, so retries will be idempotent)
 		//however this can fail in case of rebuild entire cache with different indexes
@@ -151,9 +152,11 @@ func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string
 	//no default row 'true' at all
 	if defRow != nil {
 		result.And(defRow.segments[0].bitmap)
+		cardinality = result.GetCardinality()
+	} else {
+		cardinality = 0
 	}
 
-	cardinality = result.GetCardinality()
 	if cardinality >= 1 {
 		//return any default price (iterator provides sorted data, so retries will be idempotent)
 		//however this can fail in case of rebuild entire cache with different indexes
