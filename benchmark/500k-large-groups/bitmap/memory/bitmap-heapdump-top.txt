@@ -1,11 +1,11 @@
 File: bitmap.test
 Type: inuse_space
-Time: Sep 2, 2021 at 1:32am (EDT)
+Time: Sep 2, 2021 at 10:18pm (EDT)
 Showing nodes accounting for 89.73MB, 99.93% of 89.79MB total
-Dropped 145 nodes (cum <= 0.45MB)
+Dropped 141 nodes (cum <= 0.45MB)
       flat  flat%   sum%        cum   cum%
    29.74MB 33.12% 33.12%    29.74MB 33.12%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:64
-   27.63MB 30.76% 63.88%    27.63MB 30.76%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:62
+   27.63MB 30.77% 63.88%    27.63MB 30.77%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:62
    22.30MB 24.84% 88.72%    22.30MB 24.84%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
     7.44MB  8.28% 97.00%     7.44MB  8.28%  bitmap-usage/index-roaring.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-roaring/indexer.go:20
     1.56MB  1.74% 98.74%     1.56MB  1.74%  github.com/RoaringBitmap/roaring.newBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.1/bitmapcontainer.go:24 (inline)

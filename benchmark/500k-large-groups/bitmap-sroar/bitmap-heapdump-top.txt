@@ -1,13 +1,13 @@
 File: bitmap-sroar.test
 Type: inuse_space
-Time: Sep 2, 2021 at 1:28am (EDT)
+Time: Sep 2, 2021 at 10:21pm (EDT)
 Showing nodes accounting for 124.04MB, 100% of 124.07MB total
-Dropped 109 nodes (cum <= 0.62MB)
+Dropped 114 nodes (cum <= 0.62MB)
       flat  flat%   sum%        cum   cum%
       32MB 25.79% 25.79%       32MB 25.79%  github.com/dgraph-io/sroar.init /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210624194305-2cc5980b720b/bitmap.go:28
    29.74MB 23.97% 49.76%    29.74MB 23.97%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache64/price-cache.go:31
    27.63MB 22.27% 72.02%    27.63MB 22.27%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache64/price-cache.go:29
-   22.30MB 17.98% 90.00%    22.30MB 17.98%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+   22.30MB 17.97% 90.00%    22.30MB 17.97%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
     7.44MB  5.99% 95.99%     7.44MB  5.99%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-sroar/indexer.go:20
     4.94MB  3.98%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).fastExpand /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210624194305-2cc5980b720b/bitmap.go:158
          0     0%   100%    92.07MB 74.20%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:68
@@ -31,4 +31,4 @@ Dropped 109 nodes (cum <= 0.62MB)
          0     0%   100%       32MB 25.79%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6286
          0     0%   100%       32MB 25.79%  runtime.doInit /home/malerome/go/src/runtime/proc.go:6309
          0     0%   100%       32MB 25.79%  runtime.main /home/malerome/go/src/runtime/proc.go:208
-         0     0%   100%    92.07MB 74.21%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193
+         0     0%   100%    92.07MB 74.20%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193

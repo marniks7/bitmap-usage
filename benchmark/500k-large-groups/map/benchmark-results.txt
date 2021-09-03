@@ -2,12 +2,12 @@ goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/500k-large-groups/map
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-BenchmarkHttpClientServer_FindPrice_Conditions8            	    2628	    465374 ns/op	    8287 B/op	     112 allocs/op
-BenchmarkFindPrice_Conditions8_11position                  	    5553	    260540 ns/op	     224 B/op	       2 allocs/op
-BenchmarkFindPrice_Conditions8_3824position                	    4383	    256541 ns/op	     224 B/op	       2 allocs/op
-BenchmarkFindPrice_Conditions8_9701position                	    5834	    252945 ns/op	     224 B/op	       2 allocs/op
-BenchmarkFindPrice_Conditions8_MultiplePricesErr           	    5757	    270789 ns/op	     128 B/op	       1 allocs/op
-BenchmarkFindPrice_Conditions8_3824position_Optimized      	   15150	     79029 ns/op	     328 B/op	       5 allocs/op
-BenchmarkFindPrice_Conditions8_MultiplePricesErr_Optimized 	    4897	    238460 ns/op	     128 B/op	       1 allocs/op
+BenchmarkHttpClientServer_FindPrice_Conditions8            	    3265	    363841 ns/op	    8285 B/op	     112 allocs/op
+BenchmarkFindPrice_Conditions8_11position                  	    5967	    218956 ns/op	     224 B/op	       2 allocs/op
+BenchmarkFindPrice_Conditions8_3824position                	    5056	    224624 ns/op	     224 B/op	       2 allocs/op
+BenchmarkFindPrice_Conditions8_9701position                	    5829	    224106 ns/op	     224 B/op	       2 allocs/op
+BenchmarkFindPrice_Conditions8_MultiplePricesErr           	    5302	    221731 ns/op	     128 B/op	       1 allocs/op
+BenchmarkFindPrice_Conditions8_3824position_Optimized      	   15704	     80155 ns/op	     328 B/op	       5 allocs/op
+BenchmarkFindPrice_Conditions8_MultiplePricesErr_Optimized 	    4695	    215472 ns/op	     128 B/op	       1 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/500k-large-groups/map	53.463s
+ok  	bitmap-usage/benchmark/500k-large-groups/map	45.344s

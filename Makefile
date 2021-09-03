@@ -127,7 +127,7 @@ bench-sroar:
 bench-memory:
 	go test ./benchmark/500k-large-groups/... . -failfast -test.memprofilerate=1
 bench-memory-sroar:
-	go test ./benchmark/500k-large-groups/sroar/... . -failfast -test.memprofilerate=1
+	go test ./benchmark/500k-large-groups/bitmap-sroar/... . -failfast -test.memprofilerate=1
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------

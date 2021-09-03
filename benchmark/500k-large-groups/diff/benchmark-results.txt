@@ -1,9 +1,9 @@
 benchmark                                            old ns/op     new ns/op     delta
-BenchmarkHttpClientServer_FindPrice_Conditions8      384673        76381         -80.14%
-BenchmarkFindPrice_Conditions8_11position            227030        9957          -95.61%
-BenchmarkFindPrice_Conditions8_3824position          222202        8338          -96.25%
-BenchmarkFindPrice_Conditions8_9701position          275328        10082         -96.34%
-BenchmarkFindPrice_Conditions8_MultiplePricesErr     292512        7950          -97.28%
+BenchmarkHttpClientServer_FindPrice_Conditions8      363841        69593         -80.87%
+BenchmarkFindPrice_Conditions8_11position            218956        9171          -95.81%
+BenchmarkFindPrice_Conditions8_3824position          224624        8291          -96.31%
+BenchmarkFindPrice_Conditions8_9701position          224106        9900          -95.58%
+BenchmarkFindPrice_Conditions8_MultiplePricesErr     221731        7907          -96.43%
 
 benchmark                                            old allocs     new allocs     delta
 BenchmarkHttpClientServer_FindPrice_Conditions8      112            118            +5.36%
@@ -13,7 +13,7 @@ BenchmarkFindPrice_Conditions8_9701position          2              6           
 BenchmarkFindPrice_Conditions8_MultiplePricesErr     1              6              +500.00%
 
 benchmark                                            old bytes     new bytes     delta
-BenchmarkHttpClientServer_FindPrice_Conditions8      8286          12001         +44.83%
+BenchmarkHttpClientServer_FindPrice_Conditions8      8285          12001         +44.85%
 BenchmarkFindPrice_Conditions8_11position            224           3592          +1503.57%
 BenchmarkFindPrice_Conditions8_3824position          224           3592          +1503.57%
 BenchmarkFindPrice_Conditions8_9701position          224           3592          +1503.57%

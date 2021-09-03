@@ -1,8 +1,8 @@
 File: bitmap.test
 Type: inuse_objects
-Time: Sep 2, 2021 at 1:32am (EDT)
-Showing nodes accounting for 974400, 99.86% of 975756 total
-Dropped 156 nodes (cum <= 4878)
+Time: Sep 2, 2021 at 10:18pm (EDT)
+Showing nodes accounting for 974400, 99.86% of 975755 total
+Dropped 152 nodes (cum <= 4878)
       flat  flat%   sum%        cum   cum%
     487200 49.93% 49.93%     487200 49.93%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage/cache/price-cache.go:64
     487200 49.93% 99.86%     487200 49.93%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)

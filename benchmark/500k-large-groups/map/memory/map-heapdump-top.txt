@@ -1,21 +1,21 @@
 File: map.test
 Type: inuse_space
-Time: Sep 2, 2021 at 1:28am (EDT)
-Showing nodes accounting for 180.11MB, 100% of 180.15MB total
-Dropped 87 nodes (cum <= 0.90MB)
+Time: Sep 2, 2021 at 10:15pm (EDT)
+Showing nodes accounting for 180.11MB, 100% of 180.12MB total
+Dropped 65 nodes (cum <= 0.90MB)
       flat  flat%   sum%        cum   cum%
-  111.51MB 61.90% 61.90%   111.51MB 61.90%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:167
-   37.17MB 20.63% 82.53%    37.17MB 20.63%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:165
-   22.30MB 12.38% 94.91%    22.30MB 12.38%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    4.69MB  2.60% 97.51%     4.69MB  2.60%  bitmap-usage/index-map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-map/indexer.go:14
+  111.51MB 61.91% 61.91%   111.51MB 61.91%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:167
+   37.17MB 20.64% 82.55%    37.17MB 20.64%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:165
+   22.30MB 12.38% 94.93%    22.30MB 12.38%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    4.69MB  2.60% 97.53%     4.69MB  2.60%  bitmap-usage/index-map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage/index-map/indexer.go:14
     4.44MB  2.46%   100%     4.44MB  2.46%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:179
          0     0%   100%   180.11MB   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage/benchmark/utils.go:68
-         0     0%   100%   175.42MB 97.38%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:22
+         0     0%   100%   175.42MB 97.39%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:22
          0     0%   100%     4.69MB  2.60%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:30
-         0     0%   100%   175.42MB 97.38%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:23
+         0     0%   100%   175.42MB 97.39%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:23
          0     0%   100%     4.69MB  2.60%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:31
-         0     0%   100%   175.42MB 97.38%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:163
+         0     0%   100%   175.42MB 97.39%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:163
          0     0%   100%    22.30MB 12.38%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:168
-         0     0%   100%   175.42MB 97.38%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:148
+         0     0%   100%   175.42MB 97.39%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage/benchmark/500k-large-groups/sample/test-data.go:148
          0     0%   100%    22.30MB 12.38%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
          0     0%   100%   180.11MB   100%  testing.tRunner /home/malerome/go/src/testing/testing.go:1193
