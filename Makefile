@@ -129,6 +129,9 @@ bench-sroar:
 bench-kelindar:
 	go test ./benchmark/500k-large-groups/kelindar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
  		| tee benchmark/500k-large-groups/kelindar/benchmark-results.txt
+bench-kelindar-column:
+	go test ./benchmark/500k-large-groups/kelindar-column/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+ 		| tee benchmark/500k-large-groups/kelindar-column/benchmark-results.txt
 bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-memory-bitmap-64 bench-memory-sroar
 bench-memory-bitmap:
 	go test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1

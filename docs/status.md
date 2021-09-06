@@ -12,7 +12,8 @@ Who knows :)
 |[Roaring 32-bit](../index-roaring)|[roaring](https://github.com/RoaringBitmap/roaring)|This is the primary goal of this repo to test it|Fully supported|
 |[Roaring 64-bit](../index-roaring64)|[roaring-64](https://github.com/RoaringBitmap/roaring/tree/master/roaring64)|Added for comparison to sroar and Pilosa|Occasionally supported|
 |[Sroar](../index-sroar)|[Sroar](https://github.com/dgraph-io/sroar)|First impression - huge degradation compared to `Roaring-64` bitmaps|Occasionally supported|
-|[Kelindar](../index-kelindar)|[SIMD Bitmap Kelindar](https://github.com/kelindar/bitmap)|First impression - degradation compared to `Roaring-32` bitmaps|Occasionally supported|
+|[Kelindar Bitmap](../index-kelindar)|[SIMD Bitmap Kelindar](https://github.com/kelindar/bitmap)|First impression - degradation compared to `Roaring-32` bitmaps|Occasionally supported|
+|[Kelindar Column](../index-kelindar-column)|[Kelindar Column](https://github.com/kelindar/column)|First impression - degradation compared to `Roaring-32` bitmaps|Occasionally supported|
 |Pilosa|[Pilosa](https://github.com/pilosa/pilosa)|64 bit bitmaps|not yet implemented|
 
 ## Map implementation
