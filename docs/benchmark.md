@@ -90,12 +90,12 @@ It will force eviction and loading ALL prices per offering.
   There is one project that looks promising - [sroar](https://github.com/dgraph-io/sroar/) - huge memory allocations drop
   
 ## Notes. Search based on simple map index
-1. **BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position**
+1. **BenchmarkMapOfferingIndex_FindPrice_3824position**
    * Search doesn't depend on element position and requires iteration over all elements
-1. **BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized**
+1. **BenchmarkMapOfferingIndex_FindPrice_3824position_Optimized**
    * Search optimized based on data specifics, and this is when search stops on price position.
       Worst case scenario is the same as for non-optimized benchmark
-1. **BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized**
+1. **BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr_Optimized**
    * Search prices when not all conditions specified, so there are multiple prices found.
      This test shows (as expected) that such search requires iteration over all elements
 

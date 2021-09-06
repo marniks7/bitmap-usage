@@ -14,7 +14,7 @@ import (
 	"testing"
 )
 
-func BenchmarkUnmarshalFindMarshal_Bitmap_FindPrice_Conditions8(b *testing.B) {
+func BenchmarkUnmarshalMarshal_FindPrice(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	as := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
 	request := []byte(`{"offeringId":"00d3a020-08c4-4c94-be0a-e29794756f9e","groupId":"Default","priceSpecId":"MRC","charValues":[{"char":"Term","value":"12"},{"char":"B2B Traffic","value":"5GB"},{"char":"B2B Bandwidth","value":"900Mbps"},{"char":"VPN","value":"5739614e-6c52-402c-ba3a-534c51b3201a"},{"char":"Router","value":"Not Included"}],"id":0}`)
@@ -36,7 +36,7 @@ func BenchmarkUnmarshalFindMarshal_Bitmap_FindPrice_Conditions8(b *testing.B) {
 	}
 }
 
-func BenchmarkHttpClientServer_FindPrice_Conditions8(b *testing.B) {
+func BenchmarkHttpClientServer_FindPrice(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	bitmapAggregateService := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
 	ts := httptest.NewServer(http.HandlerFunc(bitmapAggregateService.FindPriceByX))
@@ -60,7 +60,7 @@ func BenchmarkHttpClientServer_FindPrice_Conditions8(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPrice_Conditions8_11position(b *testing.B) {
+func BenchmarkFindPrice_11position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -83,7 +83,7 @@ func BenchmarkFindPrice_Conditions8_11position(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPrice_Conditions8_3824position(b *testing.B) {
+func BenchmarkFindPrice_3824position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	runtime.GC()
 	b.ResetTimer()
@@ -101,7 +101,7 @@ func BenchmarkFindPrice_Conditions8_3824position(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPrice_Conditions8_3824position_OptStr(b *testing.B) {
+func BenchmarkFindPrice_3824position_OptStr(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	err := ind.RunOptimizeBitmapsInternalStructure()
 	assert.NoError(b, err)
@@ -122,7 +122,7 @@ func BenchmarkFindPrice_Conditions8_3824position_OptStr(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPrice_Conditions8_9701position(b *testing.B) {
+func BenchmarkFindPrice_9701position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -145,7 +145,7 @@ func BenchmarkFindPrice_Conditions8_9701position(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPrice_Conditions8_3824position_OptStats(b *testing.B) {
+func BenchmarkFindPrice_3824position_OptStats(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	_, err := ind.RunOptimizeBasedOnStats()
 	assert.NoError(b, err)
@@ -175,7 +175,7 @@ func findPrice3824Position(ind *indexroaring.BitmapIndexService) uint32 {
 	return priceIndex
 }
 
-func BenchmarkFindPrice_Conditions8_3824position_OptAll(b *testing.B) {
+func BenchmarkFindPrice_3824position_OptAll(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	err := ind.RunOptimize()
 	assert.NoError(b, err)
@@ -194,7 +194,7 @@ func BenchmarkFindPrice_Conditions8_3824position_OptAll(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPriceIndexId_Conditions8_3824position(b *testing.B) {
+func BenchmarkFindPriceIndexId_3824position(b *testing.B) {
 	_, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -207,7 +207,7 @@ func BenchmarkFindPriceIndexId_Conditions8_3824position(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
+func BenchmarkFindPrice_MultiplePricesErr(b *testing.B) {
 	_, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()

@@ -13,7 +13,7 @@ import (
 	"testing"
 )
 
-func BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8(b *testing.B) {
+func BenchmarkHttpClientServer_Bitmap_FindPrice(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 	bitmapAggregateService := handlerssroar.NewBitmapAggregateService(log.Logger, cs, ind)
 	ts := httptest.NewServer(http.HandlerFunc(bitmapAggregateService.FindPriceByX))
@@ -37,7 +37,7 @@ func BenchmarkHttpClientServer_Bitmap_FindPrice_Conditions8(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPrice_Conditions8_11position(b *testing.B) {
+func BenchmarkBitmap_FindPrice_11position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -60,7 +60,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_11position(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPrice_Conditions8_3824Position(b *testing.B) {
+func BenchmarkBitmap_FindPrice_3824Position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -84,7 +84,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_3824Position(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPrice_Conditions8_9701position(b *testing.B) {
+func BenchmarkBitmap_FindPrice_9701position(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -107,7 +107,7 @@ func BenchmarkBitmap_FindPrice_Conditions8_9701position(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position(b *testing.B) {
+func BenchmarkBitmap_FindPriceIndexId_3824Position(b *testing.B) {
 	_, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
@@ -125,7 +125,7 @@ func BenchmarkBitmap_FindPriceIndexId_Conditions8_3824Position(b *testing.B) {
 	}
 }
 
-func BenchmarkBitmap_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
+func BenchmarkBitmap_FindPrice_MultiplePricesErr(b *testing.B) {
 	_, ind := prepareBitmapIndex(b)
 
 	b.ResetTimer()
