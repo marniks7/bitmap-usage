@@ -110,24 +110,33 @@ docker-run-profile-gc:
 # -----------------------------------------------------------------------------
 # Go Benchmarks
 # -----------------------------------------------------------------------------
-bench: bench-32 bench-64 bench-sroar bench-memory bench-memory-sroar
-bench-32:
+bench: bench-map bench-bitmap bench-map-64 bench-bitmap-64 bench-sroar bench-memory
+bench-map:
 	go test ./benchmark/500k-large-groups/map/... -bench=. -run ^$$ -cpu 1 -benchmem \
 		| tee benchmark/500k-large-groups/map/benchmark-results.txt
+bench-bitmap:
 	go test ./benchmark/500k-large-groups/bitmap/... -bench=. -run ^$$ -cpu 1 -benchmem \
-    		| tee benchmark/500k-large-groups/bitmap/benchmark-results.txt
-bench-64:
+        | tee benchmark/500k-large-groups/bitmap/benchmark-results.txt
+bench-map-64:
 	go test ./benchmark/500k-large-groups/map64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
 		| tee benchmark/500k-large-groups/map64/benchmark-results.txt
+bench-bitmap-64:
 	go test ./benchmark/500k-large-groups/bitmap64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
 		| tee benchmark/500k-large-groups/bitmap64/benchmark-results.txt
 bench-sroar:
 	go test ./benchmark/500k-large-groups/bitmap-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
  		| tee benchmark/500k-large-groups/bitmap-sroar/benchmark-results.txt
-bench-memory:
-	go test ./benchmark/500k-large-groups/... . -failfast -test.memprofilerate=1
+bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-memory-bitmap-64 bench-memory-sroar
+bench-memory-bitmap:
+	go test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1
+bench-memory-map:
+	go test ./benchmark/500k-large-groups/map/... . -run ^*Memory* -failfast -test.memprofilerate=1
+bench-memory-map-64:
+	go test ./benchmark/500k-large-groups/map64/... . -run ^*Memory* -failfast -test.memprofilerate=1
+bench-memory-bitmap-64:
+	go test ./benchmark/500k-large-groups/bitmap64/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-sroar:
-	go test ./benchmark/500k-large-groups/bitmap-sroar/... . -failfast -test.memprofilerate=1
+	go test ./benchmark/500k-large-groups/bitmap-sroar/... . -run ^*Memory* -failfast -test.memprofilerate=1
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------

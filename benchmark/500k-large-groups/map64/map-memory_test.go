@@ -42,8 +42,8 @@ func TestMapMemoryStats(t *testing.T) {
 	runtime.GC()
 	err = pprof.WriteHeapProfile(f)
 	assert.NoError(t, err)
-	benchmark.ReadAndWritePprofTop("map-heapdump", "map-heapdump-top.txt")
-	benchmark.ReadAndWritePprofTopWithInuseObjects("map-heapdump", "map-heapdump-top-inuse-objects.txt")
+	benchmark.PprofInUseSpaceAsText("map-heapdump", "map-heapdump-inuse-space.txt")
+	benchmark.PprofInuseObjectsAsText("map-heapdump", "map-heapdump-inuse-objects.txt")
 	assert.NotZero(t, len(cs.Catalog.PriceConditions))
 	assert.NotZero(t, len(ind.Index))
 }

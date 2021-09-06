@@ -10,9 +10,7 @@ import (
 	"runtime"
 )
 
-func ReadAndWritePprofTop(fileName, resultFileName string) {
-	//Use "-nodefraction=0" to print everything (includes smallest allocations)
-	cmd := exec.Command("go", "tool", "pprof", "-inuse_space", "-lines", "-text", fileName)
+func execute(cmd *exec.Cmd, resultFileName string) {
 	stdout, err := cmd.Output()
 
 	if err != nil {
@@ -35,29 +33,34 @@ func ReadAndWritePprofTop(fileName, resultFileName string) {
 	}
 }
 
-func ReadAndWritePprofTopWithInuseObjects(fileName, resultFileName string) {
+func PprofInUseSpaceAsText(fileName, resultFileName string) {
+	//Use "-nodefraction=0" to print everything (includes smallest allocations)
+	cmd := exec.Command("go", "tool", "pprof", "-inuse_space", "-lines", "-text", fileName)
+	execute(cmd, resultFileName)
+}
+
+func PprofInUseSpaceAsSvg(fileName, resultFileName string) {
+	//Use "-nodefraction=0" to print everything (includes smallest allocations)
+	cmd := exec.Command("go", "tool", "pprof", "-inuse_space", "-lines", "-svg", fileName)
+	execute(cmd, resultFileName)
+}
+
+func PprofInuseObjectsAsText(fileName, resultFileName string) {
 	//Use "-nodefraction=0" to print everything (includes smallest allocations)
 	cmd := exec.Command("go", "tool", "pprof", "-inuse_objects", "-lines", "-text", fileName)
-	stdout, err := cmd.Output()
+	execute(cmd, resultFileName)
+}
 
-	if err != nil {
-		exitErr, isExitError := err.(*exec.ExitError)
-		if isExitError {
-			panic(string(exitErr.Stderr))
-		} else {
-			panic(err.Error())
-		}
+func PprofTopAllocSpaceAsText(fileName, resultFileName string) {
+	//Use "-nodefraction=0" to print everything (includes smallest allocations)
+	cmd := exec.Command("go", "tool", "pprof", "-alloc_space", "-lines", "-text", fileName)
+	execute(cmd, resultFileName)
+}
 
-		return
-	}
-	topFile, err := os.Create(resultFileName)
-	if err != nil {
-		panic(err)
-	}
-	_, err = topFile.Write(stdout)
-	if err != nil {
-		panic(err)
-	}
+func PprofTopAllocObjectsAsText(fileName, resultFileName string) {
+	//Use "-nodefraction=0" to print everything (includes smallest allocations)
+	cmd := exec.Command("go", "tool", "pprof", "-alloc_objects", "-lines", "-text", fileName)
+	execute(cmd, resultFileName)
 }
 
 func ReadMemStatsFuncWithGC(fnc func()) (*runtime.MemStats, *runtime.MemStats) {
