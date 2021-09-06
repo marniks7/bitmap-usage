@@ -5,6 +5,7 @@ import (
 	"bitmap-usage/model"
 	"errors"
 	"github.com/google/uuid"
+	"math/rand"
 	"time"
 )
 
@@ -118,9 +119,23 @@ var OfferingPool = []string{
 	"69ff38fb-e4a9-480b-bb94-b6e701ea72fd",
 }
 
+var GroupPool = []string{
+	"group1",
+	"group2",
+	"group3",
+	"group4",
+	"group5",
+}
+
+var SpecPool = []string{
+	"MRC",
+	"NRC",
+}
+
 var UnableToFindValuesForChar = errors.New("unable to find values for Char")
 
 func GenerateTestData5Chars5Offerings(cs *cache.CatalogService) error {
+	rand.Seed(3197) //just the same seed for each run to get stable sequence
 	const OfferingsCnt = 50
 	h := &Holder{
 		prices: make([]*model.PriceCondition, 0, 100),
@@ -164,11 +179,14 @@ func (h *Holder) generatePrice(chars []string,
 		} else {
 			result := make([]string, len(chars))
 			copy(result, priceValues)
+			spec := len(h.prices) % len(SpecPool) // high density result
+			group := rand.Intn(5)                 // high density, stable random value, distributed ~equally for each group
+
 			price := &model.PriceCondition{
 				ID:         uuid.NewString(),
 				IsDefault:  false,
-				Spec:       "MRC",
-				GroupId:    "Default",
+				Spec:       SpecPool[spec],
+				GroupId:    GroupPool[group],
 				OfferingID: offering,
 				Chars:      chars,
 				Values:     result,

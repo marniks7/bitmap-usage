@@ -23,6 +23,27 @@ func TestGenerateTestData_BuildChart(t *testing.T) {
 }
 
 func buildChart(t *testing.T, name string, bitmaps []*roaring.Bitmap) {
+
+	// chart with all the values
+	graph := buildGraph(name, bitmaps, -1)
+	f, err := os.Create("stats/" + name + "-distribution.png")
+	if err != nil {
+		panic(err)
+	}
+	err = graph.Render(chart.PNG, f)
+	assert.NoError(t, err)
+
+	//chart with first X values
+	graph = buildGraph(name, bitmaps, 1000)
+	f, err = os.Create("stats/" + name + "-distribution-first-1000.png")
+	if err != nil {
+		panic(err)
+	}
+	err = graph.Render(chart.PNG, f)
+	assert.NoError(t, err)
+}
+
+func buildGraph(name string, bitmaps []*roaring.Bitmap, limit int) chart.Chart {
 	graph := chart.Chart{
 		XAxis: chart.XAxis{Name: "Price Index Id",
 			ValueFormatter: func(v interface{}) string {
@@ -33,7 +54,6 @@ func buildChart(t *testing.T, name string, bitmaps []*roaring.Bitmap) {
 			}},
 		YAxis: chart.YAxis{Name: name, Zero: chart.GridLine{}}}
 	j := 1
-
 	graph.Series = []chart.Series{}
 	for _, b := range bitmaps {
 		xx := make([]float64, 0, 100)
@@ -45,15 +65,15 @@ func buildChart(t *testing.T, name string, bitmaps []*roaring.Bitmap) {
 			xx = append(xx, float64(next))
 			yy = append(yy, float64(j))
 			i++
+			if limit != -1 && i >= limit {
+				break
+			}
 		}
 		j++
 		viridisByY := func(xr, yr chart.Range, index int, x, y float64) drawing.Color {
 			return chart.Viridis(y, yr.GetMin(), yr.GetMax())
 		}
-		//graph.Series = append(graph.Series, chart.ContinuousSeries{
-		//	XValues: xx,
-		//	YValues: yy,
-		//})
+
 		graph.Series = append(graph.Series, chart.ContinuousSeries{
 			Style: chart.Style{
 				StrokeWidth:      chart.Disabled,
@@ -64,12 +84,5 @@ func buildChart(t *testing.T, name string, bitmaps []*roaring.Bitmap) {
 			YValues: yy,
 		})
 	}
-
-	f, err := os.Create("stats/" + name + "-distribution.png")
-	if err != nil {
-		panic(err)
-	}
-
-	err = graph.Render(chart.PNG, f)
-	assert.NoError(t, err)
+	return graph
 }

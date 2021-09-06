@@ -1,17 +1,17 @@
 File: map.test
 Type: inuse_objects
-Time: Sep 6, 2021 at 12:43am (EDT)
-Showing nodes accounting for 1461600, 100% of 1461697 total
+Time: Sep 6, 2021 at 10:49am (EDT)
+Showing nodes accounting for 1461600, 100% of 1461696 total
 Dropped 112 nodes (cum <= 7308)
       flat  flat%   sum%        cum   cum%
-    487200 33.33% 33.33%     487200 33.33%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:165
-    487200 33.33% 66.66%     487200 33.33%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:167
-    487200 33.33%   100%     487200 33.33%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-         0     0%   100%    1461657   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage2/benchmark/utils.go:71
+    487200 33.33% 33.33%     487200 33.33%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:180
+    487200 33.33% 66.66%     487200 33.33%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:185
+    487200 33.33%   100%     487200 33.33%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+         0     0%   100%    1461656   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage2/benchmark/utils.go:71
          0     0%   100%    1461603   100%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/map/map-memory_test.go:22
          0     0%   100%    1461603   100%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/map/map-memory_test.go:23
-         0     0%   100%    1461602   100%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:163
-         0     0%   100%     487201 33.33%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:168
-         0     0%   100%    1461602   100%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:148
-         0     0%   100%     487201 33.33%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0%   100%    1461669   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+         0     0%   100%    1461602   100%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:178
+         0     0%   100%     487201 33.33%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:186
+         0     0%   100%    1461602   100%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:163
+         0     0%   100%     487201 33.33%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0%   100%    1461668   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193

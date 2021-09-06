@@ -60,7 +60,7 @@ func TestBitmap_Optimized_CalculateAndPrintRoaringStats(t *testing.T) {
 func TestFindPriceIdWithTrace(t *testing.T) {
 	_, ind := prepareBitmapIndexT(t)
 
-	priceIndex, err, bss := ind.FindPriceIndexByWithTraceInfo("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	priceIndex, err, bss := ind.FindPriceIndexByWithTraceInfo("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},

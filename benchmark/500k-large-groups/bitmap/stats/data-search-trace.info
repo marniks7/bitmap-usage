@@ -50,18 +50,18 @@
     },
     {
       "Cardinality": 1,
-      "OriginalCardinality": 487200,
-      "Value": "Default",
+      "OriginalCardinality": 97037,
+      "Value": "group2",
       "BitmapName": "Group",
-      "BitmapIndex": 0,
+      "BitmapIndex": 1,
       "Order": 7
     },
     {
       "Cardinality": 1,
-      "OriginalCardinality": 487200,
-      "Value": "MRC",
+      "OriginalCardinality": 243600,
+      "Value": "NRC",
       "BitmapName": "Spec",
-      "BitmapIndex": 0,
+      "BitmapIndex": 1,
       "Order": 8
     }
   ]
