@@ -1,0 +1,11 @@
+goos: linux
+goarch: amd64
+pkg: bitmap-usage/benchmark/500k-large-groups/kelindar
+cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+BenchmarkFindPriceV2_11position            	   26214	     41542 ns/op	   67760 B/op	       8 allocs/op
+BenchmarkFindPriceV2_3824position          	   45291	     40293 ns/op	   73904 B/op	       8 allocs/op
+BenchmarkFindPriceV2_3824position_OptStats 	   43438	     35956 ns/op	   73952 B/op	      13 allocs/op
+BenchmarkFindPriceV2_9701position          	   41796	     36919 ns/op	   65712 B/op	       7 allocs/op
+BenchmarkFindPriceV2_MultiplePricesErr     	   44133	     24858 ns/op	   73856 B/op	       6 allocs/op
+PASS
+ok  	bitmap-usage/benchmark/500k-large-groups/kelindar	51.610s
