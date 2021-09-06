@@ -31,7 +31,7 @@ func TestFindPriceIdV2(t *testing.T) {
 	//defer pprof.StopCPUProfile()
 
 	//for i := 0; i < 100000 ; i++ {
-	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -65,7 +65,7 @@ func TestFindPriceV2(t *testing.T) {
 	assert.NoError(t, err)
 	cs.GeneratePricesByConditions()
 
-	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -88,7 +88,7 @@ func TestBitMapIndexService_Optimized_Structured_And_StatsV2(t *testing.T) {
 		err := os.Unsetenv("TEST_OPTIMIZED")
 		assert.NoError(t, err)
 	}()
-	TestFindPriceBy(t)
+	TestFindPriceByV2(t)
 }
 
 func TestBitMapIndexService_Optimized_StructureV2(t *testing.T) {
@@ -98,7 +98,7 @@ func TestBitMapIndexService_Optimized_StructureV2(t *testing.T) {
 		err := os.Unsetenv("TEST_OPTIMIZED")
 		assert.NoError(t, err)
 	}()
-	TestFindPriceBy(t)
+	TestFindPriceByV2(t)
 }
 
 func TestBitMapIndexService_Optimized_StatisticV2(t *testing.T) {
@@ -108,7 +108,7 @@ func TestBitMapIndexService_Optimized_StatisticV2(t *testing.T) {
 		err := os.Unsetenv("TEST_OPTIMIZED")
 		assert.NoError(t, err)
 	}()
-	TestFindPriceBy(t)
+	TestFindPriceByV2(t)
 }
 
 //goland:noinspection GoBoolExpressions

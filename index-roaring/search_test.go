@@ -32,7 +32,7 @@ func TestFindPriceId(t *testing.T) {
 	//defer pprof.StopCPUProfile()
 
 	//for i := 0; i < 100000 ; i++ {
-	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -64,7 +64,7 @@ func TestFindPriceIdWithTraceInfo(t *testing.T) {
 	ind := NewService(log.Logger)
 	ind.IndexPrices(cs.Catalog)
 
-	priceIndex, err, actual := ind.FindPriceIndexByWithTraceInfo("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	priceIndex, err, actual := ind.FindPriceIndexByWithTraceInfo("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -80,7 +80,10 @@ func TestFindPriceIdWithTraceInfo(t *testing.T) {
 	var expected BitmapSearchStatistic
 	err = json.Unmarshal(file, &expected)
 	assert.NoError(t, err)
-
+	//marshal, err := json.MarshalIndent(actual, "", "   ")
+	//assert.NoError(t, err)
+	//err = os.WriteFile("search-stats_test.json", marshal, os.ModePerm)
+	//assert.NoError(t, err)
 	assert.Equal(t, expected, *actual)
 }
 
@@ -93,7 +96,7 @@ func TestFindPrice(t *testing.T) {
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 
-	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
