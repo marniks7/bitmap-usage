@@ -10,95 +10,34 @@ import (
 func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	charValues []model.CharValue) (uint32, error) {
 
-	if h.StatisticOptimizer != nil {
-		return h.findPriceByStatisticOptimized(offeringId, groupId, specId, charValues)
-	}
-	ob, err := h.findBitmapByOffering(offeringId)
-	if err != nil {
-		return 0, err
-	}
-
-	var result *roaring.Bitmap
-	for i := 0; i < len(charValues); i++ {
-		cv := charValues[i]
-
-		bitmap, err := h.findBitmapByCharValue(cv)
-		if err != nil {
-			return 0, err
-		}
-		if i == 0 {
-			result = roaring.And(ob, bitmap)
-		} else {
-			result.And(bitmap)
-		}
-	}
-
-	groupBitmap, err := h.findGroupBitmap(groupId)
-	if err != nil {
-		return 0, err
-	}
-	if result == nil {
-		result = roaring.And(ob, groupBitmap)
-	} else {
-		result.And(groupBitmap)
-	}
-
-	specBitmap, err := h.findSpecBitmap(specId)
-	if err != nil {
-		return 0, err
-	}
-
-	result.And(specBitmap)
-
-	if result.IsEmpty() {
-		return 0, ErrUnableToFindPrice
-	}
-	cardinality := result.GetCardinality()
-	if cardinality == 1 {
-		next := result.Minimum()
-		return next, nil
-	}
-
-	defaultInd := h.FieldsMetadata[FieldNameDefault].Values["true"]
-	defRow := h.Index.Rows[defaultInd]
-	//no default row 'true' at all
-	if defRow != nil {
-		result.And(defRow.segments[0].bitmap)
-		cardinality = result.GetCardinality()
-	} else {
-		cardinality = 0
-	}
-	if cardinality >= 1 {
-		//return any default price (iterator provides sorted data, so retries will be idempotent)
-		//however this can fail in case of rebuild entire cache with different indexes
-		next := result.Minimum()
-		return next, nil
-	} else {
-		return 0, ErrUnableToFindPriceMoreThenOneNoDefault
-	}
-}
-
-func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string, specId string, charValues []model.CharValue) (uint32, error) {
 	bitmapOperations := make([]BitmapOperation, 3+len(charValues), 3+len(charValues))
-	bitmapOperations[0] = BitmapOperation{BitmapType: Offering, Order: s.StatisticOptimizer.KeyValueStatistic[FieldNameOffering][offeringId]}
-	bitmapOperations[1] = BitmapOperation{BitmapType: Spec, Order: s.StatisticOptimizer.KeyValueStatistic[FieldNameSpec][specId]}
-	bitmapOperations[2] = BitmapOperation{BitmapType: Group, Order: s.StatisticOptimizer.KeyValueStatistic[FieldNameGroup][groupId]}
-
-	for i, cv := range charValues {
-		bitmapOperations[3+i] = BitmapOperation{BitmapType: Char,
-			Order: s.StatisticOptimizer.KeyValueStatistic[FieldNameCharStart+strings.ToLower(cv.Char)][cv.Value],
-			Ind:   uint8(i)}
-	}
-
-	//simple sort for small dataset and without allocations
-	for j := 1; j < len(bitmapOperations); j++ {
-		key := bitmapOperations[j]
-		i := j - 1
-		for i >= 0 && bitmapOperations[i].Order > key.Order {
-			bitmapOperations[i+1] = bitmapOperations[i]
-			i--
+	if h.StatisticOptimizer != nil {
+		bitmapOperations[0] = BitmapOperation{BitmapType: Offering, Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameOffering][offeringId]}
+		for i, cv := range charValues {
+			bitmapOperations[1+i] = BitmapOperation{BitmapType: Char,
+				Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameCharStart+strings.ToLower(cv.Char)][cv.Value],
+				Ind:   uint8(i)}
 		}
-		bitmapOperations[i+1] = key
+		bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec, Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameSpec][specId]}
+		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group, Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameGroup][groupId]}
+
+		//simple sort for small dataset and without allocations
+		for j := 1; j < len(bitmapOperations); j++ {
+			key := bitmapOperations[j]
+			i := j - 1
+			for i >= 0 && bitmapOperations[i].Order > key.Order {
+				bitmapOperations[i+1] = bitmapOperations[i]
+				i--
+			}
+			bitmapOperations[i+1] = key
+		}
+	} else {
+		bitmapOperations[0] = BitmapOperation{BitmapType: Offering}
+		for i := 0; i < len(charValues); i++ {
+			bitmapOperations[1+i] = BitmapOperation{BitmapType: Char, Ind: uint8(i)}
+		}
+		bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec}
+		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group}
 	}
 
 	var result *roaring.Bitmap = nil
@@ -106,13 +45,13 @@ func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string
 		var bitmap *roaring.Bitmap
 		var err error
 		if bo.BitmapType == Offering {
-			bitmap, err = s.findBitmapByOffering(offeringId)
+			bitmap, err = h.findBitmapByOffering(offeringId)
 		} else if bo.BitmapType == Spec {
-			bitmap, err = s.findSpecBitmap(specId)
+			bitmap, err = h.findSpecBitmap(specId)
 		} else if bo.BitmapType == Group {
-			bitmap, err = s.findGroupBitmap(groupId)
+			bitmap, err = h.findGroupBitmap(groupId)
 		} else if bo.BitmapType == Char {
-			bitmap, err = s.findBitmapByCharValue(charValues[bo.Ind])
+			bitmap, err = h.findBitmapByCharValue(charValues[bo.Ind])
 		} else {
 			panic("Unknown bitmaptype")
 		}
@@ -139,8 +78,8 @@ func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string
 		return next, nil
 	}
 
-	defaultInd := s.FieldsMetadata[FieldNameDefault].Values["true"]
-	defRow := s.Index.Rows[defaultInd]
+	defaultInd := h.FieldsMetadata[FieldNameDefault].Values["true"]
+	defRow := h.Index.Rows[defaultInd]
 	//no default row 'true' at all
 	if defRow != nil {
 		result.And(defRow.segments[0].bitmap)
@@ -148,7 +87,6 @@ func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string
 	} else {
 		cardinality = 0
 	}
-
 	if cardinality >= 1 {
 		//return any default price (iterator provides sorted data, so retries will be idempotent)
 		//however this can fail in case of rebuild entire cache with different indexes

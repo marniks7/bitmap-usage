@@ -33,46 +33,67 @@ type BitmapOperation struct {
 func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string,
 	charValues []model.CharValue) (uint32, error) {
 
+	bitmapOperations := make([]BitmapOperation, 3+len(charValues), 3+len(charValues))
 	if s.Index.StatisticOptimizer != nil {
-		return s.findPriceByStatisticOptimized(offeringId, groupId, specId, charValues)
-	}
-	ob, err := s.findBitmapByOffering(offeringId)
-	if err != nil {
-		return 0, err
+		bitmapOperations[0] = BitmapOperation{BitmapType: Offering, Order: s.Index.StatisticOptimizer.OfferingStatistic[offeringId]}
+		for i, cv := range charValues {
+			bitmapOperations[1+i] = BitmapOperation{BitmapType: Char,
+				Order: s.Index.StatisticOptimizer.CharValueStatistic[cv.Char][cv.Value],
+				Ind:   uint8(i)}
+		}
+		bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec, Order: s.Index.StatisticOptimizer.SpecStatistic[specId]}
+		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group, Order: s.Index.StatisticOptimizer.GroupStatistic[groupId]}
+
+		//simple sort for small dataset and without allocations
+		for j := 1; j < len(bitmapOperations); j++ {
+			key := bitmapOperations[j]
+			i := j - 1
+			for i >= 0 && bitmapOperations[i].Order > key.Order {
+				bitmapOperations[i+1] = bitmapOperations[i]
+				i--
+			}
+			bitmapOperations[i+1] = key
+		}
+	} else {
+		bitmapOperations[0] = BitmapOperation{BitmapType: Offering, Order: 0}
+		for i := 0; i < len(charValues); i++ {
+			bitmapOperations[1+i] = BitmapOperation{BitmapType: Char,
+				Order: 0,
+				Ind:   uint8(i)}
+		}
+		bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec, Order: 0}
+		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group, Order: 0}
 	}
 
-	var result *roaring.Bitmap
-	for i := 0; i < len(charValues); i++ {
-		cv := charValues[i]
-
-		bitmap, err := s.findBitmapByCharValue(cv)
+	var result *roaring.Bitmap = nil
+	for i, bo := range bitmapOperations {
+		var bitmap *roaring.Bitmap
+		var err error
+		if bo.BitmapType == Offering {
+			bitmap, err = s.findBitmapByOffering(offeringId)
+		} else if bo.BitmapType == Spec {
+			bitmap, err = s.findSpecBitmap(specId)
+		} else if bo.BitmapType == Group {
+			bitmap, err = s.findGroupBitmap(groupId)
+		} else if bo.BitmapType == Char {
+			bitmap, err = s.findBitmapByCharValue(charValues[bo.Ind])
+		} else {
+			panic("Unknown bitmaptype")
+		}
 		if err != nil {
 			return 0, err
 		}
 		if i == 0 {
-			result = roaring.And(ob, bitmap)
+			//first - just save current bitmap
+			result = bitmap
+		} else if i == 1 {
+			//second - execute 'And' (creates new bitmap)
+			result = roaring.And(result, bitmap)
 		} else {
+			//third+ - execute 'And' on existing bitmap
 			result.And(bitmap)
 		}
 	}
-
-	groupBitmap, err := s.findGroupBitmap(groupId)
-	if err != nil {
-		return 0, err
-	}
-	if result == nil {
-		result = roaring.And(ob, groupBitmap)
-	} else {
-		result.And(groupBitmap)
-	}
-
-	specBitmap, err := s.findSpecBitmap(specId)
-	if err != nil {
-		return 0, err
-	}
-
-	result.And(specBitmap)
-
 	if result.IsEmpty() {
 		return 0, ErrUnableToFindPrice
 	}
@@ -82,7 +103,6 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 		return next, nil
 	}
 
-	//there are >1 price, search for default prices among them
 	result.And(s.Index.DefaultBitmaps)
 
 	cardinality = result.GetCardinality()
