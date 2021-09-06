@@ -33,6 +33,21 @@ func execute(cmd *exec.Cmd, resultFileName string) {
 	}
 }
 
+func PprofCpuAsSvg(fileName, resultFileName string) {
+	cmd := exec.Command("go", "tool", "pprof", "-svg", fileName)
+	execute(cmd, resultFileName)
+}
+
+func PprofCpuLinesAsSvg(fileName, resultFileName string) {
+	cmd := exec.Command("go", "tool", "pprof", "-lines", "-svg", fileName)
+	execute(cmd, resultFileName)
+}
+
+func PprofCpuAsText(fileName, resultFileName string) {
+	cmd := exec.Command("go", "tool", "pprof", "-lines", "-text", fileName)
+	execute(cmd, resultFileName)
+}
+
 func PprofInUseSpaceAsText(fileName, resultFileName string) {
 	//Use "-nodefraction=0" to print everything (includes smallest allocations)
 	cmd := exec.Command("go", "tool", "pprof", "-inuse_space", "-lines", "-text", fileName)

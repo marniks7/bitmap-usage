@@ -2,6 +2,7 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	handlers_map "bitmap-usage/handlers-map"
+	indexMap "bitmap-usage/index-map"
 	"bitmap-usage/model"
 	"bytes"
 	"encoding/json"
@@ -42,13 +43,17 @@ func BenchmarkFindPrice_11position(b *testing.B) {
 
 	b.ResetTimer()
 	var price *model.Price
+	var err error
 	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("a38e432c-3965-4c74-8251-aa640002d2b2", "group1", "MRC",
+		price, err, _ = ind.FindPriceBy("a38e432c-3965-4c74-8251-aa640002d2b2", "group1", "MRC",
 			[]model.CharValue{{"Term", "12"},
 				{"B2B Traffic", "1GB"},
 				{"B2B Bandwidth", "30Mbps"},
 				{"VPN", "ad796998-f1c7-4fcc-9a6b-1b33042fb375"},
 				{"Router", "Included"}})
+		if err != nil {
+			assert.FailNow(b, "error", err)
+		}
 	}
 	if price == nil {
 		b.Fail()
@@ -61,16 +66,24 @@ func BenchmarkFindPrice_3824position(b *testing.B) {
 	b.ResetTimer()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
-			[]model.CharValue{{"Term", "24"},
-				{"B2B Traffic", "5GB"},
-				{"B2B Bandwidth", "900Mbps"},
-				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-				{"Router", "Not Included"}})
+		price = findPrice3824position(ind)
 	}
 	if price == nil {
 		b.Fail()
 	}
+}
+
+func findPrice3824position(ind *indexMap.MapIndexService) *model.Price {
+	price, err, _ := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
+		[]model.CharValue{{"Term", "24"},
+			{"B2B Traffic", "5GB"},
+			{"B2B Bandwidth", "900Mbps"},
+			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
+			{"Router", "Not Included"}})
+	if err != nil {
+		panic(err)
+	}
+	return price
 }
 
 func BenchmarkFindPrice_3824position_Optimized(b *testing.B) {
@@ -79,12 +92,7 @@ func BenchmarkFindPrice_3824position_Optimized(b *testing.B) {
 	b.ResetTimer()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
-			[]model.CharValue{{"Term", "24"},
-				{"B2B Traffic", "5GB"},
-				{"B2B Bandwidth", "900Mbps"},
-				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-				{"Router", "Not Included"}})
+		price = findPrice3824position(ind)
 	}
 	if price == nil {
 		b.Fail()
@@ -96,13 +104,17 @@ func BenchmarkFindPrice_9701position(b *testing.B) {
 
 	b.ResetTimer()
 	var price *model.Price
+	var err error
 	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
+		price, err, _ = ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
 			[]model.CharValue{{"Term", "60"},
 				{"B2B Traffic", "100GB"},
 				{"B2B Bandwidth", "75Mbps"},
 				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
 				{"Router", "Included"}})
+		if err != nil {
+			assert.FailNow(b, "error", err)
+		}
 	}
 	if price == nil {
 		b.Fail()
@@ -114,13 +126,17 @@ func BenchmarkFindPrice_9701position_Optimized(b *testing.B) {
 
 	b.ResetTimer()
 	var price *model.Price
+	var err error
 	for i := 0; i < b.N; i++ {
-		price, _, _ = ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
+		price, err, _ = ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
 			[]model.CharValue{{"Term", "60"},
 				{"B2B Traffic", "100GB"},
 				{"B2B Bandwidth", "75Mbps"},
 				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
 				{"Router", "Included"}})
+		if err != nil {
+			assert.FailNow(b, "error", err)
+		}
 	}
 	if price == nil {
 		b.Fail()

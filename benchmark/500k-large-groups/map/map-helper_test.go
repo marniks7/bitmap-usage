@@ -20,6 +20,16 @@ func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexSer
 	return cs, ind
 }
 
+func prepareMapIndexT(t *testing.T) (*cache.CatalogService, *indexmap.MapIndexService) {
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(t, err)
+
+	ind := indexmap.NewService(log.Logger)
+	ind.IndexPrices(cs.Catalog)
+	return cs, ind
+}
+
 func prepareMapIndexOptimized(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexService) {
 	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 	err := sample.GenerateTestData5Chars5Offerings(cs)
