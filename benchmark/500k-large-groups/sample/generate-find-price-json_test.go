@@ -5,15 +5,15 @@ import (
 )
 
 func TestGenerateJson(t *testing.T) {
-	GenerateJson(1)
-	GenerateJson(5)
-	GenerateJson(1000)
-	GenerateJson(10000)
-	GenerateJson(100000)
+	GenerateJsonRequest(1)
+	GenerateJsonRequest(5)
+	GenerateJsonRequest(1000)
+	GenerateJsonRequest(10000)
 }
 
-//func TestGenerateUUIDPool(t *testing.T) {
-//	for i:=0; i < 30; i++ {
-//		fmt.Println("\"" + uuid.NewString() + "\",")
-//	}
-//}
+func TestGenerateWrk(t *testing.T) {
+	GenerateWrkRequest(1)
+	GenerateWrkRequest(5)
+	GenerateWrkRequest(1000)
+	GenerateWrkRequest(10000)
+}
