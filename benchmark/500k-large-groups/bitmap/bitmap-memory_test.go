@@ -53,8 +53,9 @@ func TestBitmapMemoryStats(t *testing.T) {
 	runtime.GC()
 	err = pprof.WriteHeapProfile(f)
 
-	benchmark.ReadAndWritePprofTop("memory/bitmap-heapdump", "memory/bitmap-heapdump-top.txt")
-	benchmark.ReadAndWritePprofTopWithInuseObjects("memory/bitmap-heapdump", "memory/bitmap-heapdump-top-inuse-objects.txt")
+	benchmark.PprofInUseSpaceAsText("memory/bitmap-heapdump", "memory/bitmap-heapdump-inuse-space.txt")
+	benchmark.PprofInUseSpaceAsSvg("memory/bitmap-heapdump", "memory/bitmap-heapdump-inuse-space.svg")
+	benchmark.PprofInuseObjectsAsText("memory/bitmap-heapdump", "memory/bitmap-heapdump-inuse-objects.txt")
 	assert.NoError(t, err)
 	assert.NotZero(t, len(cs.Catalog.Prices))
 	assert.NotNil(t, ind.Index)
