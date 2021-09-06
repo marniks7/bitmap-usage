@@ -1,20 +1,20 @@
-benchmark                                            old ns/op     new ns/op     delta
-BenchmarkHttpClientServer_FindPrice      363841        69593         -80.87%
-BenchmarkFindPrice_11position            218956        9171          -95.81%
-BenchmarkFindPrice_3824position          224624        8291          -96.31%
-BenchmarkFindPrice_9701position          224106        9900          -95.58%
-BenchmarkFindPrice_MultiplePricesErr     221731        7907          -96.43%
+benchmark                                old ns/op     new ns/op     delta
+BenchmarkHttpClientServer_FindPrice      215916        65692         -69.58%
+BenchmarkFindPrice_11position            119114        8434          -92.92%
+BenchmarkFindPrice_3824position          119973        7544          -93.71%
+BenchmarkFindPrice_9701position          118613        9359          -92.11%
+BenchmarkFindPrice_MultiplePricesErr     123009        6084          -95.05%
 
-benchmark                                            old allocs     new allocs     delta
-BenchmarkHttpClientServer_FindPrice      112            118            +5.36%
-BenchmarkFindPrice_11position            2              6              +200.00%
-BenchmarkFindPrice_3824position          2              6              +200.00%
-BenchmarkFindPrice_9701position          2              6              +200.00%
-BenchmarkFindPrice_MultiplePricesErr     1              6              +500.00%
+benchmark                                old allocs     new allocs     delta
+BenchmarkHttpClientServer_FindPrice      112            119            +6.25%
+BenchmarkFindPrice_11position            2              7              +250.00%
+BenchmarkFindPrice_3824position          2              7              +250.00%
+BenchmarkFindPrice_9701position          2              7              +250.00%
+BenchmarkFindPrice_MultiplePricesErr     1              7              +600.00%
 
-benchmark                                            old bytes     new bytes     delta
-BenchmarkHttpClientServer_FindPrice      8285          12001         +44.85%
-BenchmarkFindPrice_11position            224           3592          +1503.57%
-BenchmarkFindPrice_3824position          224           3592          +1503.57%
-BenchmarkFindPrice_9701position          224           3592          +1503.57%
-BenchmarkFindPrice_MultiplePricesErr     128           3592          +2706.25%
+benchmark                                old bytes     new bytes     delta
+BenchmarkHttpClientServer_FindPrice      8283          12129         +46.43%
+BenchmarkFindPrice_11position            224           3720          +1560.71%
+BenchmarkFindPrice_3824position          224           3720          +1560.71%
+BenchmarkFindPrice_9701position          224           3720          +1560.71%
+BenchmarkFindPrice_MultiplePricesErr     96            3304          +3341.67%

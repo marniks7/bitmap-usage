@@ -5,14 +5,14 @@
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
-|50%|35000|398000|91.21% better, in 11.4 times better, 1 order of magnitude|
-|90%|45000|499000|90.98% better, in 11.1 times better, 1 order of magnitude|
-|95%|50000|581000|91.39% better, in 11.6 times better, 1 order of magnitude|
-|97%|58000|629000|90.78% better, in 10.8 times better, 1 order of magnitude|
-|98%|71000|669000|89.39% better, in 9.4 times better, 1 order of magnitude|
-|99%|96000|742000|87.06% better, in 7.7 times better, 1 order of magnitude|
-|99.999%|8432000|3413000|-147.06% worth, in 0.4 times worth|
-|Requests|776656|71628|984.3% more, in 10.8 times more|
+|50%|34000|239000|85.77% better, in 7.0 times better, 1 order of magnitude|
+|90%|40000|295000|86.44% better, in 7.4 times better, 1 order of magnitude|
+|95%|43000|324000|86.73% better, in 7.5 times better, 1 order of magnitude|
+|97%|47000|344000|86.34% better, in 7.3 times better, 1 order of magnitude|
+|98%|54000|368000|85.33% better, in 6.8 times better, 1 order of magnitude|
+|99%|88000|395000|77.72% better, in 4.5 times better, 1 order of magnitude|
+|99.999%|7840000|5586000|-40.35% worth, in 0.7 times worth|
+|Requests|828607|124128|567.5% more, in 6.7 times more|
 
 ### Timing (high level)
 * 20 connections (2 processors)
@@ -21,11 +21,11 @@
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
-|50%|265000|3372000|92.14% better, in 12.7 times better, 1 order of magnitude|
-|90%|543000|6483000|91.62% better, in 11.9 times better, 1 order of magnitude|
-|95%|627000|7467000|91.60% better, in 11.9 times better, 1 order of magnitude|
-|97%|697000|8045000|91.34% better, in 11.5 times better, 1 order of magnitude|
-|98%|766000|8448000|90.93% better, in 11.0 times better, 1 order of magnitude|
-|99%|938000|9279000|89.89% better, in 9.9 times better, 1 order of magnitude|
-|99.999%|19125000|24544000|22.08% better, in 1.3 times better|
-|Requests|2162854|177380|1119.3% more, in 12.2 times more|
+|50%|240000|1780000|86.52% better, in 7.4 times better, 1 order of magnitude|
+|90%|485000|3476000|86.05% better, in 7.2 times better, 1 order of magnitude|
+|95%|555000|4008000|86.15% better, in 7.2 times better, 1 order of magnitude|
+|97%|607000|4254000|85.73% better, in 7.0 times better, 1 order of magnitude|
+|98%|662000|4427000|85.05% better, in 6.7 times better, 1 order of magnitude|
+|99%|800000|4665000|82.85% better, in 5.8 times better, 1 order of magnitude|
+|99.999%|18382000|10167000|-80.80% worth, in 0.6 times worth|
+|Requests|2415621|333418|624.5% more, in 7.2 times more|

@@ -53,7 +53,7 @@ func TestMapOfferingIndex_FindPrice_3824Position(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -71,7 +71,7 @@ func TestMapOfferingIndex_FindPrice_11Position(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	price, err, position := ind.FindPriceBy("a38e432c-3965-4c74-8251-aa640002d2b2", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("a38e432c-3965-4c74-8251-aa640002d2b2", "group1", "MRC",
 		[]model.CharValue{{"Term", "12"},
 			{"B2B Traffic", "1GB"},
 			{"B2B Bandwidth", "30Mbps"},
@@ -89,7 +89,7 @@ func TestMapOfferingIndex_FindPrice_9701Position(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	price, err, position := ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
 		[]model.CharValue{{"Term", "60"},
 			{"B2B Traffic", "100GB"},
 			{"B2B Bandwidth", "75Mbps"},
@@ -122,7 +122,7 @@ func TestMapOfferingIndex_FindPrice_Optimized(t *testing.T) {
 	assert.Equal(t, 100.00, quality)
 
 	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -140,14 +140,14 @@ func TestMapOfferingIndex_FindPrice_MultiplePricesErr(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	p, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
+	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group5", "NRC",
+		[]model.CharValue{{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
 			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
 
 	//then
 	assert.Error(t, err)
-	assert.Nil(t, p)
+	assert.ErrorIs(t, err, indexMap.ErrUnableToFindPriceMoreThenOneNoDefault)
+	assert.Nil(t, price)
 	assert.Equal(t, -1, position)
 }
