@@ -23,7 +23,7 @@ import (
 // char3 value3 char4 value4
 // char5 value5 char6 value6
 //
-// This optimization allows to achieve two things:
+// This optimization allows achieving two things:
 // 1. reorder list of characteristics (and values) to the same single order
 // 		cause of that it will be possible to search by char position instead of equals or maps usage
 //		which is efficient in case if there are a lot of prices for each offering

@@ -3,7 +3,6 @@ package indexmap
 import (
 	"bitmap-usage/model"
 	"errors"
-	"sort"
 )
 
 var ErrUnableToFindPrice = errors.New("unable find price")
@@ -27,9 +26,17 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 				//optimization is not applicable
 			} else {
 				isOptimizationApplied = true
-				sort.Slice(charValues, func(i, j int) bool {
-					return m[charValues[i].Char] < m[charValues[j].Char]
-				})
+
+				//simple sort for small dataset and without allocations
+				for j := 1; j < len(charValues); j++ {
+					key := charValues[j]
+					i := j - 1
+					for i >= 0 && m[charValues[i].Char] > m[charValues[j].Char] {
+						charValues[i+1] = charValues[i]
+						i--
+					}
+					charValues[i+1] = key
+				}
 			}
 
 		}
@@ -46,9 +53,9 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 					if isOptimizationApplied {
 						found = v.Chars[i] == inpt.Char && v.Values[i] == inpt.Value
 					} else {
-						for i, ch := range v.Chars {
+						for j, ch := range v.Chars {
 							if inpt.Char == ch {
-								if inpt.Value == v.Values[i] {
+								if inpt.Value == v.Values[j] {
 									found = true
 								}
 								break
