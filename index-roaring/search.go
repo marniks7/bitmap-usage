@@ -4,7 +4,6 @@ import (
 	"bitmap-usage/model"
 	"errors"
 	"github.com/RoaringBitmap/roaring"
-	"sort"
 )
 
 var ErrUnableToFindCharId = errors.New("unable to find charId in index")
@@ -109,9 +108,16 @@ func (s *BitmapIndexService) findPriceByStatisticOptimized(offeringId string, gr
 			Ind:   uint8(i)}
 	}
 
-	sort.Slice(bitmapOperations, func(i, j int) bool {
-		return bitmapOperations[i].Order < bitmapOperations[j].Order
-	})
+	//simple sort for small dataset and without allocations
+	for j := 1; j < len(bitmapOperations); j++ {
+		key := bitmapOperations[j]
+		i := j - 1
+		for i >= 0 && bitmapOperations[i].Order > key.Order {
+			bitmapOperations[i+1] = bitmapOperations[i]
+			i--
+		}
+		bitmapOperations[i+1] = key
+	}
 
 	var result *roaring.Bitmap = nil
 	for i, bo := range bitmapOperations {
