@@ -52,17 +52,12 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	result.And(specBitmap)
 
 	if result.IsEmpty() {
-		return 0, nil
+		return 0, ErrUnableToFindPrice
 	}
 	cardinality := result.GetCardinality()
-	moreThenOnePriceFound := false
 	if cardinality == 1 {
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality > 1 {
-		moreThenOnePriceFound = true
-	} else {
-		return 0, ErrUnableToFindPrice
 	}
 
 	defaultInd := h.FieldsMetadata[FieldNameDefault].Values["true"]
@@ -79,13 +74,9 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 		//however this can fail in case of rebuild entire cache with different indexes
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality == 0 {
-		if moreThenOnePriceFound {
-			return 0, ErrUnableToFindPriceMoreThenOneNoDefault
-		}
-		return 0, ErrUnableToFindPrice
+	} else {
+		return 0, ErrUnableToFindPriceMoreThenOneNoDefault
 	}
-	return 0, ErrUnableToFindPrice
 }
 
 func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string, specId string, charValues []model.CharValue) (uint32, error) {
@@ -134,17 +125,12 @@ func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string
 		}
 	}
 	if result.IsEmpty() {
-		return 0, nil
+		return 0, ErrUnableToFindPrice
 	}
 	cardinality := result.GetCardinality()
-	moreThenOnePriceFound := false
 	if cardinality == 1 {
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality > 1 {
-		moreThenOnePriceFound = true
-	} else {
-		return 0, ErrUnableToFindPrice
 	}
 
 	defaultInd := s.FieldsMetadata[FieldNameDefault].Values["true"]
@@ -162,13 +148,9 @@ func (s *Holder) findPriceByStatisticOptimized(offeringId string, groupId string
 		//however this can fail in case of rebuild entire cache with different indexes
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality == 0 {
-		if moreThenOnePriceFound {
-			return 0, ErrUnableToFindPriceMoreThenOneNoDefault
-		}
-		return 0, ErrUnableToFindPrice
+	} else {
+		return 0, ErrUnableToFindPriceMoreThenOneNoDefault
 	}
-	return 0, ErrUnableToFindPrice
 }
 
 func (s *Holder) findSpecBitmap(specId string) (*roaring.Bitmap, error) {

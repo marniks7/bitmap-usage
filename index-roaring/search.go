@@ -75,19 +75,15 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 	result.And(specBitmap)
 
 	if result.IsEmpty() {
-		return 0, nil
+		return 0, ErrUnableToFindPrice
 	}
 	cardinality := result.GetCardinality()
-	moreThenOnePriceFound := false
 	if cardinality == 1 {
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality > 1 {
-		moreThenOnePriceFound = true
-	} else {
-		return 0, ErrUnableToFindPrice
 	}
 
+	//there are >1 price, search for default prices among them
 	result.And(s.Index.DefaultBitmaps)
 
 	cardinality = result.GetCardinality()
@@ -96,13 +92,9 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 		//however this can fail in case of rebuild entire cache with different indexes
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality == 0 {
-		if moreThenOnePriceFound {
-			return 0, ErrUnableToFindPriceMoreThenOneNoDefault
-		}
-		return 0, ErrUnableToFindPrice
+	} else {
+		return 0, ErrUnableToFindPriceMoreThenOneNoDefault
 	}
-	return 0, ErrUnableToFindPrice
 }
 
 func (s *BitmapIndexService) findPriceByStatisticOptimized(offeringId string, groupId string, specId string, charValues []model.CharValue) (uint32, error) {
@@ -151,17 +143,12 @@ func (s *BitmapIndexService) findPriceByStatisticOptimized(offeringId string, gr
 		}
 	}
 	if result.IsEmpty() {
-		return 0, nil
+		return 0, ErrUnableToFindPrice
 	}
 	cardinality := result.GetCardinality()
-	moreThenOnePriceFound := false
 	if cardinality == 1 {
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality > 1 {
-		moreThenOnePriceFound = true
-	} else {
-		return 0, ErrUnableToFindPrice
 	}
 
 	result.And(s.Index.DefaultBitmaps)
@@ -172,13 +159,9 @@ func (s *BitmapIndexService) findPriceByStatisticOptimized(offeringId string, gr
 		//however this can fail in case of rebuild entire cache with different indexes
 		next := result.Minimum()
 		return next, nil
-	} else if cardinality == 0 {
-		if moreThenOnePriceFound {
-			return 0, ErrUnableToFindPriceMoreThenOneNoDefault
-		}
-		return 0, ErrUnableToFindPrice
+	} else {
+		return 0, ErrUnableToFindPriceMoreThenOneNoDefault
 	}
-	return 0, ErrUnableToFindPrice
 }
 
 func (s *BitmapIndexService) findSpecBitmap(specId string) (*roaring.Bitmap, error) {
