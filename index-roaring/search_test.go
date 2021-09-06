@@ -390,6 +390,24 @@ func TestFindPriceBy(t *testing.T) {
 			want1: nil,
 			want2: 2,
 		},
+		{
+			name: "Find Price. No prices found on last stage before default",
+			fields: fields{priceConditions: []*model.PriceCondition{
+				{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
+					Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"},
+					IsDefault: true},
+				{ID: "id2", OfferingID: "offering1", GroupId: "group1", Spec: "spec2",
+					Currency: "USD", Value: 120.00, Chars: []string{"char1"}, Values: []string{"value1"},
+					IsDefault: true},
+				{ID: "id3", OfferingID: "offering2", GroupId: "group1", Spec: "spec3",
+					Currency: "USD", Value: 140.00, Chars: []string{"char1"}, Values: []string{"value1"},
+					IsDefault: true},
+			}, optimized: optimized},
+			args:  args{offeringId: "offering1", groupId: "group1", specId: "spec3"},
+			want:  nil,
+			want1: ErrUnableToFindPrice,
+			want2: -1,
+		},
 	}
 
 	for _, tt := range tests {
