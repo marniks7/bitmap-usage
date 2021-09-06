@@ -14,6 +14,7 @@ require (
 	github.com/jinzhu/copier v0.3.2
 	github.com/json-iterator/go v1.1.11
 	github.com/kelindar/bitmap v1.1.0
+	github.com/kelindar/column v0.0.0-20210905214045-c6e7530ae1d9
 	github.com/klauspost/compress v1.13.1 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
