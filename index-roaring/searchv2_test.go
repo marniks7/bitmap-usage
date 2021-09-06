@@ -399,6 +399,8 @@ func TestFindPriceByV2(t *testing.T) {
 				} else if tt.fields.optimized[i] == OptimizerStatistic {
 					_, err := ind.RunOptimizeBasedOnStats()
 					assert.NoError(t, err)
+				} else {
+					panic("unknown optimization " + string(rune(tt.fields.optimized[i])))
 				}
 			}
 			got, got1 := ind.FindPriceIndexBy(tt.args.offeringId, tt.args.groupId, tt.args.specId, tt.args.charValues)

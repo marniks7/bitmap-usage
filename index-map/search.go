@@ -43,7 +43,9 @@ func (ind *MapIndexService) FindPriceBy(offeringId, groupId, specId string,
 	}
 	for _, v := range ind.Index[offeringId] {
 		count++
-		if v.OfferingID == offeringId && v.Spec == specId && v.GroupId == groupId {
+		if v.OfferingID == offeringId &&
+			v.Spec == specId &&
+			v.GroupId == groupId {
 			foundByChars := false
 			if len(charValues) == 0 {
 				foundByChars = true
