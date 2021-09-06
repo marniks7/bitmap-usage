@@ -130,6 +130,14 @@ type Holder struct {
 	L zerolog.Logger
 	// StatisticOptimizer small analog of Database statistics
 	StatisticOptimizer *BitmapOptimizerStatisticV2
+	// bitmapPool bitmap pool for performance optimization
+	bitmapPool sync.Pool
+	// empty bitmap
+	empty bitmap.Bitmap
+}
+
+type Tx struct {
+	index bitmap.Bitmap
 }
 
 // FieldMetadata contains information about all bitmaps related to one field
@@ -177,5 +185,12 @@ type RowSegment struct {
 }
 
 func NewHolder(l zerolog.Logger) *Holder {
-	return &Holder{L: l}
+	return &Holder{L: l, bitmapPool: sync.Pool{
+		New: func() interface{} {
+			return &Tx{
+				index: make(bitmap.Bitmap, 0, 4),
+			}
+		},
+	},
+	}
 }

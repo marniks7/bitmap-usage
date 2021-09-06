@@ -64,7 +64,10 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group}
 	}
 
-	var result bitmap.Bitmap = nil
+	//TODO test concurrency
+	tx := h.bitmapPool.Get().(*Tx)
+	h.empty.Clone(&tx.index) //clear index
+	defer h.release(tx)
 	for i, bo := range bitmapOperations {
 		var bm bitmap.Bitmap
 		var err error
@@ -83,19 +86,19 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 			return 0, err
 		}
 		if i == 0 {
-			//first - clone
-			result = bm.Clone(nil)
+			//first - bitmapPool
+			bm.Clone(&tx.index)
 		} else {
 			//second - execute 'And'
-			result.And(bm)
+			tx.index.And(bm)
 		}
 	}
-	cardinality := result.Count()
+	cardinality := tx.index.Count()
 	if cardinality == 0 {
 		return 0, ErrUnableToFindPrice
 	}
 	if cardinality == 1 {
-		next, _ := result.Min()
+		next, _ := tx.index.Min()
 		return next, nil
 	}
 
@@ -103,19 +106,23 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	defRow := h.Index.Rows[defaultInd]
 	//no default row 'true' at all
 	if defRow != nil {
-		result.And(*defRow.segments[0].bitmap)
-		cardinality = result.Count()
+		tx.index.And(*defRow.segments[0].bitmap)
+		cardinality = tx.index.Count()
 	} else {
 		cardinality = 0
 	}
 	if cardinality >= 1 {
 		//return any default price (iterator provides sorted data, so retries will be idempotent)
 		//however this can fail in case of rebuild entire cache with different indexes
-		next, _ := result.Min()
+		next, _ := tx.index.Min()
 		return next, nil
 	} else {
 		return 0, ErrUnableToFindPriceMoreThenOneNoDefault
 	}
+}
+
+func (h *Holder) release(tx *Tx) {
+	h.bitmapPool.Put(tx)
 }
 
 func (s *Holder) findSpecBitmap(specId string) (bitmap.Bitmap, error) {
