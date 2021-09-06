@@ -13,7 +13,7 @@ import (
 	"testing"
 )
 
-func BenchmarkHttpClientServer_Map_FindPrice_Conditions8(b *testing.B) {
+func BenchmarkHttpClientServer_Map_FindPrice(b *testing.B) {
 	cs, ind := prepareMapIndex(b)
 	mapAggregateService := handlersmap64.NewMapAggregateService(log.Logger, cs, ind)
 	ts := httptest.NewServer(http.HandlerFunc(mapAggregateService.FindPriceByX))
@@ -37,7 +37,7 @@ func BenchmarkHttpClientServer_Map_FindPrice_Conditions8(b *testing.B) {
 	}
 }
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8_11position(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_11position(b *testing.B) {
 	_, ind := prepareMapIndex(b)
 
 	b.ResetTimer()
@@ -55,7 +55,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_11position(b *testing.B) {
 	}
 }
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_3824position(b *testing.B) {
 	_, ind := prepareMapIndex(b)
 
 	b.ResetTimer()
@@ -73,7 +73,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position(b *testing.B) 
 	}
 }
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8_9701position(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_9701position(b *testing.B) {
 	_, ind := prepareMapIndex(b)
 
 	b.ResetTimer()
@@ -91,7 +91,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_9701position(b *testing.B) 
 	}
 }
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr(b *testing.B) {
 	_, ind := prepareMapIndex(b)
 
 	b.ResetTimer()
@@ -108,7 +108,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr(b *testin
 	}
 }
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_3824position_Optimized(b *testing.B) {
 	_, ind := prepareMapIndexOptimized(b)
 
 	b.ResetTimer()
@@ -126,7 +126,7 @@ func BenchmarkMapOfferingIndex_FindPrice_Conditions8_3824position_Optimized(b *t
 	}
 }
 
-func BenchmarkMapOfferingIndex_FindPrice_Conditions8_MultiplePricesErr_Optimized(b *testing.B) {
+func BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr_Optimized(b *testing.B) {
 	_, ind := prepareMapIndexOptimized(b)
 
 	b.ResetTimer()
