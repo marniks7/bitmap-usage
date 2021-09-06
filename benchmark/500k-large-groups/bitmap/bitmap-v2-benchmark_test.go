@@ -47,29 +47,6 @@ func BenchmarkFindPriceV2_3824position_OptStr(b *testing.B) {
 	}
 }
 
-func BenchmarkFindPriceV2_9701position(b *testing.B) {
-	cs, ind := prepareBitmapIndexV2(b)
-
-	b.ResetTimer()
-	var price *model.Price
-	for i := 0; i < b.N; i++ {
-		priceIndex, _ := ind.FindPriceIndexBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
-			[]model.CharValue{{"Term", "60"},
-				{"B2B Traffic", "100GB"},
-				{"B2B Bandwidth", "75Mbps"},
-				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
-				{"Router", "Included"}})
-		priceId, err := ind.FindPriceIdByIndex(priceIndex)
-		if err != nil {
-			b.FailNow()
-		}
-		price = cs.Catalog.Prices[priceId]
-	}
-	if price == nil {
-		b.Fail()
-	}
-}
-
 func BenchmarkFindPriceV2_3824position_OptStats(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 	_, err := ind.RunOptimizeBasedOnStats()
@@ -108,6 +85,29 @@ func BenchmarkFindPriceV2_3824position_OptAll(b *testing.B) {
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		priceIndex := findPrice3824PositionV2(ind)
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			b.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
+	}
+	if price == nil {
+		b.Fail()
+	}
+}
+
+func BenchmarkFindPriceV2_9701position(b *testing.B) {
+	cs, ind := prepareBitmapIndexV2(b)
+
+	b.ResetTimer()
+	var price *model.Price
+	for i := 0; i < b.N; i++ {
+		priceIndex, _ := ind.FindPriceIndexBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
+			[]model.CharValue{{"Term", "60"},
+				{"B2B Traffic", "100GB"},
+				{"B2B Bandwidth", "75Mbps"},
+				{"VPN", "170954ea-687d-42d2-9c04-7807845c66ee"},
+				{"Router", "Included"}})
 		priceId, err := ind.FindPriceIdByIndex(priceIndex)
 		if err != nil {
 			b.FailNow()
