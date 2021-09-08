@@ -1,18 +1,18 @@
-File: bitmap.test
+File: ___TestBitmapMemoryStats_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test
 Type: inuse_objects
-Time: Sep 6, 2021 at 10:49am (EDT)
-Showing nodes accounting for 974400, 99.85% of 975862 total
-Dropped 159 nodes (cum <= 4879)
+Time: Sep 6, 2021 at 11:40pm (EDT)
+Showing nodes accounting for 969437, 99.95% of 969934 total
+Dropped 15 nodes (cum <= 4849)
       flat  flat%   sum%        cum   cum%
-    487200 49.93% 49.93%     487200 49.93%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage2/cache/price-cache.go:64
-    487200 49.93% 99.85%     487200 49.93%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-         0     0% 99.85%     975820   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage2/benchmark/utils.go:71
-         0     0% 99.85%     487201 49.93%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:22
-         0     0% 99.85%     487203 49.93%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:36
-         0     0% 99.85%     487201 49.93%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:23
-         0     0% 99.85%     487203 49.93%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:37
-         0     0% 99.85%     487201 49.93%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:178
-         0     0% 99.85%     487201 49.93%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:186
-         0     0% 99.85%     487201 49.93%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:163
-         0     0% 99.85%     487201 49.93%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0% 99.85%     975832   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+    535235 55.18% 55.18%     535235 55.18%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    434202 44.77% 99.95%     434202 44.77%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage2/cache/price-cache.go:64
+         0     0% 99.95%     969934   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage2/benchmark/utils.go:98
+         0     0% 99.95%     535235 55.18%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:23
+         0     0% 99.95%     434203 44.77%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:37
+         0     0% 99.95%     535235 55.18%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:24
+         0     0% 99.95%     434203 44.77%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:38
+         0     0% 99.95%     535235 55.18%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:178
+         0     0% 99.95%     535235 55.18%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:186
+         0     0% 99.95%     535235 55.18%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:163
+         0     0% 99.95%     535235 55.18%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0% 99.95%     969934   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
