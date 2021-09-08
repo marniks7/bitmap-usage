@@ -12,6 +12,7 @@ func BenchmarkFindPriceV2_11position(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 
 	b.ResetTimer()
+	b.ReportAllocs()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		priceIndex, err := ind.FindPriceIndexBy("a38e432c-3965-4c74-8251-aa640002d2b2", "group1", "MRC",
@@ -36,6 +37,7 @@ func BenchmarkFindPriceV2_3824position(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 	runtime.GC()
 	b.ResetTimer()
+	b.ReportAllocs()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		priceIndex := findPrice3824PositionV2(ind)
@@ -56,6 +58,7 @@ func BenchmarkFindPriceV2_3824position_OptStats(b *testing.B) {
 	assert.NoError(b, err)
 
 	b.ResetTimer()
+	b.ReportAllocs()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		priceIndex := findPrice3824PositionV2(ind)
@@ -87,6 +90,7 @@ func BenchmarkFindPriceV2_9701position(b *testing.B) {
 	cs, ind := prepareBitmapIndexV2(b)
 
 	b.ResetTimer()
+	b.ReportAllocs()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		priceIndex, err := ind.FindPriceIndexBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
@@ -111,6 +115,7 @@ func BenchmarkFindPriceV2_MultiplePricesErr(b *testing.B) {
 	_, ind := prepareBitmapIndexV2(b)
 
 	b.ResetTimer()
+	b.ReportAllocs()
 	var errFindPrice error
 	for i := 0; i < b.N; i++ {
 		_, errFindPrice = ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group5", "NRC",

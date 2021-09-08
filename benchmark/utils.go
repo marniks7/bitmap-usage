@@ -66,13 +66,25 @@ func PprofInuseObjectsAsText(fileName, resultFileName string) {
 	execute(cmd, resultFileName)
 }
 
-func PprofTopAllocSpaceAsText(fileName, resultFileName string) {
+func PprofAllocSpaceAsText(fileName, resultFileName string) {
 	//Use "-nodefraction=0" to print everything (includes smallest allocations)
 	cmd := exec.Command("go", "tool", "pprof", "-alloc_space", "-lines", "-text", fileName)
 	execute(cmd, resultFileName)
 }
 
-func PprofTopAllocObjectsAsText(fileName, resultFileName string) {
+func PprofAllocSpaceAsSvg(fileName, resultFileName string) {
+	//Use "-nodefraction=0" to print everything (includes smallest allocations)
+	cmd := exec.Command("go", "tool", "pprof", "-alloc_space", "-svg", fileName)
+	execute(cmd, resultFileName)
+}
+
+func PprofAllocSpaceLinesAsSvg(fileName, resultFileName string) {
+	//Use "-nodefraction=0" to print everything (includes smallest allocations)
+	cmd := exec.Command("go", "tool", "pprof", "-alloc_space", "-lines", "-svg", fileName)
+	execute(cmd, resultFileName)
+}
+
+func PprofAllocObjectsAsText(fileName, resultFileName string) {
 	//Use "-nodefraction=0" to print everything (includes smallest allocations)
 	cmd := exec.Command("go", "tool", "pprof", "-alloc_objects", "-lines", "-text", fileName)
 	execute(cmd, resultFileName)
