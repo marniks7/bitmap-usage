@@ -132,7 +132,11 @@ bench-kelindar:
 bench-kelindar-column:
 	go test ./benchmark/500k-large-groups/kelindar-column/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
  		| tee benchmark/500k-large-groups/kelindar-column/benchmark-results.txt
-bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-memory-bitmap-64 bench-memory-sroar
+bench-bits-and-blooms:
+	go test ./benchmark/500k-large-groups/bits-and-blooms/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+ 		| tee benchmark/500k-large-groups/bits-and-blooms/benchmark-results.txt
+bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-memory-bitmap-64 bench-memory-sroar \
+	bench-memory-kelindar bench-memory-bits-and-blooms
 bench-memory-bitmap:
 	go test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-map:
@@ -143,6 +147,10 @@ bench-memory-bitmap-64:
 	go test ./benchmark/500k-large-groups/bitmap64/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-sroar:
 	go test ./benchmark/500k-large-groups/bitmap-sroar/... . -run ^*Memory* -failfast -test.memprofilerate=1
+bench-memory-kelindar:
+	go test ./benchmark/500k-large-groups/kelindar/... . -run ^*Memory* -failfast -test.memprofilerate=1
+bench-memory-bits-and-blooms:
+	go test ./benchmark/500k-large-groups/bits-and-blooms/... . -run ^*Memory* -failfast -test.memprofilerate=1
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------

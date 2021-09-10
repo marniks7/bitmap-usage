@@ -1,0 +1,27 @@
+File: bits-and-blooms.test
+Type: inuse_space
+Time: Sep 9, 2021 at 10:09pm (EDT)
+Showing nodes accounting for 95.30MB, 99.90% of 95.39MB total
+Dropped 138 nodes (cum <= 0.48MB)
+      flat  flat%   sum%        cum   cum%
+   29.74MB 31.17% 31.17%    29.74MB 31.17%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage2/cache/price-cache.go:64
+   27.63MB 28.96% 60.13%    27.63MB 28.96%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage2/cache/price-cache.go:62
+   22.30MB 23.38% 83.51%    22.30MB 23.38%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    8.20MB  8.59% 92.11%     8.20MB  8.59%  github.com/bits-and-blooms/bitset.(*BitSet).extendSetMaybe /home/malerome/go/pkg/mod/github.com/bits-and-blooms/bitset@v1.2.0/bitset.go:150
+    7.44MB  7.80% 99.90%     7.44MB  7.80%  bitmap-usage/index-bits-and-blooms.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage2/index-bits-and-blooms/indexerv2.go:56
+         0     0% 99.90%    95.32MB 99.93%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage2/benchmark/utils.go:98
+         0     0% 99.90%    22.30MB 23.38%  bitmap-usage/benchmark/500k-large-groups/bits-and-blooms.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bits-and-blooms/bitmap-memory_test.go:22
+         0     0% 99.90%    15.65MB 16.41%  bitmap-usage/benchmark/500k-large-groups/bits-and-blooms.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bits-and-blooms/bitmap-memory_test.go:30
+         0     0% 99.90%    57.36MB 60.13%  bitmap-usage/benchmark/500k-large-groups/bits-and-blooms.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bits-and-blooms/bitmap-memory_test.go:36
+         0     0% 99.90%    22.30MB 23.38%  bitmap-usage/benchmark/500k-large-groups/bits-and-blooms.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bits-and-blooms/bitmap-memory_test.go:23
+         0     0% 99.90%    15.65MB 16.41%  bitmap-usage/benchmark/500k-large-groups/bits-and-blooms.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bits-and-blooms/bitmap-memory_test.go:31
+         0     0% 99.90%    57.36MB 60.13%  bitmap-usage/benchmark/500k-large-groups/bits-and-blooms.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/bits-and-blooms/bitmap-memory_test.go:37
+         0     0% 99.90%    22.30MB 23.38%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:178
+         0     0% 99.90%    22.30MB 23.38%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:186
+         0     0% 99.90%    22.30MB 23.38%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage2/benchmark/500k-large-groups/sample/test-data.go:163
+         0     0% 99.90%     3.02MB  3.16%  bitmap-usage/index-bits-and-blooms.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage2/index-bits-and-blooms/indexerv2.go:73
+         0     0% 99.90%     4.44MB  4.66%  bitmap-usage/index-bits-and-blooms.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage2/index-bits-and-blooms/indexerv2.go:85
+         0     0% 99.90%     8.20MB  8.59%  bitmap-usage/index-bits-and-blooms.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap-usage2/index-bits-and-blooms/indexerv2.go:126
+         0     0% 99.90%     8.20MB  8.59%  github.com/bits-and-blooms/bitset.(*BitSet).Set /home/malerome/go/pkg/mod/github.com/bits-and-blooms/bitset@v1.2.0/bitset.go:173 (inline)
+         0     0% 99.90%    22.30MB 23.38%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0% 99.90%    95.38MB   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
