@@ -14,6 +14,7 @@ Who knows :)
 |[Sroar](../index-sroar)|[Sroar](https://github.com/dgraph-io/sroar)|Second impression - huge degradation compared to `Roaring-64` bitmaps, but they promises and optimize only `FastOr` operation|Occasionally supported|
 |[Kelindar Bitmap](../index-kelindar)|[SIMD Bitmap Kelindar](https://github.com/kelindar/bitmap)|Second impression - degradation compared to `Roaring-32` bitmaps, but not that huge with `sync.Pool` usage. Order of magnitude better then `map`|Occasionally supported|
 |[Kelindar Column](../index-kelindar-column)|[Kelindar Column](https://github.com/kelindar/column)|Second impression - degradation compared to `Roaring-32` bitmaps, but it offers much more functionality, like transactions. Depends on the cases it has sense to try|Occasionally supported|
+|[Bits and Blooms](../index-bits-and-blooms)|[Bits and Blooms](https://github.com/bits-and-blooms/bitset)|Degradation compared to `Roaring-32` bitmaps, and 2-3 times slower then Kelindar bitmaps|Occasionally supported|
 |Pilosa|[Pilosa](https://github.com/pilosa/pilosa)|64 bit bitmaps|not yet implemented|
 
 ## Map implementation

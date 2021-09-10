@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/RoaringBitmap/roaring v0.9.1
 	github.com/andybalholm/brotli v1.0.3 // indirect
+	github.com/bits-and-blooms/bitset v1.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dgraph-io/sroar v0.0.0-20210624194305-2cc5980b720b
 	github.com/gofiber/adaptor/v2 v2.1.8
