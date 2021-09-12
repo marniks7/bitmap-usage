@@ -1,0 +1,6 @@
+# exclude files from language analyze https://github.com/github/linguist/blob/master/docs/overrides.md
+json.lua linguist-vendored
+wrk linguist-vendored
+wrk2 linguist-vendored
+
+*.lua linguist-generated
