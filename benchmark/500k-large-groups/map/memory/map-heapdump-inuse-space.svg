@@ -307,7 +307,7 @@ function handleMouseUp(evt) {
 <polygon fill="#f8f8f8" stroke="black" points="588,-1192 16,-1192 16,-1057 588,-1057 588,-1192"/>
 <text text-anchor="start" x="24" y="-1175.2" font-family="Times,serif" font-size="16.00">File: map.test</text>
 <text text-anchor="start" x="24" y="-1157.2" font-family="Times,serif" font-size="16.00">Type: inuse_space</text>
-<text text-anchor="start" x="24" y="-1139.2" font-family="Times,serif" font-size="16.00">Time: Sep 6, 2021 at 10:49am (EDT)</text>
+<text text-anchor="start" x="24" y="-1139.2" font-family="Times,serif" font-size="16.00">Time: Sep 12, 2021 at 7:19pm (EDT)</text>
 <text text-anchor="start" x="24" y="-1121.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 180.11MB, 100% of 180.12MB total</text>
 <text text-anchor="start" x="24" y="-1103.2" font-family="Times,serif" font-size="16.00">Dropped 108 nodes (cum &lt;= 0.90MB)</text>
 <text text-anchor="start" x="24" y="-1066.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
@@ -317,7 +317,7 @@ function handleMouseUp(evt) {
 <!-- N1 -->
 <g id="node1" class="node">
 <title>N1</title>
-<g id="a_node1"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (175.42MB)">
+<g id="a_node1"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (175.42MB)">
 <polygon fill="#edd5d5" stroke="#b20100" points="718,-588 602,-588 602,-535 718,-535 718,-588"/>
 <text text-anchor="middle" x="660" y="-577.6" font-family="Times,serif" font-size="8.00">sample</text>
 <text text-anchor="middle" x="660" y="-568.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
@@ -330,7 +330,7 @@ function handleMouseUp(evt) {
 <!-- N2 -->
 <g id="node2" class="node">
 <title>N2</title>
-<g id="a_node2"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:185 (111.51MB)">
+<g id="a_node2"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:185 (111.51MB)">
 <polygon fill="#edd8d5" stroke="#b21700" points="788.5,-484 531.5,-484 531.5,-346 788.5,-346 788.5,-484"/>
 <text text-anchor="middle" x="660" y="-460.8" font-family="Times,serif" font-size="24.00">sample</text>
 <text text-anchor="middle" x="660" y="-434.8" font-family="Times,serif" font-size="24.00">(*Holder)</text>
@@ -343,12 +343,12 @@ function handleMouseUp(evt) {
 <!-- N1&#45;&gt;N2 -->
 <g id="edge11" class="edge">
 <title>N1&#45;&gt;N2</title>
-<g id="a_edge11"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:185 (111.51MB)">
+<g id="a_edge11"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:185 (111.51MB)">
 <path fill="none" stroke="#b21700" stroke-width="4" d="M660,-535C660,-523.41 660,-509.02 660,-494.28"/>
 <polygon fill="#b21700" stroke="#b21700" stroke-width="4" points="663.5,-494.06 660,-484.06 656.5,-494.06 663.5,-494.06"/>
 </a>
 </g>
-<g id="a_edge11&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:185 (111.51MB)">
+<g id="a_edge11&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:185 (111.51MB)">
 <text text-anchor="middle" x="699.5" y="-505.8" font-family="Times,serif" font-size="14.00"> 111.51MB</text>
 </a>
 </g>
@@ -356,7 +356,7 @@ function handleMouseUp(evt) {
 <!-- N4 -->
 <g id="node4" class="node">
 <title>N4</title>
-<g id="a_node4"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:180 (37.17MB)">
+<g id="a_node4"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:180 (37.17MB)">
 <polygon fill="#edded5" stroke="#b24300" points="995,-469 807,-469 807,-361 995,-361 995,-469"/>
 <text text-anchor="middle" x="901" y="-450.6" font-family="Times,serif" font-size="18.00">sample</text>
 <text text-anchor="middle" x="901" y="-430.6" font-family="Times,serif" font-size="18.00">(*Holder)</text>
@@ -369,12 +369,12 @@ function handleMouseUp(evt) {
 <!-- N1&#45;&gt;N4 -->
 <g id="edge12" class="edge">
 <title>N1&#45;&gt;N4</title>
-<g id="a_edge12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:180 (37.17MB)">
+<g id="a_edge12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:180 (37.17MB)">
 <path fill="none" stroke="#b24300" stroke-width="2" d="M709.85,-534.97C720.83,-529.18 732.36,-522.97 743,-517 766.16,-504 790.6,-489.03 813.16,-474.66"/>
 <polygon fill="#b24300" stroke="#b24300" stroke-width="2" points="815.17,-477.53 821.71,-469.19 811.4,-471.63 815.17,-477.53"/>
 </a>
 </g>
-<g id="a_edge12&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:180 (37.17MB)">
+<g id="a_edge12&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:180 (37.17MB)">
 <text text-anchor="middle" x="800" y="-505.8" font-family="Times,serif" font-size="14.00"> 37.17MB</text>
 </a>
 </g>
@@ -382,7 +382,7 @@ function handleMouseUp(evt) {
 <!-- N8 -->
 <g id="node8" class="node">
 <title>N8</title>
-<g id="a_node8"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:197 (4.44MB)">
+<g id="a_node8"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:197 (4.44MB)">
 <polygon fill="#edecea" stroke="#b2ab9c" points="1127,-451.5 1013,-451.5 1013,-378.5 1127,-378.5 1127,-451.5"/>
 <text text-anchor="middle" x="1070" y="-437.9" font-family="Times,serif" font-size="12.00">sample</text>
 <text text-anchor="middle" x="1070" y="-424.9" font-family="Times,serif" font-size="12.00">(*Holder)</text>
@@ -395,12 +395,12 @@ function handleMouseUp(evt) {
 <!-- N1&#45;&gt;N8 -->
 <g id="edge20" class="edge">
 <title>N1&#45;&gt;N8</title>
-<g id="a_edge20"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:197 (4.44MB)">
+<g id="a_edge20"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:197 (4.44MB)">
 <path fill="none" stroke="#b2ab9c" d="M718.02,-548.5C812.77,-528.78 991.48,-490.99 1004,-484 1015.56,-477.54 1026.37,-468.42 1035.77,-458.95"/>
 <polygon fill="#b2ab9c" stroke="#b2ab9c" points="1038.32,-461.35 1042.67,-451.68 1033.24,-456.53 1038.32,-461.35"/>
 </a>
 </g>
-<g id="a_edge20&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:197 (4.44MB)">
+<g id="a_edge20&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:197 (4.44MB)">
 <text text-anchor="middle" x="960.5" y="-505.8" font-family="Times,serif" font-size="14.00"> 4.44MB</text>
 </a>
 </g>
@@ -408,7 +408,7 @@ function handleMouseUp(evt) {
 <!-- N13 -->
 <g id="node13" class="node">
 <title>N13</title>
-<g id="a_node13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
+<g id="a_node13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
 <polygon fill="#ede5de" stroke="#b27743" points="1255,-441.5 1145,-441.5 1145,-388.5 1255,-388.5 1255,-441.5"/>
 <text text-anchor="middle" x="1200" y="-431.1" font-family="Times,serif" font-size="8.00">sample</text>
 <text text-anchor="middle" x="1200" y="-422.1" font-family="Times,serif" font-size="8.00">(*Holder)</text>
@@ -421,12 +421,12 @@ function handleMouseUp(evt) {
 <!-- N1&#45;&gt;N13 -->
 <g id="edge13" class="edge">
 <title>N1&#45;&gt;N13</title>
-<g id="a_edge13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
+<g id="a_edge13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
 <path fill="none" stroke="#b27743" d="M718.02,-547.75C740.42,-543.19 766.32,-538.35 790,-535 943.9,-513.21 1001.32,-561.61 1136,-484 1150.98,-475.37 1164.58,-462.13 1175.36,-449.62"/>
 <polygon fill="#b27743" stroke="#b27743" points="1178.35,-451.49 1182.02,-441.56 1172.95,-447.04 1178.35,-451.49"/>
 </a>
 </g>
-<g id="a_edge13&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
+<g id="a_edge13&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
 <text text-anchor="middle" x="1132" y="-505.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
 </a>
 </g>
@@ -471,7 +471,7 @@ function handleMouseUp(evt) {
 <!-- N9 -->
 <g id="node9" class="node">
 <title>N9</title>
-<g id="a_node9"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 (175.42MB)">
+<g id="a_node9"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 (175.42MB)">
 <polygon fill="#edd5d5" stroke="#b20100" points="718,-1006 602,-1006 602,-962 718,-962 718,-1006"/>
 <text text-anchor="middle" x="660" y="-995.6" font-family="Times,serif" font-size="8.00">map</text>
 <text text-anchor="middle" x="660" y="-986.6" font-family="Times,serif" font-size="8.00">TestMapMemoryStats</text>
@@ -483,12 +483,12 @@ function handleMouseUp(evt) {
 <!-- N3&#45;&gt;N9 -->
 <g id="edge8" class="edge">
 <title>N3&#45;&gt;N9</title>
-<g id="a_edge8"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 (175.42MB)">
+<g id="a_edge8"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 (175.42MB)">
 <path fill="none" stroke="#b20100" stroke-width="5" d="M660,-1102.46C660,-1079.59 660,-1042.77 660,-1016.45"/>
 <polygon fill="#b20100" stroke="#b20100" stroke-width="5" points="664.38,-1016.23 660,-1006.23 655.63,-1016.23 664.38,-1016.23"/>
 </a>
 </g>
-<g id="a_edge8&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 (175.42MB)">
+<g id="a_edge8&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 (175.42MB)">
 <text text-anchor="middle" x="699.5" y="-1027.8" font-family="Times,serif" font-size="14.00"> 175.42MB</text>
 </a>
 </g>
@@ -496,7 +496,7 @@ function handleMouseUp(evt) {
 <!-- N10 -->
 <g id="node10" class="node">
 <title>N10</title>
-<g id="a_node10"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 (4.69MB)">
+<g id="a_node10"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 (4.69MB)">
 <polygon fill="#edecea" stroke="#b2aa9b" points="849.5,-1006 736.5,-1006 736.5,-962 849.5,-962 849.5,-1006"/>
 <text text-anchor="middle" x="793" y="-995.6" font-family="Times,serif" font-size="8.00">map</text>
 <text text-anchor="middle" x="793" y="-986.6" font-family="Times,serif" font-size="8.00">TestMapMemoryStats</text>
@@ -508,12 +508,12 @@ function handleMouseUp(evt) {
 <!-- N3&#45;&gt;N10 -->
 <g id="edge18" class="edge">
 <title>N3&#45;&gt;N10</title>
-<g id="a_edge18"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 (4.69MB)">
+<g id="a_edge18"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 (4.69MB)">
 <path fill="none" stroke="#b2aa9b" d="M680.98,-1102.49C697.87,-1085.49 722.14,-1060.88 743,-1039 750.75,-1030.87 759.08,-1021.96 766.66,-1013.76"/>
 <polygon fill="#b2aa9b" stroke="#b2aa9b" points="769.46,-1015.89 773.67,-1006.16 764.32,-1011.14 769.46,-1015.89"/>
 </a>
 </g>
-<g id="a_edge18&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 (4.69MB)">
+<g id="a_edge18&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 (4.69MB)">
 <text text-anchor="middle" x="786.5" y="-1027.8" font-family="Times,serif" font-size="14.00"> 4.69MB</text>
 </a>
 </g>
@@ -546,11 +546,11 @@ function handleMouseUp(evt) {
 <!-- N5 -->
 <g id="node5" class="node">
 <title>N5</title>
-<g id="a_node5"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 (180.11MB)">
+<g id="a_node5"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (180.11MB)">
 <polygon fill="#edd5d5" stroke="#b20000" points="724,-911 596,-911 596,-867 724,-867 724,-911"/>
 <text text-anchor="middle" x="660" y="-900.6" font-family="Times,serif" font-size="8.00">benchmark</text>
 <text text-anchor="middle" x="660" y="-891.6" font-family="Times,serif" font-size="8.00">ReadMemStatsFuncWithGC</text>
-<text text-anchor="middle" x="660" y="-882.6" font-family="Times,serif" font-size="8.00">utils.go:71</text>
+<text text-anchor="middle" x="660" y="-882.6" font-family="Times,serif" font-size="8.00">utils.go:98</text>
 <text text-anchor="middle" x="660" y="-873.6" font-family="Times,serif" font-size="8.00">0 of 180.11MB (100%)</text>
 </a>
 </g>
@@ -558,7 +558,7 @@ function handleMouseUp(evt) {
 <!-- N11 -->
 <g id="node11" class="node">
 <title>N11</title>
-<g id="a_node11"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 (175.42MB)">
+<g id="a_node11"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 (175.42MB)">
 <polygon fill="#edd5d5" stroke="#b20100" points="718,-816 602,-816 602,-763 718,-763 718,-816"/>
 <text text-anchor="middle" x="660" y="-805.6" font-family="Times,serif" font-size="8.00">map</text>
 <text text-anchor="middle" x="660" y="-796.6" font-family="Times,serif" font-size="8.00">TestMapMemoryStats</text>
@@ -571,12 +571,12 @@ function handleMouseUp(evt) {
 <!-- N5&#45;&gt;N11 -->
 <g id="edge6" class="edge">
 <title>N5&#45;&gt;N11</title>
-<g id="a_edge6"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 (175.42MB)">
+<g id="a_edge6"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 (175.42MB)">
 <path fill="none" stroke="#b20100" stroke-width="5" d="M660,-866.84C660,-854.97 660,-839.85 660,-826.19"/>
 <polygon fill="#b20100" stroke="#b20100" stroke-width="5" points="664.38,-826.12 660,-816.12 655.63,-826.12 664.38,-826.12"/>
 </a>
 </g>
-<g id="a_edge6&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 (175.42MB)">
+<g id="a_edge6&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 (175.42MB)">
 <text text-anchor="middle" x="699.5" y="-837.8" font-family="Times,serif" font-size="14.00"> 175.42MB</text>
 </a>
 </g>
@@ -584,7 +584,7 @@ function handleMouseUp(evt) {
 <!-- N12 -->
 <g id="node12" class="node">
 <title>N12</title>
-<g id="a_node12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 (4.69MB)">
+<g id="a_node12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 (4.69MB)">
 <polygon fill="#edecea" stroke="#b2aa9b" points="865.5,-816 752.5,-816 752.5,-763 865.5,-763 865.5,-816"/>
 <text text-anchor="middle" x="809" y="-805.6" font-family="Times,serif" font-size="8.00">map</text>
 <text text-anchor="middle" x="809" y="-796.6" font-family="Times,serif" font-size="8.00">TestMapMemoryStats</text>
@@ -597,12 +597,12 @@ function handleMouseUp(evt) {
 <!-- N5&#45;&gt;N12 -->
 <g id="edge16" class="edge">
 <title>N5&#45;&gt;N12</title>
-<g id="a_edge16"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 (4.69MB)">
+<g id="a_edge16"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 (4.69MB)">
 <path fill="none" stroke="#b2aa9b" d="M710.85,-866.93C721.77,-861.63 733.03,-855.57 743,-849 754.41,-841.49 765.89,-832.1 776,-823.06"/>
 <polygon fill="#b2aa9b" stroke="#b2aa9b" points="778.43,-825.59 783.44,-816.25 773.7,-820.42 778.43,-825.59"/>
 </a>
 </g>
-<g id="a_edge16&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 (4.69MB)">
+<g id="a_edge16&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 (4.69MB)">
 <text text-anchor="middle" x="792.5" y="-837.8" font-family="Times,serif" font-size="14.00"> 4.69MB</text>
 </a>
 </g>
@@ -648,7 +648,7 @@ function handleMouseUp(evt) {
 <!-- N7 -->
 <g id="node7" class="node">
 <title>N7</title>
-<g id="a_node7"><a xlink:title="bitmap&#45;usage/index&#45;map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap&#45;usage2/index&#45;map/indexer.go:14 (4.69MB)">
+<g id="a_node7"><a xlink:title="bitmap&#45;usage/index&#45;map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;map/indexer.go:14 (4.69MB)">
 <polygon fill="#edecea" stroke="#b2aa9b" points="894.5,-712 757.5,-712 757.5,-639 894.5,-639 894.5,-712"/>
 <text text-anchor="middle" x="826" y="-698.4" font-family="Times,serif" font-size="12.00">index&#45;map</text>
 <text text-anchor="middle" x="826" y="-685.4" font-family="Times,serif" font-size="12.00">(*MapIndexService)</text>
@@ -711,12 +711,12 @@ function handleMouseUp(evt) {
 <!-- N9&#45;&gt;N5 -->
 <g id="edge7" class="edge">
 <title>N9&#45;&gt;N5</title>
-<g id="a_edge7"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 (175.42MB)">
+<g id="a_edge7"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (175.42MB)">
 <path fill="none" stroke="#b20100" stroke-width="5" d="M660,-961.9C660,-949.89 660,-934.62 660,-921.24"/>
 <polygon fill="#b20100" stroke="#b20100" stroke-width="5" points="664.38,-921.02 660,-911.02 655.63,-921.02 664.38,-921.02"/>
 </a>
 </g>
-<g id="a_edge7&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 (175.42MB)">
+<g id="a_edge7&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (175.42MB)">
 <text text-anchor="middle" x="699.5" y="-932.8" font-family="Times,serif" font-size="14.00"> 175.42MB</text>
 </a>
 </g>
@@ -724,12 +724,12 @@ function handleMouseUp(evt) {
 <!-- N10&#45;&gt;N5 -->
 <g id="edge17" class="edge">
 <title>N10&#45;&gt;N5</title>
-<g id="a_edge17"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 (4.69MB)">
+<g id="a_edge17"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (4.69MB)">
 <path fill="none" stroke="#b2aa9b" d="M776.81,-961.93C767.72,-951.11 755.68,-938.28 743,-929 736.58,-924.31 729.52,-919.96 722.29,-916.01"/>
 <polygon fill="#b2aa9b" stroke="#b2aa9b" points="723.58,-912.73 713.09,-911.21 720.34,-918.94 723.58,-912.73"/>
 </a>
 </g>
-<g id="a_edge17&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/utils.go:71 (4.69MB)">
+<g id="a_edge17&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (4.69MB)">
 <text text-anchor="middle" x="789.5" y="-932.8" font-family="Times,serif" font-size="14.00"> 4.69MB</text>
 </a>
 </g>
@@ -737,7 +737,7 @@ function handleMouseUp(evt) {
 <!-- N14 -->
 <g id="node14" class="node">
 <title>N14</title>
-<g id="a_node14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (175.42MB)">
+<g id="a_node14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (175.42MB)">
 <polygon fill="#edd5d5" stroke="#b20100" points="739.5,-697.5 580.5,-697.5 580.5,-653.5 739.5,-653.5 739.5,-697.5"/>
 <text text-anchor="middle" x="660" y="-687.1" font-family="Times,serif" font-size="8.00">sample</text>
 <text text-anchor="middle" x="660" y="-678.1" font-family="Times,serif" font-size="8.00">GenerateTestData5Chars5Offerings</text>
@@ -749,12 +749,12 @@ function handleMouseUp(evt) {
 <!-- N11&#45;&gt;N14 -->
 <g id="edge9" class="edge">
 <title>N11&#45;&gt;N14</title>
-<g id="a_edge9"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (175.42MB)">
+<g id="a_edge9"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (175.42MB)">
 <path fill="none" stroke="#b20100" stroke-width="5" d="M660,-762.8C660,-746.44 660,-725.13 660,-707.78"/>
 <polygon fill="#b20100" stroke="#b20100" stroke-width="5" points="664.38,-707.57 660,-697.57 655.63,-707.57 664.38,-707.57"/>
 </a>
 </g>
-<g id="a_edge9&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (175.42MB)">
+<g id="a_edge9&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (175.42MB)">
 <text text-anchor="middle" x="699.5" y="-733.8" font-family="Times,serif" font-size="14.00"> 175.42MB</text>
 </a>
 </g>
@@ -762,12 +762,12 @@ function handleMouseUp(evt) {
 <!-- N12&#45;&gt;N7 -->
 <g id="edge19" class="edge">
 <title>N12&#45;&gt;N7</title>
-<g id="a_edge19"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap&#45;usage2/index&#45;map/indexer.go:14 (4.69MB)">
+<g id="a_edge19"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;map/indexer.go:14 (4.69MB)">
 <path fill="none" stroke="#b2aa9b" d="M812.9,-762.8C814.73,-750.75 816.97,-736.01 819.07,-722.15"/>
 <polygon fill="#b2aa9b" stroke="#b2aa9b" points="822.53,-722.67 820.57,-712.26 815.61,-721.62 822.53,-722.67"/>
 </a>
 </g>
-<g id="a_edge19&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap&#45;usage2/index&#45;map/indexer.go:14 (4.69MB)">
+<g id="a_edge19&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/map/map&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;map/indexer.go:14 (4.69MB)">
 <text text-anchor="middle" x="847.5" y="-733.8" font-family="Times,serif" font-size="14.00"> 4.69MB</text>
 </a>
 </g>
@@ -787,12 +787,12 @@ function handleMouseUp(evt) {
 <!-- N13&#45;&gt;N15 -->
 <g id="edge14" class="edge">
 <title>N13&#45;&gt;N15</title>
-<g id="a_edge14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
+<g id="a_edge14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
 <path fill="none" stroke="#b27743" d="M1200,-388.32C1200,-364.98 1200,-330.46 1200,-305.46"/>
 <polygon fill="#b27743" stroke="#b27743" points="1203.5,-305.39 1200,-295.39 1196.5,-305.39 1203.5,-305.39"/>
 </a>
 </g>
-<g id="a_edge14&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
+<g id="a_edge14&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
 <text text-anchor="middle" x="1235" y="-316.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
 </a>
 </g>
@@ -800,12 +800,12 @@ function handleMouseUp(evt) {
 <!-- N14&#45;&gt;N1 -->
 <g id="edge10" class="edge">
 <title>N14&#45;&gt;N1</title>
-<g id="a_edge10"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (175.42MB)">
+<g id="a_edge10"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (175.42MB)">
 <path fill="none" stroke="#b20100" stroke-width="5" d="M660,-653.43C660,-637.97 660,-616.58 660,-598.43"/>
 <polygon fill="#b20100" stroke="#b20100" stroke-width="5" points="664.38,-598.19 660,-588.19 655.63,-598.19 664.38,-598.19"/>
 </a>
 </g>
-<g id="a_edge10&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage2/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (175.42MB)">
+<g id="a_edge10&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (175.42MB)">
 <text text-anchor="middle" x="699.5" y="-609.8" font-family="Times,serif" font-size="14.00"> 175.42MB</text>
 </a>
 </g>

@@ -66,7 +66,7 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 
 	//TODO test concurrency
 	tx := h.bitmapPool.Get().(*Tx)
-	h.empty.Clone(&tx.index) //clear index
+	//h.empty.Clone(&tx.index) //clear index
 	defer h.release(tx)
 	for i, bo := range bitmapOperations {
 		var bm bitmap.Bitmap

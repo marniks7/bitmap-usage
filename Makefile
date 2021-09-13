@@ -39,6 +39,7 @@ WRK_FILENAME_APPROACH_PART = ${APP_API_PART}# first part of filename with result
 WRK_FILENAME_WHERE_PART =# 'docker-' or empty by default
 WRK2_RATE = 2000
 WRK_BITMAP_FOLDER = 500k-large-groups/bitmap/wrk
+WRK_KELINDAR_FOLDER = 500k-large-groups/kelindar/wrk
 WRK_MAP_FOLDER = 500k-large-groups/map/wrk
 WRK2_BITMAP_FOLDER = 500k-large-groups/bitmap/wrk2
 WRK2_MAP_FOLDER = 500k-large-groups/map/wrk2
@@ -110,7 +111,7 @@ docker-run-profile-gc:
 # -----------------------------------------------------------------------------
 # Go Benchmarks
 # -----------------------------------------------------------------------------
-bench: bench-map bench-bitmap bench-map-64 bench-bitmap-64 bench-sroar bench-memory
+bench: bench-map bench-bitmap bench-map-64 bench-bitmap-64 bench-sroar bench-kelindar bench-kelindar-column bench-bits-and-blooms bench-memory
 bench-map:
 	go test ./benchmark/500k-large-groups/map/... -bench=. -run ^$$ -cpu 1 -benchmem \
 		| tee benchmark/500k-large-groups/map/benchmark-results.txt
@@ -198,6 +199,13 @@ wrk-bitmap-t2-c20: WRK_CONNECTIONS=20
 wrk-bitmap-t2-c20: APP_API_PART=bitmap
 wrk-bitmap-t2-c20: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
 wrk-bitmap-t2-c20:
+	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
+wrk-kelindar-t1-c1: WRK_THREADS=1
+wrk-kelindar-t1-c1: WRK_CONNECTIONS=1
+wrk-kelindar-t1-c1: APP_API_PART=kelindar
+wrk-kelindar-t1-c1: WRK_FOLDER = ${WRK_KELINDAR_FOLDER}
+wrk-kelindar-t1-c1:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk: wrk-map-t1-c1 wrk-map-t2-c20 wrk-bitmap-t1-c1 wrk-bitmap-t2-c20

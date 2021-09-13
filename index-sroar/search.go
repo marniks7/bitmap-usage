@@ -92,10 +92,7 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 	moreThenOnePriceFound := false
 	if cardinality == 1 {
 		iterator := result.NewIterator()
-		if iterator.HasNext() {
-			candidate := iterator.Next()
-			return candidate, nil
-		}
+		return iterator.Next(), nil
 	} else if cardinality > 1 {
 		moreThenOnePriceFound = true
 	} else {
@@ -108,10 +105,7 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 		//return any default price (iterator provides sorted data, so retries will be idempotent)
 		//however this can fail in case of rebuild entire cache with different indexes
 		iterator := result.NewIterator()
-		if iterator.HasNext() {
-			candidate := iterator.Next()
-			return candidate, nil
-		}
+		return iterator.Next(), nil
 	} else if cardinality == 0 {
 		if moreThenOnePriceFound {
 			return 0, ErrUnableToFindPriceMoreThenOneNoDefault

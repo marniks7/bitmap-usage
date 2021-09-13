@@ -6,11 +6,13 @@ import (
 	"bitmap-usage/cache"
 	cache64 "bitmap-usage/cache64"
 	"bitmap-usage/handlers"
+	handlerskelindar "bitmap-usage/handlers-kelindar"
 	handlersmap "bitmap-usage/handlers-map"
 	handlersmap64 "bitmap-usage/handlers-map64"
 	"bitmap-usage/handlers-roaring"
 	handlersroaring64 "bitmap-usage/handlers-roaring64"
 	handlerssroar "bitmap-usage/handlers-sroar"
+	indexkelindar "bitmap-usage/index-kelindar"
 	indexMap "bitmap-usage/index-map"
 	indexmap64 "bitmap-usage/index-map64"
 	"bitmap-usage/index-roaring"
@@ -41,6 +43,7 @@ var (
 	roaring64           = getEnvOrDefaultBool("ROARING64", false, "Use roaring 64")
 	sroar               = getEnvOrDefaultBool("SROAR", false, "Use 64 bit sroar")
 	map64               = getEnvOrDefaultBool("MAP64", false, "Use 64 bit maps")
+	kelindar32          = getEnvOrDefaultBool("KELINDAR32", false, "Use 32-bit kelindar bitmaps")
 	useFiber            = getEnvOrDefaultBool("FIBER", false, "Use Fiber framework")
 	optimizeBitmapStr   = getEnvOrDefaultBool("BITMAP_OPT_STR", true, "Optimize Bitmap Structure")
 	optimizeBitmapStats = getEnvOrDefaultBool("BITMAP_OPT_STATS", false, "Optimize Bitmap based on statistic")
@@ -68,8 +71,8 @@ func Setup() {
 	//fail fast init part
 	goGCInt := getGOGC(err)
 
-	var cs *cache.CatalogService
-	var cs64 *cache64.CatalogService
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	cs64 := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
 	// create router
 	r := mux.NewRouter()
 
@@ -80,7 +83,6 @@ func Setup() {
 	})
 	if roaring64 {
 		log.Info().Msg("Use Roaring64")
-		cs64 = cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
 		err = sample64.GenerateTestData5Chars5Offerings(cs64)
 		if err != nil {
 			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
@@ -97,8 +99,7 @@ func Setup() {
 		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
 	} else if sroar {
-		log.Info().Msg("Use Sroar")
-		cs64 = cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+		log.Info().Msg("Use Sroar64")
 		err = sample64.GenerateTestData5Chars5Offerings(cs64)
 		if err != nil {
 			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
@@ -114,9 +115,23 @@ func Setup() {
 		findPriceBy := r.Methods(http.MethodPost).Subrouter()
 		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
 
+	} else if kelindar32 {
+		log.Info().Msg("Use Kelindar32")
+		err = sample.GenerateTestData5Chars5Offerings(cs)
+
+		//index
+		indexer := indexkelindar.NewHolder(log.Logger)
+		err = indexer.IndexPricesV2(cs.Catalog)
+		if err != nil {
+			panic(err)
+		}
+
+		as := handlerskelindar.NewBitmapAggregateService(log.Logger, cs, indexer)
+		cs.GeneratePricesByConditions()
+
+		app.Post("/v1/search/kelindar/prices", as.FindPriceByX_Fiber)
 	} else {
 		log.Info().Msg("Use Roaring32")
-		cs = cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
 		err = sample.GenerateTestData5Chars5Offerings(cs)
 		if err != nil {
 			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
@@ -273,6 +288,8 @@ func Setup() {
 
 	// receiving the signal from OS for graceful shutdown
 	signals := make(chan os.Signal)
+
+	log.Info().Str("impl", string(httpServerType())).Msg("Http Server")
 	//start server in separate goroutine
 	go func() {
 		log.Info().Str("addr", addr).Msg("Starting server")

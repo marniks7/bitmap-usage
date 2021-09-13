@@ -1,0 +1,16 @@
+Running 30s test @ http://127.0.0.1:8091/v1/search/kelindar/prices
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    54.99us   32.32us   3.08ms   95.07%
+    Req/Sec    18.24k     1.62k   20.04k    96.35%
+  Latency Distribution
+     50%   50.00us
+     75%   53.00us
+     90%   64.00us
+     95%   86.00us
+     97%  110.00us
+     98%  116.00us
+     99%  123.00us
+  546161 requests in 30.10s, 106.26MB read
+Requests/sec:  18145.01
+Transfer/sec:      3.53MB
