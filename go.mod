@@ -9,15 +9,15 @@ require (
 	github.com/andybalholm/brotli v1.0.3 // indirect
 	github.com/bits-and-blooms/bitset v1.2.1
 	github.com/davecgh/go-spew v1.1.1
-	github.com/dgraph-io/sroar v0.0.0-20210831151133-ad6554cce45c
+	github.com/dgraph-io/sroar v0.0.0-20210913200129-360377962aca
 	github.com/gofiber/adaptor/v2 v2.1.11
 	github.com/gofiber/fiber/v2 v2.18.0
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/mux v1.8.0
 	github.com/jinzhu/copier v0.3.2
 	github.com/json-iterator/go v1.1.12
-	github.com/kelindar/bitmap v1.1.2
-	github.com/kelindar/column v0.0.0-20210912211238-a2c698997605
+	github.com/kelindar/bitmap v1.1.3
+	github.com/kelindar/column v0.0.0-20210913210813-b080abd811b2
 	github.com/klauspost/compress v1.13.5 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -31,3 +31,5 @@ require (
 	golang.org/x/sys v0.0.0-20210910150752-751e447fb3d0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
+
+replace github.com/kelindar/bitmap => /home/malerome/IdeaProjects/bitmap2

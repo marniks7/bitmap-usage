@@ -72,30 +72,37 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 			union = union.With(FieldNameCharStart + charValues[i].Char + "_" + charValues[i].Value)
 		}
 		union.With(FieldNameGroup + groupId).With(FieldNameSpec + specId)
-		cardinality := union.Count()
+		cardinality := 0
+		err := union.Range(FieldNameId, func(v column.Cursor) {
+			priceIndex = v.Index()
+			cardinality++
+		})
+		if err != nil {
+			return err
+		}
+
 		if cardinality == 0 {
 			return ErrUnableToFindPrice
 		}
 		if cardinality == 1 {
-			err := union.Range(FieldNameId, func(v column.Cursor) {
-				priceIndex = v.Index()
-			})
-			return err
+			return nil
 		}
 		union = union.With(FieldNameDefault + "_true")
 		//no default row 'true' at all
-		cardinality = union.Count()
+		cardinality = 0
+		err = union.Range(FieldNameId, func(v column.Cursor) {
+			if cardinality == 0 {
+				priceIndex = v.Index()
+			}
+			cardinality++
+		})
+		if err != nil {
+			return err
+		}
 		if cardinality >= 1 {
 			//return any default price (iterator provides sorted data, so retries will be idempotent)
 			//however this can fail in case of rebuild entire cache with different indexes
-			var t bool
-			err := union.Range(FieldNameId, func(v column.Cursor) {
-				if !t {
-					priceIndex = v.Index()
-					t = true
-				}
-			})
-			return err
+			return nil
 		} else {
 			return ErrUnableToFindPriceMoreThenOneNoDefault
 		}
@@ -103,7 +110,7 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	if err != nil {
 		return 0, err
 	}
-	return uint32(priceIndex), nil
+	return priceIndex, nil
 
 }
 

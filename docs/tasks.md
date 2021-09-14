@@ -7,6 +7,7 @@
 * [ ] Support integers and between
 * [ ] Update index
 * [ ] Scalability - distributed cache?
-  
+* [ ] Implement transaction log for bitmaps (like DB)  
+
 ## Libraries
 * [ ] Test Pilosa
