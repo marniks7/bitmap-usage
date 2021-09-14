@@ -138,6 +138,7 @@ bench-bits-and-blooms:
  		| tee benchmark/500k-large-groups/bits-and-blooms/benchmark-results.txt
 bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-memory-bitmap-64 bench-memory-sroar \
 	bench-memory-kelindar bench-memory-bits-and-blooms
+# TODO works bad when there are >1 test, it includes allocated space from all tests
 bench-memory-bitmap:
 	go test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-map:

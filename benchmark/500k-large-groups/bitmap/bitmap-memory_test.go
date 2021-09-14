@@ -109,3 +109,52 @@ func TestBitmapMemoryStats_Search(t *testing.T) {
 	assert.NotZero(t, len(cs.Catalog.Prices))
 	assert.NotNil(t, ind.Index)
 }
+
+func TestBitmapMemoryStats_SearchV2(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping test in short mode.")
+	}
+	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	err := sample.GenerateTestData5Chars5Offerings(cs)
+	assert.NoError(t, err)
+
+	ind := indexroaring.NewHolder(log.Logger)
+	err = ind.IndexPricesV2(cs.Catalog)
+	assert.NoError(t, err)
+	_, err = ind.RunOptimizeBasedOnStats()
+	assert.NoError(t, err)
+	cs.GeneratePricesByConditionsAndClear()
+
+	runtime.GC()
+	runtime.GC()
+	runtime.GC()
+
+	var price *model.Price
+	for i := 0; i < 100000; i++ {
+		priceIndex := findPrice3824PositionV2(ind)
+		priceId, err := ind.FindPriceIdByIndex(priceIndex)
+		if err != nil {
+			t.FailNow()
+		}
+		price = cs.Catalog.Prices[priceId]
+	}
+	if price == nil {
+		t.Fail()
+	}
+
+	f, err := os.Create("memory/bitmap-heapdump-searchv2")
+	if err != nil {
+		panic(err)
+	}
+
+	//note, that results will be different each time... not 100% objects are sampled
+	err = pprof.WriteHeapProfile(f)
+
+	benchmark.PprofAllocSpaceAsText("memory/bitmap-heapdump-searchv2", "memory/bitmap-heapdump-searchv2-alloc-space.txt")
+	benchmark.PprofAllocObjectsAsText("memory/bitmap-heapdump-searchv2", "memory/bitmap-heapdump-searchv2-alloc-objects.txt")
+	benchmark.PprofAllocSpaceAsSvg("memory/bitmap-heapdump-searchv2", "memory/bitmap-heapdump-searchv2-alloc-space.svg")
+	benchmark.PprofAllocSpaceLinesAsSvg("memory/bitmap-heapdump-searchv2", "memory/bitmap-heapdump-searchv2-alloc-space-lines.svg")
+	assert.NoError(t, err)
+	assert.NotZero(t, len(cs.Catalog.Prices))
+	assert.NotNil(t, ind.Index)
+}
