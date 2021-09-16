@@ -27,6 +27,7 @@ const (
 
 type BitmapOperation struct {
 	Order      uint64
+	IndexName  string
 	BitmapType BitmapType
 	Ind        uint8
 }
@@ -35,45 +36,55 @@ type BitmapOperation struct {
 func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	charValues []model.CharValue) (uint32, error) {
 
-	//bitmapOperations := make([]BitmapOperation, 3+len(charValues), 3+len(charValues))
-	//if h.StatisticOptimizer != nil {
-	//	bitmapOperations[0] = BitmapOperation{BitmapType: Offering, Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameOffering][offeringId]}
-	//	for i, cv := range charValues {
-	//		bitmapOperations[1+i] = BitmapOperation{BitmapType: Char,
-	//			Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameCharStart+strings.ToLower(cv.Char)][cv.Value],
-	//			Ind:   uint8(i)}
-	//	}
-	//	bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec, Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameSpec][specId]}
-	//	bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group, Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameGroup][groupId]}
-	//
-	//	//simple sort for small dataset and without allocations
-	//	for j := 1; j < len(bitmapOperations); j++ {
-	//		key := bitmapOperations[j]
-	//		i := j - 1
-	//		for i >= 0 && bitmapOperations[i].Order > key.Order {
-	//			bitmapOperations[i+1] = bitmapOperations[i]
-	//			i--
-	//		}
-	//		bitmapOperations[i+1] = key
-	//	}
-	//} else {
-	//	bitmapOperations[0] = BitmapOperation{BitmapType: Offering}
-	//	for i := 0; i < len(charValues); i++ {
-	//		bitmapOperations[1+i] = BitmapOperation{BitmapType: Char, Ind: uint8(i)}
-	//	}
-	//	bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec}
-	//	bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group}
-	//}
+	bitmapOperations := make([]BitmapOperation, 3+len(charValues), 3+len(charValues))
+	if h.StatisticOptimizer != nil {
+		bitmapOperations[0] = BitmapOperation{BitmapType: Offering, IndexName: FieldNameOffering + offeringId,
+			Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameOffering][offeringId],
+		}
+		for i, cv := range charValues {
+			bitmapOperations[1+i] = BitmapOperation{BitmapType: Char,
+				IndexName: FieldNameCharStart + cv.Char + "_" + cv.Value,
+				Order:     h.StatisticOptimizer.KeyValueStatistic[FieldNameCharStart+strings.ToLower(cv.Char)][cv.Value],
+				Ind:       uint8(i)}
+		}
+		bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec, IndexName: FieldNameSpec + specId,
+			Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameSpec][specId],
+		}
+		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group, IndexName: FieldNameGroup + groupId,
+			Order: h.StatisticOptimizer.KeyValueStatistic[FieldNameGroup][groupId],
+		}
+
+		//simple sort for small dataset and without allocations
+		for j := 1; j < len(bitmapOperations); j++ {
+			key := bitmapOperations[j]
+			i := j - 1
+			for i >= 0 && bitmapOperations[i].Order > key.Order {
+				bitmapOperations[i+1] = bitmapOperations[i]
+				i--
+			}
+			bitmapOperations[i+1] = key
+		}
+	} else {
+		bitmapOperations[0] = BitmapOperation{BitmapType: Offering, IndexName: FieldNameOffering + offeringId}
+		for i, cv := range charValues {
+			bitmapOperations[1+i] = BitmapOperation{BitmapType: Char,
+				IndexName: FieldNameCharStart + cv.Char + "_" + cv.Value,
+				Ind:       uint8(i)}
+		}
+		bitmapOperations[1+len(charValues)] = BitmapOperation{BitmapType: Spec, IndexName: FieldNameSpec + specId}
+		bitmapOperations[2+len(charValues)] = BitmapOperation{BitmapType: Group, IndexName: FieldNameGroup + groupId}
+	}
 
 	var priceIndex uint32
 	err := h.Collection.Query(func(txn *column.Txn) error {
-		union := txn.With(FieldNameOffering + offeringId)
-		for i := 0; i < len(charValues); i++ {
-			union = union.With(FieldNameCharStart + charValues[i].Char + "_" + charValues[i].Value)
+		boIndexes := make([]string, len(bitmapOperations), len(bitmapOperations))
+		for i, bo := range bitmapOperations {
+			boIndexes[i] = bo.IndexName
 		}
-		union.With(FieldNameGroup + groupId).With(FieldNameSpec + specId)
+
+		intersection := txn.With(boIndexes...)
 		cardinality := 0
-		err := union.Range(FieldNameId, func(v column.Cursor) {
+		err := intersection.Range(FieldNameId, func(v column.Cursor) {
 			priceIndex = v.Index()
 			cardinality++
 		})
@@ -87,10 +98,10 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 		if cardinality == 1 {
 			return nil
 		}
-		union = union.With(FieldNameDefault + "_true")
+		intersection = intersection.With(FieldNameDefault + "_true")
 		//no default row 'true' at all
 		cardinality = 0
-		err = union.Range(FieldNameId, func(v column.Cursor) {
+		err = intersection.Range(FieldNameId, func(v column.Cursor) {
 			if cardinality == 0 {
 				priceIndex = v.Index()
 			}
