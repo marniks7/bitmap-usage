@@ -116,13 +116,11 @@ func (h *Holder) addToBitmap(fieldName string, fieldValue string, ind uint32) er
 
 	row, ok := h.Index.Rows[u]
 	if !ok {
-		segments := make([]*RowSegment, 1)
-		segments[0] = &RowSegment{shard: 0, bitmap: roaring.New()}
-		row = &Row{segments: segments}
+		row = &Row{bitmap: roaring.New()}
 		h.Index.Rows[u] = row
 	}
 
-	bm := row.segments[0].bitmap
+	bm := row.bitmap
 	bm.Add(ind)
 	return nil
 }

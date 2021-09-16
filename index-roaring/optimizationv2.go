@@ -39,7 +39,7 @@ func (s *Holder) RunOptimizeBasedOnStats() (*BitmapOptimizerStatisticV2, error) 
 		for k2, v2 := range v.Values {
 			row := s.Index.Rows[v2]
 			if row != nil {
-				stats[k][k2] = row.segments[0].bitmap.GetCardinality()
+				stats[k][k2] = row.bitmap.GetCardinality()
 			}
 		}
 	}
@@ -55,7 +55,7 @@ func (s *Holder) RunOptimizeBasedOnStats() (*BitmapOptimizerStatisticV2, error) 
 // Make sure there are fewer allocations, otherwise it can cave huge impact on real testing with memory constraints
 func (s *Holder) RunOptimizeBitmapsInternalStructure() error {
 	for _, sb := range s.Index.Rows {
-		sb.segments[0].bitmap.RunOptimize()
+		sb.bitmap.RunOptimize()
 	}
 	return nil
 }

@@ -167,14 +167,6 @@ func (bis *Index) NextBitmapIndex() (uint32, error) {
 
 // Row is bitmap splitted by segments
 type Row struct {
-	segments []*RowSegment
-}
-
-// RowSegment is bitmap containing information from one shard
-type RowSegment struct {
-	shard  uint32
-	start  uint64
-	end    uint64
 	bitmap *roaring.Bitmap
 }
 

@@ -82,7 +82,7 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 	defRow := h.Index.Rows[defaultInd]
 	//no default row 'true' at all
 	if defRow != nil {
-		result.And(defRow.segments[0].bitmap)
+		result.And(defRow.bitmap)
 		cardinality = result.GetCardinality()
 	} else {
 		cardinality = 0
@@ -103,7 +103,7 @@ func (s *Holder) findSpecBitmap(specId string) (*roaring.Bitmap, error) {
 		s.L.Error().Str("specId", specId).Msg("Cannot find specId in index")
 		return nil, ErrUnableToFindSpecId
 	}
-	return s.Index.Rows[u].segments[0].bitmap, nil
+	return s.Index.Rows[u].bitmap, nil
 }
 
 func (s *Holder) findGroupBitmap(groupId string) (*roaring.Bitmap, error) {
@@ -112,7 +112,7 @@ func (s *Holder) findGroupBitmap(groupId string) (*roaring.Bitmap, error) {
 		s.L.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
 		return nil, ErrUnableToFindGroupId
 	}
-	return s.Index.Rows[u].segments[0].bitmap, nil
+	return s.Index.Rows[u].bitmap, nil
 }
 
 func (s *Holder) findBitmapByCharValue(cv model.CharValue) (*roaring.Bitmap, error) {
@@ -126,7 +126,7 @@ func (s *Holder) findBitmapByCharValue(cv model.CharValue) (*roaring.Bitmap, err
 		s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
 		return nil, ErrUnableToFindCharValue
 	}
-	return s.Index.Rows[u2].segments[0].bitmap, nil
+	return s.Index.Rows[u2].bitmap, nil
 }
 
 func (s *Holder) findBitmapByOffering(offeringId string) (*roaring.Bitmap, error) {
@@ -135,7 +135,7 @@ func (s *Holder) findBitmapByOffering(offeringId string) (*roaring.Bitmap, error
 		s.L.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
 		return nil, ErrUnableToFindOfferingId
 	}
-	return s.Index.Rows[u].segments[0].bitmap, nil
+	return s.Index.Rows[u].bitmap, nil
 }
 
 func (s *Holder) FindPriceIdByIndex(ind uint32) (string, error) {
