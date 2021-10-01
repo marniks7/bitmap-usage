@@ -60,6 +60,8 @@ github.com/kelindar/bitmap v1.1.0/go.mod h1:shAFyS8BOif+pvJ05GqxnCM0SdohHQjKvDet
 github.com/kelindar/bitmap v1.1.1/go.mod h1:shAFyS8BOif+pvJ05GqxnCM0SdohHQjKvDetqI/9z6M=
 github.com/kelindar/bitmap v1.1.2 h1:4zih0lQEDpfBgN4JpPGHqnEgNpp7JC9Kbqvbg5oLE5c=
 github.com/kelindar/bitmap v1.1.2/go.mod h1:shAFyS8BOif+pvJ05GqxnCM0SdohHQjKvDetqI/9z6M=
+github.com/kelindar/bitmap v1.1.3 h1:rLtS9wZEb3xk/3AY13JPfQ+09UtEOWJN7JkbWUp6EnI=
+github.com/kelindar/bitmap v1.1.3/go.mod h1:shAFyS8BOif+pvJ05GqxnCM0SdohHQjKvDetqI/9z6M=
 github.com/kelindar/column v0.0.0-20210905214045-c6e7530ae1d9 h1:zahqySiz5KDWxToBgbgXOKQl/BeelEeSTGQMBdzsAk0=
 github.com/kelindar/column v0.0.0-20210905214045-c6e7530ae1d9/go.mod h1:BB2iDWRAx04xPKUu2aDmeDSh7s5GbIedKUVmw3bUOpE=
 github.com/kelindar/column v0.0.0-20210912211238-a2c698997605 h1:JWMG2dQNxv/d6m/NiHXNYkXkkd5tosVq5MuwOmq6uIA=

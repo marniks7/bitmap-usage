@@ -58,6 +58,7 @@ func BenchmarkFindPriceV2_3824position_OptStr(b *testing.B) {
 
 	runtime.GC()
 	b.ResetTimer()
+	b.ReportAllocs()
 	var price *model.Price
 	for i := 0; i < b.N; i++ {
 		priceIndex := findPrice3824PositionV2(ind)

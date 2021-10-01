@@ -293,1348 +293,1199 @@ function handleMouseUp(evt) {
 		state = '';
 	}
 }
-]]></script><g id="viewport" transform="scale(0.5,0.5) translate(0,0)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 2553)">
+]]></script><g id="viewport" transform="scale(0.5,0.5) translate(0,0)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 2458)">
 <title>___TestFindPrice_3824position_CpuProfiling_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-2553 1959.5,-2553 1959.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-2458 1496,-2458 1496,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_L</title>
-<polygon fill="none" stroke="black" points="8,-2372 8,-2541 964,-2541 964,-2372 8,-2372"/>
+<polygon fill="none" stroke="black" points="8,-2277 8,-2446 964,-2446 964,-2277 8,-2277"/>
 </g>
 <!-- File: ___TestFindPrice_3824position_CpuProfiling_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test -->
 <g id="node1" class="node">
 <title>File: ___TestFindPrice_3824position_CpuProfiling_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test</title>
 <g id="a_node1"><a xlink:title="___TestFindPrice_3824position_CpuProfiling_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test">
-<polygon fill="#f8f8f8" stroke="black" points="956.5,-2533 15.5,-2533 15.5,-2380 956.5,-2380 956.5,-2533"/>
-<text text-anchor="start" x="23.5" y="-2516.2" font-family="Times,serif" font-size="16.00">File: ___TestFindPrice_3824position_CpuProfiling_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test</text>
-<text text-anchor="start" x="23.5" y="-2498.2" font-family="Times,serif" font-size="16.00">Type: cpu</text>
-<text text-anchor="start" x="23.5" y="-2480.2" font-family="Times,serif" font-size="16.00">Time: Sep 6, 2021 at 1:22pm (EDT)</text>
-<text text-anchor="start" x="23.5" y="-2462.2" font-family="Times,serif" font-size="16.00">Duration: 4.21s, Total samples = 4.85s (115.18%)</text>
-<text text-anchor="start" x="23.5" y="-2444.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 4.59s, 94.64% of 4.85s total</text>
-<text text-anchor="start" x="23.5" y="-2426.2" font-family="Times,serif" font-size="16.00">Dropped 55 nodes (cum &lt;= 0.02s)</text>
-<text text-anchor="start" x="23.5" y="-2389.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
+<polygon fill="#f8f8f8" stroke="black" points="956.5,-2438 15.5,-2438 15.5,-2285 956.5,-2285 956.5,-2438"/>
+<text text-anchor="start" x="23.5" y="-2421.2" font-family="Times,serif" font-size="16.00">File: ___TestFindPrice_3824position_CpuProfiling_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test</text>
+<text text-anchor="start" x="23.5" y="-2403.2" font-family="Times,serif" font-size="16.00">Type: cpu</text>
+<text text-anchor="start" x="23.5" y="-2385.2" font-family="Times,serif" font-size="16.00">Time: Sep 19, 2021 at 8:48pm (EDT)</text>
+<text text-anchor="start" x="23.5" y="-2367.2" font-family="Times,serif" font-size="16.00">Duration: 4.21s, Total samples = 5.04s (119.62%)</text>
+<text text-anchor="start" x="23.5" y="-2349.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 4.79s, 95.04% of 5.04s total</text>
+<text text-anchor="start" x="23.5" y="-2331.2" font-family="Times,serif" font-size="16.00">Dropped 51 nodes (cum &lt;= 0.03s)</text>
+<text text-anchor="start" x="23.5" y="-2294.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
 </a>
 </g>
 </g>
 <!-- N1 -->
 <g id="node1" class="node">
 <title>N1</title>
-<g id="a_node1"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (4.08s)">
-<polygon fill="#edd6d5" stroke="#b20900" points="1098.5,-2139 945.5,-2139 945.5,-2066 1098.5,-2066 1098.5,-2139"/>
-<text text-anchor="middle" x="1022" y="-2125.4" font-family="Times,serif" font-size="12.00">index&#45;roaring</text>
-<text text-anchor="middle" x="1022" y="-2112.4" font-family="Times,serif" font-size="12.00">(*BitmapIndexService)</text>
-<text text-anchor="middle" x="1022" y="-2099.4" font-family="Times,serif" font-size="12.00">FindPriceIndexBy</text>
-<text text-anchor="middle" x="1022" y="-2086.4" font-family="Times,serif" font-size="12.00">0.05s (1.03%)</text>
-<text text-anchor="middle" x="1022" y="-2073.4" font-family="Times,serif" font-size="12.00">of 4.08s (84.12%)</text>
-</a>
-</g>
-</g>
-<!-- N11 -->
-<g id="node11" class="node">
-<title>N11</title>
-<g id="a_node11"><a xlink:title="github.com/RoaringBitmap/roaring.And (2.07s)">
-<polygon fill="#eddad5" stroke="#b22800" points="1073.5,-2007 970.5,-2007 970.5,-1955 1073.5,-1955 1073.5,-2007"/>
-<text text-anchor="middle" x="1022" y="-1995" font-family="Times,serif" font-size="10.00">roaring</text>
-<text text-anchor="middle" x="1022" y="-1984" font-family="Times,serif" font-size="10.00">And</text>
-<text text-anchor="middle" x="1022" y="-1973" font-family="Times,serif" font-size="10.00">0.01s (0.21%)</text>
-<text text-anchor="middle" x="1022" y="-1962" font-family="Times,serif" font-size="10.00">of 2.07s (42.68%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N11 -->
-<g id="edge4" class="edge">
-<title>N1&#45;&gt;N11</title>
-<g id="a_edge4"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (2.07s)">
-<path fill="none" stroke="#b22800" stroke-width="3" d="M1022,-2065.97C1022,-2050.65 1022,-2032.78 1022,-2017.47"/>
-<polygon fill="#b22800" stroke="#b22800" stroke-width="3" points="1025.5,-2017.34 1022,-2007.34 1018.5,-2017.34 1025.5,-2017.34"/>
-</a>
-</g>
-<g id="a_edge4&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (2.07s)">
-<text text-anchor="middle" x="1044" y="-2036.8" font-family="Times,serif" font-size="14.00"> 2.07s</text>
-</a>
-</g>
-</g>
-<!-- N17 -->
-<g id="node17" class="node">
-<title>N17</title>
-<g id="a_node17"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And (1.79s)">
-<polygon fill="#eddbd5" stroke="#b22e00" points="949.5,-2015 834.5,-2015 834.5,-1947 949.5,-1947 949.5,-2015"/>
-<text text-anchor="middle" x="892" y="-2002.2" font-family="Times,serif" font-size="11.00">roaring</text>
-<text text-anchor="middle" x="892" y="-1990.2" font-family="Times,serif" font-size="11.00">(*Bitmap)</text>
-<text text-anchor="middle" x="892" y="-1978.2" font-family="Times,serif" font-size="11.00">And</text>
-<text text-anchor="middle" x="892" y="-1966.2" font-family="Times,serif" font-size="11.00">0.02s (0.41%)</text>
-<text text-anchor="middle" x="892" y="-1954.2" font-family="Times,serif" font-size="11.00">of 1.79s (36.91%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N17 -->
-<g id="edge7" class="edge">
-<title>N1&#45;&gt;N17</title>
-<g id="a_edge7"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).And (1.79s)">
-<path fill="none" stroke="#b22e00" stroke-width="2" d="M983.35,-2065.97C968.3,-2052.13 950.98,-2036.21 935.49,-2021.98"/>
-<polygon fill="#b22e00" stroke="#b22e00" stroke-width="2" points="937.79,-2019.34 928.06,-2015.14 933.05,-2024.49 937.79,-2019.34"/>
-</a>
-</g>
-<g id="a_edge7&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).And (1.79s)">
-<text text-anchor="middle" x="983" y="-2036.8" font-family="Times,serif" font-size="14.00"> 1.79s</text>
-</a>
-</g>
-</g>
-<!-- N18 -->
-<g id="node18" class="node">
-<title>N18</title>
-<g id="a_node18"><a xlink:title="runtime.makeslice (0.39s)">
-<polygon fill="#ede8e3" stroke="#b2906a" points="1514.5,-1376 1425.5,-1376 1425.5,-1340 1514.5,-1340 1514.5,-1376"/>
-<text text-anchor="middle" x="1470" y="-1365.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-1356.1" font-family="Times,serif" font-size="8.00">makeslice</text>
-<text text-anchor="middle" x="1470" y="-1347.1" font-family="Times,serif" font-size="8.00">0 of 0.39s (8.04%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N18 -->
-<g id="edge38" class="edge">
-<title>N1&#45;&gt;N18</title>
-<g id="a_edge38"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; runtime.makeslice (0.05s)">
-<path fill="none" stroke="#b2b0a9" d="M1098.64,-2073.12C1106.49,-2070.57 1114.37,-2068.14 1122,-2066 1209.65,-2041.38 1523,-2073.05 1523,-1982 1523,-1982 1523,-1982 1523,-1506 1523,-1461.64 1501.38,-1413.98 1485.75,-1385.33"/>
-<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1488.67,-1383.38 1480.73,-1376.37 1482.57,-1386.8 1488.67,-1383.38"/>
-</a>
-</g>
-<g id="a_edge38&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; runtime.makeslice (0.05s)">
-<text text-anchor="middle" x="1545" y="-1776.3" font-family="Times,serif" font-size="14.00"> 0.05s</text>
-</a>
-</g>
-</g>
-<!-- N26 -->
-<g id="node26" class="node">
-<title>N26</title>
-<g id="a_node26"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue (0.09s)">
-<polygon fill="#edecea" stroke="#b2ada1" points="1701,-2015 1551,-2015 1551,-1947 1701,-1947 1701,-2015"/>
-<text text-anchor="middle" x="1626" y="-2002.2" font-family="Times,serif" font-size="11.00">index&#45;roaring</text>
-<text text-anchor="middle" x="1626" y="-1990.2" font-family="Times,serif" font-size="11.00">(*BitmapIndexService)</text>
-<text text-anchor="middle" x="1626" y="-1978.2" font-family="Times,serif" font-size="11.00">findBitmapByCharValue</text>
-<text text-anchor="middle" x="1626" y="-1966.2" font-family="Times,serif" font-size="11.00">0.03s (0.62%)</text>
-<text text-anchor="middle" x="1626" y="-1954.2" font-family="Times,serif" font-size="11.00">of 0.09s (1.86%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N26 -->
-<g id="edge32" class="edge">
-<title>N1&#45;&gt;N26</title>
-<g id="a_edge32"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue (0.09s)">
-<path fill="none" stroke="#b2ada1" d="M1098.61,-2071.73C1106.42,-2069.47 1114.31,-2067.5 1122,-2066 1212.61,-2048.36 1450,-2078.85 1537,-2048 1553.67,-2042.09 1569.85,-2031.91 1583.74,-2021.29"/>
-<polygon fill="#b2ada1" stroke="#b2ada1" points="1585.98,-2023.98 1591.64,-2015.02 1581.63,-2018.5 1585.98,-2023.98"/>
-</a>
-</g>
-<g id="a_edge32&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue (0.09s)">
-<text text-anchor="middle" x="1588" y="-2036.8" font-family="Times,serif" font-size="14.00"> 0.09s</text>
-</a>
-</g>
-</g>
-<!-- N2 -->
-<g id="node2" class="node">
-<title>N2</title>
-<g id="a_node2"><a xlink:title="testing.tRunner (4.10s)">
-<polygon fill="#edd6d5" stroke="#b20800" points="1069.5,-2474.5 974.5,-2474.5 974.5,-2438.5 1069.5,-2438.5 1069.5,-2474.5"/>
-<text text-anchor="middle" x="1022" y="-2463.6" font-family="Times,serif" font-size="8.00">testing</text>
-<text text-anchor="middle" x="1022" y="-2454.6" font-family="Times,serif" font-size="8.00">tRunner</text>
-<text text-anchor="middle" x="1022" y="-2445.6" font-family="Times,serif" font-size="8.00">0 of 4.10s (84.54%)</text>
-</a>
-</g>
-</g>
-<!-- N42 -->
-<g id="node42" class="node">
-<title>N42</title>
-<g id="a_node42"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (4.10s)">
-<polygon fill="#edd6d5" stroke="#b20800" points="1112,-2329 932,-2329 932,-2293 1112,-2293 1112,-2329"/>
-<text text-anchor="middle" x="1022" y="-2318.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1022" y="-2309.1" font-family="Times,serif" font-size="8.00">TestFindPrice_3824position_CpuProfiling</text>
-<text text-anchor="middle" x="1022" y="-2300.1" font-family="Times,serif" font-size="8.00">0 of 4.10s (84.54%)</text>
-</a>
-</g>
-</g>
-<!-- N2&#45;&gt;N42 -->
-<g id="edge1" class="edge">
-<title>N2&#45;&gt;N42</title>
-<g id="a_edge1"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (4.10s)">
-<path fill="none" stroke="#b20800" stroke-width="5" d="M1022,-2438.48C1022,-2413.99 1022,-2368.56 1022,-2339.33"/>
-<polygon fill="#b20800" stroke="#b20800" stroke-width="5" points="1026.38,-2339 1022,-2329 1017.63,-2339 1026.38,-2339"/>
-</a>
-</g>
-<g id="a_edge1&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (4.10s)">
-<text text-anchor="middle" x="1044" y="-2350.8" font-family="Times,serif" font-size="14.00"> 4.10s</text>
-</a>
-</g>
-</g>
-<!-- N3 -->
-<g id="node3" class="node">
-<title>N3</title>
-<g id="a_node3"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (1.97s)">
-<polygon fill="#eddbd5" stroke="#b22a00" points="1069.5,-1710 974.5,-1710 974.5,-1666 1069.5,-1666 1069.5,-1710"/>
-<text text-anchor="middle" x="1022" y="-1699.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="1022" y="-1690.6" font-family="Times,serif" font-size="8.00">(*bitmapContainer)</text>
-<text text-anchor="middle" x="1022" y="-1681.6" font-family="Times,serif" font-size="8.00">andBitmap</text>
-<text text-anchor="middle" x="1022" y="-1672.6" font-family="Times,serif" font-size="8.00">0 of 1.97s (40.62%)</text>
-</a>
-</g>
-</g>
-<!-- N6 -->
-<g id="node6" class="node">
-<title>N6</title>
-<g id="a_node6"><a xlink:title="github.com/RoaringBitmap/roaring.fillArrayAND (1.25s)">
-<polygon fill="#edddd5" stroke="#b23b00" points="1135.5,-1563 908.5,-1563 908.5,-1451 1135.5,-1451 1135.5,-1563"/>
-<text text-anchor="middle" x="1022" y="-1539.8" font-family="Times,serif" font-size="24.00">roaring</text>
-<text text-anchor="middle" x="1022" y="-1513.8" font-family="Times,serif" font-size="24.00">fillArrayAND</text>
-<text text-anchor="middle" x="1022" y="-1487.8" font-family="Times,serif" font-size="24.00">1.20s (24.74%)</text>
-<text text-anchor="middle" x="1022" y="-1461.8" font-family="Times,serif" font-size="24.00">of 1.25s (25.77%)</text>
-</a>
-</g>
-</g>
-<!-- N3&#45;&gt;N6 -->
-<g id="edge9" class="edge">
-<title>N3&#45;&gt;N6</title>
-<g id="a_edge9"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.fillArrayAND (1.25s)">
-<path fill="none" stroke="#b23b00" stroke-width="2" d="M1022,-1665.76C1022,-1643.12 1022,-1606.12 1022,-1573.64"/>
-<polygon fill="#b23b00" stroke="#b23b00" stroke-width="2" points="1025.5,-1573.28 1022,-1563.28 1018.5,-1573.28 1025.5,-1573.28"/>
-</a>
-</g>
-<g id="a_edge9&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.fillArrayAND (1.25s)">
-<text text-anchor="middle" x="1044" y="-1592.3" font-family="Times,serif" font-size="14.00"> 1.25s</text>
-</a>
-</g>
-</g>
-<!-- N27 -->
-<g id="node27" class="node">
-<title>N27</title>
-<g id="a_node27"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize (0.36s)">
-<polygon fill="#ede9e4" stroke="#b29470" points="1371.5,-1525 1260.5,-1525 1260.5,-1489 1371.5,-1489 1371.5,-1525"/>
-<text text-anchor="middle" x="1316" y="-1514.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="1316" y="-1505.1" font-family="Times,serif" font-size="8.00">newArrayContainerSize</text>
-<text text-anchor="middle" x="1316" y="-1496.1" font-family="Times,serif" font-size="8.00">0 of 0.36s (7.42%)</text>
-</a>
-</g>
-</g>
-<!-- N3&#45;&gt;N27 -->
-<g id="edge20" class="edge">
-<title>N3&#45;&gt;N27</title>
-<g id="a_edge20"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerSize (0.36s)">
-<path fill="none" stroke="#b29470" d="M1069.55,-1667.06C1102.18,-1652.77 1146.08,-1632.36 1183,-1611 1215.34,-1592.29 1222.46,-1585.87 1252,-1563 1264.58,-1553.26 1278.01,-1541.88 1289.3,-1532.01"/>
-<polygon fill="#b29470" stroke="#b29470" points="1291.92,-1534.37 1297.1,-1525.13 1287.29,-1529.12 1291.92,-1534.37"/>
-</a>
-</g>
-<g id="a_edge20&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerSize (0.36s)">
-<text text-anchor="middle" x="1254.5" y="-1599.8" font-family="Times,serif" font-size="14.00"> 0.36s</text>
-<text text-anchor="middle" x="1254.5" y="-1584.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N46 -->
-<g id="node46" class="node">
-<title>N46</title>
-<g id="a_node46"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSlice (0.36s)">
-<polygon fill="#ede9e4" stroke="#b29470" points="1242.5,-1525 1153.5,-1525 1153.5,-1489 1242.5,-1489 1242.5,-1525"/>
-<text text-anchor="middle" x="1198" y="-1514.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="1198" y="-1505.1" font-family="Times,serif" font-size="8.00">popcntAndSlice</text>
-<text text-anchor="middle" x="1198" y="-1496.1" font-family="Times,serif" font-size="8.00">0 of 0.36s (7.42%)</text>
-</a>
-</g>
-</g>
-<!-- N3&#45;&gt;N46 -->
-<g id="edge21" class="edge">
-<title>N3&#45;&gt;N46</title>
-<g id="a_edge21"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSlice (0.36s)">
-<path fill="none" stroke="#b29470" d="M1043.43,-1665.59C1068.04,-1640.94 1109.6,-1599.21 1145,-1563 1154.66,-1553.12 1165.23,-1542.18 1174.37,-1532.67"/>
-<polygon fill="#b29470" stroke="#b29470" points="1176.95,-1535.04 1181.35,-1525.4 1171.9,-1530.19 1176.95,-1535.04"/>
-</a>
-</g>
-<g id="a_edge21&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSlice (0.36s)">
-<text text-anchor="middle" x="1151.5" y="-1599.8" font-family="Times,serif" font-size="14.00"> 0.36s</text>
-<text text-anchor="middle" x="1151.5" y="-1584.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N4 -->
-<g id="node4" class="node">
-<title>N4</title>
-<g id="a_node4"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap (1.16s)">
-<polygon fill="#edddd5" stroke="#b23e00" points="866.5,-1747 669.5,-1747 669.5,-1629 866.5,-1629 866.5,-1747"/>
-<text text-anchor="middle" x="768" y="-1727" font-family="Times,serif" font-size="20.00">roaring</text>
-<text text-anchor="middle" x="768" y="-1705" font-family="Times,serif" font-size="20.00">(*arrayContainer)</text>
-<text text-anchor="middle" x="768" y="-1683" font-family="Times,serif" font-size="20.00">iandBitmap</text>
-<text text-anchor="middle" x="768" y="-1661" font-family="Times,serif" font-size="20.00">0.62s (12.78%)</text>
-<text text-anchor="middle" x="768" y="-1639" font-family="Times,serif" font-size="20.00">of 1.16s (23.92%)</text>
-</a>
-</g>
-</g>
-<!-- N9 -->
-<g id="node9" class="node">
-<title>N9</title>
-<g id="a_node9"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).bitValue (0.54s)">
-<polygon fill="#ede6df" stroke="#b27f4f" points="870.5,-1553 667.5,-1553 667.5,-1461 870.5,-1461 870.5,-1553"/>
-<text text-anchor="middle" x="769" y="-1533.8" font-family="Times,serif" font-size="19.00">roaring</text>
-<text text-anchor="middle" x="769" y="-1512.8" font-family="Times,serif" font-size="19.00">(*bitmapContainer)</text>
-<text text-anchor="middle" x="769" y="-1491.8" font-family="Times,serif" font-size="19.00">bitValue</text>
-<text text-anchor="middle" x="769" y="-1470.8" font-family="Times,serif" font-size="19.00">0.54s (11.13%)</text>
-</a>
-</g>
-</g>
-<!-- N4&#45;&gt;N9 -->
-<g id="edge18" class="edge">
-<title>N4&#45;&gt;N9</title>
-<g id="a_edge18"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).bitValue (0.54s)">
-<path fill="none" stroke="#b27f4f" d="M768.32,-1628.88C768.44,-1607.84 768.57,-1584.14 768.69,-1563.34"/>
-<polygon fill="#b27f4f" stroke="#b27f4f" points="772.19,-1563.09 768.75,-1553.07 765.19,-1563.05 772.19,-1563.09"/>
-</a>
-</g>
-<g id="a_edge18&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).bitValue (0.54s)">
-<text text-anchor="middle" x="791" y="-1592.3" font-family="Times,serif" font-size="14.00"> 0.54s</text>
-</a>
-</g>
-</g>
-<!-- N5 -->
-<g id="node5" class="node">
-<title>N5</title>
-<g id="a_node5"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand (1.73s)">
-<polygon fill="#eddbd5" stroke="#b22f00" points="821.5,-1878.5 714.5,-1878.5 714.5,-1815.5 821.5,-1815.5 821.5,-1878.5"/>
-<text text-anchor="middle" x="768" y="-1866.5" font-family="Times,serif" font-size="10.00">roaring</text>
-<text text-anchor="middle" x="768" y="-1855.5" font-family="Times,serif" font-size="10.00">(*arrayContainer)</text>
-<text text-anchor="middle" x="768" y="-1844.5" font-family="Times,serif" font-size="10.00">iand</text>
-<text text-anchor="middle" x="768" y="-1833.5" font-family="Times,serif" font-size="10.00">0.01s (0.21%)</text>
-<text text-anchor="middle" x="768" y="-1822.5" font-family="Times,serif" font-size="10.00">of 1.73s (35.67%)</text>
-</a>
-</g>
-</g>
-<!-- N5&#45;&gt;N4 -->
-<g id="edge10" class="edge">
-<title>N5&#45;&gt;N4</title>
-<g id="a_edge10"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap (1.16s)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M768,-1815.36C768,-1798.79 768,-1777.63 768,-1757.38"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="771.5,-1757.22 768,-1747.22 764.5,-1757.22 771.5,-1757.22"/>
-</a>
-</g>
-<g id="a_edge10&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap (1.16s)">
-<text text-anchor="middle" x="790" y="-1776.3" font-family="Times,serif" font-size="14.00"> 1.16s</text>
-</a>
-</g>
-</g>
-<!-- N43 -->
-<g id="node43" class="node">
-<title>N43</title>
-<g id="a_node43"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray (0.56s)">
-<polygon fill="#ede5df" stroke="#b27c4b" points="651.5,-1710 556.5,-1710 556.5,-1666 651.5,-1666 651.5,-1710"/>
-<text text-anchor="middle" x="604" y="-1699.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="604" y="-1690.6" font-family="Times,serif" font-size="8.00">(*arrayContainer)</text>
-<text text-anchor="middle" x="604" y="-1681.6" font-family="Times,serif" font-size="8.00">iandArray</text>
-<text text-anchor="middle" x="604" y="-1672.6" font-family="Times,serif" font-size="8.00">0 of 0.56s (11.55%)</text>
-</a>
-</g>
-</g>
-<!-- N5&#45;&gt;N43 -->
-<g id="edge15" class="edge">
-<title>N5&#45;&gt;N43</title>
-<g id="a_edge15"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray (0.56s)">
-<path fill="none" stroke="#b27c4b" d="M731.81,-1815.34C724.19,-1808.72 716.27,-1801.69 709,-1795 681.55,-1769.74 651.75,-1739.35 630.94,-1717.6"/>
-<polygon fill="#b27c4b" stroke="#b27c4b" points="633.4,-1715.11 623.97,-1710.29 628.34,-1719.94 633.4,-1715.11"/>
-</a>
-</g>
-<g id="a_edge15&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray (0.56s)">
-<text text-anchor="middle" x="736.5" y="-1783.8" font-family="Times,serif" font-size="14.00"> 0.56s</text>
-<text text-anchor="middle" x="736.5" y="-1768.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N16 -->
-<g id="node16" class="node">
-<title>N16</title>
-<g id="a_node16"><a xlink:title="github.com/RoaringBitmap/roaring.popcount (0.10s)">
-<polygon fill="#edecea" stroke="#b2aca0" points="1151.5,-1247 1042.5,-1247 1042.5,-1197 1151.5,-1197 1151.5,-1247"/>
-<text text-anchor="middle" x="1097" y="-1232.6" font-family="Times,serif" font-size="13.00">roaring</text>
-<text text-anchor="middle" x="1097" y="-1218.6" font-family="Times,serif" font-size="13.00">popcount</text>
-<text text-anchor="middle" x="1097" y="-1204.6" font-family="Times,serif" font-size="13.00">0.10s (2.06%)</text>
-</a>
-</g>
-</g>
-<!-- N6&#45;&gt;N16 -->
-<g id="edge39" class="edge">
-<title>N6&#45;&gt;N16</title>
-<g id="a_edge39"><a xlink:title="github.com/RoaringBitmap/roaring.fillArrayAND &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.05s)">
-<path fill="none" stroke="#b2b0a9" d="M1016.56,-1450.82C1014.65,-1412.05 1015.97,-1359.55 1031,-1316 1038.71,-1293.64 1053.6,-1271.9 1067.28,-1255.07"/>
-<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1070.12,-1257.13 1073.87,-1247.22 1064.76,-1252.63 1070.12,-1257.13"/>
-</a>
-</g>
-<g id="a_edge39&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.fillArrayAND &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.05s)">
-<text text-anchor="middle" x="1053" y="-1354.3" font-family="Times,serif" font-size="14.00"> 0.05s</text>
-</a>
-</g>
-</g>
-<!-- N7 -->
-<g id="node7" class="node">
-<title>N7</title>
-<g id="a_node7"><a xlink:title="runtime.scanobject (0.62s)">
-<polygon fill="#ede4dd" stroke="#b27440" points="1788,-333 1626,-333 1626,-253 1788,-253 1788,-333"/>
-<text text-anchor="middle" x="1707" y="-316.2" font-family="Times,serif" font-size="16.00">runtime</text>
-<text text-anchor="middle" x="1707" y="-298.2" font-family="Times,serif" font-size="16.00">scanobject</text>
-<text text-anchor="middle" x="1707" y="-280.2" font-family="Times,serif" font-size="16.00">0.25s (5.15%)</text>
-<text text-anchor="middle" x="1707" y="-262.2" font-family="Times,serif" font-size="16.00">of 0.62s (12.78%)</text>
-</a>
-</g>
-</g>
-<!-- N15 -->
-<g id="node15" class="node">
-<title>N15</title>
-<g id="a_node15"><a xlink:title="runtime.findObject (0.21s)">
-<polygon fill="#edebe8" stroke="#b2a38b" points="1777.5,-202 1636.5,-202 1636.5,-126 1777.5,-126 1777.5,-202"/>
-<text text-anchor="middle" x="1707" y="-186" font-family="Times,serif" font-size="15.00">runtime</text>
-<text text-anchor="middle" x="1707" y="-169" font-family="Times,serif" font-size="15.00">findObject</text>
-<text text-anchor="middle" x="1707" y="-152" font-family="Times,serif" font-size="15.00">0.19s (3.92%)</text>
-<text text-anchor="middle" x="1707" y="-135" font-family="Times,serif" font-size="15.00">of 0.21s (4.33%)</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;N15 -->
-<g id="edge30" class="edge">
-<title>N7&#45;&gt;N15</title>
-<g id="a_edge30"><a xlink:title="runtime.scanobject &#45;&gt; runtime.findObject (0.21s)">
-<path fill="none" stroke="#b2a38b" d="M1707,-252.86C1707,-239.97 1707,-225.49 1707,-212.07"/>
-<polygon fill="#b2a38b" stroke="#b2a38b" points="1710.5,-212.06 1707,-202.06 1703.5,-212.06 1710.5,-212.06"/>
-</a>
-</g>
-<g id="a_edge30&#45;label"><a xlink:title="runtime.scanobject &#45;&gt; runtime.findObject (0.21s)">
-<text text-anchor="middle" x="1729" y="-223.8" font-family="Times,serif" font-size="14.00"> 0.21s</text>
-</a>
-</g>
-</g>
-<!-- N20 -->
-<g id="node20" class="node">
-<title>N20</title>
-<g id="a_node20"><a xlink:title="runtime.greyobject (0.15s)">
-<polygon fill="#edebe9" stroke="#b2a896" points="1892.5,-190 1795.5,-190 1795.5,-138 1892.5,-138 1892.5,-190"/>
-<text text-anchor="middle" x="1844" y="-178" font-family="Times,serif" font-size="10.00">runtime</text>
-<text text-anchor="middle" x="1844" y="-167" font-family="Times,serif" font-size="10.00">greyobject</text>
-<text text-anchor="middle" x="1844" y="-156" font-family="Times,serif" font-size="10.00">0.01s (0.21%)</text>
-<text text-anchor="middle" x="1844" y="-145" font-family="Times,serif" font-size="10.00">of 0.15s (3.09%)</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;N20 -->
-<g id="edge31" class="edge">
-<title>N7&#45;&gt;N20</title>
-<g id="a_edge31"><a xlink:title="runtime.scanobject &#45;&gt; runtime.greyobject (0.15s)">
-<path fill="none" stroke="#b2a896" d="M1749.22,-252.86C1768.48,-235 1791.01,-214.12 1809.27,-197.19"/>
-<polygon fill="#b2a896" stroke="#b2a896" points="1811.86,-199.57 1816.82,-190.2 1807.1,-194.43 1811.86,-199.57"/>
-</a>
-</g>
-<g id="a_edge31&#45;label"><a xlink:title="runtime.scanobject &#45;&gt; runtime.greyobject (0.15s)">
-<text text-anchor="middle" x="1805" y="-223.8" font-family="Times,serif" font-size="14.00"> 0.15s</text>
-</a>
-</g>
-</g>
-<!-- N8 -->
-<g id="node8" class="node">
-<title>N8</title>
-<g id="a_node8"><a xlink:title="github.com/RoaringBitmap/roaring.localintersect2by2 (0.56s)">
-<polygon fill="#ede5df" stroke="#b27c4b" points="698.5,-1393.5 505.5,-1393.5 505.5,-1322.5 698.5,-1322.5 698.5,-1393.5"/>
-<text text-anchor="middle" x="602" y="-1374.3" font-family="Times,serif" font-size="19.00">roaring</text>
-<text text-anchor="middle" x="602" y="-1353.3" font-family="Times,serif" font-size="19.00">localintersect2by2</text>
-<text text-anchor="middle" x="602" y="-1332.3" font-family="Times,serif" font-size="19.00">0.56s (11.55%)</text>
-</a>
-</g>
-</g>
-<!-- N10 -->
-<g id="node10" class="node">
-<title>N10</title>
-<g id="a_node10"><a xlink:title="runtime.mallocgc (0.45s)">
-<polygon fill="#ede7e2" stroke="#b2895f" points="1524,-1250 1416,-1250 1416,-1194 1524,-1194 1524,-1250"/>
-<text text-anchor="middle" x="1470" y="-1237.2" font-family="Times,serif" font-size="11.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-1225.2" font-family="Times,serif" font-size="11.00">mallocgc</text>
-<text text-anchor="middle" x="1470" y="-1213.2" font-family="Times,serif" font-size="11.00">0.04s (0.82%)</text>
-<text text-anchor="middle" x="1470" y="-1201.2" font-family="Times,serif" font-size="11.00">of 0.45s (9.28%)</text>
-</a>
-</g>
-</g>
-<!-- N37 -->
-<g id="node37" class="node">
-<title>N37</title>
-<g id="a_node37"><a xlink:title="runtime.heapBitsSetType (0.03s)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1407,-1143 1295,-1143 1295,-1099 1407,-1099 1407,-1143"/>
-<text text-anchor="middle" x="1351" y="-1130.2" font-family="Times,serif" font-size="11.00">runtime</text>
-<text text-anchor="middle" x="1351" y="-1118.2" font-family="Times,serif" font-size="11.00">heapBitsSetType</text>
-<text text-anchor="middle" x="1351" y="-1106.2" font-family="Times,serif" font-size="11.00">0.03s (0.62%)</text>
-</a>
-</g>
-</g>
-<!-- N10&#45;&gt;N37 -->
-<g id="edge46" class="edge">
-<title>N10&#45;&gt;N37</title>
-<g id="a_edge46"><a xlink:title="runtime.mallocgc &#45;&gt; runtime.heapBitsSetType (0.03s)">
-<path fill="none" stroke="#b2b1ac" d="M1437.48,-1193.95C1420.92,-1180.17 1400.83,-1163.45 1384.18,-1149.6"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1386.24,-1146.76 1376.31,-1143.06 1381.76,-1152.14 1386.24,-1146.76"/>
-</a>
-</g>
-<g id="a_edge46&#45;label"><a xlink:title="runtime.mallocgc &#45;&gt; runtime.heapBitsSetType (0.03s)">
-<text text-anchor="middle" x="1436" y="-1164.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
-</a>
-</g>
-</g>
-<!-- N47 -->
-<g id="node47" class="node">
-<title>N47</title>
-<g id="a_node47"><a xlink:title="runtime.(*mcache).nextFree (0.36s)">
-<polygon fill="#ede9e4" stroke="#b29470" points="1514.5,-1143 1425.5,-1143 1425.5,-1099 1514.5,-1099 1514.5,-1143"/>
-<text text-anchor="middle" x="1470" y="-1132.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-1123.6" font-family="Times,serif" font-size="8.00">(*mcache)</text>
-<text text-anchor="middle" x="1470" y="-1114.6" font-family="Times,serif" font-size="8.00">nextFree</text>
-<text text-anchor="middle" x="1470" y="-1105.6" font-family="Times,serif" font-size="8.00">0 of 0.36s (7.42%)</text>
-</a>
-</g>
-</g>
-<!-- N10&#45;&gt;N47 -->
-<g id="edge24" class="edge">
-<title>N10&#45;&gt;N47</title>
-<g id="a_edge24"><a xlink:title="runtime.mallocgc &#45;&gt; runtime.(*mcache).nextFree (0.36s)">
-<path fill="none" stroke="#b29470" d="M1470,-1193.95C1470,-1181.42 1470,-1166.47 1470,-1153.45"/>
-<polygon fill="#b29470" stroke="#b29470" points="1473.5,-1153.06 1470,-1143.06 1466.5,-1153.06 1473.5,-1153.06"/>
-</a>
-</g>
-<g id="a_edge24&#45;label"><a xlink:title="runtime.mallocgc &#45;&gt; runtime.(*mcache).nextFree (0.36s)">
-<text text-anchor="middle" x="1492" y="-1164.8" font-family="Times,serif" font-size="14.00"> 0.36s</text>
-</a>
-</g>
-</g>
-<!-- N29 -->
-<g id="node29" class="node">
-<title>N29</title>
-<g id="a_node29"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).isEmpty (0.03s)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="956,-1875 840,-1875 840,-1819 956,-1819 956,-1875"/>
-<text text-anchor="middle" x="898" y="-1862.2" font-family="Times,serif" font-size="11.00">roaring</text>
-<text text-anchor="middle" x="898" y="-1850.2" font-family="Times,serif" font-size="11.00">(*arrayContainer)</text>
-<text text-anchor="middle" x="898" y="-1838.2" font-family="Times,serif" font-size="11.00">isEmpty</text>
-<text text-anchor="middle" x="898" y="-1826.2" font-family="Times,serif" font-size="11.00">0.03s (0.62%)</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;N29 -->
-<g id="edge49" class="edge">
-<title>N11&#45;&gt;N29</title>
-<g id="a_edge49"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).isEmpty (0.02s)">
-<path fill="none" stroke="#b2b1ae" d="M998.31,-1954.85C990.56,-1946.61 981.91,-1937.42 974,-1929 959.74,-1913.82 943.98,-1897.04 930.53,-1882.7"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="932.72,-1879.91 923.32,-1875.01 927.61,-1884.7 932.72,-1879.91"/>
-</a>
-</g>
-<g id="a_edge49&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).isEmpty (0.02s)">
-<text text-anchor="middle" x="996" y="-1910.3" font-family="Times,serif" font-size="14.00"> 0.02s</text>
-</a>
-</g>
-</g>
-<!-- N31 -->
-<g id="node31" class="node">
-<title>N31</title>
-<g id="a_node31"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer (0.06s)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="1200.5,-1881 1087.5,-1881 1087.5,-1813 1200.5,-1813 1200.5,-1881"/>
-<text text-anchor="middle" x="1144" y="-1868.2" font-family="Times,serif" font-size="11.00">roaring</text>
-<text text-anchor="middle" x="1144" y="-1856.2" font-family="Times,serif" font-size="11.00">(*roaringArray)</text>
-<text text-anchor="middle" x="1144" y="-1844.2" font-family="Times,serif" font-size="11.00">appendContainer</text>
-<text text-anchor="middle" x="1144" y="-1832.2" font-family="Times,serif" font-size="11.00">0.02s (0.41%)</text>
-<text text-anchor="middle" x="1144" y="-1820.2" font-family="Times,serif" font-size="11.00">of 0.06s (1.24%)</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;N31 -->
-<g id="edge35" class="edge">
-<title>N11&#45;&gt;N31</title>
-<g id="a_edge35"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer (0.06s)">
-<path fill="none" stroke="#b2afa7" d="M1045.76,-1954.91C1053.51,-1946.68 1062.15,-1937.47 1070,-1929 1082.13,-1915.92 1095.28,-1901.58 1107.09,-1888.64"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="1109.72,-1890.95 1113.87,-1881.21 1104.54,-1886.24 1109.72,-1890.95"/>
-</a>
-</g>
-<g id="a_edge35&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer (0.06s)">
-<text text-anchor="middle" x="1123.5" y="-1917.8" font-family="Times,serif" font-size="14.00"> 0.06s</text>
-<text text-anchor="middle" x="1123.5" y="-1902.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N44 -->
-<g id="node44" class="node">
-<title>N44</title>
-<g id="a_node44"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and (1.97s)">
-<polygon fill="#eddbd5" stroke="#b22a00" points="1069.5,-1869 974.5,-1869 974.5,-1825 1069.5,-1825 1069.5,-1869"/>
-<text text-anchor="middle" x="1022" y="-1858.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="1022" y="-1849.6" font-family="Times,serif" font-size="8.00">(*bitmapContainer)</text>
-<text text-anchor="middle" x="1022" y="-1840.6" font-family="Times,serif" font-size="8.00">and</text>
-<text text-anchor="middle" x="1022" y="-1831.6" font-family="Times,serif" font-size="8.00">0 of 1.97s (40.62%)</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;N44 -->
-<g id="edge6" class="edge">
-<title>N11&#45;&gt;N44</title>
-<g id="a_edge6"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).and (1.97s)">
-<path fill="none" stroke="#b22a00" stroke-width="3" d="M1022,-1954.86C1022,-1933.42 1022,-1902.5 1022,-1879.43"/>
-<polygon fill="#b22a00" stroke="#b22a00" stroke-width="3" points="1025.5,-1879.13 1022,-1869.13 1018.5,-1879.13 1025.5,-1879.13"/>
-</a>
-</g>
-<g id="a_edge6&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).and (1.97s)">
-<text text-anchor="middle" x="1044" y="-1910.3" font-family="Times,serif" font-size="14.00"> 1.97s</text>
+<g id="a_node1"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (4.29s)">
+<polygon fill="#edd6d5" stroke="#b20800" points="1075.5,-2040 968.5,-2040 968.5,-1996 1075.5,-1996 1075.5,-2040"/>
+<text text-anchor="middle" x="1022" y="-2029.6" font-family="Times,serif" font-size="8.00">index&#45;roaring</text>
+<text text-anchor="middle" x="1022" y="-2020.6" font-family="Times,serif" font-size="8.00">(*BitmapIndexService)</text>
+<text text-anchor="middle" x="1022" y="-2011.6" font-family="Times,serif" font-size="8.00">FindPriceIndexBy</text>
+<text text-anchor="middle" x="1022" y="-2002.6" font-family="Times,serif" font-size="8.00">0 of 4.29s (85.12%)</text>
 </a>
 </g>
 </g>
 <!-- N12 -->
 <g id="node12" class="node">
 <title>N12</title>
-<g id="a_node12"><a xlink:title="runtime.memclrNoHeapPointers (0.30s)">
-<polygon fill="#ede9e5" stroke="#b29a7b" points="1577,-644 1363,-644 1363,-582 1577,-582 1577,-644"/>
-<text text-anchor="middle" x="1470" y="-627.2" font-family="Times,serif" font-size="16.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-609.2" font-family="Times,serif" font-size="16.00">memclrNoHeapPointers</text>
-<text text-anchor="middle" x="1470" y="-591.2" font-family="Times,serif" font-size="16.00">0.30s (6.19%)</text>
+<g id="a_node12"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And (1.99s)">
+<polygon fill="#eddbd5" stroke="#b22b00" points="956.5,-1945 853.5,-1945 853.5,-1882 956.5,-1882 956.5,-1945"/>
+<text text-anchor="middle" x="905" y="-1933" font-family="Times,serif" font-size="10.00">roaring</text>
+<text text-anchor="middle" x="905" y="-1922" font-family="Times,serif" font-size="10.00">(*Bitmap)</text>
+<text text-anchor="middle" x="905" y="-1911" font-family="Times,serif" font-size="10.00">And</text>
+<text text-anchor="middle" x="905" y="-1900" font-family="Times,serif" font-size="10.00">0.02s (0.4%)</text>
+<text text-anchor="middle" x="905" y="-1889" font-family="Times,serif" font-size="10.00">of 1.99s (39.48%)</text>
 </a>
 </g>
 </g>
-<!-- N13 -->
-<g id="node13" class="node">
-<title>N13</title>
-<g id="a_node13"><a xlink:title="runtime.gcBgMarkWorker (0.64s)">
-<polygon fill="#ede4dd" stroke="#b2723c" points="1754.5,-747 1659.5,-747 1659.5,-711 1754.5,-711 1754.5,-747"/>
-<text text-anchor="middle" x="1707" y="-736.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1707" y="-727.1" font-family="Times,serif" font-size="8.00">gcBgMarkWorker</text>
-<text text-anchor="middle" x="1707" y="-718.1" font-family="Times,serif" font-size="8.00">0 of 0.64s (13.20%)</text>
+<!-- N1&#45;&gt;N12 -->
+<g id="edge7" class="edge">
+<title>N1&#45;&gt;N12</title>
+<g id="a_edge7"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).And (1.99s)">
+<path fill="none" stroke="#b22b00" stroke-width="2" d="M995.35,-1995.83C988.33,-1990.13 980.82,-1983.9 974,-1978 964.48,-1969.76 954.41,-1960.71 945,-1952.08"/>
+<polygon fill="#b22b00" stroke="#b22b00" stroke-width="2" points="947.34,-1949.48 937.62,-1945.28 942.6,-1954.63 947.34,-1949.48"/>
+</a>
+</g>
+<g id="a_edge7&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).And (1.99s)">
+<text text-anchor="middle" x="996" y="-1966.8" font-family="Times,serif" font-size="14.00"> 1.99s</text>
 </a>
 </g>
 </g>
-<!-- N23 -->
-<g id="node23" class="node">
-<title>N23</title>
-<g id="a_node23"><a xlink:title="runtime.systemstack (0.66s)">
-<polygon fill="#ede4dd" stroke="#b26f39" points="1754.5,-631 1659.5,-631 1659.5,-595 1754.5,-595 1754.5,-631"/>
-<text text-anchor="middle" x="1707" y="-620.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1707" y="-611.1" font-family="Times,serif" font-size="8.00">systemstack</text>
-<text text-anchor="middle" x="1707" y="-602.1" font-family="Times,serif" font-size="8.00">0 of 0.66s (13.61%)</text>
+<!-- N16 -->
+<g id="node16" class="node">
+<title>N16</title>
+<g id="a_node16"><a xlink:title="github.com/RoaringBitmap/roaring.And (2.18s)">
+<polygon fill="#eddad5" stroke="#b22700" points="1069.5,-1931.5 974.5,-1931.5 974.5,-1895.5 1069.5,-1895.5 1069.5,-1931.5"/>
+<text text-anchor="middle" x="1022" y="-1920.6" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="1022" y="-1911.6" font-family="Times,serif" font-size="8.00">And</text>
+<text text-anchor="middle" x="1022" y="-1902.6" font-family="Times,serif" font-size="8.00">0 of 2.18s (43.25%)</text>
 </a>
 </g>
 </g>
-<!-- N13&#45;&gt;N23 -->
-<g id="edge11" class="edge">
-<title>N13&#45;&gt;N23</title>
-<g id="a_edge11"><a xlink:title="runtime.gcBgMarkWorker &#45;&gt; runtime.systemstack (0.64s)">
-<path fill="none" stroke="#b2723c" d="M1707,-710.69C1707,-692.25 1707,-662.82 1707,-641.26"/>
-<polygon fill="#b2723c" stroke="#b2723c" points="1710.5,-641.1 1707,-631.1 1703.5,-641.1 1710.5,-641.1"/>
+<!-- N1&#45;&gt;N16 -->
+<g id="edge4" class="edge">
+<title>N1&#45;&gt;N16</title>
+<g id="a_edge4"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (2.18s)">
+<path fill="none" stroke="#b22700" stroke-width="3" d="M1022,-1995.76C1022,-1980.18 1022,-1958.87 1022,-1941.99"/>
+<polygon fill="#b22700" stroke="#b22700" stroke-width="3" points="1025.5,-1941.64 1022,-1931.64 1018.5,-1941.64 1025.5,-1941.64"/>
 </a>
 </g>
-<g id="a_edge11&#45;label"><a xlink:title="runtime.gcBgMarkWorker &#45;&gt; runtime.systemstack (0.64s)">
-<text text-anchor="middle" x="1729" y="-665.8" font-family="Times,serif" font-size="14.00"> 0.64s</text>
-</a>
-</g>
-</g>
-<!-- N14 -->
-<g id="node14" class="node">
-<title>N14</title>
-<g id="a_node14"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSliceGo (0.36s)">
-<polygon fill="#ede9e4" stroke="#b29470" points="1262,-1400 1084,-1400 1084,-1316 1262,-1316 1262,-1400"/>
-<text text-anchor="middle" x="1173" y="-1382.4" font-family="Times,serif" font-size="17.00">roaring</text>
-<text text-anchor="middle" x="1173" y="-1363.4" font-family="Times,serif" font-size="17.00">popcntAndSliceGo</text>
-<text text-anchor="middle" x="1173" y="-1344.4" font-family="Times,serif" font-size="17.00">0.31s (6.39%)</text>
-<text text-anchor="middle" x="1173" y="-1325.4" font-family="Times,serif" font-size="17.00">of 0.36s (7.42%)</text>
+<g id="a_edge4&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (2.18s)">
+<text text-anchor="middle" x="1044" y="-1966.8" font-family="Times,serif" font-size="14.00"> 2.18s</text>
 </a>
 </g>
 </g>
-<!-- N14&#45;&gt;N16 -->
-<g id="edge40" class="edge">
-<title>N14&#45;&gt;N16</title>
-<g id="a_edge40"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSliceGo &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.05s)">
-<path fill="none" stroke="#b2b0a9" d="M1149.58,-1315.7C1138.73,-1296.58 1126.02,-1274.17 1115.81,-1256.17"/>
-<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1118.7,-1254.17 1110.73,-1247.2 1112.61,-1257.63 1118.7,-1254.17"/>
-</a>
-</g>
-<g id="a_edge40&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSliceGo &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.05s)">
-<text text-anchor="middle" x="1164.5" y="-1286.8" font-family="Times,serif" font-size="14.00"> 0.05s</text>
-<text text-anchor="middle" x="1164.5" y="-1271.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N17&#45;&gt;N5 -->
-<g id="edge8" class="edge">
-<title>N17&#45;&gt;N5</title>
-<g id="a_edge8"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iand (1.73s)">
-<path fill="none" stroke="#b22f00" stroke-width="2" d="M858.28,-1946.78C852.46,-1940.91 846.52,-1934.81 841,-1929 828.03,-1915.34 814.12,-1900.07 801.96,-1886.5"/>
-<polygon fill="#b22f00" stroke="#b22f00" stroke-width="2" points="804.29,-1883.85 795.02,-1878.73 799.07,-1888.52 804.29,-1883.85"/>
-</a>
-</g>
-<g id="a_edge8&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iand (1.73s)">
-<text text-anchor="middle" x="863" y="-1910.3" font-family="Times,serif" font-size="14.00"> 1.73s</text>
+<!-- N20 -->
+<g id="node20" class="node">
+<title>N20</title>
+<g id="a_node20"><a xlink:title="runtime.makeslice (0.22s)">
+<polygon fill="#edebe7" stroke="#b2a38b" points="1446.5,-1326 1349.5,-1326 1349.5,-1274 1446.5,-1274 1446.5,-1326"/>
+<text text-anchor="middle" x="1398" y="-1314" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-1303" font-family="Times,serif" font-size="10.00">makeslice</text>
+<text text-anchor="middle" x="1398" y="-1292" font-family="Times,serif" font-size="10.00">0.01s (0.2%)</text>
+<text text-anchor="middle" x="1398" y="-1281" font-family="Times,serif" font-size="10.00">of 0.22s (4.37%)</text>
 </a>
 </g>
 </g>
-<!-- N17&#45;&gt;N29 -->
-<g id="edge53" class="edge">
-<title>N17&#45;&gt;N29</title>
-<g id="a_edge53"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).isEmpty (0.01s)">
-<path fill="none" stroke="#b2b2b0" d="M888.92,-1946.85C888.03,-1932.17 887.63,-1914.7 889,-1899 889.39,-1894.5 889.98,-1889.79 890.67,-1885.14"/>
-<polygon fill="#b2b2b0" stroke="#b2b2b0" points="894.14,-1885.58 892.3,-1875.15 887.24,-1884.45 894.14,-1885.58"/>
+<!-- N1&#45;&gt;N20 -->
+<g id="edge41" class="edge">
+<title>N1&#45;&gt;N20</title>
+<g id="a_edge41"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; runtime.makeslice (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M1049.99,-1995.85C1056.77,-1990.3 1063.84,-1984.14 1070,-1978 1115.74,-1932.4 1211.23,-1801.4 1254,-1753 1280.86,-1722.62 1292.25,-1719.12 1317,-1687 1375.57,-1610.98 1403.91,-1595.35 1430,-1503 1447.53,-1440.95 1443.83,-1419.67 1425,-1358 1422.74,-1350.58 1419.66,-1342.91 1416.39,-1335.69"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1419.33,-1333.71 1411.88,-1326.18 1413.01,-1336.72 1419.33,-1333.71"/>
 </a>
 </g>
-<g id="a_edge53&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).isEmpty (0.01s)">
-<text text-anchor="middle" x="911" y="-1910.3" font-family="Times,serif" font-size="14.00"> 0.01s</text>
-</a>
-</g>
-</g>
-<!-- N18&#45;&gt;N10 -->
-<g id="edge19" class="edge">
-<title>N18&#45;&gt;N10</title>
-<g id="a_edge19"><a xlink:title="runtime.makeslice &#45;&gt; runtime.mallocgc (0.39s)">
-<path fill="none" stroke="#b2906a" d="M1470,-1339.76C1470,-1319.88 1470,-1286.61 1470,-1260.66"/>
-<polygon fill="#b2906a" stroke="#b2906a" points="1473.5,-1260.4 1470,-1250.4 1466.5,-1260.4 1473.5,-1260.4"/>
-</a>
-</g>
-<g id="a_edge19&#45;label"><a xlink:title="runtime.makeslice &#45;&gt; runtime.mallocgc (0.39s)">
-<text text-anchor="middle" x="1492" y="-1279.3" font-family="Times,serif" font-size="14.00"> 0.39s</text>
-</a>
-</g>
-</g>
-<!-- N19 -->
-<g id="node19" class="node">
-<title>N19</title>
-<g id="a_node19"><a xlink:title="runtime.mapaccess2_faststr (0.08s)">
-<polygon fill="#edeceb" stroke="#b2aea3" points="1693.5,-1877 1558.5,-1877 1558.5,-1817 1693.5,-1817 1693.5,-1877"/>
-<text text-anchor="middle" x="1626" y="-1863.4" font-family="Times,serif" font-size="12.00">runtime</text>
-<text text-anchor="middle" x="1626" y="-1850.4" font-family="Times,serif" font-size="12.00">mapaccess2_faststr</text>
-<text text-anchor="middle" x="1626" y="-1837.4" font-family="Times,serif" font-size="12.00">0.07s (1.44%)</text>
-<text text-anchor="middle" x="1626" y="-1824.4" font-family="Times,serif" font-size="12.00">of 0.08s (1.65%)</text>
-</a>
-</g>
-</g>
-<!-- N21 -->
-<g id="node21" class="node">
-<title>N21</title>
-<g id="a_node21"><a xlink:title="runtime.pageIndexOf (0.08s)">
-<polygon fill="#edeceb" stroke="#b2aea3" points="1838.5,-60 1723.5,-60 1723.5,0 1838.5,0 1838.5,-60"/>
-<text text-anchor="middle" x="1781" y="-46.4" font-family="Times,serif" font-size="12.00">runtime</text>
-<text text-anchor="middle" x="1781" y="-33.4" font-family="Times,serif" font-size="12.00">pageIndexOf</text>
-<text text-anchor="middle" x="1781" y="-20.4" font-family="Times,serif" font-size="12.00">0.07s (1.44%)</text>
-<text text-anchor="middle" x="1781" y="-7.4" font-family="Times,serif" font-size="12.00">of 0.08s (1.65%)</text>
-</a>
-</g>
-</g>
-<!-- N20&#45;&gt;N21 -->
-<g id="edge33" class="edge">
-<title>N20&#45;&gt;N21</title>
-<g id="a_edge33"><a xlink:title="runtime.greyobject &#45;&gt; runtime.pageIndexOf (0.07s)">
-<path fill="none" stroke="#b2aea5" d="M1828.4,-137.95C1822.92,-128.7 1816.9,-118.02 1812,-108 1806.06,-95.84 1800.3,-82.25 1795.4,-69.9"/>
-<polygon fill="#b2aea5" stroke="#b2aea5" points="1798.55,-68.36 1791.66,-60.32 1792.03,-70.91 1798.55,-68.36"/>
-</a>
-</g>
-<g id="a_edge33&#45;label"><a xlink:title="runtime.greyobject &#45;&gt; runtime.pageIndexOf (0.07s)">
-<text text-anchor="middle" x="1839.5" y="-96.8" font-family="Times,serif" font-size="14.00"> 0.07s</text>
-<text text-anchor="middle" x="1839.5" y="-81.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+<g id="a_edge41&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; runtime.makeslice (0.03s)">
+<text text-anchor="middle" x="1323" y="-1716.3" font-family="Times,serif" font-size="14.00"> 0.03s</text>
 </a>
 </g>
 </g>
 <!-- N25 -->
 <g id="node25" class="node">
 <title>N25</title>
-<g id="a_node25"><a xlink:title="runtime.markBits.isMarked (0.06s)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="1955.5,-60 1856.5,-60 1856.5,0 1955.5,0 1955.5,-60"/>
-<text text-anchor="middle" x="1906" y="-46.4" font-family="Times,serif" font-size="12.00">runtime</text>
-<text text-anchor="middle" x="1906" y="-33.4" font-family="Times,serif" font-size="12.00">markBits</text>
-<text text-anchor="middle" x="1906" y="-20.4" font-family="Times,serif" font-size="12.00">isMarked</text>
-<text text-anchor="middle" x="1906" y="-7.4" font-family="Times,serif" font-size="12.00">0.06s (1.24%)</text>
+<g id="a_node25"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue (0.06s)">
+<polygon fill="#edeceb" stroke="#b2afa7" points="1300,-1945 1160,-1945 1160,-1882 1300,-1882 1300,-1945"/>
+<text text-anchor="middle" x="1230" y="-1933" font-family="Times,serif" font-size="10.00">index&#45;roaring</text>
+<text text-anchor="middle" x="1230" y="-1922" font-family="Times,serif" font-size="10.00">(*BitmapIndexService)</text>
+<text text-anchor="middle" x="1230" y="-1911" font-family="Times,serif" font-size="10.00">findBitmapByCharValue</text>
+<text text-anchor="middle" x="1230" y="-1900" font-family="Times,serif" font-size="10.00">0.02s (0.4%)</text>
+<text text-anchor="middle" x="1230" y="-1889" font-family="Times,serif" font-size="10.00">of 0.06s (1.19%)</text>
 </a>
 </g>
 </g>
-<!-- N20&#45;&gt;N25 -->
-<g id="edge37" class="edge">
-<title>N20&#45;&gt;N25</title>
-<g id="a_edge37"><a xlink:title="runtime.greyobject &#45;&gt; runtime.markBits.isMarked (0.06s)">
-<path fill="none" stroke="#b2afa7" d="M1855.81,-137.86C1864.91,-118.49 1877.64,-91.37 1888.01,-69.3"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="1891.21,-70.73 1892.29,-60.19 1884.87,-67.75 1891.21,-70.73"/>
+<!-- N1&#45;&gt;N25 -->
+<g id="edge33" class="edge">
+<title>N1&#45;&gt;N25</title>
+<g id="a_edge33"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue (0.06s)">
+<path fill="none" stroke="#b2afa7" d="M1075.77,-2004.43C1098.17,-1998.1 1124.04,-1989.32 1146,-1978 1160.13,-1970.72 1174.35,-1961.05 1186.97,-1951.47"/>
+<polygon fill="#b2afa7" stroke="#b2afa7" points="1189.28,-1954.11 1195.02,-1945.21 1184.98,-1948.59 1189.28,-1954.11"/>
 </a>
 </g>
-<g id="a_edge37&#45;label"><a xlink:title="runtime.greyobject &#45;&gt; runtime.markBits.isMarked (0.06s)">
-<text text-anchor="middle" x="1909.5" y="-96.8" font-family="Times,serif" font-size="14.00"> 0.06s</text>
-<text text-anchor="middle" x="1909.5" y="-81.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N22 -->
-<g id="node22" class="node">
-<title>N22</title>
-<g id="a_node22"><a xlink:title="runtime.(*mcentral).grow (0.33s)">
-<polygon fill="#ede9e5" stroke="#b29775" points="1514.5,-858 1425.5,-858 1425.5,-814 1514.5,-814 1514.5,-858"/>
-<text text-anchor="middle" x="1470" y="-847.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-838.6" font-family="Times,serif" font-size="8.00">(*mcentral)</text>
-<text text-anchor="middle" x="1470" y="-829.6" font-family="Times,serif" font-size="8.00">grow</text>
-<text text-anchor="middle" x="1470" y="-820.6" font-family="Times,serif" font-size="8.00">0 of 0.33s (6.80%)</text>
-</a>
-</g>
-</g>
-<!-- N34 -->
-<g id="node34" class="node">
-<title>N34</title>
-<g id="a_node34"><a xlink:title="runtime.(*mheap).alloc (0.29s)">
-<polygon fill="#edeae6" stroke="#b29b7d" points="1514.5,-751 1425.5,-751 1425.5,-707 1514.5,-707 1514.5,-751"/>
-<text text-anchor="middle" x="1470" y="-740.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-731.6" font-family="Times,serif" font-size="8.00">(*mheap)</text>
-<text text-anchor="middle" x="1470" y="-722.6" font-family="Times,serif" font-size="8.00">alloc</text>
-<text text-anchor="middle" x="1470" y="-713.6" font-family="Times,serif" font-size="8.00">0 of 0.29s (5.98%)</text>
-</a>
-</g>
-</g>
-<!-- N22&#45;&gt;N34 -->
-<g id="edge28" class="edge">
-<title>N22&#45;&gt;N34</title>
-<g id="a_edge28"><a xlink:title="runtime.(*mcentral).grow &#45;&gt; runtime.(*mheap).alloc (0.29s)">
-<path fill="none" stroke="#b29b7d" d="M1470,-813.75C1470,-798.67 1470,-778.17 1470,-761.23"/>
-<polygon fill="#b29b7d" stroke="#b29b7d" points="1473.5,-761.22 1470,-751.22 1466.5,-761.22 1473.5,-761.22"/>
-</a>
-</g>
-<g id="a_edge28&#45;label"><a xlink:title="runtime.(*mcentral).grow &#45;&gt; runtime.(*mheap).alloc (0.29s)">
-<text text-anchor="middle" x="1492" y="-784.8" font-family="Times,serif" font-size="14.00"> 0.29s</text>
+<g id="a_edge33&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue (0.06s)">
+<text text-anchor="middle" x="1192" y="-1966.8" font-family="Times,serif" font-size="14.00"> 0.06s</text>
 </a>
 </g>
 </g>
 <!-- N36 -->
 <g id="node36" class="node">
 <title>N36</title>
-<g id="a_node36"><a xlink:title="runtime.heapBits.initSpan (0.04s)">
-<polygon fill="#edecec" stroke="#b2b0ab" points="1407,-763 1299,-763 1299,-695 1407,-695 1407,-763"/>
-<text text-anchor="middle" x="1353" y="-750.2" font-family="Times,serif" font-size="11.00">runtime</text>
-<text text-anchor="middle" x="1353" y="-738.2" font-family="Times,serif" font-size="11.00">heapBits</text>
-<text text-anchor="middle" x="1353" y="-726.2" font-family="Times,serif" font-size="11.00">initSpan</text>
-<text text-anchor="middle" x="1353" y="-714.2" font-family="Times,serif" font-size="11.00">0.02s (0.41%)</text>
-<text text-anchor="middle" x="1353" y="-702.2" font-family="Times,serif" font-size="11.00">of 0.04s (0.82%)</text>
+<g id="a_node36"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByOffering (0.03s)">
+<polygon fill="#edecec" stroke="#b2b1ad" points="1425.5,-1935.5 1318.5,-1935.5 1318.5,-1891.5 1425.5,-1891.5 1425.5,-1935.5"/>
+<text text-anchor="middle" x="1372" y="-1925.1" font-family="Times,serif" font-size="8.00">index&#45;roaring</text>
+<text text-anchor="middle" x="1372" y="-1916.1" font-family="Times,serif" font-size="8.00">(*BitmapIndexService)</text>
+<text text-anchor="middle" x="1372" y="-1907.1" font-family="Times,serif" font-size="8.00">findBitmapByOffering</text>
+<text text-anchor="middle" x="1372" y="-1898.1" font-family="Times,serif" font-size="8.00">0 of 0.03s (0.6%)</text>
 </a>
 </g>
 </g>
-<!-- N22&#45;&gt;N36 -->
-<g id="edge42" class="edge">
-<title>N22&#45;&gt;N36</title>
-<g id="a_edge42"><a xlink:title="runtime.(*mcentral).grow &#45;&gt; runtime.heapBits.initSpan (0.04s)">
-<path fill="none" stroke="#b2b0ab" d="M1443.27,-813.92C1436.26,-808.22 1428.76,-801.97 1422,-796 1412.77,-787.86 1403.1,-778.9 1394.01,-770.26"/>
-<polygon fill="#b2b0ab" stroke="#b2b0ab" points="1396.18,-767.5 1386.53,-763.12 1391.34,-772.56 1396.18,-767.5"/>
+<!-- N1&#45;&gt;N36 -->
+<g id="edge40" class="edge">
+<title>N1&#45;&gt;N36</title>
+<g id="a_edge40"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByOffering (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M1075.76,-2008.56C1115.43,-2001.79 1170.55,-1991.24 1218,-1978 1259.44,-1966.44 1269.36,-1961.73 1309,-1945 1312.84,-1943.38 1316.78,-1941.64 1320.73,-1939.86"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1322.3,-1942.99 1329.91,-1935.61 1319.37,-1936.63 1322.3,-1942.99"/>
 </a>
 </g>
-<g id="a_edge42&#45;label"><a xlink:title="runtime.(*mcentral).grow &#45;&gt; runtime.heapBits.initSpan (0.04s)">
-<text text-anchor="middle" x="1444" y="-784.8" font-family="Times,serif" font-size="14.00"> 0.04s</text>
-</a>
-</g>
-</g>
-<!-- N49 -->
-<g id="node49" class="node">
-<title>N49</title>
-<g id="a_node49"><a xlink:title="runtime.gcBgMarkWorker.func2 (0.64s)">
-<polygon fill="#ede4dd" stroke="#b2723c" points="1754.5,-531 1659.5,-531 1659.5,-487 1754.5,-487 1754.5,-531"/>
-<text text-anchor="middle" x="1707" y="-520.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1707" y="-511.6" font-family="Times,serif" font-size="8.00">gcBgMarkWorker</text>
-<text text-anchor="middle" x="1707" y="-502.6" font-family="Times,serif" font-size="8.00">func2</text>
-<text text-anchor="middle" x="1707" y="-493.6" font-family="Times,serif" font-size="8.00">0 of 0.64s (13.20%)</text>
+<g id="a_edge40&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByOffering (0.03s)">
+<text text-anchor="middle" x="1286" y="-1966.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
 </a>
 </g>
 </g>
-<!-- N23&#45;&gt;N49 -->
-<g id="edge13" class="edge">
-<title>N23&#45;&gt;N49</title>
-<g id="a_edge13"><a xlink:title="runtime.systemstack &#45;&gt; runtime.gcBgMarkWorker.func2 (0.64s)">
-<path fill="none" stroke="#b2723c" d="M1707,-594.7C1707,-580.2 1707,-559.13 1707,-541.63"/>
-<polygon fill="#b2723c" stroke="#b2723c" points="1710.5,-541.29 1707,-531.29 1703.5,-541.29 1710.5,-541.29"/>
+<!-- N2 -->
+<g id="node2" class="node">
+<title>N2</title>
+<g id="a_node2"><a xlink:title="testing.tRunner (4.31s)">
+<polygon fill="#edd6d5" stroke="#b20800" points="1069.5,-2379.5 974.5,-2379.5 974.5,-2343.5 1069.5,-2343.5 1069.5,-2379.5"/>
+<text text-anchor="middle" x="1022" y="-2368.6" font-family="Times,serif" font-size="8.00">testing</text>
+<text text-anchor="middle" x="1022" y="-2359.6" font-family="Times,serif" font-size="8.00">tRunner</text>
+<text text-anchor="middle" x="1022" y="-2350.6" font-family="Times,serif" font-size="8.00">0 of 4.31s (85.52%)</text>
 </a>
 </g>
-<g id="a_edge13&#45;label"><a xlink:title="runtime.systemstack &#45;&gt; runtime.gcBgMarkWorker.func2 (0.64s)">
-<text text-anchor="middle" x="1729" y="-552.8" font-family="Times,serif" font-size="14.00"> 0.64s</text>
+</g>
+<!-- N34 -->
+<g id="node34" class="node">
+<title>N34</title>
+<g id="a_node34"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (4.31s)">
+<polygon fill="#edd6d5" stroke="#b20800" points="1112,-2224 932,-2224 932,-2188 1112,-2188 1112,-2224"/>
+<text text-anchor="middle" x="1022" y="-2213.1" font-family="Times,serif" font-size="8.00">bitmap</text>
+<text text-anchor="middle" x="1022" y="-2204.1" font-family="Times,serif" font-size="8.00">TestFindPrice_3824position_CpuProfiling</text>
+<text text-anchor="middle" x="1022" y="-2195.1" font-family="Times,serif" font-size="8.00">0 of 4.31s (85.52%)</text>
 </a>
 </g>
 </g>
-<!-- N24 -->
-<g id="node24" class="node">
-<title>N24</title>
-<g id="a_node24"><a xlink:title="runtime.(*mcache).refill (0.36s)">
-<polygon fill="#ede9e4" stroke="#b29470" points="1514.5,-1048 1425.5,-1048 1425.5,-1004 1514.5,-1004 1514.5,-1048"/>
-<text text-anchor="middle" x="1470" y="-1037.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-1028.6" font-family="Times,serif" font-size="8.00">(*mcache)</text>
-<text text-anchor="middle" x="1470" y="-1019.6" font-family="Times,serif" font-size="8.00">refill</text>
-<text text-anchor="middle" x="1470" y="-1010.6" font-family="Times,serif" font-size="8.00">0 of 0.36s (7.42%)</text>
+<!-- N2&#45;&gt;N34 -->
+<g id="edge1" class="edge">
+<title>N2&#45;&gt;N34</title>
+<g id="a_edge1"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (4.31s)">
+<path fill="none" stroke="#b20800" stroke-width="5" d="M1022,-2343.49C1022,-2317.09 1022,-2266.03 1022,-2234.4"/>
+<polygon fill="#b20800" stroke="#b20800" stroke-width="5" points="1026.38,-2234.09 1022,-2224.09 1017.63,-2234.09 1026.38,-2234.09"/>
+</a>
+</g>
+<g id="a_edge1&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (4.31s)">
+<text text-anchor="middle" x="1044" y="-2255.8" font-family="Times,serif" font-size="14.00"> 4.31s</text>
+</a>
+</g>
+</g>
+<!-- N3 -->
+<g id="node3" class="node">
+<title>N3</title>
+<g id="a_node3"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (2.13s)">
+<polygon fill="#eddad5" stroke="#b22800" points="1080,-1659.5 964,-1659.5 964,-1596.5 1080,-1596.5 1080,-1659.5"/>
+<text text-anchor="middle" x="1022" y="-1647.5" font-family="Times,serif" font-size="10.00">roaring</text>
+<text text-anchor="middle" x="1022" y="-1636.5" font-family="Times,serif" font-size="10.00">(*bitmapContainer)</text>
+<text text-anchor="middle" x="1022" y="-1625.5" font-family="Times,serif" font-size="10.00">andBitmap</text>
+<text text-anchor="middle" x="1022" y="-1614.5" font-family="Times,serif" font-size="10.00">0.01s (0.2%)</text>
+<text text-anchor="middle" x="1022" y="-1603.5" font-family="Times,serif" font-size="10.00">of 2.13s (42.26%)</text>
+</a>
+</g>
+</g>
+<!-- N5 -->
+<g id="node5" class="node">
+<title>N5</title>
+<g id="a_node5"><a xlink:title="github.com/RoaringBitmap/roaring.fillArrayAND (1.50s)">
+<polygon fill="#eddcd5" stroke="#b23600" points="1135.5,-1503 908.5,-1503 908.5,-1391 1135.5,-1391 1135.5,-1503"/>
+<text text-anchor="middle" x="1022" y="-1479.8" font-family="Times,serif" font-size="24.00">roaring</text>
+<text text-anchor="middle" x="1022" y="-1453.8" font-family="Times,serif" font-size="24.00">fillArrayAND</text>
+<text text-anchor="middle" x="1022" y="-1427.8" font-family="Times,serif" font-size="24.00">1.41s (27.98%)</text>
+<text text-anchor="middle" x="1022" y="-1401.8" font-family="Times,serif" font-size="24.00">of 1.50s (29.76%)</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;N5 -->
+<g id="edge9" class="edge">
+<title>N3&#45;&gt;N5</title>
+<g id="a_edge9"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.fillArrayAND (1.50s)">
+<path fill="none" stroke="#b23600" stroke-width="2" d="M1022,-1596.23C1022,-1573.53 1022,-1541.8 1022,-1513.52"/>
+<polygon fill="#b23600" stroke="#b23600" stroke-width="2" points="1025.5,-1513.28 1022,-1503.28 1018.5,-1513.28 1025.5,-1513.28"/>
+</a>
+</g>
+<g id="a_edge9&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.fillArrayAND (1.50s)">
+<text text-anchor="middle" x="1044" y="-1532.3" font-family="Times,serif" font-size="14.00"> 1.50s</text>
+</a>
+</g>
+</g>
+<!-- N26 -->
+<g id="node26" class="node">
+<title>N26</title>
+<g id="a_node26"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize (0.20s)">
+<polygon fill="#edebe8" stroke="#b2a58f" points="1397.5,-1473 1260.5,-1473 1260.5,-1421 1397.5,-1421 1397.5,-1473"/>
+<text text-anchor="middle" x="1329" y="-1461" font-family="Times,serif" font-size="10.00">roaring</text>
+<text text-anchor="middle" x="1329" y="-1450" font-family="Times,serif" font-size="10.00">newArrayContainerSize</text>
+<text text-anchor="middle" x="1329" y="-1439" font-family="Times,serif" font-size="10.00">0.01s (0.2%)</text>
+<text text-anchor="middle" x="1329" y="-1428" font-family="Times,serif" font-size="10.00">of 0.20s (3.97%)</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;N26 -->
+<g id="edge23" class="edge">
+<title>N3&#45;&gt;N26</title>
+<g id="a_edge23"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerSize (0.20s)">
+<path fill="none" stroke="#b2a58f" d="M1080.19,-1602.36C1111.33,-1588.47 1149.96,-1570.11 1183,-1551 1215.34,-1532.29 1221.47,-1524.52 1252,-1503 1263.02,-1495.23 1274.89,-1486.79 1285.93,-1478.91"/>
+<polygon fill="#b2a58f" stroke="#b2a58f" points="1288.08,-1481.67 1294.18,-1473.01 1284.01,-1475.97 1288.08,-1481.67"/>
+</a>
+</g>
+<g id="a_edge23&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerSize (0.20s)">
+<text text-anchor="middle" x="1254.5" y="-1539.8" font-family="Times,serif" font-size="14.00"> 0.20s</text>
+<text text-anchor="middle" x="1254.5" y="-1524.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
 <!-- N40 -->
 <g id="node40" class="node">
 <title>N40</title>
-<g id="a_node40"><a xlink:title="runtime.(*mcentral).uncacheSpan (0.03s)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1407.5,-953 1318.5,-953 1318.5,-909 1407.5,-909 1407.5,-953"/>
-<text text-anchor="middle" x="1363" y="-942.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1363" y="-933.6" font-family="Times,serif" font-size="8.00">(*mcentral)</text>
-<text text-anchor="middle" x="1363" y="-924.6" font-family="Times,serif" font-size="8.00">uncacheSpan</text>
-<text text-anchor="middle" x="1363" y="-915.6" font-family="Times,serif" font-size="8.00">0 of 0.03s (0.62%)</text>
+<g id="a_node40"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSlice (0.42s)">
+<polygon fill="#ede8e3" stroke="#b28f68" points="1242.5,-1465 1153.5,-1465 1153.5,-1429 1242.5,-1429 1242.5,-1465"/>
+<text text-anchor="middle" x="1198" y="-1454.1" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="1198" y="-1445.1" font-family="Times,serif" font-size="8.00">popcntAndSlice</text>
+<text text-anchor="middle" x="1198" y="-1436.1" font-family="Times,serif" font-size="8.00">0 of 0.42s (8.33%)</text>
 </a>
 </g>
 </g>
-<!-- N24&#45;&gt;N40 -->
-<g id="edge43" class="edge">
-<title>N24&#45;&gt;N40</title>
-<g id="a_edge43"><a xlink:title="runtime.(*mcache).refill &#45;&gt; runtime.(*mcentral).uncacheSpan (0.03s)">
-<path fill="none" stroke="#b2b1ac" d="M1443.36,-1003.82C1436.35,-998.12 1428.83,-991.89 1422,-986 1412.39,-977.71 1402.12,-968.46 1392.89,-959.98"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1395.14,-957.3 1385.41,-953.09 1390.39,-962.44 1395.14,-957.3"/>
+<!-- N3&#45;&gt;N40 -->
+<g id="edge19" class="edge">
+<title>N3&#45;&gt;N40</title>
+<g id="a_edge19"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSlice (0.42s)">
+<path fill="none" stroke="#b28f68" d="M1052.71,-1596.29C1077.66,-1571.27 1113.73,-1534.98 1145,-1503 1154.66,-1493.12 1165.23,-1482.18 1174.37,-1472.67"/>
+<polygon fill="#b28f68" stroke="#b28f68" points="1176.95,-1475.04 1181.35,-1465.4 1171.9,-1470.19 1176.95,-1475.04"/>
 </a>
 </g>
-<g id="a_edge43&#45;label"><a xlink:title="runtime.(*mcache).refill &#45;&gt; runtime.(*mcentral).uncacheSpan (0.03s)">
-<text text-anchor="middle" x="1444" y="-974.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
-</a>
-</g>
-</g>
-<!-- N48 -->
-<g id="node48" class="node">
-<title>N48</title>
-<g id="a_node48"><a xlink:title="runtime.(*mcentral).cacheSpan (0.33s)">
-<polygon fill="#ede9e5" stroke="#b29775" points="1514.5,-953 1425.5,-953 1425.5,-909 1514.5,-909 1514.5,-953"/>
-<text text-anchor="middle" x="1470" y="-942.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1470" y="-933.6" font-family="Times,serif" font-size="8.00">(*mcentral)</text>
-<text text-anchor="middle" x="1470" y="-924.6" font-family="Times,serif" font-size="8.00">cacheSpan</text>
-<text text-anchor="middle" x="1470" y="-915.6" font-family="Times,serif" font-size="8.00">0 of 0.33s (6.80%)</text>
+<g id="a_edge19&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSlice (0.42s)">
+<text text-anchor="middle" x="1151.5" y="-1539.8" font-family="Times,serif" font-size="14.00"> 0.42s</text>
+<text text-anchor="middle" x="1151.5" y="-1524.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
-<!-- N24&#45;&gt;N48 -->
-<g id="edge26" class="edge">
-<title>N24&#45;&gt;N48</title>
-<g id="a_edge26"><a xlink:title="runtime.(*mcache).refill &#45;&gt; runtime.(*mcentral).cacheSpan (0.33s)">
-<path fill="none" stroke="#b29775" d="M1470,-1003.9C1470,-991.89 1470,-976.62 1470,-963.24"/>
-<polygon fill="#b29775" stroke="#b29775" points="1473.5,-963.02 1470,-953.02 1466.5,-963.02 1473.5,-963.02"/>
-</a>
-</g>
-<g id="a_edge26&#45;label"><a xlink:title="runtime.(*mcache).refill &#45;&gt; runtime.(*mcentral).cacheSpan (0.33s)">
-<text text-anchor="middle" x="1492" y="-974.8" font-family="Times,serif" font-size="14.00"> 0.33s</text>
-</a>
-</g>
-</g>
-<!-- N26&#45;&gt;N19 -->
-<g id="edge34" class="edge">
-<title>N26&#45;&gt;N19</title>
-<g id="a_edge34"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue &#45;&gt; runtime.mapaccess2_faststr (0.06s)">
-<path fill="none" stroke="#b2afa7" d="M1626,-1946.69C1626,-1928.65 1626,-1906.24 1626,-1887.34"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="1629.5,-1887.25 1626,-1877.25 1622.5,-1887.25 1629.5,-1887.25"/>
-</a>
-</g>
-<g id="a_edge34&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue &#45;&gt; runtime.mapaccess2_faststr (0.06s)">
-<text text-anchor="middle" x="1648" y="-1910.3" font-family="Times,serif" font-size="14.00"> 0.06s</text>
+<!-- N4 -->
+<g id="node4" class="node">
+<title>N4</title>
+<g id="a_node4"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap (1.39s)">
+<polygon fill="#edddd5" stroke="#b23900" points="839.5,-1687 642.5,-1687 642.5,-1569 839.5,-1569 839.5,-1687"/>
+<text text-anchor="middle" x="741" y="-1667" font-family="Times,serif" font-size="20.00">roaring</text>
+<text text-anchor="middle" x="741" y="-1645" font-family="Times,serif" font-size="20.00">(*arrayContainer)</text>
+<text text-anchor="middle" x="741" y="-1623" font-family="Times,serif" font-size="20.00">iandBitmap</text>
+<text text-anchor="middle" x="741" y="-1601" font-family="Times,serif" font-size="20.00">0.69s (13.69%)</text>
+<text text-anchor="middle" x="741" y="-1579" font-family="Times,serif" font-size="20.00">of 1.39s (27.58%)</text>
 </a>
 </g>
 </g>
-<!-- N27&#45;&gt;N18 -->
-<g id="edge25" class="edge">
-<title>N27&#45;&gt;N18</title>
-<g id="a_edge25"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize &#45;&gt; runtime.makeslice (0.34s)">
-<path fill="none" stroke="#b29673" d="M1361.15,-1488.98C1387.83,-1476.92 1420.49,-1458.35 1442,-1433 1453.34,-1419.64 1460.33,-1401.22 1464.49,-1386.1"/>
-<polygon fill="#b29673" stroke="#b29673" points="1467.92,-1386.81 1466.94,-1376.26 1461.13,-1385.12 1467.92,-1386.81"/>
-</a>
-</g>
-<g id="a_edge25&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize &#45;&gt; runtime.makeslice (0.34s)">
-<text text-anchor="middle" x="1473" y="-1421.8" font-family="Times,serif" font-size="14.00"> 0.34s</text>
-</a>
-</g>
-</g>
-<!-- N41 -->
-<g id="node41" class="node">
-<title>N41</title>
-<g id="a_node41"><a xlink:title="runtime.newobject (0.03s)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1368.5,-1376 1279.5,-1376 1279.5,-1340 1368.5,-1340 1368.5,-1376"/>
-<text text-anchor="middle" x="1324" y="-1365.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1324" y="-1356.1" font-family="Times,serif" font-size="8.00">newobject</text>
-<text text-anchor="middle" x="1324" y="-1347.1" font-family="Times,serif" font-size="8.00">0 of 0.03s (0.62%)</text>
+<!-- N7 -->
+<g id="node7" class="node">
+<title>N7</title>
+<g id="a_node7"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).bitValue (0.70s)">
+<polygon fill="#ede4dc" stroke="#b26d36" points="771,-1495 557,-1495 557,-1399 771,-1399 771,-1495"/>
+<text text-anchor="middle" x="664" y="-1475" font-family="Times,serif" font-size="20.00">roaring</text>
+<text text-anchor="middle" x="664" y="-1453" font-family="Times,serif" font-size="20.00">(*bitmapContainer)</text>
+<text text-anchor="middle" x="664" y="-1431" font-family="Times,serif" font-size="20.00">bitValue</text>
+<text text-anchor="middle" x="664" y="-1409" font-family="Times,serif" font-size="20.00">0.70s (13.89%)</text>
 </a>
 </g>
 </g>
-<!-- N27&#45;&gt;N41 -->
-<g id="edge50" class="edge">
-<title>N27&#45;&gt;N41</title>
-<g id="a_edge50"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize &#45;&gt; runtime.newobject (0.02s)">
-<path fill="none" stroke="#b2b1ae" d="M1316.93,-1488.85C1318.31,-1463.62 1320.88,-1416.26 1322.52,-1386.24"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1326.02,-1386.22 1323.07,-1376.04 1319.03,-1385.84 1326.02,-1386.22"/>
+<!-- N4&#45;&gt;N7 -->
+<g id="edge11" class="edge">
+<title>N4&#45;&gt;N7</title>
+<g id="a_edge11"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).bitValue (0.70s)">
+<path fill="none" stroke="#b26d36" d="M716,-1568.88C707.09,-1548.17 697.07,-1524.89 688.23,-1504.32"/>
+<polygon fill="#b26d36" stroke="#b26d36" points="691.42,-1502.89 684.26,-1495.09 684.99,-1505.66 691.42,-1502.89"/>
 </a>
 </g>
-<g id="a_edge50&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize &#45;&gt; runtime.newobject (0.02s)">
-<text text-anchor="middle" x="1342" y="-1421.8" font-family="Times,serif" font-size="14.00"> 0.02s</text>
-</a>
-</g>
-</g>
-<!-- N28 -->
-<g id="node28" class="node">
-<title>N28</title>
-<g id="a_node28"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (4.09s)">
-<polygon fill="#edd6d5" stroke="#b20800" points="1085,-2242 959,-2242 959,-2190 1085,-2190 1085,-2242"/>
-<text text-anchor="middle" x="1022" y="-2230" font-family="Times,serif" font-size="10.00">bitmap</text>
-<text text-anchor="middle" x="1022" y="-2219" font-family="Times,serif" font-size="10.00">findPrice3824Position</text>
-<text text-anchor="middle" x="1022" y="-2208" font-family="Times,serif" font-size="10.00">0.01s (0.21%)</text>
-<text text-anchor="middle" x="1022" y="-2197" font-family="Times,serif" font-size="10.00">of 4.09s (84.33%)</text>
+<g id="a_edge11&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).bitValue (0.70s)">
+<text text-anchor="middle" x="730" y="-1532.3" font-family="Times,serif" font-size="14.00"> 0.70s</text>
 </a>
 </g>
 </g>
-<!-- N28&#45;&gt;N1 -->
-<g id="edge3" class="edge">
-<title>N28&#45;&gt;N1</title>
-<g id="a_edge3"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (4.08s)">
-<path fill="none" stroke="#b20900" stroke-width="5" d="M1022,-2189.98C1022,-2178 1022,-2163.28 1022,-2149.4"/>
-<polygon fill="#b20900" stroke="#b20900" stroke-width="5" points="1026.38,-2149.01 1022,-2139.01 1017.63,-2149.01 1026.38,-2149.01"/>
-</a>
-</g>
-<g id="a_edge3&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (4.08s)">
-<text text-anchor="middle" x="1044" y="-2160.8" font-family="Times,serif" font-size="14.00"> 4.08s</text>
-</a>
-</g>
-</g>
-<!-- N30 -->
-<g id="node30" class="node">
-<title>N30</title>
-<g id="a_node30"><a xlink:title="runtime.gcDrain (0.64s)">
-<polygon fill="#ede4dd" stroke="#b2723c" points="1758.5,-436 1655.5,-436 1655.5,-384 1758.5,-384 1758.5,-436"/>
-<text text-anchor="middle" x="1707" y="-424" font-family="Times,serif" font-size="10.00">runtime</text>
-<text text-anchor="middle" x="1707" y="-413" font-family="Times,serif" font-size="10.00">gcDrain</text>
-<text text-anchor="middle" x="1707" y="-402" font-family="Times,serif" font-size="10.00">0.01s (0.21%)</text>
-<text text-anchor="middle" x="1707" y="-391" font-family="Times,serif" font-size="10.00">of 0.64s (13.20%)</text>
+<!-- N13 -->
+<g id="node13" class="node">
+<title>N13</title>
+<g id="a_node13"><a xlink:title="github.com/RoaringBitmap/roaring.popcount (0.18s)">
+<polygon fill="#edebe8" stroke="#b2a692" points="1147,-1207.5 1031,-1207.5 1031,-1154.5 1147,-1154.5 1147,-1207.5"/>
+<text text-anchor="middle" x="1089" y="-1192.3" font-family="Times,serif" font-size="14.00">roaring</text>
+<text text-anchor="middle" x="1089" y="-1177.3" font-family="Times,serif" font-size="14.00">popcount</text>
+<text text-anchor="middle" x="1089" y="-1162.3" font-family="Times,serif" font-size="14.00">0.18s (3.57%)</text>
 </a>
 </g>
 </g>
-<!-- N30&#45;&gt;N7 -->
-<g id="edge14" class="edge">
-<title>N30&#45;&gt;N7</title>
-<g id="a_edge14"><a xlink:title="runtime.gcDrain &#45;&gt; runtime.scanobject (0.62s)">
-<path fill="none" stroke="#b27440" d="M1707,-383.76C1707,-371.85 1707,-357.19 1707,-343.21"/>
-<polygon fill="#b27440" stroke="#b27440" points="1710.5,-343.19 1707,-333.19 1703.5,-343.19 1710.5,-343.19"/>
+<!-- N5&#45;&gt;N13 -->
+<g id="edge31" class="edge">
+<title>N5&#45;&gt;N13</title>
+<g id="a_edge31"><a xlink:title="github.com/RoaringBitmap/roaring.fillArrayAND &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.09s)">
+<path fill="none" stroke="#b2ada2" d="M1031.47,-1390.99C1038.39,-1353.71 1048.7,-1303.49 1061,-1260 1064.99,-1245.88 1070.25,-1230.63 1075.13,-1217.39"/>
+<polygon fill="#b2ada2" stroke="#b2ada2" points="1078.53,-1218.3 1078.76,-1207.71 1071.97,-1215.84 1078.53,-1218.3"/>
 </a>
 </g>
-<g id="a_edge14&#45;label"><a xlink:title="runtime.gcDrain &#45;&gt; runtime.scanobject (0.62s)">
-<text text-anchor="middle" x="1729" y="-354.8" font-family="Times,serif" font-size="14.00"> 0.62s</text>
-</a>
-</g>
-</g>
-<!-- N39 -->
-<g id="node39" class="node">
-<title>N39</title>
-<g id="a_node39"><a xlink:title="runtime.growslice (0.04s)">
-<polygon fill="#edecec" stroke="#b2b0ab" points="1320.5,-1714 1223.5,-1714 1223.5,-1662 1320.5,-1662 1320.5,-1714"/>
-<text text-anchor="middle" x="1272" y="-1702" font-family="Times,serif" font-size="10.00">runtime</text>
-<text text-anchor="middle" x="1272" y="-1691" font-family="Times,serif" font-size="10.00">growslice</text>
-<text text-anchor="middle" x="1272" y="-1680" font-family="Times,serif" font-size="10.00">0.01s (0.21%)</text>
-<text text-anchor="middle" x="1272" y="-1669" font-family="Times,serif" font-size="10.00">of 0.04s (0.82%)</text>
+<g id="a_edge31&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.fillArrayAND &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.09s)">
+<text text-anchor="middle" x="1083" y="-1296.3" font-family="Times,serif" font-size="14.00"> 0.09s</text>
 </a>
 </g>
 </g>
-<!-- N31&#45;&gt;N39 -->
-<g id="edge41" class="edge">
-<title>N31&#45;&gt;N39</title>
-<g id="a_edge41"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer &#45;&gt; runtime.growslice (0.04s)">
-<path fill="none" stroke="#b2b0ab" d="M1171.15,-1812.7C1192.96,-1785.95 1223.44,-1748.56 1245.17,-1721.91"/>
-<polygon fill="#b2b0ab" stroke="#b2b0ab" points="1248.01,-1723.97 1251.61,-1714.01 1242.58,-1719.55 1248.01,-1723.97"/>
-</a>
-</g>
-<g id="a_edge41&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer &#45;&gt; runtime.growslice (0.04s)">
-<text text-anchor="middle" x="1230" y="-1776.3" font-family="Times,serif" font-size="14.00"> 0.04s</text>
-</a>
-</g>
-</g>
-<!-- N32 -->
-<g id="node32" class="node">
-<title>N32</title>
-<g id="a_node32"><a xlink:title="runtime.sweepone (0.06s)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="1641,-757 1533,-757 1533,-701 1641,-701 1641,-757"/>
-<text text-anchor="middle" x="1587" y="-744.2" font-family="Times,serif" font-size="11.00">runtime</text>
-<text text-anchor="middle" x="1587" y="-732.2" font-family="Times,serif" font-size="11.00">sweepone</text>
-<text text-anchor="middle" x="1587" y="-720.2" font-family="Times,serif" font-size="11.00">0.02s (0.41%)</text>
-<text text-anchor="middle" x="1587" y="-708.2" font-family="Times,serif" font-size="11.00">of 0.06s (1.24%)</text>
+<!-- N6 -->
+<g id="node6" class="node">
+<title>N6</title>
+<g id="a_node6"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand (1.88s)">
+<polygon fill="#eddbd5" stroke="#b22d00" points="952.5,-1806.5 857.5,-1806.5 857.5,-1762.5 952.5,-1762.5 952.5,-1806.5"/>
+<text text-anchor="middle" x="905" y="-1796.1" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="905" y="-1787.1" font-family="Times,serif" font-size="8.00">(*arrayContainer)</text>
+<text text-anchor="middle" x="905" y="-1778.1" font-family="Times,serif" font-size="8.00">iand</text>
+<text text-anchor="middle" x="905" y="-1769.1" font-family="Times,serif" font-size="8.00">0 of 1.88s (37.30%)</text>
 </a>
 </g>
 </g>
-<!-- N32&#45;&gt;N23 -->
-<g id="edge55" class="edge">
-<title>N32&#45;&gt;N23</title>
-<g id="a_edge55"><a xlink:title="runtime.sweepone ... runtime.systemstack (0.01s)">
-<path fill="none" stroke="#b2b2b0" stroke-dasharray="1,5" d="M1615.44,-700.98C1635.51,-681.92 1662.16,-656.6 1681.53,-638.19"/>
-<polygon fill="#b2b2b0" stroke="#b2b2b0" points="1683.99,-640.68 1688.83,-631.26 1679.17,-635.61 1683.99,-640.68"/>
+<!-- N6&#45;&gt;N4 -->
+<g id="edge10" class="edge">
+<title>N6&#45;&gt;N4</title>
+<g id="a_edge10"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap (1.39s)">
+<path fill="none" stroke="#b23900" stroke-width="2" d="M882.54,-1762.34C863.86,-1744.74 836.23,-1718.71 810.32,-1694.31"/>
+<polygon fill="#b23900" stroke="#b23900" stroke-width="2" points="812.39,-1691.45 802.71,-1687.14 807.59,-1696.54 812.39,-1691.45"/>
 </a>
 </g>
-<g id="a_edge55&#45;label"><a xlink:title="runtime.sweepone ... runtime.systemstack (0.01s)">
-<text text-anchor="middle" x="1676" y="-665.8" font-family="Times,serif" font-size="14.00"> 0.01s</text>
-</a>
-</g>
-</g>
-<!-- N33 -->
-<g id="node33" class="node">
-<title>N33</title>
-<g id="a_node33"><a xlink:title="runtime.mcall (0.04s)">
-<polygon fill="#edecec" stroke="#b2b0ab" points="1219.5,-2474.5 1130.5,-2474.5 1130.5,-2438.5 1219.5,-2438.5 1219.5,-2474.5"/>
-<text text-anchor="middle" x="1175" y="-2463.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1175" y="-2454.6" font-family="Times,serif" font-size="8.00">mcall</text>
-<text text-anchor="middle" x="1175" y="-2445.6" font-family="Times,serif" font-size="8.00">0 of 0.04s (0.82%)</text>
+<g id="a_edge10&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandBitmap (1.39s)">
+<text text-anchor="middle" x="874" y="-1716.3" font-family="Times,serif" font-size="14.00"> 1.39s</text>
 </a>
 </g>
 </g>
-<!-- N51 -->
-<g id="node51" class="node">
-<title>N51</title>
-<g id="a_node51"><a xlink:title="runtime.gosched_m (0.03s)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1219.5,-2329 1130.5,-2329 1130.5,-2293 1219.5,-2293 1219.5,-2329"/>
-<text text-anchor="middle" x="1175" y="-2318.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1175" y="-2309.1" font-family="Times,serif" font-size="8.00">gosched_m</text>
-<text text-anchor="middle" x="1175" y="-2300.1" font-family="Times,serif" font-size="8.00">0 of 0.03s (0.62%)</text>
+<!-- N37 -->
+<g id="node37" class="node">
+<title>N37</title>
+<g id="a_node37"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray (0.49s)">
+<polygon fill="#ede7e1" stroke="#b2875b" points="946.5,-1650 857.5,-1650 857.5,-1606 946.5,-1606 946.5,-1650"/>
+<text text-anchor="middle" x="902" y="-1639.6" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="902" y="-1630.6" font-family="Times,serif" font-size="8.00">(*arrayContainer)</text>
+<text text-anchor="middle" x="902" y="-1621.6" font-family="Times,serif" font-size="8.00">iandArray</text>
+<text text-anchor="middle" x="902" y="-1612.6" font-family="Times,serif" font-size="8.00">0 of 0.49s (9.72%)</text>
 </a>
 </g>
 </g>
-<!-- N33&#45;&gt;N51 -->
-<g id="edge47" class="edge">
-<title>N33&#45;&gt;N51</title>
-<g id="a_edge47"><a xlink:title="runtime.mcall &#45;&gt; runtime.gosched_m (0.03s)">
-<path fill="none" stroke="#b2b1ac" d="M1175,-2438.48C1175,-2413.99 1175,-2368.56 1175,-2339.33"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1178.5,-2339 1175,-2329 1171.5,-2339 1178.5,-2339"/>
+<!-- N6&#45;&gt;N37 -->
+<g id="edge16" class="edge">
+<title>N6&#45;&gt;N37</title>
+<g id="a_edge16"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray (0.49s)">
+<path fill="none" stroke="#b2875b" d="M904.59,-1762.34C904.08,-1736.02 903.2,-1690.86 902.61,-1660.47"/>
+<polygon fill="#b2875b" stroke="#b2875b" points="906.11,-1660.33 902.42,-1650.4 899.11,-1660.46 906.11,-1660.33"/>
 </a>
 </g>
-<g id="a_edge47&#45;label"><a xlink:title="runtime.mcall &#45;&gt; runtime.gosched_m (0.03s)">
-<text text-anchor="middle" x="1197" y="-2350.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
-</a>
-</g>
-</g>
-<!-- N34&#45;&gt;N12 -->
-<g id="edge29" class="edge">
-<title>N34&#45;&gt;N12</title>
-<g id="a_edge29"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.memclrNoHeapPointers (0.28s)">
-<path fill="none" stroke="#b29c7e" d="M1470,-706.82C1470,-692.08 1470,-671.95 1470,-654.2"/>
-<polygon fill="#b29c7e" stroke="#b29c7e" points="1473.5,-654.09 1470,-644.09 1466.5,-654.09 1473.5,-654.09"/>
-</a>
-</g>
-<g id="a_edge29&#45;label"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.memclrNoHeapPointers (0.28s)">
-<text text-anchor="middle" x="1492" y="-665.8" font-family="Times,serif" font-size="14.00"> 0.28s</text>
+<g id="a_edge16&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray (0.49s)">
+<text text-anchor="middle" x="932.5" y="-1723.8" font-family="Times,serif" font-size="14.00"> 0.49s</text>
+<text text-anchor="middle" x="932.5" y="-1708.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
-<!-- N34&#45;&gt;N23 -->
-<g id="edge54" class="edge">
-<title>N34&#45;&gt;N23</title>
-<g id="a_edge54"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.systemstack (0.01s)">
-<path fill="none" stroke="#b2b2b0" d="M1503.07,-706.98C1509.91,-702.86 1517.12,-698.68 1524,-695 1566.59,-672.18 1616.92,-650.25 1654,-634.98"/>
-<polygon fill="#b2b2b0" stroke="#b2b2b0" points="1655.68,-638.07 1663.61,-631.05 1653.03,-631.59 1655.68,-638.07"/>
-</a>
-</g>
-<g id="a_edge54&#45;label"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.systemstack (0.01s)">
-<text text-anchor="middle" x="1610" y="-665.8" font-family="Times,serif" font-size="14.00"> 0.01s</text>
-</a>
-</g>
-</g>
-<!-- N35 -->
-<g id="node35" class="node">
-<title>N35</title>
-<g id="a_node35"><a xlink:title="runtime.bgsweep (0.06s)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="1631.5,-854 1542.5,-854 1542.5,-818 1631.5,-818 1631.5,-854"/>
-<text text-anchor="middle" x="1587" y="-843.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1587" y="-834.1" font-family="Times,serif" font-size="8.00">bgsweep</text>
-<text text-anchor="middle" x="1587" y="-825.1" font-family="Times,serif" font-size="8.00">0 of 0.06s (1.24%)</text>
+<!-- N8 -->
+<g id="node8" class="node">
+<title>N8</title>
+<g id="a_node8"><a xlink:title="runtime.scanobject (0.60s)">
+<polygon fill="#ede5df" stroke="#b27a48" points="852,-325 690,-325 690,-245 852,-245 852,-325"/>
+<text text-anchor="middle" x="771" y="-308.2" font-family="Times,serif" font-size="16.00">runtime</text>
+<text text-anchor="middle" x="771" y="-290.2" font-family="Times,serif" font-size="16.00">scanobject</text>
+<text text-anchor="middle" x="771" y="-272.2" font-family="Times,serif" font-size="16.00">0.30s (5.95%)</text>
+<text text-anchor="middle" x="771" y="-254.2" font-family="Times,serif" font-size="16.00">of 0.60s (11.90%)</text>
 </a>
 </g>
 </g>
-<!-- N35&#45;&gt;N32 -->
-<g id="edge36" class="edge">
-<title>N35&#45;&gt;N32</title>
-<g id="a_edge36"><a xlink:title="runtime.bgsweep &#45;&gt; runtime.sweepone (0.06s)">
-<path fill="none" stroke="#b2afa7" d="M1587,-817.66C1587,-804.06 1587,-784.63 1587,-767.51"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="1590.5,-767.23 1587,-757.23 1583.5,-767.23 1590.5,-767.23"/>
-</a>
-</g>
-<g id="a_edge36&#45;label"><a xlink:title="runtime.bgsweep &#45;&gt; runtime.sweepone (0.06s)">
-<text text-anchor="middle" x="1609" y="-784.8" font-family="Times,serif" font-size="14.00"> 0.06s</text>
-</a>
-</g>
-</g>
-<!-- N36&#45;&gt;N12 -->
-<g id="edge52" class="edge">
-<title>N36&#45;&gt;N12</title>
-<g id="a_edge52"><a xlink:title="runtime.heapBits.initSpan &#45;&gt; runtime.memclrNoHeapPointers (0.02s)">
-<path fill="none" stroke="#b2b1ae" d="M1387.16,-694.72C1401.17,-681.06 1417.45,-665.2 1431.86,-651.17"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1434.48,-653.5 1439.2,-644.02 1429.59,-648.49 1434.48,-653.5"/>
-</a>
-</g>
-<g id="a_edge52&#45;label"><a xlink:title="runtime.heapBits.initSpan &#45;&gt; runtime.memclrNoHeapPointers (0.02s)">
-<text text-anchor="middle" x="1440" y="-665.8" font-family="Times,serif" font-size="14.00"> 0.02s</text>
+<!-- N15 -->
+<g id="node15" class="node">
+<title>N15</title>
+<g id="a_node15"><a xlink:title="runtime.findObject (0.23s)">
+<polygon fill="#edebe7" stroke="#b2a289" points="841.5,-194 700.5,-194 700.5,-118 841.5,-118 841.5,-194"/>
+<text text-anchor="middle" x="771" y="-178" font-family="Times,serif" font-size="15.00">runtime</text>
+<text text-anchor="middle" x="771" y="-161" font-family="Times,serif" font-size="15.00">findObject</text>
+<text text-anchor="middle" x="771" y="-144" font-family="Times,serif" font-size="15.00">0.20s (3.97%)</text>
+<text text-anchor="middle" x="771" y="-127" font-family="Times,serif" font-size="15.00">of 0.23s (4.56%)</text>
 </a>
 </g>
 </g>
-<!-- N38 -->
-<g id="node38" class="node">
-<title>N38</title>
-<g id="a_node38"><a xlink:title="runtime.schedule (0.03s)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1219.5,-2120.5 1130.5,-2120.5 1130.5,-2084.5 1219.5,-2084.5 1219.5,-2120.5"/>
-<text text-anchor="middle" x="1175" y="-2109.6" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1175" y="-2100.6" font-family="Times,serif" font-size="8.00">schedule</text>
-<text text-anchor="middle" x="1175" y="-2091.6" font-family="Times,serif" font-size="8.00">0 of 0.03s (0.62%)</text>
+<!-- N8&#45;&gt;N15 -->
+<g id="edge21" class="edge">
+<title>N8&#45;&gt;N15</title>
+<g id="a_edge21"><a xlink:title="runtime.scanobject &#45;&gt; runtime.findObject (0.22s)">
+<path fill="none" stroke="#b2a38b" d="M771,-244.86C771,-231.97 771,-217.49 771,-204.07"/>
+<polygon fill="#b2a38b" stroke="#b2a38b" points="774.5,-204.06 771,-194.06 767.5,-204.06 774.5,-204.06"/>
 </a>
 </g>
-</g>
-<!-- N39&#45;&gt;N10 -->
-<g id="edge45" class="edge">
-<title>N39&#45;&gt;N10</title>
-<g id="a_edge45"><a xlink:title="runtime.growslice &#45;&gt; runtime.mallocgc (0.03s)">
-<path fill="none" stroke="#b2b1ac" d="M1303.1,-1661.83C1328.85,-1639.01 1363.88,-1602.91 1381,-1563 1406.51,-1503.54 1383.97,-1481.92 1394,-1418 1401.2,-1372.09 1400.2,-1359.33 1417,-1316 1424.65,-1296.26 1435.99,-1275.68 1446.21,-1258.91"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1449.44,-1260.35 1451.75,-1250.01 1443.49,-1256.65 1449.44,-1260.35"/>
-</a>
-</g>
-<g id="a_edge45&#45;label"><a xlink:title="runtime.growslice &#45;&gt; runtime.mallocgc (0.03s)">
-<text text-anchor="middle" x="1416" y="-1421.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
-</a>
-</g>
-</g>
-<!-- N41&#45;&gt;N10 -->
-<g id="edge48" class="edge">
-<title>N41&#45;&gt;N10</title>
-<g id="a_edge48"><a xlink:title="runtime.newobject &#45;&gt; runtime.mallocgc (0.03s)">
-<path fill="none" stroke="#b2b1ac" d="M1322.06,-1339.8C1320.83,-1320.13 1321.97,-1288.08 1339,-1268 1355.75,-1248.26 1381.58,-1237.16 1405.89,-1230.93"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1406.88,-1234.29 1415.83,-1228.62 1405.29,-1227.47 1406.88,-1234.29"/>
-</a>
-</g>
-<g id="a_edge48&#45;label"><a xlink:title="runtime.newobject &#45;&gt; runtime.mallocgc (0.03s)">
-<text text-anchor="middle" x="1361" y="-1279.3" font-family="Times,serif" font-size="14.00"> 0.03s</text>
-</a>
-</g>
-</g>
-<!-- N42&#45;&gt;N28 -->
-<g id="edge2" class="edge">
-<title>N42&#45;&gt;N28</title>
-<g id="a_edge2"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (4.09s)">
-<path fill="none" stroke="#b20800" stroke-width="5" d="M1022,-2292.94C1022,-2281.58 1022,-2266.22 1022,-2252.3"/>
-<polygon fill="#b20800" stroke="#b20800" stroke-width="5" points="1026.38,-2252.01 1022,-2242.01 1017.63,-2252.01 1026.38,-2252.01"/>
-</a>
-</g>
-<g id="a_edge2&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (4.09s)">
-<text text-anchor="middle" x="1044" y="-2263.8" font-family="Times,serif" font-size="14.00"> 4.09s</text>
+<g id="a_edge21&#45;label"><a xlink:title="runtime.scanobject &#45;&gt; runtime.findObject (0.22s)">
+<text text-anchor="middle" x="793" y="-215.8" font-family="Times,serif" font-size="14.00"> 0.22s</text>
 </a>
 </g>
 </g>
 <!-- N45 -->
 <g id="node45" class="node">
 <title>N45</title>
-<g id="a_node45"><a xlink:title="github.com/RoaringBitmap/roaring.intersection2by2 (0.56s)">
-<polygon fill="#ede5df" stroke="#b27c4b" points="649.5,-1525 554.5,-1525 554.5,-1489 649.5,-1489 649.5,-1525"/>
-<text text-anchor="middle" x="602" y="-1514.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="602" y="-1505.1" font-family="Times,serif" font-size="8.00">intersection2by2</text>
-<text text-anchor="middle" x="602" y="-1496.1" font-family="Times,serif" font-size="8.00">0 of 0.56s (11.55%)</text>
+<g id="a_node45"><a xlink:title="runtime.greyobject (0.04s)">
+<polygon fill="#edecec" stroke="#b2b0ab" points="948.5,-174 859.5,-174 859.5,-138 948.5,-138 948.5,-174"/>
+<text text-anchor="middle" x="904" y="-163.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="904" y="-154.1" font-family="Times,serif" font-size="8.00">greyobject</text>
+<text text-anchor="middle" x="904" y="-145.1" font-family="Times,serif" font-size="8.00">0 of 0.04s (0.79%)</text>
 </a>
 </g>
 </g>
-<!-- N43&#45;&gt;N45 -->
-<g id="edge16" class="edge">
-<title>N43&#45;&gt;N45</title>
-<g id="a_edge16"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray &#45;&gt; github.com/RoaringBitmap/roaring.intersection2by2 (0.56s)">
-<path fill="none" stroke="#b27c4b" d="M603.76,-1665.76C603.4,-1633.28 602.71,-1571.28 602.31,-1535.43"/>
-<polygon fill="#b27c4b" stroke="#b27c4b" points="605.8,-1535.17 602.19,-1525.21 598.8,-1535.25 605.8,-1535.17"/>
+<!-- N8&#45;&gt;N45 -->
+<g id="edge39" class="edge">
+<title>N8&#45;&gt;N45</title>
+<g id="a_edge39"><a xlink:title="runtime.scanobject &#45;&gt; runtime.greyobject (0.04s)">
+<path fill="none" stroke="#b2b0ab" d="M811.99,-244.86C833.63,-224.2 859.51,-199.48 878.31,-181.53"/>
+<polygon fill="#b2b0ab" stroke="#b2b0ab" points="881.08,-183.72 885.9,-174.29 876.25,-178.66 881.08,-183.72"/>
 </a>
 </g>
-<g id="a_edge16&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray &#45;&gt; github.com/RoaringBitmap/roaring.intersection2by2 (0.56s)">
-<text text-anchor="middle" x="626" y="-1592.3" font-family="Times,serif" font-size="14.00"> 0.56s</text>
-</a>
-</g>
-</g>
-<!-- N44&#45;&gt;N3 -->
-<g id="edge5" class="edge">
-<title>N44&#45;&gt;N3</title>
-<g id="a_edge5"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (1.97s)">
-<path fill="none" stroke="#b22a00" stroke-width="3" d="M1022,-1824.83C1022,-1797.95 1022,-1751.35 1022,-1720.35"/>
-<polygon fill="#b22a00" stroke="#b22a00" stroke-width="3" points="1025.5,-1720.09 1022,-1710.09 1018.5,-1720.09 1025.5,-1720.09"/>
-</a>
-</g>
-<g id="a_edge5&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (1.97s)">
-<text text-anchor="middle" x="1044" y="-1776.3" font-family="Times,serif" font-size="14.00"> 1.97s</text>
+<g id="a_edge39&#45;label"><a xlink:title="runtime.scanobject &#45;&gt; runtime.greyobject (0.04s)">
+<text text-anchor="middle" x="868" y="-215.8" font-family="Times,serif" font-size="14.00"> 0.04s</text>
 </a>
 </g>
 </g>
-<!-- N45&#45;&gt;N8 -->
+<!-- N9 -->
+<g id="node9" class="node">
+<title>N9</title>
+<g id="a_node9"><a xlink:title="github.com/RoaringBitmap/roaring.localintersect2by2 (0.48s)">
+<polygon fill="#ede7e1" stroke="#b2885d" points="932,-1334 748,-1334 748,-1266 932,-1266 932,-1334"/>
+<text text-anchor="middle" x="840" y="-1315.6" font-family="Times,serif" font-size="18.00">roaring</text>
+<text text-anchor="middle" x="840" y="-1295.6" font-family="Times,serif" font-size="18.00">localintersect2by2</text>
+<text text-anchor="middle" x="840" y="-1275.6" font-family="Times,serif" font-size="18.00">0.48s (9.52%)</text>
+</a>
+</g>
+</g>
+<!-- N10 -->
+<g id="node10" class="node">
+<title>N10</title>
+<g id="a_node10"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSliceGo (0.42s)">
+<polygon fill="#ede8e3" stroke="#b28f68" points="1282.5,-1340 1113.5,-1340 1113.5,-1260 1282.5,-1260 1282.5,-1340"/>
+<text text-anchor="middle" x="1198" y="-1323.2" font-family="Times,serif" font-size="16.00">roaring</text>
+<text text-anchor="middle" x="1198" y="-1305.2" font-family="Times,serif" font-size="16.00">popcntAndSliceGo</text>
+<text text-anchor="middle" x="1198" y="-1287.2" font-family="Times,serif" font-size="16.00">0.33s (6.55%)</text>
+<text text-anchor="middle" x="1198" y="-1269.2" font-family="Times,serif" font-size="16.00">of 0.42s (8.33%)</text>
+</a>
+</g>
+</g>
+<!-- N10&#45;&gt;N13 -->
+<g id="edge32" class="edge">
+<title>N10&#45;&gt;N13</title>
+<g id="a_edge32"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSliceGo &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.09s)">
+<path fill="none" stroke="#b2ada2" d="M1161.4,-1259.72C1147.94,-1245.26 1132.84,-1229.05 1119.92,-1215.19"/>
+<polygon fill="#b2ada2" stroke="#b2ada2" points="1122.37,-1212.69 1113,-1207.76 1117.25,-1217.46 1122.37,-1212.69"/>
+</a>
+</g>
+<g id="a_edge32&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSliceGo &#45;&gt; github.com/RoaringBitmap/roaring.popcount (0.09s)">
+<text text-anchor="middle" x="1165" y="-1230.8" font-family="Times,serif" font-size="14.00"> 0.09s</text>
+</a>
+</g>
+</g>
+<!-- N11 -->
+<g id="node11" class="node">
+<title>N11</title>
+<g id="a_node11"><a xlink:title="runtime.gcBgMarkWorker (0.64s)">
+<polygon fill="#ede5de" stroke="#b27541" points="818.5,-718 723.5,-718 723.5,-682 818.5,-682 818.5,-718"/>
+<text text-anchor="middle" x="771" y="-707.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="771" y="-698.1" font-family="Times,serif" font-size="8.00">gcBgMarkWorker</text>
+<text text-anchor="middle" x="771" y="-689.1" font-family="Times,serif" font-size="8.00">0 of 0.64s (12.70%)</text>
+</a>
+</g>
+</g>
+<!-- N18 -->
+<g id="node18" class="node">
+<title>N18</title>
+<g id="a_node18"><a xlink:title="runtime.systemstack (0.68s)">
+<polygon fill="#ede4dd" stroke="#b2703a" points="822.5,-626.5 719.5,-626.5 719.5,-574.5 822.5,-574.5 822.5,-626.5"/>
+<text text-anchor="middle" x="771" y="-614.5" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="771" y="-603.5" font-family="Times,serif" font-size="10.00">systemstack</text>
+<text text-anchor="middle" x="771" y="-592.5" font-family="Times,serif" font-size="10.00">0.01s (0.2%)</text>
+<text text-anchor="middle" x="771" y="-581.5" font-family="Times,serif" font-size="10.00">of 0.68s (13.49%)</text>
+</a>
+</g>
+</g>
+<!-- N11&#45;&gt;N18 -->
+<g id="edge12" class="edge">
+<title>N11&#45;&gt;N18</title>
+<g id="a_edge12"><a xlink:title="runtime.gcBgMarkWorker &#45;&gt; runtime.systemstack (0.64s)">
+<path fill="none" stroke="#b27541" d="M771,-681.57C771,-669.2 771,-652.16 771,-636.98"/>
+<polygon fill="#b27541" stroke="#b27541" points="774.5,-636.84 771,-626.84 767.5,-636.84 774.5,-636.84"/>
+</a>
+</g>
+<g id="a_edge12&#45;label"><a xlink:title="runtime.gcBgMarkWorker &#45;&gt; runtime.systemstack (0.64s)">
+<text text-anchor="middle" x="793" y="-648.8" font-family="Times,serif" font-size="14.00"> 0.64s</text>
+</a>
+</g>
+</g>
+<!-- N12&#45;&gt;N6 -->
+<g id="edge8" class="edge">
+<title>N12&#45;&gt;N6</title>
+<g id="a_edge8"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iand (1.88s)">
+<path fill="none" stroke="#b22d00" stroke-width="2" d="M905,-1881.76C905,-1862.09 905,-1836.66 905,-1816.87"/>
+<polygon fill="#b22d00" stroke="#b22d00" stroke-width="2" points="908.5,-1816.82 905,-1806.82 901.5,-1816.82 908.5,-1816.82"/>
+</a>
+</g>
+<g id="a_edge8&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iand (1.88s)">
+<text text-anchor="middle" x="927" y="-1845.3" font-family="Times,serif" font-size="14.00"> 1.88s</text>
+</a>
+</g>
+</g>
+<!-- N27 -->
+<g id="node27" class="node">
+<title>N27</title>
+<g id="a_node27"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).getKeyAtIndex (0.03s)">
+<polygon fill="#edecec" stroke="#b2b1ad" points="839,-1812.5 735,-1812.5 735,-1756.5 839,-1756.5 839,-1812.5"/>
+<text text-anchor="middle" x="787" y="-1799.7" font-family="Times,serif" font-size="11.00">roaring</text>
+<text text-anchor="middle" x="787" y="-1787.7" font-family="Times,serif" font-size="11.00">(*roaringArray)</text>
+<text text-anchor="middle" x="787" y="-1775.7" font-family="Times,serif" font-size="11.00">getKeyAtIndex</text>
+<text text-anchor="middle" x="787" y="-1763.7" font-family="Times,serif" font-size="11.00">0.03s (0.6%)</text>
+</a>
+</g>
+</g>
+<!-- N12&#45;&gt;N27 -->
+<g id="edge43" class="edge">
+<title>N12&#45;&gt;N27</title>
+<g id="a_edge43"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).getKeyAtIndex (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M865.12,-1881.92C858.49,-1876.23 851.87,-1870.13 846,-1864 833.4,-1850.84 821.05,-1835 810.92,-1821"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="813.57,-1818.68 804.92,-1812.56 807.87,-1822.74 813.57,-1818.68"/>
+</a>
+</g>
+<g id="a_edge43&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).getKeyAtIndex (0.03s)">
+<text text-anchor="middle" x="873.5" y="-1852.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
+<text text-anchor="middle" x="873.5" y="-1837.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N33 -->
+<g id="node33" class="node">
+<title>N33</title>
+<g id="a_node33"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).replaceKeyAndContainerAtIndex (0.03s)">
+<polygon fill="#edecec" stroke="#b2b1ad" points="668.5,-1816 483.5,-1816 483.5,-1753 668.5,-1753 668.5,-1816"/>
+<text text-anchor="middle" x="576" y="-1804" font-family="Times,serif" font-size="10.00">roaring</text>
+<text text-anchor="middle" x="576" y="-1793" font-family="Times,serif" font-size="10.00">(*roaringArray)</text>
+<text text-anchor="middle" x="576" y="-1782" font-family="Times,serif" font-size="10.00">replaceKeyAndContainerAtIndex</text>
+<text text-anchor="middle" x="576" y="-1771" font-family="Times,serif" font-size="10.00">0.02s (0.4%)</text>
+<text text-anchor="middle" x="576" y="-1760" font-family="Times,serif" font-size="10.00">of 0.03s (0.6%)</text>
+</a>
+</g>
+</g>
+<!-- N12&#45;&gt;N33 -->
+<g id="edge44" class="edge">
+<title>N12&#45;&gt;N33</title>
+<g id="a_edge44"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).replaceKeyAndContainerAtIndex (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M853.43,-1895.83C826.35,-1886.84 792.71,-1875.29 763,-1864 727.35,-1850.45 688.4,-1834.31 655.31,-1820.2"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="656.27,-1816.81 645.7,-1816.09 653.51,-1823.24 656.27,-1816.81"/>
+</a>
+</g>
+<g id="a_edge44&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).replaceKeyAndContainerAtIndex (0.03s)">
+<text text-anchor="middle" x="790.5" y="-1852.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
+<text text-anchor="middle" x="790.5" y="-1837.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N14 -->
+<g id="node14" class="node">
+<title>N14</title>
+<g id="a_node14"><a xlink:title="runtime.mallocgc (0.26s)">
+<polygon fill="#edeae7" stroke="#b29f84" points="1452,-1209 1344,-1209 1344,-1153 1452,-1153 1452,-1209"/>
+<text text-anchor="middle" x="1398" y="-1196.2" font-family="Times,serif" font-size="11.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-1184.2" font-family="Times,serif" font-size="11.00">mallocgc</text>
+<text text-anchor="middle" x="1398" y="-1172.2" font-family="Times,serif" font-size="11.00">0.03s (0.6%)</text>
+<text text-anchor="middle" x="1398" y="-1160.2" font-family="Times,serif" font-size="11.00">of 0.26s (5.16%)</text>
+</a>
+</g>
+</g>
+<!-- N41 -->
+<g id="node41" class="node">
+<title>N41</title>
+<g id="a_node41"><a xlink:title="runtime.(*mcache).nextFree (0.19s)">
+<polygon fill="#edebe8" stroke="#b2a590" points="1442.5,-1102 1353.5,-1102 1353.5,-1058 1442.5,-1058 1442.5,-1102"/>
+<text text-anchor="middle" x="1398" y="-1091.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-1082.6" font-family="Times,serif" font-size="8.00">(*mcache)</text>
+<text text-anchor="middle" x="1398" y="-1073.6" font-family="Times,serif" font-size="8.00">nextFree</text>
+<text text-anchor="middle" x="1398" y="-1064.6" font-family="Times,serif" font-size="8.00">0 of 0.19s (3.77%)</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;N41 -->
+<g id="edge26" class="edge">
+<title>N14&#45;&gt;N41</title>
+<g id="a_edge26"><a xlink:title="runtime.mallocgc &#45;&gt; runtime.(*mcache).nextFree (0.19s)">
+<path fill="none" stroke="#b2a590" d="M1398,-1152.95C1398,-1140.42 1398,-1125.47 1398,-1112.45"/>
+<polygon fill="#b2a590" stroke="#b2a590" points="1401.5,-1112.06 1398,-1102.06 1394.5,-1112.06 1401.5,-1112.06"/>
+</a>
+</g>
+<g id="a_edge26&#45;label"><a xlink:title="runtime.mallocgc &#45;&gt; runtime.(*mcache).nextFree (0.19s)">
+<text text-anchor="middle" x="1420" y="-1123.8" font-family="Times,serif" font-size="14.00"> 0.19s</text>
+</a>
+</g>
+</g>
+<!-- N32 -->
+<g id="node32" class="node">
+<title>N32</title>
+<g id="a_node32"><a xlink:title="runtime.spanOf (0.03s)">
+<polygon fill="#edecec" stroke="#b2b1ad" points="816.5,-52 725.5,-52 725.5,0 816.5,0 816.5,-52"/>
+<text text-anchor="middle" x="771" y="-40" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="771" y="-29" font-family="Times,serif" font-size="10.00">spanOf</text>
+<text text-anchor="middle" x="771" y="-18" font-family="Times,serif" font-size="10.00">0.02s (0.4%)</text>
+<text text-anchor="middle" x="771" y="-7" font-family="Times,serif" font-size="10.00">of 0.03s (0.6%)</text>
+</a>
+</g>
+</g>
+<!-- N15&#45;&gt;N32 -->
+<g id="edge45" class="edge">
+<title>N15&#45;&gt;N32</title>
+<g id="a_edge45"><a xlink:title="runtime.findObject &#45;&gt; runtime.spanOf (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M771,-117.98C771,-100.49 771,-79.71 771,-62.43"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="774.5,-62.19 771,-52.19 767.5,-62.19 774.5,-62.19"/>
+</a>
+</g>
+<g id="a_edge45&#45;label"><a xlink:title="runtime.findObject &#45;&gt; runtime.spanOf (0.03s)">
+<text text-anchor="middle" x="798.5" y="-88.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
+<text text-anchor="middle" x="798.5" y="-73.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N38 -->
+<g id="node38" class="node">
+<title>N38</title>
+<g id="a_node38"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and (2.13s)">
+<polygon fill="#eddad5" stroke="#b22800" points="1069.5,-1806.5 974.5,-1806.5 974.5,-1762.5 1069.5,-1762.5 1069.5,-1806.5"/>
+<text text-anchor="middle" x="1022" y="-1796.1" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="1022" y="-1787.1" font-family="Times,serif" font-size="8.00">(*bitmapContainer)</text>
+<text text-anchor="middle" x="1022" y="-1778.1" font-family="Times,serif" font-size="8.00">and</text>
+<text text-anchor="middle" x="1022" y="-1769.1" font-family="Times,serif" font-size="8.00">0 of 2.13s (42.26%)</text>
+</a>
+</g>
+</g>
+<!-- N16&#45;&gt;N38 -->
+<g id="edge6" class="edge">
+<title>N16&#45;&gt;N38</title>
+<g id="a_edge6"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).and (2.13s)">
+<path fill="none" stroke="#b22800" stroke-width="3" d="M1022,-1895.37C1022,-1875.23 1022,-1841.4 1022,-1816.59"/>
+<polygon fill="#b22800" stroke="#b22800" stroke-width="3" points="1025.5,-1816.57 1022,-1806.57 1018.5,-1816.57 1025.5,-1816.57"/>
+</a>
+</g>
+<g id="a_edge6&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).and (2.13s)">
+<text text-anchor="middle" x="1044" y="-1845.3" font-family="Times,serif" font-size="14.00"> 2.13s</text>
+</a>
+</g>
+</g>
+<!-- N39 -->
+<g id="node39" class="node">
+<title>N39</title>
+<g id="a_node39"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer (0.04s)">
+<polygon fill="#edecec" stroke="#b2b0ab" points="1192.5,-1806.5 1103.5,-1806.5 1103.5,-1762.5 1192.5,-1762.5 1192.5,-1806.5"/>
+<text text-anchor="middle" x="1148" y="-1796.1" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="1148" y="-1787.1" font-family="Times,serif" font-size="8.00">(*roaringArray)</text>
+<text text-anchor="middle" x="1148" y="-1778.1" font-family="Times,serif" font-size="8.00">appendContainer</text>
+<text text-anchor="middle" x="1148" y="-1769.1" font-family="Times,serif" font-size="8.00">0 of 0.04s (0.79%)</text>
+</a>
+</g>
+</g>
+<!-- N16&#45;&gt;N39 -->
+<g id="edge37" class="edge">
+<title>N16&#45;&gt;N39</title>
+<g id="a_edge37"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer (0.04s)">
+<path fill="none" stroke="#b2b0ab" d="M1038.99,-1895.37C1059.69,-1874.51 1094.96,-1838.97 1119.76,-1813.97"/>
+<polygon fill="#b2b0ab" stroke="#b2b0ab" points="1122.53,-1816.14 1127.09,-1806.57 1117.56,-1811.21 1122.53,-1816.14"/>
+</a>
+</g>
+<g id="a_edge37&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer (0.04s)">
+<text text-anchor="middle" x="1123.5" y="-1852.8" font-family="Times,serif" font-size="14.00"> 0.04s</text>
+<text text-anchor="middle" x="1123.5" y="-1837.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N17 -->
+<g id="node17" class="node">
+<title>N17</title>
+<g id="a_node17"><a xlink:title="runtime.memclrNoHeapPointers (0.16s)">
+<polygon fill="#edebe9" stroke="#b2a896" points="1492,-627 1304,-627 1304,-574 1492,-574 1492,-627"/>
+<text text-anchor="middle" x="1398" y="-611.8" font-family="Times,serif" font-size="14.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-596.8" font-family="Times,serif" font-size="14.00">memclrNoHeapPointers</text>
+<text text-anchor="middle" x="1398" y="-581.8" font-family="Times,serif" font-size="14.00">0.16s (3.17%)</text>
+</a>
+</g>
+</g>
+<!-- N44 -->
+<g id="node44" class="node">
+<title>N44</title>
+<g id="a_node44"><a xlink:title="runtime.gcBgMarkWorker.func2 (0.64s)">
+<polygon fill="#ede5de" stroke="#b27541" points="818.5,-523 723.5,-523 723.5,-479 818.5,-479 818.5,-523"/>
+<text text-anchor="middle" x="771" y="-512.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="771" y="-503.6" font-family="Times,serif" font-size="8.00">gcBgMarkWorker</text>
+<text text-anchor="middle" x="771" y="-494.6" font-family="Times,serif" font-size="8.00">func2</text>
+<text text-anchor="middle" x="771" y="-485.6" font-family="Times,serif" font-size="8.00">0 of 0.64s (12.70%)</text>
+</a>
+</g>
+</g>
+<!-- N18&#45;&gt;N44 -->
+<g id="edge14" class="edge">
+<title>N18&#45;&gt;N44</title>
+<g id="a_edge14"><a xlink:title="runtime.systemstack &#45;&gt; runtime.gcBgMarkWorker.func2 (0.64s)">
+<path fill="none" stroke="#b27541" d="M771,-574.39C771,-561.84 771,-546.52 771,-533.22"/>
+<polygon fill="#b27541" stroke="#b27541" points="774.5,-533.07 771,-523.07 767.5,-533.07 774.5,-533.07"/>
+</a>
+</g>
+<g id="a_edge14&#45;label"><a xlink:title="runtime.systemstack &#45;&gt; runtime.gcBgMarkWorker.func2 (0.64s)">
+<text text-anchor="middle" x="793" y="-544.8" font-family="Times,serif" font-size="14.00"> 0.64s</text>
+</a>
+</g>
+</g>
+<!-- N19 -->
+<g id="node19" class="node">
+<title>N19</title>
+<g id="a_node19"><a xlink:title="runtime.mapaccess2_faststr (0.07s)">
+<polygon fill="#edeceb" stroke="#b2afa6" points="1397.5,-1808 1262.5,-1808 1262.5,-1761 1397.5,-1761 1397.5,-1808"/>
+<text text-anchor="middle" x="1330" y="-1794.4" font-family="Times,serif" font-size="12.00">runtime</text>
+<text text-anchor="middle" x="1330" y="-1781.4" font-family="Times,serif" font-size="12.00">mapaccess2_faststr</text>
+<text text-anchor="middle" x="1330" y="-1768.4" font-family="Times,serif" font-size="12.00">0.07s (1.39%)</text>
+</a>
+</g>
+</g>
+<!-- N20&#45;&gt;N14 -->
+<g id="edge22" class="edge">
+<title>N20&#45;&gt;N14</title>
+<g id="a_edge22"><a xlink:title="runtime.makeslice &#45;&gt; runtime.mallocgc (0.21s)">
+<path fill="none" stroke="#b2a48d" d="M1398,-1273.9C1398,-1257.96 1398,-1237.04 1398,-1219.19"/>
+<polygon fill="#b2a48d" stroke="#b2a48d" points="1401.5,-1219.1 1398,-1209.1 1394.5,-1219.1 1401.5,-1219.1"/>
+</a>
+</g>
+<g id="a_edge22&#45;label"><a xlink:title="runtime.makeslice &#45;&gt; runtime.mallocgc (0.21s)">
+<text text-anchor="middle" x="1420" y="-1230.8" font-family="Times,serif" font-size="14.00"> 0.21s</text>
+</a>
+</g>
+</g>
+<!-- N21 -->
+<g id="node21" class="node">
+<title>N21</title>
+<g id="a_node21"><a xlink:title="runtime.gcDrain (0.64s)">
+<polygon fill="#ede5de" stroke="#b27541" points="822.5,-428 719.5,-428 719.5,-376 822.5,-376 822.5,-428"/>
+<text text-anchor="middle" x="771" y="-416" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="771" y="-405" font-family="Times,serif" font-size="10.00">gcDrain</text>
+<text text-anchor="middle" x="771" y="-394" font-family="Times,serif" font-size="10.00">0.02s (0.4%)</text>
+<text text-anchor="middle" x="771" y="-383" font-family="Times,serif" font-size="10.00">of 0.64s (12.70%)</text>
+</a>
+</g>
+</g>
+<!-- N21&#45;&gt;N8 -->
+<g id="edge15" class="edge">
+<title>N21&#45;&gt;N8</title>
+<g id="a_edge15"><a xlink:title="runtime.gcDrain &#45;&gt; runtime.scanobject (0.60s)">
+<path fill="none" stroke="#b27a48" d="M771,-375.76C771,-363.85 771,-349.19 771,-335.21"/>
+<polygon fill="#b27a48" stroke="#b27a48" points="774.5,-335.19 771,-325.19 767.5,-335.19 774.5,-335.19"/>
+</a>
+</g>
+<g id="a_edge15&#45;label"><a xlink:title="runtime.gcDrain &#45;&gt; runtime.scanobject (0.60s)">
+<text text-anchor="middle" x="793" y="-346.8" font-family="Times,serif" font-size="14.00"> 0.60s</text>
+</a>
+</g>
+</g>
+<!-- N22 -->
+<g id="node22" class="node">
+<title>N22</title>
+<g id="a_node22"><a xlink:title="runtime.(*mheap).alloc (0.17s)">
+<polygon fill="#edebe9" stroke="#b2a794" points="1442.5,-722 1353.5,-722 1353.5,-678 1442.5,-678 1442.5,-722"/>
+<text text-anchor="middle" x="1398" y="-711.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-702.6" font-family="Times,serif" font-size="8.00">(*mheap)</text>
+<text text-anchor="middle" x="1398" y="-693.6" font-family="Times,serif" font-size="8.00">alloc</text>
+<text text-anchor="middle" x="1398" y="-684.6" font-family="Times,serif" font-size="8.00">0 of 0.17s (3.37%)</text>
+</a>
+</g>
+</g>
+<!-- N22&#45;&gt;N17 -->
+<g id="edge30" class="edge">
+<title>N22&#45;&gt;N17</title>
+<g id="a_edge30"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.memclrNoHeapPointers (0.15s)">
+<path fill="none" stroke="#b2a997" d="M1398,-677.84C1398,-665.97 1398,-650.85 1398,-637.19"/>
+<polygon fill="#b2a997" stroke="#b2a997" points="1401.5,-637.12 1398,-627.12 1394.5,-637.12 1401.5,-637.12"/>
+</a>
+</g>
+<g id="a_edge30&#45;label"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.memclrNoHeapPointers (0.15s)">
+<text text-anchor="middle" x="1420" y="-648.8" font-family="Times,serif" font-size="14.00"> 0.15s</text>
+</a>
+</g>
+</g>
+<!-- N22&#45;&gt;N18 -->
+<g id="edge47" class="edge">
+<title>N22&#45;&gt;N18</title>
+<g id="a_edge47"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.systemstack (0.02s)">
+<path fill="none" stroke="#b2b1ae" d="M1353.41,-692.07C1243.36,-674.95 958.65,-630.68 832.61,-611.08"/>
+<polygon fill="#b2b1ae" stroke="#b2b1ae" points="833.14,-607.62 822.72,-609.54 832.07,-614.54 833.14,-607.62"/>
+</a>
+</g>
+<g id="a_edge47&#45;label"><a xlink:title="runtime.(*mheap).alloc &#45;&gt; runtime.systemstack (0.02s)">
+<text text-anchor="middle" x="1162" y="-648.8" font-family="Times,serif" font-size="14.00"> 0.02s</text>
+</a>
+</g>
+</g>
+<!-- N23 -->
+<g id="node23" class="node">
+<title>N23</title>
+<g id="a_node23"><a xlink:title="github.com/RoaringBitmap/roaring.intersection2by2 (0.49s)">
+<polygon fill="#ede7e1" stroke="#b2875b" points="890.5,-1473 789.5,-1473 789.5,-1421 890.5,-1421 890.5,-1473"/>
+<text text-anchor="middle" x="840" y="-1461" font-family="Times,serif" font-size="10.00">roaring</text>
+<text text-anchor="middle" x="840" y="-1450" font-family="Times,serif" font-size="10.00">intersection2by2</text>
+<text text-anchor="middle" x="840" y="-1439" font-family="Times,serif" font-size="10.00">0.01s (0.2%)</text>
+<text text-anchor="middle" x="840" y="-1428" font-family="Times,serif" font-size="10.00">of 0.49s (9.72%)</text>
+</a>
+</g>
+</g>
+<!-- N23&#45;&gt;N9 -->
+<g id="edge18" class="edge">
+<title>N23&#45;&gt;N9</title>
+<g id="a_edge18"><a xlink:title="github.com/RoaringBitmap/roaring.intersection2by2 &#45;&gt; github.com/RoaringBitmap/roaring.localintersect2by2 (0.48s)">
+<path fill="none" stroke="#b2885d" d="M840,-1420.74C840,-1399.73 840,-1369.33 840,-1344.42"/>
+<polygon fill="#b2885d" stroke="#b2885d" points="843.5,-1344.13 840,-1334.13 836.5,-1344.13 843.5,-1344.13"/>
+</a>
+</g>
+<g id="a_edge18&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.intersection2by2 &#45;&gt; github.com/RoaringBitmap/roaring.localintersect2by2 (0.48s)">
+<text text-anchor="middle" x="862" y="-1361.8" font-family="Times,serif" font-size="14.00"> 0.48s</text>
+</a>
+</g>
+</g>
+<!-- N24 -->
+<g id="node24" class="node">
+<title>N24</title>
+<g id="a_node24"><a xlink:title="runtime.sweepone (0.05s)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1238,-2234 1130,-2234 1130,-2178 1238,-2178 1238,-2234"/>
+<text text-anchor="middle" x="1184" y="-2221.2" font-family="Times,serif" font-size="11.00">runtime</text>
+<text text-anchor="middle" x="1184" y="-2209.2" font-family="Times,serif" font-size="11.00">sweepone</text>
+<text text-anchor="middle" x="1184" y="-2197.2" font-family="Times,serif" font-size="11.00">0.03s (0.6%)</text>
+<text text-anchor="middle" x="1184" y="-2185.2" font-family="Times,serif" font-size="11.00">of 0.05s (0.99%)</text>
+</a>
+</g>
+</g>
+<!-- N25&#45;&gt;N19 -->
+<g id="edge35" class="edge">
+<title>N25&#45;&gt;N19</title>
+<g id="a_edge35"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue &#45;&gt; runtime.mapaccess2_faststr (0.04s)">
+<path fill="none" stroke="#b2b0ab" d="M1254.21,-1881.76C1269.79,-1861.97 1289.96,-1836.35 1305.58,-1816.51"/>
+<polygon fill="#b2b0ab" stroke="#b2b0ab" points="1308.53,-1818.42 1311.97,-1808.4 1303.03,-1814.09 1308.53,-1818.42"/>
+</a>
+</g>
+<g id="a_edge35&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByCharValue &#45;&gt; runtime.mapaccess2_faststr (0.04s)">
+<text text-anchor="middle" x="1310" y="-1845.3" font-family="Times,serif" font-size="14.00"> 0.04s</text>
+</a>
+</g>
+</g>
+<!-- N26&#45;&gt;N20 -->
+<g id="edge24" class="edge">
+<title>N26&#45;&gt;N20</title>
+<g id="a_edge24"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize &#45;&gt; runtime.makeslice (0.19s)">
+<path fill="none" stroke="#b2a590" d="M1345.32,-1420.96C1353.91,-1407.15 1364.24,-1389.51 1372,-1373 1377.57,-1361.16 1382.7,-1347.78 1386.9,-1335.8"/>
+<polygon fill="#b2a590" stroke="#b2a590" points="1390.29,-1336.71 1390.21,-1326.12 1383.66,-1334.45 1390.29,-1336.71"/>
+</a>
+</g>
+<g id="a_edge24&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize &#45;&gt; runtime.makeslice (0.19s)">
+<text text-anchor="middle" x="1399" y="-1361.8" font-family="Times,serif" font-size="14.00"> 0.19s</text>
+</a>
+</g>
+</g>
+<!-- N28 -->
+<g id="node28" class="node">
+<title>N28</title>
+<g id="a_node28"><a xlink:title="runtime.mcall (0.03s)">
+<polygon fill="#edecec" stroke="#b2b1ad" points="1330,-2379.5 1246,-2379.5 1246,-2343.5 1330,-2343.5 1330,-2379.5"/>
+<text text-anchor="middle" x="1288" y="-2368.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1288" y="-2359.6" font-family="Times,serif" font-size="8.00">mcall</text>
+<text text-anchor="middle" x="1288" y="-2350.6" font-family="Times,serif" font-size="8.00">0 of 0.03s (0.6%)</text>
+</a>
+</g>
+</g>
+<!-- N29 -->
+<g id="node29" class="node">
+<title>N29</title>
+<g id="a_node29"><a xlink:title="runtime.pageIndexOf (0.03s)">
+<polygon fill="#edecec" stroke="#b2b1ad" points="947.5,-48 860.5,-48 860.5,-4 947.5,-4 947.5,-48"/>
+<text text-anchor="middle" x="904" y="-35.2" font-family="Times,serif" font-size="11.00">runtime</text>
+<text text-anchor="middle" x="904" y="-23.2" font-family="Times,serif" font-size="11.00">pageIndexOf</text>
+<text text-anchor="middle" x="904" y="-11.2" font-family="Times,serif" font-size="11.00">0.03s (0.6%)</text>
+</a>
+</g>
+</g>
+<!-- N30 -->
+<g id="node30" class="node">
+<title>N30</title>
+<g id="a_node30"><a xlink:title="runtime.(*mcentral).grow (0.18s)">
+<polygon fill="#edebe8" stroke="#b2a692" points="1442.5,-817 1353.5,-817 1353.5,-773 1442.5,-773 1442.5,-817"/>
+<text text-anchor="middle" x="1398" y="-806.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-797.6" font-family="Times,serif" font-size="8.00">(*mcentral)</text>
+<text text-anchor="middle" x="1398" y="-788.6" font-family="Times,serif" font-size="8.00">grow</text>
+<text text-anchor="middle" x="1398" y="-779.6" font-family="Times,serif" font-size="8.00">0 of 0.18s (3.57%)</text>
+</a>
+</g>
+</g>
+<!-- N30&#45;&gt;N22 -->
+<g id="edge29" class="edge">
+<title>N30&#45;&gt;N22</title>
+<g id="a_edge29"><a xlink:title="runtime.(*mcentral).grow &#45;&gt; runtime.(*mheap).alloc (0.17s)">
+<path fill="none" stroke="#b2a794" d="M1398,-772.9C1398,-760.89 1398,-745.62 1398,-732.24"/>
+<polygon fill="#b2a794" stroke="#b2a794" points="1401.5,-732.02 1398,-722.02 1394.5,-732.02 1401.5,-732.02"/>
+</a>
+</g>
+<g id="a_edge29&#45;label"><a xlink:title="runtime.(*mcentral).grow &#45;&gt; runtime.(*mheap).alloc (0.17s)">
+<text text-anchor="middle" x="1420" y="-743.8" font-family="Times,serif" font-size="14.00"> 0.17s</text>
+</a>
+</g>
+</g>
+<!-- N31 -->
+<g id="node31" class="node">
+<title>N31</title>
+<g id="a_node31"><a xlink:title="runtime.bgsweep (0.05s)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1228.5,-2379.5 1139.5,-2379.5 1139.5,-2343.5 1228.5,-2343.5 1228.5,-2379.5"/>
+<text text-anchor="middle" x="1184" y="-2368.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1184" y="-2359.6" font-family="Times,serif" font-size="8.00">bgsweep</text>
+<text text-anchor="middle" x="1184" y="-2350.6" font-family="Times,serif" font-size="8.00">0 of 0.05s (0.99%)</text>
+</a>
+</g>
+</g>
+<!-- N31&#45;&gt;N24 -->
+<g id="edge34" class="edge">
+<title>N31&#45;&gt;N24</title>
+<g id="a_edge34"><a xlink:title="runtime.bgsweep &#45;&gt; runtime.sweepone (0.05s)">
+<path fill="none" stroke="#b2b0a9" d="M1184,-2343.49C1184,-2319.71 1184,-2275.93 1184,-2244.35"/>
+<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1187.5,-2244.15 1184,-2234.15 1180.5,-2244.15 1187.5,-2244.15"/>
+</a>
+</g>
+<g id="a_edge34&#45;label"><a xlink:title="runtime.bgsweep &#45;&gt; runtime.sweepone (0.05s)">
+<text text-anchor="middle" x="1206" y="-2255.8" font-family="Times,serif" font-size="14.00"> 0.05s</text>
+</a>
+</g>
+</g>
+<!-- N33&#45;&gt;N18 -->
+<g id="edge48" class="edge">
+<title>N33&#45;&gt;N18</title>
+<g id="a_edge48"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).replaceKeyAndContainerAtIndex ... runtime.systemstack (0.01s)">
+<path fill="none" stroke="#b2b2b0" stroke-dasharray="1,5" d="M560.87,-1752.97C547.13,-1722.38 529,-1673.58 529,-1629 529,-1629 529,-1629 529,-699 529,-660.12 637.83,-629.54 709.53,-613.61"/>
+<polygon fill="#b2b2b0" stroke="#b2b2b0" points="710.36,-617.01 719.38,-611.46 708.87,-610.17 710.36,-617.01"/>
+</a>
+</g>
+<g id="a_edge48&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).replaceKeyAndContainerAtIndex ... runtime.systemstack (0.01s)">
+<text text-anchor="middle" x="551" y="-1076.3" font-family="Times,serif" font-size="14.00"> 0.01s</text>
+</a>
+</g>
+</g>
+<!-- N35 -->
+<g id="node35" class="node">
+<title>N35</title>
+<g id="a_node35"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (4.29s)">
+<polygon fill="#edd6d5" stroke="#b20800" points="1074,-2127 970,-2127 970,-2091 1074,-2091 1074,-2127"/>
+<text text-anchor="middle" x="1022" y="-2116.1" font-family="Times,serif" font-size="8.00">bitmap</text>
+<text text-anchor="middle" x="1022" y="-2107.1" font-family="Times,serif" font-size="8.00">findPrice3824Position</text>
+<text text-anchor="middle" x="1022" y="-2098.1" font-family="Times,serif" font-size="8.00">0 of 4.29s (85.12%)</text>
+</a>
+</g>
+</g>
+<!-- N34&#45;&gt;N35 -->
+<g id="edge2" class="edge">
+<title>N34&#45;&gt;N35</title>
+<g id="a_edge2"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (4.29s)">
+<path fill="none" stroke="#b20800" stroke-width="5" d="M1022,-2187.58C1022,-2173.65 1022,-2153.86 1022,-2137.76"/>
+<polygon fill="#b20800" stroke="#b20800" stroke-width="5" points="1026.38,-2137.31 1022,-2127.31 1017.63,-2137.31 1026.38,-2137.31"/>
+</a>
+</g>
+<g id="a_edge2&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (4.29s)">
+<text text-anchor="middle" x="1044" y="-2148.8" font-family="Times,serif" font-size="14.00"> 4.29s</text>
+</a>
+</g>
+</g>
+<!-- N35&#45;&gt;N1 -->
+<g id="edge3" class="edge">
+<title>N35&#45;&gt;N1</title>
+<g id="a_edge3"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (4.29s)">
+<path fill="none" stroke="#b20800" stroke-width="5" d="M1022,-2090.84C1022,-2079.44 1022,-2064.13 1022,-2050.58"/>
+<polygon fill="#b20800" stroke="#b20800" stroke-width="5" points="1026.38,-2050.19 1022,-2040.19 1017.63,-2050.19 1026.38,-2050.19"/>
+</a>
+</g>
+<g id="a_edge3&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (4.29s)">
+<text text-anchor="middle" x="1044" y="-2061.8" font-family="Times,serif" font-size="14.00"> 4.29s</text>
+</a>
+</g>
+</g>
+<!-- N36&#45;&gt;N19 -->
+<g id="edge42" class="edge">
+<title>N36&#45;&gt;N19</title>
+<g id="a_edge42"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByOffering &#45;&gt; runtime.mapaccess2_faststr (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M1364.97,-1891.24C1358.34,-1871.19 1348.31,-1840.85 1340.68,-1817.81"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1343.94,-1816.51 1337.48,-1808.11 1337.3,-1818.71 1343.94,-1816.51"/>
+</a>
+</g>
+<g id="a_edge42&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).findBitmapByOffering &#45;&gt; runtime.mapaccess2_faststr (0.03s)">
+<text text-anchor="middle" x="1376" y="-1845.3" font-family="Times,serif" font-size="14.00"> 0.03s</text>
+</a>
+</g>
+</g>
+<!-- N37&#45;&gt;N23 -->
 <g id="edge17" class="edge">
-<title>N45&#45;&gt;N8</title>
-<g id="a_edge17"><a xlink:title="github.com/RoaringBitmap/roaring.intersection2by2 &#45;&gt; github.com/RoaringBitmap/roaring.localintersect2by2 (0.56s)">
-<path fill="none" stroke="#b27c4b" d="M602,-1488.85C602,-1468.14 602,-1432.52 602,-1403.82"/>
-<polygon fill="#b27c4b" stroke="#b27c4b" points="605.5,-1403.6 602,-1393.6 598.5,-1403.6 605.5,-1403.6"/>
+<title>N37&#45;&gt;N23</title>
+<g id="a_edge17"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray &#45;&gt; github.com/RoaringBitmap/roaring.intersection2by2 (0.49s)">
+<path fill="none" stroke="#b2875b" d="M894.64,-1605.76C884.15,-1575.46 864.75,-1519.45 852.11,-1482.97"/>
+<polygon fill="#b2875b" stroke="#b2875b" points="855.32,-1481.54 848.74,-1473.23 848.71,-1483.83 855.32,-1481.54"/>
 </a>
 </g>
-<g id="a_edge17&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.intersection2by2 &#45;&gt; github.com/RoaringBitmap/roaring.localintersect2by2 (0.56s)">
-<text text-anchor="middle" x="624" y="-1421.8" font-family="Times,serif" font-size="14.00"> 0.56s</text>
+<g id="a_edge17&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iandArray &#45;&gt; github.com/RoaringBitmap/roaring.intersection2by2 (0.49s)">
+<text text-anchor="middle" x="897" y="-1532.3" font-family="Times,serif" font-size="14.00"> 0.49s</text>
+</a>
+</g>
+</g>
+<!-- N38&#45;&gt;N3 -->
+<g id="edge5" class="edge">
+<title>N38&#45;&gt;N3</title>
+<g id="a_edge5"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (2.13s)">
+<path fill="none" stroke="#b22800" stroke-width="3" d="M1022,-1762.34C1022,-1738.61 1022,-1699.56 1022,-1669.83"/>
+<polygon fill="#b22800" stroke="#b22800" stroke-width="3" points="1025.5,-1669.75 1022,-1659.75 1018.5,-1669.75 1025.5,-1669.75"/>
+</a>
+</g>
+<g id="a_edge5&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (2.13s)">
+<text text-anchor="middle" x="1044" y="-1716.3" font-family="Times,serif" font-size="14.00"> 2.13s</text>
+</a>
+</g>
+</g>
+<!-- N46 -->
+<g id="node46" class="node">
+<title>N46</title>
+<g id="a_node46"><a xlink:title="runtime.growslice (0.04s)">
+<polygon fill="#edecec" stroke="#b2b0ab" points="1307.5,-1646 1218.5,-1646 1218.5,-1610 1307.5,-1610 1307.5,-1646"/>
+<text text-anchor="middle" x="1263" y="-1635.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1263" y="-1626.1" font-family="Times,serif" font-size="8.00">growslice</text>
+<text text-anchor="middle" x="1263" y="-1617.1" font-family="Times,serif" font-size="8.00">0 of 0.04s (0.79%)</text>
+</a>
+</g>
+</g>
+<!-- N39&#45;&gt;N46 -->
+<g id="edge36" class="edge">
+<title>N39&#45;&gt;N46</title>
+<g id="a_edge36"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer &#45;&gt; runtime.growslice (0.04s)">
+<path fill="none" stroke="#b2b0ab" d="M1163.75,-1762.34C1184.69,-1734.21 1221.66,-1684.55 1244.08,-1654.41"/>
+<polygon fill="#b2b0ab" stroke="#b2b0ab" points="1247.11,-1656.21 1250.27,-1646.1 1241.49,-1652.03 1247.11,-1656.21"/>
+</a>
+</g>
+<g id="a_edge36&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer &#45;&gt; runtime.growslice (0.04s)">
+<text text-anchor="middle" x="1227" y="-1716.3" font-family="Times,serif" font-size="14.00"> 0.04s</text>
+</a>
+</g>
+</g>
+<!-- N40&#45;&gt;N10 -->
+<g id="edge20" class="edge">
+<title>N40&#45;&gt;N10</title>
+<g id="a_edge20"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSlice &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSliceGo (0.42s)">
+<path fill="none" stroke="#b28f68" d="M1198,-1428.8C1198,-1409.57 1198,-1377.58 1198,-1350.41"/>
+<polygon fill="#b28f68" stroke="#b28f68" points="1201.5,-1350.27 1198,-1340.27 1194.5,-1350.27 1201.5,-1350.27"/>
+</a>
+</g>
+<g id="a_edge20&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSlice &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSliceGo (0.42s)">
+<text text-anchor="middle" x="1220" y="-1361.8" font-family="Times,serif" font-size="14.00"> 0.42s</text>
+</a>
+</g>
+</g>
+<!-- N42 -->
+<g id="node42" class="node">
+<title>N42</title>
+<g id="a_node42"><a xlink:title="runtime.(*mcache).refill (0.19s)">
+<polygon fill="#edebe8" stroke="#b2a590" points="1442.5,-1007 1353.5,-1007 1353.5,-963 1442.5,-963 1442.5,-1007"/>
+<text text-anchor="middle" x="1398" y="-996.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-987.6" font-family="Times,serif" font-size="8.00">(*mcache)</text>
+<text text-anchor="middle" x="1398" y="-978.6" font-family="Times,serif" font-size="8.00">refill</text>
+<text text-anchor="middle" x="1398" y="-969.6" font-family="Times,serif" font-size="8.00">0 of 0.19s (3.77%)</text>
+</a>
+</g>
+</g>
+<!-- N41&#45;&gt;N42 -->
+<g id="edge25" class="edge">
+<title>N41&#45;&gt;N42</title>
+<g id="a_edge25"><a xlink:title="runtime.(*mcache).nextFree &#45;&gt; runtime.(*mcache).refill (0.19s)">
+<path fill="none" stroke="#b2a590" d="M1398,-1057.9C1398,-1045.89 1398,-1030.62 1398,-1017.24"/>
+<polygon fill="#b2a590" stroke="#b2a590" points="1401.5,-1017.02 1398,-1007.02 1394.5,-1017.02 1401.5,-1017.02"/>
+</a>
+</g>
+<g id="a_edge25&#45;label"><a xlink:title="runtime.(*mcache).nextFree &#45;&gt; runtime.(*mcache).refill (0.19s)">
+<text text-anchor="middle" x="1420" y="-1028.8" font-family="Times,serif" font-size="14.00"> 0.19s</text>
+</a>
+</g>
+</g>
+<!-- N43 -->
+<g id="node43" class="node">
+<title>N43</title>
+<g id="a_node43"><a xlink:title="runtime.(*mcentral).cacheSpan (0.18s)">
+<polygon fill="#edebe8" stroke="#b2a692" points="1442.5,-912 1353.5,-912 1353.5,-868 1442.5,-868 1442.5,-912"/>
+<text text-anchor="middle" x="1398" y="-901.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1398" y="-892.6" font-family="Times,serif" font-size="8.00">(*mcentral)</text>
+<text text-anchor="middle" x="1398" y="-883.6" font-family="Times,serif" font-size="8.00">cacheSpan</text>
+<text text-anchor="middle" x="1398" y="-874.6" font-family="Times,serif" font-size="8.00">0 of 0.18s (3.57%)</text>
+</a>
+</g>
+</g>
+<!-- N42&#45;&gt;N43 -->
+<g id="edge27" class="edge">
+<title>N42&#45;&gt;N43</title>
+<g id="a_edge27"><a xlink:title="runtime.(*mcache).refill &#45;&gt; runtime.(*mcentral).cacheSpan (0.18s)">
+<path fill="none" stroke="#b2a692" d="M1398,-962.9C1398,-950.89 1398,-935.62 1398,-922.24"/>
+<polygon fill="#b2a692" stroke="#b2a692" points="1401.5,-922.02 1398,-912.02 1394.5,-922.02 1401.5,-922.02"/>
+</a>
+</g>
+<g id="a_edge27&#45;label"><a xlink:title="runtime.(*mcache).refill &#45;&gt; runtime.(*mcentral).cacheSpan (0.18s)">
+<text text-anchor="middle" x="1420" y="-933.8" font-family="Times,serif" font-size="14.00"> 0.18s</text>
+</a>
+</g>
+</g>
+<!-- N43&#45;&gt;N30 -->
+<g id="edge28" class="edge">
+<title>N43&#45;&gt;N30</title>
+<g id="a_edge28"><a xlink:title="runtime.(*mcentral).cacheSpan &#45;&gt; runtime.(*mcentral).grow (0.18s)">
+<path fill="none" stroke="#b2a692" d="M1398,-867.9C1398,-855.89 1398,-840.62 1398,-827.24"/>
+<polygon fill="#b2a692" stroke="#b2a692" points="1401.5,-827.02 1398,-817.02 1394.5,-827.02 1401.5,-827.02"/>
+</a>
+</g>
+<g id="a_edge28&#45;label"><a xlink:title="runtime.(*mcentral).cacheSpan &#45;&gt; runtime.(*mcentral).grow (0.18s)">
+<text text-anchor="middle" x="1420" y="-838.8" font-family="Times,serif" font-size="14.00"> 0.18s</text>
+</a>
+</g>
+</g>
+<!-- N44&#45;&gt;N21 -->
+<g id="edge13" class="edge">
+<title>N44&#45;&gt;N21</title>
+<g id="a_edge13"><a xlink:title="runtime.gcBgMarkWorker.func2 &#45;&gt; runtime.gcDrain (0.64s)">
+<path fill="none" stroke="#b27541" d="M771,-478.95C771,-467.05 771,-451.87 771,-438.2"/>
+<polygon fill="#b27541" stroke="#b27541" points="774.5,-438.13 771,-428.13 767.5,-438.13 774.5,-438.13"/>
+</a>
+</g>
+<g id="a_edge13&#45;label"><a xlink:title="runtime.gcBgMarkWorker.func2 &#45;&gt; runtime.gcDrain (0.64s)">
+<text text-anchor="middle" x="793" y="-449.8" font-family="Times,serif" font-size="14.00"> 0.64s</text>
+</a>
+</g>
+</g>
+<!-- N45&#45;&gt;N29 -->
+<g id="edge46" class="edge">
+<title>N45&#45;&gt;N29</title>
+<g id="a_edge46"><a xlink:title="runtime.greyobject &#45;&gt; runtime.pageIndexOf (0.03s)">
+<path fill="none" stroke="#b2b1ad" d="M904,-137.74C904,-117.44 904,-83.34 904,-58.33"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="907.5,-58.24 904,-48.24 900.5,-58.24 907.5,-58.24"/>
+</a>
+</g>
+<g id="a_edge46&#45;label"><a xlink:title="runtime.greyobject &#45;&gt; runtime.pageIndexOf (0.03s)">
+<text text-anchor="middle" x="931.5" y="-88.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
+<text text-anchor="middle" x="931.5" y="-73.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
 <!-- N46&#45;&gt;N14 -->
-<g id="edge22" class="edge">
+<g id="edge38" class="edge">
 <title>N46&#45;&gt;N14</title>
-<g id="a_edge22"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSlice &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSliceGo (0.36s)">
-<path fill="none" stroke="#b29470" d="M1195.08,-1488.85C1191.81,-1469.63 1186.36,-1437.55 1181.69,-1410.09"/>
-<polygon fill="#b29470" stroke="#b29470" points="1185.14,-1409.48 1180.01,-1400.21 1178.23,-1410.66 1185.14,-1409.48"/>
+<g id="a_edge38"><a xlink:title="runtime.growslice &#45;&gt; runtime.mallocgc (0.04s)">
+<path fill="none" stroke="#b2b0ab" d="M1296.05,-1609.89C1331.05,-1589.69 1384.31,-1552.48 1407,-1503 1427.75,-1457.75 1438.25,-1429.75 1407,-1391 1383.31,-1361.62 1347.69,-1402.38 1324,-1373 1286.23,-1326.16 1330.72,-1257.79 1365.23,-1216.82"/>
+<polygon fill="#b2b0ab" stroke="#b2b0ab" points="1368.09,-1218.86 1371.97,-1209 1362.79,-1214.29 1368.09,-1218.86"/>
 </a>
 </g>
-<g id="a_edge22&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.popcntAndSlice &#45;&gt; github.com/RoaringBitmap/roaring.popcntAndSliceGo (0.36s)">
-<text text-anchor="middle" x="1207" y="-1421.8" font-family="Times,serif" font-size="14.00"> 0.36s</text>
-</a>
-</g>
-</g>
-<!-- N47&#45;&gt;N24 -->
-<g id="edge23" class="edge">
-<title>N47&#45;&gt;N24</title>
-<g id="a_edge23"><a xlink:title="runtime.(*mcache).nextFree &#45;&gt; runtime.(*mcache).refill (0.36s)">
-<path fill="none" stroke="#b29470" d="M1470,-1098.9C1470,-1086.89 1470,-1071.62 1470,-1058.24"/>
-<polygon fill="#b29470" stroke="#b29470" points="1473.5,-1058.02 1470,-1048.02 1466.5,-1058.02 1473.5,-1058.02"/>
-</a>
-</g>
-<g id="a_edge23&#45;label"><a xlink:title="runtime.(*mcache).nextFree &#45;&gt; runtime.(*mcache).refill (0.36s)">
-<text text-anchor="middle" x="1492" y="-1069.8" font-family="Times,serif" font-size="14.00"> 0.36s</text>
-</a>
-</g>
-</g>
-<!-- N48&#45;&gt;N22 -->
-<g id="edge27" class="edge">
-<title>N48&#45;&gt;N22</title>
-<g id="a_edge27"><a xlink:title="runtime.(*mcentral).cacheSpan &#45;&gt; runtime.(*mcentral).grow (0.33s)">
-<path fill="none" stroke="#b29775" d="M1470,-908.9C1470,-896.89 1470,-881.62 1470,-868.24"/>
-<polygon fill="#b29775" stroke="#b29775" points="1473.5,-868.02 1470,-858.02 1466.5,-868.02 1473.5,-868.02"/>
-</a>
-</g>
-<g id="a_edge27&#45;label"><a xlink:title="runtime.(*mcentral).cacheSpan &#45;&gt; runtime.(*mcentral).grow (0.33s)">
-<text text-anchor="middle" x="1492" y="-879.8" font-family="Times,serif" font-size="14.00"> 0.33s</text>
-</a>
-</g>
-</g>
-<!-- N49&#45;&gt;N30 -->
-<g id="edge12" class="edge">
-<title>N49&#45;&gt;N30</title>
-<g id="a_edge12"><a xlink:title="runtime.gcBgMarkWorker.func2 &#45;&gt; runtime.gcDrain (0.64s)">
-<path fill="none" stroke="#b2723c" d="M1707,-486.95C1707,-475.05 1707,-459.87 1707,-446.2"/>
-<polygon fill="#b2723c" stroke="#b2723c" points="1710.5,-446.13 1707,-436.13 1703.5,-446.13 1710.5,-446.13"/>
-</a>
-</g>
-<g id="a_edge12&#45;label"><a xlink:title="runtime.gcBgMarkWorker.func2 &#45;&gt; runtime.gcDrain (0.64s)">
-<text text-anchor="middle" x="1729" y="-457.8" font-family="Times,serif" font-size="14.00"> 0.64s</text>
-</a>
-</g>
-</g>
-<!-- N50 -->
-<g id="node50" class="node">
-<title>N50</title>
-<g id="a_node50"><a xlink:title="runtime.goschedImpl (0.04s)">
-<polygon fill="#edecec" stroke="#b2b0ab" points="1219.5,-2234 1130.5,-2234 1130.5,-2198 1219.5,-2198 1219.5,-2234"/>
-<text text-anchor="middle" x="1175" y="-2223.1" font-family="Times,serif" font-size="8.00">runtime</text>
-<text text-anchor="middle" x="1175" y="-2214.1" font-family="Times,serif" font-size="8.00">goschedImpl</text>
-<text text-anchor="middle" x="1175" y="-2205.1" font-family="Times,serif" font-size="8.00">0 of 0.04s (0.82%)</text>
-</a>
-</g>
-</g>
-<!-- N50&#45;&gt;N38 -->
-<g id="edge51" class="edge">
-<title>N50&#45;&gt;N38</title>
-<g id="a_edge51"><a xlink:title="runtime.goschedImpl &#45;&gt; runtime.schedule (0.02s)">
-<path fill="none" stroke="#b2b1ae" d="M1175,-2197.58C1175,-2179.74 1175,-2151.76 1175,-2130.94"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1178.5,-2130.8 1175,-2120.8 1171.5,-2130.8 1178.5,-2130.8"/>
-</a>
-</g>
-<g id="a_edge51&#45;label"><a xlink:title="runtime.goschedImpl &#45;&gt; runtime.schedule (0.02s)">
-<text text-anchor="middle" x="1197" y="-2160.8" font-family="Times,serif" font-size="14.00"> 0.02s</text>
-</a>
-</g>
-</g>
-<!-- N51&#45;&gt;N50 -->
-<g id="edge44" class="edge">
-<title>N51&#45;&gt;N50</title>
-<g id="a_edge44"><a xlink:title="runtime.gosched_m &#45;&gt; runtime.goschedImpl (0.03s)">
-<path fill="none" stroke="#b2b1ac" d="M1175,-2292.94C1175,-2279.39 1175,-2260.18 1175,-2244.47"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1178.5,-2244.26 1175,-2234.26 1171.5,-2244.26 1178.5,-2244.26"/>
-</a>
-</g>
-<g id="a_edge44&#45;label"><a xlink:title="runtime.gosched_m &#45;&gt; runtime.goschedImpl (0.03s)">
-<text text-anchor="middle" x="1197" y="-2263.8" font-family="Times,serif" font-size="14.00"> 0.03s</text>
+<g id="a_edge38&#45;label"><a xlink:title="runtime.growslice &#45;&gt; runtime.mallocgc (0.04s)">
+<text text-anchor="middle" x="1346" y="-1361.8" font-family="Times,serif" font-size="14.00"> 0.04s</text>
 </a>
 </g>
 </g>
