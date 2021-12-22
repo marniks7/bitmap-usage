@@ -69,6 +69,8 @@ MAKE = make --no-print-directory
 build:
 	go generate ./...
 	go build .
+update-dependencies:
+	go get -u ./...
 run:
 	GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} FIBER=${FIBER} SROAR=${SROAR} ROARING64=${ROARING64} MAP64=${MAP64} ${APP_CMD} ADDR=:${APP_PORT} ./bitmap-usage
 run-64: ROARING64=true

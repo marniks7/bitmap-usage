@@ -119,7 +119,10 @@ func (s *Holder) IndexPricesV2(catalog *cache.Catalog) error {
 				mp[FieldNameCharStart+ch] = v
 			}
 
-			txn.Insert(mp)
+			_, err := txn.InsertObject(mp)
+			if err != nil {
+				return err
+			}
 		}
 		return nil // Commit
 	})
