@@ -45,6 +45,7 @@ var (
 	map64               = getEnvOrDefaultBool("MAP64", false, "Use 64 bit maps")
 	kelindar32          = getEnvOrDefaultBool("KELINDAR32", false, "Use 32-bit kelindar bitmaps")
 	useFiber            = getEnvOrDefaultBool("FIBER", false, "Use Fiber framework")
+	fiberPrefork        = getEnvOrDefaultBool("FIBER_PREFORK", false, "Use Prefork for Fiber")
 	optimizeBitmapStr   = getEnvOrDefaultBool("BITMAP_OPT_STR", true, "Optimize Bitmap Structure")
 	optimizeBitmapStats = getEnvOrDefaultBool("BITMAP_OPT_STATS", false, "Optimize Bitmap based on statistic")
 )
@@ -80,6 +81,7 @@ func Setup() {
 		ReadTimeout:  10 * time.Minute,
 		WriteTimeout: 1 * time.Minute,
 		IdleTimeout:  120 * time.Second,
+		Prefork:      fiberPrefork,
 	})
 	if roaring64 {
 		log.Info().Msg("Use Roaring64")
@@ -290,6 +292,11 @@ func Setup() {
 	signals := make(chan os.Signal)
 
 	log.Info().Str("impl", string(httpServerType())).Msg("Http Server")
+	if useFiber {
+		if fiberPrefork {
+			log.Info().Msg("Use Fiber Prefork")
+		}
+	}
 	//start server in separate goroutine
 	go func() {
 		log.Info().Str("addr", addr).Msg("Starting server")
