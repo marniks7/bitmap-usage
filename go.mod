@@ -3,8 +3,6 @@ module bitmap-usage
 go 1.17
 
 require (
-	github.com/RoaringBitmap/gocroaring v0.4.0 // indirect
-	github.com/RoaringBitmap/real-roaring-datasets v0.0.0-20190726190000-eb7c87156f76 // indirect
 	github.com/RoaringBitmap/roaring v0.9.4
 	github.com/Shopify/sarama v1.30.1
 	github.com/bits-and-blooms/bitset v1.2.1
