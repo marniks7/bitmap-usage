@@ -13,6 +13,7 @@ import (
 func TestFindPrice_3824position_CpuProfiling(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
+		return
 	}
 	cs, ind := prepareBitmapIndexT(t)
 	runtime.GC()

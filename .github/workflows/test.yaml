@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Run Test
-        run: go test -race -covermode=atomic -coverprofile=coverprofile.out ./... -short
+        run: go test $(go list ./... | grep -v /benchmark/) -covermode=atomic -coverprofile=coverprofile.out -short
       - name: Codecov
         uses: codecov/codecov-action@v2
         with:

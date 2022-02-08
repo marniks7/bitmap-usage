@@ -11,6 +11,7 @@ import (
 func TestBitmap_CalculateAndPrintRoaringStats(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
+		return
 	}
 	_, ind := prepareBitmapIndexT(t)
 
