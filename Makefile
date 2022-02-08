@@ -94,7 +94,7 @@ run-no-gc: GOGC=off
 run-no-gc:
 	$(MAKE) -e run
 test:
-	go test -covermode=count -coverprofile=coverprofile.out ./... -short
+	go test -race -covermode=atomic -coverprofile=coverprofile.out ./... -short
 test-cover:
 	go tool cover -html=coverprofile.out
 # -----------------------------------------------------------------------------

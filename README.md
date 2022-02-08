@@ -1,5 +1,6 @@
 # Bitmap Usage
 
+[![Test](https://github.com/marniks7/bitmap-usage/actions/workflows/test.yaml/badge.svg)](https://github.com/marniks7/bitmap-usage/actions/workflows/test.yaml)
 ## Goal
 
 For data size <2M entities
