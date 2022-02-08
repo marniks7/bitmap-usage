@@ -1,18 +1,38 @@
 File: bitmap64.test
 Type: inuse_objects
-Time: Sep 12, 2021 at 7:19pm (EDT)
-Showing nodes accounting for 974400, 99.83% of 976061 total
-Dropped 174 nodes (cum <= 4880)
+Time: Feb 7, 2022 at 2:58pm (EST)
+Showing nodes accounting for 923014, 99.45% of 928143 total
+Dropped 29 nodes (cum <= 4640)
       flat  flat%   sum%        cum   cum%
-    487200 49.91% 49.91%     487200 49.91%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:31
-    487200 49.91% 99.83%     487200 49.91%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-         0     0% 99.83%     976019   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
-         0     0% 99.83%     487201 49.92%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:22
-         0     0% 99.83%     487203 49.92%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:36
-         0     0% 99.83%     487201 49.92%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:23
-         0     0% 99.83%     487203 49.92%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:37
-         0     0% 99.83%     487201 49.92%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:163
-         0     0% 99.83%     487201 49.92%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:168
-         0     0% 99.83%     487201 49.92%  bitmap-usage/benchmark/500k-large-groups/sample64.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:148
-         0     0% 99.83%     487201 49.92%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0% 99.83%     976031   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+    475165 51.20% 51.20%     475165 51.20%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:31
+    426003 45.90% 97.09%     426003 45.90%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+     10923  1.18% 98.27%      10923  1.18%  runtime.acquireSudog /home/malerome/go/go176/src/runtime/proc.go:405
+     10923  1.18% 99.45%      10923  1.18%  text/template/parse.(*Tree).newList /home/malerome/go/go176/src/text/template/parse/node.go:87 (inline)
+         0     0% 99.45%     901450 97.12%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
+         0     0% 99.45%     426003 45.90%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:22
+         0     0% 99.45%     475166 51.20%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:36
+         0     0% 99.45%     426003 45.90%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:23
+         0     0% 99.45%     475166 51.20%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:37
+         0     0% 99.45%     426003 45.90%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:163
+         0     0% 99.45%     426003 45.90%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:168
+         0     0% 99.45%     426003 45.90%  bitmap-usage/benchmark/500k-large-groups/sample64.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:148
+         0     0% 99.45%     426003 45.90%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0% 99.45%      10923  1.18%  html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191
+         0     0% 99.45%      10923  1.18%  net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39
+         0     0% 99.45%      10923  1.18%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475
+         0     0% 99.45%      10923  1.18%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498
+         0     0% 99.45%      10923  1.18%  runtime.gcBgMarkWorker /home/malerome/go/go176/src/runtime/mgc.go:1330
+         0     0% 99.45%      10923  1.18%  runtime.gcMarkDone /home/malerome/go/go176/src/runtime/mgc.go:776
+         0     0% 99.45%      10923  1.18%  runtime.main /home/malerome/go/go176/src/runtime/proc.go:238
+         0     0% 99.45%      10923  1.18%  runtime.semacquire /home/malerome/go/go176/src/runtime/sema.go:95 (inline)
+         0     0% 99.45%      10923  1.18%  runtime.semacquire1 /home/malerome/go/go176/src/runtime/sema.go:115
+         0     0% 99.45%     901450 97.12%  testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259
+         0     0% 99.45%      10923  1.18%  text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).itemList /home/malerome/go/go176/src/text/template/parse/parse.go:345
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:484
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526
+         0     0% 99.45%      10923  1.18%  text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367
+         0     0% 99.45%      10923  1.18%  text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66

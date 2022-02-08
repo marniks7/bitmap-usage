@@ -1,49 +1,101 @@
-File: ___TestBitmapMemoryStats_SearchV2_OptStr_in_bitmap_usage_benchmark_500k_large_groups_bitmap.test
+File: bitmap.test
 Type: alloc_objects
-Time: Sep 21, 2021 at 8:57am (EDT)
-Showing nodes accounting for 21340920, 100% of 21344427 total
-Dropped 12 nodes (cum <= 106722)
+Time: Feb 7, 2022 at 2:59pm (EST)
+Showing nodes accounting for 123398733, 99.48% of 124049787 total
+Dropped 146 nodes (cum <= 620248)
       flat  flat%   sum%        cum   cum%
-   5701719 26.71% 26.71%    5701719 26.71%  strings.(*Builder).grow /home/malerome/go/go164/src/strings/builder.go:68 (inline)
-   2621483 12.28% 38.99%    3866686 18.12%  bitmap-usage/index-roaring.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/indexerv2.go:50
-   2053508  9.62% 48.62%    2053508  9.62%  github.com/RoaringBitmap/roaring.(*runContainer16).intersect /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:623
-   1943264  9.10% 57.72%    1943264  9.10%  github.com/RoaringBitmap/roaring.newArrayContainerCapacity /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:934 (inline)
-   1638437  7.68% 65.40%    1638437  7.68%  github.com/RoaringBitmap/roaring.newArrayContainerCapacity /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:933 (inline)
-   1277971  5.99% 71.38%    1277971  5.99%  github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaringarray.go:124 (inline)
-   1114129  5.22% 76.60%    1114129  5.22%  github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaringarray.go:123 (inline)
-    983055  4.61% 81.21%     983055  4.61%  github.com/RoaringBitmap/roaring.(*runContainer16).intersect /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:671
-    958581  4.49% 85.70%     958581  4.49%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:13
-    799600  3.75% 89.45%     799600  3.75%  github.com/RoaringBitmap/roaring.NewBitmap /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:130 (inline)
-    540705  2.53% 91.98%     540705  2.53%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:64
-    500372  2.34% 94.32%     500372  2.34%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:185
-    491527  2.30% 96.63%     491527  2.30%  github.com/google/uuid.NewRandomFromReader /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:48
-    382310  1.79% 98.42%     382310  1.79%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    334259  1.57%   100%     334259  1.57%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:180
-         0     0%   100%    1708483  8.00%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:172
-         0     0%   100%    5508602 25.81%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:176
-         0     0%   100%     540706  2.53%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:180
-         0     0%   100%   13586636 63.65%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:191
-         0     0%   100%   13586636 63.65%  bitmap-usage/benchmark/500k-large-groups/bitmap.findPrice3824PositionV2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-v2-benchmark_test.go:97
-         0     0%   100%    1708483  8.00%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:178
-         0     0%   100%     873837  4.09%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:186
-         0     0%   100%    1708483  8.00%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:163
-         0     0%   100%    2818091 13.20%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:54
-         0     0%   100%    5092280 23.86%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:66
-         0     0%   100%    4717684 22.10%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:69
-         0     0%   100%    1641230  7.69%  bitmap-usage/index-roaring.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/indexerv2.go:85
-         0     0%   100%    2818091 13.20%  bitmap-usage/index-roaring.(*Holder).findBitmapByCharValue /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:119
-         0     0%   100%    4717684 22.10%  github.com/RoaringBitmap/roaring.(*Bitmap).And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:731
-         0     0%   100%    1638430  7.68%  github.com/RoaringBitmap/roaring.(*arrayContainer).iand /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:567
-         0     0%   100%    1900580  8.90%  github.com/RoaringBitmap/roaring.(*runContainer16).and /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1803
-         0     0%   100%    3581701 16.78%  github.com/RoaringBitmap/roaring.(*runContainer16).andArray /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1892
-         0     0%   100%    1135983  5.32%  github.com/RoaringBitmap/roaring.(*runContainer16).iand /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1865
-         0     0%   100%    1943271  9.10%  github.com/RoaringBitmap/roaring.(*runContainer16).iand /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1867
-         0     0%   100%    1135983  5.32%  github.com/RoaringBitmap/roaring.(*runContainer16).inplaceIntersect /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1875 (inline)
-         0     0%   100%     799600  3.75%  github.com/RoaringBitmap/roaring.And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:1109
-         0     0%   100%    1900580  8.90%  github.com/RoaringBitmap/roaring.And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:1121
-         0     0%   100%    2392100 11.21%  github.com/RoaringBitmap/roaring.And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:1124
-         0     0%   100%     491527  2.30%  github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41
-         0     0%   100%     873837  4.09%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0%   100%    5701719 26.71%  strings.(*Builder).Grow /home/malerome/go/go164/src/strings/builder.go:82 (inline)
-         0     0%   100%    5701719 26.71%  strings.ToLower /home/malerome/go/go164/src/strings/strings.go:596
-         0     0%   100%   21344427   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+  16023794 12.92% 12.92%   16023794 12.92%  strings.(*Builder).grow /home/malerome/go/go176/src/strings/builder.go:68 (inline)
+  11690804  9.42% 22.34%   11690804  9.42%  github.com/wcharczuk/go-chart/v2/drawing.(*LineStroker).appendVertex /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/stroker.go:83 (inline)
+  11449143  9.23% 31.57%   11449143  9.23%  github.com/wcharczuk/go-chart/v2/drawing.(*LineStroker).appendVertex /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/stroker.go:84 (inline)
+   9044117  7.29% 38.86%   12943567 10.43%  bitmap-usage/index-roaring.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/indexerv2.go:50
+   7962978  6.42% 45.28%    7962978  6.42%  github.com/wcharczuk/go-chart/v2/drawing.(*RasterGraphicContext).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/raster_graphic_context.go:274
+   7438608  6.00% 51.28%   11473659  9.25%  github.com/wcharczuk/go-chart/v2/drawing.(*RasterGraphicContext).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/raster_graphic_context.go:264
+   4035051  3.25% 54.53%    4035051  3.25%  github.com/wcharczuk/go-chart/v2/drawing.NewLineStroker /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/stroker.go:8 (inline)
+   3958673  3.19% 57.72%    3958673  3.19%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:180
+   3882801  3.13% 60.85%    3882801  3.13%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:185
+   3844951  3.10% 63.95%    3844951  3.10%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+   3801143  3.06% 67.02%    3801143  3.06%  github.com/google/uuid.NewRandomFromReader /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:48
+   3801115  3.06% 70.08%    3801115  3.06%  github.com/wcharczuk/go-chart/v2/drawing.(*RasterGraphicContext).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/raster_graphic_context.go:258
+   3604534  2.91% 72.98%    3604534  2.91%  github.com/wcharczuk/go-chart/v2/drawing.(*RasterGraphicContext).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/raster_graphic_context.go:262
+   3582714  2.89% 75.87%   26722661 21.54%  github.com/wcharczuk/go-chart/v2/drawing.(*RasterGraphicContext).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/raster_graphic_context.go:276
+   3318199  2.67% 78.55%    3318199  2.67%  github.com/RoaringBitmap/roaring.newArrayContainerCapacity /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:934 (inline)
+   3145797  2.54% 81.08%    3145797  2.54%  github.com/RoaringBitmap/roaring.newArrayContainerCapacity /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:933 (inline)
+   3123953  2.52% 83.60%    3123953  2.52%  github.com/RoaringBitmap/roaring.(*runContainer16).intersect /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:623
+   2785322  2.25% 85.85%    2785322  2.25%  github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaringarray.go:123 (inline)
+   2739611  2.21% 88.06%    2739611  2.21%  github.com/RoaringBitmap/roaring.NewBitmap /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:130 (inline)
+   2085117  1.68% 89.74%    2085117  1.68%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:13
+   1958007  1.58% 91.32%    1958007  1.58%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditions /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:73
+   1941621  1.57% 92.88%    1941621  1.57%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:64
+   1900571  1.53% 94.41%    1900571  1.53%  github.com/wcharczuk/go-chart/v2.(*rasterRenderer).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/raster_renderer.go:115
+   1638424  1.32% 95.73%    1638424  1.32%  github.com/RoaringBitmap/roaring.(*runContainer16).intersect /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:671
+   1540119  1.24% 96.97%    1540119  1.24%  github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaringarray.go:124 (inline)
+   1157827  0.93% 97.91%    1157827  0.93%  github.com/RoaringBitmap/roaring.newArrayContainerSize /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:939 (inline)
+   1091760  0.88% 98.79%    1091760  0.88%  github.com/RoaringBitmap/roaring.newArrayContainerSize /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:940 (inline)
+    851979  0.69% 99.48%     851979  0.69%  github.com/RoaringBitmap/roaring.(*roaringArray).appendContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaringarray.go:122 (inline)
+         0     0% 99.48%    2215982  1.79%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
+         0     0% 99.48%    1826456  1.47%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:24
+         0     0% 99.48%    1826456  1.47%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:25
+         0     0% 99.48%    1734690  1.40%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_Search /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:72
+         0     0% 99.48%     649640  0.52%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_Search /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:88
+         0     0% 99.48%    2084260  1.68%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:122
+         0     0% 99.48%    4178602  3.37%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:126
+         0     0% 99.48%     847405  0.68%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:137
+         0     0% 99.48%    1889804  1.52%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:172
+         0     0% 99.48%    5541016  4.47%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:176
+         0     0% 99.48%   14137719 11.40%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestBitmapMemoryStats_SearchV2_OptStr.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-memory_test.go:191
+         0     0% 99.48%    7612661  6.14%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestFindPriceV2_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-cpu-profiling_test.go:50
+         0     0% 99.48%    3974975  3.20%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestFindPriceV2_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-cpu-profiling_test.go:63
+         0     0% 99.48%    6803578  5.48%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-cpu-profiling_test.go:83
+         0     0% 99.48%    7569910  6.10%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-cpu-profiling_test.go:98
+         0     0% 99.48%    2474851  2.00%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-cpu-profiling_test.go:17
+         0     0% 99.48%    2839928  2.29%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-cpu-profiling_test.go:30
+         0     0% 99.48%    2424367  1.95%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestGenerateTestData_BuildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:14
+         0     0% 99.48%    7615565  6.14%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestGenerateTestData_BuildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:18
+         0     0% 99.48%    7291405  5.88%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestGenerateTestData_BuildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:19
+         0     0% 99.48%    6332836  5.11%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestGenerateTestData_BuildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:20
+         0     0% 99.48%   34230970 27.59%  bitmap-usage/benchmark/500k-large-groups/bitmap.TestGenerateTestData_BuildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:21
+         0     0% 99.48%   53937312 43.48%  bitmap-usage/benchmark/500k-large-groups/bitmap.buildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:33
+         0     0% 99.48%    1529265  1.23%  bitmap-usage/benchmark/500k-large-groups/bitmap.buildChart /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-charts_test.go:42
+         0     0% 99.48%    3489568  2.81%  bitmap-usage/benchmark/500k-large-groups/bitmap.findPrice3824Position /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-benchmark_test.go:150
+         0     0% 99.48%   26530009 21.39%  bitmap-usage/benchmark/500k-large-groups/bitmap.findPrice3824PositionV2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-v2-benchmark_test.go:97
+         0     0% 99.48%    3895418  3.14%  bitmap-usage/benchmark/500k-large-groups/bitmap.prepareBitmapIndexT /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-helper_test.go:47
+         0     0% 99.48%     991294   0.8%  bitmap-usage/benchmark/500k-large-groups/bitmap.prepareBitmapIndexT /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-helper_test.go:52
+         0     0% 99.48%    4057065  3.27%  bitmap-usage/benchmark/500k-large-groups/bitmap.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-helper_test.go:36
+         0     0% 99.48%    9392457  7.57%  bitmap-usage/benchmark/500k-large-groups/bitmap.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-helper_test.go:40
+         0     0% 99.48%     966717  0.78%  bitmap-usage/benchmark/500k-large-groups/bitmap.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap/bitmap-helper_test.go:41
+         0     0% 99.48%   15487693 12.49%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:178
+         0     0% 99.48%    7646094  6.16%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:186
+         0     0% 99.48%   15487693 12.49%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:163
+         0     0% 99.48%    2944734  2.37%  bitmap-usage/index-roaring.(*BitmapIndexService).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/search.go:91
+         0     0% 99.48%    5996635  4.83%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:54
+         0     0% 99.48%   10491632  8.46%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:66
+         0     0% 99.48%    7956625  6.41%  bitmap-usage/index-roaring.(*Holder).FindPriceIndexBy /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:69
+         0     0% 99.48%    6160586  4.97%  bitmap-usage/index-roaring.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/indexerv2.go:85
+         0     0% 99.48%    5996635  4.83%  bitmap-usage/index-roaring.(*Holder).findBitmapByCharValue /home/malerome/IdeaProjects/bitmap-usage3/index-roaring/searchv2.go:119
+         0     0% 99.48%    7956625  6.41%  github.com/RoaringBitmap/roaring.(*Bitmap).And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:731
+         0     0% 99.48%    3113016  2.51%  github.com/RoaringBitmap/roaring.(*arrayContainer).iand /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:567
+         0     0% 99.48%    2249587  1.81%  github.com/RoaringBitmap/roaring.(*bitmapContainer).and /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/bitmapcontainer.go:711
+         0     0% 99.48%    2249587  1.81%  github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/bitmapcontainer.go:821
+         0     0% 99.48%    2992865  2.41%  github.com/RoaringBitmap/roaring.(*runContainer16).and /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1803
+         0     0% 99.48%    6187113  4.99%  github.com/RoaringBitmap/roaring.(*runContainer16).andArray /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1892
+         0     0% 99.48%    1769512  1.43%  github.com/RoaringBitmap/roaring.(*runContainer16).iand /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1865
+         0     0% 99.48%    3074097  2.48%  github.com/RoaringBitmap/roaring.(*runContainer16).iand /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1867
+         0     0% 99.48%    1769512  1.43%  github.com/RoaringBitmap/roaring.(*runContainer16).inplaceIntersect /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/runcontainer.go:1875 (inline)
+         0     0% 99.48%    2739611  2.21%  github.com/RoaringBitmap/roaring.And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:1109
+         0     0% 99.48%    5519335  4.45%  github.com/RoaringBitmap/roaring.And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:1121
+         0     0% 99.48%    5177420  4.17%  github.com/RoaringBitmap/roaring.And /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:1124
+         0     0% 99.48%    3801143  3.06%  github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41
+         0     0% 99.48%    7646094  6.16%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0% 99.48%   53564947 43.18%  github.com/wcharczuk/go-chart/v2.(*rasterRenderer).FillStroke /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/raster_renderer.go:119
+         0     0% 99.48%   55465518 44.71%  github.com/wcharczuk/go-chart/v2.Chart.Render /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/chart.go:140
+         0     0% 99.48%   55465518 44.71%  github.com/wcharczuk/go-chart/v2.Chart.drawSeries /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/chart.go:490
+         0     0% 99.48%   55465518 44.71%  github.com/wcharczuk/go-chart/v2.ContinuousSeries.Render /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/continuous_series.go:79
+         0     0% 99.48%   55465518 44.71%  github.com/wcharczuk/go-chart/v2.draw.LineSeries /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/draw.go:82
+         0     0% 99.48%   23139947 18.65%  github.com/wcharczuk/go-chart/v2/drawing.(*LineStroker).LineTo /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/stroker.go:34
+         0     0% 99.48%   23139947 18.65%  github.com/wcharczuk/go-chart/v2/drawing.(*LineStroker).line /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/stroker.go:47
+         0     0% 99.48%   23139947 18.65%  github.com/wcharczuk/go-chart/v2/drawing.DemuxFlattener.LineTo /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/demux_flattener.go:18
+         0     0% 99.48%   23139947 18.65%  github.com/wcharczuk/go-chart/v2/drawing.Flatten /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/flattener.go:47
+         0     0% 99.48%   23139947 18.65%  github.com/wcharczuk/go-chart/v2/drawing.TraceQuad /home/malerome/go/bin/pkg/mod/github.com/wcharczuk/go-chart/v2@v2.1.0/drawing/curve.go:149
+         0     0% 99.48%   16023794 12.92%  strings.(*Builder).Grow /home/malerome/go/go176/src/strings/builder.go:82 (inline)
+         0     0% 99.48%   16023794 12.92%  strings.ToLower /home/malerome/go/go176/src/strings/strings.go:596
+         0     0% 99.48%  124027431   100%  testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259

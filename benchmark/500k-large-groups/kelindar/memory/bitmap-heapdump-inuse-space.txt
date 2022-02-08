@@ -1,27 +1,69 @@
 File: kelindar.test
 Type: inuse_space
-Time: Sep 12, 2021 at 7:20pm (EDT)
-Showing nodes accounting for 92.65MB, 100% of 92.68MB total
-Dropped 129 nodes (cum <= 0.46MB)
+Time: Feb 7, 2022 at 2:59pm (EST)
+Showing nodes accounting for 94.86MB, 100% of 94.86MB total
       flat  flat%   sum%        cum   cum%
-   29.74MB 32.09% 32.09%    29.74MB 32.09%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:64
-   27.63MB 29.81% 61.89%    27.63MB 29.81%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:62
-   22.30MB 24.06% 85.96%    22.30MB 24.06%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    7.44MB  8.03% 93.98%     7.44MB  8.03%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:56
-    5.55MB  5.99%   100%     5.55MB  5.99%  github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:151 (inline)
-         0     0%   100%    92.67MB   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
-         0     0%   100%    22.30MB 24.06%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:22
-         0     0%   100%    13.01MB 14.03%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:30
-         0     0%   100%    57.36MB 61.89%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:36
-         0     0%   100%    22.30MB 24.06%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:23
-         0     0%   100%    13.01MB 14.03%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:31
-         0     0%   100%    57.36MB 61.89%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:37
-         0     0%   100%    22.30MB 24.06%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:178
-         0     0%   100%    22.30MB 24.06%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:186
-         0     0%   100%    22.30MB 24.06%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:163
-         0     0%   100%     2.06MB  2.22%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:73
-         0     0%   100%     3.01MB  3.24%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:85
-         0     0%   100%     5.55MB  5.99%  bitmap-usage/index-kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:126
-         0     0%   100%    22.30MB 24.06%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0%   100%     5.55MB  5.99%  github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:18
-         0     0%   100%    92.67MB   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+   34.50MB 36.37% 36.37%    34.50MB 36.37%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:64
+   27.62MB 29.12% 65.49%    27.62MB 29.12%  bitmap-usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache/price-cache.go:62
+   14.50MB 15.29% 80.78%    14.50MB 15.29%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    7.44MB  7.84% 88.62%     7.44MB  7.84%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:56
+    5.79MB  6.11% 94.73%     5.79MB  6.11%  github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:149 (inline)
+       2MB  2.11% 96.84%        2MB  2.11%  runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875
+    0.50MB  0.53% 97.36%     0.50MB  0.53%  runtime.malg /home/malerome/go/go176/src/runtime/proc.go:4220
+    0.50MB  0.53% 97.89%     0.50MB  0.53%  github.com/google/uuid.NewRandomFromReader /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:48
+    0.50MB  0.53% 98.42%     0.50MB  0.53%  text/template/parse.(*Tree).newPipeline /home/malerome/go/go176/src/text/template/parse/node.go:197 (inline)
+    0.50MB  0.53% 98.95%     0.50MB  0.53%  runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:259
+    0.50MB  0.53% 99.47%     0.50MB  0.53%  runtime.gcBgMarkWorker /home/malerome/go/go176/src/runtime/mgc.go:1173
+    0.50MB  0.53%   100%     0.50MB  0.53%  runtime.doaddtimer /home/malerome/go/go176/src/runtime/time.go:294
+         0     0%   100%    89.86MB 94.73%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
+         0     0%   100%    14.50MB 15.29%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:22
+         0     0%   100%    13.23MB 13.95%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:30
+         0     0%   100%    62.13MB 65.49%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:36
+         0     0%   100%    14.50MB 15.29%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:23
+         0     0%   100%    13.23MB 13.95%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:31
+         0     0%   100%    62.13MB 65.49%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-memory_test.go:37
+         0     0%   100%     0.50MB  0.53%  bitmap-usage/benchmark/500k-large-groups/kelindar.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-cpu-profiling_test.go:17
+         0     0%   100%     0.50MB  0.53%  bitmap-usage/benchmark/500k-large-groups/kelindar.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/kelindar/bitmap-helper_test.go:25
+         0     0%   100%       15MB 15.81%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:178
+         0     0%   100%       15MB 15.81%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:186
+         0     0%   100%       15MB 15.81%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:163
+         0     0%   100%     0.53MB  0.56%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:69
+         0     0%   100%     2.07MB  2.18%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:73
+         0     0%   100%     3.19MB  3.36%  bitmap-usage/index-kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:85
+         0     0%   100%     5.79MB  6.11%  bitmap-usage/index-kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap-usage3/index-kelindar/indexerv2.go:126
+         0     0%   100%     0.50MB  0.53%  github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41
+         0     0%   100%       15MB 15.81%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0%   100%     5.79MB  6.11%  github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:18
+         0     0%   100%     0.50MB  0.53%  html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191
+         0     0%   100%     0.50MB  0.53%  net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39
+         0     0%   100%     0.50MB  0.53%  runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:366
+         0     0%   100%     0.50MB  0.53%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475
+         0     0%   100%     0.50MB  0.53%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498
+         0     0%   100%     0.50MB  0.53%  runtime.main /home/malerome/go/go176/src/runtime/proc.go:238
+         0     0%   100%        1MB  1.06%  runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307
+         0     0%   100%     0.50MB  0.53%  runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492
+         0     0%   100%        1MB  1.06%  runtime.mstart /home/malerome/go/go176/src/runtime/asm_amd64.s:248
+         0     0%   100%        1MB  1.06%  runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365
+         0     0%   100%        1MB  1.06%  runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414
+         0     0%   100%        2MB  2.11%  runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201
+         0     0%   100%     0.50MB  0.53%  runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255
+         0     0%   100%     0.50MB  0.53%  runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305
+         0     0%   100%        1MB  1.06%  runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516
+         0     0%   100%        2MB  2.11%  runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216
+         0     0%   100%     0.50MB  0.53%  runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 (inline)
+         0     0%   100%     0.50MB  0.53%  runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237
+         0     0%   100%        2MB  2.11%  runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374
+         0     0%   100%        2MB  2.11%  runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485
+         0     0%   100%     0.50MB  0.53%  runtime.systemstack /home/malerome/go/go176/src/runtime/asm_amd64.s:383
+         0     0%   100%        2MB  2.11%  runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584
+         0     0%   100%    90.36MB 95.25%  testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259
+         0     0%   100%     0.50MB  0.53%  text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:482
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).pipeline /home/malerome/go/go176/src/text/template/parse/parse.go:412
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526
+         0     0%   100%     0.50MB  0.53%  text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367
+         0     0%   100%     0.50MB  0.53%  text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66
+         0     0%   100%     0.50MB  0.53%  time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 (inline)

@@ -66,7 +66,9 @@ MAKE = make --no-print-directory
 .PHONY: clean trigger-gc
 .DEFAULT_GOAL := build
 # Set source dir and scan source dir for all go files
-build:
+install-dependencies:
+	go install github.com/ugorji/go/codec/codecgen
+build: install-dependencies
 	go generate ./...
 	go build .
 update-dependencies:
@@ -209,6 +211,13 @@ wrk-kelindar-t1-c1: WRK_CONNECTIONS=1
 wrk-kelindar-t1-c1: APP_API_PART=kelindar
 wrk-kelindar-t1-c1: WRK_FOLDER = ${WRK_KELINDAR_FOLDER}
 wrk-kelindar-t1-c1:
+	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
+wrk-kelindar-t2-c20: WRK_THREADS=2
+wrk-kelindar-t2-c20: WRK_CONNECTIONS=20
+wrk-kelindar-t2-c20: APP_API_PART=kelindar
+wrk-kelindar-t2-c20: WRK_FOLDER = ${WRK_KELINDAR_FOLDER}
+wrk-kelindar-t2-c20:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk: wrk-map-t1-c1 wrk-map-t2-c20 wrk-bitmap-t1-c1 wrk-bitmap-t2-c20

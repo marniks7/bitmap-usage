@@ -1,34 +1,52 @@
 File: bitmap-sroar.test
 Type: inuse_space
-Time: Sep 12, 2021 at 7:19pm (EDT)
-Showing nodes accounting for 124.04MB, 100% of 124.07MB total
-Dropped 134 nodes (cum <= 0.62MB)
+Time: Feb 7, 2022 at 2:58pm (EST)
+Showing nodes accounting for 138.94MB, 100% of 138.94MB total
+Dropped 3 nodes (cum <= 0.69MB)
       flat  flat%   sum%        cum   cum%
-      32MB 25.79% 25.79%       32MB 25.79%  github.com/dgraph-io/sroar.init /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210831151133-ad6554cce45c/bitmap.go:28
-   29.74MB 23.97% 49.76%    29.74MB 23.97%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:31
-   27.63MB 22.26% 72.02%    27.63MB 22.26%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:29
-   22.30MB 17.97% 90.00%    22.30MB 17.97%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    7.44MB  5.99% 95.99%     7.44MB  5.99%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:20
-    4.94MB  3.98%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).fastExpand /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210831151133-ad6554cce45c/bitmap.go:169
-         0     0%   100%    92.07MB 74.20%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
-         0     0%   100%    22.30MB 17.97%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:22
-         0     0%   100%    12.40MB 10.00%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:30
-         0     0%   100%    57.36MB 46.23%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:36
-         0     0%   100%    22.30MB 17.97%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:23
-         0     0%   100%    12.40MB 10.00%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:31
-         0     0%   100%    57.36MB 46.23%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:37
-         0     0%   100%    22.30MB 17.97%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:163
-         0     0%   100%    22.30MB 17.97%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:168
-         0     0%   100%    22.30MB 17.97%  bitmap-usage/benchmark/500k-large-groups/sample64.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:148
-         0     0%   100%     0.65MB  0.53%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:16
-         0     0%   100%     4.14MB  3.34%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:18
-         0     0%   100%     4.12MB  3.32%  bitmap-usage/index-sroar.conditionBitmaps /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:82
-         0     0%   100%     0.64MB  0.52%  bitmap-usage/index-sroar.offeringBitmaps /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:59
-         0     0%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210831151133-ad6554cce45c/bitmap.go:385
-         0     0%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).expandContainer /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210831151133-ad6554cce45c/bitmap.go:239
-         0     0%   100%     4.94MB  3.98%  github.com/dgraph-io/sroar.(*Bitmap).scootRight /home/malerome/go/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20210831151133-ad6554cce45c/bitmap.go:182
-         0     0%   100%    22.30MB 17.97%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0%   100%       32MB 25.79%  runtime.doInit /home/malerome/go/go164/src/runtime/proc.go:6286
-         0     0%   100%       32MB 25.79%  runtime.doInit /home/malerome/go/go164/src/runtime/proc.go:6309
-         0     0%   100%       32MB 25.79%  runtime.main /home/malerome/go/go164/src/runtime/proc.go:208
-         0     0%   100%    92.07MB 74.21%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+   35.50MB 25.55% 25.55%    35.50MB 25.55%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:31
+      32MB 23.03% 48.58%       32MB 23.03%  github.com/dgraph-io/sroar.init /home/malerome/go/bin/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20211209013153-fbc00eaa0f32/bitmap.go:29
+   27.62MB 19.88% 68.47%    27.62MB 19.88%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:29
+      26MB 18.71% 87.18%       26MB 18.71%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    7.44MB  5.35% 92.53%     7.44MB  5.35%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:20
+    5.37MB  3.87% 96.40%     5.37MB  3.87%  github.com/dgraph-io/sroar.(*Bitmap).fastExpand /home/malerome/go/bin/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20211209013153-fbc00eaa0f32/bitmap.go:193
+    2.50MB  1.80% 98.20%     2.50MB  1.80%  runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875
+    1.50MB  1.08% 99.28%     1.50MB  1.08%  runtime.doaddtimer /home/malerome/go/go176/src/runtime/time.go:294
+       1MB  0.72%   100%        1MB  0.72%  runtime.malg /home/malerome/go/go176/src/runtime/proc.go:4220
+         0     0%   100%   101.94MB 73.37%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
+         0     0%   100%       26MB 18.71%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:22
+         0     0%   100%    12.81MB  9.22%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:30
+         0     0%   100%    63.13MB 45.43%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:36
+         0     0%   100%       26MB 18.71%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:23
+         0     0%   100%    12.81MB  9.22%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:31
+         0     0%   100%    63.13MB 45.43%  bitmap-usage/benchmark/500k-large-groups/bitmap-sroar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap-sroar/memory_test.go:37
+         0     0%   100%       26MB 18.71%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:163
+         0     0%   100%       26MB 18.71%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:168
+         0     0%   100%       26MB 18.71%  bitmap-usage/benchmark/500k-large-groups/sample64.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:148
+         0     0%   100%     1.02MB  0.73%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:16
+         0     0%   100%     4.35MB  3.13%  bitmap-usage/index-sroar.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:18
+         0     0%   100%     4.35MB  3.13%  bitmap-usage/index-sroar.conditionBitmaps /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:82
+         0     0%   100%     1.02MB  0.73%  bitmap-usage/index-sroar.offeringBitmaps /home/malerome/IdeaProjects/bitmap-usage3/index-sroar/indexer.go:59
+         0     0%   100%     5.37MB  3.87%  github.com/dgraph-io/sroar.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20211209013153-fbc00eaa0f32/bitmap.go:396
+         0     0%   100%     5.37MB  3.87%  github.com/dgraph-io/sroar.(*Bitmap).expandContainer /home/malerome/go/bin/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20211209013153-fbc00eaa0f32/bitmap.go:250
+         0     0%   100%     5.37MB  3.87%  github.com/dgraph-io/sroar.(*Bitmap).scootRight /home/malerome/go/bin/pkg/mod/github.com/dgraph-io/sroar@v0.0.0-20211209013153-fbc00eaa0f32/bitmap.go:207
+         0     0%   100%       26MB 18.71%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0%   100%     1.50MB  1.08%  runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:366
+         0     0%   100%       32MB 23.03%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475
+         0     0%   100%       32MB 23.03%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498
+         0     0%   100%       32MB 23.03%  runtime.main /home/malerome/go/go176/src/runtime/proc.go:238
+         0     0%   100%        2MB  1.44%  runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307
+         0     0%   100%     1.50MB  1.08%  runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492
+         0     0%   100%     2.50MB  1.80%  runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201
+         0     0%   100%        1MB  0.72%  runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255
+         0     0%   100%        1MB  0.72%  runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305
+         0     0%   100%        2MB  1.44%  runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516
+         0     0%   100%        2MB  1.44%  runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216
+         0     0%   100%     1.50MB  1.08%  runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 (inline)
+         0     0%   100%     1.50MB  1.08%  runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237
+         0     0%   100%        2MB  1.44%  runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374
+         0     0%   100%     2.50MB  1.80%  runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485
+         0     0%   100%     1.50MB  1.08%  runtime.systemstack /home/malerome/go/go176/src/runtime/asm_amd64.s:383
+         0     0%   100%        2MB  1.44%  runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584
+         0     0%   100%   101.94MB 73.37%  testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259
+         0     0%   100%     1.50MB  1.08%  time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 (inline)

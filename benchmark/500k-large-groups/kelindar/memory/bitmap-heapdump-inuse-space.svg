@@ -293,278 +293,302 @@ function handleMouseUp(evt) {
 		state = '';
 	}
 }
-]]></script><g id="viewport" transform="scale(0.5,0.5) translate(0,0)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1286)">
+]]></script><g id="viewport" transform="scale(0.5,0.5) translate(0,0)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1941)">
 <title>kelindar.test</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-1286 1602,-1286 1602,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1941 2563.5,-1941 2563.5,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_L</title>
-<polygon fill="none" stroke="black" points="107.5,-1123 107.5,-1274 675.5,-1274 675.5,-1123 107.5,-1123"/>
+<polygon fill="none" stroke="black" points="94.5,-1796 94.5,-1929 662.5,-1929 662.5,-1796 94.5,-1796"/>
 </g>
 <!-- File: kelindar.test -->
 <g id="node1" class="node">
 <title>File: kelindar.test</title>
 <g id="a_node1"><a xlink:title="kelindar.test">
-<polygon fill="#f8f8f8" stroke="black" points="667,-1266 116,-1266 116,-1131 667,-1131 667,-1266"/>
-<text text-anchor="start" x="124" y="-1249.2" font-family="Times,serif" font-size="16.00">File: kelindar.test</text>
-<text text-anchor="start" x="124" y="-1231.2" font-family="Times,serif" font-size="16.00">Type: inuse_space</text>
-<text text-anchor="start" x="124" y="-1213.2" font-family="Times,serif" font-size="16.00">Time: Sep 12, 2021 at 7:20pm (EDT)</text>
-<text text-anchor="start" x="124" y="-1195.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 92.65MB, 100% of 92.68MB total</text>
-<text text-anchor="start" x="124" y="-1177.2" font-family="Times,serif" font-size="16.00">Dropped 129 nodes (cum &lt;= 0.46MB)</text>
-<text text-anchor="start" x="124" y="-1140.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
+<polygon fill="#f8f8f8" stroke="black" points="654,-1921 103,-1921 103,-1804 654,-1804 654,-1921"/>
+<text text-anchor="start" x="111" y="-1904.2" font-family="Times,serif" font-size="16.00">File: kelindar.test</text>
+<text text-anchor="start" x="111" y="-1886.2" font-family="Times,serif" font-size="16.00">Type: inuse_space</text>
+<text text-anchor="start" x="111" y="-1868.2" font-family="Times,serif" font-size="16.00">Time: Feb 7, 2022 at 2:59pm (EST)</text>
+<text text-anchor="start" x="111" y="-1850.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 94.86MB, 100% of 94.86MB total</text>
+<text text-anchor="start" x="111" y="-1813.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
 </a>
 </g>
 </g>
 <!-- N1 -->
 <g id="node1" class="node">
 <title>N1</title>
-<g id="a_node1"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (92.67MB)">
-<polygon fill="#edd5d5" stroke="#b20000" points="800.5,-985 672.5,-985 672.5,-941 800.5,-941 800.5,-985"/>
-<text text-anchor="middle" x="736.5" y="-974.6" font-family="Times,serif" font-size="8.00">benchmark</text>
-<text text-anchor="middle" x="736.5" y="-965.6" font-family="Times,serif" font-size="8.00">ReadMemStatsFuncWithGC</text>
-<text text-anchor="middle" x="736.5" y="-956.6" font-family="Times,serif" font-size="8.00">utils.go:98</text>
-<text text-anchor="middle" x="736.5" y="-947.6" font-family="Times,serif" font-size="8.00">0 of 92.67MB (100%)</text>
+<g id="a_node1"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (89.86MB)">
+<polygon fill="#edd5d5" stroke="#b20200" points="791.5,-1634 663.5,-1634 663.5,-1590 791.5,-1590 791.5,-1634"/>
+<text text-anchor="middle" x="727.5" y="-1623.6" font-family="Times,serif" font-size="8.00">benchmark</text>
+<text text-anchor="middle" x="727.5" y="-1614.6" font-family="Times,serif" font-size="8.00">ReadMemStatsFuncWithGC</text>
+<text text-anchor="middle" x="727.5" y="-1605.6" font-family="Times,serif" font-size="8.00">utils.go:98</text>
+<text text-anchor="middle" x="727.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 89.86MB (94.73%)</text>
 </a>
 </g>
 </g>
 <!-- N4 -->
 <g id="node4" class="node">
 <title>N4</title>
-<g id="a_node4"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 (57.36MB)">
-<polygon fill="#edd8d5" stroke="#b21700" points="798,-890 675,-890 675,-837 798,-837 798,-890"/>
-<text text-anchor="middle" x="736.5" y="-879.6" font-family="Times,serif" font-size="8.00">kelindar</text>
-<text text-anchor="middle" x="736.5" y="-870.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="736.5" y="-861.6" font-family="Times,serif" font-size="8.00">func3</text>
-<text text-anchor="middle" x="736.5" y="-852.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:37</text>
-<text text-anchor="middle" x="736.5" y="-843.6" font-family="Times,serif" font-size="8.00">0 of 57.36MB (61.89%)</text>
+<g id="a_node4"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 (62.13MB)">
+<polygon fill="#edd8d5" stroke="#b21500" points="789,-1524 666,-1524 666,-1471 789,-1471 789,-1524"/>
+<text text-anchor="middle" x="727.5" y="-1513.6" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="727.5" y="-1504.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
+<text text-anchor="middle" x="727.5" y="-1495.6" font-family="Times,serif" font-size="8.00">func3</text>
+<text text-anchor="middle" x="727.5" y="-1486.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:37</text>
+<text text-anchor="middle" x="727.5" y="-1477.6" font-family="Times,serif" font-size="8.00">0 of 62.13MB (65.49%)</text>
 </a>
 </g>
 </g>
 <!-- N1&#45;&gt;N4 -->
-<g id="edge6" class="edge">
+<g id="edge15" class="edge">
 <title>N1&#45;&gt;N4</title>
-<g id="a_edge6"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 (57.36MB)">
-<path fill="none" stroke="#b21700" stroke-width="4" d="M736.5,-940.84C736.5,-928.97 736.5,-913.85 736.5,-900.19"/>
-<polygon fill="#b21700" stroke="#b21700" stroke-width="4" points="740,-900.12 736.5,-890.12 733,-900.12 740,-900.12"/>
+<g id="a_edge15"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 (62.13MB)">
+<path fill="none" stroke="#b21500" stroke-width="4" d="M727.5,-1589.84C727.5,-1574.23 727.5,-1552.62 727.5,-1534.34"/>
+<polygon fill="#b21500" stroke="#b21500" stroke-width="4" points="731,-1534.31 727.5,-1524.31 724,-1534.31 731,-1534.31"/>
 </a>
 </g>
-<g id="a_edge6&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 (57.36MB)">
-<text text-anchor="middle" x="771.5" y="-911.8" font-family="Times,serif" font-size="14.00"> 57.36MB</text>
+<g id="a_edge15&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 (62.13MB)">
+<text text-anchor="middle" x="762.5" y="-1553.3" font-family="Times,serif" font-size="14.00"> 62.13MB</text>
 </a>
 </g>
 </g>
 <!-- N7 -->
 <g id="node7" class="node">
 <title>N7</title>
-<g id="a_node7"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 (13.01MB)">
-<polygon fill="#ede3dc" stroke="#b26d35" points="1134,-890 1011,-890 1011,-837 1134,-837 1134,-890"/>
-<text text-anchor="middle" x="1072.5" y="-879.6" font-family="Times,serif" font-size="8.00">kelindar</text>
-<text text-anchor="middle" x="1072.5" y="-870.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="1072.5" y="-861.6" font-family="Times,serif" font-size="8.00">func2</text>
-<text text-anchor="middle" x="1072.5" y="-852.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:31</text>
-<text text-anchor="middle" x="1072.5" y="-843.6" font-family="Times,serif" font-size="8.00">0 of 13.01MB (14.03%)</text>
+<g id="a_node7"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 (13.23MB)">
+<polygon fill="#ede3dc" stroke="#b26d36" points="1113,-1524 990,-1524 990,-1471 1113,-1471 1113,-1524"/>
+<text text-anchor="middle" x="1051.5" y="-1513.6" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="1051.5" y="-1504.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
+<text text-anchor="middle" x="1051.5" y="-1495.6" font-family="Times,serif" font-size="8.00">func2</text>
+<text text-anchor="middle" x="1051.5" y="-1486.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:31</text>
+<text text-anchor="middle" x="1051.5" y="-1477.6" font-family="Times,serif" font-size="8.00">0 of 13.23MB (13.95%)</text>
 </a>
 </g>
 </g>
 <!-- N1&#45;&gt;N7 -->
-<g id="edge19" class="edge">
+<g id="edge28" class="edge">
 <title>N1&#45;&gt;N7</title>
-<g id="a_edge19"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 (13.01MB)">
-<path fill="none" stroke="#b26d35" d="M800.89,-943.32C858.2,-926.69 941.9,-902.4 1001.21,-885.19"/>
-<polygon fill="#b26d35" stroke="#b26d35" points="1002.25,-888.53 1010.88,-882.38 1000.3,-881.81 1002.25,-888.53"/>
+<g id="a_edge28"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 (13.23MB)">
+<path fill="none" stroke="#b26d36" d="M788.06,-1589.97C842.52,-1571.06 922.55,-1543.27 980.11,-1523.29"/>
+<polygon fill="#b26d36" stroke="#b26d36" points="981.56,-1526.49 989.86,-1519.9 979.26,-1519.88 981.56,-1526.49"/>
 </a>
 </g>
-<g id="a_edge19&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 (13.01MB)">
-<text text-anchor="middle" x="949.5" y="-911.8" font-family="Times,serif" font-size="14.00"> 13.01MB</text>
-</a>
-</g>
-</g>
-<!-- N14 -->
-<g id="node14" class="node">
-<title>N14</title>
-<g id="a_node14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="1386,-890 1263,-890 1263,-837 1386,-837 1386,-890"/>
-<text text-anchor="middle" x="1324.5" y="-879.6" font-family="Times,serif" font-size="8.00">kelindar</text>
-<text text-anchor="middle" x="1324.5" y="-870.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="1324.5" y="-861.6" font-family="Times,serif" font-size="8.00">func1</text>
-<text text-anchor="middle" x="1324.5" y="-852.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:23</text>
-<text text-anchor="middle" x="1324.5" y="-843.6" font-family="Times,serif" font-size="8.00">0 of 22.30MB (24.06%)</text>
+<g id="a_edge28&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 (13.23MB)">
+<text text-anchor="middle" x="954.5" y="-1553.3" font-family="Times,serif" font-size="14.00"> 13.23MB</text>
 </a>
 </g>
 </g>
-<!-- N1&#45;&gt;N14 -->
-<g id="edge11" class="edge">
-<title>N1&#45;&gt;N14</title>
-<g id="a_edge11"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M800.51,-952.43C851.48,-944.74 924.61,-933.5 988.5,-923 1079.78,-907.99 1184.79,-889.51 1252.77,-877.39"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="1253.71,-880.78 1262.94,-875.58 1252.48,-873.89 1253.71,-880.78"/>
+<!-- N29 -->
+<g id="node29" class="node">
+<title>N29</title>
+<g id="a_node29"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 (14.50MB)">
+<polygon fill="#ede2db" stroke="#b2642a" points="1396,-1524 1273,-1524 1273,-1471 1396,-1471 1396,-1524"/>
+<text text-anchor="middle" x="1334.5" y="-1513.6" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="1334.5" y="-1504.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
+<text text-anchor="middle" x="1334.5" y="-1495.6" font-family="Times,serif" font-size="8.00">func1</text>
+<text text-anchor="middle" x="1334.5" y="-1486.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:23</text>
+<text text-anchor="middle" x="1334.5" y="-1477.6" font-family="Times,serif" font-size="8.00">0 of 14.50MB (15.29%)</text>
 </a>
 </g>
-<g id="a_edge11&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 (22.30MB)">
-<text text-anchor="middle" x="1106.5" y="-911.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
+</g>
+<!-- N1&#45;&gt;N29 -->
+<g id="edge23" class="edge">
+<title>N1&#45;&gt;N29</title>
+<g id="a_edge23"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 (14.50MB)">
+<path fill="none" stroke="#b2642a" d="M791.65,-1602.82C845.65,-1595.63 924.84,-1584.42 993.5,-1572 1087.08,-1555.07 1194.16,-1531.26 1262.97,-1515.37"/>
+<polygon fill="#b2642a" stroke="#b2642a" points="1263.88,-1518.75 1272.83,-1513.09 1262.3,-1511.93 1263.88,-1518.75"/>
+</a>
+</g>
+<g id="a_edge23&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 (14.50MB)">
+<text text-anchor="middle" x="1169.5" y="-1553.3" font-family="Times,serif" font-size="14.00"> 14.50MB</text>
 </a>
 </g>
 </g>
 <!-- N2 -->
 <g id="node2" class="node">
 <title>N2</title>
-<g id="a_node2"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 (92.67MB)">
-<polygon fill="#edd5d5" stroke="#b20000" points="788,-1220.5 685,-1220.5 685,-1176.5 788,-1176.5 788,-1220.5"/>
-<text text-anchor="middle" x="736.5" y="-1210.1" font-family="Times,serif" font-size="8.00">testing</text>
-<text text-anchor="middle" x="736.5" y="-1201.1" font-family="Times,serif" font-size="8.00">tRunner</text>
-<text text-anchor="middle" x="736.5" y="-1192.1" font-family="Times,serif" font-size="8.00">testing.go:1193</text>
-<text text-anchor="middle" x="736.5" y="-1183.1" font-family="Times,serif" font-size="8.00">0 of 92.67MB (100%)</text>
+<g id="a_node2"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 (90.36MB)">
+<polygon fill="#edd5d5" stroke="#b20200" points="782.5,-1884.5 672.5,-1884.5 672.5,-1840.5 782.5,-1840.5 782.5,-1884.5"/>
+<text text-anchor="middle" x="727.5" y="-1874.1" font-family="Times,serif" font-size="8.00">testing</text>
+<text text-anchor="middle" x="727.5" y="-1865.1" font-family="Times,serif" font-size="8.00">tRunner</text>
+<text text-anchor="middle" x="727.5" y="-1856.1" font-family="Times,serif" font-size="8.00">testing.go:1259</text>
+<text text-anchor="middle" x="727.5" y="-1847.1" font-family="Times,serif" font-size="8.00">0 of 90.36MB (95.25%)</text>
 </a>
 </g>
 </g>
-<!-- N11 -->
-<g id="node11" class="node">
-<title>N11</title>
-<g id="a_node11"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="516,-1080 393,-1080 393,-1036 516,-1036 516,-1080"/>
-<text text-anchor="middle" x="454.5" y="-1069.6" font-family="Times,serif" font-size="8.00">kelindar</text>
-<text text-anchor="middle" x="454.5" y="-1060.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="454.5" y="-1051.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:22</text>
-<text text-anchor="middle" x="454.5" y="-1042.6" font-family="Times,serif" font-size="8.00">0 of 22.30MB (24.06%)</text>
+<!-- N26 -->
+<g id="node26" class="node">
+<title>N26</title>
+<g id="a_node26"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 (14.50MB)">
+<polygon fill="#ede2db" stroke="#b2642a" points="507,-1748.5 384,-1748.5 384,-1704.5 507,-1704.5 507,-1748.5"/>
+<text text-anchor="middle" x="445.5" y="-1738.1" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="445.5" y="-1729.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
+<text text-anchor="middle" x="445.5" y="-1720.1" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:22</text>
+<text text-anchor="middle" x="445.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 14.50MB (15.29%)</text>
 </a>
 </g>
 </g>
-<!-- N2&#45;&gt;N11 -->
+<!-- N2&#45;&gt;N26 -->
+<g id="edge27" class="edge">
+<title>N2&#45;&gt;N26</title>
+<g id="a_edge27"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 (14.50MB)">
+<path fill="none" stroke="#b2642a" d="M713.98,-1840.23C703.12,-1825.13 686.42,-1805.84 666.5,-1796 625.26,-1775.63 607.72,-1798.64 563.5,-1786 537.43,-1778.55 510.2,-1765.45 488.48,-1753.53"/>
+<polygon fill="#b2642a" stroke="#b2642a" points="489.96,-1750.35 479.52,-1748.52 486.54,-1756.46 489.96,-1750.35"/>
+</a>
+</g>
+<g id="a_edge27&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 (14.50MB)">
+<text text-anchor="middle" x="598.5" y="-1774.8" font-family="Times,serif" font-size="14.00"> 14.50MB</text>
+</a>
+</g>
+</g>
+<!-- N27 -->
+<g id="node27" class="node">
+<title>N27</title>
+<g id="a_node27"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 (13.23MB)">
+<polygon fill="#ede3dc" stroke="#b26d36" points="648,-1748.5 525,-1748.5 525,-1704.5 648,-1704.5 648,-1748.5"/>
+<text text-anchor="middle" x="586.5" y="-1738.1" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="586.5" y="-1729.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
+<text text-anchor="middle" x="586.5" y="-1720.1" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:30</text>
+<text text-anchor="middle" x="586.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 13.23MB (13.95%)</text>
+</a>
+</g>
+</g>
+<!-- N2&#45;&gt;N27 -->
+<g id="edge30" class="edge">
+<title>N2&#45;&gt;N27</title>
+<g id="a_edge30"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 (13.23MB)">
+<path fill="none" stroke="#b26d36" d="M709.37,-1840.3C697.65,-1827.05 681.79,-1809.91 666.5,-1796 661.11,-1791.09 659.14,-1790.62 653.5,-1786 641.68,-1776.31 628.99,-1765.37 617.86,-1755.59"/>
+<polygon fill="#b26d36" stroke="#b26d36" points="619.88,-1752.71 610.07,-1748.71 615.25,-1757.95 619.88,-1752.71"/>
+</a>
+</g>
+<g id="a_edge30&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 (13.23MB)">
+<text text-anchor="middle" x="688.5" y="-1774.8" font-family="Times,serif" font-size="14.00"> 13.23MB</text>
+</a>
+</g>
+</g>
+<!-- N28 -->
+<g id="node28" class="node">
+<title>N28</title>
+<g id="a_node28"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 (62.13MB)">
+<polygon fill="#edd8d5" stroke="#b21500" points="789,-1748.5 666,-1748.5 666,-1704.5 789,-1704.5 789,-1748.5"/>
+<text text-anchor="middle" x="727.5" y="-1738.1" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="727.5" y="-1729.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
+<text text-anchor="middle" x="727.5" y="-1720.1" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:36</text>
+<text text-anchor="middle" x="727.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 62.13MB (65.49%)</text>
+</a>
+</g>
+</g>
+<!-- N2&#45;&gt;N28 -->
 <g id="edge17" class="edge">
-<title>N2&#45;&gt;N11</title>
-<g id="a_edge17"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M726.47,-1176.18C716.99,-1158.66 701.03,-1134.88 679.5,-1123 658.01,-1111.14 593.19,-1119.42 569.5,-1113 545.59,-1106.52 520.53,-1095.33 499.93,-1084.81"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="501.28,-1081.57 490.8,-1080.05 498.04,-1087.78 501.28,-1081.57"/>
+<title>N2&#45;&gt;N28</title>
+<g id="a_edge17"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 (62.13MB)">
+<path fill="none" stroke="#b21500" stroke-width="4" d="M727.5,-1840.27C727.5,-1818.31 727.5,-1783.8 727.5,-1758.73"/>
+<polygon fill="#b21500" stroke="#b21500" stroke-width="4" points="731,-1758.63 727.5,-1748.63 724,-1758.63 731,-1758.63"/>
 </a>
 </g>
-<g id="a_edge17&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 (22.30MB)">
-<text text-anchor="middle" x="604.5" y="-1101.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
-</a>
-</g>
-</g>
-<!-- N12 -->
-<g id="node12" class="node">
-<title>N12</title>
-<g id="a_node12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 (13.01MB)">
-<polygon fill="#ede3dc" stroke="#b26d35" points="657,-1080 534,-1080 534,-1036 657,-1036 657,-1080"/>
-<text text-anchor="middle" x="595.5" y="-1069.6" font-family="Times,serif" font-size="8.00">kelindar</text>
-<text text-anchor="middle" x="595.5" y="-1060.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="595.5" y="-1051.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:30</text>
-<text text-anchor="middle" x="595.5" y="-1042.6" font-family="Times,serif" font-size="8.00">0 of 13.01MB (14.03%)</text>
+<g id="a_edge17&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 (62.13MB)">
+<text text-anchor="middle" x="762.5" y="-1774.8" font-family="Times,serif" font-size="14.00"> 62.13MB</text>
 </a>
 </g>
 </g>
-<!-- N2&#45;&gt;N12 -->
-<g id="edge21" class="edge">
-<title>N2&#45;&gt;N12</title>
-<g id="a_edge21"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 (13.01MB)">
-<path fill="none" stroke="#b26d35" d="M723.62,-1176.46C713.12,-1160.48 697.18,-1138.65 679.5,-1123 672.94,-1117.19 669.71,-1117.99 662.5,-1113 650.85,-1104.94 638.64,-1095.44 627.88,-1086.68"/>
-<polygon fill="#b26d35" stroke="#b26d35" points="629.91,-1083.82 619.96,-1080.15 625.45,-1089.22 629.91,-1083.82"/>
-</a>
-</g>
-<g id="a_edge21&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 (13.01MB)">
-<text text-anchor="middle" x="697.5" y="-1101.8" font-family="Times,serif" font-size="14.00"> 13.01MB</text>
-</a>
-</g>
-</g>
-<!-- N13 -->
-<g id="node13" class="node">
-<title>N13</title>
-<g id="a_node13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 (57.36MB)">
-<polygon fill="#edd8d5" stroke="#b21700" points="798,-1080 675,-1080 675,-1036 798,-1036 798,-1080"/>
-<text text-anchor="middle" x="736.5" y="-1069.6" font-family="Times,serif" font-size="8.00">kelindar</text>
-<text text-anchor="middle" x="736.5" y="-1060.6" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="736.5" y="-1051.6" font-family="Times,serif" font-size="8.00">bitmap&#45;memory_test.go:36</text>
-<text text-anchor="middle" x="736.5" y="-1042.6" font-family="Times,serif" font-size="8.00">0 of 57.36MB (61.89%)</text>
+<!-- N30 -->
+<g id="node30" class="node">
+<title>N30</title>
+<g id="a_node30"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;cpu&#45;profiling_test.go:17 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="1334.5,-1748.5 1154.5,-1748.5 1154.5,-1704.5 1334.5,-1704.5 1334.5,-1748.5"/>
+<text text-anchor="middle" x="1244.5" y="-1738.1" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="1244.5" y="-1729.1" font-family="Times,serif" font-size="8.00">TestFindPrice_3824position_CpuProfiling</text>
+<text text-anchor="middle" x="1244.5" y="-1720.1" font-family="Times,serif" font-size="8.00">bitmap&#45;cpu&#45;profiling_test.go:17</text>
+<text text-anchor="middle" x="1244.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
 </a>
 </g>
 </g>
-<!-- N2&#45;&gt;N13 -->
-<g id="edge8" class="edge">
-<title>N2&#45;&gt;N13</title>
-<g id="a_edge8"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 (57.36MB)">
-<path fill="none" stroke="#b21700" stroke-width="4" d="M736.5,-1176.46C736.5,-1153.59 736.5,-1116.77 736.5,-1090.45"/>
-<polygon fill="#b21700" stroke="#b21700" stroke-width="4" points="740,-1090.23 736.5,-1080.23 733,-1090.23 740,-1090.23"/>
+<!-- N2&#45;&gt;N30 -->
+<g id="edge62" class="edge">
+<title>N2&#45;&gt;N30</title>
+<g id="a_edge62"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;cpu&#45;profiling_test.go:17 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M782.83,-1847.16C871.49,-1824.18 1046.31,-1778.87 1153.54,-1751.08"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1154.58,-1754.42 1163.38,-1748.52 1152.82,-1747.65 1154.58,-1754.42"/>
 </a>
 </g>
-<g id="a_edge8&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 (57.36MB)">
-<text text-anchor="middle" x="771.5" y="-1101.8" font-family="Times,serif" font-size="14.00"> 57.36MB</text>
+<g id="a_edge62&#45;label"><a xlink:title="testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;cpu&#45;profiling_test.go:17 (0.50MB)">
+<text text-anchor="middle" x="1094" y="-1774.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
 </a>
 </g>
 </g>
 <!-- N3 -->
 <g id="node3" class="node">
 <title>N3</title>
-<g id="a_node3"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:64 (29.74MB)">
-<polygon fill="#eddcd5" stroke="#b23300" points="479,-786 0,-786 0,-648 479,-648 479,-786"/>
-<text text-anchor="middle" x="239.5" y="-762.8" font-family="Times,serif" font-size="24.00">cache</text>
-<text text-anchor="middle" x="239.5" y="-736.8" font-family="Times,serif" font-size="24.00">(*CatalogService)</text>
-<text text-anchor="middle" x="239.5" y="-710.8" font-family="Times,serif" font-size="24.00">GeneratePricesByConditionsAndClear</text>
-<text text-anchor="middle" x="239.5" y="-684.8" font-family="Times,serif" font-size="24.00">price&#45;cache.go:64</text>
-<text text-anchor="middle" x="239.5" y="-658.8" font-family="Times,serif" font-size="24.00">29.74MB (32.09%)</text>
+<g id="a_node3"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:64 (34.50MB)">
+<polygon fill="#eddbd5" stroke="#b22e00" points="479,-1420 0,-1420 0,-1282 479,-1282 479,-1420"/>
+<text text-anchor="middle" x="239.5" y="-1396.8" font-family="Times,serif" font-size="24.00">cache</text>
+<text text-anchor="middle" x="239.5" y="-1370.8" font-family="Times,serif" font-size="24.00">(*CatalogService)</text>
+<text text-anchor="middle" x="239.5" y="-1344.8" font-family="Times,serif" font-size="24.00">GeneratePricesByConditionsAndClear</text>
+<text text-anchor="middle" x="239.5" y="-1318.8" font-family="Times,serif" font-size="24.00">price&#45;cache.go:64</text>
+<text text-anchor="middle" x="239.5" y="-1292.8" font-family="Times,serif" font-size="24.00">34.50MB (36.37%)</text>
 </a>
 </g>
 </g>
 <!-- NN3_0 -->
 <g id="NN3_0" class="node">
 <title>NN3_0</title>
-<g id="a_NN3_0"><a xlink:title="29.74MB">
-<polygon fill="#f8f8f8" stroke="black" points="266.5,-588.5 216.5,-588.5 212.5,-584.5 212.5,-552.5 262.5,-552.5 266.5,-556.5 266.5,-588.5"/>
-<polyline fill="none" stroke="black" points="262.5,-584.5 212.5,-584.5 "/>
-<polyline fill="none" stroke="black" points="262.5,-584.5 262.5,-552.5 "/>
-<polyline fill="none" stroke="black" points="262.5,-584.5 266.5,-588.5 "/>
-<text text-anchor="middle" x="239.5" y="-568.6" font-family="Times,serif" font-size="8.00">64B</text>
+<g id="a_NN3_0"><a xlink:title="34.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="266.5,-1222.5 216.5,-1222.5 212.5,-1218.5 212.5,-1186.5 262.5,-1186.5 266.5,-1190.5 266.5,-1222.5"/>
+<polyline fill="none" stroke="black" points="262.5,-1218.5 212.5,-1218.5 "/>
+<polyline fill="none" stroke="black" points="262.5,-1218.5 262.5,-1186.5 "/>
+<polyline fill="none" stroke="black" points="262.5,-1218.5 266.5,-1222.5 "/>
+<text text-anchor="middle" x="239.5" y="-1202.6" font-family="Times,serif" font-size="8.00">64B</text>
 </a>
 </g>
 </g>
 <!-- N3&#45;&gt;NN3_0 -->
 <g id="edge1" class="edge">
 <title>N3&#45;&gt;NN3_0</title>
-<g id="a_edge1"><a xlink:title="29.74MB">
-<path fill="none" stroke="black" d="M239.5,-647.98C239.5,-630.65 239.5,-613 239.5,-599.03"/>
-<polygon fill="black" stroke="black" points="243,-598.68 239.5,-588.68 236,-598.68 243,-598.68"/>
+<g id="a_edge1"><a xlink:title="34.50MB">
+<path fill="none" stroke="black" d="M239.5,-1281.98C239.5,-1264.65 239.5,-1247 239.5,-1233.03"/>
+<polygon fill="black" stroke="black" points="243,-1232.68 239.5,-1222.68 236,-1232.68 243,-1232.68"/>
 </a>
 </g>
-<g id="a_edge1&#45;label"><a xlink:title="29.74MB">
-<text text-anchor="middle" x="274.5" y="-618.8" font-family="Times,serif" font-size="14.00"> 29.74MB</text>
+<g id="a_edge1&#45;label"><a xlink:title="34.50MB">
+<text text-anchor="middle" x="274.5" y="-1252.8" font-family="Times,serif" font-size="14.00"> 34.50MB</text>
 </a>
 </g>
 </g>
 <!-- N4&#45;&gt;N3 -->
-<g id="edge9" class="edge">
+<g id="edge18" class="edge">
 <title>N4&#45;&gt;N3</title>
-<g id="a_edge9"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:64 (29.74MB)">
-<path fill="none" stroke="#b23300" stroke-width="2" d="M674.81,-844.56C626.02,-830.38 554.51,-809.59 483.49,-788.94"/>
-<polygon fill="#b23300" stroke="#b23300" stroke-width="2" points="484.06,-785.46 473.48,-786.03 482.1,-792.18 484.06,-785.46"/>
+<g id="a_edge18"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:64 (34.50MB)">
+<path fill="none" stroke="#b22e00" stroke-width="2" d="M665.69,-1478.2C617.81,-1464.02 548.17,-1443.4 479.01,-1422.92"/>
+<polygon fill="#b22e00" stroke="#b22e00" stroke-width="2" points="479.83,-1419.51 469.25,-1420.03 477.85,-1426.23 479.83,-1419.51"/>
 </a>
 </g>
-<g id="a_edge9&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:64 (29.74MB)">
-<text text-anchor="middle" x="611.5" y="-807.8" font-family="Times,serif" font-size="14.00"> 29.74MB</text>
+<g id="a_edge18&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:64 (34.50MB)">
+<text text-anchor="middle" x="605.5" y="-1441.8" font-family="Times,serif" font-size="14.00"> 34.50MB</text>
 </a>
 </g>
 </g>
 <!-- N5 -->
 <g id="node5" class="node">
 <title>N5</title>
-<g id="a_node5"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:62 (27.63MB)">
-<polygon fill="#eddcd5" stroke="#b23600" points="976,-786 497,-786 497,-648 976,-648 976,-786"/>
-<text text-anchor="middle" x="736.5" y="-762.8" font-family="Times,serif" font-size="24.00">cache</text>
-<text text-anchor="middle" x="736.5" y="-736.8" font-family="Times,serif" font-size="24.00">(*CatalogService)</text>
-<text text-anchor="middle" x="736.5" y="-710.8" font-family="Times,serif" font-size="24.00">GeneratePricesByConditionsAndClear</text>
-<text text-anchor="middle" x="736.5" y="-684.8" font-family="Times,serif" font-size="24.00">price&#45;cache.go:62</text>
-<text text-anchor="middle" x="736.5" y="-658.8" font-family="Times,serif" font-size="24.00">27.63MB (29.81%)</text>
+<g id="a_node5"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:62 (27.62MB)">
+<polygon fill="#eddcd5" stroke="#b23700" points="958,-1417.5 497,-1417.5 497,-1284.5 958,-1284.5 958,-1417.5"/>
+<text text-anchor="middle" x="727.5" y="-1395.1" font-family="Times,serif" font-size="23.00">cache</text>
+<text text-anchor="middle" x="727.5" y="-1370.1" font-family="Times,serif" font-size="23.00">(*CatalogService)</text>
+<text text-anchor="middle" x="727.5" y="-1345.1" font-family="Times,serif" font-size="23.00">GeneratePricesByConditionsAndClear</text>
+<text text-anchor="middle" x="727.5" y="-1320.1" font-family="Times,serif" font-size="23.00">price&#45;cache.go:62</text>
+<text text-anchor="middle" x="727.5" y="-1295.1" font-family="Times,serif" font-size="23.00">27.62MB (29.12%)</text>
 </a>
 </g>
 </g>
 <!-- N4&#45;&gt;N5 -->
-<g id="edge10" class="edge">
+<g id="edge19" class="edge">
 <title>N4&#45;&gt;N5</title>
-<g id="a_edge10"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:62 (27.63MB)">
-<path fill="none" stroke="#b23600" stroke-width="2" d="M736.5,-837C736.5,-825.41 736.5,-811.02 736.5,-796.28"/>
-<polygon fill="#b23600" stroke="#b23600" stroke-width="2" points="740,-796.06 736.5,-786.06 733,-796.06 740,-796.06"/>
+<g id="a_edge19"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:62 (27.62MB)">
+<path fill="none" stroke="#b23700" stroke-width="2" d="M727.5,-1471C727.5,-1458.77 727.5,-1443.41 727.5,-1427.83"/>
+<polygon fill="#b23700" stroke="#b23700" stroke-width="2" points="731,-1427.58 727.5,-1417.58 724,-1427.58 731,-1427.58"/>
 </a>
 </g>
-<g id="a_edge10&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:62 (27.63MB)">
-<text text-anchor="middle" x="771.5" y="-807.8" font-family="Times,serif" font-size="14.00"> 27.63MB</text>
+<g id="a_edge19&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:37 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap&#45;usage3/cache/price&#45;cache.go:62 (27.62MB)">
+<text text-anchor="middle" x="762.5" y="-1441.8" font-family="Times,serif" font-size="14.00"> 27.62MB</text>
 </a>
 </g>
 </g>
@@ -572,11 +596,11 @@ function handleMouseUp(evt) {
 <g id="NN5_0" class="node">
 <title>NN5_0</title>
 <g id="a_NN5_0"><a xlink:title="27.62MB">
-<polygon fill="#f8f8f8" stroke="black" points="763.5,-588.5 713.5,-588.5 709.5,-584.5 709.5,-552.5 759.5,-552.5 763.5,-556.5 763.5,-588.5"/>
-<polyline fill="none" stroke="black" points="759.5,-584.5 709.5,-584.5 "/>
-<polyline fill="none" stroke="black" points="759.5,-584.5 759.5,-552.5 "/>
-<polyline fill="none" stroke="black" points="759.5,-584.5 763.5,-588.5 "/>
-<text text-anchor="middle" x="736.5" y="-568.6" font-family="Times,serif" font-size="8.00">27.62MB</text>
+<polygon fill="#f8f8f8" stroke="black" points="754.5,-1222.5 704.5,-1222.5 700.5,-1218.5 700.5,-1186.5 750.5,-1186.5 754.5,-1190.5 754.5,-1222.5"/>
+<polyline fill="none" stroke="black" points="750.5,-1218.5 700.5,-1218.5 "/>
+<polyline fill="none" stroke="black" points="750.5,-1218.5 750.5,-1186.5 "/>
+<polyline fill="none" stroke="black" points="750.5,-1218.5 754.5,-1222.5 "/>
+<text text-anchor="middle" x="727.5" y="-1202.6" font-family="Times,serif" font-size="8.00">27.62MB</text>
 </a>
 </g>
 </g>
@@ -584,50 +608,50 @@ function handleMouseUp(evt) {
 <g id="edge2" class="edge">
 <title>N5&#45;&gt;NN5_0</title>
 <g id="a_edge2"><a xlink:title="27.62MB">
-<path fill="none" stroke="black" d="M736.5,-647.98C736.5,-630.65 736.5,-613 736.5,-599.03"/>
-<polygon fill="black" stroke="black" points="740,-598.68 736.5,-588.68 733,-598.68 740,-598.68"/>
+<path fill="none" stroke="black" d="M727.5,-1284.09C727.5,-1266.06 727.5,-1247.5 727.5,-1232.94"/>
+<polygon fill="black" stroke="black" points="731,-1232.67 727.5,-1222.67 724,-1232.67 731,-1232.67"/>
 </a>
 </g>
 <g id="a_edge2&#45;label"><a xlink:title="27.62MB">
-<text text-anchor="middle" x="771.5" y="-618.8" font-family="Times,serif" font-size="14.00"> 27.62MB</text>
+<text text-anchor="middle" x="762.5" y="-1252.8" font-family="Times,serif" font-size="14.00"> 27.62MB</text>
 </a>
 </g>
 </g>
 <!-- N6 -->
 <g id="node6" class="node">
 <title>N6</title>
-<g id="a_node6"><a xlink:title="github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="1598,-215 1371,-215 1371,-87 1598,-87 1598,-215"/>
-<text text-anchor="middle" x="1484.5" y="-193.4" font-family="Times,serif" font-size="22.00">uuid</text>
-<text text-anchor="middle" x="1484.5" y="-169.4" font-family="Times,serif" font-size="22.00">UUID</text>
-<text text-anchor="middle" x="1484.5" y="-145.4" font-family="Times,serif" font-size="22.00">String</text>
-<text text-anchor="middle" x="1484.5" y="-121.4" font-family="Times,serif" font-size="22.00">uuid.go:188</text>
-<text text-anchor="middle" x="1484.5" y="-97.4" font-family="Times,serif" font-size="22.00">22.30MB (24.06%)</text>
+<g id="a_node6"><a xlink:title="github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (14.50MB)">
+<polygon fill="#ede2db" stroke="#b2642a" points="1678,-849 1481,-849 1481,-736 1678,-736 1678,-849"/>
+<text text-anchor="middle" x="1579.5" y="-829.8" font-family="Times,serif" font-size="19.00">uuid</text>
+<text text-anchor="middle" x="1579.5" y="-808.8" font-family="Times,serif" font-size="19.00">UUID</text>
+<text text-anchor="middle" x="1579.5" y="-787.8" font-family="Times,serif" font-size="19.00">String</text>
+<text text-anchor="middle" x="1579.5" y="-766.8" font-family="Times,serif" font-size="19.00">uuid.go:188</text>
+<text text-anchor="middle" x="1579.5" y="-745.8" font-family="Times,serif" font-size="19.00">14.50MB (15.29%)</text>
 </a>
 </g>
 </g>
 <!-- NN6_0 -->
 <g id="NN6_0" class="node">
 <title>NN6_0</title>
-<g id="a_NN6_0"><a xlink:title="22.30MB">
-<polygon fill="#f8f8f8" stroke="black" points="1511.5,-36 1461.5,-36 1457.5,-32 1457.5,0 1507.5,0 1511.5,-4 1511.5,-36"/>
-<polyline fill="none" stroke="black" points="1507.5,-32 1457.5,-32 "/>
-<polyline fill="none" stroke="black" points="1507.5,-32 1507.5,0 "/>
-<polyline fill="none" stroke="black" points="1507.5,-32 1511.5,-36 "/>
-<text text-anchor="middle" x="1484.5" y="-16.1" font-family="Times,serif" font-size="8.00">48B</text>
+<g id="a_NN6_0"><a xlink:title="14.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="1606.5,-676.5 1556.5,-676.5 1552.5,-672.5 1552.5,-640.5 1602.5,-640.5 1606.5,-644.5 1606.5,-676.5"/>
+<polyline fill="none" stroke="black" points="1602.5,-672.5 1552.5,-672.5 "/>
+<polyline fill="none" stroke="black" points="1602.5,-672.5 1602.5,-640.5 "/>
+<polyline fill="none" stroke="black" points="1602.5,-672.5 1606.5,-676.5 "/>
+<text text-anchor="middle" x="1579.5" y="-656.6" font-family="Times,serif" font-size="8.00">48B</text>
 </a>
 </g>
 </g>
 <!-- N6&#45;&gt;NN6_0 -->
 <g id="edge3" class="edge">
 <title>N6&#45;&gt;NN6_0</title>
-<g id="a_edge3"><a xlink:title="22.30MB">
-<path fill="none" stroke="black" d="M1484.5,-86.8C1484.5,-72.48 1484.5,-58 1484.5,-46.13"/>
-<polygon fill="black" stroke="black" points="1488,-46.03 1484.5,-36.03 1481,-46.03 1488,-46.03"/>
+<g id="a_edge3"><a xlink:title="14.50MB">
+<path fill="none" stroke="black" d="M1579.5,-735.9C1579.5,-718.95 1579.5,-701.05 1579.5,-686.84"/>
+<polygon fill="black" stroke="black" points="1583,-686.78 1579.5,-676.78 1576,-686.78 1583,-686.78"/>
 </a>
 </g>
-<g id="a_edge3&#45;label"><a xlink:title="22.30MB">
-<text text-anchor="middle" x="1519.5" y="-57.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
+<g id="a_edge3&#45;label"><a xlink:title="14.50MB">
+<text text-anchor="middle" x="1614.5" y="-706.8" font-family="Times,serif" font-size="14.00"> 14.50MB</text>
 </a>
 </g>
 </g>
@@ -635,77 +659,103 @@ function handleMouseUp(evt) {
 <g id="node8" class="node">
 <title>N8</title>
 <g id="a_node8"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:56 (7.44MB)">
-<polygon fill="#ede8e3" stroke="#b2906a" points="1150.5,-768.5 994.5,-768.5 994.5,-665.5 1150.5,-665.5 1150.5,-768.5"/>
-<text text-anchor="middle" x="1072.5" y="-750.9" font-family="Times,serif" font-size="17.00">index&#45;kelindar</text>
-<text text-anchor="middle" x="1072.5" y="-731.9" font-family="Times,serif" font-size="17.00">(*Holder)</text>
-<text text-anchor="middle" x="1072.5" y="-712.9" font-family="Times,serif" font-size="17.00">IndexPricesV2</text>
-<text text-anchor="middle" x="1072.5" y="-693.9" font-family="Times,serif" font-size="17.00">indexerv2.go:56</text>
-<text text-anchor="middle" x="1072.5" y="-674.9" font-family="Times,serif" font-size="17.00">7.44MB (8.03%)</text>
+<polygon fill="#ede8e3" stroke="#b2916c" points="1127,-1400 976,-1400 976,-1302 1127,-1302 1127,-1400"/>
+<text text-anchor="middle" x="1051.5" y="-1383.2" font-family="Times,serif" font-size="16.00">index&#45;kelindar</text>
+<text text-anchor="middle" x="1051.5" y="-1365.2" font-family="Times,serif" font-size="16.00">(*Holder)</text>
+<text text-anchor="middle" x="1051.5" y="-1347.2" font-family="Times,serif" font-size="16.00">IndexPricesV2</text>
+<text text-anchor="middle" x="1051.5" y="-1329.2" font-family="Times,serif" font-size="16.00">indexerv2.go:56</text>
+<text text-anchor="middle" x="1051.5" y="-1311.2" font-family="Times,serif" font-size="16.00">7.44MB (7.84%)</text>
 </a>
 </g>
 </g>
 <!-- N7&#45;&gt;N8 -->
-<g id="edge22" class="edge">
+<g id="edge31" class="edge">
 <title>N7&#45;&gt;N8</title>
-<g id="a_edge22"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:56 (7.44MB)">
-<path fill="none" stroke="#b2906a" d="M1072.5,-837C1072.5,-820.85 1072.5,-799.24 1072.5,-778.87"/>
-<polygon fill="#b2906a" stroke="#b2906a" points="1076,-778.68 1072.5,-768.68 1069,-778.68 1076,-778.68"/>
+<g id="a_edge31"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:56 (7.44MB)">
+<path fill="none" stroke="#b2916c" d="M1051.5,-1471C1051.5,-1454.15 1051.5,-1431.35 1051.5,-1410.22"/>
+<polygon fill="#b2916c" stroke="#b2916c" points="1055,-1410.02 1051.5,-1400.02 1048,-1410.02 1055,-1410.02"/>
 </a>
 </g>
-<g id="a_edge22&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:56 (7.44MB)">
-<text text-anchor="middle" x="1103" y="-807.8" font-family="Times,serif" font-size="14.00"> 7.44MB</text>
-</a>
-</g>
-</g>
-<!-- N18 -->
-<g id="node18" class="node">
-<title>N18</title>
-<g id="a_node18"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 (2.06MB)">
-<polygon fill="#edecea" stroke="#b2ac9e" points="1268.5,-743.5 1168.5,-743.5 1168.5,-690.5 1268.5,-690.5 1268.5,-743.5"/>
-<text text-anchor="middle" x="1218.5" y="-733.1" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
-<text text-anchor="middle" x="1218.5" y="-724.1" font-family="Times,serif" font-size="8.00">(*Holder)</text>
-<text text-anchor="middle" x="1218.5" y="-715.1" font-family="Times,serif" font-size="8.00">IndexPricesV2</text>
-<text text-anchor="middle" x="1218.5" y="-706.1" font-family="Times,serif" font-size="8.00">indexerv2.go:73</text>
-<text text-anchor="middle" x="1218.5" y="-697.1" font-family="Times,serif" font-size="8.00">0 of 2.06MB (2.22%)</text>
+<g id="a_edge31&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:56 (7.44MB)">
+<text text-anchor="middle" x="1082" y="-1441.8" font-family="Times,serif" font-size="14.00"> 7.44MB</text>
 </a>
 </g>
 </g>
-<!-- N7&#45;&gt;N18 -->
-<g id="edge27" class="edge">
-<title>N7&#45;&gt;N18</title>
-<g id="a_edge27"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 (2.06MB)">
-<path fill="none" stroke="#b2ac9e" d="M1114.83,-836.92C1122.69,-831.41 1130.6,-825.33 1137.5,-819 1159.34,-798.97 1180.16,-772.78 1195.23,-752.09"/>
-<polygon fill="#b2ac9e" stroke="#b2ac9e" points="1198.13,-754.05 1201.12,-743.89 1192.45,-749.97 1198.13,-754.05"/>
-</a>
-</g>
-<g id="a_edge27&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 (2.06MB)">
-<text text-anchor="middle" x="1183" y="-807.8" font-family="Times,serif" font-size="14.00"> 2.06MB</text>
-</a>
-</g>
-</g>
-<!-- N19 -->
-<g id="node19" class="node">
-<title>N19</title>
-<g id="a_node19"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 (3.01MB)">
-<polygon fill="#edebe9" stroke="#b2a895" points="1386.5,-743.5 1286.5,-743.5 1286.5,-690.5 1386.5,-690.5 1386.5,-743.5"/>
-<text text-anchor="middle" x="1336.5" y="-733.1" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
-<text text-anchor="middle" x="1336.5" y="-724.1" font-family="Times,serif" font-size="8.00">(*Holder)</text>
-<text text-anchor="middle" x="1336.5" y="-715.1" font-family="Times,serif" font-size="8.00">IndexPricesV2</text>
-<text text-anchor="middle" x="1336.5" y="-706.1" font-family="Times,serif" font-size="8.00">indexerv2.go:85</text>
-<text text-anchor="middle" x="1336.5" y="-697.1" font-family="Times,serif" font-size="8.00">0 of 3.01MB (3.24%)</text>
+<!-- N34 -->
+<g id="node34" class="node">
+<title>N34</title>
+<g id="a_node34"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:69 (0.53MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="1245.5,-1377.5 1145.5,-1377.5 1145.5,-1324.5 1245.5,-1324.5 1245.5,-1377.5"/>
+<text text-anchor="middle" x="1195.5" y="-1367.1" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
+<text text-anchor="middle" x="1195.5" y="-1358.1" font-family="Times,serif" font-size="8.00">(*Holder)</text>
+<text text-anchor="middle" x="1195.5" y="-1349.1" font-family="Times,serif" font-size="8.00">IndexPricesV2</text>
+<text text-anchor="middle" x="1195.5" y="-1340.1" font-family="Times,serif" font-size="8.00">indexerv2.go:69</text>
+<text text-anchor="middle" x="1195.5" y="-1331.1" font-family="Times,serif" font-size="8.00">0 of 0.53MB (0.56%)</text>
 </a>
 </g>
 </g>
-<!-- N7&#45;&gt;N19 -->
-<g id="edge25" class="edge">
-<title>N7&#45;&gt;N19</title>
-<g id="a_edge25"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 (3.01MB)">
-<path fill="none" stroke="#b2a895" d="M1134.21,-850.43C1177.88,-839.45 1235.83,-819.66 1277.5,-786 1289.85,-776.02 1301.68,-763.26 1311.47,-751.49"/>
-<polygon fill="#b2a895" stroke="#b2a895" points="1314.33,-753.53 1317.9,-743.55 1308.89,-749.12 1314.33,-753.53"/>
+<!-- N7&#45;&gt;N34 -->
+<g id="edge48" class="edge">
+<title>N7&#45;&gt;N34</title>
+<g id="a_edge48"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:69 (0.53MB)">
+<path fill="none" stroke="#b2b1ad" d="M1093.89,-1470.98C1101.75,-1465.47 1109.63,-1459.38 1116.5,-1453 1138.01,-1433.03 1158.31,-1406.84 1172.95,-1386.14"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1175.83,-1388.13 1178.67,-1377.92 1170.08,-1384.13 1175.83,-1388.13"/>
 </a>
 </g>
-<g id="a_edge25&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 (3.01MB)">
-<text text-anchor="middle" x="1278" y="-807.8" font-family="Times,serif" font-size="14.00"> 3.01MB</text>
+<g id="a_edge48&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:69 (0.53MB)">
+<text text-anchor="middle" x="1162" y="-1441.8" font-family="Times,serif" font-size="14.00"> 0.53MB</text>
+</a>
+</g>
+</g>
+<!-- N35 -->
+<g id="node35" class="node">
+<title>N35</title>
+<g id="a_node35"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 (2.07MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1363.5,-1377.5 1263.5,-1377.5 1263.5,-1324.5 1363.5,-1324.5 1363.5,-1377.5"/>
+<text text-anchor="middle" x="1313.5" y="-1367.1" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
+<text text-anchor="middle" x="1313.5" y="-1358.1" font-family="Times,serif" font-size="8.00">(*Holder)</text>
+<text text-anchor="middle" x="1313.5" y="-1349.1" font-family="Times,serif" font-size="8.00">IndexPricesV2</text>
+<text text-anchor="middle" x="1313.5" y="-1340.1" font-family="Times,serif" font-size="8.00">indexerv2.go:73</text>
+<text text-anchor="middle" x="1313.5" y="-1331.1" font-family="Times,serif" font-size="8.00">0 of 2.07MB (2.18%)</text>
+</a>
+</g>
+</g>
+<!-- N7&#45;&gt;N35 -->
+<g id="edge36" class="edge">
+<title>N7&#45;&gt;N35</title>
+<g id="a_edge36"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 (2.07MB)">
+<path fill="none" stroke="#b2ac9f" d="M1113.19,-1484.32C1156.43,-1473.32 1213.58,-1453.55 1254.5,-1420 1266.68,-1410.02 1278.41,-1397.36 1288.16,-1385.68"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1290.98,-1387.76 1294.57,-1377.79 1285.55,-1383.34 1290.98,-1387.76"/>
+</a>
+</g>
+<g id="a_edge36&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 (2.07MB)">
+<text text-anchor="middle" x="1257" y="-1441.8" font-family="Times,serif" font-size="14.00"> 2.07MB</text>
+</a>
+</g>
+</g>
+<!-- N36 -->
+<g id="node36" class="node">
+<title>N36</title>
+<g id="a_node36"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 (3.19MB)">
+<polygon fill="#edebe9" stroke="#b2a794" points="1481.5,-1377.5 1381.5,-1377.5 1381.5,-1324.5 1481.5,-1324.5 1481.5,-1377.5"/>
+<text text-anchor="middle" x="1431.5" y="-1367.1" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
+<text text-anchor="middle" x="1431.5" y="-1358.1" font-family="Times,serif" font-size="8.00">(*Holder)</text>
+<text text-anchor="middle" x="1431.5" y="-1349.1" font-family="Times,serif" font-size="8.00">IndexPricesV2</text>
+<text text-anchor="middle" x="1431.5" y="-1340.1" font-family="Times,serif" font-size="8.00">indexerv2.go:85</text>
+<text text-anchor="middle" x="1431.5" y="-1331.1" font-family="Times,serif" font-size="8.00">0 of 3.19MB (3.36%)</text>
+</a>
+</g>
+</g>
+<!-- N7&#45;&gt;N36 -->
+<g id="edge34" class="edge">
+<title>N7&#45;&gt;N36</title>
+<g id="a_edge34"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 (3.19MB)">
+<path fill="none" stroke="#b2a794" d="M1113.02,-1495.37C1182.15,-1491.24 1294.83,-1475.62 1372.5,-1420 1385.61,-1410.61 1397.74,-1397.74 1407.55,-1385.72"/>
+<polygon fill="#b2a794" stroke="#b2a794" points="1410.51,-1387.62 1413.95,-1377.59 1405.01,-1383.29 1410.51,-1387.62"/>
+</a>
+</g>
+<g id="a_edge34&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:31 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 (3.19MB)">
+<text text-anchor="middle" x="1373" y="-1441.8" font-family="Times,serif" font-size="14.00"> 3.19MB</text>
 </a>
 </g>
 </g>
@@ -713,11 +763,11 @@ function handleMouseUp(evt) {
 <g id="NN8_0" class="node">
 <title>NN8_0</title>
 <g id="a_NN8_0"><a xlink:title="7.44MB">
-<polygon fill="#f8f8f8" stroke="black" points="1099.5,-588.5 1049.5,-588.5 1045.5,-584.5 1045.5,-552.5 1095.5,-552.5 1099.5,-556.5 1099.5,-588.5"/>
-<polyline fill="none" stroke="black" points="1095.5,-584.5 1045.5,-584.5 "/>
-<polyline fill="none" stroke="black" points="1095.5,-584.5 1095.5,-552.5 "/>
-<polyline fill="none" stroke="black" points="1095.5,-584.5 1099.5,-588.5 "/>
-<text text-anchor="middle" x="1072.5" y="-568.6" font-family="Times,serif" font-size="8.00">7.44MB</text>
+<polygon fill="#f8f8f8" stroke="black" points="1078.5,-1222.5 1028.5,-1222.5 1024.5,-1218.5 1024.5,-1186.5 1074.5,-1186.5 1078.5,-1190.5 1078.5,-1222.5"/>
+<polyline fill="none" stroke="black" points="1074.5,-1218.5 1024.5,-1218.5 "/>
+<polyline fill="none" stroke="black" points="1074.5,-1218.5 1074.5,-1186.5 "/>
+<polyline fill="none" stroke="black" points="1074.5,-1218.5 1078.5,-1222.5 "/>
+<text text-anchor="middle" x="1051.5" y="-1202.6" font-family="Times,serif" font-size="8.00">7.44MB</text>
 </a>
 </g>
 </g>
@@ -725,284 +775,1496 @@ function handleMouseUp(evt) {
 <g id="edge4" class="edge">
 <title>N8&#45;&gt;NN8_0</title>
 <g id="a_edge4"><a xlink:title="7.44MB">
-<path fill="none" stroke="black" d="M1072.5,-665.46C1072.5,-643.15 1072.5,-617.78 1072.5,-599.04"/>
-<polygon fill="black" stroke="black" points="1076,-598.84 1072.5,-588.84 1069,-598.84 1076,-598.84"/>
+<path fill="none" stroke="black" d="M1051.5,-1301.88C1051.5,-1278.99 1051.5,-1252.45 1051.5,-1233.02"/>
+<polygon fill="black" stroke="black" points="1055,-1232.76 1051.5,-1222.76 1048,-1232.76 1055,-1232.76"/>
 </a>
 </g>
 <g id="a_edge4&#45;label"><a xlink:title="7.44MB">
-<text text-anchor="middle" x="1103" y="-618.8" font-family="Times,serif" font-size="14.00"> 7.44MB</text>
+<text text-anchor="middle" x="1082" y="-1252.8" font-family="Times,serif" font-size="14.00"> 7.44MB</text>
 </a>
 </g>
 </g>
 <!-- N9 -->
 <g id="node9" class="node">
 <title>N9</title>
-<g id="a_node9"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:151 (5.55MB)">
-<polygon fill="#edeae6" stroke="#b29b7d" points="1396,-374 1255,-374 1255,-281 1396,-281 1396,-374"/>
-<text text-anchor="middle" x="1325.5" y="-358" font-family="Times,serif" font-size="15.00">bitmap</text>
-<text text-anchor="middle" x="1325.5" y="-341" font-family="Times,serif" font-size="15.00">(*Bitmap)</text>
-<text text-anchor="middle" x="1325.5" y="-324" font-family="Times,serif" font-size="15.00">grow</text>
-<text text-anchor="middle" x="1325.5" y="-307" font-family="Times,serif" font-size="15.00">bitmap.go:151</text>
-<text text-anchor="middle" x="1325.5" y="-290" font-family="Times,serif" font-size="15.00">5.55MB (5.99%)</text>
+<g id="a_node9"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:149 (5.79MB)">
+<polygon fill="#edeae5" stroke="#b29a7b" points="1411,-1008 1270,-1008 1270,-915 1411,-915 1411,-1008"/>
+<text text-anchor="middle" x="1340.5" y="-992" font-family="Times,serif" font-size="15.00">bitmap</text>
+<text text-anchor="middle" x="1340.5" y="-975" font-family="Times,serif" font-size="15.00">(*Bitmap)</text>
+<text text-anchor="middle" x="1340.5" y="-958" font-family="Times,serif" font-size="15.00">grow</text>
+<text text-anchor="middle" x="1340.5" y="-941" font-family="Times,serif" font-size="15.00">bitmap.go:149</text>
+<text text-anchor="middle" x="1340.5" y="-924" font-family="Times,serif" font-size="15.00">5.79MB (6.11%)</text>
 </a>
 </g>
 </g>
 <!-- NN9_0 -->
 <g id="NN9_0" class="node">
 <title>NN9_0</title>
-<g id="a_NN9_0"><a xlink:title="5MB">
-<polygon fill="#f8f8f8" stroke="black" points="1352.5,-169 1302.5,-169 1298.5,-165 1298.5,-133 1348.5,-133 1352.5,-137 1352.5,-169"/>
-<polyline fill="none" stroke="black" points="1348.5,-165 1298.5,-165 "/>
-<polyline fill="none" stroke="black" points="1348.5,-165 1348.5,-133 "/>
-<polyline fill="none" stroke="black" points="1348.5,-165 1352.5,-169 "/>
-<text text-anchor="middle" x="1325.5" y="-149.1" font-family="Times,serif" font-size="8.00">64kB</text>
+<g id="a_NN9_0"><a xlink:title="4.26MB">
+<polygon fill="#f8f8f8" stroke="black" points="1283.5,-810.5 1233.5,-810.5 1229.5,-806.5 1229.5,-774.5 1279.5,-774.5 1283.5,-778.5 1283.5,-810.5"/>
+<polyline fill="none" stroke="black" points="1279.5,-806.5 1229.5,-806.5 "/>
+<polyline fill="none" stroke="black" points="1279.5,-806.5 1279.5,-774.5 "/>
+<polyline fill="none" stroke="black" points="1279.5,-806.5 1283.5,-810.5 "/>
+<text text-anchor="middle" x="1256.5" y="-790.6" font-family="Times,serif" font-size="8.00">64kB</text>
 </a>
 </g>
 </g>
 <!-- N9&#45;&gt;NN9_0 -->
 <g id="edge5" class="edge">
 <title>N9&#45;&gt;NN9_0</title>
-<g id="a_edge5"><a xlink:title="5MB">
-<path fill="none" stroke="black" d="M1325.5,-280.65C1325.5,-248.52 1325.5,-206.65 1325.5,-179.54"/>
-<polygon fill="black" stroke="black" points="1329,-179.24 1325.5,-169.24 1322,-179.24 1329,-179.24"/>
+<g id="a_edge5"><a xlink:title="4.26MB">
+<path fill="none" stroke="black" d="M1287.62,-914.97C1283.01,-909.29 1278.84,-903.27 1275.5,-897 1262.87,-873.27 1258.48,-842.63 1257.03,-820.86"/>
+<polygon fill="black" stroke="black" points="1260.52,-820.47 1256.52,-810.66 1253.53,-820.82 1260.52,-820.47"/>
 </a>
 </g>
-<g id="a_edge5&#45;label"><a xlink:title="5MB">
-<text text-anchor="middle" x="1345" y="-244.3" font-family="Times,serif" font-size="14.00"> 5MB</text>
+<g id="a_edge5&#45;label"><a xlink:title="4.26MB">
+<text text-anchor="middle" x="1306" y="-878.3" font-family="Times,serif" font-size="14.00"> 4.26MB</text>
+</a>
+</g>
+</g>
+<!-- NN9_1 -->
+<g id="NN9_1" class="node">
+<title>NN9_1</title>
+<g id="a_NN9_1"><a xlink:title="1.03MB">
+<polygon fill="#f8f8f8" stroke="black" points="1367.5,-810.5 1317.5,-810.5 1313.5,-806.5 1313.5,-774.5 1363.5,-774.5 1367.5,-778.5 1367.5,-810.5"/>
+<polyline fill="none" stroke="black" points="1363.5,-806.5 1313.5,-806.5 "/>
+<polyline fill="none" stroke="black" points="1363.5,-806.5 1363.5,-774.5 "/>
+<polyline fill="none" stroke="black" points="1363.5,-806.5 1367.5,-810.5 "/>
+<text text-anchor="middle" x="1340.5" y="-790.6" font-family="Times,serif" font-size="8.00">32kB</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;NN9_1 -->
+<g id="edge6" class="edge">
+<title>N9&#45;&gt;NN9_1</title>
+<g id="a_edge6"><a xlink:title="1.03MB">
+<path fill="none" stroke="black" d="M1340.5,-914.87C1340.5,-884.78 1340.5,-846.38 1340.5,-820.92"/>
+<polygon fill="black" stroke="black" points="1344,-820.86 1340.5,-810.86 1337,-820.86 1344,-820.86"/>
+</a>
+</g>
+<g id="a_edge6&#45;label"><a xlink:title="1.03MB">
+<text text-anchor="middle" x="1371" y="-878.3" font-family="Times,serif" font-size="14.00"> 1.03MB</text>
+</a>
+</g>
+</g>
+<!-- NN9_2 -->
+<g id="NN9_2" class="node">
+<title>NN9_2</title>
+<g id="a_NN9_2"><a xlink:title="0.51MB">
+<polygon fill="#f8f8f8" stroke="black" points="1451.5,-810.5 1401.5,-810.5 1397.5,-806.5 1397.5,-774.5 1447.5,-774.5 1451.5,-778.5 1451.5,-810.5"/>
+<polyline fill="none" stroke="black" points="1447.5,-806.5 1397.5,-806.5 "/>
+<polyline fill="none" stroke="black" points="1447.5,-806.5 1447.5,-774.5 "/>
+<polyline fill="none" stroke="black" points="1447.5,-806.5 1451.5,-810.5 "/>
+<text text-anchor="middle" x="1424.5" y="-790.6" font-family="Times,serif" font-size="8.00">16kB</text>
+</a>
+</g>
+</g>
+<!-- N9&#45;&gt;NN9_2 -->
+<g id="edge7" class="edge">
+<title>N9&#45;&gt;NN9_2</title>
+<g id="a_edge7"><a xlink:title="0.51MB">
+<path fill="none" stroke="black" d="M1390.76,-914.65C1395.19,-909.04 1399.23,-903.11 1402.5,-897 1415.26,-873.17 1420.62,-842.54 1422.87,-820.8"/>
+<polygon fill="black" stroke="black" points="1426.37,-820.89 1423.76,-810.62 1419.4,-820.27 1426.37,-820.89"/>
+</a>
+</g>
+<g id="a_edge7&#45;label"><a xlink:title="0.51MB">
+<text text-anchor="middle" x="1445" y="-878.3" font-family="Times,serif" font-size="14.00"> 0.51MB</text>
 </a>
 </g>
 </g>
 <!-- N10 -->
 <g id="node10" class="node">
 <title>N10</title>
-<g id="a_node10"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (5.55MB)">
-<polygon fill="#edeae6" stroke="#b29b7d" points="1375.5,-597 1275.5,-597 1275.5,-544 1375.5,-544 1375.5,-597"/>
-<text text-anchor="middle" x="1325.5" y="-586.6" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
-<text text-anchor="middle" x="1325.5" y="-577.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
-<text text-anchor="middle" x="1325.5" y="-568.6" font-family="Times,serif" font-size="8.00">addToBitmap</text>
-<text text-anchor="middle" x="1325.5" y="-559.6" font-family="Times,serif" font-size="8.00">indexerv2.go:126</text>
-<text text-anchor="middle" x="1325.5" y="-550.6" font-family="Times,serif" font-size="8.00">0 of 5.55MB (5.99%)</text>
+<g id="a_node10"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (5.79MB)">
+<polygon fill="#edeae5" stroke="#b29a7b" points="1390.5,-1231 1290.5,-1231 1290.5,-1178 1390.5,-1178 1390.5,-1231"/>
+<text text-anchor="middle" x="1340.5" y="-1220.6" font-family="Times,serif" font-size="8.00">index&#45;kelindar</text>
+<text text-anchor="middle" x="1340.5" y="-1211.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
+<text text-anchor="middle" x="1340.5" y="-1202.6" font-family="Times,serif" font-size="8.00">addToBitmap</text>
+<text text-anchor="middle" x="1340.5" y="-1193.6" font-family="Times,serif" font-size="8.00">indexerv2.go:126</text>
+<text text-anchor="middle" x="1340.5" y="-1184.6" font-family="Times,serif" font-size="8.00">0 of 5.79MB (6.11%)</text>
 </a>
 </g>
 </g>
-<!-- N21 -->
-<g id="node21" class="node">
-<title>N21</title>
-<g id="a_node21"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:18 (5.55MB)">
-<polygon fill="#edeae6" stroke="#b29b7d" points="1375.5,-493 1275.5,-493 1275.5,-440 1375.5,-440 1375.5,-493"/>
-<text text-anchor="middle" x="1325.5" y="-482.6" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1325.5" y="-473.6" font-family="Times,serif" font-size="8.00">(*Bitmap)</text>
-<text text-anchor="middle" x="1325.5" y="-464.6" font-family="Times,serif" font-size="8.00">Set</text>
-<text text-anchor="middle" x="1325.5" y="-455.6" font-family="Times,serif" font-size="8.00">bitmap.go:18</text>
-<text text-anchor="middle" x="1325.5" y="-446.6" font-family="Times,serif" font-size="8.00">0 of 5.55MB (5.99%)</text>
+<!-- N38 -->
+<g id="node38" class="node">
+<title>N38</title>
+<g id="a_node38"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:18 (5.79MB)">
+<polygon fill="#edeae5" stroke="#b29a7b" points="1390.5,-1127 1290.5,-1127 1290.5,-1074 1390.5,-1074 1390.5,-1127"/>
+<text text-anchor="middle" x="1340.5" y="-1116.6" font-family="Times,serif" font-size="8.00">bitmap</text>
+<text text-anchor="middle" x="1340.5" y="-1107.6" font-family="Times,serif" font-size="8.00">(*Bitmap)</text>
+<text text-anchor="middle" x="1340.5" y="-1098.6" font-family="Times,serif" font-size="8.00">Set</text>
+<text text-anchor="middle" x="1340.5" y="-1089.6" font-family="Times,serif" font-size="8.00">bitmap.go:18</text>
+<text text-anchor="middle" x="1340.5" y="-1080.6" font-family="Times,serif" font-size="8.00">0 of 5.79MB (6.11%)</text>
 </a>
 </g>
 </g>
-<!-- N10&#45;&gt;N21 -->
-<g id="edge23" class="edge">
-<title>N10&#45;&gt;N21</title>
-<g id="a_edge23"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:18 (5.55MB)">
-<path fill="none" stroke="#b29b7d" d="M1325.5,-543.76C1325.5,-531.56 1325.5,-516.78 1325.5,-503.49"/>
-<polygon fill="#b29b7d" stroke="#b29b7d" points="1329,-503.23 1325.5,-493.23 1322,-503.23 1329,-503.23"/>
+<!-- N10&#45;&gt;N38 -->
+<g id="edge32" class="edge">
+<title>N10&#45;&gt;N38</title>
+<g id="a_edge32"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:18 (5.79MB)">
+<path fill="none" stroke="#b29a7b" d="M1340.5,-1177.76C1340.5,-1165.56 1340.5,-1150.78 1340.5,-1137.49"/>
+<polygon fill="#b29a7b" stroke="#b29a7b" points="1344,-1137.23 1340.5,-1127.23 1337,-1137.23 1344,-1137.23"/>
 </a>
 </g>
-<g id="a_edge23&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:18 (5.55MB)">
-<text text-anchor="middle" x="1356" y="-514.8" font-family="Times,serif" font-size="14.00"> 5.55MB</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;N1 -->
-<g id="edge12" class="edge">
-<title>N11&#45;&gt;N1</title>
-<g id="a_edge12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M494.09,-1035.89C515.87,-1024.92 543.66,-1011.97 569.5,-1003 599.19,-992.69 632.79,-984.25 662.02,-977.9"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="663.12,-981.24 672.17,-975.73 661.66,-974.39 663.12,-981.24"/>
-</a>
-</g>
-<g id="a_edge12&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (22.30MB)">
-<text text-anchor="middle" x="604.5" y="-1006.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
+<g id="a_edge32&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:18 (5.79MB)">
+<text text-anchor="middle" x="1371" y="-1148.8" font-family="Times,serif" font-size="14.00"> 5.79MB</text>
 </a>
 </g>
 </g>
-<!-- N12&#45;&gt;N1 -->
-<g id="edge20" class="edge">
-<title>N12&#45;&gt;N1</title>
-<g id="a_edge20"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (13.01MB)">
-<path fill="none" stroke="#b26d35" d="M619.45,-1035.81C631.86,-1025.33 647.52,-1012.85 662.5,-1003 669.24,-998.57 676.54,-994.22 683.84,-990.14"/>
-<polygon fill="#b26d35" stroke="#b26d35" points="685.94,-992.98 693.04,-985.11 682.58,-986.83 685.94,-992.98"/>
-</a>
-</g>
-<g id="a_edge20&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (13.01MB)">
-<text text-anchor="middle" x="697.5" y="-1006.8" font-family="Times,serif" font-size="14.00"> 13.01MB</text>
-</a>
-</g>
-</g>
-<!-- N13&#45;&gt;N1 -->
-<g id="edge7" class="edge">
-<title>N13&#45;&gt;N1</title>
-<g id="a_edge7"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (57.36MB)">
-<path fill="none" stroke="#b21700" stroke-width="4" d="M736.5,-1035.9C736.5,-1023.89 736.5,-1008.62 736.5,-995.24"/>
-<polygon fill="#b21700" stroke="#b21700" stroke-width="4" points="740,-995.02 736.5,-985.02 733,-995.02 740,-995.02"/>
-</a>
-</g>
-<g id="a_edge7&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (57.36MB)">
-<text text-anchor="middle" x="771.5" y="-1006.8" font-family="Times,serif" font-size="14.00"> 57.36MB</text>
+<!-- N11 -->
+<g id="node11" class="node">
+<title>N11</title>
+<g id="a_node11"><a xlink:title="runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875 (2MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1913,-822.5 1816,-822.5 1816,-762.5 1913,-762.5 1913,-822.5"/>
+<text text-anchor="middle" x="1864.5" y="-808.9" font-family="Times,serif" font-size="12.00">runtime</text>
+<text text-anchor="middle" x="1864.5" y="-795.9" font-family="Times,serif" font-size="12.00">allocm</text>
+<text text-anchor="middle" x="1864.5" y="-782.9" font-family="Times,serif" font-size="12.00">proc.go:1875</text>
+<text text-anchor="middle" x="1864.5" y="-769.9" font-family="Times,serif" font-size="12.00">2MB (2.11%)</text>
 </a>
 </g>
 </g>
-<!-- N17 -->
-<g id="node17" class="node">
-<title>N17</title>
-<g id="a_node17"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="1564,-739 1405,-739 1405,-695 1564,-695 1564,-739"/>
-<text text-anchor="middle" x="1484.5" y="-728.6" font-family="Times,serif" font-size="8.00">sample</text>
-<text text-anchor="middle" x="1484.5" y="-719.6" font-family="Times,serif" font-size="8.00">GenerateTestData5Chars5Offerings</text>
-<text text-anchor="middle" x="1484.5" y="-710.6" font-family="Times,serif" font-size="8.00">test&#45;data.go:163</text>
-<text text-anchor="middle" x="1484.5" y="-701.6" font-family="Times,serif" font-size="8.00">0 of 22.30MB (24.06%)</text>
+<!-- NN11_0 -->
+<g id="NN11_0" class="node">
+<title>NN11_0</title>
+<g id="a_NN11_0"><a xlink:title="2MB">
+<polygon fill="#f8f8f8" stroke="black" points="1891.5,-676.5 1841.5,-676.5 1837.5,-672.5 1837.5,-640.5 1887.5,-640.5 1891.5,-644.5 1891.5,-676.5"/>
+<polyline fill="none" stroke="black" points="1887.5,-672.5 1837.5,-672.5 "/>
+<polyline fill="none" stroke="black" points="1887.5,-672.5 1887.5,-640.5 "/>
+<polyline fill="none" stroke="black" points="1887.5,-672.5 1891.5,-676.5 "/>
+<text text-anchor="middle" x="1864.5" y="-656.6" font-family="Times,serif" font-size="8.00">1kB</text>
 </a>
 </g>
 </g>
-<!-- N14&#45;&gt;N17 -->
-<g id="edge13" class="edge">
-<title>N14&#45;&gt;N17</title>
-<g id="a_edge13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M1352.74,-837C1381.07,-811.41 1424.57,-772.12 1453.76,-745.76"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="1456.14,-748.33 1461.22,-739.03 1451.45,-743.13 1456.14,-748.33"/>
+<!-- N11&#45;&gt;NN11_0 -->
+<g id="edge8" class="edge">
+<title>N11&#45;&gt;NN11_0</title>
+<g id="a_edge8"><a xlink:title="2MB">
+<path fill="none" stroke="black" d="M1864.5,-762.2C1864.5,-739.62 1864.5,-708.63 1864.5,-686.61"/>
+<polygon fill="black" stroke="black" points="1868,-686.6 1864.5,-676.6 1861,-686.6 1868,-686.6"/>
 </a>
 </g>
-<g id="a_edge13&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (22.30MB)">
-<text text-anchor="middle" x="1419.5" y="-807.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
+<g id="a_edge8&#45;label"><a xlink:title="2MB">
+<text text-anchor="middle" x="1884" y="-706.8" font-family="Times,serif" font-size="14.00"> 2MB</text>
+</a>
+</g>
+</g>
+<!-- N12 -->
+<g id="node12" class="node">
+<title>N12</title>
+<g id="a_node12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (15MB)">
+<polygon fill="#ede2da" stroke="#b26125" points="1659,-1373 1500,-1373 1500,-1329 1659,-1329 1659,-1373"/>
+<text text-anchor="middle" x="1579.5" y="-1362.6" font-family="Times,serif" font-size="8.00">sample</text>
+<text text-anchor="middle" x="1579.5" y="-1353.6" font-family="Times,serif" font-size="8.00">GenerateTestData5Chars5Offerings</text>
+<text text-anchor="middle" x="1579.5" y="-1344.6" font-family="Times,serif" font-size="8.00">test&#45;data.go:163</text>
+<text text-anchor="middle" x="1579.5" y="-1335.6" font-family="Times,serif" font-size="8.00">0 of 15MB (15.81%)</text>
+</a>
+</g>
+</g>
+<!-- N32 -->
+<g id="node32" class="node">
+<title>N32</title>
+<g id="a_node32"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (15MB)">
+<polygon fill="#ede2da" stroke="#b26125" points="1628.5,-1231 1530.5,-1231 1530.5,-1178 1628.5,-1178 1628.5,-1231"/>
+<text text-anchor="middle" x="1579.5" y="-1220.6" font-family="Times,serif" font-size="8.00">sample</text>
+<text text-anchor="middle" x="1579.5" y="-1211.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
+<text text-anchor="middle" x="1579.5" y="-1202.6" font-family="Times,serif" font-size="8.00">generatePrice</text>
+<text text-anchor="middle" x="1579.5" y="-1193.6" font-family="Times,serif" font-size="8.00">test&#45;data.go:178</text>
+<text text-anchor="middle" x="1579.5" y="-1184.6" font-family="Times,serif" font-size="8.00">0 of 15MB (15.81%)</text>
+</a>
+</g>
+</g>
+<!-- N12&#45;&gt;N32 -->
+<g id="edge22" class="edge">
+<title>N12&#45;&gt;N32</title>
+<g id="a_edge22"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (15MB)">
+<path fill="none" stroke="#b26125" d="M1579.5,-1328.99C1579.5,-1306.01 1579.5,-1268.8 1579.5,-1241.22"/>
+<polygon fill="#b26125" stroke="#b26125" points="1583,-1241.17 1579.5,-1231.17 1576,-1241.17 1583,-1241.17"/>
+</a>
+</g>
+<g id="a_edge22&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (15MB)">
+<text text-anchor="middle" x="1603.5" y="-1252.8" font-family="Times,serif" font-size="14.00"> 15MB</text>
+</a>
+</g>
+</g>
+<!-- N13 -->
+<g id="node13" class="node">
+<title>N13</title>
+<g id="a_node13"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (15MB)">
+<polygon fill="#ede2da" stroke="#b26125" points="1628.5,-983.5 1530.5,-983.5 1530.5,-939.5 1628.5,-939.5 1628.5,-983.5"/>
+<text text-anchor="middle" x="1579.5" y="-973.1" font-family="Times,serif" font-size="8.00">uuid</text>
+<text text-anchor="middle" x="1579.5" y="-964.1" font-family="Times,serif" font-size="8.00">NewString</text>
+<text text-anchor="middle" x="1579.5" y="-955.1" font-family="Times,serif" font-size="8.00">version4.go:22</text>
+<text text-anchor="middle" x="1579.5" y="-946.1" font-family="Times,serif" font-size="8.00">0 of 15MB (15.81%)</text>
+</a>
+</g>
+</g>
+<!-- N13&#45;&gt;N6 -->
+<g id="edge26" class="edge">
+<title>N13&#45;&gt;N6</title>
+<g id="a_edge26"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 &#45;&gt; github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (14.50MB)">
+<path fill="none" stroke="#b2642a" d="M1579.5,-939.35C1579.5,-919.26 1579.5,-887.98 1579.5,-859.54"/>
+<polygon fill="#b2642a" stroke="#b2642a" points="1583,-859.21 1579.5,-849.21 1576,-859.21 1583,-859.21"/>
+</a>
+</g>
+<g id="a_edge26&#45;label"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 &#45;&gt; github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (14.50MB)">
+<text text-anchor="middle" x="1614.5" y="-885.8" font-family="Times,serif" font-size="14.00"> 14.50MB</text>
+<text text-anchor="middle" x="1614.5" y="-870.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N37 -->
+<g id="node37" class="node">
+<title>N37</title>
+<g id="a_node37"><a xlink:title="github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="1796.5,-814.5 1696.5,-814.5 1696.5,-770.5 1796.5,-770.5 1796.5,-814.5"/>
+<text text-anchor="middle" x="1746.5" y="-804.1" font-family="Times,serif" font-size="8.00">uuid</text>
+<text text-anchor="middle" x="1746.5" y="-795.1" font-family="Times,serif" font-size="8.00">NewRandom</text>
+<text text-anchor="middle" x="1746.5" y="-786.1" font-family="Times,serif" font-size="8.00">version4.go:41</text>
+<text text-anchor="middle" x="1746.5" y="-777.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N13&#45;&gt;N37 -->
+<g id="edge56" class="edge">
+<title>N13&#45;&gt;N37</title>
+<g id="a_edge56"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 &#45;&gt; github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M1605.91,-939.25C1620.37,-927.28 1638.37,-911.79 1653.5,-897 1678.01,-873.04 1703.92,-843.85 1722.14,-822.59"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1724.91,-824.73 1728.74,-814.85 1719.59,-820.19 1724.91,-824.73"/>
+</a>
+</g>
+<g id="a_edge56&#45;label"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 &#45;&gt; github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41 (0.50MB)">
+<text text-anchor="middle" x="1710" y="-878.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N14 -->
+<g id="node14" class="node">
+<title>N14</title>
+<g id="a_node14"><a xlink:title="runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 (2MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1908,-1519.5 1821,-1519.5 1821,-1475.5 1908,-1475.5 1908,-1519.5"/>
+<text text-anchor="middle" x="1864.5" y="-1509.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1864.5" y="-1500.1" font-family="Times,serif" font-size="8.00">schedule</text>
+<text text-anchor="middle" x="1864.5" y="-1491.1" font-family="Times,serif" font-size="8.00">proc.go:3374</text>
+<text text-anchor="middle" x="1864.5" y="-1482.1" font-family="Times,serif" font-size="8.00">0 of 2MB (2.11%)</text>
+</a>
+</g>
+</g>
+<!-- N50 -->
+<g id="node50" class="node">
+<title>N50</title>
+<g id="a_node50"><a xlink:title="runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216 (2MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1908,-1373 1821,-1373 1821,-1329 1908,-1329 1908,-1373"/>
+<text text-anchor="middle" x="1864.5" y="-1362.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1864.5" y="-1353.6" font-family="Times,serif" font-size="8.00">resetspinning</text>
+<text text-anchor="middle" x="1864.5" y="-1344.6" font-family="Times,serif" font-size="8.00">proc.go:3216</text>
+<text text-anchor="middle" x="1864.5" y="-1335.6" font-family="Times,serif" font-size="8.00">0 of 2MB (2.11%)</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;N50 -->
+<g id="edge40" class="edge">
+<title>N14&#45;&gt;N50</title>
+<g id="a_edge40"><a xlink:title="runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 &#45;&gt; runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216 (2MB)">
+<path fill="none" stroke="#b2ac9f" d="M1864.5,-1475.49C1864.5,-1451.2 1864.5,-1410.98 1864.5,-1383.07"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1868,-1383.04 1864.5,-1373.04 1861,-1383.04 1868,-1383.04"/>
+</a>
+</g>
+<g id="a_edge40&#45;label"><a xlink:title="runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 &#45;&gt; runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216 (2MB)">
+<text text-anchor="middle" x="1884" y="-1441.8" font-family="Times,serif" font-size="14.00"> 2MB</text>
 </a>
 </g>
 </g>
 <!-- N15 -->
 <g id="node15" class="node">
 <title>N15</title>
-<g id="a_node15"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="1539.5,-597 1429.5,-597 1429.5,-544 1539.5,-544 1539.5,-597"/>
-<text text-anchor="middle" x="1484.5" y="-586.6" font-family="Times,serif" font-size="8.00">sample</text>
-<text text-anchor="middle" x="1484.5" y="-577.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
-<text text-anchor="middle" x="1484.5" y="-568.6" font-family="Times,serif" font-size="8.00">generatePrice</text>
-<text text-anchor="middle" x="1484.5" y="-559.6" font-family="Times,serif" font-size="8.00">test&#45;data.go:178</text>
-<text text-anchor="middle" x="1484.5" y="-550.6" font-family="Times,serif" font-size="8.00">0 of 22.30MB (24.06%)</text>
+<g id="a_node15"><a xlink:title="runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:259 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2068,-1888.5 1945,-1888.5 1945,-1836.5 2068,-1836.5 2068,-1888.5"/>
+<text text-anchor="middle" x="2006.5" y="-1876.5" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="2006.5" y="-1865.5" font-family="Times,serif" font-size="10.00">bgscavenge</text>
+<text text-anchor="middle" x="2006.5" y="-1854.5" font-family="Times,serif" font-size="10.00">mgcscavenge.go:259</text>
+<text text-anchor="middle" x="2006.5" y="-1843.5" font-family="Times,serif" font-size="10.00">0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- NN15_0 -->
+<g id="NN15_0" class="node">
+<title>NN15_0</title>
+<g id="a_NN15_0"><a xlink:title="0.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="2033.5,-1744.5 1983.5,-1744.5 1979.5,-1740.5 1979.5,-1708.5 2029.5,-1708.5 2033.5,-1712.5 2033.5,-1744.5"/>
+<polyline fill="none" stroke="black" points="2029.5,-1740.5 1979.5,-1740.5 "/>
+<polyline fill="none" stroke="black" points="2029.5,-1740.5 2029.5,-1708.5 "/>
+<polyline fill="none" stroke="black" points="2029.5,-1740.5 2033.5,-1744.5 "/>
+<text text-anchor="middle" x="2006.5" y="-1724.6" font-family="Times,serif" font-size="8.00">80B</text>
+</a>
+</g>
+</g>
+<!-- N15&#45;&gt;NN15_0 -->
+<g id="edge9" class="edge">
+<title>N15&#45;&gt;NN15_0</title>
+<g id="a_edge9"><a xlink:title="0.50MB">
+<path fill="none" stroke="black" d="M2006.5,-1836.3C2006.5,-1813.02 2006.5,-1778.55 2006.5,-1754.67"/>
+<polygon fill="black" stroke="black" points="2010,-1754.52 2006.5,-1744.52 2003,-1754.52 2010,-1754.52"/>
+</a>
+</g>
+<g id="a_edge9&#45;label"><a xlink:title="0.50MB">
+<text text-anchor="middle" x="2037" y="-1774.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
 </a>
 </g>
 </g>
 <!-- N16 -->
 <g id="node16" class="node">
 <title>N16</title>
-<g id="a_node16"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="1539.5,-493 1429.5,-493 1429.5,-440 1539.5,-440 1539.5,-493"/>
-<text text-anchor="middle" x="1484.5" y="-482.6" font-family="Times,serif" font-size="8.00">sample</text>
-<text text-anchor="middle" x="1484.5" y="-473.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
-<text text-anchor="middle" x="1484.5" y="-464.6" font-family="Times,serif" font-size="8.00">generatePrice</text>
-<text text-anchor="middle" x="1484.5" y="-455.6" font-family="Times,serif" font-size="8.00">test&#45;data.go:186</text>
-<text text-anchor="middle" x="1484.5" y="-446.6" font-family="Times,serif" font-size="8.00">0 of 22.30MB (24.06%)</text>
+<g id="a_node16"><a xlink:title="runtime.gcBgMarkWorker /home/malerome/go/go176/src/runtime/mgc.go:1173 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2193,-1888.5 2086,-1888.5 2086,-1836.5 2193,-1836.5 2193,-1888.5"/>
+<text text-anchor="middle" x="2139.5" y="-1876.5" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="2139.5" y="-1865.5" font-family="Times,serif" font-size="10.00">gcBgMarkWorker</text>
+<text text-anchor="middle" x="2139.5" y="-1854.5" font-family="Times,serif" font-size="10.00">mgc.go:1173</text>
+<text text-anchor="middle" x="2139.5" y="-1843.5" font-family="Times,serif" font-size="10.00">0.50MB (0.53%)</text>
 </a>
 </g>
 </g>
-<!-- N15&#45;&gt;N16 -->
-<g id="edge14" class="edge">
-<title>N15&#45;&gt;N16</title>
-<g id="a_edge14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M1484.5,-543.76C1484.5,-531.56 1484.5,-516.78 1484.5,-503.49"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="1488,-503.23 1484.5,-493.23 1481,-503.23 1488,-503.23"/>
+<!-- NN16_0 -->
+<g id="NN16_0" class="node">
+<title>NN16_0</title>
+<g id="a_NN16_0"><a xlink:title="0.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="2166.5,-1744.5 2116.5,-1744.5 2112.5,-1740.5 2112.5,-1708.5 2162.5,-1708.5 2166.5,-1712.5 2166.5,-1744.5"/>
+<polyline fill="none" stroke="black" points="2162.5,-1740.5 2112.5,-1740.5 "/>
+<polyline fill="none" stroke="black" points="2162.5,-1740.5 2162.5,-1708.5 "/>
+<polyline fill="none" stroke="black" points="2162.5,-1740.5 2166.5,-1744.5 "/>
+<text text-anchor="middle" x="2139.5" y="-1724.6" font-family="Times,serif" font-size="8.00">32B</text>
 </a>
 </g>
-<g id="a_edge14&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (22.30MB)">
-<text text-anchor="middle" x="1519.5" y="-514.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
+</g>
+<!-- N16&#45;&gt;NN16_0 -->
+<g id="edge10" class="edge">
+<title>N16&#45;&gt;NN16_0</title>
+<g id="a_edge10"><a xlink:title="0.50MB">
+<path fill="none" stroke="black" d="M2139.5,-1836.3C2139.5,-1813.02 2139.5,-1778.55 2139.5,-1754.67"/>
+<polygon fill="black" stroke="black" points="2143,-1754.52 2139.5,-1744.52 2136,-1754.52 2143,-1754.52"/>
+</a>
+</g>
+<g id="a_edge10&#45;label"><a xlink:title="0.50MB">
+<text text-anchor="middle" x="2170" y="-1774.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N17 -->
+<g id="node17" class="node">
+<title>N17</title>
+<g id="a_node17"><a xlink:title="runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307 (1MB)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1961,-1748.5 1872,-1748.5 1872,-1704.5 1961,-1704.5 1961,-1748.5"/>
+<text text-anchor="middle" x="1916.5" y="-1738.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1916.5" y="-1729.1" font-family="Times,serif" font-size="8.00">mcall</text>
+<text text-anchor="middle" x="1916.5" y="-1720.1" font-family="Times,serif" font-size="8.00">asm_amd64.s:307</text>
+<text text-anchor="middle" x="1916.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 1MB (1.06%)</text>
+</a>
+</g>
+</g>
+<!-- N49 -->
+<g id="node49" class="node">
+<title>N49</title>
+<g id="a_node49"><a xlink:title="runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516 (1MB)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1960,-1634 1873,-1634 1873,-1590 1960,-1590 1960,-1634"/>
+<text text-anchor="middle" x="1916.5" y="-1623.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1916.5" y="-1614.6" font-family="Times,serif" font-size="8.00">park_m</text>
+<text text-anchor="middle" x="1916.5" y="-1605.6" font-family="Times,serif" font-size="8.00">proc.go:3516</text>
+<text text-anchor="middle" x="1916.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 1MB (1.06%)</text>
+</a>
+</g>
+</g>
+<!-- N17&#45;&gt;N49 -->
+<g id="edge43" class="edge">
+<title>N17&#45;&gt;N49</title>
+<g id="a_edge43"><a xlink:title="runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307 &#45;&gt; runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516 (1MB)">
+<path fill="none" stroke="#b2b0a9" d="M1916.5,-1704.34C1916.5,-1687.37 1916.5,-1663.3 1916.5,-1644.13"/>
+<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1920,-1644.07 1916.5,-1634.07 1913,-1644.07 1920,-1644.07"/>
+</a>
+</g>
+<g id="a_edge43&#45;label"><a xlink:title="runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307 &#45;&gt; runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516 (1MB)">
+<text text-anchor="middle" x="1936" y="-1663.3" font-family="Times,serif" font-size="14.00"> 1MB</text>
+</a>
+</g>
+</g>
+<!-- N18 -->
+<g id="node18" class="node">
+<title>N18</title>
+<g id="a_node18"><a xlink:title="runtime.mstart /home/malerome/go/go176/src/runtime/asm_amd64.s:248 (1MB)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1855,-1884.5 1766,-1884.5 1766,-1840.5 1855,-1840.5 1855,-1884.5"/>
+<text text-anchor="middle" x="1810.5" y="-1874.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1810.5" y="-1865.1" font-family="Times,serif" font-size="8.00">mstart</text>
+<text text-anchor="middle" x="1810.5" y="-1856.1" font-family="Times,serif" font-size="8.00">asm_amd64.s:248</text>
+<text text-anchor="middle" x="1810.5" y="-1847.1" font-family="Times,serif" font-size="8.00">0 of 1MB (1.06%)</text>
+</a>
+</g>
+</g>
+<!-- N44 -->
+<g id="node44" class="node">
+<title>N44</title>
+<g id="a_node44"><a xlink:title="runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365 (1MB)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1854,-1748.5 1767,-1748.5 1767,-1704.5 1854,-1704.5 1854,-1748.5"/>
+<text text-anchor="middle" x="1810.5" y="-1738.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1810.5" y="-1729.1" font-family="Times,serif" font-size="8.00">mstart0</text>
+<text text-anchor="middle" x="1810.5" y="-1720.1" font-family="Times,serif" font-size="8.00">proc.go:1365</text>
+<text text-anchor="middle" x="1810.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 1MB (1.06%)</text>
+</a>
+</g>
+</g>
+<!-- N18&#45;&gt;N44 -->
+<g id="edge44" class="edge">
+<title>N18&#45;&gt;N44</title>
+<g id="a_edge44"><a xlink:title="runtime.mstart /home/malerome/go/go176/src/runtime/asm_amd64.s:248 &#45;&gt; runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365 (1MB)">
+<path fill="none" stroke="#b2b0a9" d="M1810.5,-1840.27C1810.5,-1818.31 1810.5,-1783.8 1810.5,-1758.73"/>
+<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1814,-1758.63 1810.5,-1748.63 1807,-1758.63 1814,-1758.63"/>
+</a>
+</g>
+<g id="a_edge44&#45;label"><a xlink:title="runtime.mstart /home/malerome/go/go176/src/runtime/asm_amd64.s:248 &#45;&gt; runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365 (1MB)">
+<text text-anchor="middle" x="1830" y="-1774.8" font-family="Times,serif" font-size="14.00"> 1MB</text>
+</a>
+</g>
+</g>
+<!-- N19 -->
+<g id="node19" class="node">
+<title>N19</title>
+<g id="a_node19"><a xlink:title="runtime.malg /home/malerome/go/go176/src/runtime/proc.go:4220 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2310,-1523.5 2213,-1523.5 2213,-1471.5 2310,-1471.5 2310,-1523.5"/>
+<text text-anchor="middle" x="2261.5" y="-1511.5" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="2261.5" y="-1500.5" font-family="Times,serif" font-size="10.00">malg</text>
+<text text-anchor="middle" x="2261.5" y="-1489.5" font-family="Times,serif" font-size="10.00">proc.go:4220</text>
+<text text-anchor="middle" x="2261.5" y="-1478.5" font-family="Times,serif" font-size="10.00">0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- NN19_0 -->
+<g id="NN19_0" class="node">
+<title>NN19_0</title>
+<g id="a_NN19_0"><a xlink:title="0.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="2288.5,-1369 2238.5,-1369 2234.5,-1365 2234.5,-1333 2284.5,-1333 2288.5,-1337 2288.5,-1369"/>
+<polyline fill="none" stroke="black" points="2284.5,-1365 2234.5,-1365 "/>
+<polyline fill="none" stroke="black" points="2284.5,-1365 2284.5,-1333 "/>
+<polyline fill="none" stroke="black" points="2284.5,-1365 2288.5,-1369 "/>
+<text text-anchor="middle" x="2261.5" y="-1349.1" font-family="Times,serif" font-size="8.00">416B</text>
+</a>
+</g>
+</g>
+<!-- N19&#45;&gt;NN19_0 -->
+<g id="edge11" class="edge">
+<title>N19&#45;&gt;NN19_0</title>
+<g id="a_edge11"><a xlink:title="0.50MB">
+<path fill="none" stroke="black" d="M2261.5,-1471.33C2261.5,-1445.6 2261.5,-1405.77 2261.5,-1379.3"/>
+<polygon fill="black" stroke="black" points="2265,-1379.19 2261.5,-1369.19 2258,-1379.19 2265,-1379.19"/>
+</a>
+</g>
+<g id="a_edge11&#45;label"><a xlink:title="0.50MB">
+<text text-anchor="middle" x="2292" y="-1441.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
 </a>
 </g>
 </g>
 <!-- N20 -->
 <g id="node20" class="node">
 <title>N20</title>
-<g id="a_node20"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="1539.5,-349.5 1429.5,-349.5 1429.5,-305.5 1539.5,-305.5 1539.5,-349.5"/>
-<text text-anchor="middle" x="1484.5" y="-339.1" font-family="Times,serif" font-size="8.00">uuid</text>
-<text text-anchor="middle" x="1484.5" y="-330.1" font-family="Times,serif" font-size="8.00">NewString</text>
-<text text-anchor="middle" x="1484.5" y="-321.1" font-family="Times,serif" font-size="8.00">version4.go:22</text>
-<text text-anchor="middle" x="1484.5" y="-312.1" font-family="Times,serif" font-size="8.00">0 of 22.30MB (24.06%)</text>
+<g id="a_node20"><a xlink:title="github.com/google/uuid.NewRandomFromReader /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:48 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="1819.5,-684.5 1673.5,-684.5 1673.5,-632.5 1819.5,-632.5 1819.5,-684.5"/>
+<text text-anchor="middle" x="1746.5" y="-672.5" font-family="Times,serif" font-size="10.00">uuid</text>
+<text text-anchor="middle" x="1746.5" y="-661.5" font-family="Times,serif" font-size="10.00">NewRandomFromReader</text>
+<text text-anchor="middle" x="1746.5" y="-650.5" font-family="Times,serif" font-size="10.00">version4.go:48</text>
+<text text-anchor="middle" x="1746.5" y="-639.5" font-family="Times,serif" font-size="10.00">0.50MB (0.53%)</text>
 </a>
 </g>
 </g>
-<!-- N16&#45;&gt;N20 -->
-<g id="edge15" class="edge">
-<title>N16&#45;&gt;N20</title>
-<g id="a_edge15"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M1484.5,-439.73C1484.5,-417.04 1484.5,-383.95 1484.5,-359.75"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="1488,-359.66 1484.5,-349.66 1481,-359.66 1488,-359.66"/>
-</a>
-</g>
-<g id="a_edge15&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (22.30MB)">
-<text text-anchor="middle" x="1519.5" y="-403.3" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
-</a>
-</g>
-</g>
-<!-- N17&#45;&gt;N15 -->
-<g id="edge16" class="edge">
-<title>N17&#45;&gt;N15</title>
-<g id="a_edge16"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M1484.5,-694.99C1484.5,-672.01 1484.5,-634.8 1484.5,-607.22"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="1488,-607.17 1484.5,-597.17 1481,-607.17 1488,-607.17"/>
-</a>
-</g>
-<g id="a_edge16&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 (22.30MB)">
-<text text-anchor="middle" x="1519.5" y="-618.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
+<!-- NN20_0 -->
+<g id="NN20_0" class="node">
+<title>NN20_0</title>
+<g id="a_NN20_0"><a xlink:title="0.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="1773.5,-572.5 1723.5,-572.5 1719.5,-568.5 1719.5,-536.5 1769.5,-536.5 1773.5,-540.5 1773.5,-572.5"/>
+<polyline fill="none" stroke="black" points="1769.5,-568.5 1719.5,-568.5 "/>
+<polyline fill="none" stroke="black" points="1769.5,-568.5 1769.5,-536.5 "/>
+<polyline fill="none" stroke="black" points="1769.5,-568.5 1773.5,-572.5 "/>
+<text text-anchor="middle" x="1746.5" y="-552.6" font-family="Times,serif" font-size="8.00">96B</text>
 </a>
 </g>
 </g>
-<!-- N18&#45;&gt;N10 -->
-<g id="edge28" class="edge">
-<title>N18&#45;&gt;N10</title>
-<g id="a_edge28"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (2.05MB)">
-<path fill="none" stroke="#b2ac9e" d="M1225.7,-690.26C1232.73,-668.49 1245.07,-637.37 1263.5,-615 1266.76,-611.04 1270.47,-607.28 1274.41,-603.75"/>
-<polygon fill="#b2ac9e" stroke="#b2ac9e" points="1276.77,-606.33 1282.22,-597.24 1272.29,-600.95 1276.77,-606.33"/>
+<!-- N20&#45;&gt;NN20_0 -->
+<g id="edge12" class="edge">
+<title>N20&#45;&gt;NN20_0</title>
+<g id="a_edge12"><a xlink:title="0.50MB">
+<path fill="none" stroke="black" d="M1746.5,-632.29C1746.5,-617.38 1746.5,-598.49 1746.5,-583.17"/>
+<polygon fill="black" stroke="black" points="1750,-582.76 1746.5,-572.76 1743,-582.76 1750,-582.76"/>
 </a>
 </g>
-<g id="a_edge28&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (2.05MB)">
-<text text-anchor="middle" x="1294" y="-618.8" font-family="Times,serif" font-size="14.00"> 2.05MB</text>
-</a>
-</g>
-</g>
-<!-- N19&#45;&gt;N10 -->
-<g id="edge26" class="edge">
-<title>N19&#45;&gt;N10</title>
-<g id="a_edge26"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (3MB)">
-<path fill="none" stroke="#b2a895" d="M1334.56,-690.5C1332.8,-667.43 1330.2,-633.21 1328.23,-607.38"/>
-<polygon fill="#b2a895" stroke="#b2a895" points="1331.71,-606.94 1327.46,-597.23 1324.73,-607.47 1331.71,-606.94"/>
-</a>
-</g>
-<g id="a_edge26&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (3MB)">
-<text text-anchor="middle" x="1349" y="-618.8" font-family="Times,serif" font-size="14.00"> 3MB</text>
+<g id="a_edge12&#45;label"><a xlink:title="0.50MB">
+<text text-anchor="middle" x="1777" y="-602.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
 </a>
 </g>
 </g>
-<!-- N20&#45;&gt;N6 -->
-<g id="edge18" class="edge">
-<title>N20&#45;&gt;N6</title>
-<g id="a_edge18"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 &#45;&gt; github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (22.30MB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M1484.5,-305.45C1484.5,-285.5 1484.5,-254.36 1484.5,-225.32"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="1488,-225.16 1484.5,-215.16 1481,-225.16 1488,-225.16"/>
+<!-- N21 -->
+<g id="node21" class="node">
+<title>N21</title>
+<g id="a_node21"><a xlink:title="text/template/parse.(*Tree).newPipeline /home/malerome/go/go176/src/text/template/parse/node.go:197 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2428,-150 2331,-150 2331,-87 2428,-87 2428,-150"/>
+<text text-anchor="middle" x="2379.5" y="-138" font-family="Times,serif" font-size="10.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-127" font-family="Times,serif" font-size="10.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-116" font-family="Times,serif" font-size="10.00">newPipeline</text>
+<text text-anchor="middle" x="2379.5" y="-105" font-family="Times,serif" font-size="10.00">node.go:197</text>
+<text text-anchor="middle" x="2379.5" y="-94" font-family="Times,serif" font-size="10.00">0.50MB (0.53%)</text>
 </a>
 </g>
-<g id="a_edge18&#45;label"><a xlink:title="github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 &#45;&gt; github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (22.30MB)">
-<text text-anchor="middle" x="1519.5" y="-251.8" font-family="Times,serif" font-size="14.00"> 22.30MB</text>
-<text text-anchor="middle" x="1519.5" y="-236.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</g>
+<!-- NN21_0 -->
+<g id="NN21_0" class="node">
+<title>NN21_0</title>
+<g id="a_NN21_0"><a xlink:title="0.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="2406.5,-36 2356.5,-36 2352.5,-32 2352.5,0 2402.5,0 2406.5,-4 2406.5,-36"/>
+<polyline fill="none" stroke="black" points="2402.5,-32 2352.5,-32 "/>
+<polyline fill="none" stroke="black" points="2402.5,-32 2402.5,0 "/>
+<polyline fill="none" stroke="black" points="2402.5,-32 2406.5,-36 "/>
+<text text-anchor="middle" x="2379.5" y="-16.1" font-family="Times,serif" font-size="8.00">96B</text>
 </a>
 </g>
 </g>
-<!-- N21&#45;&gt;N9 -->
+<!-- N21&#45;&gt;NN21_0 -->
+<g id="edge13" class="edge">
+<title>N21&#45;&gt;NN21_0</title>
+<g id="a_edge13"><a xlink:title="0.50MB">
+<path fill="none" stroke="black" d="M2379.5,-86.87C2379.5,-73.94 2379.5,-59.01 2379.5,-46.44"/>
+<polygon fill="black" stroke="black" points="2383,-46.12 2379.5,-36.12 2376,-46.12 2383,-46.12"/>
+</a>
+</g>
+<g id="a_edge13&#45;label"><a xlink:title="0.50MB">
+<text text-anchor="middle" x="2410" y="-57.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N22 -->
+<g id="node22" class="node">
+<title>N22</title>
+<g id="a_node22"><a xlink:title="runtime.doaddtimer /home/malerome/go/go176/src/runtime/time.go:294 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2547,-1230.5 2450,-1230.5 2450,-1178.5 2547,-1178.5 2547,-1230.5"/>
+<text text-anchor="middle" x="2498.5" y="-1218.5" font-family="Times,serif" font-size="10.00">runtime</text>
+<text text-anchor="middle" x="2498.5" y="-1207.5" font-family="Times,serif" font-size="10.00">doaddtimer</text>
+<text text-anchor="middle" x="2498.5" y="-1196.5" font-family="Times,serif" font-size="10.00">time.go:294</text>
+<text text-anchor="middle" x="2498.5" y="-1185.5" font-family="Times,serif" font-size="10.00">0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- NN22_0 -->
+<g id="NN22_0" class="node">
+<title>NN22_0</title>
+<g id="a_NN22_0"><a xlink:title="0.50MB">
+<polygon fill="#f8f8f8" stroke="black" points="2525.5,-1118.5 2475.5,-1118.5 2471.5,-1114.5 2471.5,-1082.5 2521.5,-1082.5 2525.5,-1086.5 2525.5,-1118.5"/>
+<polyline fill="none" stroke="black" points="2521.5,-1114.5 2471.5,-1114.5 "/>
+<polyline fill="none" stroke="black" points="2521.5,-1114.5 2521.5,-1082.5 "/>
+<polyline fill="none" stroke="black" points="2521.5,-1114.5 2525.5,-1118.5 "/>
+<text text-anchor="middle" x="2498.5" y="-1098.6" font-family="Times,serif" font-size="8.00">8B</text>
+</a>
+</g>
+</g>
+<!-- N22&#45;&gt;NN22_0 -->
+<g id="edge14" class="edge">
+<title>N22&#45;&gt;NN22_0</title>
+<g id="a_edge14"><a xlink:title="0.50MB">
+<path fill="none" stroke="black" d="M2498.5,-1178.29C2498.5,-1163.38 2498.5,-1144.49 2498.5,-1129.17"/>
+<polygon fill="black" stroke="black" points="2502,-1128.76 2498.5,-1118.76 2495,-1128.76 2502,-1128.76"/>
+</a>
+</g>
+<g id="a_edge14&#45;label"><a xlink:title="0.50MB">
+<text text-anchor="middle" x="2529" y="-1148.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N23 -->
+<g id="node23" class="node">
+<title>N23</title>
+<g id="a_node23"><a xlink:title="runtime.systemstack /home/malerome/go/go176/src/runtime/asm_amd64.s:383 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2311.5,-1884.5 2211.5,-1884.5 2211.5,-1840.5 2311.5,-1840.5 2311.5,-1884.5"/>
+<text text-anchor="middle" x="2261.5" y="-1874.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2261.5" y="-1865.1" font-family="Times,serif" font-size="8.00">systemstack</text>
+<text text-anchor="middle" x="2261.5" y="-1856.1" font-family="Times,serif" font-size="8.00">asm_amd64.s:383</text>
+<text text-anchor="middle" x="2261.5" y="-1847.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N47 -->
+<g id="node47" class="node">
+<title>N47</title>
+<g id="a_node47"><a xlink:title="runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2311.5,-1753 2211.5,-1753 2211.5,-1700 2311.5,-1700 2311.5,-1753"/>
+<text text-anchor="middle" x="2261.5" y="-1742.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2261.5" y="-1733.6" font-family="Times,serif" font-size="8.00">newproc</text>
+<text text-anchor="middle" x="2261.5" y="-1724.6" font-family="Times,serif" font-size="8.00">func1</text>
+<text text-anchor="middle" x="2261.5" y="-1715.6" font-family="Times,serif" font-size="8.00">proc.go:4255</text>
+<text text-anchor="middle" x="2261.5" y="-1706.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N23&#45;&gt;N47 -->
+<g id="edge52" class="edge">
+<title>N23&#45;&gt;N47</title>
+<g id="a_edge52"><a xlink:title="runtime.systemstack /home/malerome/go/go176/src/runtime/asm_amd64.s:383 &#45;&gt; runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2261.5,-1840.27C2261.5,-1819.6 2261.5,-1787.82 2261.5,-1763.25"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2265,-1763.22 2261.5,-1753.22 2258,-1763.22 2265,-1763.22"/>
+</a>
+</g>
+<g id="a_edge52&#45;label"><a xlink:title="runtime.systemstack /home/malerome/go/go176/src/runtime/asm_amd64.s:383 &#45;&gt; runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255 (0.50MB)">
+<text text-anchor="middle" x="2292" y="-1774.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N24 -->
+<g id="node24" class="node">
+<title>N24</title>
+<g id="a_node24"><a xlink:title="runtime.main /home/malerome/go/go176/src/runtime/proc.go:238 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1884.5 2329.5,-1884.5 2329.5,-1840.5 2429.5,-1840.5 2429.5,-1884.5"/>
+<text text-anchor="middle" x="2379.5" y="-1874.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2379.5" y="-1865.1" font-family="Times,serif" font-size="8.00">main</text>
+<text text-anchor="middle" x="2379.5" y="-1856.1" font-family="Times,serif" font-size="8.00">proc.go:238</text>
+<text text-anchor="middle" x="2379.5" y="-1847.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N41 -->
+<g id="node41" class="node">
+<title>N41</title>
+<g id="a_node41"><a xlink:title="runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1748.5 2329.5,-1748.5 2329.5,-1704.5 2429.5,-1704.5 2429.5,-1748.5"/>
+<text text-anchor="middle" x="2379.5" y="-1738.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2379.5" y="-1729.1" font-family="Times,serif" font-size="8.00">doInit</text>
+<text text-anchor="middle" x="2379.5" y="-1720.1" font-family="Times,serif" font-size="8.00">proc.go:6475</text>
+<text text-anchor="middle" x="2379.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N24&#45;&gt;N41 -->
+<g id="edge61" class="edge">
+<title>N24&#45;&gt;N41</title>
+<g id="a_edge61"><a xlink:title="runtime.main /home/malerome/go/go176/src/runtime/proc.go:238 &#45;&gt; runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1840.27C2379.5,-1818.31 2379.5,-1783.8 2379.5,-1758.73"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-1758.63 2379.5,-1748.63 2376,-1758.63 2383,-1758.63"/>
+</a>
+</g>
+<g id="a_edge61&#45;label"><a xlink:title="runtime.main /home/malerome/go/go176/src/runtime/proc.go:238 &#45;&gt; runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1774.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N25 -->
+<g id="node25" class="node">
+<title>N25</title>
+<g id="a_node25"><a xlink:title="runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:366 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2549,-1884.5 2448,-1884.5 2448,-1840.5 2549,-1840.5 2549,-1884.5"/>
+<text text-anchor="middle" x="2498.5" y="-1874.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2498.5" y="-1865.1" font-family="Times,serif" font-size="8.00">bgscavenge</text>
+<text text-anchor="middle" x="2498.5" y="-1856.1" font-family="Times,serif" font-size="8.00">mgcscavenge.go:366</text>
+<text text-anchor="middle" x="2498.5" y="-1847.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N52 -->
+<g id="node52" class="node">
+<title>N52</title>
+<g id="a_node52"><a xlink:title="runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2549,-1748.5 2448,-1748.5 2448,-1704.5 2549,-1704.5 2549,-1748.5"/>
+<text text-anchor="middle" x="2498.5" y="-1738.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2498.5" y="-1729.1" font-family="Times,serif" font-size="8.00">scavengeSleep</text>
+<text text-anchor="middle" x="2498.5" y="-1720.1" font-family="Times,serif" font-size="8.00">mgcscavenge.go:237</text>
+<text text-anchor="middle" x="2498.5" y="-1711.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N25&#45;&gt;N52 -->
+<g id="edge72" class="edge">
+<title>N25&#45;&gt;N52</title>
+<g id="a_edge72"><a xlink:title="runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:366 &#45;&gt; runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2498.5,-1840.27C2498.5,-1818.31 2498.5,-1783.8 2498.5,-1758.73"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2502,-1758.63 2498.5,-1748.63 2495,-1758.63 2502,-1758.63"/>
+</a>
+</g>
+<g id="a_edge72&#45;label"><a xlink:title="runtime.bgscavenge /home/malerome/go/go176/src/runtime/mgcscavenge.go:366 &#45;&gt; runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237 (0.50MB)">
+<text text-anchor="middle" x="2529" y="-1774.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N26&#45;&gt;N1 -->
 <g id="edge24" class="edge">
-<title>N21&#45;&gt;N9</title>
-<g id="a_edge24"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:18 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:151 (5.55MB)">
-<path fill="none" stroke="#b29b7d" d="M1325.5,-439.73C1325.5,-424.09 1325.5,-403.51 1325.5,-384.31"/>
-<polygon fill="#b29b7d" stroke="#b29b7d" points="1329,-384.12 1325.5,-374.12 1322,-384.12 1329,-384.12"/>
+<title>N26&#45;&gt;N1</title>
+<g id="a_edge24"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (14.50MB)">
+<path fill="none" stroke="#b2642a" d="M469.16,-1704.33C488.99,-1687.68 518.78,-1665.17 548.5,-1652 581.44,-1637.4 620.28,-1628.09 653.34,-1622.24"/>
+<polygon fill="#b2642a" stroke="#b2642a" points="654.13,-1625.65 663.41,-1620.53 652.96,-1618.75 654.13,-1625.65"/>
 </a>
 </g>
-<g id="a_edge24&#45;label"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:18 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/pkg/mod/github.com/kelindar/bitmap@v1.1.2/bitmap.go:151 (5.55MB)">
-<text text-anchor="middle" x="1356" y="-410.8" font-family="Times,serif" font-size="14.00"> 5.55MB</text>
-<text text-anchor="middle" x="1356" y="-395.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+<g id="a_edge24&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:22 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (14.50MB)">
+<text text-anchor="middle" x="583.5" y="-1663.3" font-family="Times,serif" font-size="14.00"> 14.50MB</text>
+</a>
+</g>
+</g>
+<!-- N27&#45;&gt;N1 -->
+<g id="edge29" class="edge">
+<title>N27&#45;&gt;N1</title>
+<g id="a_edge29"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (13.23MB)">
+<path fill="none" stroke="#b26d36" d="M602.46,-1704.34C615.09,-1688.57 633.83,-1667.21 653.5,-1652 659.34,-1647.48 665.79,-1643.22 672.36,-1639.29"/>
+<polygon fill="#b26d36" stroke="#b26d36" points="674.42,-1642.14 681.36,-1634.14 670.95,-1636.06 674.42,-1642.14"/>
+</a>
+</g>
+<g id="a_edge29&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:30 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (13.23MB)">
+<text text-anchor="middle" x="688.5" y="-1663.3" font-family="Times,serif" font-size="14.00"> 13.23MB</text>
+</a>
+</g>
+</g>
+<!-- N28&#45;&gt;N1 -->
+<g id="edge16" class="edge">
+<title>N28&#45;&gt;N1</title>
+<g id="a_edge16"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (62.13MB)">
+<path fill="none" stroke="#b21500" stroke-width="4" d="M727.5,-1704.34C727.5,-1687.37 727.5,-1663.3 727.5,-1644.13"/>
+<polygon fill="#b21500" stroke="#b21500" stroke-width="4" points="731,-1644.07 727.5,-1634.07 724,-1644.07 731,-1644.07"/>
+</a>
+</g>
+<g id="a_edge16&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:36 &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/utils.go:98 (62.13MB)">
+<text text-anchor="middle" x="762.5" y="-1663.3" font-family="Times,serif" font-size="14.00"> 62.13MB</text>
+</a>
+</g>
+</g>
+<!-- N29&#45;&gt;N12 -->
+<g id="edge25" class="edge">
+<title>N29&#45;&gt;N12</title>
+<g id="a_edge25"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (14.50MB)">
+<path fill="none" stroke="#b2642a" d="M1396.23,-1475.17C1412.31,-1468.79 1429.36,-1461.26 1444.5,-1453 1482.46,-1432.29 1521.56,-1401.85 1547.85,-1379.81"/>
+<polygon fill="#b2642a" stroke="#b2642a" points="1550.21,-1382.39 1555.58,-1373.26 1545.69,-1377.05 1550.21,-1382.39"/>
+</a>
+</g>
+<g id="a_edge25&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;memory_test.go:23 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (14.50MB)">
+<text text-anchor="middle" x="1502.5" y="-1441.8" font-family="Times,serif" font-size="14.00"> 14.50MB</text>
+</a>
+</g>
+</g>
+<!-- N31 -->
+<g id="node31" class="node">
+<title>N31</title>
+<g id="a_node31"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;helper_test.go:25 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="1537.5,-1634 1421.5,-1634 1421.5,-1590 1537.5,-1590 1537.5,-1634"/>
+<text text-anchor="middle" x="1479.5" y="-1623.6" font-family="Times,serif" font-size="8.00">kelindar</text>
+<text text-anchor="middle" x="1479.5" y="-1614.6" font-family="Times,serif" font-size="8.00">prepareBitmapIndexV2T</text>
+<text text-anchor="middle" x="1479.5" y="-1605.6" font-family="Times,serif" font-size="8.00">bitmap&#45;helper_test.go:25</text>
+<text text-anchor="middle" x="1479.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N30&#45;&gt;N31 -->
+<g id="edge53" class="edge">
+<title>N30&#45;&gt;N31</title>
+<g id="a_edge53"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;cpu&#45;profiling_test.go:17 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;helper_test.go:25 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M1288.43,-1704.47C1327.45,-1685.79 1384.6,-1658.43 1426.23,-1638.5"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1427.88,-1641.59 1435.39,-1634.12 1424.86,-1635.28 1427.88,-1641.59"/>
+</a>
+</g>
+<g id="a_edge53&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.TestFindPrice_3824position_CpuProfiling /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;cpu&#45;profiling_test.go:17 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;helper_test.go:25 (0.50MB)">
+<text text-anchor="middle" x="1428" y="-1663.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N31&#45;&gt;N12 -->
+<g id="edge54" class="edge">
+<title>N31&#45;&gt;N12</title>
+<g id="a_edge54"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;helper_test.go:25 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M1487.92,-1589.83C1499.93,-1559.54 1522.63,-1502.1 1541.5,-1453 1550.53,-1429.51 1560.54,-1402.87 1568.02,-1382.85"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1571.36,-1383.91 1571.58,-1373.31 1564.8,-1381.46 1571.36,-1383.91"/>
+</a>
+</g>
+<g id="a_edge54&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/kelindar.prepareBitmapIndexV2T /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/kelindar/bitmap&#45;helper_test.go:25 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:163 (0.50MB)">
+<text text-anchor="middle" x="1564" y="-1493.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N33 -->
+<g id="node33" class="node">
+<title>N33</title>
+<g id="a_node33"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (15MB)">
+<polygon fill="#ede2da" stroke="#b26125" points="1628.5,-1127 1530.5,-1127 1530.5,-1074 1628.5,-1074 1628.5,-1127"/>
+<text text-anchor="middle" x="1579.5" y="-1116.6" font-family="Times,serif" font-size="8.00">sample</text>
+<text text-anchor="middle" x="1579.5" y="-1107.6" font-family="Times,serif" font-size="8.00">(*Holder)</text>
+<text text-anchor="middle" x="1579.5" y="-1098.6" font-family="Times,serif" font-size="8.00">generatePrice</text>
+<text text-anchor="middle" x="1579.5" y="-1089.6" font-family="Times,serif" font-size="8.00">test&#45;data.go:186</text>
+<text text-anchor="middle" x="1579.5" y="-1080.6" font-family="Times,serif" font-size="8.00">0 of 15MB (15.81%)</text>
+</a>
+</g>
+</g>
+<!-- N32&#45;&gt;N33 -->
+<g id="edge20" class="edge">
+<title>N32&#45;&gt;N33</title>
+<g id="a_edge20"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (15MB)">
+<path fill="none" stroke="#b26125" d="M1579.5,-1177.76C1579.5,-1165.56 1579.5,-1150.78 1579.5,-1137.49"/>
+<polygon fill="#b26125" stroke="#b26125" points="1583,-1137.23 1579.5,-1127.23 1576,-1137.23 1583,-1137.23"/>
+</a>
+</g>
+<g id="a_edge20&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:178 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 (15MB)">
+<text text-anchor="middle" x="1603.5" y="-1148.8" font-family="Times,serif" font-size="14.00"> 15MB</text>
+</a>
+</g>
+</g>
+<!-- N33&#45;&gt;N13 -->
+<g id="edge21" class="edge">
+<title>N33&#45;&gt;N13</title>
+<g id="a_edge21"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (15MB)">
+<path fill="none" stroke="#b26125" d="M1579.5,-1073.73C1579.5,-1051.04 1579.5,-1017.95 1579.5,-993.75"/>
+<polygon fill="#b26125" stroke="#b26125" points="1583,-993.66 1579.5,-983.66 1576,-993.66 1583,-993.66"/>
+</a>
+</g>
+<g id="a_edge21&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap&#45;usage3/benchmark/500k&#45;large&#45;groups/sample/test&#45;data.go:186 &#45;&gt; github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22 (15MB)">
+<text text-anchor="middle" x="1603.5" y="-1037.3" font-family="Times,serif" font-size="14.00"> 15MB</text>
+</a>
+</g>
+</g>
+<!-- N34&#45;&gt;N10 -->
+<g id="edge49" class="edge">
+<title>N34&#45;&gt;N10</title>
+<g id="a_edge49"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:69 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (0.53MB)">
+<path fill="none" stroke="#b2b1ad" d="M1208.67,-1324.38C1220.91,-1302.4 1240.79,-1270.9 1264.5,-1249 1269.8,-1244.11 1275.74,-1239.53 1281.91,-1235.33"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1283.92,-1238.2 1290.42,-1229.83 1280.12,-1232.32 1283.92,-1238.2"/>
+</a>
+</g>
+<g id="a_edge49&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:69 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (0.53MB)">
+<text text-anchor="middle" x="1295" y="-1252.8" font-family="Times,serif" font-size="14.00"> 0.53MB</text>
+</a>
+</g>
+</g>
+<!-- N35&#45;&gt;N10 -->
+<g id="edge37" class="edge">
+<title>N35&#45;&gt;N10</title>
+<g id="a_edge37"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (2.07MB)">
+<path fill="none" stroke="#b2ac9f" d="M1317.89,-1324.23C1321.42,-1303.8 1326.58,-1274.54 1331.5,-1249 1331.98,-1246.48 1332.5,-1243.88 1333.02,-1241.27"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1336.49,-1241.73 1335.05,-1231.24 1329.63,-1240.34 1336.49,-1241.73"/>
+</a>
+</g>
+<g id="a_edge37&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:73 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (2.07MB)">
+<text text-anchor="middle" x="1362" y="-1252.8" font-family="Times,serif" font-size="14.00"> 2.07MB</text>
+</a>
+</g>
+</g>
+<!-- N36&#45;&gt;N10 -->
+<g id="edge35" class="edge">
+<title>N36&#45;&gt;N10</title>
+<g id="a_edge35"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (3.19MB)">
+<path fill="none" stroke="#b2a794" d="M1425.42,-1324.18C1419.48,-1302.66 1408.91,-1271.93 1392.5,-1249 1389.85,-1245.29 1386.8,-1241.71 1383.55,-1238.3"/>
+<polygon fill="#b2a794" stroke="#b2a794" points="1385.79,-1235.59 1376.17,-1231.14 1380.91,-1240.61 1385.79,-1235.59"/>
+</a>
+</g>
+<g id="a_edge35&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;kelindar.(*Holder).IndexPricesV2 /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:85 &#45;&gt; bitmap&#45;usage/index&#45;kelindar.(*Holder).addToBitmap /home/malerome/IdeaProjects/bitmap&#45;usage3/index&#45;kelindar/indexerv2.go:126 (3.19MB)">
+<text text-anchor="middle" x="1433" y="-1252.8" font-family="Times,serif" font-size="14.00"> 3.19MB</text>
+</a>
+</g>
+</g>
+<!-- N37&#45;&gt;N20 -->
+<g id="edge55" class="edge">
+<title>N37&#45;&gt;N20</title>
+<g id="a_edge55"><a xlink:title="github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41 &#45;&gt; github.com/google/uuid.NewRandomFromReader /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:48 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M1746.5,-770.29C1746.5,-749.98 1746.5,-718.94 1746.5,-694.88"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="1750,-694.72 1746.5,-684.72 1743,-694.72 1750,-694.72"/>
+</a>
+</g>
+<g id="a_edge55&#45;label"><a xlink:title="github.com/google/uuid.NewRandom /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:41 &#45;&gt; github.com/google/uuid.NewRandomFromReader /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:48 (0.50MB)">
+<text text-anchor="middle" x="1777" y="-706.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N38&#45;&gt;N9 -->
+<g id="edge33" class="edge">
+<title>N38&#45;&gt;N9</title>
+<g id="a_edge33"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:18 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:149 (5.79MB)">
+<path fill="none" stroke="#b29a7b" d="M1340.5,-1073.73C1340.5,-1058.09 1340.5,-1037.51 1340.5,-1018.31"/>
+<polygon fill="#b29a7b" stroke="#b29a7b" points="1344,-1018.12 1340.5,-1008.12 1337,-1018.12 1344,-1018.12"/>
+</a>
+</g>
+<g id="a_edge33&#45;label"><a xlink:title="github.com/kelindar/bitmap.(*Bitmap).Set /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:18 &#45;&gt; github.com/kelindar/bitmap.(*Bitmap).grow /home/malerome/go/bin/pkg/mod/github.com/kelindar/bitmap@v1.1.4/bitmap.go:149 (5.79MB)">
+<text text-anchor="middle" x="1371" y="-1044.8" font-family="Times,serif" font-size="14.00"> 5.79MB</text>
+<text text-anchor="middle" x="1371" y="-1029.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N39 -->
+<g id="node39" class="node">
+<title>N39</title>
+<g id="a_node39"><a xlink:title="html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1377.5 2329.5,-1377.5 2329.5,-1324.5 2429.5,-1324.5 2429.5,-1377.5"/>
+<text text-anchor="middle" x="2379.5" y="-1367.1" font-family="Times,serif" font-size="8.00">template</text>
+<text text-anchor="middle" x="2379.5" y="-1358.1" font-family="Times,serif" font-size="8.00">(*Template)</text>
+<text text-anchor="middle" x="2379.5" y="-1349.1" font-family="Times,serif" font-size="8.00">Parse</text>
+<text text-anchor="middle" x="2379.5" y="-1340.1" font-family="Times,serif" font-size="8.00">template.go:191</text>
+<text text-anchor="middle" x="2379.5" y="-1331.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N55 -->
+<g id="node55" class="node">
+<title>N55</title>
+<g id="a_node55"><a xlink:title="text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1231 2329.5,-1231 2329.5,-1178 2429.5,-1178 2429.5,-1231"/>
+<text text-anchor="middle" x="2379.5" y="-1220.6" font-family="Times,serif" font-size="8.00">template</text>
+<text text-anchor="middle" x="2379.5" y="-1211.6" font-family="Times,serif" font-size="8.00">(*Template)</text>
+<text text-anchor="middle" x="2379.5" y="-1202.6" font-family="Times,serif" font-size="8.00">Parse</text>
+<text text-anchor="middle" x="2379.5" y="-1193.6" font-family="Times,serif" font-size="8.00">template.go:210</text>
+<text text-anchor="middle" x="2379.5" y="-1184.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N39&#45;&gt;N55 -->
+<g id="edge57" class="edge">
+<title>N39&#45;&gt;N55</title>
+<g id="a_edge57"><a xlink:title="html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191 &#45;&gt; text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1324.5C2379.5,-1301.43 2379.5,-1267.21 2379.5,-1241.38"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-1241.23 2379.5,-1231.23 2376,-1241.23 2383,-1241.23"/>
+</a>
+</g>
+<g id="a_edge57&#45;label"><a xlink:title="html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191 &#45;&gt; text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1252.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N40 -->
+<g id="node40" class="node">
+<title>N40</title>
+<g id="a_node40"><a xlink:title="net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1519.5 2329.5,-1519.5 2329.5,-1475.5 2429.5,-1475.5 2429.5,-1519.5"/>
+<text text-anchor="middle" x="2379.5" y="-1509.1" font-family="Times,serif" font-size="8.00">rpc</text>
+<text text-anchor="middle" x="2379.5" y="-1500.1" font-family="Times,serif" font-size="8.00">init</text>
+<text text-anchor="middle" x="2379.5" y="-1491.1" font-family="Times,serif" font-size="8.00">debug.go:39</text>
+<text text-anchor="middle" x="2379.5" y="-1482.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N40&#45;&gt;N39 -->
+<g id="edge58" class="edge">
+<title>N40&#45;&gt;N39</title>
+<g id="a_edge58"><a xlink:title="net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39 &#45;&gt; html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1475.49C2379.5,-1452.51 2379.5,-1415.3 2379.5,-1387.72"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-1387.67 2379.5,-1377.67 2376,-1387.67 2383,-1387.67"/>
+</a>
+</g>
+<g id="a_edge58&#45;label"><a xlink:title="net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39 &#45;&gt; html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1441.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N42 -->
+<g id="node42" class="node">
+<title>N42</title>
+<g id="a_node42"><a xlink:title="runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1634 2329.5,-1634 2329.5,-1590 2429.5,-1590 2429.5,-1634"/>
+<text text-anchor="middle" x="2379.5" y="-1623.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2379.5" y="-1614.6" font-family="Times,serif" font-size="8.00">doInit</text>
+<text text-anchor="middle" x="2379.5" y="-1605.6" font-family="Times,serif" font-size="8.00">proc.go:6498</text>
+<text text-anchor="middle" x="2379.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N41&#45;&gt;N42 -->
+<g id="edge59" class="edge">
+<title>N41&#45;&gt;N42</title>
+<g id="a_edge59"><a xlink:title="runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475 &#45;&gt; runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1704.34C2379.5,-1687.37 2379.5,-1663.3 2379.5,-1644.13"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-1644.07 2379.5,-1634.07 2376,-1644.07 2383,-1644.07"/>
+</a>
+</g>
+<g id="a_edge59&#45;label"><a xlink:title="runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475 &#45;&gt; runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1663.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N42&#45;&gt;N40 -->
+<g id="edge60" class="edge">
+<title>N42&#45;&gt;N40</title>
+<g id="a_edge60"><a xlink:title="runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498 &#45;&gt; net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1589.84C2379.5,-1572.87 2379.5,-1548.8 2379.5,-1529.63"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-1529.57 2379.5,-1519.57 2376,-1529.57 2383,-1529.57"/>
+</a>
+</g>
+<g id="a_edge60&#45;label"><a xlink:title="runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498 &#45;&gt; net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1553.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N43 -->
+<g id="node43" class="node">
+<title>N43</title>
+<g id="a_node43"><a xlink:title="runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2548.5,-1373 2448.5,-1373 2448.5,-1329 2548.5,-1329 2548.5,-1373"/>
+<text text-anchor="middle" x="2498.5" y="-1362.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2498.5" y="-1353.6" font-family="Times,serif" font-size="8.00">modtimer</text>
+<text text-anchor="middle" x="2498.5" y="-1344.6" font-family="Times,serif" font-size="8.00">time.go:492</text>
+<text text-anchor="middle" x="2498.5" y="-1335.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N43&#45;&gt;N22 -->
+<g id="edge73" class="edge">
+<title>N43&#45;&gt;N22</title>
+<g id="a_edge73"><a xlink:title="runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492 &#45;&gt; runtime.doaddtimer /home/malerome/go/go176/src/runtime/time.go:294 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2498.5,-1328.99C2498.5,-1305.88 2498.5,-1268.35 2498.5,-1240.72"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2502,-1240.67 2498.5,-1230.67 2495,-1240.67 2502,-1240.67"/>
+</a>
+</g>
+<g id="a_edge73&#45;label"><a xlink:title="runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492 &#45;&gt; runtime.doaddtimer /home/malerome/go/go176/src/runtime/time.go:294 (0.50MB)">
+<text text-anchor="middle" x="2529" y="-1252.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N45 -->
+<g id="node45" class="node">
+<title>N45</title>
+<g id="a_node45"><a xlink:title="runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414 (1MB)">
+<polygon fill="#edeceb" stroke="#b2b0a9" points="1855,-1634 1768,-1634 1768,-1590 1855,-1590 1855,-1634"/>
+<text text-anchor="middle" x="1811.5" y="-1623.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1811.5" y="-1614.6" font-family="Times,serif" font-size="8.00">mstart1</text>
+<text text-anchor="middle" x="1811.5" y="-1605.6" font-family="Times,serif" font-size="8.00">proc.go:1414</text>
+<text text-anchor="middle" x="1811.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 1MB (1.06%)</text>
+</a>
+</g>
+</g>
+<!-- N44&#45;&gt;N45 -->
+<g id="edge45" class="edge">
+<title>N44&#45;&gt;N45</title>
+<g id="a_edge45"><a xlink:title="runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365 &#45;&gt; runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414 (1MB)">
+<path fill="none" stroke="#b2b0a9" d="M1810.69,-1704.34C1810.84,-1687.37 1811.05,-1663.3 1811.22,-1644.13"/>
+<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1814.72,-1644.1 1811.31,-1634.07 1807.72,-1644.03 1814.72,-1644.1"/>
+</a>
+</g>
+<g id="a_edge45&#45;label"><a xlink:title="runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365 &#45;&gt; runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414 (1MB)">
+<text text-anchor="middle" x="1830" y="-1663.3" font-family="Times,serif" font-size="14.00"> 1MB</text>
+</a>
+</g>
+</g>
+<!-- N45&#45;&gt;N14 -->
+<g id="edge46" class="edge">
+<title>N45&#45;&gt;N14</title>
+<g id="a_edge46"><a xlink:title="runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414 &#45;&gt; runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 (1MB)">
+<path fill="none" stroke="#b2b0a9" d="M1820.75,-1589.75C1826.78,-1576.04 1834.92,-1557.88 1842.5,-1542 1844.58,-1537.65 1846.82,-1533.07 1849.05,-1528.6"/>
+<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1852.19,-1530.15 1853.56,-1519.64 1845.94,-1527 1852.19,-1530.15"/>
+</a>
+</g>
+<g id="a_edge46&#45;label"><a xlink:title="runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414 &#45;&gt; runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 (1MB)">
+<text text-anchor="middle" x="1862" y="-1553.3" font-family="Times,serif" font-size="14.00"> 1MB</text>
+</a>
+</g>
+</g>
+<!-- N46 -->
+<g id="node46" class="node">
+<title>N46</title>
+<g id="a_node46"><a xlink:title="runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201 (2MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1908,-983.5 1821,-983.5 1821,-939.5 1908,-939.5 1908,-983.5"/>
+<text text-anchor="middle" x="1864.5" y="-973.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1864.5" y="-964.1" font-family="Times,serif" font-size="8.00">newm</text>
+<text text-anchor="middle" x="1864.5" y="-955.1" font-family="Times,serif" font-size="8.00">proc.go:2201</text>
+<text text-anchor="middle" x="1864.5" y="-946.1" font-family="Times,serif" font-size="8.00">0 of 2MB (2.11%)</text>
+</a>
+</g>
+</g>
+<!-- N46&#45;&gt;N11 -->
+<g id="edge38" class="edge">
+<title>N46&#45;&gt;N11</title>
+<g id="a_edge38"><a xlink:title="runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201 &#45;&gt; runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875 (2MB)">
+<path fill="none" stroke="#b2ac9f" d="M1864.5,-939.35C1864.5,-912.66 1864.5,-866.23 1864.5,-832.91"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1868,-832.6 1864.5,-822.6 1861,-832.6 1868,-832.6"/>
+</a>
+</g>
+<g id="a_edge38&#45;label"><a xlink:title="runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201 &#45;&gt; runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875 (2MB)">
+<text text-anchor="middle" x="1884" y="-878.3" font-family="Times,serif" font-size="14.00"> 2MB</text>
+</a>
+</g>
+</g>
+<!-- N48 -->
+<g id="node48" class="node">
+<title>N48</title>
+<g id="a_node48"><a xlink:title="runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2311.5,-1634 2211.5,-1634 2211.5,-1590 2311.5,-1590 2311.5,-1634"/>
+<text text-anchor="middle" x="2261.5" y="-1623.6" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2261.5" y="-1614.6" font-family="Times,serif" font-size="8.00">newproc1</text>
+<text text-anchor="middle" x="2261.5" y="-1605.6" font-family="Times,serif" font-size="8.00">proc.go:4305</text>
+<text text-anchor="middle" x="2261.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N47&#45;&gt;N48 -->
+<g id="edge50" class="edge">
+<title>N47&#45;&gt;N48</title>
+<g id="a_edge50"><a xlink:title="runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255 &#45;&gt; runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2261.5,-1699.97C2261.5,-1683.54 2261.5,-1662.07 2261.5,-1644.57"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2265,-1644.27 2261.5,-1634.27 2258,-1644.27 2265,-1644.27"/>
+</a>
+</g>
+<g id="a_edge50&#45;label"><a xlink:title="runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255 &#45;&gt; runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305 (0.50MB)">
+<text text-anchor="middle" x="2292" y="-1663.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N48&#45;&gt;N19 -->
+<g id="edge51" class="edge">
+<title>N48&#45;&gt;N19</title>
+<g id="a_edge51"><a xlink:title="runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305 &#45;&gt; runtime.malg /home/malerome/go/go176/src/runtime/proc.go:4220 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2261.5,-1589.84C2261.5,-1574.12 2261.5,-1552.32 2261.5,-1533.96"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2265,-1533.9 2261.5,-1523.9 2258,-1533.9 2265,-1533.9"/>
+</a>
+</g>
+<g id="a_edge51&#45;label"><a xlink:title="runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305 &#45;&gt; runtime.malg /home/malerome/go/go176/src/runtime/proc.go:4220 (0.50MB)">
+<text text-anchor="middle" x="2292" y="-1553.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N49&#45;&gt;N14 -->
+<g id="edge47" class="edge">
+<title>N49&#45;&gt;N14</title>
+<g id="a_edge47"><a xlink:title="runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516 &#45;&gt; runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 (1MB)">
+<path fill="none" stroke="#b2b0a9" d="M1906.72,-1589.84C1898.77,-1572.63 1887.44,-1548.13 1878.52,-1528.84"/>
+<polygon fill="#b2b0a9" stroke="#b2b0a9" points="1881.61,-1527.17 1874.24,-1519.57 1875.26,-1530.11 1881.61,-1527.17"/>
+</a>
+</g>
+<g id="a_edge47&#45;label"><a xlink:title="runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516 &#45;&gt; runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374 (1MB)">
+<text text-anchor="middle" x="1917" y="-1553.3" font-family="Times,serif" font-size="14.00"> 1MB</text>
+</a>
+</g>
+</g>
+<!-- N54 -->
+<g id="node54" class="node">
+<title>N54</title>
+<g id="a_node54"><a xlink:title="runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584 (2MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1908,-1226.5 1821,-1226.5 1821,-1182.5 1908,-1182.5 1908,-1226.5"/>
+<text text-anchor="middle" x="1864.5" y="-1216.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1864.5" y="-1207.1" font-family="Times,serif" font-size="8.00">wakep</text>
+<text text-anchor="middle" x="1864.5" y="-1198.1" font-family="Times,serif" font-size="8.00">proc.go:2584</text>
+<text text-anchor="middle" x="1864.5" y="-1189.1" font-family="Times,serif" font-size="8.00">0 of 2MB (2.11%)</text>
+</a>
+</g>
+</g>
+<!-- N50&#45;&gt;N54 -->
+<g id="edge39" class="edge">
+<title>N50&#45;&gt;N54</title>
+<g id="a_edge39"><a xlink:title="runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216 &#45;&gt; runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584 (2MB)">
+<path fill="none" stroke="#b2ac9f" d="M1864.5,-1328.99C1864.5,-1304.7 1864.5,-1264.48 1864.5,-1236.57"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1868,-1236.54 1864.5,-1226.54 1861,-1236.54 1868,-1236.54"/>
+</a>
+</g>
+<g id="a_edge39&#45;label"><a xlink:title="runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216 &#45;&gt; runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584 (2MB)">
+<text text-anchor="middle" x="1884" y="-1252.8" font-family="Times,serif" font-size="14.00"> 2MB</text>
+</a>
+</g>
+</g>
+<!-- N51 -->
+<g id="node51" class="node">
+<title>N51</title>
+<g id="a_node51"><a xlink:title="runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2548.5,-1519.5 2448.5,-1519.5 2448.5,-1475.5 2548.5,-1475.5 2548.5,-1519.5"/>
+<text text-anchor="middle" x="2498.5" y="-1509.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="2498.5" y="-1500.1" font-family="Times,serif" font-size="8.00">resettimer</text>
+<text text-anchor="middle" x="2498.5" y="-1491.1" font-family="Times,serif" font-size="8.00">time.go:539</text>
+<text text-anchor="middle" x="2498.5" y="-1482.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N51&#45;&gt;N43 -->
+<g id="edge74" class="edge">
+<title>N51&#45;&gt;N43</title>
+<g id="a_edge74"><a xlink:title="runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 &#45;&gt; runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2498.5,-1475.49C2498.5,-1451.2 2498.5,-1410.98 2498.5,-1383.07"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2502,-1383.04 2498.5,-1373.04 2495,-1383.04 2502,-1383.04"/>
+</a>
+</g>
+<g id="a_edge74&#45;label"><a xlink:title="runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 &#45;&gt; runtime.modtimer /home/malerome/go/go176/src/runtime/time.go:492 (0.50MB)">
+<text text-anchor="middle" x="2529" y="-1441.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N64 -->
+<g id="node64" class="node">
+<title>N64</title>
+<g id="a_node64"><a xlink:title="time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2548.5,-1634 2448.5,-1634 2448.5,-1590 2548.5,-1590 2548.5,-1634"/>
+<text text-anchor="middle" x="2498.5" y="-1623.6" font-family="Times,serif" font-size="8.00">time</text>
+<text text-anchor="middle" x="2498.5" y="-1614.6" font-family="Times,serif" font-size="8.00">resetTimer</text>
+<text text-anchor="middle" x="2498.5" y="-1605.6" font-family="Times,serif" font-size="8.00">time.go:229</text>
+<text text-anchor="middle" x="2498.5" y="-1596.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N52&#45;&gt;N64 -->
+<g id="edge75" class="edge">
+<title>N52&#45;&gt;N64</title>
+<g id="a_edge75"><a xlink:title="runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237 &#45;&gt; time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2498.5,-1704.34C2498.5,-1687.37 2498.5,-1663.3 2498.5,-1644.13"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2502,-1644.07 2498.5,-1634.07 2495,-1644.07 2502,-1644.07"/>
+</a>
+</g>
+<g id="a_edge75&#45;label"><a xlink:title="runtime.scavengeSleep /home/malerome/go/go176/src/runtime/mgcscavenge.go:237 &#45;&gt; time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 (0.50MB)">
+<text text-anchor="middle" x="2529" y="-1670.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+<text text-anchor="middle" x="2529" y="-1655.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N53 -->
+<g id="node53" class="node">
+<title>N53</title>
+<g id="a_node53"><a xlink:title="runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485 (2MB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1908,-1122.5 1821,-1122.5 1821,-1078.5 1908,-1078.5 1908,-1122.5"/>
+<text text-anchor="middle" x="1864.5" y="-1112.1" font-family="Times,serif" font-size="8.00">runtime</text>
+<text text-anchor="middle" x="1864.5" y="-1103.1" font-family="Times,serif" font-size="8.00">startm</text>
+<text text-anchor="middle" x="1864.5" y="-1094.1" font-family="Times,serif" font-size="8.00">proc.go:2485</text>
+<text text-anchor="middle" x="1864.5" y="-1085.1" font-family="Times,serif" font-size="8.00">0 of 2MB (2.11%)</text>
+</a>
+</g>
+</g>
+<!-- N53&#45;&gt;N46 -->
+<g id="edge41" class="edge">
+<title>N53&#45;&gt;N46</title>
+<g id="a_edge41"><a xlink:title="runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485 &#45;&gt; runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201 (2MB)">
+<path fill="none" stroke="#b2ac9f" d="M1864.5,-1078.39C1864.5,-1055.83 1864.5,-1019.82 1864.5,-993.92"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1868,-993.86 1864.5,-983.86 1861,-993.86 1868,-993.86"/>
+</a>
+</g>
+<g id="a_edge41&#45;label"><a xlink:title="runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485 &#45;&gt; runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201 (2MB)">
+<text text-anchor="middle" x="1884" y="-1037.3" font-family="Times,serif" font-size="14.00"> 2MB</text>
+</a>
+</g>
+</g>
+<!-- N54&#45;&gt;N53 -->
+<g id="edge42" class="edge">
+<title>N54&#45;&gt;N53</title>
+<g id="a_edge42"><a xlink:title="runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584 &#45;&gt; runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485 (2MB)">
+<path fill="none" stroke="#b2ac9f" d="M1864.5,-1182.37C1864.5,-1168.01 1864.5,-1148.77 1864.5,-1132.66"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1868,-1132.61 1864.5,-1122.61 1861,-1132.61 1868,-1132.61"/>
+</a>
+</g>
+<g id="a_edge42&#45;label"><a xlink:title="runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584 &#45;&gt; runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485 (2MB)">
+<text text-anchor="middle" x="1884" y="-1148.8" font-family="Times,serif" font-size="14.00"> 2MB</text>
+</a>
+</g>
+</g>
+<!-- N63 -->
+<g id="node63" class="node">
+<title>N63</title>
+<g id="a_node63"><a xlink:title="text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-1122.5 2329.5,-1122.5 2329.5,-1078.5 2429.5,-1078.5 2429.5,-1122.5"/>
+<text text-anchor="middle" x="2379.5" y="-1112.1" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-1103.1" font-family="Times,serif" font-size="8.00">Parse</text>
+<text text-anchor="middle" x="2379.5" y="-1094.1" font-family="Times,serif" font-size="8.00">parse.go:66</text>
+<text text-anchor="middle" x="2379.5" y="-1085.1" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N55&#45;&gt;N63 -->
+<g id="edge63" class="edge">
+<title>N55&#45;&gt;N63</title>
+<g id="a_edge63"><a xlink:title="text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210 &#45;&gt; text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1177.76C2379.5,-1164.22 2379.5,-1147.49 2379.5,-1133.16"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-1132.76 2379.5,-1122.76 2376,-1132.76 2383,-1132.76"/>
+</a>
+</g>
+<g id="a_edge63&#45;label"><a xlink:title="text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210 &#45;&gt; text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1148.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N56 -->
+<g id="node56" class="node">
+<title>N56</title>
+<g id="a_node56"><a xlink:title="text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-988 2329.5,-988 2329.5,-935 2429.5,-935 2429.5,-988"/>
+<text text-anchor="middle" x="2379.5" y="-977.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-968.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-959.6" font-family="Times,serif" font-size="8.00">Parse</text>
+<text text-anchor="middle" x="2379.5" y="-950.6" font-family="Times,serif" font-size="8.00">parse.go:247</text>
+<text text-anchor="middle" x="2379.5" y="-941.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N58 -->
+<g id="node58" class="node">
+<title>N58</title>
+<g id="a_node58"><a xlink:title="text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-819 2329.5,-819 2329.5,-766 2429.5,-766 2429.5,-819"/>
+<text text-anchor="middle" x="2379.5" y="-808.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-799.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-790.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-781.6" font-family="Times,serif" font-size="8.00">parse.go:311</text>
+<text text-anchor="middle" x="2379.5" y="-772.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N56&#45;&gt;N58 -->
+<g id="edge64" class="edge">
+<title>N56&#45;&gt;N58</title>
+<g id="a_edge64"><a xlink:title="text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247 &#45;&gt; text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-934.77C2379.5,-906.58 2379.5,-861.14 2379.5,-829.44"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-829.26 2379.5,-819.26 2376,-829.26 2383,-829.26"/>
+</a>
+</g>
+<g id="a_edge64&#45;label"><a xlink:title="text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247 &#45;&gt; text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-878.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N57 -->
+<g id="node57" class="node">
+<title>N57</title>
+<g id="a_node57"><a xlink:title="text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-581 2329.5,-581 2329.5,-528 2429.5,-528 2429.5,-581"/>
+<text text-anchor="middle" x="2379.5" y="-570.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-561.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-552.6" font-family="Times,serif" font-size="8.00">action</text>
+<text text-anchor="middle" x="2379.5" y="-543.6" font-family="Times,serif" font-size="8.00">parse.go:396</text>
+<text text-anchor="middle" x="2379.5" y="-534.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N61 -->
+<g id="node61" class="node">
+<title>N61</title>
+<g id="a_node61"><a xlink:title="text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-477 2329.5,-477 2329.5,-424 2429.5,-424 2429.5,-477"/>
+<text text-anchor="middle" x="2379.5" y="-466.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-457.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-448.6" font-family="Times,serif" font-size="8.00">rangeControl</text>
+<text text-anchor="middle" x="2379.5" y="-439.6" font-family="Times,serif" font-size="8.00">parse.go:526</text>
+<text text-anchor="middle" x="2379.5" y="-430.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N57&#45;&gt;N61 -->
+<g id="edge65" class="edge">
+<title>N57&#45;&gt;N61</title>
+<g id="a_edge65"><a xlink:title="text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396 &#45;&gt; text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-527.76C2379.5,-515.56 2379.5,-500.78 2379.5,-487.49"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-487.23 2379.5,-477.23 2376,-487.23 2383,-487.23"/>
+</a>
+</g>
+<g id="a_edge65&#45;label"><a xlink:title="text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396 &#45;&gt; text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-498.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N62 -->
+<g id="node62" class="node">
+<title>N62</title>
+<g id="a_node62"><a xlink:title="text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-685 2329.5,-685 2329.5,-632 2429.5,-632 2429.5,-685"/>
+<text text-anchor="middle" x="2379.5" y="-674.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-665.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-656.6" font-family="Times,serif" font-size="8.00">textOrAction</text>
+<text text-anchor="middle" x="2379.5" y="-647.6" font-family="Times,serif" font-size="8.00">parse.go:367</text>
+<text text-anchor="middle" x="2379.5" y="-638.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N58&#45;&gt;N62 -->
+<g id="edge66" class="edge">
+<title>N58&#45;&gt;N62</title>
+<g id="a_edge66"><a xlink:title="text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311 &#45;&gt; text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-765.74C2379.5,-745.66 2379.5,-717.54 2379.5,-695.28"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-695.2 2379.5,-685.2 2376,-695.2 2383,-695.2"/>
+</a>
+</g>
+<g id="a_edge66&#45;label"><a xlink:title="text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311 &#45;&gt; text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-706.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N59 -->
+<g id="node59" class="node">
+<title>N59</title>
+<g id="a_node59"><a xlink:title="text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:482 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-373 2329.5,-373 2329.5,-320 2429.5,-320 2429.5,-373"/>
+<text text-anchor="middle" x="2379.5" y="-362.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-353.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-344.6" font-family="Times,serif" font-size="8.00">parseControl</text>
+<text text-anchor="middle" x="2379.5" y="-335.6" font-family="Times,serif" font-size="8.00">parse.go:482</text>
+<text text-anchor="middle" x="2379.5" y="-326.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N60 -->
+<g id="node60" class="node">
+<title>N60</title>
+<g id="a_node60"><a xlink:title="text/template/parse.(*Tree).pipeline /home/malerome/go/go176/src/text/template/parse/parse.go:412 (0.50MB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="2429.5,-269 2329.5,-269 2329.5,-216 2429.5,-216 2429.5,-269"/>
+<text text-anchor="middle" x="2379.5" y="-258.6" font-family="Times,serif" font-size="8.00">parse</text>
+<text text-anchor="middle" x="2379.5" y="-249.6" font-family="Times,serif" font-size="8.00">(*Tree)</text>
+<text text-anchor="middle" x="2379.5" y="-240.6" font-family="Times,serif" font-size="8.00">pipeline</text>
+<text text-anchor="middle" x="2379.5" y="-231.6" font-family="Times,serif" font-size="8.00">parse.go:412</text>
+<text text-anchor="middle" x="2379.5" y="-222.6" font-family="Times,serif" font-size="8.00">0 of 0.50MB (0.53%)</text>
+</a>
+</g>
+</g>
+<!-- N59&#45;&gt;N60 -->
+<g id="edge67" class="edge">
+<title>N59&#45;&gt;N60</title>
+<g id="a_edge67"><a xlink:title="text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:482 &#45;&gt; text/template/parse.(*Tree).pipeline /home/malerome/go/go176/src/text/template/parse/parse.go:412 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-319.76C2379.5,-307.56 2379.5,-292.78 2379.5,-279.49"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-279.23 2379.5,-269.23 2376,-279.23 2383,-279.23"/>
+</a>
+</g>
+<g id="a_edge67&#45;label"><a xlink:title="text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:482 &#45;&gt; text/template/parse.(*Tree).pipeline /home/malerome/go/go176/src/text/template/parse/parse.go:412 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-290.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N60&#45;&gt;N21 -->
+<g id="edge68" class="edge">
+<title>N60&#45;&gt;N21</title>
+<g id="a_edge68"><a xlink:title="text/template/parse.(*Tree).pipeline /home/malerome/go/go176/src/text/template/parse/parse.go:412 &#45;&gt; text/template/parse.(*Tree).newPipeline /home/malerome/go/go176/src/text/template/parse/node.go:197 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-215.92C2379.5,-199.85 2379.5,-178.74 2379.5,-160.38"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-160.23 2379.5,-150.23 2376,-160.23 2383,-160.23"/>
+</a>
+</g>
+<g id="a_edge68&#45;label"><a xlink:title="text/template/parse.(*Tree).pipeline /home/malerome/go/go176/src/text/template/parse/parse.go:412 &#45;&gt; text/template/parse.(*Tree).newPipeline /home/malerome/go/go176/src/text/template/parse/node.go:197 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-186.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+<text text-anchor="middle" x="2410" y="-171.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N61&#45;&gt;N59 -->
+<g id="edge69" class="edge">
+<title>N61&#45;&gt;N59</title>
+<g id="a_edge69"><a xlink:title="text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526 &#45;&gt; text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:482 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-423.76C2379.5,-411.56 2379.5,-396.78 2379.5,-383.49"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-383.23 2379.5,-373.23 2376,-383.23 2383,-383.23"/>
+</a>
+</g>
+<g id="a_edge69&#45;label"><a xlink:title="text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526 &#45;&gt; text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:482 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-394.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N62&#45;&gt;N57 -->
+<g id="edge70" class="edge">
+<title>N62&#45;&gt;N57</title>
+<g id="a_edge70"><a xlink:title="text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367 &#45;&gt; text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-631.76C2379.5,-619.56 2379.5,-604.78 2379.5,-591.49"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-591.23 2379.5,-581.23 2376,-591.23 2383,-591.23"/>
+</a>
+</g>
+<g id="a_edge70&#45;label"><a xlink:title="text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367 &#45;&gt; text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-602.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N63&#45;&gt;N56 -->
+<g id="edge71" class="edge">
+<title>N63&#45;&gt;N56</title>
+<g id="a_edge71"><a xlink:title="text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66 &#45;&gt; text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2379.5,-1078.39C2379.5,-1057.02 2379.5,-1023.57 2379.5,-998.09"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2383,-998.07 2379.5,-988.07 2376,-998.07 2383,-998.07"/>
+</a>
+</g>
+<g id="a_edge71&#45;label"><a xlink:title="text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66 &#45;&gt; text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247 (0.50MB)">
+<text text-anchor="middle" x="2410" y="-1037.3" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+</a>
+</g>
+</g>
+<!-- N64&#45;&gt;N51 -->
+<g id="edge76" class="edge">
+<title>N64&#45;&gt;N51</title>
+<g id="a_edge76"><a xlink:title="time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 &#45;&gt; runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 (0.50MB)">
+<path fill="none" stroke="#b2b1ad" d="M2498.5,-1589.84C2498.5,-1572.87 2498.5,-1548.8 2498.5,-1529.63"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="2502,-1529.57 2498.5,-1519.57 2495,-1529.57 2502,-1529.57"/>
+</a>
+</g>
+<g id="a_edge76&#45;label"><a xlink:title="time.resetTimer /home/malerome/go/go176/src/runtime/time.go:229 &#45;&gt; runtime.resettimer /home/malerome/go/go176/src/runtime/time.go:539 (0.50MB)">
+<text text-anchor="middle" x="2529" y="-1560.8" font-family="Times,serif" font-size="14.00"> 0.50MB</text>
+<text text-anchor="middle" x="2529" y="-1545.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>

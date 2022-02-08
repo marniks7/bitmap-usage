@@ -1,30 +1,66 @@
 File: bitmap64.test
 Type: inuse_space
-Time: Sep 12, 2021 at 7:19pm (EDT)
-Showing nodes accounting for 89.73MB, 99.92% of 89.80MB total
-Dropped 162 nodes (cum <= 0.45MB)
+Time: Feb 7, 2022 at 2:58pm (EST)
+Showing nodes accounting for 90.58MB, 100% of 90.58MB total
       flat  flat%   sum%        cum   cum%
-   29.74MB 33.11% 33.11%    29.74MB 33.11%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:31
-   27.63MB 30.76% 63.88%    27.63MB 30.76%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:29
-   22.30MB 24.83% 88.71%    22.30MB 24.83%  github.com/google/uuid.UUID.String /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    7.44MB  8.28% 96.99%     7.44MB  8.28%  bitmap-usage/index-roaring64.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-roaring64/indexer.go:20
-    1.56MB  1.74% 98.73%     1.56MB  1.74%  github.com/RoaringBitmap/roaring.newBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/bitmapcontainer.go:24 (inline)
-    1.07MB  1.19% 99.92%     1.07MB  1.19%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:261
-         0     0% 99.92%    89.79MB   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
-         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:22
-         0     0% 99.92%    10.12MB 11.27%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:30
-         0     0% 99.92%    57.36MB 63.88%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:36
-         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:23
-         0     0% 99.92%    10.12MB 11.27%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:31
-         0     0% 99.92%    57.36MB 63.88%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:37
-         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:163
-         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:168
-         0     0% 99.92%    22.30MB 24.83%  bitmap-usage/benchmark/500k-large-groups/sample64.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:148
-         0     0% 99.92%     2.22MB  2.47%  bitmap-usage/index-roaring64.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-roaring64/indexer.go:18
-         0     0% 99.92%     2.20MB  2.45%  bitmap-usage/index-roaring64.conditionBitmaps /home/malerome/IdeaProjects/bitmap-usage3/index-roaring64/indexer.go:82
-         0     0% 99.92%     2.64MB  2.93%  github.com/RoaringBitmap/roaring.(*Bitmap).Add /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:577
-         0     0% 99.92%     1.57MB  1.75%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:269
-         0     0% 99.92%     1.57MB  1.75%  github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:230
-         0     0% 99.92%     2.65MB  2.95%  github.com/RoaringBitmap/roaring/roaring64.(*Bitmap).Add /home/malerome/go/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring64/roaring64.go:312
-         0     0% 99.92%    22.30MB 24.83%  github.com/google/uuid.NewString /home/malerome/go/go164/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0% 99.92%    89.79MB   100%  testing.tRunner /home/malerome/go/go164/src/testing/testing.go:1193
+      29MB 32.02% 32.02%       29MB 32.02%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:31
+   27.62MB 30.50% 62.52%    27.62MB 30.50%  bitmap-usage/cache64.(*CatalogService).GeneratePricesByConditionsAndClear /home/malerome/IdeaProjects/bitmap-usage3/cache64/price-cache.go:29
+   19.50MB 21.53% 84.05%    19.50MB 21.53%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    7.44MB  8.21% 92.26%     7.44MB  8.21%  bitmap-usage/index-roaring64.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-roaring64/indexer.go:20
+    3.50MB  3.87% 96.13%     3.50MB  3.87%  runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875
+       1MB  1.11% 97.24%        1MB  1.11%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:261
+       1MB  1.10% 98.34%        1MB  1.10%  runtime.acquireSudog /home/malerome/go/go176/src/runtime/proc.go:405
+    0.50MB  0.56% 98.90%     0.50MB  0.56%  github.com/RoaringBitmap/roaring.newBitmapContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/bitmapcontainer.go:24 (inline)
+    0.50MB  0.55% 99.45%     0.50MB  0.55%  runtime.malg /home/malerome/go/go176/src/runtime/proc.go:4220
+    0.50MB  0.55%   100%     0.50MB  0.55%  text/template/parse.(*Tree).newList /home/malerome/go/go176/src/text/template/parse/node.go:87 (inline)
+         0     0%   100%    85.07MB 93.92%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
+         0     0%   100%    19.50MB 21.53%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:22
+         0     0%   100%     8.95MB  9.88%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:30
+         0     0%   100%    56.63MB 62.52%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:36
+         0     0%   100%    19.50MB 21.53%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:23
+         0     0%   100%     8.95MB  9.88%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:31
+         0     0%   100%    56.63MB 62.52%  bitmap-usage/benchmark/500k-large-groups/bitmap64.TestBitmapMemoryStats.func3 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/bitmap64/bitmap-memory_test.go:37
+         0     0%   100%    19.50MB 21.53%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:163
+         0     0%   100%    19.50MB 21.53%  bitmap-usage/benchmark/500k-large-groups/sample64.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:168
+         0     0%   100%    19.50MB 21.53%  bitmap-usage/benchmark/500k-large-groups/sample64.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample64/test-data.go:148
+         0     0%   100%     1.51MB  1.67%  bitmap-usage/index-roaring64.(*BitmapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-roaring64/indexer.go:18
+         0     0%   100%     1.51MB  1.67%  bitmap-usage/index-roaring64.conditionBitmaps /home/malerome/IdeaProjects/bitmap-usage3/index-roaring64/indexer.go:82
+         0     0%   100%     1.51MB  1.67%  github.com/RoaringBitmap/roaring.(*Bitmap).Add /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring.go:577
+         0     0%   100%     0.50MB  0.56%  github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:269
+         0     0%   100%     0.50MB  0.56%  github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/arraycontainer.go:230
+         0     0%   100%     1.51MB  1.67%  github.com/RoaringBitmap/roaring/roaring64.(*Bitmap).Add /home/malerome/go/bin/pkg/mod/github.com/!roaring!bitmap/roaring@v0.9.4/roaring64/roaring64.go:312
+         0     0%   100%    19.50MB 21.53%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0%   100%     0.50MB  0.55%  html/template.(*Template).Parse /home/malerome/go/go176/src/html/template/template.go:191
+         0     0%   100%     0.50MB  0.55%  net/rpc.init /home/malerome/go/go176/src/net/rpc/debug.go:39
+         0     0%   100%     0.50MB  0.55%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475
+         0     0%   100%     0.50MB  0.55%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498
+         0     0%   100%        1MB  1.10%  runtime.gcBgMarkWorker /home/malerome/go/go176/src/runtime/mgc.go:1330
+         0     0%   100%        1MB  1.10%  runtime.gcMarkDone /home/malerome/go/go176/src/runtime/mgc.go:776
+         0     0%   100%     0.50MB  0.55%  runtime.goschedImpl /home/malerome/go/go176/src/runtime/proc.go:3531
+         0     0%   100%     0.50MB  0.55%  runtime.gosched_m /home/malerome/go/go176/src/runtime/proc.go:3539
+         0     0%   100%     0.50MB  0.55%  runtime.main /home/malerome/go/go176/src/runtime/proc.go:238
+         0     0%   100%     2.50MB  2.76%  runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307
+         0     0%   100%        1MB  1.11%  runtime.mstart /home/malerome/go/go176/src/runtime/asm_amd64.s:248
+         0     0%   100%        1MB  1.11%  runtime.mstart0 /home/malerome/go/go176/src/runtime/proc.go:1365
+         0     0%   100%        1MB  1.11%  runtime.mstart1 /home/malerome/go/go176/src/runtime/proc.go:1414
+         0     0%   100%     3.50MB  3.87%  runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201
+         0     0%   100%     0.50MB  0.55%  runtime.newproc.func1 /home/malerome/go/go176/src/runtime/proc.go:4255
+         0     0%   100%     0.50MB  0.55%  runtime.newproc1 /home/malerome/go/go176/src/runtime/proc.go:4305
+         0     0%   100%        2MB  2.21%  runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516
+         0     0%   100%     3.50MB  3.87%  runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216
+         0     0%   100%     3.50MB  3.87%  runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374
+         0     0%   100%        1MB  1.10%  runtime.semacquire /home/malerome/go/go176/src/runtime/sema.go:95 (inline)
+         0     0%   100%        1MB  1.10%  runtime.semacquire1 /home/malerome/go/go176/src/runtime/sema.go:115
+         0     0%   100%     3.50MB  3.87%  runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485
+         0     0%   100%     0.50MB  0.55%  runtime.systemstack /home/malerome/go/go176/src/runtime/asm_amd64.s:383
+         0     0%   100%     3.50MB  3.87%  runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584
+         0     0%   100%    85.07MB 93.92%  testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259
+         0     0%   100%     0.50MB  0.55%  text/template.(*Template).Parse /home/malerome/go/go176/src/text/template/template.go:210
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).Parse /home/malerome/go/go176/src/text/template/parse/parse.go:247
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).action /home/malerome/go/go176/src/text/template/parse/parse.go:396
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).itemList /home/malerome/go/go176/src/text/template/parse/parse.go:345
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).parse /home/malerome/go/go176/src/text/template/parse/parse.go:311
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).parseControl /home/malerome/go/go176/src/text/template/parse/parse.go:484
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).rangeControl /home/malerome/go/go176/src/text/template/parse/parse.go:526
+         0     0%   100%     0.50MB  0.55%  text/template/parse.(*Tree).textOrAction /home/malerome/go/go176/src/text/template/parse/parse.go:367
+         0     0%   100%     0.50MB  0.55%  text/template/parse.Parse /home/malerome/go/go176/src/text/template/parse/parse.go:66
