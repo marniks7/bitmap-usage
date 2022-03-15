@@ -38,8 +38,9 @@ func TestGeneratePrice(t *testing.T) {
 }
 
 func TestGenerateTestData(t *testing.T) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := Service{}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
@@ -103,8 +104,9 @@ func TestMapOfferingIndex_FindPrice_9701Position(t *testing.T) {
 }
 
 func prepareCatalogAndMap(t *testing.T) (*cache.CatalogService, *indexMap.MapIndexService) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := Service{}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexMap.NewService(log.Logger)

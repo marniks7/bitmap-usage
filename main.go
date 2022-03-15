@@ -72,8 +72,9 @@ func Setup() {
 	//fail fast init part
 	goGCInt := getGOGC(err)
 
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	cs := cache.NewCatalogService(cache.NewCatalog())
 	cs64 := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+	sampleService := sample.Service{Cs: cs}
 	// create router
 	r := mux.NewRouter()
 
@@ -87,7 +88,7 @@ func Setup() {
 		log.Info().Msg("Use Roaring64")
 		err = sample64.GenerateTestData5Chars5Offerings(cs64)
 		if err != nil {
-			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
+			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars50Offerings")
 			return
 		}
 
@@ -104,7 +105,7 @@ func Setup() {
 		log.Info().Msg("Use Sroar64")
 		err = sample64.GenerateTestData5Chars5Offerings(cs64)
 		if err != nil {
-			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
+			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars50Offerings")
 			return
 		}
 
@@ -119,7 +120,7 @@ func Setup() {
 
 	} else if kelindar32 {
 		log.Info().Msg("Use Kelindar32")
-		err = sample.GenerateTestData5Chars5Offerings(cs)
+		err = sampleService.GenerateTestData5Chars50Offerings()
 
 		//index
 		indexer := indexkelindar.NewHolder(log.Logger)
@@ -134,9 +135,9 @@ func Setup() {
 		app.Post("/v1/search/kelindar/prices", as.FindPriceByX_Fiber)
 	} else {
 		log.Info().Msg("Use Roaring32")
-		err = sample.GenerateTestData5Chars5Offerings(cs)
+		err = sampleService.GenerateTestData5Chars50Offerings()
 		if err != nil {
-			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars5Offerings")
+			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars50Offerings")
 			return
 		}
 

@@ -21,9 +21,11 @@ func TestBitmapMemoryStats(t *testing.T) {
 		t.Skip("skipping test in short mode.")
 		return
 	}
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	cs := cache.NewCatalogService(cache.NewCatalog())
+
 	after, before := benchmark.ReadMemStatsFuncWithGC(func() {
-		err := sample.GenerateTestData5Chars5Offerings(cs)
+		sampleService := sample.Service{Cs: cs}
+		err := sampleService.GenerateTestData5Chars50Offerings()
 		assert.NoError(t, err)
 	})
 	fmt.Println("Sample Data mem stats:")
@@ -69,8 +71,9 @@ func TestBitmapMemoryStats_Search(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
 	}
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexroaring.NewService(log.Logger)
@@ -119,8 +122,9 @@ func TestBitmapMemoryStats_SearchV2(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
 	}
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexroaring.NewHolder(log.Logger)
@@ -169,8 +173,9 @@ func TestBitmapMemoryStats_SearchV2_OptStr(t *testing.T) {
 		t.Skip("skipping test in short mode.")
 	}
 
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexroaring.NewHolder(log.Logger)

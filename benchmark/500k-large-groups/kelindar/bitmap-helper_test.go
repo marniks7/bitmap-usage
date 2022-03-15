@@ -10,8 +10,9 @@ import (
 )
 
 func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexkelindar.Holder) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
 	ind := indexkelindar.NewHolder(log.Logger)
@@ -21,8 +22,9 @@ func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexkelindar.H
 }
 
 func prepareBitmapIndexV2T(t *testing.T) (*cache.CatalogService, *indexkelindar.Holder) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexkelindar.NewHolder(log.Logger)

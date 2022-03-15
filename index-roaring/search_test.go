@@ -14,8 +14,9 @@ import (
 )
 
 func TestFindPriceId(t *testing.T) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := NewService(log.Logger)
@@ -57,8 +58,9 @@ func TestFindPriceId(t *testing.T) {
 }
 
 func TestFindPriceIdWithTraceInfo(t *testing.T) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := NewService(log.Logger)
@@ -88,8 +90,9 @@ func TestFindPriceIdWithTraceInfo(t *testing.T) {
 }
 
 func TestFindPrice(t *testing.T) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := NewService(log.Logger)
@@ -415,7 +418,7 @@ func TestFindPriceBy(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+			cs := cache.NewCatalogService(cache.NewCatalog())
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 
 			ind := NewService(log.Logger)

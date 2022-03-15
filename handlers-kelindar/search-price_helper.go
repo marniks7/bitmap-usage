@@ -14,7 +14,7 @@ import (
 )
 
 func PrepareBitmap() *BitmapAggregateService {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
+	cs := cache.NewCatalogService(cache.NewCatalog())
 	cs.Catalog.PriceConditions = []*model.PriceCondition{
 		{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
 			Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},

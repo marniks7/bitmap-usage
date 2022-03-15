@@ -10,8 +10,9 @@ import (
 )
 
 func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
 	ind := indexroaring.NewService(log.Logger)
@@ -21,8 +22,9 @@ func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.Bitm
 }
 
 func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexroaring.Holder) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
 	ind := indexroaring.NewHolder(log.Logger)
@@ -32,8 +34,9 @@ func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexroaring.Ho
 }
 
 func prepareBitmapIndexV2T(t *testing.T) (*cache.CatalogService, *indexroaring.Holder) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexroaring.NewHolder(log.Logger)
@@ -43,8 +46,9 @@ func prepareBitmapIndexV2T(t *testing.T) (*cache.CatalogService, *indexroaring.H
 }
 
 func prepareBitmapIndexT(t *testing.T) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
-	cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-	err := sample.GenerateTestData5Chars5Offerings(cs)
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := sample.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
 	ind := indexroaring.NewService(log.Logger)

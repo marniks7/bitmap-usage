@@ -5,6 +5,7 @@ import (
 	"bitmap-usage/model"
 	"errors"
 	"github.com/google/uuid"
+	"github.com/rs/zerolog/log"
 	"math/rand"
 	"time"
 )
@@ -134,7 +135,11 @@ var SpecPool = []string{
 
 var UnableToFindValuesForChar = errors.New("unable to find values for Char")
 
-func GenerateTestData5Chars5Offerings(cs *cache.CatalogService) error {
+type Service struct {
+	Cs *cache.CatalogService
+}
+
+func (s *Service) GenerateTestData5Chars50Offerings() error {
 	rand.Seed(3197) //just the same seed for each run to get stable sequence
 	const OfferingsCnt = 50
 	h := &Holder{
@@ -154,7 +159,7 @@ func GenerateTestData5Chars5Offerings(cs *cache.CatalogService) error {
 			if values, ok := ValuePool[cc]; ok {
 				cnt *= len(values)
 			} else {
-				cs.L.Error().Str("char", cc).Msg("Unable to find values for Char")
+				log.Error().Str("char", cc).Msg("Unable to find values for Char")
 				return UnableToFindValuesForChar
 			}
 		}
@@ -163,7 +168,7 @@ func GenerateTestData5Chars5Offerings(cs *cache.CatalogService) error {
 		h.generatePrice(chars, charCache, 0, offeringId)
 	}
 
-	cs.Catalog.PriceConditions = h.prices
+	s.Cs.Catalog.PriceConditions = h.prices
 
 	return nil
 }

@@ -282,8 +282,7 @@ func TestMapIndexService_FindPriceBy(t *testing.T) {
 	isAtLeastOneNonOptimized := false
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			cs := cache.NewCatalogService(log.Logger, cache.NewCatalog(log.Logger))
-			cs.Catalog = cache.NewCatalog(log.Logger)
+			cs := cache.NewCatalogService(cache.NewCatalog())
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 			ind := NewService(log.Logger)
 			ind.IndexPrices(cs.Catalog)
