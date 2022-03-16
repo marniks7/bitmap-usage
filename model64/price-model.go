@@ -22,7 +22,7 @@ type PriceCondition struct {
 	IsDefault          bool
 }
 
-//go:generate codecgen -st json -o price-model_codec.go price-model.go search-price-model.go
+//go:generate codecgen -nr "^PriceCondition$" -st json -o price-model_codec.go price-model.go search-price-model.go
 type Price struct {
 	Id       string  `json:"id"`
 	Spec     string  `json:"spec"`

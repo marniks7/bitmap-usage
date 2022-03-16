@@ -21,12 +21,6 @@ type FindPriceRequestBulk struct {
 	Id          uint16      `json:"id"`
 }
 
-type ChanFindPriceRequestBulk struct {
-	FPRB   *FindPriceRequestBulk
-	Result chan FindPriceResponseBulk
-	Err    chan error
-}
-
 type FindPriceResponseBulk struct {
 	Price *Price `json:"price"`
 	Id    uint16 `json:"id"`
