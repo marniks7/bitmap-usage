@@ -204,8 +204,12 @@ func Setup() {
 		findPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
 		findPriceBulkv4.HandleFunc("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4)
 
+		findPriceBulkv5 := r.Methods(http.MethodPost).Subrouter()
+		findPriceBulkv5.HandleFunc("/v5/search/bitmap/bulk/prices", as.FindPriceBulkByXV5)
+
 		app.Post("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4_Fiber)
 		app.Post("/v4/search/bitmap/bulk/prices/ugorji", as.FindPriceBulkByXV4_Ugorji_Fiber)
+		app.Post("/v5/search/bitmap/bulk/prices", adaptor.HTTPHandlerFunc(as.FindPriceBulkByXV5))
 	}
 
 	runtime.GC()

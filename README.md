@@ -34,12 +34,12 @@ curl -POST http://localhost:8091/v1/search/map/prices \
 ```
 * Search 5 prices. Bitmap
 ```bash
-curl -H "Content-Type: application/json" -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
+curl -H "Content-Type: application/json" -POST http://localhost:8091/v5/search/bitmap/bulk/prices \
     -d @benchmark/500k-large-groups/sample/search-price-bulk-request-5.json
 ```
 * Search 10000 prices. Bitmap
 ```bash
-time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v4/search/bitmap/bulk/prices \
+time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhost:8091/v5/search/bitmap/bulk/prices \
     -d @benchmark/500k-large-groups/sample/search-price-bulk-request-10000.json
 ```
 

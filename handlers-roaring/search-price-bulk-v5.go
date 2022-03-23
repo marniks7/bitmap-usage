@@ -3,7 +3,6 @@ package handlersroaring
 import (
 	"bitmap-usage/model"
 	"encoding/json"
-	"errors"
 	"github.com/rs/zerolog/log"
 	"net/http"
 )
@@ -44,8 +43,6 @@ func (as *BitmapAggregateService) FindPriceBulkByXV5(rw http.ResponseWriter, r *
 	close(requestIn)
 	<-done
 }
-
-var ErrUnableToFindPrice2 = errors.New("unable to find price by priceId")
 
 func (as *BitmapAggregateService) CalculateWorker(RequestChan chan model.FindPriceRequestBulk,
 	OutChan chan model.FindPriceResponseBulk, ErrChar chan error) {
