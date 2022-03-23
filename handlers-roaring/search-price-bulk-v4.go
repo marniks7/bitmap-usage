@@ -10,6 +10,7 @@ import (
 	"github.com/ugorji/go/codec"
 	"net/http"
 	"strconv"
+	"sync"
 )
 
 // FindPriceBulkByXV4 is used for bulk price search with next properties
@@ -47,38 +48,45 @@ func (as *BitmapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *
 	results := make([]model.FindPriceResponseBulk, len(findPriceRequests))
 	//Note: errors slice is accessed concurrently, be careful
 	errors := make([]error, len(findPriceRequests))
-
-	g := bulk.NewGroup(uint8(limit))
+	er := false
+	//g := bulk.NewGroup(uint8(limit))
+	wg := sync.WaitGroup{}
+	ch := make(chan struct{}, limit)
 	for i, fpreq := range findPriceRequests {
-		i, findPriceRequest := i, fpreq
-		g.Go(func() error {
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
-				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
+		i, fpreq := i, fpreq
+		wg.Add(1)
+		ch <- struct{}{}
+		go func() {
+			ind, err := as.Index.FindPriceIndexBy(fpreq.OfferingId, fpreq.GroupId,
+				fpreq.PriceSpecId, fpreq.CharValues)
 			if err != nil {
 				errors[i] = err
-				return err
+				er = true
+				return
 			}
 			priceId, err := as.Index.FindPriceIdByIndex(ind)
 			if err != nil {
 				errors[i] = err
-				return err
+				er = true
+				return
 			}
 			price := as.CS.Catalog.Prices[priceId]
 			if price != nil {
-				results[i] = model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
+				results[i] = model.FindPriceResponseBulk{Price: price, Id: fpreq.Id}
 			} else {
 				errors[i] = ErrUnableToFindPrice
-				return ErrUnableToFindPrice
+				er = true
+				return
 			}
-
-			return nil
-		})
+		}()
 
 	}
-	if err := g.Wait(); err != nil {
+	wg.Wait()
+
+	if er {
 		log.Err(err).Msg("First err for bulk search price")
-		//http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
-		//return
+		http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
+		return
 	}
 	err = encoder.Encode(results)
 	if err != nil {
