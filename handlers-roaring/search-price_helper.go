@@ -114,7 +114,7 @@ func FuncTestBulkFindPriceFew(t *testing.T, fnc func(rw http.ResponseWriter, r *
 	expected = append(expected, expectedPriceResponse)
 	expected = append(expected, expectedPriceResponse2)
 	assert.NoError(t, err)
-	assert.Equal(t, expected, actual)
+	assert.ElementsMatch(t, expected, actual)
 }
 
 func FuncTestPriceNotFound(t *testing.T, fnc func(rw http.ResponseWriter, r *http.Request)) {

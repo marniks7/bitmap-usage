@@ -35,7 +35,7 @@ WRK_DURATION = 30s
 WRK_THREADS = 1
 WRK_CONNECTIONS = 1
 WRK_REQUEST = benchmark/500k-large-groups/sample/wrk-search-price-request.lua# used in main runner
-WRK_FILENAME_APPROACH_PART = ${APP_API_PART}# first part of filename with results
+WRK_FILENAME_PART = ${APP_API_PART}# first part of filename with results
 WRK_FILENAME_WHERE_PART =# 'docker-' or empty by default
 WRK2_RATE = 2000
 WRK_BITMAP_FOLDER = 500k-large-groups/bitmap/wrk
@@ -166,13 +166,22 @@ endif
 wrk-run:
 	./wrk -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -s ${WRK_REQUEST} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} -- \
-		  benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
-		  | tee benchmark/${WRK_FOLDER}/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
+		  benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.json \
+		  | tee benchmark/${WRK_FOLDER}/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}.txt
 wrk-map-t1-c1: WRK_THREADS = 1
 wrk-map-t1-c1: WRK_CONNECTIONS = 1
 wrk-map-t1-c1: APP_API_PART = map
 wrk-map-t1-c1: WRK_FOLDER = ${WRK_MAP_FOLDER}
 wrk-map-t1-c1:
+	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
+wrk-map-t1-c1-multiple: WRK_THREADS=1
+wrk-map-t1-c1-multiple: WRK_CONNECTIONS=1
+wrk-map-t1-c1-multiple: WRK_REQUEST=benchmark/500k-large-groups/sample/search-price-map-multiple-request-100.lua
+wrk-map-t1-c1-multiple: APP_API_PART=map
+wrk-map-t1-c1-multiple: WRK_FILENAME_PART=${APP_API_PART}-multiple
+wrk-map-t1-c1-multiple: WRK_FOLDER = ${WRK_MAP_FOLDER}
+wrk-map-t1-c1-multiple:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk-map-t2-c20: WRK_THREADS = 2
@@ -197,6 +206,15 @@ wrk-bitmap-t1-c1: WRK_CONNECTIONS=1
 wrk-bitmap-t1-c1: APP_API_PART=bitmap
 wrk-bitmap-t1-c1: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
 wrk-bitmap-t1-c1:
+	$(MAKE) -e wrk-run
+	$(MAKE) trigger-gc
+wrk-bitmap-t1-c1-multiple: WRK_THREADS=1
+wrk-bitmap-t1-c1-multiple: WRK_CONNECTIONS=1
+wrk-bitmap-t1-c1-multiple: WRK_REQUEST=benchmark/500k-large-groups/sample/search-price-bitmap-multiple-request-100.lua
+wrk-bitmap-t1-c1-multiple: APP_API_PART=bitmap
+wrk-bitmap-t1-c1-multiple: WRK_FILENAME_PART=${APP_API_PART}-multiple
+wrk-bitmap-t1-c1-multiple: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
+wrk-bitmap-t1-c1-multiple:
 	$(MAKE) -e wrk-run
 	$(MAKE) trigger-gc
 wrk-bitmap-t2-c20: WRK_THREADS=2
@@ -230,8 +248,8 @@ endif
 wrk2-run:
 	./wrk2 -t${WRK_THREADS} -c${WRK_CONNECTIONS} -d${WRK_DURATION} --latency -R${WRK2_RATE} \
 		${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/${APP_API} \
-    	-s ${WRK_REQUEST} -- benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
-    	| tee benchmark/${WRK_FOLDER}/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_APPROACH_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
+    	-s ${WRK_REQUEST} -- benchmark/${WRK_FOLDER}/json/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.json \
+    	| tee benchmark/${WRK_FOLDER}/${WRK_FILENAME_WHERE_PART}${WRK_FILENAME_PART}-t${WRK_THREADS}-c${WRK_CONNECTIONS}-R${WRK2_RATE}.txt
 wrk2-map-t1-c1: WRK_THREADS = 1
 wrk2-map-t1-c1: WRK_CONNECTIONS = 1
 wrk2-map-t1-c1: APP_API_PART = map

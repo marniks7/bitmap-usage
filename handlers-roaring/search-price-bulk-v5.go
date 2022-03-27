@@ -5,7 +5,10 @@ import (
 	"encoding/json"
 	"github.com/rs/zerolog/log"
 	"net/http"
+	"sync"
 )
+
+const CalculateConcurrentLevel = 2
 
 func (as *BitmapAggregateService) FindPriceBulkByXV5(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
@@ -46,6 +49,19 @@ func (as *BitmapAggregateService) FindPriceBulkByXV5(rw http.ResponseWriter, r *
 
 func (as *BitmapAggregateService) CalculateWorker(RequestChan chan model.FindPriceRequestBulk,
 	OutChan chan model.FindPriceResponseBulk, ErrChar chan error) {
+	wg := sync.WaitGroup{}
+	for i := 0; i < CalculateConcurrentLevel; i++ {
+		wg.Add(1)
+		go Calculate(&wg, RequestChan, OutChan, ErrChar, as)
+	}
+	wg.Wait()
+	close(OutChan)
+	close(ErrChar)
+}
+
+func Calculate(wg *sync.WaitGroup, RequestChan chan model.FindPriceRequestBulk, OutChan chan model.FindPriceResponseBulk,
+	ErrChar chan error, as *BitmapAggregateService) {
+	defer wg.Done()
 	for fpr := range RequestChan {
 		findPriceRequest := fpr
 		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
@@ -70,8 +86,6 @@ func (as *BitmapAggregateService) CalculateWorker(RequestChan chan model.FindPri
 		}
 
 	}
-	close(OutChan)
-	close(ErrChar)
 }
 
 func (as *BitmapAggregateService) DeserializeWorker(rw http.ResponseWriter, jsonEncoder *json.Encoder, result chan model.FindPriceResponseBulk, out chan bool) {

@@ -1,6 +1,7 @@
 package sample
 
 import (
+	"strconv"
 	"testing"
 )
 
@@ -16,4 +17,22 @@ func TestGenerateWrk(t *testing.T) {
 	GenerateWrkRequest(5)
 	GenerateWrkRequest(1000)
 	GenerateWrkRequest(10000)
+}
+
+func TestGenerateMultipleWRKBitmap(t *testing.T) {
+	size := 100
+	apiPart := "bitmap"
+	filename := "search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
+	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
+}
+
+func TestGenerateMultipleWRKMap(t *testing.T) {
+	size := 100
+	apiPart := "map"
+	filename := "search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
+	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
+}
+
+func TestKl(t *testing.T) {
+	FindPseudoRandomPriceConditions(2)
 }

@@ -1,0 +1,412 @@
+SpecBitmaps ==========================================================
+========== 0 ==========
+{Cardinality:487200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:28448 RunContainers:7 RunContainerBytes:196 RunContainerValues:458752}
+SizeInBytes: 8422
+SerializedSizeInBytes: 8315
+GroupBitmaps ==========================================================
+========== 0 ==========
+{Cardinality:487200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:28448 RunContainers:7 RunContainerBytes:196 RunContainerValues:458752}
+SizeInBytes: 8422
+SerializedSizeInBytes: 8315
+OfferingBitmaps ==========================================================
+========== 0 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 1 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 2 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 3 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 4 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 5 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 6 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:1 ArrayContainerBytes:5344 ArrayContainerValues:2672 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:7072 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 13558
+SerializedSizeInBytes: 13572
+========== 7 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 8 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 9 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 10 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 11 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 12 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 13 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:2 BitmapContainerBytes:16384 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 16406
+SerializedSizeInBytes: 16420
+========== 14 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 15 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 16 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 17 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 18 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 19 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 20 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:1 ArrayContainerBytes:3456 ArrayContainerValues:1728 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:8016 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 11670
+SerializedSizeInBytes: 11684
+========== 21 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 22 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 23 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 24 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 25 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 26 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:1 ArrayContainerBytes:1888 ArrayContainerValues:944 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:8800 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 10102
+SerializedSizeInBytes: 10116
+========== 27 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 28 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 29 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 30 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 31 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 32 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 33 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:1 ArrayContainerBytes:7232 ArrayContainerValues:3616 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:6128 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 15446
+SerializedSizeInBytes: 15460
+========== 34 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 35 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 36 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 37 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 38 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 39 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 40 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:1 ArrayContainerBytes:6912 ArrayContainerValues:3456 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:6288 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 15126
+SerializedSizeInBytes: 15140
+========== 41 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 42 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 43 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 44 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 45 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 46 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 47 ==========
+{Cardinality:9744 Containers:2 ArrayContainers:1 ArrayContainerBytes:1568 ArrayContainerValues:784 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:8960 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 9782
+SerializedSizeInBytes: 9796
+========== 48 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+========== 49 ==========
+{Cardinality:9744 Containers:1 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:1 BitmapContainerBytes:8192 BitmapContainerValues:9744 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8212
+SerializedSizeInBytes: 8220
+CharValuesBitmaps ==========================================================
+========== 0 ==========
+{Cardinality:81200 Containers:8 ArrayContainers:1 ArrayContainerBytes:8176 ArrayContainerValues:4088 BitmapContainers:7 BitmapContainerBytes:57344 BitmapContainerValues:77112 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65554
+SerializedSizeInBytes: 65604
+========== 1 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:1 ArrayContainerBytes:7888 ArrayContainerValues:3944 BitmapContainers:7 BitmapContainerBytes:57344 BitmapContainerValues:65656 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65266
+SerializedSizeInBytes: 65316
+========== 2 ==========
+{Cardinality:121800 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:121800 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 3 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 4 ==========
+{Cardinality:243600 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:243600 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 5 ==========
+{Cardinality:243600 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:243600 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 6 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 7 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 8 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 9 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 10 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 11 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 12 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 13 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 14 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 15 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 16 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 17 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 18 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 19 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 20 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 21 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 22 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 23 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 24 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 25 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 26 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 27 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 28 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 29 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 30 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 31 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 32 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 33 ==========
+{Cardinality:16800 Containers:8 ArrayContainers:8 ArrayContainerBytes:33600 ArrayContainerValues:16800 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 33634
+SerializedSizeInBytes: 33684
+========== 34 ==========
+{Cardinality:121800 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:121800 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 35 ==========
+{Cardinality:121800 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:121800 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 36 ==========
+{Cardinality:121800 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:121800 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 37 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:1 ArrayContainerBytes:7888 ArrayContainerValues:3944 BitmapContainers:7 BitmapContainerBytes:57344 BitmapContainerValues:65656 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65266
+SerializedSizeInBytes: 65316
+========== 38 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:1 ArrayContainerBytes:7888 ArrayContainerValues:3944 BitmapContainers:7 BitmapContainerBytes:57344 BitmapContainerValues:65656 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65266
+SerializedSizeInBytes: 65316
+========== 39 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:1 ArrayContainerBytes:8176 ArrayContainerValues:4088 BitmapContainers:7 BitmapContainerBytes:57344 BitmapContainerValues:65512 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65554
+SerializedSizeInBytes: 65604
+========== 40 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:69600 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 41 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:69600 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 42 ==========
+{Cardinality:69600 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:69600 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 43 ==========
+{Cardinality:81200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:81200 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 44 ==========
+{Cardinality:81200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:81200 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 45 ==========
+{Cardinality:81200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:81200 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 46 ==========
+{Cardinality:81200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:81200 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+========== 47 ==========
+{Cardinality:81200 Containers:8 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:8 BitmapContainerBytes:65536 BitmapContainerValues:81200 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 65570
+SerializedSizeInBytes: 65620
+DefaultBitmaps ==========================================================
+========== 0 ==========
+{Cardinality:0 Containers:0 ArrayContainers:0 ArrayContainerBytes:0 ArrayContainerValues:0 BitmapContainers:0 BitmapContainerBytes:0 BitmapContainerValues:0 RunContainers:0 RunContainerBytes:0 RunContainerValues:0}
+SizeInBytes: 8
+SerializedSizeInBytes: 8
+============================== Total ==============================================
+Size: 2.7 MB
+Serialized Size: 2.7 MB
