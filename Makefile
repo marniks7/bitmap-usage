@@ -21,7 +21,12 @@ IN_DOCKER =
 # App performance configuration
 # -----------------------------------------------------------------------------
 GOGC = 1000
-GOMAXPROCS = 2# used for Go runtime and for Docker as well
+GOMAXPROCS = 2# used for go${GOVERSION} runtime and for Docker as well
+GOVERSION =
+# -----------------------------------------------------------------------------
+# Bench Test Options
+# -----------------------------------------------------------------------------
+COUNT = 1
 # -----------------------------------------------------------------------------
 # API urls
 # -----------------------------------------------------------------------------
@@ -65,14 +70,13 @@ export#this export is used to pass all variables to sub-make (along with '-e' co
 MAKE = make --no-print-directory
 .PHONY: clean trigger-gc
 .DEFAULT_GOAL := build
-# Set source dir and scan source dir for all go files
 install-dependencies:
-	go install github.com/ugorji/go/codec/codecgen
+	go${GOVERSION} install github.com/ugorji/go/codec/codecgen
 build: install-dependencies
-	go generate ./...
-	go build .
+	go${GOVERSION} generate ./...
+	go${GOVERSION} build .
 update-dependencies:
-	go get -u ./...
+	go${GOVERSION} get -u ./...
 run:
 	GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} FIBER=${FIBER} SROAR=${SROAR} ROARING64=${ROARING64} MAP64=${MAP64} ${APP_CMD} ADDR=:${APP_PORT} ./bitmap-usage
 run-64: ROARING64=true
@@ -94,9 +98,9 @@ run-no-gc: GOGC=off
 run-no-gc:
 	$(MAKE) -e run
 test:
-	go test $$(go list ./... | grep -v /benchmark/) -covermode=atomic -coverprofile=coverprofile.out -short
+	go${GOVERSION} test $$(go${GOVERSION} list ./... | grep -v /benchmark/) -covermode=atomic -coverprofile=coverprofile.out -short
 test-cover:
-	go tool cover -html=coverprofile.out
+	go${GOVERSION} tool cover -html=coverprofile.out
 # -----------------------------------------------------------------------------
 # Docker
 # -----------------------------------------------------------------------------
@@ -113,50 +117,50 @@ docker-run-profile-gc: APP_DOCKER_CMD=--env GODEBUG=gctrace=1
 docker-run-profile-gc:
 	$(MAKE) -e docker-run
 # -----------------------------------------------------------------------------
-# Go Benchmarks
+# go${GOVERSION} Benchmarks
 # -----------------------------------------------------------------------------
-bench: bench-map bench-bitmap bench-map-64 bench-bitmap-64 bench-sroar bench-kelindar bench-kelindar-column bench-bits-and-blooms bench-memory
+bench: bench-map bench-bitmap bench-map-64 bench-bitmap-64 bench-sroar bench-kelindar bench-kelindar-column bench-bits-and-blooms
 bench-map:
-	go test ./benchmark/500k-large-groups/map/... -bench=. -run ^$$ -cpu 1 -benchmem \
+	go${GOVERSION} test ./benchmark/500k-large-groups/map/... -bench=. -run ^$$ -cpu 1 -benchmem -count=$${COUNT} \
 		| tee benchmark/500k-large-groups/map/benchmark-results.txt
 bench-bitmap:
-	go test ./benchmark/500k-large-groups/bitmap/... -bench=. -run ^$$ -cpu 1 -benchmem \
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... -bench=. -run ^$$ -cpu 1 -benchmem -count=$${COUNT} \
         | tee benchmark/500k-large-groups/bitmap/benchmark-results.txt
 bench-map-64:
-	go test ./benchmark/500k-large-groups/map64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go${GOVERSION} test ./benchmark/500k-large-groups/map64/... -bench . -run ^$$ -cpu 1 -benchmem -count=$${COUNT} -failfast \
 		| tee benchmark/500k-large-groups/map64/benchmark-results.txt
 bench-bitmap-64:
-	go test ./benchmark/500k-large-groups/bitmap64/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap64/... -bench . -run ^$$ -cpu 1 -benchmem -count=$${COUNT} -failfast \
 		| tee benchmark/500k-large-groups/bitmap64/benchmark-results.txt
 bench-sroar:
-	go test ./benchmark/500k-large-groups/bitmap-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap-sroar/... -bench . -run ^$$ -cpu 1 -benchmem -count=$${COUNT} -failfast \
  		| tee benchmark/500k-large-groups/bitmap-sroar/benchmark-results.txt
 bench-kelindar:
-	go test ./benchmark/500k-large-groups/kelindar/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go${GOVERSION} test ./benchmark/500k-large-groups/kelindar/... -bench . -run ^$$ -cpu 1 -benchmem -count=$${COUNT} -failfast \
  		| tee benchmark/500k-large-groups/kelindar/benchmark-results.txt
 bench-kelindar-column:
-	go test ./benchmark/500k-large-groups/kelindar-column/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go${GOVERSION} test ./benchmark/500k-large-groups/kelindar-column/... -bench . -run ^$$ -cpu 1 -benchmem -count=$${COUNT} -failfast \
  		| tee benchmark/500k-large-groups/kelindar-column/benchmark-results.txt
 bench-bits-and-blooms:
-	go test ./benchmark/500k-large-groups/bits-and-blooms/... -bench . -run ^$$ -cpu 1 -benchmem -failfast \
+	go${GOVERSION} test ./benchmark/500k-large-groups/bits-and-blooms/... -bench . -run ^$$ -cpu 1 -benchmem -count=$${COUNT} -failfast \
  		| tee benchmark/500k-large-groups/bits-and-blooms/benchmark-results.txt
 bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-memory-bitmap-64 bench-memory-sroar \
 	bench-memory-kelindar bench-memory-bits-and-blooms
 # TODO works bad when there are >1 test, it includes allocated space from all tests
 bench-memory-bitmap:
-	go test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-map:
-	go test ./benchmark/500k-large-groups/map/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/map/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-map-64:
-	go test ./benchmark/500k-large-groups/map64/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/map64/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-bitmap-64:
-	go test ./benchmark/500k-large-groups/bitmap64/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap64/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-sroar:
-	go test ./benchmark/500k-large-groups/bitmap-sroar/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap-sroar/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-kelindar:
-	go test ./benchmark/500k-large-groups/kelindar/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/kelindar/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-bits-and-blooms:
-	go test ./benchmark/500k-large-groups/bits-and-blooms/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bits-and-blooms/... . -run ^*Memory* -failfast -test.memprofilerate=1
 # -----------------------------------------------------------------------------
 # WRK tool for performance measurement https://github.com/wg/wrk (the only one for microsecond results)
 # -----------------------------------------------------------------------------
@@ -373,10 +377,10 @@ clean:
 # Performance Analyze
 # -----------------------------------------------------------------------------
 pprof-allocs: # Memory allocations profiler. Run test, wait till the end, run this command
-	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/allocs
+	go${GOVERSION} tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/allocs
 pprof-profile: # CPU profiler. Run it and run test
-	go tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
+	go${GOVERSION} tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
 bench-diff:
-	go run benchmark/analyze/main.go
+	go${GOVERSION} run benchmark/analyze/main.go
 	benchcmp benchmark/500k-large-groups/map/benchmark-results.txt benchmark/500k-large-groups/bitmap/benchmark-results.txt \
 		| tee benchmark/500k-large-groups/diff/benchmark-results.txt

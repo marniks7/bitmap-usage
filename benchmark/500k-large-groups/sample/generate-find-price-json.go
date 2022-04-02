@@ -3,33 +3,59 @@ package sample
 import (
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
-	"bytes"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"math/rand"
 	"os"
 	"strconv"
 )
 
 func GenerateJsonRequest(size int) {
-	file, filename := GenerateJsonAndReturn(size)
-
-	_ = ioutil.WriteFile(filename+".json", file, 0644)
-}
-
-func GenerateWrkRequest(size int) {
-	file, err := os.ReadFile("wrk-json-report-sample.lua")
+	var filename string
+	if size == 1 {
+		filename = "search-price-request.json"
+	} else {
+		filename = "search-price-bulk-request-" + strconv.Itoa(size) + ".json"
+	}
+	file, err := os.Create(filename)
 	if err != nil {
 		panic(err)
 	}
-	buffer := bytes.NewBuffer(file)
-	buffer.Write([]byte("\nwrk.method = \"POST\"\n"))
-	buffer.Write([]byte("wrk.headers[\"Content-Type\"] = \"application/json\"\n"))
-	file, filename := GenerateJsonAndReturn(size)
 
-	buffer.Write([]byte("wrk.body   = "))
-	buffer.WriteString(strconv.Quote(string(file)))
-	_ = ioutil.WriteFile("wrk-"+filename+".lua", buffer.Bytes(), 0644)
+	err = GenerateRequest(size, file, false)
+
+	if err != nil {
+		panic(err)
+	}
+}
+
+func GenerateWrkRequest(size int) {
+	sampleFile, err := os.ReadFile("wrk-json-report-sample.lua")
+	if err != nil {
+		panic(err)
+	}
+
+	var filename string
+	if size == 1 {
+		filename = "wrk-search-price-request.lua"
+	} else {
+		filename = "wrk-search-price-bulk-request-" + strconv.Itoa(size) + ".lua"
+	}
+	file, err := os.Create(filename)
+	if err != nil {
+		panic(err)
+	}
+
+	file.Write(sampleFile)
+	file.Write([]byte("\nwrk.method = \"POST\"\n"))
+	file.Write([]byte("wrk.headers[\"Content-Type\"] = \"application/json\"\n"))
+	file.Write([]byte("wrk.body   = \""))
+	err = GenerateRequest(size, file, true)
+	file.Write([]byte("\""))
+	if err != nil {
+		panic(err)
+	}
+
 }
 
 func GenerateWrkRequestMultiple(size int, api string, filename string) {
@@ -43,9 +69,7 @@ func GenerateWrkRequestMultiple(size int, api string, filename string) {
 	}
 	file.Write(sampleJson)
 	file.Write([]byte("\n"))
-	//file.Write([]byte("\nwrk.method = \"POST\"\n"))
-	//file.Write([]byte("wrk.headers[\"Content-Type\"] = \"application/json\"\n"))
-	priceConditions := FindPseudoRandomPriceConditions(size)
+	priceConditions := FindPseudoRandomPriceConditions(size, 3389)
 	for i := 0; i < size; i++ {
 		pc := priceConditions[i]
 		cv := make([]model.CharValue, len(pc.Chars), len(pc.Chars))
@@ -79,51 +103,79 @@ func GenerateWrkRequestMultiple(size int, api string, filename string) {
 	file.Write([]byte("end\n"))
 
 }
-func GenerateJsonAndReturn(size int) ([]byte, string) {
+func GenerateRequest(size int, w io.Writer, quote bool) error {
 	if size > 65535 {
 		panic("bulk for >65535 items are not allowed for performance reasons")
 	}
 
-	frb := make([]model.FindPriceRequestBulk, 0, size)
+	priceConditions := FindPseudoRandomPriceConditions(size, 6892)
+	if size == 1 {
+		pc := priceConditions[0]
+		cv := make([]model.CharValue, len(pc.Chars), len(pc.Chars))
+		for j := 0; j < len(pc.Chars); j++ {
+			cv[j] = model.CharValue{Char: pc.Chars[j], Value: pc.Values[j]}
+		}
+		write, err := json.Marshal(model.FindPriceRequest{GroupId: pc.GroupId,
+			OfferingId: pc.OfferingID, PriceSpecId: pc.Spec,
+			CharValues: cv})
+		if err != nil {
+			return err
+		}
+		if quote {
+			s := strconv.Quote(string(write))
+			bts := []byte(s)
+			w.Write(bts[1 : len(s)-1])
+		} else {
+			w.Write(write)
+		}
+
+		return nil
+	}
+	fprb := make([]model.FindPriceRequestBulk, size, size)
+	if size > 1 {
+		w.Write([]byte("["))
+	}
 	for i := 0; i < size; i++ {
-		frb = append(frb, model.FindPriceRequestBulk{Id: uint16(i), OfferingId: "00d3a020-08c4-4c94-be0a-e29794756f9e",
-			PriceSpecId: "NRC", GroupId: "group2",
-			CharValues: []model.CharValue{{"Term", "24"},
-				{"B2B Traffic", "5GB"},
-				{"B2B Bandwidth", "900Mbps"},
-				{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-				{"Router", "Not Included"}}})
-	}
+		pc := priceConditions[i]
+		cv := make([]model.CharValue, len(pc.Chars), len(pc.Chars))
+		for j := 0; j < len(pc.Chars); j++ {
+			cv[j] = model.CharValue{Char: pc.Chars[j], Value: pc.Values[j]}
+		}
+		bulk := model.FindPriceRequestBulk{Id: uint16(i), OfferingId: pc.OfferingID,
+			PriceSpecId: pc.Spec, GroupId: pc.GroupId,
+			CharValues: cv}
+		fprb[i] = bulk
+		write, err := json.Marshal(bulk)
+		if err != nil {
+			return err
+		}
+		if quote {
+			s := strconv.Quote(string(write))
+			bts := []byte(s)
+			w.Write(bts[1 : len(s)-1])
+		} else {
+			w.Write(write)
+		}
+		if i < size-1 {
+			w.Write([]byte(","))
+		}
 
-	var file []byte
-	var err error
-	var filename string
-	if len(frb) == 1 {
-		bulk := frb[0]
-		file, err = json.Marshal(model.FindPriceRequest{GroupId: bulk.GroupId,
-			OfferingId: bulk.OfferingId, PriceSpecId: bulk.PriceSpecId,
-			CharValues: bulk.CharValues})
-		filename = "search-price-request"
-	} else {
-		file, err = json.Marshal(frb)
-		filename = "search-price-bulk-request-" + strconv.Itoa(size)
 	}
-
-	if err != nil {
-		panic(err)
+	if size > 1 {
+		w.Write([]byte("]"))
 	}
-	return file, filename
+	return nil
 }
 
-func FindPseudoRandomPriceConditions(size int) []model.PriceCondition {
+func FindPseudoRandomPriceConditions(size int, seed int64) []model.PriceCondition {
 	cs := cache.NewCatalogService(cache.NewCatalog())
 	sampleService := Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	if err != nil {
 		panic(err)
 	}
-	r := rand.New(rand.NewSource(3389))
-	total := len(cs.Catalog.PriceConditions)
+	r := rand.New(rand.NewSource(seed))
+	total := len(cs.Catalog.PriceConditions) - 1
 
 	pcs := make([]model.PriceCondition, size, size)
 	for i := 0; i < size; i++ {

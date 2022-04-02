@@ -32,7 +32,3 @@ func TestGenerateMultipleWRKMap(t *testing.T) {
 	filename := "search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
 	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
 }
-
-func TestKl(t *testing.T) {
-	FindPseudoRandomPriceConditions(2)
-}

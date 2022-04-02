@@ -36,4 +36,4 @@ function done(summary, latency, requests)
 end
 wrk.method = "POST"
 wrk.headers["Content-Type"] = "application/json"
-wrk.body   = "{\"offeringId\":\"00d3a020-08c4-4c94-be0a-e29794756f9e\",\"groupId\":\"group2\",\"priceSpecId\":\"NRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"24\"},{\"char\":\"B2B Traffic\",\"value\":\"5GB\"},{\"char\":\"B2B Bandwidth\",\"value\":\"900Mbps\"},{\"char\":\"VPN\",\"value\":\"5739614e-6c52-402c-ba3a-534c51b3201a\"},{\"char\":\"Router\",\"value\":\"Not Included\"}]}"
+wrk.body   = "{\"offeringId\":\"a38e432c-3965-4c74-8251-aa640002d2b2\",\"groupId\":\"group5\",\"priceSpecId\":\"MRC\",\"charValues\":[{\"char\":\"Term\",\"value\":\"18\"},{\"char\":\"B2B Traffic\",\"value\":\"10GB\"},{\"char\":\"VPN\",\"value\":\"ad796998-f1c7-4fcc-9a6b-1b33042fb375\"},{\"char\":\"B2B Bandwidth\",\"value\":\"1Mbps\"},{\"char\":\"Router\",\"value\":\"Included\"}]}"

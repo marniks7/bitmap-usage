@@ -18,7 +18,7 @@ require (
 	github.com/kelindar/column v0.0.0-20211204085055-045c6b9764c7
 	github.com/rs/zerolog v1.26.0
 	github.com/stretchr/testify v1.7.0
-	github.com/ugorji/go/codec v1.2.6
+	github.com/ugorji/go/codec v1.2.7
 	github.com/valyala/fasthttp v1.31.0
 	github.com/wcharczuk/go-chart/v2 v2.1.0
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
@@ -49,17 +49,16 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	github.com/ugorji/go/codec/codecgen v1.2.6 // indirect
+	github.com/ugorji/go/codec/codecgen v1.2.7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	github.com/zeebo/xxh3 v1.0.1 // indirect
-	golang.org/dl v0.0.0-20220315170520-faa7218da89a // indirect
 	golang.org/x/crypto v0.0.0-20210920023735-84f357641f63 // indirect
 	golang.org/x/image v0.0.0-20210628002857-a66eb6448b8d // indirect
-	golang.org/x/mod v0.5.1 // indirect
+	golang.org/x/mod v0.4.2 // indirect
 	golang.org/x/net v0.0.0-20211015210444-4f30a5c0130f // indirect
 	golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a // indirect
-	golang.org/x/tools v0.1.9 // indirect
+	golang.org/x/tools v0.1.7 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
