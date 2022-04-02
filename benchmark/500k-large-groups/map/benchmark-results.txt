@@ -2,13 +2,21 @@ goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/500k-large-groups/map
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-BenchmarkHttpClientServer_FindPrice            	    5305	    212353 ns/op	    8283 B/op	     112 allocs/op
-BenchmarkFindPrice_11position                  	   10000	    112867 ns/op	      64 B/op	       1 allocs/op
-BenchmarkFindPrice_3824position                	    9316	    114083 ns/op	      64 B/op	       1 allocs/op
-BenchmarkFindPrice_3824position_Optimized      	   26284	     45786 ns/op	      64 B/op	       1 allocs/op
-BenchmarkFindPrice_9701position                	    9334	    113371 ns/op	      64 B/op	       1 allocs/op
-BenchmarkFindPrice_9701position_Optimized      	   10000	    112196 ns/op	      64 B/op	       1 allocs/op
-BenchmarkFindPrice_MultiplePricesErr           	   10000	    117332 ns/op	       0 B/op	       0 allocs/op
-BenchmarkFindPrice_MultiplePricesErr_Optimized 	   10000	    117282 ns/op	       0 B/op	       0 allocs/op
+BenchmarkHttpClientServer_FindPrice            	    5840	    198453 ns/op	    8331 B/op	     115 allocs/op
+BenchmarkHttpClientServer_FindPrice            	    5253	    194204 ns/op	    8331 B/op	     115 allocs/op
+BenchmarkFindPrice_11position                  	   12529	     94620 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_11position                  	   12540	     95295 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_3824position                	   12435	     96499 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_3824position                	   12504	     95575 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_3824position_Optimized      	   30822	     38655 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_3824position_Optimized      	   31012	     38911 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_9701position                	   12115	     96346 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_9701position                	   12663	     94946 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_9701position_Optimized      	   12403	     96977 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_9701position_Optimized      	   12313	     96864 ns/op	      64 B/op	       1 allocs/op
+BenchmarkFindPrice_MultiplePricesErr           	   12151	     98291 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFindPrice_MultiplePricesErr           	   12348	     97251 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFindPrice_MultiplePricesErr_Optimized 	   12276	     99021 ns/op	       0 B/op	       0 allocs/op
+BenchmarkFindPrice_MultiplePricesErr_Optimized 	   12381	     96438 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/500k-large-groups/map	47.037s
+ok  	bitmap-usage/benchmark/500k-large-groups/map	121.342s

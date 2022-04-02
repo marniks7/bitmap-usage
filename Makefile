@@ -27,6 +27,7 @@ GOVERSION =
 # Bench Test Options
 # -----------------------------------------------------------------------------
 COUNT = 1
+BENCH_PIPE = | tail -n +5
 # -----------------------------------------------------------------------------
 # API urls
 # -----------------------------------------------------------------------------
@@ -72,6 +73,7 @@ MAKE = make --no-print-directory
 .DEFAULT_GOAL := build
 install-dependencies:
 	go${GOVERSION} install github.com/ugorji/go/codec/codecgen
+	go${GOVERSION} install golang.org/x/perf/cmd/benchstat@latest
 build: install-dependencies
 	go${GOVERSION} generate ./...
 	go${GOVERSION} build .
@@ -382,5 +384,6 @@ pprof-profile: # CPU profiler. Run it and run test
 	go${GOVERSION} tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
 bench-diff:
 	go${GOVERSION} run benchmark/analyze/main.go
-	benchcmp benchmark/500k-large-groups/map/benchmark-results.txt benchmark/500k-large-groups/bitmap/benchmark-results.txt \
+	# '-split' should NOT contain 'pkg' cause looks like it is unable to process '/'
+	benchstat -split 'goos' -alpha 1 benchmark/500k-large-groups/map/benchmark-results.txt benchmark/500k-large-groups/bitmap/benchmark-results.txt \
 		| tee benchmark/500k-large-groups/diff/benchmark-results.txt

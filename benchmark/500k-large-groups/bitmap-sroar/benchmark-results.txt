@@ -2,11 +2,17 @@ goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/500k-large-groups/bitmap-sroar
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-BenchmarkHttpClientServer_Bitmap_FindPrice    	    8163	    131908 ns/op	  217418 B/op	     125 allocs/op
-BenchmarkBitmap_FindPrice_11position          	   15369	     81621 ns/op	  209200 B/op	      14 allocs/op
-BenchmarkBitmap_FindPrice_3824Position        	   13140	     88554 ns/op	  209200 B/op	      14 allocs/op
-BenchmarkBitmap_FindPrice_9701position        	   14760	     84495 ns/op	  209312 B/op	      21 allocs/op
-BenchmarkBitmap_FindPriceIndexId_3824Position 	   17677	     68741 ns/op	  209200 B/op	      14 allocs/op
-BenchmarkBitmap_FindPrice_MultiplePricesErr   	   19756	     62711 ns/op	  199744 B/op	      14 allocs/op
+BenchmarkHttpClientServer_Bitmap_FindPrice    	    8798	    131350 ns/op	  217466 B/op	     128 allocs/op
+BenchmarkHttpClientServer_Bitmap_FindPrice    	    9692	    138518 ns/op	  217466 B/op	     128 allocs/op
+BenchmarkBitmap_FindPrice_11position          	   12588	     81947 ns/op	  209200 B/op	      14 allocs/op
+BenchmarkBitmap_FindPrice_11position          	   17388	     74652 ns/op	  209200 B/op	      14 allocs/op
+BenchmarkBitmap_FindPrice_3824Position        	   16911	     78533 ns/op	  209200 B/op	      14 allocs/op
+BenchmarkBitmap_FindPrice_3824Position        	   14904	     80395 ns/op	  209200 B/op	      14 allocs/op
+BenchmarkBitmap_FindPrice_9701position        	   16086	     75981 ns/op	  209312 B/op	      21 allocs/op
+BenchmarkBitmap_FindPrice_9701position        	   15486	     78586 ns/op	  209312 B/op	      21 allocs/op
+BenchmarkBitmap_FindPriceIndexId_3824Position 	   16639	     66054 ns/op	  209200 B/op	      14 allocs/op
+BenchmarkBitmap_FindPriceIndexId_3824Position 	   18111	     64924 ns/op	  209200 B/op	      14 allocs/op
+BenchmarkBitmap_FindPrice_MultiplePricesErr   	   20911	     57776 ns/op	  199744 B/op	      14 allocs/op
+BenchmarkBitmap_FindPrice_MultiplePricesErr   	   21129	     56634 ns/op	  199744 B/op	      14 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/500k-large-groups/bitmap-sroar	64.019s
+ok  	bitmap-usage/benchmark/500k-large-groups/bitmap-sroar	120.983s

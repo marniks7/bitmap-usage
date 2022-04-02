@@ -2,22 +2,39 @@ goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/500k-large-groups/bitmap
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-BenchmarkUnmarshalMarshal_FindPrice        	   59296	     18948 ns/op	    4752 B/op	      33 allocs/op
-BenchmarkHttpClientServer_FindPrice        	   11073	     91343 ns/op	   12131 B/op	     119 allocs/op
-BenchmarkFindPrice_11position              	  133238	      8878 ns/op	    3720 B/op	       7 allocs/op
-BenchmarkFindPrice_3824position            	  155659	      8133 ns/op	    3720 B/op	       7 allocs/op
-BenchmarkFindPrice_3824position_OptStr     	  623876	      2696 ns/op	    5232 B/op	      13 allocs/op
-BenchmarkFindPrice_3824position_OptStats   	  177694	      6644 ns/op	    5128 B/op	       7 allocs/op
-BenchmarkFindPrice_3824position_OptAll     	  266313	      4356 ns/op	    6008 B/op	      13 allocs/op
-BenchmarkFindPriceIndexId_3824position     	  137101	      7856 ns/op	    3720 B/op	       7 allocs/op
-BenchmarkFindPrice_9701position            	  121078	      9396 ns/op	    3720 B/op	       7 allocs/op
-BenchmarkFindPrice_MultiplePricesErr       	  186768	      7044 ns/op	    3304 B/op	       7 allocs/op
-BenchmarkFindPriceV2_11position            	  159658	      7713 ns/op	    3768 B/op	      12 allocs/op
-BenchmarkFindPriceV2_3824position          	  147249	      8578 ns/op	    3768 B/op	      12 allocs/op
-BenchmarkFindPriceV2_3824position_OptStr   	  501250	      3585 ns/op	    5280 B/op	      18 allocs/op
-BenchmarkFindPriceV2_3824position_OptStats 	  183552	      6418 ns/op	    5224 B/op	      17 allocs/op
-BenchmarkFindPriceV2_3824position_OptAll   	  301364	      4450 ns/op	    6096 B/op	      23 allocs/op
-BenchmarkFindPriceV2_9701position          	  145669	      8100 ns/op	    3768 B/op	      12 allocs/op
-BenchmarkFindPriceV2_MultiplePricesErr     	  176522	      6862 ns/op	    3336 B/op	      10 allocs/op
+BenchmarkUnmarshalMarshal_FindPrice        	   53870	     18777 ns/op	    4768 B/op	      34 allocs/op
+BenchmarkUnmarshalMarshal_FindPrice        	   65714	     17518 ns/op	    4768 B/op	      34 allocs/op
+BenchmarkHttpClientServer_FindPrice        	   18024	     64107 ns/op	   12177 B/op	     122 allocs/op
+BenchmarkHttpClientServer_FindPrice        	   19177	     63043 ns/op	   12177 B/op	     122 allocs/op
+BenchmarkFindPrice_11position              	  126621	      8793 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_11position              	  133651	      8528 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_3824position            	  158871	      7782 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_3824position            	  154488	      7601 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_3824position_OptStr     	  664020	      2462 ns/op	    5232 B/op	      13 allocs/op
+BenchmarkFindPrice_3824position_OptStr     	  667412	      2239 ns/op	    5232 B/op	      13 allocs/op
+BenchmarkFindPrice_3824position_OptStats   	  155124	      6779 ns/op	    5128 B/op	       7 allocs/op
+BenchmarkFindPrice_3824position_OptStats   	  159267	      6620 ns/op	    5128 B/op	       7 allocs/op
+BenchmarkFindPrice_3824position_OptAll     	  252842	      4345 ns/op	    6008 B/op	      13 allocs/op
+BenchmarkFindPrice_3824position_OptAll     	  259521	      4051 ns/op	    6008 B/op	      13 allocs/op
+BenchmarkFindPriceIndexId_3824position     	  143577	      7656 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPriceIndexId_3824position     	  142747	      7668 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_9701position            	  121773	      9423 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_9701position            	  121195	      9378 ns/op	    3720 B/op	       7 allocs/op
+BenchmarkFindPrice_MultiplePricesErr       	  182737	      5820 ns/op	    3304 B/op	       7 allocs/op
+BenchmarkFindPrice_MultiplePricesErr       	  177315	      5905 ns/op	    3304 B/op	       7 allocs/op
+BenchmarkFindPriceV2_11position            	  162232	      7666 ns/op	    3768 B/op	      12 allocs/op
+BenchmarkFindPriceV2_11position            	  162856	      7553 ns/op	    3768 B/op	      12 allocs/op
+BenchmarkFindPriceV2_3824position          	  149575	      8404 ns/op	    3768 B/op	      12 allocs/op
+BenchmarkFindPriceV2_3824position          	  151839	      8367 ns/op	    3768 B/op	      12 allocs/op
+BenchmarkFindPriceV2_3824position_OptStr   	  529876	      3404 ns/op	    5280 B/op	      18 allocs/op
+BenchmarkFindPriceV2_3824position_OptStr   	  526009	      2882 ns/op	    5280 B/op	      18 allocs/op
+BenchmarkFindPriceV2_3824position_OptStats 	  182354	      6280 ns/op	    5224 B/op	      17 allocs/op
+BenchmarkFindPriceV2_3824position_OptStats 	  189109	      6210 ns/op	    5224 B/op	      17 allocs/op
+BenchmarkFindPriceV2_3824position_OptAll   	  265239	      4373 ns/op	    6096 B/op	      23 allocs/op
+BenchmarkFindPriceV2_3824position_OptAll   	  296631	      4085 ns/op	    6096 B/op	      23 allocs/op
+BenchmarkFindPriceV2_9701position          	  136240	      8045 ns/op	    3768 B/op	      12 allocs/op
+BenchmarkFindPriceV2_9701position          	  148180	      8037 ns/op	    3768 B/op	      12 allocs/op
+BenchmarkFindPriceV2_MultiplePricesErr     	  189073	      6554 ns/op	    3336 B/op	      10 allocs/op
+BenchmarkFindPriceV2_MultiplePricesErr     	  193711	      6390 ns/op	    3336 B/op	      10 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/500k-large-groups/bitmap	153.416s
+ok  	bitmap-usage/benchmark/500k-large-groups/bitmap	285.634s

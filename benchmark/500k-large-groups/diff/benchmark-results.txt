@@ -1,20 +1,56 @@
-benchmark                                old ns/op     new ns/op     delta
-BenchmarkHttpClientServer_FindPrice      215916        65692         -69.58%
-BenchmarkFindPrice_11position            119114        8434          -92.92%
-BenchmarkFindPrice_3824position          119973        7544          -93.71%
-BenchmarkFindPrice_9701position          118613        9359          -92.11%
-BenchmarkFindPrice_MultiplePricesErr     123009        6084          -95.05%
+name                               time/op
+UnmarshalMarshal_FindPrice         18.1µs ± 3%
+HttpClientServer_FindPrice         63.6µs ± 1%
+FindPrice_11position               8.66µs ± 2%
+FindPrice_3824position             7.69µs ± 1%
+FindPrice_3824position_OptStr      2.35µs ± 5%
+FindPrice_3824position_OptStats    6.70µs ± 1%
+FindPrice_3824position_OptAll      4.20µs ± 4%
+FindPriceIndexId_3824position      7.66µs ± 0%
+FindPrice_9701position             9.40µs ± 0%
+FindPrice_MultiplePricesErr        5.86µs ± 1%
+FindPriceV2_11position             7.61µs ± 1%
+FindPriceV2_3824position           8.39µs ± 0%
+FindPriceV2_3824position_OptStr    3.14µs ± 8%
+FindPriceV2_3824position_OptStats  6.25µs ± 1%
+FindPriceV2_3824position_OptAll    4.23µs ± 3%
+FindPriceV2_9701position           8.04µs ± 0%
+FindPriceV2_MultiplePricesErr      6.47µs ± 1%
 
-benchmark                                old allocs     new allocs     delta
-BenchmarkHttpClientServer_FindPrice      112            119            +6.25%
-BenchmarkFindPrice_11position            2              7              +250.00%
-BenchmarkFindPrice_3824position          2              7              +250.00%
-BenchmarkFindPrice_9701position          2              7              +250.00%
-BenchmarkFindPrice_MultiplePricesErr     1              7              +600.00%
+name                               alloc/op
+UnmarshalMarshal_FindPrice         4.77kB ± 0%
+HttpClientServer_FindPrice         12.2kB ± 0%
+FindPrice_11position               3.72kB ± 0%
+FindPrice_3824position             3.72kB ± 0%
+FindPrice_3824position_OptStr      5.23kB ± 0%
+FindPrice_3824position_OptStats    5.13kB ± 0%
+FindPrice_3824position_OptAll      6.01kB ± 0%
+FindPriceIndexId_3824position      3.72kB ± 0%
+FindPrice_9701position             3.72kB ± 0%
+FindPrice_MultiplePricesErr        3.30kB ± 0%
+FindPriceV2_11position             3.77kB ± 0%
+FindPriceV2_3824position           3.77kB ± 0%
+FindPriceV2_3824position_OptStr    5.28kB ± 0%
+FindPriceV2_3824position_OptStats  5.22kB ± 0%
+FindPriceV2_3824position_OptAll    6.10kB ± 0%
+FindPriceV2_9701position           3.77kB ± 0%
+FindPriceV2_MultiplePricesErr      3.34kB ± 0%
 
-benchmark                                old bytes     new bytes     delta
-BenchmarkHttpClientServer_FindPrice      8283          12129         +46.43%
-BenchmarkFindPrice_11position            224           3720          +1560.71%
-BenchmarkFindPrice_3824position          224           3720          +1560.71%
-BenchmarkFindPrice_9701position          224           3720          +1560.71%
-BenchmarkFindPrice_MultiplePricesErr     96            3304          +3341.67%
+name                               allocs/op
+UnmarshalMarshal_FindPrice           34.0 ± 0%
+HttpClientServer_FindPrice            122 ± 0%
+FindPrice_11position                 7.00 ± 0%
+FindPrice_3824position               7.00 ± 0%
+FindPrice_3824position_OptStr        13.0 ± 0%
+FindPrice_3824position_OptStats      7.00 ± 0%
+FindPrice_3824position_OptAll        13.0 ± 0%
+FindPriceIndexId_3824position        7.00 ± 0%
+FindPrice_9701position               7.00 ± 0%
+FindPrice_MultiplePricesErr          7.00 ± 0%
+FindPriceV2_11position               12.0 ± 0%
+FindPriceV2_3824position             12.0 ± 0%
+FindPriceV2_3824position_OptStr      18.0 ± 0%
+FindPriceV2_3824position_OptStats    17.0 ± 0%
+FindPriceV2_3824position_OptAll      23.0 ± 0%
+FindPriceV2_9701position             12.0 ± 0%
+FindPriceV2_MultiplePricesErr        10.0 ± 0%
