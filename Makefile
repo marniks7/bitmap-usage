@@ -27,13 +27,12 @@ GOVERSION =
 # Bench Test Options
 # -----------------------------------------------------------------------------
 COUNT = 1
-BENCH_PIPE = | tail -n +5
 # -----------------------------------------------------------------------------
 # API urls
 # -----------------------------------------------------------------------------
 APP_API_PART =# could be 'bitmap' or 'map'. Used in URL
 APP_API = v1/search/${APP_API_PART}/prices
-APP_BULK_API = /v4/search/${APP_API_PART}/bulk/prices
+APP_BULK_API = v5/search/${APP_API_PART}/bulk/prices
 # -----------------------------------------------------------------------------
 # WRK Configuration (used for WRK2 as well)
 # -----------------------------------------------------------------------------
@@ -366,6 +365,8 @@ ab-bulk-map-1:
 	$(MAKE) -e ab-run
 	$(MAKE) trigger-gc
 ab:	ab-bitmap-1 ab-bitmap-20 ab-map-1 ab-map-20
+run-new-bench:
+	go test ./runner/... -covermode=atomic -short -test.v
 # -----------------------------------------------------------------------------
 # Utils
 # -----------------------------------------------------------------------------
