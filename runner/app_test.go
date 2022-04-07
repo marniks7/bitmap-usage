@@ -1,6 +1,7 @@
 package runner
 
 import (
+	"bitmap-usage/handlers"
 	"context"
 	"github.com/rs/zerolog/log"
 	"os"
@@ -12,56 +13,104 @@ import (
 	"time"
 )
 
-// TestWrkMapT1C1Multiple ensure that long request is not interrupted despite timeout
-func TestWrkMapT1C1Multiple(t *testing.T) {
-	duration := 10 * time.Second
-	wrkc := []Wrk{
-		{Connections: 2,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
-		{Connections: 5,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
-		{Connections: 10,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
-		{Connections: 15,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
-		{Connections: 20,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
-		{Connections: 25,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
-		{Connections: 30,
-			Threads: 2, Duration: duration,
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-			Path:   "/v1/search/bitmap/prices"},
+func TestWrkBitmapExperiment(t *testing.T) {
+	apps := []Application{
+		{GoMaxProc: 4, GoGC: 1000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 3, GoGC: 1000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 1, GoGC: 1000, HttpServer: handlers.FiberServer},
 	}
+	for _, app := range apps {
+		globalWrkConfig := Wrk{
+			Duration: 10 * time.Second,
+			Path:     "/v1/search/bitmap/prices",
+			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+		}
+		wrkc := wkrStatic(globalWrkConfig)
 
-	wg := sync.WaitGroup{}
-	for _, wrk := range wrkc {
-		execute(wrk, &wg)
+		wg := sync.WaitGroup{}
+		for _, wrk := range wrkc {
+			execute(app, *wrk, &wg)
+		}
 	}
 
 }
 
-func execute(wrk Wrk, wg *sync.WaitGroup) {
+func TestWrkMapExperiment(t *testing.T) {
+	app := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer}
+	globalWrkConfig := Wrk{
+		Duration: 3 * time.Second,
+		Path:     "/v1/search/map/prices",
+		Script:   "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+	}
+	wrkc := wkrStatic(globalWrkConfig)
+
+	wg := sync.WaitGroup{}
+	for _, wrk := range wrkc {
+		execute(app, *wrk, &wg)
+	}
+}
+
+func wkrStatic(globalWrk Wrk) []*Wrk {
+	wrkc := []*Wrk{
+		//{Connections: 2,
+		//	Threads: 2,
+		//},
+		//{Connections: 5,
+		//	Threads: 2,
+		//},
+		//{Connections: 10,
+		//	Threads: 2,
+		//},
+		//{Connections: 15,
+		//	Threads: 2,
+		//},
+		{Connections: 20,
+			Threads: 2,
+		},
+		//{Connections: 25,
+		//	Threads: 2,
+		//},
+		//{Connections: 30,
+		//	Threads: 2,
+		//},
+	}
+	for _, wrk := range wrkc {
+		if globalWrk.Connections != 0 {
+			wrk.Connections = 0
+		}
+		if globalWrk.Threads != 0 {
+			wrk.Threads = globalWrk.Threads
+		}
+		if globalWrk.Duration != 0 {
+			wrk.Duration = globalWrk.Duration
+		}
+
+		if globalWrk.Port != 0 {
+			wrk.Port = globalWrk.Port
+		}
+
+		if globalWrk.Script != "" {
+			wrk.Script = globalWrk.Script
+		}
+
+		if globalWrk.Path != "" {
+			wrk.Path = globalWrk.Path
+		}
+	}
+	return wrkc
+}
+
+func execute(app Application, wrk Wrk, wg *sync.WaitGroup) {
 	wg.Add(1)
 	killTime := wrk.Duration + 10*time.Second
 	timeoutCtx, cancelFunc := context.WithTimeout(context.Background(), killTime)
 	defer cancelFunc()
-	app := CreateAppCmdWithConsole()
+	cons := CreateAppCmdWithConsole()
 
-	cmd := app.Cmd
-	cmd.Env = append(cmd.Env, "FIBER=true", "GOGC=1000", "GOMAXPROCS=2")
+	appConsole := app.Convert()
+	cmd := cons.Cmd
+	cmd.Env = append(cmd.Env, appConsole.HttpServer, appConsole.GoGC, appConsole.GoMaxProc)
 	//kill the process to avoid hanging in case of problems
 	go func() {
 		<-time.After(killTime)
@@ -70,16 +119,16 @@ func execute(wrk Wrk, wg *sync.WaitGroup) {
 
 		cmd.Process.Kill()
 	}()
-	app.Start()
-	wrk.Port = app.Port
-	wrkBitmap := wrk.Convert()
+	cons.Start()
+	wrk.Port = cons.Port
+	wrkArgs := wrk.Convert()
 	go executeCommand(timeoutCtx, wg, "./wrk",
-		wrkBitmap.Threads,
-		wrkBitmap.Connections,
-		wrkBitmap.Duration,
+		wrkArgs.Threads,
+		wrkArgs.Connections,
+		wrkArgs.Duration,
 		"--latency",
-		"-s", wrkBitmap.Script,
-		wrkBitmap.Path)
+		"-s", wrkArgs.Script,
+		wrkArgs.Path)
 	wg.Wait()
 	err := cmd.Process.Signal(os.Interrupt)
 	if err != nil {
@@ -118,18 +167,47 @@ func executeCommand(ctx context.Context, wg *sync.WaitGroup, app string, args ..
 	}
 }
 
+type Run struct {
+	Application *Application
+	Wrk         *Wrk
+}
+
+type Application struct {
+	HttpServer handlers.HttpServerType
+	GoGC       int
+	GoMaxProc  int
+}
+
 type Wrk struct {
 	Connections int
 	Threads     int
 	Duration    time.Duration
 	Script      string
+	Multiple    bool
 	Path        string
 	Port        int
-	Multiple    bool
 }
 
-func (wrk Wrk) Convert() WrkConverted {
-	return WrkConverted{Connections: "-c" + strconv.Itoa(wrk.Connections),
+type AppExecArgs struct {
+	HttpServer string
+	GoGC       string
+	GoMaxProc  string
+}
+
+func (app Application) Convert() AppExecArgs {
+	var httpServer string
+	if app.HttpServer == handlers.FiberServer {
+		httpServer = "FIBER=true"
+	}
+	return AppExecArgs{
+		HttpServer: httpServer,
+		GoGC:       "GOGC=" + strconv.Itoa(app.GoGC),
+		GoMaxProc:  "GOMAXPROCS=" + strconv.Itoa(app.GoMaxProc),
+	}
+}
+
+func (wrk Wrk) Convert() WrkExecArgs {
+	return WrkExecArgs{Connections: "-c" + strconv.Itoa(wrk.Connections),
 		Threads:  "-t" + strconv.Itoa(wrk.Threads),
 		Duration: "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
 		Script:   wrk.Script,
@@ -138,7 +216,7 @@ func (wrk Wrk) Convert() WrkConverted {
 	}
 }
 
-type WrkConverted struct {
+type WrkExecArgs struct {
 	Connections string
 	Threads     string
 	Duration    string
