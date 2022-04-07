@@ -15,12 +15,16 @@ import (
 
 func TestWrkBitmapExperiment(t *testing.T) {
 	apps := []Application{
-		{GoMaxProc: 4, GoGC: 1000, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 3, GoGC: 1000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 100, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 200, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 300, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 400, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 500, HttpServer: handlers.FiberServer},
 		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 1, GoGC: 1000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 2000, HttpServer: handlers.FiberServer},
 	}
 	for _, app := range apps {
+		log.Info().Interface("app", app).Msg("Application to Test")
 		globalWrkConfig := Wrk{
 			Duration: 10 * time.Second,
 			Path:     "/v1/search/bitmap/prices",
@@ -30,6 +34,7 @@ func TestWrkBitmapExperiment(t *testing.T) {
 
 		wg := sync.WaitGroup{}
 		for _, wrk := range wrkc {
+			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
 			execute(app, *wrk, &wg)
 		}
 	}
@@ -48,6 +53,39 @@ func TestWrkMapExperiment(t *testing.T) {
 	wg := sync.WaitGroup{}
 	for _, wrk := range wrkc {
 		execute(app, *wrk, &wg)
+	}
+}
+
+func TestWrkBitmapVsMapExperiment(t *testing.T) {
+	apps := []Application{
+		{GoMaxProc: 2, GoGC: 100, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 200, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 300, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 400, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 500, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 2000, HttpServer: handlers.FiberServer},
+	}
+	for _, app := range apps {
+		log.Info().Interface("app", app).Msg("Application to Test")
+		globalWrkBitmapConfig := Wrk{
+			Duration: 10 * time.Second, Path: "/v1/search/bitmap/prices", Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+		}
+		globalWrkMapConfig := Wrk{
+			Duration: 10 * time.Second, Path: "/v1/search/map/prices", Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+		}
+		wrkBitmap := wkrStatic(globalWrkBitmapConfig)
+		wrkMap := wkrStatic(globalWrkMapConfig)
+
+		wg := sync.WaitGroup{}
+		for _, wrk := range wrkBitmap {
+			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
+			execute(app, *wrk, &wg)
+		}
+		for _, wrk := range wrkMap {
+			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
+			execute(app, *wrk, &wg)
+		}
 	}
 }
 

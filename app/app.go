@@ -52,7 +52,7 @@ var (
 
 func StartApp() {
 	// create default logger
-	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: time.RFC3339})
+	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: time.RFC3339})
 
 	level, err := zerolog.ParseLevel(loggingLevel)
 	if err != nil {

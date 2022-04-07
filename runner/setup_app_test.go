@@ -2,6 +2,8 @@ package runner
 
 import (
 	"bitmap-usage/app"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	"net"
 	"net/http"
 	"os"
@@ -10,6 +12,13 @@ import (
 	"testing"
 	"time"
 )
+
+// Add common functionality to tests
+func TestMain(m *testing.M) {
+	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: time.RFC3339})
+	code := m.Run()
+	os.Exit(code)
+}
 
 // TestStartApp - start real fully functional app
 func TestStartApp(t *testing.T) {
