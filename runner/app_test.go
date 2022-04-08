@@ -15,30 +15,56 @@ import (
 
 func TestWrkBitmapExperiment(t *testing.T) {
 	apps := []Application{
-		{GoMaxProc: 2, GoGC: 100, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 200, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 300, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 400, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 500, HttpServer: handlers.FiberServer},
 		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 2000, HttpServer: handlers.FiberServer},
+	}
+	globalWrkConfig := Wrk{
+		Duration: 3 * time.Second,
+		Path:     "/v1/search/bitmap/prices",
+		Script:   "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+		//JsonFilePath: "reports/wrk-search-result.json",
 	}
 	for _, app := range apps {
 		log.Info().Interface("app", app).Msg("Application to Test")
-		globalWrkConfig := Wrk{
-			Duration: 10 * time.Second,
-			Path:     "/v1/search/bitmap/prices",
-			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-		}
 		wrkc := wkrStatic(globalWrkConfig)
-
 		wg := sync.WaitGroup{}
 		for _, wrk := range wrkc {
 			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
 			execute(app, *wrk, &wg)
 		}
 	}
+}
 
+func TestWrkBulkBitmapExperiment(t *testing.T) {
+	apps := []Application{
+		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
+	}
+
+	for _, app := range apps {
+		log.Info().Interface("app", app).Msg("Application to Test")
+		globalWrkConfig := Wrk{
+			Duration: 30 * time.Second,
+			Path:     "/v4/search/bitmap/bulk/prices",
+			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua",
+		}
+		wrkc := wkrStatic(globalWrkConfig)
+		wg := sync.WaitGroup{}
+		for _, wrk := range wrkc {
+			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
+			execute(app, *wrk, &wg)
+		}
+
+		globalWrkConfig2 := Wrk{
+			Duration: 30 * time.Second,
+			Path:     "/v5/search/bitmap/bulk/prices",
+			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua",
+		}
+		wrkc2 := wkrStatic(globalWrkConfig2)
+
+		for _, wrk := range wrkc2 {
+			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
+			execute(app, *wrk, &wg)
+		}
+	}
 }
 
 func TestWrkMapExperiment(t *testing.T) {
@@ -63,10 +89,9 @@ func TestWrkBitmapVsMapExperiment(t *testing.T) {
 	for _, app := range apps {
 		log.Info().Interface("app", app).Msg("Application to Test")
 		globalWrkBitmapConfig := Wrk{
-			Duration: 10 * time.Second, Path: "/v1/search/bitmap/prices",
+			Duration: 30 * time.Second, Path: "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-100.lua",
 		}
-
 		wrkBitmap := wkrStatic(globalWrkBitmapConfig)
 
 		wg := sync.WaitGroup{}
@@ -74,11 +99,11 @@ func TestWrkBitmapVsMapExperiment(t *testing.T) {
 			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
 			execute(app, *wrk, &wg)
 		}
+
 		globalWrkMapConfig := Wrk{
-			Duration: 10 * time.Second, Path: "/v1/search/map/prices",
+			Duration: 30 * time.Second, Path: "/v1/search/map/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-100.lua",
 		}
-
 		wrkMap := wkrStatic(globalWrkMapConfig)
 
 		for _, wrk := range wrkMap {
@@ -134,6 +159,10 @@ func wkrStatic(globalWrk Wrk) []*Wrk {
 		if globalWrk.Path != "" {
 			wrk.Path = globalWrk.Path
 		}
+
+		if globalWrk.JsonFilePath != "" {
+			wrk.JsonFilePath = globalWrk.JsonFilePath
+		}
 	}
 	return wrkc
 }
@@ -154,19 +183,27 @@ func execute(app Application, wrk Wrk, wg *sync.WaitGroup) {
 		<-time.After(killTime)
 		//doesn't matter the error cause process may be already stopped (in case of properly implemented graceful shutdown)
 		//goland:noinspection GoUnhandledErrorResult
-
 		cmd.Process.Kill()
 	}()
 	cons.Start()
 	wrk.Port = cons.Port
 	wrkArgs := wrk.Convert()
-	go executeCommand(timeoutCtx, wg, "./wrk",
-		wrkArgs.Threads,
-		wrkArgs.Connections,
-		wrkArgs.Duration,
-		"--latency",
-		"-s", wrkArgs.Script,
-		wrkArgs.Path)
+	consoleArgs := make([]string, 0, 10)
+	consoleArgs = append(consoleArgs, wrkArgs.Threads, wrkArgs.Connections, wrkArgs.Duration,
+		"--latency", "-s", wrkArgs.Script, wrkArgs.Path)
+	if wrkArgs.JsonFilePath != "" {
+		dir, _ := filepath.Split(wrkArgs.JsonFilePath)
+		if !filepath.IsAbs(dir) {
+			dir = filepath.Join(commandDir(), dir)
+		}
+		log.Info().Str("dir", dir).Msg("test")
+		err := os.MkdirAll(dir, os.ModePerm)
+		if err != nil {
+			panic(err)
+		}
+		consoleArgs = append(consoleArgs, "--", wrkArgs.JsonFilePath)
+	}
+	go executeCommand(timeoutCtx, wg, "./wrk", consoleArgs...)
 	wg.Wait()
 	err := cmd.Process.Signal(os.Interrupt)
 	if err != nil {
@@ -177,12 +214,7 @@ func execute(app Application, wrk Wrk, wg *sync.WaitGroup) {
 func executeCommand(ctx context.Context, wg *sync.WaitGroup, app string, args ...string) {
 	defer wg.Done()
 	cmd := exec.Command(app, args...)
-	getwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	dir := filepath.Dir(getwd)
-	cmd.Dir = dir
+	cmd.Dir = commandDir()
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
@@ -195,7 +227,7 @@ func executeCommand(ctx context.Context, wg *sync.WaitGroup, app string, args ..
 		}
 	}()
 
-	err = cmd.Start()
+	err := cmd.Start()
 	if err != nil {
 		log.Err(err).Msg("Command start failed")
 	}
@@ -205,9 +237,13 @@ func executeCommand(ctx context.Context, wg *sync.WaitGroup, app string, args ..
 	}
 }
 
-type Run struct {
-	Application *Application
-	Wrk         *Wrk
+func commandDir() string {
+	getwd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+	dir := filepath.Dir(getwd)
+	return dir
 }
 
 // Application - developer-friendly way to describe params of application
@@ -222,13 +258,14 @@ type Application struct {
 
 // Wrk - developer-friendly way to describe params of WRK performance tool
 type Wrk struct {
-	Connections int
-	Threads     int
-	Duration    time.Duration
-	Script      string
-	Multiple    bool
-	Path        string
-	Port        int
+	Connections  int
+	Threads      int
+	Duration     time.Duration
+	Script       string
+	Multiple     bool
+	Path         string
+	Port         int
+	JsonFilePath string
 }
 
 // AppExecArgs - formatted params for application startup
@@ -258,18 +295,20 @@ func (app Application) Convert() AppExecArgs {
 
 func (wrk Wrk) Convert() WrkExecArgs {
 	return WrkExecArgs{Connections: "-c" + strconv.Itoa(wrk.Connections),
-		Threads:  "-t" + strconv.Itoa(wrk.Threads),
-		Duration: "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
-		Script:   wrk.Script,
-		Path:     "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
+		Threads:      "-t" + strconv.Itoa(wrk.Threads),
+		Duration:     "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
+		Script:       wrk.Script,
+		Path:         "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
+		JsonFilePath: wrk.JsonFilePath,
 	}
 }
 
 // WrkExecArgs - formatted params for WRK tool
 type WrkExecArgs struct {
-	Connections string
-	Threads     string
-	Duration    string
-	Script      string
-	Path        string
+	Connections  string
+	Threads      string
+	Duration     string
+	Script       string
+	Path         string
+	JsonFilePath string
 }

@@ -24,11 +24,19 @@ func TestGenerateMultipleWRKBitmap(t *testing.T) {
 	apiPart := "bitmap"
 	filename := "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
 	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
+
+	size = 1000
+	filename = "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
+	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
 }
 
 func TestGenerateMultipleWRKMap(t *testing.T) {
 	size := 100
 	apiPart := "map"
 	filename := "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
+	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
+
+	size = 1000
+	filename = "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
 	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
 }
