@@ -58,30 +58,29 @@ func TestWrkMapExperiment(t *testing.T) {
 
 func TestWrkBitmapVsMapExperiment(t *testing.T) {
 	apps := []Application{
-		{GoMaxProc: 2, GoGC: 100, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 200, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 300, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 400, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 500, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
-		{GoMaxProc: 2, GoGC: 2000, HttpServer: handlers.FiberServer},
+		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true},
 	}
 	for _, app := range apps {
 		log.Info().Interface("app", app).Msg("Application to Test")
 		globalWrkBitmapConfig := Wrk{
-			Duration: 10 * time.Second, Path: "/v1/search/bitmap/prices", Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+			Duration: 10 * time.Second, Path: "/v1/search/bitmap/prices",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-100.lua",
 		}
-		globalWrkMapConfig := Wrk{
-			Duration: 10 * time.Second, Path: "/v1/search/map/prices", Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-		}
+
 		wrkBitmap := wkrStatic(globalWrkBitmapConfig)
-		wrkMap := wkrStatic(globalWrkMapConfig)
 
 		wg := sync.WaitGroup{}
 		for _, wrk := range wrkBitmap {
 			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
 			execute(app, *wrk, &wg)
 		}
+		globalWrkMapConfig := Wrk{
+			Duration: 10 * time.Second, Path: "/v1/search/map/prices",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-100.lua",
+		}
+
+		wrkMap := wkrStatic(globalWrkMapConfig)
+
 		for _, wrk := range wrkMap {
 			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
 			execute(app, *wrk, &wg)
@@ -148,7 +147,8 @@ func execute(app Application, wrk Wrk, wg *sync.WaitGroup) {
 
 	appConsole := app.Convert()
 	cmd := cons.Cmd
-	cmd.Env = append(cmd.Env, appConsole.HttpServer, appConsole.GoGC, appConsole.GoMaxProc)
+	cmd.Env = append(cmd.Env, appConsole.HttpServer, appConsole.GoGC, appConsole.GoMaxProc,
+		appConsole.FiberPrefork, appConsole.BitmapOptStats, appConsole.BitmapOptStructure)
 	//kill the process to avoid hanging in case of problems
 	go func() {
 		<-time.After(killTime)
@@ -210,12 +210,17 @@ type Run struct {
 	Wrk         *Wrk
 }
 
+// Application - developer-friendly way to describe params of application
 type Application struct {
-	HttpServer handlers.HttpServerType
-	GoGC       int
-	GoMaxProc  int
+	HttpServer         handlers.HttpServerType
+	GoGC               int
+	GoMaxProc          int
+	FiberPrefork       bool
+	BitmapOptStructure bool
+	BitmapOptStats     bool
 }
 
+// Wrk - developer-friendly way to describe params of WRK performance tool
 type Wrk struct {
 	Connections int
 	Threads     int
@@ -226,10 +231,14 @@ type Wrk struct {
 	Port        int
 }
 
+// AppExecArgs - formatted params for application startup
 type AppExecArgs struct {
-	HttpServer string
-	GoGC       string
-	GoMaxProc  string
+	HttpServer         string
+	GoGC               string
+	GoMaxProc          string
+	FiberPrefork       string
+	BitmapOptStructure string
+	BitmapOptStats     string
 }
 
 func (app Application) Convert() AppExecArgs {
@@ -238,9 +247,12 @@ func (app Application) Convert() AppExecArgs {
 		httpServer = "FIBER=true"
 	}
 	return AppExecArgs{
-		HttpServer: httpServer,
-		GoGC:       "GOGC=" + strconv.Itoa(app.GoGC),
-		GoMaxProc:  "GOMAXPROCS=" + strconv.Itoa(app.GoMaxProc),
+		HttpServer:         httpServer,
+		GoGC:               "GOGC=" + strconv.Itoa(app.GoGC),
+		GoMaxProc:          "GOMAXPROCS=" + strconv.Itoa(app.GoMaxProc),
+		FiberPrefork:       "FIBER_PREFORK=" + strconv.FormatBool(app.FiberPrefork),
+		BitmapOptStructure: "BITMAP_OPT_STR=" + strconv.FormatBool(app.BitmapOptStructure),
+		BitmapOptStats:     "BITMAP_OPT_STATS=" + strconv.FormatBool(app.BitmapOptStats),
 	}
 }
 
@@ -250,15 +262,14 @@ func (wrk Wrk) Convert() WrkExecArgs {
 		Duration: "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
 		Script:   wrk.Script,
 		Path:     "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
-		Multiple: false,
 	}
 }
 
+// WrkExecArgs - formatted params for WRK tool
 type WrkExecArgs struct {
 	Connections string
 	Threads     string
 	Duration    string
 	Script      string
 	Path        string
-	Multiple    bool
 }

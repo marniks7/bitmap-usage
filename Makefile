@@ -224,7 +224,7 @@ wrk-bitmap-t1-c1:
 	$(MAKE) trigger-gc
 wrk-bitmap-t1-c1-multiple: WRK_THREADS=1
 wrk-bitmap-t1-c1-multiple: WRK_CONNECTIONS=1
-wrk-bitmap-t1-c1-multiple: WRK_REQUEST=benchmark/500k-large-groups/sample/search-price-bitmap-multiple-request-100.lua
+wrk-bitmap-t1-c1-multiple: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-100.lua
 wrk-bitmap-t1-c1-multiple: APP_API_PART=bitmap
 wrk-bitmap-t1-c1-multiple: WRK_FILENAME_PART=${APP_API_PART}-multiple
 wrk-bitmap-t1-c1-multiple: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
@@ -240,7 +240,7 @@ wrk-bitmap-t2-c20:
 	$(MAKE) trigger-gc
 wrk-bitmap-t2-c20-multiple: WRK_THREADS = 2
 wrk-bitmap-t2-c20-multiple: WRK_CONNECTIONS = 20
-wrk-bitmap-t2-c20-multiple: WRK_REQUEST=benchmark/500k-large-groups/sample/search-price-bitmap-multiple-request-100.lua
+wrk-bitmap-t2-c20-multiple: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-100.lua
 wrk-bitmap-t2-c20-multiple: APP_API_PART = bitmap
 wrk-bitmap-t2-c20-multiple: WRK_FILENAME_PART=${APP_API_PART}-multiple
 wrk-bitmap-t2-c20-multiple: WRK_FOLDER = ${WRK_BITMAP_FOLDER}
