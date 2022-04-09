@@ -123,11 +123,11 @@ func bulkExperiments(bitmap32 Application,
 	expsType1 := []Experiment{
 		{Name: "Roaring32", Application: bitmap32, Wrk: Wrk{
 			Path:   "/v5/search/bitmap/bulk/prices",
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
 		}},
 		{Name: "Map32", Application: map32, Wrk: Wrk{
 			Path:   "/v4/search/map/bulk/prices",
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
 		}},
 		//{Name: "Kelindar32", Application: kelindar32, Wrk: Wrk{
 		//	Path:   "/v1/search/kelindar/prices",

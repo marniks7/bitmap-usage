@@ -10,26 +10,31 @@ import (
 	"strconv"
 )
 
-func GenerateJsonRequest(size int) {
+func GenerateJsonRequest(size int, ndjson bool) {
 	var filename string
 	if size == 1 {
-		filename = "search-price-request.json"
+		filename = "search-price-request"
 	} else {
-		filename = "search-price-bulk-request-" + strconv.Itoa(size) + ".json"
+		filename = "search-price-bulk-request-" + strconv.Itoa(size)
 	}
+	if ndjson {
+		filename += "-nd"
+	}
+	filename += ".json"
+
 	file, err := os.Create(filename)
 	if err != nil {
 		panic(err)
 	}
 
-	err = GenerateRequest(size, file, false)
+	err = GenerateRequest(size, file, false, ndjson, false)
 
 	if err != nil {
 		panic(err)
 	}
 }
 
-func GenerateWrkRequest(size int) {
+func GenerateWrkRequest(size int, ndjson bool) {
 	sampleFile, err := os.ReadFile("wrk-json-report-sample.lua")
 	if err != nil {
 		panic(err)
@@ -37,10 +42,16 @@ func GenerateWrkRequest(size int) {
 
 	var filename string
 	if size == 1 {
-		filename = "wrk-search-price-request.lua"
+		filename = "wrk-search-price-request"
 	} else {
-		filename = "wrk-search-price-bulk-request-" + strconv.Itoa(size) + ".lua"
+		filename = "wrk-search-price-bulk-request-" + strconv.Itoa(size)
 	}
+
+	if ndjson {
+		filename += "-nd"
+	}
+	filename += ".lua"
+
 	file, err := os.Create(filename)
 	if err != nil {
 		panic(err)
@@ -50,7 +61,7 @@ func GenerateWrkRequest(size int) {
 	file.Write([]byte("\nwrk.method = \"POST\"\n"))
 	file.Write([]byte("wrk.headers[\"Content-Type\"] = \"application/json\"\n"))
 	file.Write([]byte("wrk.body   = \""))
-	err = GenerateRequest(size, file, true)
+	err = GenerateRequest(size, file, true, ndjson, true)
 	file.Write([]byte("\""))
 	if err != nil {
 		panic(err)
@@ -103,7 +114,7 @@ func GenerateWrkRequestMultiple(size int, api string, filename string) {
 	file.Write([]byte("end\n"))
 
 }
-func GenerateRequest(size int, w io.Writer, quote bool) error {
+func GenerateRequest(size int, w io.Writer, quote bool, ndjson bool, wrk bool) error {
 	if size > 65535 {
 		panic("bulk for >65535 items are not allowed for performance reasons")
 	}
@@ -132,9 +143,9 @@ func GenerateRequest(size int, w io.Writer, quote bool) error {
 		return nil
 	}
 	fprb := make([]model.FindPriceRequestBulk, size, size)
-	//if size > 1 {
-	//	w.Write([]byte("["))
-	//}
+	if !ndjson && size > 1 {
+		w.Write([]byte("["))
+	}
 	for i := 0; i < size; i++ {
 		pc := priceConditions[i]
 		cv := make([]model.CharValue, len(pc.Chars), len(pc.Chars))
@@ -156,14 +167,17 @@ func GenerateRequest(size int, w io.Writer, quote bool) error {
 		} else {
 			w.Write(write)
 		}
-		//if i < size-1 {
-		//	w.Write([]byte(""))
-		//}
-
+		if !ndjson && i < size-1 {
+			w.Write([]byte(","))
+		} else if ndjson && i < size-1 {
+			if !wrk {
+				w.Write([]byte("\n"))
+			}
+		}
 	}
-	//if size > 1 {
-	//	w.Write([]byte("]"))
-	//}
+	if !ndjson && size > 1 {
+		w.Write([]byte("]"))
+	}
 	return nil
 }
 

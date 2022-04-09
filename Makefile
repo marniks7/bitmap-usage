@@ -207,7 +207,7 @@ wrk-map-t2-c20-multiple:
 	$(MAKE) trigger-gc
 wrk-bitmap-bulk-1000-t1-c1: WRK_THREADS=1
 wrk-bitmap-bulk-1000-t1-c1: WRK_CONNECTIONS=1
-wrk-bitmap-bulk-1000-t1-c1: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua
+wrk-bitmap-bulk-1000-t1-c1: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000-nd.lua
 wrk-bitmap-bulk-1000-t1-c1: APP_API_PART=bitmap
 wrk-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000
@@ -289,7 +289,7 @@ wrk2-map-t2-c20:
 	$(MAKE) trigger-gc
 wrk2-bitmap-bulk-1000-t1-c1: WRK_THREADS=1
 wrk2-bitmap-bulk-1000-t1-c1: WRK_CONNECTIONS=1
-wrk2-bitmap-bulk-1000-t1-c1: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua
+wrk2-bitmap-bulk-1000-t1-c1: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000-nd.lua
 wrk2-bitmap-bulk-1000-t1-c1: APP_API_PART=bitmap
 wrk2-bitmap-bulk-1000-t1-c1: APP_API=${APP_BULK_API}
 wrk2-bitmap-bulk-1000-t1-c1: WRK_FILENAME_PART=${APP_API_PART}-bulk-1000

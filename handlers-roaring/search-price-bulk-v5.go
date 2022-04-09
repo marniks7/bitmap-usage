@@ -13,6 +13,10 @@ const CalculateConcurrentLevel = 2
 
 // FindPriceBulkByXV5 Accepts line-delimited request(s) and uses line-delimited responses
 // Details https://en.wikipedia.org/wiki/JSON_streaming#Line-delimited_JSON
+// In case if client cancel the stream:
+// 		1. Once request context will be cancelled by underlying http-server framework
+//			decoding of requests will be stopped
+//		2. Already decoded will continue price search and deserialization
 func (as *BitmapAggregateService) FindPriceBulkByXV5(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
 	defer r.Body.Close()
@@ -60,15 +64,15 @@ func decodeRequest(ctx context.Context, dec *json.Decoder, requests chan model.F
 
 func (as *BitmapAggregateService) CalculateWorker(ctx context.Context, requestChan chan model.FindPriceRequestBulk,
 	responseChan chan model.FindPriceResponseBulk) {
-	wg2 := sync.WaitGroup{}
+	wg := sync.WaitGroup{}
 	defer func() {
 		close(responseChan)
 	}()
 	for i := 0; i < CalculateConcurrentLevel; i++ {
-		wg2.Add(1)
-		go as.Calculate(ctx, &wg2, requestChan, responseChan)
+		wg.Add(1)
+		go as.Calculate(ctx, &wg, requestChan, responseChan)
 	}
-	wg2.Wait()
+	wg.Wait()
 
 }
 
