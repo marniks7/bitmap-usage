@@ -4,6 +4,7 @@ import (
 	"bitmap-usage/misc"
 	"bitmap-usage/model"
 	"encoding/json"
+	"github.com/rs/zerolog/log"
 	"net/http"
 	"sync"
 )
@@ -41,7 +42,7 @@ func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *
 	wg.Wait()
 	err = encoder.Encode(results)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode")
+		log.Err(err).Msg("Unable to encode")
 		http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}

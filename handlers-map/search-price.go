@@ -5,6 +5,7 @@ import (
 	"bitmap-usage/model"
 	"encoding/json"
 	"github.com/gofiber/fiber/v2"
+	"github.com/rs/zerolog/log"
 	"github.com/valyala/fasthttp"
 	"net/http"
 )
@@ -29,7 +30,7 @@ func (as *MapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Requ
 	encoder := json.NewEncoder(rw)
 	err = encoder.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}
@@ -55,7 +56,7 @@ func (as *MapAggregateService) FindPriceByX_FastHttp(ctx *fasthttp.RequestCtx) {
 	encoder := json.NewEncoder(ctx.Response.BodyWriter())
 	err = encoder.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		ctx.Response.SetStatusCode(http.StatusInternalServerError)
 		return
 	}
@@ -81,7 +82,7 @@ func (as *MapAggregateService) FindPriceByX_Fiber(c *fiber.Ctx) error {
 	encoder := json.NewEncoder(c.Response().BodyWriter())
 	err = encoder.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		c.Response().SetStatusCode(http.StatusInternalServerError)
 		return nil
 	}

@@ -5,6 +5,7 @@ import (
 	"errors"
 	"github.com/kelindar/bitmap"
 	"github.com/kelindar/column"
+	"github.com/rs/zerolog/log"
 	"strings"
 )
 
@@ -128,7 +129,7 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 func (s *Holder) findSpecBitmap(specId string) (bitmap.Bitmap, error) {
 	u, ok := s.FieldsMetadata[FieldNameSpec].Values[specId]
 	if !ok {
-		s.L.Error().Str("specId", specId).Msg("Cannot find specId in index")
+		log.Error().Str("specId", specId).Msg("Cannot find specId in index")
 		return nil, ErrUnableToFindSpecId
 	}
 	return *s.Index.Rows[u].segments[0].bitmap, nil
@@ -137,7 +138,7 @@ func (s *Holder) findSpecBitmap(specId string) (bitmap.Bitmap, error) {
 func (s *Holder) findGroupBitmap(groupId string) (bitmap.Bitmap, error) {
 	u, ok := s.FieldsMetadata[FieldNameGroup].Values[groupId]
 	if !ok {
-		s.L.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
+		log.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
 		return nil, ErrUnableToFindGroupId
 	}
 	return *s.Index.Rows[u].segments[0].bitmap, nil
@@ -146,12 +147,12 @@ func (s *Holder) findGroupBitmap(groupId string) (bitmap.Bitmap, error) {
 func (s *Holder) findBitmapByCharValue(cv model.CharValue) (bitmap.Bitmap, error) {
 	u, ok := s.FieldsMetadata[FieldNameCharStart+strings.ToLower(cv.Char)]
 	if !ok {
-		s.L.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
+		log.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
 		return nil, ErrUnableToFindCharId
 	}
 	u2, ok := u.Values[cv.Value]
 	if !ok {
-		s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
+		log.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
 		return nil, ErrUnableToFindCharValue
 	}
 	return *s.Index.Rows[u2].segments[0].bitmap, nil
@@ -160,7 +161,7 @@ func (s *Holder) findBitmapByCharValue(cv model.CharValue) (bitmap.Bitmap, error
 func (s *Holder) findBitmapByOffering(offeringId string) (bitmap.Bitmap, error) {
 	u, ok := s.FieldsMetadata[FieldNameOffering].Values[offeringId]
 	if !ok {
-		s.L.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
+		log.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
 		return nil, ErrUnableToFindOfferingId
 	}
 	return *s.Index.Rows[u].segments[0].bitmap, nil

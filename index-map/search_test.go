@@ -3,7 +3,6 @@ package indexmap
 import (
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"strconv"
@@ -284,7 +283,7 @@ func TestMapIndexService_FindPriceBy(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			cs := cache.NewCatalogService(cache.NewCatalog())
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
-			ind := NewService(log.Logger)
+			ind := NewService()
 			ind.IndexPrices(cs.Catalog)
 			if tt.fields.optimized {
 				isAtLeastOneOptimized = true

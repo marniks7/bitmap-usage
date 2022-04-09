@@ -55,7 +55,7 @@ func TestFindPriceBulk(t *testing.T) {
 			Request:            []byte(`{"offeringId":"offering1","groupId":"group2","priceSpecId":"spec1","charValues":[{"char":"char1","value":"value1"}],"id":0}`),
 			ExpectedStatusCode: http.StatusOK,
 			ExpectedResponse: []model.FindPriceResponseBulk{
-				{Id: 0, Price: nil, Error: model.ErrorResponse{Message: "unable to find price by priceId"}}},
+				{Id: 0, Price: nil, Error: model.ErrorResponse{Message: "unable find price"}}},
 		},
 	}
 

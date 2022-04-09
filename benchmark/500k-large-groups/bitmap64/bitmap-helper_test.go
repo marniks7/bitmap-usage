@@ -14,7 +14,7 @@ func prepareBitmapIndex(b *testing.B) (*cache64.CatalogService, *indexroaring64.
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := indexroaring64.NewService(log.Logger)
+	ind := indexroaring64.NewService()
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 	return cs, ind
@@ -25,7 +25,7 @@ func prepareBitmapIndexT(t *testing.T) (*cache64.CatalogService, *indexroaring64
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(t, err)
 
-	ind := indexroaring64.NewService(log.Logger)
+	ind := indexroaring64.NewService()
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 	return cs, ind

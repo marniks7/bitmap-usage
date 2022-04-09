@@ -26,7 +26,7 @@ func TestBitmapMemoryStats(t *testing.T) {
 	fmt.Println("Sample Data mem stats:")
 	benchmark.PrintMemStatsBetween(after, before)
 
-	ind := indexsroar.NewService(log.Logger)
+	ind := indexsroar.NewService()
 	after, before = benchmark.ReadMemStatsFuncWithGC(func() {
 		ind.IndexPrices(cs.Catalog)
 	})

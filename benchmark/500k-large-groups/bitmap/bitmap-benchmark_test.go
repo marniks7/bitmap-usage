@@ -38,7 +38,7 @@ func BenchmarkUnmarshalMarshal_FindPrice(b *testing.B) {
 
 func BenchmarkHttpClientServer_FindPrice(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	bitmapAggregateService := handlers_roaring.NewBitmapAggregateService(log.Logger, cs, ind)
+	bitmapAggregateService := handlers_roaring.NewBitmapAggregateService(cs, ind)
 	ts := httptest.NewServer(http.HandlerFunc(bitmapAggregateService.FindPriceByX))
 	defer ts.Close()
 	tr := &http.Transport{}

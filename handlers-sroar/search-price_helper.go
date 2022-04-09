@@ -21,7 +21,7 @@ func PrepareBitmap() *BitmapAggregateService {
 	}
 
 	//index
-	indexer := indexsroar.NewService(log.Logger)
+	indexer := indexsroar.NewService()
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewBitmapAggregateService(log.Logger, cs, indexer)

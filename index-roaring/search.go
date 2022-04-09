@@ -4,6 +4,7 @@ import (
 	"bitmap-usage/model"
 	"errors"
 	"github.com/RoaringBitmap/roaring"
+	"github.com/rs/zerolog/log"
 )
 
 var ErrUnableToFindCharId = errors.New("unable to find charId in index")
@@ -119,7 +120,7 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 func (s *BitmapIndexService) findSpecBitmap(specId string) (*roaring.Bitmap, error) {
 	u, ok := s.Index.SpecIdToIndex[specId]
 	if !ok {
-		s.L.Error().Str("specId", specId).Msg("Cannot find specId in index")
+		log.Error().Str("specId", specId).Msg("Cannot find specId in index")
 		return nil, ErrUnableToFindSpecId
 	}
 	return s.Index.SpecBitmaps[u], nil
@@ -128,7 +129,7 @@ func (s *BitmapIndexService) findSpecBitmap(specId string) (*roaring.Bitmap, err
 func (s *BitmapIndexService) findGroupBitmap(groupId string) (*roaring.Bitmap, error) {
 	u, ok := s.Index.GroupIdIndex[groupId]
 	if !ok {
-		s.L.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
+		log.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
 		return nil, ErrUnableToFindGroupId
 	}
 	return s.Index.GroupBitmaps[u], nil
@@ -137,12 +138,12 @@ func (s *BitmapIndexService) findGroupBitmap(groupId string) (*roaring.Bitmap, e
 func (s *BitmapIndexService) findBitmapByCharValue(cv model.CharValue) (*roaring.Bitmap, error) {
 	u, ok := s.Index.CharsToValuesIndex[cv.Char]
 	if !ok {
-		s.L.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
+		log.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
 		return nil, ErrUnableToFindCharId
 	}
 	u2, ok := u[cv.Value]
 	if !ok {
-		s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
+		log.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
 		return nil, ErrUnableToFindCharValue
 	}
 	return s.Index.CharValuesBitmaps[u2], nil
@@ -151,7 +152,7 @@ func (s *BitmapIndexService) findBitmapByCharValue(cv model.CharValue) (*roaring
 func (s *BitmapIndexService) findBitmapByOffering(offeringId string) (*roaring.Bitmap, error) {
 	u, ok := s.Index.OfferingIdToIndex[offeringId]
 	if !ok {
-		s.L.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
+		log.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
 		return nil, ErrUnableToFindOfferingId
 	}
 	return s.Index.OfferingBitmaps[u], nil

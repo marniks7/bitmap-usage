@@ -13,6 +13,9 @@ import (
 	"testing"
 )
 
+func Test2(t *testing.T) {
+
+}
 func TestFindPriceBulk(t *testing.T) {
 	//given catalog
 	as := PrepareBitmap()

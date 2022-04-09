@@ -14,7 +14,7 @@ func TestFindPriceId(t *testing.T) {
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(t, err)
 
-	ind := NewService(log.Logger)
+	ind := NewService()
 	ind.IndexPrices(cs.Catalog)
 
 	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
@@ -33,7 +33,7 @@ func TestFindPrice(t *testing.T) {
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(t, err)
 
-	ind := NewService(log.Logger)
+	ind := NewService()
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 
@@ -311,7 +311,7 @@ func TestFindPriceBy(t *testing.T) {
 			cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 
-			ind := NewService(log.Logger)
+			ind := NewService()
 			ind.IndexPrices(cs.Catalog)
 
 			cs.GeneratePricesByConditionsAndClear()

@@ -127,7 +127,7 @@ func TestBitmapMemoryStats_SearchV2(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := indexroaring.NewHolder(log.Logger)
+	ind := indexroaring.NewHolder()
 	err = ind.IndexPricesV2(cs.Catalog)
 	assert.NoError(t, err)
 	cs.GeneratePricesByConditionsAndClear()
@@ -178,7 +178,7 @@ func TestBitmapMemoryStats_SearchV2_OptStr(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := indexroaring.NewHolder(log.Logger)
+	ind := indexroaring.NewHolder()
 	err = ind.IndexPricesV2(cs.Catalog)
 	assert.NoError(t, err)
 	err = ind.RunOptimizeBitmapsInternalStructure()

@@ -5,7 +5,6 @@ import (
 	"bitmap-usage/cache"
 	indexmap "bitmap-usage/index-map"
 	"bitmap-usage/validator"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -16,7 +15,7 @@ func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexSer
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
-	ind := indexmap.NewService(log.Logger)
+	ind := indexmap.NewService()
 	ind.IndexPrices(cs.Catalog)
 	return cs, ind
 }
@@ -27,7 +26,7 @@ func prepareMapIndexT(t *testing.T) (*cache.CatalogService, *indexmap.MapIndexSe
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := indexmap.NewService(log.Logger)
+	ind := indexmap.NewService()
 	ind.IndexPrices(cs.Catalog)
 	return cs, ind
 }
@@ -38,7 +37,7 @@ func prepareMapIndexOptimized(b *testing.B) (*cache.CatalogService, *indexmap.Ma
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
-	ind := indexmap.NewService(log.Logger)
+	ind := indexmap.NewService()
 	ind.IndexPrices(cs.Catalog)
 	err = validator.Validate(cs.Catalog)
 	assert.NoError(b, err)

@@ -15,7 +15,7 @@ func prepareMapIndex(b *testing.B) (*cache64.CatalogService, *indexmap64.MapInde
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := indexmap64.NewService(log.Logger)
+	ind := indexmap64.NewService()
 	ind.IndexPrices(cs.Catalog)
 	return cs, ind
 }
@@ -25,7 +25,7 @@ func prepareMapIndexOptimized(b *testing.B) (*cache64.CatalogService, *indexmap6
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
-	ind := indexmap64.NewService(log.Logger)
+	ind := indexmap64.NewService()
 	ind.IndexPrices(cs.Catalog)
 	err = validator64.Validate(cs.Catalog)
 	assert.NoError(b, err)

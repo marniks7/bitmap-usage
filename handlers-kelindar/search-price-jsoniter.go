@@ -4,6 +4,7 @@ import (
 	"bitmap-usage/misc"
 	"bitmap-usage/model"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/rs/zerolog/log"
 	"io/ioutil"
 	"net/http"
 )
@@ -30,19 +31,19 @@ func (as *BitmapAggregateService) FindPriceByXJsoniter(rw http.ResponseWriter, r
 	}
 	priceId, err := as.Index.FindPriceIdByIndex(index)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to find price id by index")
+		log.Err(err).Msg("Unable to find price id by index")
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	price := as.CS.Catalog.Prices[priceId]
 	if price == nil {
-		as.L.Error().Uint32("index", index).Msg("Unable to find price by index")
+		log.Error().Uint32("index", index).Msg("Unable to find price by index")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}
 	marshal, err := json.Marshal(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}

@@ -81,7 +81,7 @@ func (as *BitmapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *
 
 	err = encoder.Encode(results)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode")
+		log.Err(err).Msg("Unable to encode")
 		http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
@@ -159,7 +159,7 @@ func (as *BitmapAggregateService) FindPriceBulkByXV4_Ugorji_Fiber(ctx *fiber.Ctx
 	enc := codec.NewEncoderBytes(&b, as.Codec)
 	err = enc.Encode(results)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode")
+		log.Err(err).Msg("Unable to encode")
 		//http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
 		return err
 	}

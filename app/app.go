@@ -88,7 +88,7 @@ func StartApp() {
 			return
 		}
 
-		ind := indexroaring64.NewService(log.Logger)
+		ind := indexroaring64.NewService()
 		ind.IndexPrices(cs64.Catalog)
 
 		as := handlersroaring64.NewBitmapAggregateService(log.Logger, cs64, ind)
@@ -105,7 +105,7 @@ func StartApp() {
 			return
 		}
 
-		ind := indexsroar.NewService(log.Logger)
+		ind := indexsroar.NewService()
 		ind.IndexPrices(cs64.Catalog)
 
 		as := handlerssroar.NewBitmapAggregateService(log.Logger, cs64, ind)
@@ -119,7 +119,7 @@ func StartApp() {
 		err = sampleService.GenerateTestData5Chars50Offerings()
 
 		//index
-		indexer := indexkelindar.NewHolder(log.Logger)
+		indexer := indexkelindar.NewHolder()
 		err = indexer.IndexPricesV2(cs.Catalog)
 		if err != nil {
 			panic(err)
@@ -137,10 +137,10 @@ func StartApp() {
 			return
 		}
 
-		ind := indexroaring.NewService(log.Logger)
+		ind := indexroaring.NewService()
 		ind.IndexPrices(cs.Catalog)
 
-		as := handlersroaring.NewBitmapAggregateService(log.Logger, cs, ind)
+		as := handlersroaring.NewBitmapAggregateService(cs, ind)
 		cs.GeneratePricesByConditions()
 		if optimizeBitmapStr {
 			log.Info().Msg("Optimize Bitmap Structure")
@@ -213,7 +213,7 @@ func StartApp() {
 
 	if map64 {
 		log.Info().Msg("Use Map64")
-		indMap := indexmap64.NewService(log.Logger)
+		indMap := indexmap64.NewService()
 		indMap.IndexPrices(cs64.Catalog)
 		asMap := handlersmap64.NewMapAggregateService(log.Logger, cs64, indMap)
 
@@ -221,9 +221,9 @@ func StartApp() {
 		mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
 	} else {
 		log.Info().Msg("Use Map32")
-		indMap := indexMap.NewService(log.Logger)
+		indMap := indexMap.NewService()
 		indMap.IndexPrices(cs.Catalog)
-		asMap := handlersmap.NewMapAggregateService(log.Logger, cs, indMap)
+		asMap := handlersmap.NewMapAggregateService(cs, indMap)
 
 		app.Post("/v1/search/map/prices", asMap.FindPriceByX_Fiber)
 

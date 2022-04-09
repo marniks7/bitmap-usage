@@ -3,6 +3,7 @@ package handlersmap
 import (
 	"bitmap-usage/misc"
 	"bitmap-usage/model"
+	"github.com/rs/zerolog/log"
 	"github.com/ugorji/go/codec"
 	"net/http"
 )
@@ -28,7 +29,7 @@ func (as *MapAggregateService) FindPriceByXUgorji(rw http.ResponseWriter, r *htt
 	enc := codec.NewEncoder(rw, h)
 	err = enc.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}

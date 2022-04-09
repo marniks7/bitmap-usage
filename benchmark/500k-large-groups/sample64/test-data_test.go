@@ -104,7 +104,7 @@ func prepareCatalogAndMap(t *testing.T) (*cache64.CatalogService, *indexmap64.Ma
 	err := GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(t, err)
 
-	ind := indexmap64.NewService(log.Logger)
+	ind := indexmap64.NewService()
 	ind.IndexPrices(cs.Catalog)
 	return cs, ind
 }

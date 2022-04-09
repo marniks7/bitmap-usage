@@ -4,7 +4,6 @@ import (
 	"errors"
 	"github.com/kelindar/bitmap"
 	"github.com/kelindar/column"
-	"github.com/rs/zerolog"
 	"sync"
 )
 
@@ -127,8 +126,6 @@ type Holder struct {
 	IndexToOriginalId []string
 	// FieldMetadata contains fast-accessible info about fields and related bitmap(s)
 	FieldsMetadata map[string]*FieldMetadata
-	// L is logger
-	L zerolog.Logger
 	// StatisticOptimizer small analog of Database statistics
 	StatisticOptimizer *BitmapOptimizerStatisticV2
 	// Collection is kelindar-column in-memory storage
@@ -179,6 +176,6 @@ type RowSegment struct {
 	bitmap *bitmap.Bitmap
 }
 
-func NewHolder(l zerolog.Logger) *Holder {
-	return &Holder{L: l}
+func NewHolder() *Holder {
+	return &Holder{}
 }

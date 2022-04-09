@@ -3,7 +3,6 @@ package indexkelindar
 import (
 	"errors"
 	"github.com/kelindar/bitmap"
-	"github.com/rs/zerolog"
 	"sync"
 )
 
@@ -126,8 +125,6 @@ type Holder struct {
 	IndexToOriginalId []string
 	// FieldMetadata contains fast-accessible info about fields and related bitmap(s)
 	FieldsMetadata map[string]*FieldMetadata
-	// L is logger
-	L zerolog.Logger
 	// StatisticOptimizer small analog of Database statistics
 	StatisticOptimizer *BitmapOptimizerStatisticV2
 	// bitmapPool bitmap pool for performance optimization
@@ -184,8 +181,8 @@ type RowSegment struct {
 	bitmap *bitmap.Bitmap
 }
 
-func NewHolder(l zerolog.Logger) *Holder {
-	return &Holder{L: l, bitmapPool: sync.Pool{
+func NewHolder() *Holder {
+	return &Holder{bitmapPool: sync.Pool{
 		New: func() interface{} {
 			return &Tx{
 				index: make(bitmap.Bitmap, 0, 4),

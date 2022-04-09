@@ -170,8 +170,8 @@ type Row struct {
 	bitmap *roaring.Bitmap
 }
 
-func NewHolder(l zerolog.Logger) *Holder {
-	return &Holder{L: l, clone: sync.Pool{New: func() interface{} {
+func NewHolder() *Holder {
+	return &Holder{clone: sync.Pool{New: func() interface{} {
 		return roaring.New()
 	}}}
 }

@@ -6,7 +6,6 @@ import (
 	"bitmap-usage/model"
 	"bytes"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
@@ -29,10 +28,10 @@ func PrepareMap() *MapAggregateService {
 	}
 
 	//index
-	indexer := indexMap.NewService(log.Logger)
+	indexer := indexMap.NewService()
 	indexer.IndexPrices(cs.Catalog)
 
-	as := NewMapAggregateService(log.Logger, cs, indexer)
+	as := NewMapAggregateService(cs, indexer)
 	cs.GeneratePricesByConditionsAndClear()
 	return as
 }

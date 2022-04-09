@@ -4,6 +4,7 @@ import (
 	model64 "bitmap-usage/model64"
 	"errors"
 	"github.com/RoaringBitmap/roaring/roaring64"
+	"github.com/rs/zerolog/log"
 )
 
 var ErrUnableToFindCharId = errors.New("unable to find charId in index")
@@ -23,7 +24,7 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 	if u, ok := bmi.OfferingIdToIndex[offeringId]; ok {
 		ob = bmi.OfferingBitmaps[u]
 	} else {
-		s.L.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
+		log.Error().Str("offeringId", offeringId).Msg("cannot find offeringId in index")
 		return 0, ErrUnableToFindOfferingId
 	}
 
@@ -35,11 +36,11 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 				bitmap := bmi.CharValuesBitmaps[u2]
 				result = roaring64.And(ob, bitmap)
 			} else {
-				s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
+				log.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
 				return 0, ErrUnableToFindCharValue
 			}
 		} else {
-			s.L.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
+			log.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
 			return 0, ErrUnableToFindCharId
 		}
 		for i := 1; i < len(charValues); i++ {
@@ -49,11 +50,11 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 					bitmap := bmi.CharValuesBitmaps[u2]
 					result.And(bitmap)
 				} else {
-					s.L.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
+					log.Error().Str("charValue", cv.Value).Msg("Cannot find charValue in index")
 					return 0, ErrUnableToFindCharValue
 				}
 			} else {
-				s.L.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
+				log.Error().Str("charId", cv.Char).Msg("Cannot find charId in index")
 				return 0, ErrUnableToFindCharId
 			}
 		}
@@ -63,7 +64,7 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 	if u, ok := bmi.GroupIdIndex[groupId]; ok {
 		groupBitmap = bmi.GroupBitmaps[u]
 	} else {
-		s.L.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
+		log.Error().Str("groupId", groupId).Msg("Cannot find groupId in index")
 		return 0, ErrUnableToFindGroupId
 	}
 
@@ -79,7 +80,7 @@ func (s *BitmapIndexService) FindPriceIndexBy(offeringId, groupId, specId string
 	if u, ok := bmi.SpecIdToIndex[specId]; ok {
 		specBitmap = bmi.SpecBitmaps[u]
 	} else {
-		s.L.Error().Str("specId", specId).Msg("Cannot find specId in index")
+		log.Error().Str("specId", specId).Msg("Cannot find specId in index")
 		return 0, ErrUnableToFindSpecId
 	}
 

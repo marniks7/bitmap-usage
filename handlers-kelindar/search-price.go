@@ -5,6 +5,7 @@ import (
 	"bitmap-usage/model"
 	"encoding/json"
 	"github.com/gofiber/fiber/v2"
+	"github.com/rs/zerolog/log"
 	"net/http"
 )
 
@@ -27,20 +28,20 @@ func (as *BitmapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.R
 	}
 	priceId, err := as.Index.FindPriceIdByIndex(index)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to find price id by index")
+		log.Err(err).Msg("Unable to find price id by index")
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	price := as.CS.Catalog.Prices[priceId]
 	if price == nil {
-		as.L.Error().Uint32("index", index).Msg("Unable to find price by index")
+		log.Error().Uint32("index", index).Msg("Unable to find price by index")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}
 	encoder := json.NewEncoder(rw)
 	err = encoder.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}
@@ -64,14 +65,14 @@ func (as *BitmapAggregateService) FindPriceByX_Fiber(c *fiber.Ctx) error {
 	}
 	priceId, err := as.Index.FindPriceIdByIndex(index)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to find price id by index")
+		log.Err(err).Msg("Unable to find price id by index")
 		c.Response().SetStatusCode(http.StatusInternalServerError)
 		//http.Error(rw, err.Error(), http.StatusInternalServerError)
 		return err
 	}
 	price := as.CS.Catalog.Prices[priceId]
 	if price == nil {
-		as.L.Error().Uint32("index", index).Msg("Unable to find price by index")
+		log.Error().Uint32("index", index).Msg("Unable to find price by index")
 		c.Response().SetStatusCode(http.StatusInternalServerError)
 		//http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return nil
@@ -80,7 +81,7 @@ func (as *BitmapAggregateService) FindPriceByX_Fiber(c *fiber.Ctx) error {
 	err = encoder.Encode(price)
 
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		c.Response().SetStatusCode(http.StatusInternalServerError)
 		//http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return err

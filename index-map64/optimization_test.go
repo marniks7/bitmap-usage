@@ -4,7 +4,6 @@ import (
 	cache64 "bitmap-usage/cache64"
 	model64 "bitmap-usage/model64"
 	"github.com/jinzhu/copier"
-	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -12,7 +11,6 @@ import (
 
 func TestMapIndexService_Optimize(t *testing.T) {
 	type fields struct {
-		L                   zerolog.Logger
 		Index               map[string][]*model64.PriceCondition
 		OfferingToCharIndex map[string]map[string]uint16
 	}
@@ -74,7 +72,6 @@ func TestMapIndexService_Optimize(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			s := &MapIndexService{
-				L:                   tt.expected.L,
 				Index:               tt.expected.Index,
 				OfferingToCharIndex: tt.expected.OfferingToCharIndex,
 			}

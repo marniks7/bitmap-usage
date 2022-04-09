@@ -6,7 +6,6 @@ import (
 	"bitmap-usage/model"
 	"bytes"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"github.com/ugorji/go/codec"
 	"net/http"
@@ -30,10 +29,10 @@ func PrepareBitmap() *BitmapAggregateService {
 	}
 
 	//index
-	indexer := indexroaring.NewService(log.Logger)
+	indexer := indexroaring.NewService()
 	indexer.IndexPrices(cs.Catalog)
 
-	as := NewBitmapAggregateService(log.Logger, cs, indexer)
+	as := NewBitmapAggregateService(cs, indexer)
 	as.Codec = new(codec.JsonHandle)
 	as.Codec.ReaderBufferSize = 8192
 	as.Codec.WriterBufferSize = 8192

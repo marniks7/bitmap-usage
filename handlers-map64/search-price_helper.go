@@ -21,7 +21,7 @@ func PrepareMap() *MapAggregateService {
 	}
 
 	//index
-	indexer := indexmap64.NewService(log.Logger)
+	indexer := indexmap64.NewService()
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewMapAggregateService(log.Logger, cs, indexer)

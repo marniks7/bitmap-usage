@@ -6,7 +6,6 @@ import (
 	"bitmap-usage/cache"
 	indexkelindar "bitmap-usage/index-kelindar"
 	"fmt"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"runtime"
@@ -27,7 +26,7 @@ func TestBitmapMemoryStats(t *testing.T) {
 	fmt.Println("Sample Data mem stats:")
 	benchmark.PrintMemStatsBetween(after, before)
 
-	ind := indexkelindar.NewHolder(log.Logger)
+	ind := indexkelindar.NewHolder()
 	after, before = benchmark.ReadMemStatsFuncWithGC(func() {
 		ind.IndexPricesV2(cs.Catalog)
 	})

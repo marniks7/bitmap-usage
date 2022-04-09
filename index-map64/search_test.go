@@ -285,7 +285,7 @@ func TestMapIndexService_FindPriceBy(t *testing.T) {
 			cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
 			cs.Catalog = cache64.NewCatalog(log.Logger)
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
-			ind := NewService(log.Logger)
+			ind := NewService()
 			ind.IndexPrices(cs.Catalog)
 			if tt.fields.optimized {
 				isAtLeastOneOptimized = true

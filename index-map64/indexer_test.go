@@ -3,14 +3,12 @@ package indexmap64
 import (
 	cache64 "bitmap-usage/cache64"
 	model64 "bitmap-usage/model64"
-	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestMapIndexService_IndexPrices(t *testing.T) {
 	type fields struct {
-		L                                        zerolog.Logger
 		Index                                    map[string][]*model64.PriceCondition
 		OfferingsPriceImpactingCharsOptimization map[string][]string
 	}
@@ -46,9 +44,7 @@ func TestMapIndexService_IndexPrices(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := &MapIndexService{
-				L: tt.expected.L,
-			}
+			s := &MapIndexService{}
 			s.IndexPrices(tt.args.catalog)
 			assert.Equal(t, tt.expected.Index, s.Index)
 		})

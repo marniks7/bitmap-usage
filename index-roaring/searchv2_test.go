@@ -4,7 +4,6 @@ import (
 	"bitmap-usage/benchmark/500k-large-groups/sample"
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"strconv"
@@ -17,7 +16,7 @@ func TestFindPriceIdV2(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewHolder(log.Logger)
+	ind := NewHolder()
 	err = ind.IndexPricesV2(cs.Catalog)
 	assert.NoError(t, err)
 
@@ -62,7 +61,7 @@ func TestFindPriceV2(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewHolder(log.Logger)
+	ind := NewHolder()
 	err = ind.IndexPricesV2(cs.Catalog)
 	assert.NoError(t, err)
 	cs.GeneratePricesByConditions()
@@ -389,7 +388,7 @@ func TestFindPriceByV2(t *testing.T) {
 			cs := cache.NewCatalogService(cache.NewCatalog())
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 
-			ind := NewHolder(log.Logger)
+			ind := NewHolder()
 			err := ind.IndexPricesV2(cs.Catalog)
 			assert.NoError(t, err)
 

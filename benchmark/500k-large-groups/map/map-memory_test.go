@@ -6,7 +6,6 @@ import (
 	"bitmap-usage/cache"
 	indexmap "bitmap-usage/index-map"
 	"fmt"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"runtime"
@@ -27,7 +26,7 @@ func TestMapMemoryStats(t *testing.T) {
 	fmt.Println("Sample Data mem stats:")
 	benchmark.PrintMemStatsBetween(after, before)
 
-	ind := indexmap.NewService(log.Logger)
+	ind := indexmap.NewService()
 	after, before = benchmark.ReadMemStatsFuncWithGC(func() {
 		ind.IndexPrices(cs.Catalog)
 	})

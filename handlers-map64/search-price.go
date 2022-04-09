@@ -4,6 +4,7 @@ import (
 	"bitmap-usage/misc"
 	model64 "bitmap-usage/model64"
 	"encoding/json"
+	"github.com/rs/zerolog/log"
 	"net/http"
 )
 
@@ -27,7 +28,7 @@ func (as *MapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.Requ
 	encoder := json.NewEncoder(rw)
 	err = encoder.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}

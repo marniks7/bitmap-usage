@@ -99,7 +99,7 @@ run-no-gc: GOGC=off
 run-no-gc:
 	$(MAKE) -e run
 test:
-	go${GOVERSION} test $$(go${GOVERSION} list ./... | grep -v /benchmark/) -covermode=atomic -coverprofile=coverprofile.out -short
+	go${GOVERSION} test $$(go${GOVERSION} list ./... | grep -v /benchmark | grep -v /runner) -covermode=atomic -coverprofile=coverprofile.out -short
 test-cover:
 	go${GOVERSION} tool cover -html=coverprofile.out
 # -----------------------------------------------------------------------------

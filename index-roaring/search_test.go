@@ -5,7 +5,6 @@ import (
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"strconv"
@@ -19,7 +18,7 @@ func TestFindPriceId(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewService(log.Logger)
+	ind := NewService()
 	ind.IndexPrices(cs.Catalog)
 
 	//f, err := os.Create("cpu.pprof")
@@ -63,7 +62,7 @@ func TestFindPriceIdWithTraceInfo(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewService(log.Logger)
+	ind := NewService()
 	ind.IndexPrices(cs.Catalog)
 
 	priceIndex, err, actual := ind.FindPriceIndexByWithTraceInfo("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
@@ -95,7 +94,7 @@ func TestFindPrice(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewService(log.Logger)
+	ind := NewService()
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 
@@ -421,7 +420,7 @@ func TestFindPriceBy(t *testing.T) {
 			cs := cache.NewCatalogService(cache.NewCatalog())
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 
-			ind := NewService(log.Logger)
+			ind := NewService()
 			ind.IndexPrices(cs.Catalog)
 
 			cs.GeneratePricesByConditionsAndClear()

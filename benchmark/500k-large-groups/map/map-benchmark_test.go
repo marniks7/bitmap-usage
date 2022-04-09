@@ -6,7 +6,6 @@ import (
 	"bitmap-usage/model"
 	"bytes"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -16,7 +15,7 @@ import (
 
 func BenchmarkHttpClientServer_FindPrice(b *testing.B) {
 	cs, ind := prepareMapIndex(b)
-	mapAggregateService := handlers_map.NewMapAggregateService(log.Logger, cs, ind)
+	mapAggregateService := handlers_map.NewMapAggregateService(cs, ind)
 	ts := httptest.NewServer(http.HandlerFunc(mapAggregateService.FindPriceByX))
 	defer ts.Close()
 	tr := &http.Transport{}

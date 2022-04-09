@@ -4,6 +4,7 @@ import (
 	"bitmap-usage/misc"
 	model64 "bitmap-usage/model64"
 	"encoding/json"
+	"github.com/rs/zerolog/log"
 	"net/http"
 )
 
@@ -26,20 +27,20 @@ func (as *BitmapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.R
 	}
 	priceId, err := as.Index.FindPriceIdByIndex(index)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to find price id by index")
+		log.Err(err).Msg("Unable to find price id by index")
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	price := as.CS.Catalog.Prices[priceId]
 	if price == nil {
-		as.L.Error().Uint64("index", index).Msg("Unable to find price by index")
+		log.Error().Uint64("index", index).Msg("Unable to find price by index")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}
 	encoder := json.NewEncoder(rw)
 	err = encoder.Encode(price)
 	if err != nil {
-		as.L.Err(err).Msg("Unable to encode object")
+		log.Err(err).Msg("Unable to encode object")
 		http.Error(rw, "Internal server error", http.StatusInternalServerError)
 		return
 	}

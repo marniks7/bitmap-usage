@@ -2,16 +2,14 @@ package indexsroar
 
 import (
 	"github.com/dgraph-io/sroar"
-	"github.com/rs/zerolog"
 )
 
 type BitmapIndexService struct {
-	L     zerolog.Logger
 	Index *PriceBitmaps
 }
 
-func NewService(l zerolog.Logger) *BitmapIndexService {
-	return &BitmapIndexService{L: l}
+func NewService() *BitmapIndexService {
+	return &BitmapIndexService{}
 }
 
 type PriceBitmaps struct {
