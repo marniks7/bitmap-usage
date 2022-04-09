@@ -43,13 +43,8 @@ func (as *BitmapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *
 	}
 	encoder := json.NewEncoder(rw)
 
-	//todo check the approach with error unmarshal from perf perspective := make([]interface{}, len(findPriceRequests))
 	//Note: results slice is accessed concurrently, be careful
 	results := make([]model.FindPriceResponseBulk, len(findPriceRequests))
-	//Note: errors slice is accessed concurrently, be careful
-	errors := make([]error, len(findPriceRequests))
-	er := false
-	//g := bulk.NewGroup(uint8(limit))
 	wg := sync.WaitGroup{}
 	ch := make(chan struct{}, limit)
 	for i, fpreq := range findPriceRequests {
@@ -58,37 +53,32 @@ func (as *BitmapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *
 		ch <- struct{}{}
 		go func(i int, fpreq model.FindPriceRequestBulk) {
 			defer wg.Done()
+			defer func() {
+				<-ch
+			}()
 			ind, err := as.Index.FindPriceIndexBy(fpreq.OfferingId, fpreq.GroupId,
 				fpreq.PriceSpecId, fpreq.CharValues)
 			if err != nil {
-				errors[i] = err
-				er = true
+				results[i] = model.FindPriceResponseBulk{Price: nil, Id: fpreq.Id, Error: model.ErrorResponse{Message: err.Error()}}
 				return
 			}
 			priceId, err := as.Index.FindPriceIdByIndex(ind)
 			if err != nil {
-				errors[i] = err
-				er = true
+				results[i] = model.FindPriceResponseBulk{Price: nil, Id: fpreq.Id, Error: model.ErrorResponse{Message: err.Error()}}
 				return
 			}
 			price := as.CS.Catalog.Prices[priceId]
 			if price != nil {
 				results[i] = model.FindPriceResponseBulk{Price: price, Id: fpreq.Id}
 			} else {
-				errors[i] = ErrUnableToFindPrice
-				er = true
-				return
+				results[i] = model.FindPriceResponseBulk{Price: nil, Id: fpreq.Id, Error: model.ErrorResponse{Message: ErrUnableToFindPrice.Error()}}
 			}
+
 		}(i, fpreq)
 
 	}
 	wg.Wait()
 
-	if er {
-		log.Err(err).Msg("First err for bulk search price")
-		http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
-		return
-	}
 	err = encoder.Encode(results)
 	if err != nil {
 		as.L.Err(err).Msg("Unable to encode")

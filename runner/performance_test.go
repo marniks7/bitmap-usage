@@ -65,6 +65,22 @@ func TestPerformanceBulkWrkExperiments(t *testing.T) {
 	}
 }
 
+func TestPerformanceBulkWrkExperimentsDifferentVersions(t *testing.T) {
+	roaring32, kelindar32, map32, sroar, map64, roaring64 := basicApplications()
+	wrkConfig := Wrk{Threads: 1, Connections: 1, Duration: 10 * time.Second}
+
+	expsType1 := bulkExperimentsDifferentVersions(roaring32, map32, kelindar32, roaring64, map64, sroar)
+
+	for _, exp := range expsType1 {
+		wrk := merge(wrkConfig, exp.Wrk)
+		log.Info().Str("name", exp.Name).Interface("app", exp.Application).
+			Interface("wrk", wrk).
+			Msg("Start experiment...")
+		execute(exp.Application, wrk)
+
+	}
+}
+
 func basicApplications() (Application, Application, Application, Application, Application, Application) {
 	roaring32 := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
 		Approaches: []Approach{Roaring32}}
@@ -128,6 +144,40 @@ func bulkExperiments(bitmap32 Application,
 		{Name: "Map32", Application: map32, Wrk: Wrk{
 			Path:   "/v4/search/map/bulk/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
+		}},
+		//{Name: "Kelindar32", Application: kelindar32, Wrk: Wrk{
+		//	Path:   "/v1/search/kelindar/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+		//}},
+		//{Name: "Roaring64", Application: roaring64, Wrk: Wrk{
+		//	Path:   "/v1/search/bitmap/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+		//}},
+		//{Name: "Map64", Application: map64, Wrk: Wrk{
+		//	Path:   "/v1/search/map/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+		//}},
+		//{Name: "Sroar", Application: sroar, Wrk: Wrk{
+		//	Path:   "/v1/search/bitmap/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+		//}},
+	}
+	return expsType1
+}
+
+func bulkExperimentsDifferentVersions(bitmap32 Application,
+	map32 Application,
+	kelindar32 Application, roaring64 Application,
+	map64 Application,
+	sroar Application) []Experiment {
+	expsType1 := []Experiment{
+		{Name: "Roaring32. V5", Application: bitmap32, Wrk: Wrk{
+			Path:   "/v5/search/bitmap/bulk/prices",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
+		}},
+		{Name: "Roaring32. V4", Application: map32, Wrk: Wrk{
+			Path:   "/v4/search/bitmap/bulk/prices",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
 		}},
 		//{Name: "Kelindar32", Application: kelindar32, Wrk: Wrk{
 		//	Path:   "/v1/search/kelindar/prices",
