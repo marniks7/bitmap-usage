@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
+	"github.com/ugorji/go/codec"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -33,6 +34,9 @@ func PrepareBitmap() *BitmapAggregateService {
 	indexer.IndexPrices(cs.Catalog)
 
 	as := NewBitmapAggregateService(log.Logger, cs, indexer)
+	as.Codec = new(codec.JsonHandle)
+	as.Codec.ReaderBufferSize = 8192
+	as.Codec.WriterBufferSize = 8192
 	cs.GeneratePricesByConditionsAndClear()
 	return as
 }

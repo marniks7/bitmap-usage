@@ -1,7 +1,6 @@
 package sample
 
 import (
-	"strconv"
 	"testing"
 )
 
@@ -22,23 +21,32 @@ func TestGenerateWrk(t *testing.T) {
 }
 
 func TestGenerateMultipleWRKBitmap(t *testing.T) {
-	size := 100
-	apiPart := "bitmap"
-	filename := "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
-	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
+	list := []struct {
+		Size     int
+		Filename string
+		Api      string
+	}{
+		{Size: 100,
+			Filename: "wrk-search-price-bitmap-multiple-request-100.lua",
+			Api:      "/v1/search/bitmap/prices"},
+		{Size: 1000,
+			Filename: "wrk-search-price-bitmap-multiple-request-1000.lua",
+			Api:      "/v1/search/bitmap/prices"},
+		{Size: 100,
+			Filename: "wrk-search-price-map-multiple-request-100.lua",
+			Api:      "/v1/search/map/prices"},
+		{Size: 1000,
+			Filename: "wrk-search-price-map-multiple-request-1000.lua",
+			Api:      "/v1/search/map/prices"},
+		{Size: 100,
+			Filename: "wrk-search-price-kelindar-multiple-request-100.lua",
+			Api:      "/v1/search/kelindar/prices"},
+		{Size: 1000,
+			Filename: "wrk-search-price-kelindar-multiple-request-1000.lua",
+			Api:      "/v1/search/kelindar/prices"},
+	}
 
-	size = 1000
-	filename = "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
-	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
-}
-
-func TestGenerateMultipleWRKMap(t *testing.T) {
-	size := 100
-	apiPart := "map"
-	filename := "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
-	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
-
-	size = 1000
-	filename = "wrk-search-price-" + apiPart + "-multiple-request-" + strconv.Itoa(size) + ".lua"
-	GenerateWrkRequestMultiple(size, "/v1/search/"+apiPart+"/prices", filename)
+	for _, l := range list {
+		GenerateWrkRequestMultiple(l.Size, l.Api, l.Filename)
+	}
 }
