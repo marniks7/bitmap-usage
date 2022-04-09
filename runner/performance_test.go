@@ -77,7 +77,6 @@ func TestPerformanceBulkWrkExperimentsDifferentVersions(t *testing.T) {
 			Interface("wrk", wrk).
 			Msg("Start experiment...")
 		execute(exp.Application, wrk)
-
 	}
 }
 
@@ -175,8 +174,12 @@ func bulkExperimentsDifferentVersions(bitmap32 Application,
 			Path:   "/v5/search/bitmap/bulk/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
 		}},
-		{Name: "Roaring32. V4", Application: map32, Wrk: Wrk{
+		{Name: "Roaring32. V4", Application: bitmap32, Wrk: Wrk{
 			Path:   "/v4/search/bitmap/bulk/prices",
+			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
+		}},
+		{Name: "Roaring32. V2", Application: bitmap32, Wrk: Wrk{
+			Path:   "/v2/search/bitmap/bulk/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
 		}},
 		//{Name: "Kelindar32", Application: kelindar32, Wrk: Wrk{

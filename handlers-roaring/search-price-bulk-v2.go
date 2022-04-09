@@ -4,8 +4,8 @@ import (
 	"bitmap-usage/misc"
 	"bitmap-usage/model"
 	"encoding/json"
-	"golang.org/x/sync/errgroup"
 	"net/http"
+	"sync"
 )
 
 func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *http.Request) {
@@ -19,40 +19,26 @@ func (as *BitmapAggregateService) FindPriceBulkByXV2(rw http.ResponseWriter, r *
 		return
 	}
 	encoder := json.NewEncoder(rw)
-	encoder.SetIndent("", "")
 
-	g, _ := errgroup.WithContext(r.Context())
-
-	results := make([]model.FindPriceResponseBulk, len(findPriceRequests))
-	for i, fpreq := range findPriceRequests {
-		i, findPriceRequest := i, fpreq
-		g.Go(func() error {
-
-			ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
-				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
-			if err != nil {
-				return err
-			} else {
-				priceId, err := as.Index.FindPriceIdByIndex(ind)
-				if err != nil {
-					return err
-				} else {
-					price := as.CS.Catalog.Prices[priceId]
-					if price != nil {
-						results[i] = model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
-					} else {
-						return ErrUnableToFindPrice //TODO actually, this should not be treated as an error
-					}
-				}
-			}
-			return nil
-		})
-
+	results := make([]model.FindPriceResponseBulk, 0, len(findPriceRequests))
+	requests := make(chan model.FindPriceRequestBulk, 50)
+	responses := make(chan model.FindPriceResponseBulk, 50)
+	ctx := r.Context()
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for resp := range responses {
+			results = append(results, resp)
+		}
+	}()
+	go as.CalculateWorker(ctx, requests, responses)
+	for _, fpreq := range findPriceRequests {
+		requests <- fpreq
 	}
-	if err := g.Wait(); err != nil {
-		http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
-		return
-	}
+	close(requests)
+
+	wg.Wait()
 	err = encoder.Encode(results)
 	if err != nil {
 		as.L.Err(err).Msg("Unable to encode")
