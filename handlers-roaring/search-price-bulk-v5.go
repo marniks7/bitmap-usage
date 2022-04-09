@@ -4,83 +4,94 @@ import (
 	"bitmap-usage/model"
 	"encoding/json"
 	"github.com/rs/zerolog/log"
+	"golang.org/x/net/context"
 	"net/http"
 	"sync"
 )
 
 const CalculateConcurrentLevel = 2
 
+// FindPriceBulkByXV5 Accepts line-delimited request(s) and uses line-delimited responses
+// Details https://en.wikipedia.org/wiki/JSON_streaming#Line-delimited_JSON
 func (as *BitmapAggregateService) FindPriceBulkByXV5(rw http.ResponseWriter, r *http.Request) {
 	dec := json.NewDecoder(r.Body)
-	br, err := dec.Token()
-	if err != nil {
-		log.Err(err)
-		http.Error(rw, "Unable decode body", http.StatusBadRequest)
-		return
-	}
-	if br != json.Delim('[') {
-		log.Err(err)
-		http.Error(rw, "Unable decode body", http.StatusBadRequest)
-		return
-	}
-	requestIn := make(chan model.FindPriceRequestBulk, 50)
-	OutChan := make(chan model.FindPriceResponseBulk, 50)
-	ErrChan := make(chan error, 50)
-	done := make(chan bool)
-
-	go as.CalculateWorker(requestIn, OutChan, ErrChan)
+	defer r.Body.Close()
+	rw.Header().Set("Transfer-Encoding", "chunked")
+	requests := make(chan model.FindPriceRequestBulk, 50)
+	responses := make(chan model.FindPriceResponseBulk, 50)
+	ctx := r.Context()
+	go as.CalculateWorker(ctx, requests, responses)
 	en := json.NewEncoder(rw)
 	en.SetIndent("", "")
-	go as.DeserializeWorker(rw, en, OutChan, done)
 
+	last := sync.WaitGroup{}
+	last.Add(1)
+	go as.DeserializeWorker(en, responses, &last)
+	err := decodeRequest(ctx, dec, requests)
+	last.Wait()
+	//rw write should be in the end to avoid race conditions with DeserializeWorker
+	if err != nil {
+		http.Error(rw, "Unable decode body", http.StatusBadRequest)
+		return
+	}
+}
+
+func decodeRequest(ctx context.Context, dec *json.Decoder, requests chan model.FindPriceRequestBulk) error {
+	defer func() {
+		close(requests)
+	}()
 	for dec.More() {
-		var fprb model.FindPriceRequestBulk
-		err := dec.Decode(&fprb)
-		if err != nil {
-			log.Err(err)
-			http.Error(rw, "Unable decode body", http.StatusBadRequest)
-			return
+		select {
+		case <-ctx.Done():
+			return nil
+		default:
+			{
+				var fprb model.FindPriceRequestBulk
+				err := dec.Decode(&fprb)
+				if err != nil {
+					return err
+				}
+				requests <- fprb
+			}
 		}
-		requestIn <- fprb
 	}
-	close(requestIn)
-	<-done
+	return nil
 }
 
-func (as *BitmapAggregateService) CalculateWorker(RequestChan chan model.FindPriceRequestBulk,
-	OutChan chan model.FindPriceResponseBulk, ErrChar chan error) {
-	wg := sync.WaitGroup{}
+func (as *BitmapAggregateService) CalculateWorker(ctx context.Context, requestChan chan model.FindPriceRequestBulk,
+	responseChan chan model.FindPriceResponseBulk) {
+	wg2 := sync.WaitGroup{}
+	defer func() {
+		close(responseChan)
+	}()
 	for i := 0; i < CalculateConcurrentLevel; i++ {
-		wg.Add(1)
-		go Calculate(&wg, RequestChan, OutChan, ErrChar, as)
+		wg2.Add(1)
+		go as.Calculate(ctx, &wg2, requestChan, responseChan)
 	}
-	wg.Wait()
-	close(OutChan)
-	close(ErrChar)
+	wg2.Wait()
+
 }
 
-func Calculate(wg *sync.WaitGroup, RequestChan chan model.FindPriceRequestBulk, OutChan chan model.FindPriceResponseBulk,
-	ErrChar chan error, as *BitmapAggregateService) {
+func (as *BitmapAggregateService) Calculate(ctx context.Context, wg *sync.WaitGroup,
+	RequestChan chan model.FindPriceRequestBulk,
+	OutChan chan model.FindPriceResponseBulk) {
 	defer wg.Done()
 	for fpr := range RequestChan {
 		findPriceRequest := fpr
 		ind, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 			findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 		if err != nil {
-			ErrChar <- err
-			OutChan <- model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id}
+			OutChan <- model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id, Error: model.ErrorResponse{Message: err.Error()}}
 		} else {
 			priceId, err := as.Index.FindPriceIdByIndex(ind)
 			if err != nil {
-				ErrChar <- err
-				OutChan <- model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id}
+				OutChan <- model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id, Error: model.ErrorResponse{Message: err.Error()}}
 			} else {
 				price := as.CS.Catalog.Prices[priceId]
 				if price != nil {
 					OutChan <- model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 				} else {
-					ErrChar <- ErrUnableToFindPrice
-					OutChan <- model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id}
+					OutChan <- model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id, Error: model.ErrorResponse{Message: ErrUnableToFindPrice.Error()}}
 				}
 			}
 		}
@@ -88,20 +99,16 @@ func Calculate(wg *sync.WaitGroup, RequestChan chan model.FindPriceRequestBulk, 
 	}
 }
 
-func (as *BitmapAggregateService) DeserializeWorker(rw http.ResponseWriter, jsonEncoder *json.Encoder, result chan model.FindPriceResponseBulk, out chan bool) {
-	first := false
-	rw.Write([]byte{'['})
-	for fpr := range result {
-		if first {
-			rw.Write([]byte(","))
-		}
+func (as *BitmapAggregateService) DeserializeWorker(jsonEncoder *json.Encoder,
+	responses chan model.FindPriceResponseBulk, out *sync.WaitGroup) {
+	defer out.Done()
+	for fpr := range responses {
 		err := jsonEncoder.Encode(fpr)
 		if err != nil {
-			http.Error(rw, "Unable encode", http.StatusInternalServerError)
+			log.Err(err).Msg("Unable to encode response")
+			//TODO no panic handling
 			return
 		}
-		first = true
 	}
-	rw.Write([]byte{']'})
-	out <- true
+
 }

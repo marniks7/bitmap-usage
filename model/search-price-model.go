@@ -22,11 +22,16 @@ type FindPriceRequestBulk struct {
 }
 
 type FindPriceResponseBulk struct {
-	Price *Price `json:"price"`
-	Id    uint16 `json:"id"`
+	Price *Price        `json:"price,omitempty"`
+	Error ErrorResponse `json:"error,omitempty"`
+	Id    uint16        `json:"id"`
 }
 
 type FindPriceResponseBulkError struct {
 	Error error
 	Id    uint16 `json:"id"`
+}
+
+type ErrorResponse struct {
+	Message string `json:"message,omitempty"`
 }

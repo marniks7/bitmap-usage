@@ -203,7 +203,7 @@ func StartApp() {
 		findPriceBulkv5 := r.Methods(http.MethodPost).Subrouter()
 		findPriceBulkv5.HandleFunc("/v5/search/bitmap/bulk/prices", as.FindPriceBulkByXV5)
 
-		app.Post("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4_Fiber)
+		app.Post("/v4/search/bitmap/bulk/prices", adaptor.HTTPHandlerFunc(as.FindPriceBulkByXV4))
 		app.Post("/v4/search/bitmap/bulk/prices/ugorji", as.FindPriceBulkByXV4_Ugorji_Fiber)
 		app.Post("/v5/search/bitmap/bulk/prices", adaptor.HTTPHandlerFunc(as.FindPriceBulkByXV5))
 	}
@@ -240,6 +240,8 @@ func StartApp() {
 
 		mapFindPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
 		mapFindPriceBulkv4.HandleFunc("/v4/search/map/bulk/prices", asMap.FindPriceBulkByXV4)
+
+		app.Post("/v4/search/map/bulk/prices", adaptor.HTTPHandlerFunc(asMap.FindPriceBulkByXV4))
 	}
 
 	misc := r.Methods(http.MethodGet).Subrouter()

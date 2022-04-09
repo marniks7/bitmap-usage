@@ -21,6 +21,7 @@ require (
 	github.com/ugorji/go/codec v1.2.7
 	github.com/valyala/fasthttp v1.31.0
 	github.com/wcharczuk/go-chart/v2 v2.1.0
+	golang.org/x/net v0.0.0-20211015210444-4f30a5c0130f
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
@@ -53,10 +54,10 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	github.com/zeebo/xxh3 v1.0.1 // indirect
+	go.uber.org/goleak v1.1.12 // indirect
 	golang.org/x/crypto v0.0.0-20210920023735-84f357641f63 // indirect
 	golang.org/x/image v0.0.0-20210628002857-a66eb6448b8d // indirect
 	golang.org/x/mod v0.4.2 // indirect
-	golang.org/x/net v0.0.0-20211015210444-4f30a5c0130f // indirect
 	golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a // indirect
 	golang.org/x/tools v0.1.7 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect

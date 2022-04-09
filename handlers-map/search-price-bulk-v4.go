@@ -2,10 +2,10 @@ package handlersmap
 
 import (
 	"bitmap-usage/bulk"
-	"bitmap-usage/misc"
 	"bitmap-usage/model"
 	"encoding/json"
 	"github.com/rs/zerolog/log"
+	"golang.org/x/net/context"
 	"net/http"
 	"strconv"
 )
@@ -30,21 +30,18 @@ func (as *MapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *htt
 	}
 
 	dec := json.NewDecoder(r.Body)
-
-	var findPriceRequests []model.FindPriceRequestBulk
-	err := dec.Decode(&findPriceRequests)
-
+	defer r.Body.Close()
+	findPriceRequests, err := decodeRequest(r.Context(), dec)
 	if err != nil {
-		misc.HandleDecodeError(rw, err)
+		log.Err(err).Msg("Unable to decode")
+		rw.WriteHeader(200)
+		//misc.HandleDecodeError(rw, err)
 		return
 	}
 	encoder := json.NewEncoder(rw)
-
-	//todo check the approach with error unmarshal from perf perspective := make([]interface{}, len(findPriceRequests))
-	//Note: results slice is accessed concurrently, be careful
-	results := make([]model.FindPriceResponseBulk, len(findPriceRequests))
+	encoder.SetIndent("", "")
 	//Note: errors slice is accessed concurrently, be careful
-	errors := make([]error, len(findPriceRequests))
+	results := make([]model.FindPriceResponseBulk, len(findPriceRequests))
 
 	g := bulk.NewGroup(uint8(limit))
 	for i, fpreq := range findPriceRequests {
@@ -53,14 +50,14 @@ func (as *MapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *htt
 			price, err, _ := as.Index.FindPriceBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 				findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 			if err != nil {
-				errors[i] = err
-				return err
+				results[i] = model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id, Error: model.ErrorResponse{Message: err.Error()}}
+				return nil
 			}
 			if price != nil {
 				results[i] = model.FindPriceResponseBulk{Price: price, Id: findPriceRequest.Id}
 			} else {
-				errors[i] = ErrUnableToFindPrice
-				return ErrUnableToFindPrice
+				results[i] = model.FindPriceResponseBulk{Price: nil, Id: findPriceRequest.Id, Error: model.ErrorResponse{Message: ErrUnableToFindPrice.Error()}}
+				return nil
 			}
 
 			return nil
@@ -72,11 +69,34 @@ func (as *MapAggregateService) FindPriceBulkByXV4(rw http.ResponseWriter, r *htt
 		//http.Error(rw, "Unable to find prices for at least one in a group", http.StatusBadRequest)
 		//return
 	}
-	err = encoder.Encode(results)
-	if err != nil {
-		as.L.Err(err).Msg("Unable to encode")
-		http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
-		return
+	for _, result := range results {
+		err = encoder.Encode(result)
+		if err != nil {
+			as.L.Err(err).Msg("Unable to encode")
+			http.Error(rw, "Internal Server Error", http.StatusInternalServerError)
+			return
+		}
 	}
 
+}
+
+func decodeRequest(ctx context.Context, dec *json.Decoder) ([]model.FindPriceRequestBulk, error) {
+	var findPriceRequests []model.FindPriceRequestBulk
+
+	for dec.More() {
+		select {
+		case <-ctx.Done():
+			return nil, ctx.Err()
+		default:
+			{
+				var fprb model.FindPriceRequestBulk
+				err := dec.Decode(&fprb)
+				if err != nil {
+					return nil, err
+				}
+				findPriceRequests = append(findPriceRequests, fprb)
+			}
+		}
+	}
+	return findPriceRequests, nil
 }

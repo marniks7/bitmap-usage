@@ -34,7 +34,7 @@ func TestWrkBitmapExperiment(t *testing.T) {
 	}
 }
 
-func TestWrkBulkBitmapExperiment(t *testing.T) {
+func TestWrkBulkExperiment(t *testing.T) {
 	apps := []Application{
 		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer},
 	}
@@ -42,11 +42,16 @@ func TestWrkBulkBitmapExperiment(t *testing.T) {
 	for _, app := range apps {
 		log.Info().Interface("app", app).Msg("Application to Test")
 		globalWrkConfig := Wrk{
-			Duration: 30 * time.Second,
-			Path:     "/v4/search/bitmap/bulk/prices",
-			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua",
+			Duration: 10 * time.Second,
+			Path:     "/v5/search/bitmap/bulk/prices",
+			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-5.lua",
 		}
-		wrkc := wkrStatic(globalWrkConfig)
+		wrkc := []*Wrk{
+			{Connections: 1,
+				Threads: 1,
+			},
+		}
+		merge(globalWrkConfig, wrkc)
 		wg := sync.WaitGroup{}
 		for _, wrk := range wrkc {
 			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
@@ -54,11 +59,16 @@ func TestWrkBulkBitmapExperiment(t *testing.T) {
 		}
 
 		globalWrkConfig2 := Wrk{
-			Duration: 30 * time.Second,
-			Path:     "/v5/search/bitmap/bulk/prices",
-			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-1000.lua",
+			Duration: 10 * time.Second,
+			Path:     "/v4/search/map/bulk/prices",
+			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-5.lua",
 		}
-		wrkc2 := wkrStatic(globalWrkConfig2)
+		wrkc2 := []*Wrk{
+			{Connections: 1,
+				Threads: 1,
+			},
+		}
+		merge(globalWrkConfig2, wrkc2)
 
 		for _, wrk := range wrkc2 {
 			log.Info().Interface("wrk", wrk).Msg("Wrk to Test")
@@ -137,6 +147,11 @@ func wkrStatic(globalWrk Wrk) []*Wrk {
 		//	Threads: 2,
 		//},
 	}
+	merge(globalWrk, wrkc)
+	return wrkc
+}
+
+func merge(globalWrk Wrk, wrkc []*Wrk) {
 	for _, wrk := range wrkc {
 		if globalWrk.Connections != 0 {
 			wrk.Connections = 0
@@ -164,7 +179,6 @@ func wkrStatic(globalWrk Wrk) []*Wrk {
 			wrk.JsonFilePath = globalWrk.JsonFilePath
 		}
 	}
-	return wrkc
 }
 
 func execute(app Application, wrk Wrk, wg *sync.WaitGroup) {

@@ -1,4 +1,4 @@
-package handlersroaring
+package handlersmap
 
 import (
 	"bitmap-usage/model"
@@ -15,7 +15,7 @@ import (
 
 func TestFindPriceBulk(t *testing.T) {
 	//given catalog
-	as := PrepareBitmap()
+	as := PrepareMap()
 
 	type test struct {
 		Name               string
@@ -55,13 +55,7 @@ func TestFindPriceBulk(t *testing.T) {
 			Request:            []byte(`{"offeringId":"offering1","groupId":"group2","priceSpecId":"spec1","charValues":[{"char":"char1","value":"value1"}],"id":0}`),
 			ExpectedStatusCode: http.StatusOK,
 			ExpectedResponse: []model.FindPriceResponseBulk{
-				{Id: 0, Price: nil, Error: model.ErrorResponse{Message: "unable find price"}}},
-		},
-		{
-			Name:               "Malformed request inside",
-			Request:            []byte(`{"offeringId":"offering1","groupId":"group1","priceSpecId":"spec1","charValues":{"char":"char1","value":"value1"}],"id":0}`),
-			ExpectedStatusCode: http.StatusBadRequest,
-			ExpectedResponse:   nil,
+				{Id: 0, Price: nil, Error: model.ErrorResponse{Message: "unable to find price by priceId"}}},
 		},
 	}
 
@@ -69,7 +63,7 @@ func TestFindPriceBulk(t *testing.T) {
 		t.Run(tt.Name, func(t *testing.T) {
 			//use function
 			rr := httptest.NewRecorder()
-			handler := http.HandlerFunc(as.FindPriceBulkByXV5)
+			handler := http.HandlerFunc(as.FindPriceBulkByXV4)
 
 			reader := bytes.NewReader(tt.Request)
 			req, err := http.NewRequest("POST", "/v1/search/prices", reader)

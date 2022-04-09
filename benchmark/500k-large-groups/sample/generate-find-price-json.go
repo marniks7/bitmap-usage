@@ -132,9 +132,9 @@ func GenerateRequest(size int, w io.Writer, quote bool) error {
 		return nil
 	}
 	fprb := make([]model.FindPriceRequestBulk, size, size)
-	if size > 1 {
-		w.Write([]byte("["))
-	}
+	//if size > 1 {
+	//	w.Write([]byte("["))
+	//}
 	for i := 0; i < size; i++ {
 		pc := priceConditions[i]
 		cv := make([]model.CharValue, len(pc.Chars), len(pc.Chars))
@@ -156,14 +156,14 @@ func GenerateRequest(size int, w io.Writer, quote bool) error {
 		} else {
 			w.Write(write)
 		}
-		if i < size-1 {
-			w.Write([]byte(","))
-		}
+		//if i < size-1 {
+		//	w.Write([]byte(""))
+		//}
 
 	}
-	if size > 1 {
-		w.Write([]byte("]"))
-	}
+	//if size > 1 {
+	//	w.Write([]byte("]"))
+	//}
 	return nil
 }
 

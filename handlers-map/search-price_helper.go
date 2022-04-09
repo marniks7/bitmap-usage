@@ -18,6 +18,14 @@ func PrepareMap() *MapAggregateService {
 	cs.Catalog.PriceConditions = []*model.PriceCondition{
 		{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
 			Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+		{ID: "id2", OfferingID: "offering2", GroupId: "group1", Spec: "spec1",
+			Currency: "USD", Value: 130.00, Chars: []string{"char1"}, Values: []string{"value1"}},
+		{ID: "id5", OfferingID: "offering3", GroupId: "group2", Spec: "spec1",
+			Currency: "USD", Value: 161.00, Chars: []string{"char2"}, Values: []string{"value2"}},
+		{ID: "id3", OfferingID: "offering2", GroupId: "group1", Spec: "spec1",
+			Currency: "USD", Value: 190.00, Chars: []string{"char2"}, Values: []string{"value2"}},
+		{ID: "id4", OfferingID: "offering2", GroupId: "group2", Spec: "spec1",
+			Currency: "USD", Value: 170.00, Chars: []string{"char2"}, Values: []string{"value2"}},
 	}
 
 	//index
