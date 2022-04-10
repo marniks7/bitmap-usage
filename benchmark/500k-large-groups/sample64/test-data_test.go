@@ -1,13 +1,14 @@
 package sample64
 
 import (
-	cache64 "bitmap-usage/cache64"
-	indexmap64 "bitmap-usage/index-map64"
-	model64 "bitmap-usage/model64"
+	"bitmap-usage/cache64"
+	indexMap "bitmap-usage/index-map64"
+	"bitmap-usage/model64"
 	"bitmap-usage/validator64"
 	"fmt"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
+	"math/rand"
 	"testing"
 )
 
@@ -30,7 +31,8 @@ func TestGeneratePrice(t *testing.T) {
 	}
 	charsCache := make([]string, len(chars))
 	//when
-	h.generatePrice(chars, charsCache, 0, "offering")
+	r := rand.New(rand.NewSource(3197))
+	h.generatePrice(OfferingGenerate{OfferingRandomGenerator: r, GroupRandomGenerator: r}, chars, charsCache, 0, "offering")
 
 	//then
 	fmt.Println("PriceCondition generated", len(h.prices))
@@ -38,8 +40,23 @@ func TestGeneratePrice(t *testing.T) {
 }
 
 func TestGenerateTestData(t *testing.T) {
-	cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
-	err := GenerateTestData5Chars5Offerings(cs)
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
+	sampleService := Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
+	assert.NoError(t, err)
+
+	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
+}
+
+func TestGenerateTestData2(t *testing.T) {
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
+	sampleService := Service{Cs: cs}
+	err := sampleService.GeneratePrices(OfferingGenerate{Cnt: 10000,
+		Chars:                   []string{"Antivirus", "Access Point Traffic", "B2C Bandwidth"},
+		OfferingRandomGenerator: rand.New(rand.NewSource(9110)),
+		GroupRandomGenerator:    rand.New(rand.NewSource(692382)),
+		IsSpecRandomGenerator:   true,
+		SpecRandomGenerator:     rand.New(rand.NewSource(876402))})
 	assert.NoError(t, err)
 
 	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
@@ -50,7 +67,7 @@ func TestMapOfferingIndex_FindPrice_3824Position(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model64.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -68,7 +85,7 @@ func TestMapOfferingIndex_FindPrice_11Position(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	price, err, position := ind.FindPriceBy("a38e432c-3965-4c74-8251-aa640002d2b2", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("a38e432c-3965-4c74-8251-aa640002d2b2", "group1", "MRC",
 		[]model64.CharValue{{"Term", "12"},
 			{"B2B Traffic", "1GB"},
 			{"B2B Bandwidth", "30Mbps"},
@@ -86,7 +103,7 @@ func TestMapOfferingIndex_FindPrice_9701Position(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	price, err, position := ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("85dc39cd-52dc-49fa-9d00-051a1ff15cd6", "group2", "MRC",
 		[]model64.CharValue{{"Term", "60"},
 			{"B2B Traffic", "100GB"},
 			{"B2B Bandwidth", "75Mbps"},
@@ -99,12 +116,13 @@ func TestMapOfferingIndex_FindPrice_9701Position(t *testing.T) {
 	assert.Equal(t, 9701, position)
 }
 
-func prepareCatalogAndMap(t *testing.T) (*cache64.CatalogService, *indexmap64.MapIndexService) {
-	cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
-	err := GenerateTestData5Chars5Offerings(cs)
+func prepareCatalogAndMap(t *testing.T) (*cache64.CatalogService, *indexMap.MapIndexService) {
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
+	sampleService := Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := indexmap64.NewService()
+	ind := indexMap.NewService()
 	ind.IndexPrices(cs.Catalog)
 	return cs, ind
 }
@@ -119,7 +137,7 @@ func TestMapOfferingIndex_FindPrice_Optimized(t *testing.T) {
 	assert.Equal(t, 100.00, quality)
 
 	//when
-	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
+	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
 		[]model64.CharValue{{"Term", "24"},
 			{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
@@ -137,14 +155,14 @@ func TestMapOfferingIndex_FindPrice_MultiplePricesErr(t *testing.T) {
 	_, ind := prepareCatalogAndMap(t)
 
 	//when
-	p, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "Default", "MRC",
-		[]model64.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
+	price, err, position := ind.FindPriceBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group5", "NRC",
+		[]model64.CharValue{{"B2B Traffic", "5GB"},
 			{"B2B Bandwidth", "900Mbps"},
 			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"}})
 
 	//then
 	assert.Error(t, err)
-	assert.Nil(t, p)
+	assert.ErrorIs(t, err, indexMap.ErrUnableToFindPriceMoreThenOneNoDefault)
+	assert.Nil(t, price)
 	assert.Equal(t, -1, position)
 }

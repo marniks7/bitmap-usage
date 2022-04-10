@@ -5,13 +5,12 @@ import (
 	cache64 "bitmap-usage/cache64"
 	indexmap64 "bitmap-usage/index-map64"
 	validator64 "bitmap-usage/validator64"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func prepareMapIndex(b *testing.B) (*cache64.CatalogService, *indexmap64.MapIndexService) {
-	cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 
@@ -21,7 +20,7 @@ func prepareMapIndex(b *testing.B) (*cache64.CatalogService, *indexmap64.MapInde
 }
 
 func prepareMapIndexOptimized(b *testing.B) (*cache64.CatalogService, *indexmap64.MapIndexService) {
-	cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	err := sample64.GenerateTestData5Chars5Offerings(cs)
 	assert.NoError(b, err)
 

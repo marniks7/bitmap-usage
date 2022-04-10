@@ -6,27 +6,12 @@ import (
 	"bitmap-usage/cache"
 	"bitmap-usage/cache64"
 	"bitmap-usage/handlers"
-	handlerskelindar "bitmap-usage/handlers-kelindar"
-	handlersmap "bitmap-usage/handlers-map"
-	handlersmap64 "bitmap-usage/handlers-map64"
-	handlersroaring "bitmap-usage/handlers-roaring"
-	handlersroaring64 "bitmap-usage/handlers-roaring64"
-	handlerssroar "bitmap-usage/handlers-sroar"
-	indexkelindar "bitmap-usage/index-kelindar"
-	indexMap "bitmap-usage/index-map"
-	indexmap64 "bitmap-usage/index-map64"
-	indexroaring "bitmap-usage/index-roaring"
-	indexroaring64 "bitmap-usage/index-roaring64"
-	indexsroar "bitmap-usage/index-sroar"
 	"context"
-	"github.com/gofiber/adaptor/v2"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gorilla/mux"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/ugorji/go/codec"
 	"net/http"
-	"net/http/pprof"
 	"os"
 	"os/signal"
 	"runtime"
@@ -38,11 +23,11 @@ import (
 var (
 	addr                = getEnvOrDefault("ADDR", ":8091", "TCP Address")
 	loggingLevel        = getEnvOrDefault("LOGGING_LEVEL", "info", "Logging Level")
-	roaring32           = getEnvOrDefaultBool("ROARING32", true, "Use roaring 32, by default")
+	roaring32           = getEnvOrDefaultBool("ROARING32", false, "Use roaring 32, by default")
 	roaring64           = getEnvOrDefaultBool("ROARING64", false, "Use roaring 64")
-	map32               = getEnvOrDefaultBool("MAP32", true, "Use map 32, by default")
+	map32               = getEnvOrDefaultBool("MAP32", false, "Use map 32, by default")
 	map64               = getEnvOrDefaultBool("MAP64", false, "Use 64 bit maps")
-	sroar               = getEnvOrDefaultBool("SROAR", false, "Use 64 bit sroar")
+	sroar64             = getEnvOrDefaultBool("SROAR", false, "Use 64 bit sroar")
 	kelindar32          = getEnvOrDefaultBool("KELINDAR32", false, "Use 32-bit kelindar bitmaps")
 	useFiber            = getEnvOrDefaultBool("FIBER", false, "Use Fiber framework")
 	fiberPrefork        = getEnvOrDefaultBool("FIBER_PREFORK", false, "Use Prefork for Fiber")
@@ -60,17 +45,13 @@ func StartApp() {
 		return
 	}
 	zerolog.SetGlobalLevel(level)
-	if sroar || roaring64 {
-		map64 = true
-		map32 = false
-		roaring32 = false
-	}
 	//fail fast init part
 	goGCInt := getGOGC(err)
 
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	cs64 := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+	cs64 := cache64.NewCatalogService(cache64.NewCatalog())
 	sampleService := samplev2.Service{Cs: cs}
+	sampleService64 := sample64.Service{Cs: cs64}
 	// create router
 	r := mux.NewRouter()
 
@@ -80,208 +61,64 @@ func StartApp() {
 		IdleTimeout:  120 * time.Second,
 		Prefork:      fiberPrefork,
 	})
-	if roaring64 {
-		log.Info().Msg("Use Roaring64")
-		err = sample64.GenerateTestData5Chars5Offerings(cs64)
-		if err != nil {
-			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars50Offerings")
-			return
-		}
 
-		ind := indexroaring64.NewService()
-		ind.IndexPrices(cs64.Catalog)
-
-		as := handlersroaring64.NewBitmapAggregateService(cs64, ind)
-		cs64.GeneratePricesByConditions()
-
-		findPriceBy := r.Methods(http.MethodPost).Subrouter()
-		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
-
-	} else if sroar {
-		log.Info().Msg("Use Sroar64")
-		err = sample64.GenerateTestData5Chars5Offerings(cs64)
-		if err != nil {
-			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars50Offerings")
-			return
-		}
-
-		ind := indexsroar.NewService()
-		ind.IndexPrices(cs64.Catalog)
-
-		as := handlerssroar.NewBitmapAggregateService(cs64, ind)
-		cs64.GeneratePricesByConditions()
-
-		findPriceBy := r.Methods(http.MethodPost).Subrouter()
-		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
-
-	} else if kelindar32 {
-		log.Info().Msg("Use Kelindar32")
-		err = sampleService.GenerateTestData5Chars50Offerings()
-
-		//index
-		indexer := indexkelindar.NewHolder()
-		err = indexer.IndexPricesV2(cs.Catalog)
+	if roaring32 || map32 || kelindar32 {
+		err := sampleService.GenerateTestData5Chars50Offerings()
 		if err != nil {
 			panic(err)
 		}
-
-		as := handlerskelindar.NewBitmapAggregateService(cs, indexer)
-		cs.GeneratePricesByConditions()
-
-		app.Post("/v1/search/kelindar/prices", as.FindPriceByX_Fiber)
-	} else {
-		log.Info().Msg("Use Roaring32")
-		err = sampleService.GenerateTestData5Chars50Offerings()
+	} else if roaring64 || map64 || sroar64 {
+		err := sampleService64.GenerateTestData5Chars50Offerings()
 		if err != nil {
-			log.Panic().Err(err).Msg("Unable to GenerateTestData5Chars50Offerings")
-			return
+			panic(err)
 		}
+	} else {
+		panic("No bitmap or map specified")
+	}
 
-		ind := indexroaring.NewService()
-		ind.IndexPrices(cs.Catalog)
-
-		as := handlersroaring.NewBitmapAggregateService(cs, ind)
-		cs.GeneratePricesByConditions()
-		if optimizeBitmapStr {
-			log.Info().Msg("Optimize Bitmap Structure")
-			err = ind.RunOptimizeBitmapsInternalStructure()
-			if err != nil {
-				log.Panic().Err(err).Msg("Unable to RunOptimizeBitmapsInternalStructure")
-				return
-			}
+	if roaring64 {
+		err := roaring64Routes(cs64, r, app)
+		if err != nil {
+			panic(err)
 		}
-
-		if optimizeBitmapStats {
-			log.Info().Msg("Optimize Bitmap based on statistic")
-			_, err = ind.RunOptimizeBasedOnStats()
-			if err != nil {
-				log.Panic().Err(err).Msg("Unable to RunOptimizeBasedOnStats")
-				return
-			}
+	} else if sroar64 {
+		err := sroar64Routes(cs64, r, app)
+		if err != nil {
+			panic(err)
 		}
-
-		//long-live workers
-		go as.LongLiveWorker()
-		go as.LongLiveWorker()
-		go as.LongLiveWorker()
-		go as.LongLiveWorker()
-		go as.LongLiveWorker()
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-		//go cs.LongLiveWorker(cs.Ch, nil)
-
-		as.Codec = new(codec.JsonHandle)
-		as.Codec.ReaderBufferSize = 8192
-		as.Codec.WriterBufferSize = 8192
-		findPriceByUgorji := r.Methods(http.MethodPost).Subrouter()
-		findPriceByUgorji.HandleFunc("/v1/search/bitmap/prices/ugorji", as.FindPriceByX_Ugorji)
-
-		app.Post("/v1/search/bitmap/prices/ugorji", as.FindPriceByX_Ugorji_FIber)
-
-		findProceByXJsoniter := r.Methods(http.MethodPost).Subrouter()
-		findProceByXJsoniter.HandleFunc("/v1/search/bitmap/prices/jsoniter", as.FindPriceByXJsoniter)
-
-		findPriceBy := r.Methods(http.MethodPost).Subrouter()
-		findPriceBy.HandleFunc("/v1/search/bitmap/prices", as.FindPriceByX)
-
-		app.Post("/v1/search/bitmap/prices", as.FindPriceByX_Fiber)
-
-		findPriceBulk := r.Methods(http.MethodPost).Subrouter()
-		findPriceBulk.HandleFunc("/v1/search/bitmap/bulk/prices", as.FindPriceBulkByX)
-
-		findPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
-		findPriceBulkv2.HandleFunc("/v2/search/bitmap/bulk/prices", as.FindPriceBulkByXV2)
-
-		findPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
-		findPriceBulkv4.HandleFunc("/v4/search/bitmap/bulk/prices", as.FindPriceBulkByXV4)
-
-		findPriceBulkv5 := r.Methods(http.MethodPost).Subrouter()
-		findPriceBulkv5.HandleFunc("/v5/search/bitmap/bulk/prices", as.FindPriceBulkByXV5)
-
-		app.Post("/v2/search/bitmap/bulk/prices", adaptor.HTTPHandlerFunc(as.FindPriceBulkByXV2))
-		app.Post("/v4/search/bitmap/bulk/prices", adaptor.HTTPHandlerFunc(as.FindPriceBulkByXV4))
-		app.Post("/v4/search/bitmap/bulk/prices/ugorji", as.FindPriceBulkByXV4_Ugorji_Fiber)
-		app.Post("/v5/search/bitmap/bulk/prices", adaptor.HTTPHandlerFunc(as.FindPriceBulkByXV5))
+	} else if kelindar32 {
+		err := kelindar32Routes(cs, r, app)
+		if err != nil {
+			panic(err)
+		}
+	} else if roaring32 {
+		err := roaring32Routes(cs, r, app)
+		if err != nil {
+			panic(err)
+		}
+	} else if map64 {
+		err := map64Routes(cs64, r, app)
+		if err != nil {
+			panic(err)
+		}
+	} else if map32 {
+		err := map32Routes(cs, r, app)
+		if err != nil {
+			panic(err)
+		}
+	} else {
+		panic("No bitmap or map specified")
 	}
 
 	runtime.GC()
 
-	if map64 {
-		log.Info().Msg("Use Map64")
-		indMap := indexmap64.NewService()
-		indMap.IndexPrices(cs64.Catalog)
-		asMap := handlersmap64.NewMapAggregateService(log.Logger, cs64, indMap)
-
-		mapFindPriceBy := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
-	} else {
-		log.Info().Msg("Use Map32")
-		indMap := indexMap.NewService()
-		indMap.IndexPrices(cs.Catalog)
-		asMap := handlersmap.NewMapAggregateService(cs, indMap)
-
-		app.Post("/v1/search/map/prices", asMap.FindPriceByX_Fiber)
-
-		mapFindPriceBy := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceBy.HandleFunc("/v1/search/map/prices", asMap.FindPriceByX)
-
-		mapFindPriceByUgorji := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceByUgorji.HandleFunc("/v1/search/map/prices/ugorji", asMap.FindPriceByXUgorji)
-
-		mapFindPriceBulk := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceBulk.HandleFunc("/v1/search/map/bulk/prices", asMap.FindPriceBulkByX)
-
-		mapFindPriceBulkv2 := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceBulkv2.HandleFunc("/v2/search/map/bulk/prices", asMap.FindPriceBulkByXV2)
-
-		mapFindPriceBulkv4 := r.Methods(http.MethodPost).Subrouter()
-		mapFindPriceBulkv4.HandleFunc("/v4/search/map/bulk/prices", asMap.FindPriceBulkByXV4)
-
-		app.Post("/v4/search/map/bulk/prices", adaptor.HTTPHandlerFunc(asMap.FindPriceBulkByXV4))
-	}
-
-	misc := r.Methods(http.MethodGet).Subrouter()
-	app.Get("/health", adaptor.HTTPHandlerFunc(handlers.Health))
-	app.Get("/ready", adaptor.HTTPHandlerFunc(handlers.Ready))
-	app.Get("/info", adaptor.HTTPHandlerFunc(handlers.Info))
-	misc.HandleFunc("/health", handlers.Health)
-	misc.HandleFunc("/ready", handlers.Ready)
-	misc.HandleFunc("/info", handlers.Info)
+	commonRoutes(app, r)
 
 	handlers.AppInfoI = handlers.AppInfo{HttpServer: string(httpServerType()), Roaring32: roaring32,
-		Map32: map32, Sroar: sroar, Roaring64: roaring64, Map64: map64,
+		Map32: map32, Sroar: sroar64, Roaring64: roaring64, Map64: map64,
 		GOGC: goGCInt, GOMAXPROCS: runtime.GOMAXPROCS(0)}
 
-	//additional
-	r.HandleFunc("/debug/pprof/gc", handlers.TriggerGC)
-	// Register pprof handlers
-	r.HandleFunc("/debug/pprof/", pprof.Index)
-	r.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
-	r.HandleFunc("/debug/pprof/profile", pprof.Profile)
-	r.HandleFunc("/debug/pprof/symbol", pprof.Symbol)
-	r.HandleFunc("/debug/pprof/trace", pprof.Trace)
-	r.Handle("/debug/pprof/heap", pprof.Handler("heap"))
-	r.Handle("/debug/pprof/goroutine", pprof.Handler("goroutine"))
-	r.Handle("/debug/pprof/threadcreate", pprof.Handler("threadcreate"))
-	r.Handle("/debug/pprof/allocs", pprof.Handler("allocs"))
-	r.Handle("/debug/pprof/block", pprof.Handler("block"))
-
-	app.All("/debug/pprof/gc", adaptor.HTTPHandlerFunc(handlers.TriggerGC))
-	app.All("/debug/pprof/", adaptor.HTTPHandlerFunc(pprof.Index))
-	app.All("/debug/pprof/cmdline", adaptor.HTTPHandlerFunc(pprof.Cmdline))
-	app.All("/debug/pprof/profile", adaptor.HTTPHandlerFunc(pprof.Profile))
-	app.All("/debug/pprof/symbol", adaptor.HTTPHandlerFunc(pprof.Symbol))
-	app.All("/debug/pprof/trace", adaptor.HTTPHandlerFunc(pprof.Trace))
-	app.All("/debug/pprof/heap", adaptor.HTTPHandler(pprof.Handler("heap")))
-	app.All("/debug/pprof/goroutine", adaptor.HTTPHandler(pprof.Handler("goroutine")))
-	app.All("/debug/pprof/threadcreate", adaptor.HTTPHandler(pprof.Handler("threadcreate")))
-	app.All("/debug/pprof/allocs", adaptor.HTTPHandler(pprof.Handler("allocs")))
-	app.All("/debug/pprof/block", adaptor.HTTPHandler(pprof.Handler("block")))
+	pprofRoutes(r, app)
 
 	runtime.GC()
 	server := &http.Server{Addr: addr,

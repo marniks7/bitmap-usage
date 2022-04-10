@@ -2,7 +2,7 @@ package handlerssroar
 
 import (
 	"bitmap-usage/misc"
-	model64 "bitmap-usage/model64"
+	"bitmap-usage/model64"
 	"encoding/json"
 	"github.com/rs/zerolog/log"
 	"net/http"

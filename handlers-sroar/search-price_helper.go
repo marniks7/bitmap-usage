@@ -6,7 +6,6 @@ import (
 	model64 "bitmap-usage/model64"
 	"bytes"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
@@ -14,7 +13,7 @@ import (
 )
 
 func PrepareBitmap() *BitmapAggregateService {
-	cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	cs.Catalog.PriceConditions = []*model64.PriceCondition{
 		{ID: "id1", OfferingID: "offering1", GroupId: "group1", Spec: "spec1",
 			Currency: "USD", Value: 100.00, Chars: []string{"char1"}, Values: []string{"value1"}},

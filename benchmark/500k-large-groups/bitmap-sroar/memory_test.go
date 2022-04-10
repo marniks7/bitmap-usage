@@ -6,7 +6,6 @@ import (
 	cache64 "bitmap-usage/cache64"
 	indexsroar "bitmap-usage/index-sroar"
 	"fmt"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"runtime"
@@ -18,7 +17,7 @@ func TestBitmapMemoryStats(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
 	}
-	cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
+	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	after, before := benchmark.ReadMemStatsFuncWithGC(func() {
 		err := sample64.GenerateTestData5Chars5Offerings(cs)
 		assert.NoError(t, err)

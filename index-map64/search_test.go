@@ -3,7 +3,6 @@ package indexmap64
 import (
 	cache64 "bitmap-usage/cache64"
 	model64 "bitmap-usage/model64"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"strconv"
@@ -282,8 +281,8 @@ func TestMapIndexService_FindPriceBy(t *testing.T) {
 	isAtLeastOneNonOptimized := false
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			cs := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
-			cs.Catalog = cache64.NewCatalog(log.Logger)
+			cs := cache64.NewCatalogService(cache64.NewCatalog())
+			cs.Catalog = cache64.NewCatalog()
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 			ind := NewService()
 			ind.IndexPrices(cs.Catalog)

@@ -15,14 +15,17 @@ import (
 
 func TestPerformanceWrkExperiments(t *testing.T) {
 	roaring32, kelindar32, map32, sroar, map64, roaring64 := basicApplications()
-	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 10 * time.Second}
+	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 5 * time.Second}
 
 	expsType1 := basicExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
 
 	expsType2 := make([]Experiment, 0, len(expsType1))
 	for _, exp := range expsType1 {
+		//if exp.Name != "Roaring32" {
+		//	continue
+		//}
 		wrk := merge(wrkConfig, exp.Wrk)
-		wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
+		//wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
 		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application,
 			Wrk: wrk})
 	}
@@ -41,7 +44,7 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 
 	}
 
-	for _, exp := range expsType3 {
+	for _, exp := range expsType2 {
 		log.Info().Str("name", exp.Name).Interface("app", exp.Application).
 			Interface("wrk", exp.Wrk).
 			Msg("Start experiment...")
@@ -96,13 +99,13 @@ func basicApplications() (Application, Application, Application, Application, Ap
 	return roaring32, kelindar32, map32, sroar, map64, roaring64
 }
 
-func basicExperiments(bitmap32 Application,
+func basicExperiments(roaring32 Application,
 	map32 Application,
 	kelindar32 Application, roaring64 Application,
 	map64 Application,
 	sroar Application) []Experiment {
 	expsType1 := []Experiment{
-		{Name: "Roaring32", Application: bitmap32, Wrk: Wrk{
+		{Name: "Roaring32", Application: roaring32, Wrk: Wrk{
 			Path:   "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-1000.lua",
 		}},
