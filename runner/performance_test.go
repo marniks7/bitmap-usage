@@ -26,20 +26,18 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 		//}
 		wrk := merge(wrkConfig, exp.Wrk)
 		//wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
-		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application,
-			Wrk: wrk})
+		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
 	}
 
 	expsType3 := make([]Experiment, 0, len(expsType1))
 	for _, exp := range expsType1 {
-		if exp.Name != "Roaring32" {
+		if exp.Application.Approach != Roaring32 {
 			continue
 		}
 		for i := 1; i < 6; i++ {
 			newWrk := Wrk{Threads: 2, Connections: i * 5, Duration: 10 * time.Second}
 			wrk := merge(newWrk, exp.Wrk)
-			expsType3 = append(expsType3, Experiment{Name: exp.Name, Application: exp.Application,
-				Wrk: wrk})
+			expsType3 = append(expsType3, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
 		}
 
 	}
@@ -85,17 +83,17 @@ func TestPerformanceBulkWrkExperimentsDifferentVersions(t *testing.T) {
 
 func basicApplications() (Application, Application, Application, Application, Application, Application) {
 	roaring32 := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-		Approaches: []Approach{Roaring32}}
+		Approach: Roaring32}
 	kelindar32 := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-		Approaches: []Approach{Kelindar32}}
+		Approach: Kelindar32}
 	map32 := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-		Approaches: []Approach{Map32}}
+		Approach: Map32}
 	sroar := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-		Approaches: []Approach{Sroar}}
+		Approach: Sroar}
 	map64 := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-		Approaches: []Approach{Map64}}
+		Approach: Map64}
 	roaring64 := Application{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-		Approaches: []Approach{Roaring64}}
+		Approach: Roaring64}
 	return roaring32, kelindar32, map32, sroar, map64, roaring64
 }
 
@@ -208,7 +206,7 @@ func bulkExperimentsDifferentVersions(bitmap32 Application,
 func TestWrkKelindarExperiment(t *testing.T) {
 	apps := []Application{
 		{GoMaxProc: 2, GoGC: 1000, HttpServer: handlers.FiberServer, BitmapOptStructure: true,
-			Approaches: []Approach{Kelindar32}},
+			Approach: Kelindar32},
 	}
 	//globalWrkConfig := Wrk{
 	//	Duration: 3 * time.Second,
@@ -313,8 +311,8 @@ func execute(app Application, wrk Wrk) {
 	appConsole := app.Convert()
 	cmd := cons.Cmd
 	cmd.Env = append(cmd.Env, appConsole.HttpServer, appConsole.GoGC, appConsole.GoMaxProc,
-		appConsole.FiberPrefork, appConsole.BitmapOptStats, appConsole.BitmapOptStructure)
-	cmd.Env = append(cmd.Env, appConsole.Approaches...)
+		appConsole.FiberPrefork, appConsole.BitmapOptStats,
+		appConsole.BitmapOptStructure, appConsole.Approach)
 	//kill the process to avoid hanging in case of problems
 	go func() {
 		<-time.After(killTime)
@@ -386,7 +384,7 @@ func commandDir() string {
 // Application - developer-friendly way to describe params of application
 type Application struct {
 	HttpServer         handlers.HttpServerType
-	Approaches         []Approach
+	Approach           Approach
 	FiberPrefork       bool
 	GoGC               int
 	GoMaxProc          int
@@ -418,7 +416,7 @@ type Wrk struct {
 // AppExecArgs - formatted params for application startup
 type AppExecArgs struct {
 	HttpServer         string
-	Approaches         []string
+	Approach           string
 	GoGC               string
 	GoMaxProc          string
 	FiberPrefork       string
@@ -431,15 +429,13 @@ func (app Application) Convert() AppExecArgs {
 	if app.HttpServer == handlers.FiberServer {
 		httpServer = "FIBER=true"
 	}
-	var approaches []string
-	if app.Approaches != nil {
-		for _, approach := range app.Approaches {
-			approaches = append(approaches, string(approach)+"=TRUE")
-		}
+	approach := string(app.Approach)
+	if approach != "" {
+		approach = approach + "=true"
 	}
 	return AppExecArgs{
 		HttpServer:         httpServer,
-		Approaches:         approaches,
+		Approach:           approach,
 		GoGC:               "GOGC=" + strconv.Itoa(app.GoGC),
 		GoMaxProc:          "GOMAXPROCS=" + strconv.Itoa(app.GoMaxProc),
 		FiberPrefork:       "FIBER_PREFORK=" + strconv.FormatBool(app.FiberPrefork),

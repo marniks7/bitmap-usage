@@ -1,7 +1,7 @@
 package indexroaring64
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample64"
+	"bitmap-usage/benchmark/sample64"
 	"bitmap-usage/cache64"
 	"bitmap-usage/model64"
 	"encoding/json"

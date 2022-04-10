@@ -1,7 +1,7 @@
 package app
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample64"
+	"bitmap-usage/benchmark/sample64"
 	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	"bitmap-usage/cache64"

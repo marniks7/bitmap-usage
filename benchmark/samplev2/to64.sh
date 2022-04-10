@@ -21,5 +21,5 @@ for i in "${!originalFiles[@]}"; do
   # replace package
   sed -i "s/package samplev2/package sample64/g" "${tmpFile}"
 
-  mv "${tmpFile}" "../500k-large-groups/sample64/${originalFile}"
+  mv "${tmpFile}" "../sample64/${originalFile}"
 done
