@@ -1,8 +1,8 @@
 package app
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample"
 	"bitmap-usage/benchmark/500k-large-groups/sample64"
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	"bitmap-usage/cache64"
 	"bitmap-usage/handlers"
@@ -70,7 +70,7 @@ func StartApp() {
 
 	cs := cache.NewCatalogService(cache.NewCatalog())
 	cs64 := cache64.NewCatalogService(log.Logger, cache64.NewCatalog(log.Logger))
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	// create router
 	r := mux.NewRouter()
 
@@ -91,7 +91,7 @@ func StartApp() {
 		ind := indexroaring64.NewService()
 		ind.IndexPrices(cs64.Catalog)
 
-		as := handlersroaring64.NewBitmapAggregateService(log.Logger, cs64, ind)
+		as := handlersroaring64.NewBitmapAggregateService(cs64, ind)
 		cs64.GeneratePricesByConditions()
 
 		findPriceBy := r.Methods(http.MethodPost).Subrouter()
@@ -108,7 +108,7 @@ func StartApp() {
 		ind := indexsroar.NewService()
 		ind.IndexPrices(cs64.Catalog)
 
-		as := handlerssroar.NewBitmapAggregateService(log.Logger, cs64, ind)
+		as := handlerssroar.NewBitmapAggregateService(cs64, ind)
 		cs64.GeneratePricesByConditions()
 
 		findPriceBy := r.Methods(http.MethodPost).Subrouter()
@@ -125,7 +125,7 @@ func StartApp() {
 			panic(err)
 		}
 
-		as := handlerskelindar.NewBitmapAggregateService(log.Logger, cs, indexer)
+		as := handlerskelindar.NewBitmapAggregateService(cs, indexer)
 		cs.GeneratePricesByConditions()
 
 		app.Post("/v1/search/kelindar/prices", as.FindPriceByX_Fiber)

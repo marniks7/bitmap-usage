@@ -1,7 +1,7 @@
 package Prices_487k_PricesPerOffering_9_7k
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample"
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	indexmap "bitmap-usage/index-map"
 	"bitmap-usage/validator"
@@ -11,7 +11,7 @@ import (
 
 func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexService) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
@@ -22,7 +22,7 @@ func prepareMapIndex(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexSer
 
 func prepareMapIndexT(t *testing.T) (*cache.CatalogService, *indexmap.MapIndexService) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
@@ -33,7 +33,7 @@ func prepareMapIndexT(t *testing.T) (*cache.CatalogService, *indexmap.MapIndexSe
 
 func prepareMapIndexOptimized(b *testing.B) (*cache.CatalogService, *indexmap.MapIndexService) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 

@@ -6,7 +6,6 @@ import (
 	"bitmap-usage/model"
 	"bytes"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
@@ -24,7 +23,7 @@ func PrepareBitmap() *BitmapAggregateService {
 	indexer := indexroaring.NewHolder()
 	indexer.IndexPricesV2(cs.Catalog)
 
-	as := NewBitmapAggregateService(log.Logger, cs, indexer)
+	as := NewBitmapAggregateService(cs, indexer)
 	cs.GeneratePricesByConditionsAndClear()
 	return as
 }

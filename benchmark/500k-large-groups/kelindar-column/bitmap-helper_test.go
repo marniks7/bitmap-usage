@@ -1,7 +1,7 @@
 package Prices_487k_PricesPerOffering_9_7k
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample"
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	indexkelindarcolumn "bitmap-usage/index-kelindar-column"
 	"github.com/stretchr/testify/assert"
@@ -10,7 +10,7 @@ import (
 
 func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexkelindarcolumn.Holder) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
@@ -22,7 +22,7 @@ func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexkelindarco
 
 func prepareBitmapIndexV2T(t *testing.T) (*cache.CatalogService, *indexkelindarcolumn.Holder) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 

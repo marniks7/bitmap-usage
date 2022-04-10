@@ -1,6 +1,7 @@
 package sample
 
 import (
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
 	"encoding/json"
@@ -183,7 +184,7 @@ func GenerateRequest(size int, w io.Writer, quote bool, ndjson bool, wrk bool) e
 
 func FindPseudoRandomPriceConditions(size int, seed int64) []model.PriceCondition {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	if err != nil {
 		panic(err)

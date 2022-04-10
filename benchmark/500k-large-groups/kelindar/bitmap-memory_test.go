@@ -2,7 +2,7 @@ package Prices_487k_PricesPerOffering_9_7k
 
 import (
 	"bitmap-usage/benchmark"
-	"bitmap-usage/benchmark/500k-large-groups/sample"
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	indexkelindar "bitmap-usage/index-kelindar"
 	"fmt"
@@ -19,7 +19,7 @@ func TestBitmapMemoryStats(t *testing.T) {
 	}
 	cs := cache.NewCatalogService(cache.NewCatalog())
 	after, before := benchmark.ReadMemStatsFuncWithGC(func() {
-		sampleService := sample.Service{Cs: cs}
+		sampleService := samplev2.Service{Cs: cs}
 		err := sampleService.GenerateTestData5Chars50Offerings()
 		assert.NoError(t, err)
 	})

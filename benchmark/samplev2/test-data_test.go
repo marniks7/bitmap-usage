@@ -1,4 +1,4 @@
-package sample
+package samplev2
 
 import (
 	"bitmap-usage/cache"
@@ -48,19 +48,19 @@ func TestGenerateTestData(t *testing.T) {
 	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
 }
 
-//func TestGenerateTestData2(t *testing.T) {
-//	cs := cache.NewCatalogService(cache.NewCatalog())
-//	sampleService := Service{Cs: cs}
-//	err := sampleService.GeneratePrices(OfferingGenerate{Cnt: 10000,
-//		Chars:                   []string{"Antivirus", "Access Point Traffic", "B2C Bandwidth"},
-//		OfferingRandomGenerator: rand.New(rand.NewSource(9110)),
-//		GroupRandomGenerator:    rand.New(rand.NewSource(692382)),
-//		IsSpecRandomGenerator:   true,
-//		SpecRandomGenerator:     rand.New(rand.NewSource(876402))})
-//	assert.NoError(t, err)
-//
-//	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
-//}
+func TestGenerateTestData2(t *testing.T) {
+	cs := cache.NewCatalogService(cache.NewCatalog())
+	sampleService := Service{Cs: cs}
+	err := sampleService.GeneratePrices(OfferingGenerate{Cnt: 10000,
+		Chars:                   []string{"Antivirus", "Access Point Traffic", "B2C Bandwidth"},
+		OfferingRandomGenerator: rand.New(rand.NewSource(9110)),
+		GroupRandomGenerator:    rand.New(rand.NewSource(692382)),
+		IsSpecRandomGenerator:   true,
+		SpecRandomGenerator:     rand.New(rand.NewSource(876402))})
+	assert.NoError(t, err)
+
+	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
+}
 
 func TestMapOfferingIndex_FindPrice_3824Position(t *testing.T) {
 	//given

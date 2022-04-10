@@ -1,7 +1,7 @@
 package indexroaring
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample"
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	"bitmap-usage/model"
 	"github.com/stretchr/testify/assert"
@@ -12,7 +12,7 @@ import (
 
 func TestFindPriceIdV2(t *testing.T) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
@@ -57,7 +57,7 @@ func TestFindPriceIdV2(t *testing.T) {
 
 func TestFindPriceV2(t *testing.T) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 

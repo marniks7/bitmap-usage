@@ -5,7 +5,6 @@ import (
 	model64 "bitmap-usage/model64"
 	"bytes"
 	"encoding/json"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -15,7 +14,7 @@ import (
 
 func BenchmarkHttpClientServer_Bitmap_FindPrice(b *testing.B) {
 	cs, ind := prepareBitmapIndex(b)
-	bitmapAggregateService := handlersroaring64.NewBitmapAggregateService(log.Logger, cs, ind)
+	bitmapAggregateService := handlersroaring64.NewBitmapAggregateService(cs, ind)
 	ts := httptest.NewServer(http.HandlerFunc(bitmapAggregateService.FindPriceByX))
 	defer ts.Close()
 	tr := &http.Transport{}

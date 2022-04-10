@@ -24,7 +24,7 @@ func PrepareBitmap() *BitmapAggregateService {
 	indexer := indexroaring64.NewService()
 	indexer.IndexPrices(cs.Catalog)
 
-	as := NewBitmapAggregateService(log.Logger, cs, indexer)
+	as := NewBitmapAggregateService(cs, indexer)
 	cs.GeneratePricesByConditionsAndClear()
 	return as
 }

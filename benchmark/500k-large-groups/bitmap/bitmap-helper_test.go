@@ -1,7 +1,7 @@
 package Prices_487k_PricesPerOffering_9_7k
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample"
+	"bitmap-usage/benchmark/samplev2"
 	"bitmap-usage/cache"
 	indexroaring "bitmap-usage/index-roaring"
 	"github.com/stretchr/testify/assert"
@@ -10,7 +10,7 @@ import (
 
 func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
@@ -22,7 +22,7 @@ func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.Bitm
 
 func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexroaring.Holder) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
@@ -34,7 +34,7 @@ func prepareBitmapIndexV2(b *testing.B) (*cache.CatalogService, *indexroaring.Ho
 
 func prepareBitmapIndexV2T(t *testing.T) (*cache.CatalogService, *indexroaring.Holder) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
@@ -46,7 +46,7 @@ func prepareBitmapIndexV2T(t *testing.T) (*cache.CatalogService, *indexroaring.H
 
 func prepareBitmapIndexT(t *testing.T) (*cache.CatalogService, *indexroaring.BitmapIndexService) {
 	cs := cache.NewCatalogService(cache.NewCatalog())
-	sampleService := sample.Service{Cs: cs}
+	sampleService := samplev2.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
