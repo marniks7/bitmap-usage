@@ -1,13 +1,16 @@
 package runner
 
 import (
+	"bitmap-usage/benchmark/analyze/analyze"
 	"bitmap-usage/handlers"
 	"context"
 	"github.com/rs/zerolog/log"
+	"github.com/stretchr/testify/assert"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"sync"
 	"testing"
 	"time"
@@ -19,12 +22,19 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 
 	expsType1 := basicExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
 
+	dt := time.Now().Format("2006-01-02T15-04-05Z")
 	expsType2 := make([]Experiment, 0, len(expsType1))
 	for _, exp := range expsType1 {
 		//if exp.Name != "Roaring32" {
 		//	continue
 		//}
 		wrk := merge(wrkConfig, exp.Wrk)
+		filename := "/wrk" +
+			"-t" + strconv.Itoa(wrk.Threads) +
+			"-c" + strconv.Itoa(wrk.Connections) +
+			"-" + strings.ToLower(string(exp.Application.Approach)) +
+			".json"
+		wrk.JsonFilePath = "reports/" + dt + "/" + filename
 		//wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
 		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
 	}
@@ -47,6 +57,19 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 			Interface("wrk", exp.Wrk).
 			Msg("Start experiment...")
 		execute(exp.Application, exp.Wrk)
+		path := exp.Wrk.JsonFilePath
+		if path != "" {
+			report, err := analyze.ReadJsonWrkReport(reportFullpath(path))
+			if err != nil {
+				log.Err(err).Msg("unable to read wrk report")
+				t.FailNow()
+			}
+			assert.Zero(t, report.Errors.Write)
+			assert.Zero(t, report.Errors.Read)
+			assert.Zero(t, report.Errors.Timeout)
+			assert.Zero(t, report.Errors.Status)
+			assert.Zero(t, report.Errors.Connect)
+		}
 	}
 }
 
@@ -327,10 +350,7 @@ func execute(app Application, wrk Wrk) {
 	consoleArgs = append(consoleArgs, wrkArgs.Threads, wrkArgs.Connections, wrkArgs.Duration,
 		"--latency", "-s", wrkArgs.Script, wrkArgs.Path)
 	if wrkArgs.JsonFilePath != "" {
-		dir, _ := filepath.Split(wrkArgs.JsonFilePath)
-		if !filepath.IsAbs(dir) {
-			dir = filepath.Join(commandDir(), dir)
-		}
+		dir := reportDirFullpath(wrkArgs.JsonFilePath)
 		log.Info().Str("dir", dir).Msg("test")
 		err := os.MkdirAll(dir, os.ModePerm)
 		if err != nil {
@@ -344,6 +364,22 @@ func execute(app Application, wrk Wrk) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func reportDirFullpath(fp string) string {
+	dir, _ := filepath.Split(fp)
+	if !filepath.IsAbs(dir) {
+		dir = filepath.Join(commandDir(), dir)
+	}
+	return dir
+}
+
+func reportFullpath(fp string) string {
+	dir, file := filepath.Split(fp)
+	if !filepath.IsAbs(dir) {
+		dir = filepath.Join(commandDir(), dir)
+	}
+	return filepath.Join(dir, file)
 }
 
 func executeCommand(ctx context.Context, wg *sync.WaitGroup, app string, args ...string) {

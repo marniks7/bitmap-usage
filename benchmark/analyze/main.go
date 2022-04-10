@@ -1,9 +1,9 @@
 package main
 
 import (
+	"bitmap-usage/benchmark/analyze/analyze"
 	"bitmap-usage/benchmark/analyze/wrk"
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"github.com/rs/zerolog/log"
 	"math"
@@ -48,11 +48,11 @@ func main() {
 }
 
 func diffWrkT1C1(buffer *bytes.Buffer) error {
-	statsBitmap, err := readFile("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t1-c1.json")
+	statsBitmap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t1-c1.json")
 	if err != nil {
 		return err
 	}
-	statsMap, err := readFile("benchmark/500k-large-groups/map/wrk/json/map-t1-c1.json")
+	statsMap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/map/wrk/json/map-t1-c1.json")
 	if err != nil {
 		return err
 	}
@@ -68,11 +68,11 @@ func diffWrkT1C1(buffer *bytes.Buffer) error {
 }
 
 func diffWrkT2C20(buffer *bytes.Buffer) error {
-	statsBitmap, err := readFile("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t2-c20.json")
+	statsBitmap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t2-c20.json")
 	if err != nil {
 		return err
 	}
-	statsMap, err := readFile("benchmark/500k-large-groups/map/wrk/json/map-t2-c20.json")
+	statsMap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/map/wrk/json/map-t2-c20.json")
 	if err != nil {
 		return err
 	}
@@ -128,21 +128,4 @@ func diff(statsBitmap *wrk.Stats, statsMap *wrk.Stats, buffer *bytes.Buffer) {
 		"|" + strconv.Itoa(statsMap.Requests) +
 		"|" + fmt.Sprintf("%.1f", 100*r) + "% " + moreLess +
 		", in " + fmt.Sprintf("%.1f", r2) + " times " + moreLess + "|\n"))
-}
-
-func readFile(filename string) (*wrk.Stats, error) {
-	abs, err := filepath.Abs(filename)
-	if err != nil {
-		log.Err(err).Msg("unable to read file")
-		return nil, err
-	}
-
-	file, err := os.ReadFile(abs)
-	if err != nil {
-		log.Err(err).Msg("unable to read file")
-		return nil, err
-	}
-	stats := wrk.Stats{}
-	err = json.Unmarshal(file, &stats)
-	return &stats, err
 }
