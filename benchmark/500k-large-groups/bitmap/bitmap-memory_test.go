@@ -7,7 +7,6 @@ import (
 	indexroaring "bitmap-usage/index-roaring"
 	"bitmap-usage/model"
 	"fmt"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"runtime"
@@ -31,7 +30,7 @@ func TestBitmapMemoryStats(t *testing.T) {
 	fmt.Println("Sample Data mem stats:")
 	benchmark.PrintMemStatsBetween(after, before)
 
-	ind := indexroaring.NewService(log.Logger)
+	ind := indexroaring.NewService()
 	after, before = benchmark.ReadMemStatsFuncWithGC(func() {
 		ind.IndexPrices(cs.Catalog)
 	})
@@ -76,7 +75,7 @@ func TestBitmapMemoryStats_Search(t *testing.T) {
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := indexroaring.NewService(log.Logger)
+	ind := indexroaring.NewService()
 	ind.IndexPrices(cs.Catalog)
 	_, err = ind.RunOptimizeBasedOnStats()
 	assert.NoError(t, err)

@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
+	"math/rand"
 	"testing"
 )
 
@@ -30,7 +31,8 @@ func TestGeneratePrice(t *testing.T) {
 	}
 	charsCache := make([]string, len(chars))
 	//when
-	h.generatePrice(chars, charsCache, 0, "offering")
+	r := rand.New(rand.NewSource(3197))
+	h.generatePrice(OfferingGenerate{OfferingRandomGenerator: r, GroupRandomGenerator: r}, chars, charsCache, 0, "offering")
 
 	//then
 	fmt.Println("PriceCondition generated", len(h.prices))
@@ -45,9 +47,20 @@ func TestGenerateTestData(t *testing.T) {
 
 	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
 }
-func TestA(t *testing.T) {
-	fmt.Println(500 << 20 / 1024 / 1024)
-}
+
+//func TestGenerateTestData2(t *testing.T) {
+//	cs := cache.NewCatalogService(cache.NewCatalog())
+//	sampleService := Service{Cs: cs}
+//	err := sampleService.GeneratePrices(OfferingGenerate{Cnt: 10000,
+//		Chars:                   []string{"Antivirus", "Access Point Traffic", "B2C Bandwidth"},
+//		OfferingRandomGenerator: rand.New(rand.NewSource(9110)),
+//		GroupRandomGenerator:    rand.New(rand.NewSource(692382)),
+//		IsSpecRandomGenerator:   true,
+//		SpecRandomGenerator:     rand.New(rand.NewSource(876402))})
+//	assert.NoError(t, err)
+//
+//	fmt.Println("Total amount of generated prices", len(cs.Catalog.PriceConditions))
+//}
 
 func TestMapOfferingIndex_FindPrice_3824Position(t *testing.T) {
 	//given

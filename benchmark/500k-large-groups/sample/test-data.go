@@ -140,19 +140,46 @@ type Service struct {
 }
 
 func (s *Service) GenerateTestData5Chars50Offerings() error {
-	rand.Seed(3197) //just the same seed for each run to get stable sequence
-	const OfferingsCnt = 50
-	h := &Holder{
-		prices: make([]*model.PriceCondition, 0, 100),
+	r := rand.New(rand.NewSource(3197))
+	og := OfferingGenerate{Cnt: 50,
+		Chars:                   []string{"Term", "B2B Traffic", "VPN", "B2B Bandwidth", "Router"},
+		OfferingRandomGenerator: r,
+		OfferingPool:            true,
+		IsSpecRandomGenerator:   false,
+		GroupRandomGenerator:    r,
 	}
-	chars := []string{"Term",
-		"B2B Traffic", "VPN", "B2B Bandwidth", "Router"}
-	for i := 0; i < OfferingsCnt; i++ {
+	return s.GeneratePrices(og)
+}
+
+type GenerateCatalog struct {
+	Offerings []OfferingGenerate
+}
+type OfferingGenerate struct {
+	Cnt                     int
+	Chars                   []string
+	IsSpecRandomGenerator   bool
+	OfferingRandomGenerator *rand.Rand
+	OfferingPool            bool
+	GroupRandomGenerator    *rand.Rand
+	SpecRandomGenerator     *rand.Rand
+}
+
+func (s *Service) GeneratePrices(og OfferingGenerate) error {
+	h := &Holder{
+		prices: make([]*model.PriceCondition, 0, 127),
+	}
+	r := og.OfferingRandomGenerator
+	chars := og.Chars
+	for i := 0; i < og.Cnt; i++ {
 		var offeringId string
-		if i < len(OfferingPool)-1 {
+		if og.OfferingPool && i < len(OfferingPool)-1 {
 			offeringId = OfferingPool[i]
 		} else {
-			offeringId = uuid.NewString()
+			fromReader, err := uuid.NewRandomFromReader(r)
+			if err != nil {
+				panic(err)
+			}
+			offeringId = fromReader.String()
 		}
 		cnt := 1
 		for _, cc := range chars {
@@ -165,7 +192,7 @@ func (s *Service) GenerateTestData5Chars50Offerings() error {
 		}
 		//fmt.Println("Maximum Possible PriceCondition For Char Conditions", cnt)
 		charCache := make([]string, len(chars))
-		h.generatePrice(chars, charCache, 0, offeringId)
+		h.generatePrice(og, chars, charCache, 0, offeringId)
 	}
 
 	s.Cs.Catalog.PriceConditions = h.prices
@@ -173,19 +200,25 @@ func (s *Service) GenerateTestData5Chars50Offerings() error {
 	return nil
 }
 
-func (h *Holder) generatePrice(chars []string,
-	priceValues []string, charIndex int, offering string) {
+func (h *Holder) generatePrice(og OfferingGenerate, chars []string, priceValues []string, charIndex int, offering string) {
 	ch := chars[charIndex]
 	values := ValuePool[ch]
 	for i := 0; i < len(values); i++ {
 		priceValues[charIndex] = values[i]
 		if charIndex != len(priceValues)-1 {
-			h.generatePrice(chars, priceValues, charIndex+1, offering)
+			h.generatePrice(og, chars, priceValues, charIndex+1, offering)
 		} else {
 			result := make([]string, len(chars))
 			copy(result, priceValues)
-			spec := len(h.prices) % len(SpecPool) // high density result
-			group := rand.Intn(5)                 // high density, stable random value, distributed ~equally for each group
+			var spec int
+			if og.IsSpecRandomGenerator {
+				spec = og.SpecRandomGenerator.Intn(len(SpecPool))
+			} else {
+				spec = len(h.prices) % len(SpecPool)
+			}
+
+			// high density result
+			group := og.GroupRandomGenerator.Intn(5) // high density, stable random value, distributed ~equally for each group
 
 			price := &model.PriceCondition{
 				ID:         uuid.NewString(),

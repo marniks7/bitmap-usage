@@ -4,7 +4,6 @@ import (
 	"bitmap-usage/benchmark/500k-large-groups/sample"
 	"bitmap-usage/cache"
 	indexroaring "bitmap-usage/index-roaring"
-	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -15,7 +14,7 @@ func prepareBitmapIndex(b *testing.B) (*cache.CatalogService, *indexroaring.Bitm
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
-	ind := indexroaring.NewService(log.Logger)
+	ind := indexroaring.NewService()
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 	return cs, ind
@@ -51,7 +50,7 @@ func prepareBitmapIndexT(t *testing.T) (*cache.CatalogService, *indexroaring.Bit
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := indexroaring.NewService(log.Logger)
+	ind := indexroaring.NewService()
 	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 	return cs, ind
