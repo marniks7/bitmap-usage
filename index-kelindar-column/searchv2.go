@@ -85,8 +85,8 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 
 		intersection := txn.With(boIndexes...)
 		cardinality := 0
-		err := intersection.Range(FieldNameId, func(v column.Cursor) {
-			priceIndex = v.Index()
+		err := intersection.Range(func(v uint32) {
+			priceIndex = v
 			cardinality++
 		})
 		if err != nil {
@@ -102,9 +102,9 @@ func (h *Holder) FindPriceIndexBy(offeringId, groupId, specId string,
 		intersection = intersection.With(FieldNameDefault + "_true")
 		//no default row 'true' at all
 		cardinality = 0
-		err = intersection.Range(FieldNameId, func(v column.Cursor) {
+		err = intersection.Range(func(v uint32) {
 			if cardinality == 0 {
-				priceIndex = v.Index()
+				priceIndex = v
 			}
 			cardinality++
 		})

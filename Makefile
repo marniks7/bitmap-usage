@@ -92,6 +92,9 @@ run-sroar:
 run-fiber: FIBER=true
 run-fiber:
 	$(MAKE) -e run
+run-fiber-kelindar: FIBER=true KELINDAR32=true
+run-fiber-kelindar:
+	$(MAKE) -e run
 run-profile-gc: APP_CMD=GODEBUG=gctrace=1
 run-profile-gc:
 	$(MAKE) -e run
@@ -257,6 +260,7 @@ wrk-kelindar-t1-c1:
 wrk-kelindar-t2-c20: WRK_THREADS=2
 wrk-kelindar-t2-c20: WRK_CONNECTIONS=20
 wrk-kelindar-t2-c20: APP_API_PART=kelindar
+wrk-kelindar-t2-c20: WRK_REQUEST=benchmark/500k-large-groups/sample/wrk-search-price-kelindar-multiple-request-1000.lua
 wrk-kelindar-t2-c20: WRK_FOLDER = ${WRK_KELINDAR_FOLDER}
 wrk-kelindar-t2-c20:
 	$(MAKE) -e wrk-run

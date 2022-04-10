@@ -15,15 +15,15 @@ import (
 
 func TestPerformanceWrkExperiments(t *testing.T) {
 	roaring32, kelindar32, map32, sroar, map64, roaring64 := basicApplications()
-	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 5 * time.Second}
+	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 10 * time.Second}
 
 	expsType1 := basicExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
 
 	expsType2 := make([]Experiment, 0, len(expsType1))
 	for _, exp := range expsType1 {
-		//if exp.Name != "Roaring32" {
-		//	continue
-		//}
+		if exp.Name != "Kelindar32" {
+			continue
+		}
 		wrk := merge(wrkConfig, exp.Wrk)
 		//wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
 		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application,

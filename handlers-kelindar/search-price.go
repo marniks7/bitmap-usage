@@ -15,6 +15,7 @@ func (as *BitmapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.R
 	err := dec.Decode(&findPriceRequest)
 
 	if err != nil {
+		log.Err(err).Msg("Unable to decode")
 		misc.HandleDecodeError(rw, err)
 		return
 	}
@@ -22,6 +23,7 @@ func (as *BitmapAggregateService) FindPriceByX(rw http.ResponseWriter, r *http.R
 	index, err := as.Index.FindPriceIndexBy(findPriceRequest.OfferingId, findPriceRequest.GroupId,
 		findPriceRequest.PriceSpecId, findPriceRequest.CharValues)
 	if err != nil {
+		log.Err(err).Msg("Unable to find price id")
 		http.Error(rw, err.Error(), http.StatusNotFound)
 		return
 	}
