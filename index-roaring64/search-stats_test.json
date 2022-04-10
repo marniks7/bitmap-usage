@@ -1,0 +1,68 @@
+{
+   "Stats": [
+      {
+         "Cardinality": 9744,
+         "OriginalCardinality": 9744,
+         "Value": "00d3a020-08c4-4c94-be0a-e29794756f9e",
+         "BitmapName": "Offering",
+         "BitmapIndex": 4,
+         "Order": 1
+      },
+      {
+         "Cardinality": 1624,
+         "OriginalCardinality": 81200,
+         "Value": "Term 24",
+         "BitmapName": "CharValue",
+         "BitmapIndex": 44,
+         "Order": 2
+      },
+      {
+         "Cardinality": 232,
+         "OriginalCardinality": 69600,
+         "Value": "B2B Traffic 5GB",
+         "BitmapName": "CharValue",
+         "BitmapIndex": 38,
+         "Order": 3
+      },
+      {
+         "Cardinality": 8,
+         "OriginalCardinality": 16800,
+         "Value": "B2B Bandwidth 900Mbps",
+         "BitmapName": "CharValue",
+         "BitmapIndex": 31,
+         "Order": 4
+      },
+      {
+         "Cardinality": 2,
+         "OriginalCardinality": 121800,
+         "Value": "VPN 5739614e-6c52-402c-ba3a-534c51b3201a",
+         "BitmapName": "CharValue",
+         "BitmapIndex": 34,
+         "Order": 5
+      },
+      {
+         "Cardinality": 1,
+         "OriginalCardinality": 243600,
+         "Value": "Router Not Included",
+         "BitmapName": "CharValue",
+         "BitmapIndex": 5,
+         "Order": 6
+      },
+      {
+         "Cardinality": 1,
+         "OriginalCardinality": 97037,
+         "Value": "group2",
+         "BitmapName": "Group",
+         "BitmapIndex": 1,
+         "Order": 7
+      },
+      {
+         "Cardinality": 1,
+         "OriginalCardinality": 243600,
+         "Value": "NRC",
+         "BitmapName": "Spec",
+         "BitmapIndex": 1,
+         "Order": 8
+      }
+   ]
+}

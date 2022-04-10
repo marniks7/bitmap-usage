@@ -4,22 +4,21 @@ import (
 	"bitmap-usage/benchmark/500k-large-groups/sample64"
 	"bitmap-usage/cache64"
 	"bitmap-usage/model64"
-	"encoding/json"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"strconv"
-	"strings"
 	"testing"
 )
 
-func TestFindPriceId(t *testing.T) {
+func TestFindPriceIdV2(t *testing.T) {
 	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	sampleService := sample64.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewService()
-	ind.IndexPrices(cs.Catalog)
+	ind := NewHolder()
+	err = ind.IndexPricesV2(cs.Catalog)
+	assert.NoError(t, err)
 
 	//f, err := os.Create("cpu.pprof")
 	//if err != nil {
@@ -56,46 +55,15 @@ func TestFindPriceId(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func TestFindPriceIdWithTraceInfo(t *testing.T) {
+func TestFindPriceV2(t *testing.T) {
 	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	sampleService := sample64.Service{Cs: cs}
 	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(t, err)
 
-	ind := NewService()
-	ind.IndexPrices(cs.Catalog)
-
-	priceIndex, err, actual := ind.FindPriceIndexByWithTraceInfo("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
-		[]model64.CharValue{{"Term", "24"},
-			{"B2B Traffic", "5GB"},
-			{"B2B Bandwidth", "900Mbps"},
-			{"VPN", "5739614e-6c52-402c-ba3a-534c51b3201a"},
-			{"Router", "Not Included"}})
-
+	ind := NewHolder()
+	err = ind.IndexPricesV2(cs.Catalog)
 	assert.NoError(t, err)
-	assert.NotZero(t, priceIndex)
-
-	assert.NoError(t, err)
-	file, err := os.ReadFile("search-stats_test.json")
-	assert.NoError(t, err)
-	var expected BitmapSearchStatistic
-	err = json.Unmarshal(file, &expected)
-	assert.NoError(t, err)
-	//marshal, err := json.MarshalIndent(actual, "", "   ")
-	//assert.NoError(t, err)
-	//err = os.WriteFile("search-stats_test.json", marshal, os.ModePerm)
-	//assert.NoError(t, err)
-	assert.Equal(t, expected, *actual)
-}
-
-func TestFindPrice(t *testing.T) {
-	cs := cache64.NewCatalogService(cache64.NewCatalog())
-	sampleService := sample64.Service{Cs: cs}
-	err := sampleService.GenerateTestData5Chars50Offerings()
-	assert.NoError(t, err)
-
-	ind := NewService()
-	ind.IndexPrices(cs.Catalog)
 	cs.GeneratePricesByConditions()
 
 	priceIndex, err := ind.FindPriceIndexBy("00d3a020-08c4-4c94-be0a-e29794756f9e", "group2", "NRC",
@@ -114,38 +82,38 @@ func TestFindPrice(t *testing.T) {
 	assert.NotNil(t, price)
 }
 
-func TestBitMapIndexService_Optimized_Structured_And_Stats(t *testing.T) {
+func TestBitMapIndexService_Optimized_Structured_And_StatsV2(t *testing.T) {
 	err := os.Setenv("TEST_OPTIMIZED", strconv.Itoa(int(BitmapStructure))+","+strconv.Itoa(int(OptimizerStatistic)))
 	assert.NoError(t, err)
 	defer func() {
 		err := os.Unsetenv("TEST_OPTIMIZED")
 		assert.NoError(t, err)
 	}()
-	TestFindPriceBy(t)
+	TestFindPriceByV2(t)
 }
 
-func TestBitMapIndexService_Optimized_Structure(t *testing.T) {
+func TestBitMapIndexService_Optimized_StructureV2(t *testing.T) {
 	err := os.Setenv("TEST_OPTIMIZED", strconv.Itoa(int(BitmapStructure)))
 	assert.NoError(t, err)
 	defer func() {
 		err := os.Unsetenv("TEST_OPTIMIZED")
 		assert.NoError(t, err)
 	}()
-	TestFindPriceBy(t)
+	TestFindPriceByV2(t)
 }
 
-func TestBitMapIndexService_Optimized_Statistic(t *testing.T) {
+func TestBitMapIndexService_Optimized_StatisticV2(t *testing.T) {
 	err := os.Setenv("TEST_OPTIMIZED", strconv.Itoa(int(OptimizerStatistic)))
 	assert.NoError(t, err)
 	defer func() {
 		err := os.Unsetenv("TEST_OPTIMIZED")
 		assert.NoError(t, err)
 	}()
-	TestFindPriceBy(t)
+	TestFindPriceByV2(t)
 }
 
 //goland:noinspection GoBoolExpressions
-func TestFindPriceBy(t *testing.T) {
+func TestFindPriceByV2(t *testing.T) {
 	optimized := retrieveOptimizationTypes(t)
 	type fields struct {
 		priceConditions []*model64.PriceCondition
@@ -420,8 +388,9 @@ func TestFindPriceBy(t *testing.T) {
 			cs := cache64.NewCatalogService(cache64.NewCatalog())
 			cs.Catalog.PriceConditions = tt.fields.priceConditions
 
-			ind := NewService()
-			ind.IndexPrices(cs.Catalog)
+			ind := NewHolder()
+			err := ind.IndexPricesV2(cs.Catalog)
+			assert.NoError(t, err)
 
 			cs.GeneratePricesByConditionsAndClear()
 			for i := 0; i < len(tt.fields.optimized); i++ {
@@ -431,6 +400,8 @@ func TestFindPriceBy(t *testing.T) {
 				} else if tt.fields.optimized[i] == OptimizerStatistic {
 					_, err := ind.RunOptimizeBasedOnStats()
 					assert.NoError(t, err)
+				} else {
+					panic("unknown optimization " + string(rune(tt.fields.optimized[i])))
 				}
 			}
 			got, got1 := ind.FindPriceIndexBy(tt.args.offeringId, tt.args.groupId, tt.args.specId, tt.args.charValues)
@@ -449,19 +420,4 @@ func TestFindPriceBy(t *testing.T) {
 			}
 		})
 	}
-}
-
-func retrieveOptimizationTypes(t *testing.T) []OptimizationType {
-	optimizedEnv := os.Getenv("TEST_OPTIMIZED")
-	var optimized []OptimizationType = nil
-	if optimizedEnv != "" {
-		split := strings.Split(optimizedEnv, ",")
-		optimized = make([]OptimizationType, len(split), len(split))
-		for i := 0; i < len(split); i++ {
-			atoi, err := strconv.Atoi(split[i])
-			assert.NoError(t, err)
-			optimized[i] = OptimizationType(atoi)
-		}
-	}
-	return optimized
 }

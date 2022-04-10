@@ -1,8 +1,8 @@
 package indexroaring64
 
 import (
-	cache64 "bitmap-usage/cache64"
-	model64 "bitmap-usage/model64"
+	"bitmap-usage/cache64"
+	"bitmap-usage/model64"
 	"github.com/RoaringBitmap/roaring/roaring64"
 )
 
@@ -35,9 +35,9 @@ func (s *BitmapIndexService) IndexPrices(catalog *cache64.Catalog) *PriceBitmaps
 	return bmi
 }
 
-func offeringBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]uint32) {
-	var count uint32 = 0
-	index := make(map[string]uint32, 128)
+func offeringBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]uint64) {
+	var count uint64 = 0
+	index := make(map[string]uint64, 128)
 
 	//find all unique values
 	for _, v := range prices {
@@ -61,19 +61,19 @@ func offeringBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map
 	return bitmaps, index
 }
 
-func conditionBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]map[string]uint32) {
-	var valueCount uint32 = 0
+func conditionBitmaps(prices []*model64.PriceCondition) ([]*roaring64.Bitmap, map[string]map[string]uint64) {
+	var valueCount uint64 = 0
 
 	valueBitmaps := make([]*roaring64.Bitmap, 0, 10)
-	charsToValuesIndex := make(map[string]map[string]uint32, 128)
+	charsToValuesIndex := make(map[string]map[string]uint64, 128)
 	for _, v := range prices {
 		for i, cc := range v.Chars {
 
-			var valueToIndex map[string]uint32
+			var valueToIndex map[string]uint64
 			if u, ok := charsToValuesIndex[cc]; ok {
 				valueToIndex = u
 			} else {
-				valueToIndex = make(map[string]uint32, 8)
+				valueToIndex = make(map[string]uint64, 8)
 				charsToValuesIndex[cc] = valueToIndex
 			}
 
