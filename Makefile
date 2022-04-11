@@ -92,6 +92,12 @@ run-sroar:
 run-fiber: FIBER=true
 run-fiber:
 	$(MAKE) -e run
+run-roaring32-fiber: FIBER=true ROARING32=true
+run-roaring32-fiber:
+	$(MAKE) -e run
+run-map32-fiber: FIBER=true MAP32=true
+run-map32-fiber:
+	$(MAKE) -e run
 run-profile-gc: APP_CMD=GODEBUG=gctrace=1
 run-profile-gc:
 	$(MAKE) -e run

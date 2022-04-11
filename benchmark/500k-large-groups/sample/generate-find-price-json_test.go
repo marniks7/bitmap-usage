@@ -1,6 +1,7 @@
 package sample
 
 import (
+	"strconv"
 	"testing"
 )
 
@@ -34,31 +35,21 @@ func TestGenerateWrk(t *testing.T) {
 
 func TestGenerateMultipleWRKBitmap(t *testing.T) {
 	list := []struct {
-		Size     int
 		Filename string
 		Api      string
 	}{
-		{Size: 100,
-			Filename: "wrk-search-price-bitmap-multiple-request-100.lua",
-			Api:      "/v1/search/bitmap/prices"},
-		{Size: 1000,
-			Filename: "wrk-search-price-bitmap-multiple-request-1000.lua",
-			Api:      "/v1/search/bitmap/prices"},
-		{Size: 100,
-			Filename: "wrk-search-price-map-multiple-request-100.lua",
-			Api:      "/v1/search/map/prices"},
-		{Size: 1000,
-			Filename: "wrk-search-price-map-multiple-request-1000.lua",
-			Api:      "/v1/search/map/prices"},
-		{Size: 100,
-			Filename: "wrk-search-price-kelindar-multiple-request-100.lua",
-			Api:      "/v1/search/kelindar/prices"},
-		{Size: 1000,
-			Filename: "wrk-search-price-kelindar-multiple-request-1000.lua",
-			Api:      "/v1/search/kelindar/prices"},
+		{Filename: "wrk-search-price-bitmap-multiple-request",
+			Api: "/v1/search/bitmap/prices"},
+		{Filename: "wrk-search-price-map-multiple-request",
+			Api: "/v1/search/map/prices"},
+		{Filename: "wrk-search-price-kelindar-multiple-request",
+			Api: "/v1/search/kelindar/prices"},
 	}
+	sizes := []int{100, 1000, 2000}
 
 	for _, l := range list {
-		GenerateWrkRequestMultiple(l.Size, l.Api, l.Filename)
+		for _, size := range sizes {
+			GenerateWrkRequestMultiple(size, l.Api, l.Filename+"-"+strconv.Itoa(size)+".lua")
+		}
 	}
 }
