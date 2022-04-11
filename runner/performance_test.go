@@ -25,16 +25,17 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 	dt := time.Now().Format("2006-01-02T15-04-05Z")
 	expsType2 := make([]Experiment, 0, len(expsType1))
 	for _, exp := range expsType1 {
-		//if exp.Name != "Roaring32" {
+		//if exp.Application.Approach != Roaring32 {
 		//	continue
 		//}
 		wrk := merge(wrkConfig, exp.Wrk)
-		filename := "/wrk" +
+		filename := "wrk" +
 			"-t" + strconv.Itoa(wrk.Threads) +
 			"-c" + strconv.Itoa(wrk.Connections) +
-			"-" + strings.ToLower(string(exp.Application.Approach)) +
-			".json"
-		wrk.JsonFilePath = "reports/" + dt + "/" + filename
+			"-" + strings.ToLower(string(exp.Application.Approach))
+
+		wrk.JsonFilePath = "reports/" + dt + "/" + filename + ".json"
+		wrk.SummaryFilepath = "reports/" + dt + "/" + filename + ".txt"
 		//wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
 		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
 	}
@@ -69,6 +70,29 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 			assert.Zero(t, report.Errors.Timeout)
 			assert.Zero(t, report.Errors.Status)
 			assert.Zero(t, report.Errors.Connect)
+		}
+	}
+	generateMarkdownDifference(t, expsType2)
+}
+
+func generateMarkdownDifference(t *testing.T, expsType2 []Experiment) {
+	end := len(expsType2)
+
+	for i := 0; i < end; i++ {
+		path1 := expsType2[i].Wrk.JsonFilePath
+		_, file1 := filepath.Split(path1)
+		report1, err := analyze.ReadJsonWrkReport(reportFullpath(path1))
+		assert.NoError(t, err)
+		for j := i + 1; j < end; j++ {
+			path2 := expsType2[j].Wrk.JsonFilePath
+			_, file2 := filepath.Split(path2)
+			report2, err := analyze.ReadJsonWrkReport(reportFullpath(path2))
+			assert.NoError(t, err)
+			fullpath := reportDirFullpath(path1)
+			diffFile := filepath.Join(fullpath, file1+"-"+file2+".md")
+			file, err := os.Create(diffFile)
+			assert.NoError(t, err)
+			analyze.MarkdownDiff(report1, report2, file)
 		}
 	}
 }
@@ -320,6 +344,10 @@ func merge(from Wrk, to Wrk) Wrk {
 	if from.JsonFilePath != "" {
 		to.JsonFilePath = from.JsonFilePath
 	}
+
+	if from.SummaryFilepath != "" {
+		to.SummaryFilepath = from.SummaryFilepath
+	}
 	return to
 }
 
@@ -336,6 +364,21 @@ func execute(app Application, wrk Wrk) {
 	cmd.Env = append(cmd.Env, appConsole.HttpServer, appConsole.GoGC, appConsole.GoMaxProc,
 		appConsole.FiberPrefork, appConsole.BitmapOptStats,
 		appConsole.BitmapOptStructure, appConsole.Approach)
+	wrk.Port = cons.Port
+	wrkArgs := wrk.Convert()
+	consoleArgs := make([]string, 0, 10)
+	consoleArgs = append(consoleArgs, wrkArgs.Threads, wrkArgs.Connections, wrkArgs.Duration,
+		"--latency", "-s", wrkArgs.Script, wrkArgs.Path)
+	if wrkArgs.JsonFilePath != "" {
+		dir := reportDirFullpath(wrkArgs.JsonFilePath)
+		log.Info().Str("dir", dir).Msg("Output json filepath")
+		err := os.MkdirAll(dir, os.ModePerm)
+		if err != nil {
+			panic(err)
+		}
+		consoleArgs = append(consoleArgs, "--", wrkArgs.JsonFilePath)
+	}
+
 	//kill the process to avoid hanging in case of problems
 	go func() {
 		<-time.After(killTime)
@@ -344,20 +387,6 @@ func execute(app Application, wrk Wrk) {
 		cmd.Process.Kill()
 	}()
 	cons.Start()
-	wrk.Port = cons.Port
-	wrkArgs := wrk.Convert()
-	consoleArgs := make([]string, 0, 10)
-	consoleArgs = append(consoleArgs, wrkArgs.Threads, wrkArgs.Connections, wrkArgs.Duration,
-		"--latency", "-s", wrkArgs.Script, wrkArgs.Path)
-	if wrkArgs.JsonFilePath != "" {
-		dir := reportDirFullpath(wrkArgs.JsonFilePath)
-		log.Info().Str("dir", dir).Msg("test")
-		err := os.MkdirAll(dir, os.ModePerm)
-		if err != nil {
-			panic(err)
-		}
-		consoleArgs = append(consoleArgs, "--", wrkArgs.JsonFilePath)
-	}
 	go executeCommand(timeoutCtx, &wg, "./wrk", consoleArgs...)
 	wg.Wait()
 	err := cmd.Process.Signal(os.Interrupt)
@@ -365,6 +394,21 @@ func execute(app Application, wrk Wrk) {
 		panic(err)
 	}
 }
+
+//func teeCommand(wrkArgs WrkExecArgs) *exec.Cmd {
+//	var c2 *exec.Cmd
+//	if wrkArgs.SummaryFilepath != "" {
+//		dir := reportDirFullpath(wrkArgs.SummaryFilepath)
+//		log.Info().Str("dir", dir).Msg("Output txt filepath")
+//		err := os.MkdirAll(dir, os.ModePerm)
+//		if err != nil {
+//			panic(err)
+//		}
+//		c2 = exec.Command("tee", wrkArgs.SummaryFilepath)
+//		//consoleArgs = append(consoleArgs, "| tee "+wrkArgs.SummaryFilepath)
+//	}
+//	return c2
+//}
 
 func reportDirFullpath(fp string) string {
 	dir, _ := filepath.Split(fp)
@@ -397,7 +441,7 @@ func executeCommand(ctx context.Context, wg *sync.WaitGroup, app string, args ..
 			return
 		}
 	}()
-
+	log.Info().Str("cmd", cmd.String()).Msg("Command")
 	err := cmd.Start()
 	if err != nil {
 		log.Err(err).Msg("Command start failed")
@@ -440,13 +484,14 @@ const (
 
 // Wrk - developer-friendly way to describe params of WRK performance tool
 type Wrk struct {
-	Connections  int
-	Threads      int
-	Duration     time.Duration
-	Script       string
-	Path         string
-	Port         int
-	JsonFilePath string
+	Connections     int
+	Threads         int
+	Duration        time.Duration
+	Script          string
+	Path            string
+	Port            int
+	JsonFilePath    string
+	SummaryFilepath string
 }
 
 // AppExecArgs - formatted params for application startup
@@ -482,22 +527,24 @@ func (app Application) Convert() AppExecArgs {
 
 func (wrk Wrk) Convert() WrkExecArgs {
 	return WrkExecArgs{Connections: "-c" + strconv.Itoa(wrk.Connections),
-		Threads:      "-t" + strconv.Itoa(wrk.Threads),
-		Duration:     "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
-		Script:       wrk.Script,
-		Path:         "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
-		JsonFilePath: wrk.JsonFilePath,
+		Threads:         "-t" + strconv.Itoa(wrk.Threads),
+		Duration:        "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
+		Script:          wrk.Script,
+		Path:            "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
+		JsonFilePath:    wrk.JsonFilePath,
+		SummaryFilepath: wrk.SummaryFilepath,
 	}
 }
 
 // WrkExecArgs - formatted params for WRK tool
 type WrkExecArgs struct {
-	Connections  string
-	Threads      string
-	Duration     string
-	Script       string
-	Path         string
-	JsonFilePath string
+	Connections     string
+	Threads         string
+	Duration        string
+	Script          string
+	Path            string
+	JsonFilePath    string
+	SummaryFilepath string
 }
 
 type Experiment struct {

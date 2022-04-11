@@ -109,4 +109,4 @@ fabric.properties
 .idea
 *.iml
 
-benchmark/results/**
+reports/**

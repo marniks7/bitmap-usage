@@ -22,3 +22,18 @@ type Error struct {
 	Status  int `json:"status,omitempty"`
 	Write   int `json:"write,omitempty"`
 }
+
+// Diff %, times, magnitude
+type Diff struct {
+	Latency  *Latency `json:"latency"`
+	Duration int      `json:"duration,omitempty"`
+	Bytes    int      `json:"bytes,omitempty"`
+	Errors   *Error   `json:"errors"`
+	Requests int      `json:"requests,omitempty"`
+}
+
+type DiffStr struct {
+	wrk1 Stats
+	wrk2 Stats
+	diff Diff
+}
