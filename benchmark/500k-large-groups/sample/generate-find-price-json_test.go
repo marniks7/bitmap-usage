@@ -45,7 +45,7 @@ func TestGenerateMultipleWRKBitmap(t *testing.T) {
 		{Filename: "wrk-search-price-kelindar-multiple-request",
 			Api: "/v1/search/kelindar/prices"},
 	}
-	sizes := []int{100, 1000, 2000}
+	sizes := []int{100, 1000, 3000}
 
 	for _, l := range list {
 		for _, size := range sizes {

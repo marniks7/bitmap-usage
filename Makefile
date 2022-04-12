@@ -371,8 +371,8 @@ ab-bulk-map-1:
 	$(MAKE) -e ab-run
 	$(MAKE) trigger-gc
 ab:	ab-bitmap-1 ab-bitmap-20 ab-map-1 ab-map-20
-run-new-bench:
-	go test ./runner/... -covermode=atomic -short -test.v
+run-wrk-experiments:
+	go test ./runner/... -run PerformanceWrkExperiments -covermode=atomic -short -test.v -count=1
 # -----------------------------------------------------------------------------
 # Utils
 # -----------------------------------------------------------------------------

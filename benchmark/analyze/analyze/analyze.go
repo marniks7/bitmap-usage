@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strconv"
+	"time"
 )
 
 func ReadJsonWrkReport(filename string) (*wrk.Stats, error) {
@@ -44,7 +45,9 @@ func MarkdownDiff(statsBitmap *wrk.Stats, statsMap *wrk.Stats, buffer io.Writer)
 	sort.Strings(keys)
 	for _, k := range keys {
 		v := statsBitmap.Latency.Percentiles[k]
+		vd := time.Duration(v) * time.Microsecond
 		v2 := statsMap.Latency.Percentiles[k]
+		v2d := time.Duration(v2) * time.Microsecond
 
 		magn1 := int(math.Floor(math.Log10(float64(v))))
 		magn2 := int(math.Floor(math.Log10(float64(v2))))
@@ -52,18 +55,19 @@ func MarkdownDiff(statsBitmap *wrk.Stats, statsMap *wrk.Stats, buffer io.Writer)
 		if magn2-magn1 != 0 {
 			magnMsg = ", " + strconv.Itoa(magn2-magn1) + " order of magnitude"
 		}
-		r := (float64(v2) - float64(v)) / float64(v2)
+		r := (float64(v2) - float64(v)) / float64(v)
 		r2 := float64(v2) / float64(v)
 		betterWorth := "better"
 		if r2 < 1 {
 			betterWorth = "worth"
 		}
 		r3 := math.Abs(float64(v2) - float64(v))
+		r3d := time.Duration(r3) * time.Microsecond
 		buffer.Write([]byte("|" + k +
-			"|" + strconv.Itoa(v) + "μs" +
-			"|" + strconv.Itoa(v2) + "μs" +
+			"|" + fmt.Sprintf("%s", vd) +
+			"|" + fmt.Sprintf("%s", v2d) +
 			"|" + betterWorth + ": " +
-			"on " + fmt.Sprintf("%.0f", r3) + " μs" +
+			"on " + fmt.Sprintf("%s", r3d) +
 			", on " + fmt.Sprintf("%.2f", 100*r) +
 			"%, in " + fmt.Sprintf("%.1f", r2) +
 			" times " +
