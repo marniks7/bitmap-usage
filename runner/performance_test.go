@@ -20,41 +20,16 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 	roaring32, kelindar32, map32, sroar, map64, roaring64 := basicApplications()
 	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 30 * time.Second}
 
-	expsType1 := basicExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
+	experiments := basicExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
+	experiments = enrichWithReporting(experiments, wrkConfig)
+	//experiments = generateThreadConnectionExperiments(experiments)
 
-	dt := time.Now().Format("2006-01-02T15-04-05Z")
-	expsType2 := make([]Experiment, 0, len(expsType1))
-	for _, exp := range expsType1 {
+	for _, exp := range experiments {
 		if exp.Application.Approach != Roaring32 {
 			continue
 		}
-		wrk := merge(wrkConfig, exp.Wrk)
-		filename := "wrk" +
-			"-t" + strconv.Itoa(wrk.Threads) +
-			"-c" + strconv.Itoa(wrk.Connections) +
-			"-" + strings.ToLower(exp.Name)
-
-		wrk.JsonFilePath = "reports/" + dt + "/" + filename + ".json"
-		wrk.SummaryFilepath = "reports/" + dt + "/" + filename + ".txt"
-		//wrk.Script = "benchmark/500k-large-groups/sample/wrk-search-price-request.lua"
-		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
-	}
-
-	expsType3 := make([]Experiment, 0, len(expsType1))
-	for _, exp := range expsType1 {
-		if exp.Application.Approach != Roaring32 {
-			continue
-		}
-		for i := 1; i < 6; i++ {
-			newWrk := Wrk{Threads: 2, Connections: i * 5, Duration: 10 * time.Second}
-			wrk := merge(newWrk, exp.Wrk)
-			expsType3 = append(expsType3, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
-		}
-
-	}
-
-	for _, exp := range expsType2 {
-		log.Info().Str("name", exp.Name).Interface("app", exp.Application).
+		log.Info().Str("name", exp.Name).
+			Interface("app", exp.Application).
 			Interface("wrk", exp.Wrk).
 			Msg("Start experiment...")
 		execute(exp.Application, exp.Wrk)
@@ -72,14 +47,47 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 			assert.Zero(t, report.Errors.Connect)
 		}
 	}
-	generateMarkdownDifference(t, expsType2)
+	generateMarkdownDifference(t, experiments)
 }
 
-func generateMarkdownDifference(t *testing.T, expsType2 []Experiment) {
-	end := len(expsType2)
+func generateThreadConnectionExperiments(experiments []Experiment) []Experiment {
+	expsType3 := make([]Experiment, 0, len(experiments))
+	for _, exp := range experiments {
+		if exp.Application.Approach != Roaring32 {
+			continue
+		}
+		for i := 1; i < 6; i++ {
+			newWrk := Wrk{Threads: 2, Connections: i * 5, Duration: 10 * time.Second}
+			wrk := merge(newWrk, exp.Wrk)
+			expsType3 = append(expsType3, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
+		}
+
+	}
+	return expsType3
+}
+
+func enrichWithReporting(experiments []Experiment, wrkConfig Wrk) []Experiment {
+	dt := time.Now().Format("2006-01-02T15-04-05Z")
+	expsType2 := make([]Experiment, 0, len(experiments))
+	for _, exp := range experiments {
+		wrk := merge(wrkConfig, exp.Wrk)
+		filename := "wrk" +
+			"-t" + strconv.Itoa(wrk.Threads) +
+			"-c" + strconv.Itoa(wrk.Connections) +
+			"-" + strings.ToLower(exp.Name)
+
+		wrk.JsonFilePath = "reports/" + dt + "/" + filename + ".json"
+		wrk.SummaryFilepath = "reports/" + dt + "/" + filename + ".txt"
+		expsType2 = append(expsType2, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
+	}
+	return expsType2
+}
+
+func generateMarkdownDifference(t *testing.T, experiments []Experiment) {
+	end := len(experiments)
 
 	for i := 0; i < end; i++ {
-		path1 := expsType2[i].Wrk.JsonFilePath
+		path1 := experiments[i].Wrk.JsonFilePath
 		_, file1 := filepath.Split(path1)
 		report1, err := analyze.ReadJsonWrkReport(reportFullpath(path1))
 		assert.NoError(t, err)
@@ -87,7 +95,7 @@ func generateMarkdownDifference(t *testing.T, expsType2 []Experiment) {
 			if i == j {
 				continue
 			}
-			path2 := expsType2[j].Wrk.JsonFilePath
+			path2 := experiments[j].Wrk.JsonFilePath
 			_, file2 := filepath.Split(path2)
 			report2, err := analyze.ReadJsonWrkReport(reportFullpath(path2))
 			assert.NoError(t, err)
@@ -104,9 +112,9 @@ func TestPerformanceBulkWrkExperiments(t *testing.T) {
 	roaring32, kelindar32, map32, sroar, map64, roaring64 := basicApplications()
 	wrkConfig := Wrk{Threads: 1, Connections: 1, Duration: 30 * time.Second}
 
-	expsType1 := bulkExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
+	experiments := bulkExperiments(roaring32, map32, kelindar32, roaring64, map64, sroar)
 
-	for _, exp := range expsType1 {
+	for _, exp := range experiments {
 		wrk := merge(wrkConfig, exp.Wrk)
 		log.Info().Str("name", exp.Name).Interface("app", exp.Application).
 			Interface("wrk", wrk).
@@ -120,15 +128,31 @@ func TestPerformanceBulkWrkExperimentsDifferentVersions(t *testing.T) {
 	roaring32, kelindar32, map32, sroar, map64, roaring64 := basicApplications()
 	wrkConfig := Wrk{Threads: 1, Connections: 1, Duration: 10 * time.Second}
 
-	expsType1 := bulkExperimentsDifferentVersions(roaring32, map32, kelindar32, roaring64, map64, sroar)
+	experiments := bulkExperimentsDifferentVersions(roaring32, map32, kelindar32, roaring64, map64, sroar)
+	experiments = enrichWithReporting(experiments, wrkConfig)
 
-	for _, exp := range expsType1 {
-		wrk := merge(wrkConfig, exp.Wrk)
-		log.Info().Str("name", exp.Name).Interface("app", exp.Application).
-			Interface("wrk", wrk).
+	for _, exp := range experiments {
+		log.Info().Str("name", exp.Name).
+			Interface("app", exp.Application).
+			Interface("wrk", exp.Wrk).
 			Msg("Start experiment...")
-		execute(exp.Application, wrk)
+		execute(exp.Application, exp.Wrk)
+		path := exp.Wrk.JsonFilePath
+		if path != "" {
+			report, err := analyze.ReadJsonWrkReport(reportFullpath(path))
+			if err != nil {
+				log.Err(err).Msg("unable to read wrk report")
+				t.FailNow()
+			}
+			assert.Zero(t, report.Errors.Write)
+			assert.Zero(t, report.Errors.Read)
+			assert.Zero(t, report.Errors.Timeout)
+			assert.Zero(t, report.Errors.Status)
+			assert.Zero(t, report.Errors.Connect)
+		}
 	}
+
+	generateMarkdownDifference(t, experiments)
 }
 
 func basicApplications() (Application, Application, Application, Application, Application, Application) {
