@@ -17,6 +17,8 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+	"sync"
+	"syscall"
 	"time"
 )
 
@@ -56,7 +58,7 @@ func StartApp() {
 	r := mux.NewRouter()
 
 	app := fiber.New(fiber.Config{ //make sure it is synced with http.Server below
-		ReadTimeout:  10 * time.Minute,
+		ReadTimeout:  120 * time.Second,
 		WriteTimeout: 1 * time.Minute,
 		IdleTimeout:  120 * time.Second,
 		Prefork:      fiberPrefork,
@@ -118,6 +120,10 @@ func StartApp() {
 		Map32: map32, Sroar: sroar64, Roaring64: roaring64, Map64: map64,
 		GOGC: goGCInt, GOMAXPROCS: runtime.GOMAXPROCS(0)}
 
+	log.Info().Str("Version", runtime.Version()).
+		Int("GOMAXPROCS", runtime.GOMAXPROCS(0)).
+		Int("GOGC", goGCInt).
+		Msg("Go Runtime")
 	pprofRoutes(r, app)
 
 	runtime.GC()
@@ -129,55 +135,49 @@ func StartApp() {
 		IdleTimeout:       120 * time.Second,
 	}
 
-	// receiving the signal from OS for graceful shutdown
-	signals := make(chan os.Signal)
-
 	log.Info().Str("impl", string(httpServerType())).Msg("Http Server")
 	if useFiber {
 		if fiberPrefork {
 			log.Info().Msg("Use Fiber Prefork")
 		}
 	}
-	//start server in separate goroutine
-	go func() {
-		log.Info().Str("addr", addr).Msg("Starting server")
-		if useFiber {
-			err = app.Listen(addr)
-		} else {
-			err = server.ListenAndServe()
-		}
 
+	gsCtx, stop := signal.NotifyContext(context.Background(), syscall.SIGTERM, os.Interrupt)
+	defer stop()
+
+	var gsWg sync.WaitGroup
+	if useFiber {
+		setupFiberHttpServerShutdown(app, gsCtx, &gsWg)
+	} else {
+		setupHttpServerShutdown(server, gsCtx, &gsWg)
+	}
+	if useFiber {
+		err = app.Listen(addr)
 		if err != nil {
 			if err == http.ErrServerClosed {
-				log.Info().Msg("Server is shutdown")
+				log.Info().Msg("ServerHandlers is shutdown already")
 			} else {
-				log.Err(err).Msg("Unable to start server")
+				log.Err(err).Msg("Problem occurred during server startup")
 			}
-			signals <- os.Kill
+			//in case if error occurred during the start of web server - make sure the application shutdown gracefully
+			//another option is to call panic, but there maybe jobs already in-progress
+			stop()
 		}
-	}()
-
-	signal.Notify(signals, os.Interrupt)
-	signal.Notify(signals, os.Kill)
-	//blocks until receiving the signal
-	sig := <-signals
-
-	log.Info().Interface("sig", sig).Msg("Received terminate, graceful shutdown")
-	// graceful shutdown timeout for transaction\calls finish (if any)
-	//goland:noinspection GoVetLostCancel
-	timeout, _ := context.WithTimeout(context.Background(), 10*time.Second)
-
-	if useFiber {
-		err = app.Shutdown()
 	} else {
-		err = server.Shutdown(timeout)
-	}
-
-	if err != nil {
-		if err != http.ErrServerClosed {
-			log.Err(err).Msg("Unable to shutdown server")
+		err = server.ListenAndServe()
+		if err != nil {
+			if err == http.ErrServerClosed {
+				log.Info().Msg("ServerHandlers is shutdown already")
+			} else {
+				log.Err(err).Msg("Problem occurred during server startup")
+			}
+			//in case if error occurred during the start of web server - make sure the application shutdown gracefully
+			//another option is to call panic, but there maybe jobs already in-progress
+			stop()
 		}
 	}
+	//part of graceful shutdown - wait for all goroutines to execute there graceful shutdown
+	gsWg.Wait()
 }
 
 func getGOGC(err error) int {
@@ -232,4 +232,45 @@ func getEnvOrDefaultBool(key string, def bool, description string) bool {
 		return boolValue
 	}
 	return def
+}
+
+// setupFiberHttpServerShutdown - graceful shutdown implementation
+func setupHttpServerShutdown(httpServer *http.Server, gsCtx context.Context, gsWg *sync.WaitGroup) {
+	gsWg.Add(1)
+	go func(gsCtx context.Context, gsWg *sync.WaitGroup) {
+		defer gsWg.Done()
+		<-gsCtx.Done()
+		log.Info().Msg("Received terminate, graceful shutdown...")
+		// graceful shutdown
+		err := httpServer.Shutdown(gsCtx)
+		if err != nil {
+			if err == http.ErrServerClosed {
+				log.Info().Msg("ServerHandlers is shutdown already")
+			} else {
+				log.Err(err).Msg("Problem occurred during server shutdown")
+			}
+		}
+
+	}(gsCtx, gsWg)
+}
+
+// setupHttpServerShutdown - graceful shutdown implementation
+func setupFiberHttpServerShutdown(app *fiber.App, gsCtx context.Context, gsWg *sync.WaitGroup) {
+	gsWg.Add(1)
+	go func(gsCtx context.Context, gsWg *sync.WaitGroup) {
+		defer gsWg.Done()
+		<-gsCtx.Done()
+		log.Info().Msg("Received terminate, graceful shutdown...")
+		// graceful shutdown
+		err := app.Shutdown()
+		if err != nil {
+			if err == http.ErrServerClosed {
+				log.Info().Msg("ServerHandlers is shutdown already")
+			} else {
+				log.Err(err).Msg("Problem occurred during server shutdown")
+			}
+		}
+		log.Info().Msg("Fiber http server shutdown is finished")
+
+	}(gsCtx, gsWg)
 }

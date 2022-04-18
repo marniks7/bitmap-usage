@@ -24,10 +24,9 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 	experiments = enrichWithReporting(experiments, wrkConfig)
 	//experiments = generateThreadConnectionExperiments(experiments)
 
+	experiments = filterExperiments(experiments)
+
 	for _, exp := range experiments {
-		if exp.Application.Approach != Roaring32 {
-			continue
-		}
 		log.Info().Str("name", exp.Name).
 			Interface("app", exp.Application).
 			Interface("wrk", exp.Wrk).
@@ -48,6 +47,18 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 		}
 	}
 	generateMarkdownDifference(t, experiments)
+}
+
+func filterExperiments(experiments []Experiment) []Experiment {
+	expsType2 := make([]Experiment, 0, len(experiments))
+	for _, exp := range experiments {
+		if exp.Application.Approach != Kelindar32 {
+			continue
+		}
+		expsType2 = append(expsType2, exp)
+	}
+	return expsType2
+
 }
 
 func generateThreadConnectionExperiments(experiments []Experiment) []Experiment {
@@ -177,18 +188,18 @@ func basicExperiments(roaring32 Application,
 	map64 Application,
 	sroar Application) []Experiment {
 	expsType1 := []Experiment{
-		{Name: string(Map32) + "-const", Application: map32, Wrk: Wrk{
-			Path:   "/v1/search/map/prices",
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-		}},
+		//{Name: string(Map32) + "-const", Application: map32, Wrk: Wrk{
+		//	Path:   "/v1/search/map/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+		//}},
 		{Name: string(Map32), Application: map32, Wrk: Wrk{
 			Path:   "/v1/search/map/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-3000.lua",
 		}},
-		{Name: string(Roaring32) + "-const", Application: roaring32, Wrk: Wrk{
-			Path:   "/v1/search/bitmap/prices",
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
-		}},
+		//{Name: string(Roaring32) + "-const", Application: roaring32, Wrk: Wrk{
+		//	Path:   "/v1/search/bitmap/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
+		//}},
 		{Name: string(Roaring32), Application: roaring32, Wrk: Wrk{
 			Path:   "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
@@ -429,7 +440,10 @@ func execute(app Application, wrk Wrk) {
 	if err != nil {
 		panic(err)
 	}
-	cmd.Wait()
+	_ = cmd.Wait()
+	//if err != nil {
+	//	log.Err(err).Msg("Wait for app failed")
+	//}
 }
 
 //func teeCommand(wrkArgs WrkExecArgs) *exec.Cmd {

@@ -372,7 +372,7 @@ ab-bulk-map-1:
 	$(MAKE) trigger-gc
 ab:	ab-bitmap-1 ab-bitmap-20 ab-map-1 ab-map-20
 run-wrk-experiments:
-	go test ./runner/... -run PerformanceWrkExperiments -covermode=atomic -short -test.v -count=1
+	go${GOVERSION} test ./runner/... -run PerformanceWrkExperiments -covermode=atomic -short -test.v -count=1
 # -----------------------------------------------------------------------------
 # Utils
 # -----------------------------------------------------------------------------
@@ -390,7 +390,16 @@ pprof-allocs: # Memory allocations profiler. Run test, wait till the end, run th
 pprof-profile: # CPU profiler. Run it and run test
 	go${GOVERSION} tool pprof ${APP_PROTOCOL}://${APP_HOST}:${APP_PORT}/debug/pprof/profile
 bench-diff:
-	go${GOVERSION} run benchmark/analyze/main.go
+	go${GOVERSION} run benchmark/analyze/main.go -f1 "benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t2-c20.json" \
+		-f2 "benchmark/500k-large-groups/map/wrk/json/map-t2-c20.json" \
+		-o "benchmark/500k-large-groups/diff/wrk/t2-c20-bitmap-vs-map.md"
+	go${GOVERSION} run benchmark/analyze/main.go -f1 "benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t1-c1.json" \
+    		-f2 "benchmark/500k-large-groups/map/wrk/json/map-t1-c1.json" \
+    		-o "benchmark/500k-large-groups/diff/wrk/t1-c1-bitmap-vs-map.md"
 	# '-split' should NOT contain 'pkg' cause looks like it is unable to process '/'
 	benchstat -split 'goos' -alpha 1 benchmark/500k-large-groups/map/benchmark-results.txt benchmark/500k-large-groups/bitmap/benchmark-results.txt \
 		| tee benchmark/500k-large-groups/diff/benchmark-results.txt
+bench-diff-example:
+	go run benchmark/analyze/main.go -f2 "reports/$$(ls reports | tail -n 2 | head -n 1)/$$(ls reports/$$(ls reports | tail -n 2 | head -n 1))" \
+		-f1 "reports/$$(ls reports | tail -n 1)/$$(ls reports/$$(ls reports | tail -n 1))" \
+		-o "reports/$$(ls reports | tail -n 1)/diff-go1.17.6-vs-go1.16.15.md"

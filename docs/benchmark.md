@@ -23,7 +23,7 @@
 * 1 connection (1 processor)
   * [map latest](../benchmark/500k-large-groups/map/wrk/map-t1-c1.txt)
   * [bitmap latest](../benchmark/500k-large-groups/bitmap/wrk/bitmap-t1-c1.txt)
-  * [diff latest](../benchmark/500k-large-groups/diff/wrk/diff.md)
+  * [t1 c1 wrk latest](../benchmark/500k-large-groups/diff/wrk/t1-c1-bitmap-vs-map.md)
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|
@@ -39,7 +39,7 @@
 * 20 connections (2 processors)
   * [map latest](../benchmark/500k-large-groups/map/wrk/map-t2-c20.txt)
   * [bitmap latest](../benchmark/500k-large-groups/bitmap/wrk/bitmap-t2-c20.txt)
-  * [diff latest](../benchmark/500k-large-groups/diff/wrk/diff.md)
+  * [t2 c20 wrk latest](../benchmark/500k-large-groups/diff/wrk/t2-c20-bitmap-vs-map.md)
 
 |Case|Bitmap, ns|Map, ns|Bitmap benefit|
 |---|---|---|---|

@@ -3,29 +3,25 @@ package main
 import (
 	"bitmap-usage/benchmark/analyze/analyze"
 	"bytes"
+	"flag"
 	"github.com/rs/zerolog/log"
 	"os"
 	"path/filepath"
 )
 
 func main() {
+	f1 := flag.String("f1", "", "First file to compare")
+	f2 := flag.String("f2", "", "Second file to compare")
+	o := flag.String("o", "", "Output, markdown file name")
+	flag.Parse()
 	var buf []byte
 	buffer := bytes.NewBuffer(buf)
-	err := diffWrkT1C1(buffer)
+	err := generateMarkdownDiff(buffer, *f1, *f2)
 	if err != nil {
-		log.Err(err).Msg("unable to calculate diff")
+		log.Err(err).Msg("unable to calculate diff or generate markdown file")
 		return
 	}
-
-	buffer.Write([]byte("\n"))
-
-	err = diffWrkT2C20(buffer)
-	if err != nil {
-		log.Err(err).Msg("unable to calculate diff")
-		return
-	}
-
-	abs, err := filepath.Abs("benchmark/500k-large-groups/diff/wrk/diff.md")
+	abs, err := filepath.Abs(*o)
 	if err != nil {
 		log.Err(err).Msg("unable to get path to file")
 		return
@@ -42,26 +38,12 @@ func main() {
 	}
 }
 
-func diffWrkT1C1(buffer *bytes.Buffer) error {
-	statsBitmap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t1-c1.json")
+func generateMarkdownDiff(buffer *bytes.Buffer, fileName1 string, fileName2 string) error {
+	statsBitmap, err := analyze.ReadJsonWrkReport(fileName1)
 	if err != nil {
 		return err
 	}
-	statsMap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/map/wrk/json/map-t1-c1.json")
-	if err != nil {
-		return err
-	}
-
-	analyze.MarkdownDiff(statsBitmap, statsMap, buffer)
-	return err
-}
-
-func diffWrkT2C20(buffer *bytes.Buffer) error {
-	statsBitmap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/bitmap/wrk/json/bitmap-t2-c20.json")
-	if err != nil {
-		return err
-	}
-	statsMap, err := analyze.ReadJsonWrkReport("benchmark/500k-large-groups/map/wrk/json/map-t2-c20.json")
+	statsMap, err := analyze.ReadJsonWrkReport(fileName2)
 	if err != nil {
 		return err
 	}
