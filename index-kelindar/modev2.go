@@ -134,7 +134,7 @@ type Holder struct {
 }
 
 type Tx struct {
-	index bitmap.Bitmap
+	index *bitmap.Bitmap
 }
 
 // FieldMetadata contains information about all bitmaps related to one field
@@ -184,8 +184,9 @@ type RowSegment struct {
 func NewHolder() *Holder {
 	return &Holder{bitmapPool: sync.Pool{
 		New: func() interface{} {
+			index := make(bitmap.Bitmap, 0, 4)
 			return &Tx{
-				index: make(bitmap.Bitmap, 0, 4),
+				index: &index,
 			}
 		},
 	},
