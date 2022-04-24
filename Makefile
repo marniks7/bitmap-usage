@@ -92,6 +92,9 @@ run-sroar:
 run-fiber: FIBER=true
 run-fiber:
 	$(MAKE) -e run
+run-fiber-kelindar: FIBER=true KELINDAR32=true
+run-fiber-kelindar:
+	$(MAKE) -e run
 run-roaring32-fiber: FIBER=true ROARING32=true
 run-roaring32-fiber:
 	$(MAKE) -e run
