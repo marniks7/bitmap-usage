@@ -80,7 +80,7 @@
 |UUIDs for prices|22MB|22MB|no difference|
 
 ## Notes. Memory
-* *Bitmap allows storing Price which is needed for response-only. This is small and efficient object.
+* Bitmap allows to store Price which is needed for response-only. This is small and efficient object.
 More over, it allows using LRU cache and evict entire Prices Storage and load what is often used only.
 In case of 'map' stored prices contains all data needed for price search, that is why LRU cache is not that efficient. 
 It will force eviction and loading ALL prices per offering.

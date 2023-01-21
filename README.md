@@ -13,38 +13,53 @@ For data size <2M entities
 
 ## Guidance about this repo
 
-This repo is comparing `bitmap` and `map` as a cache in-memory storage.
+This repo is comparing `bitmap` and `map` as a cache.
 
-Let's first understand what is your purpose? Do you want to improve memory? Do you want to improve CPU? or both?
-Are you ready to increase cost of development and support for that?
+Some criterias to consider: decrease memory requirements? Decrease CPU requirements? Improve latency?
+Increase cost of development and support for that?
+See below
 
 * Read [Status](docs/status.md), you might get some issues running non-essential benchmarks
 * Read [Design](docs/design.md)
     * Take into consideration: very few search options are supported, so benchmarks are limited
 * Read [Benchmark Aggregation](docs/benchmark.md) - it may not be up-to-date, but will give you the common understanding
   of the `bitmap` benefits
-* `Memory`: `bitmap` occupies less memory? This is only half of the story.
-  First, you should beware why. bitmap and map index part has minimum difference. In fact, it is about storing or
-  not storing original entities. If storing original entities is MUST - you may not gain any memory benefits
-  Second, read `CPU` section below
-* `CPU`: `bitmap` is way faster, but it comes with the cost of increased memory allocation and GC pressure.
-  This means, that proper GC configuration is MUST, and, unfortunately, minimum memory limit is not an option, e.g.
-  you may need to set memory limit as `1GB` for `100MB` of the actual cache.
-* `High throughput` vs `Low Latency` - low-latency is expected here.
-* `Sizing`: there is test for only ~`500k` prices with ~`8` conditions each. Your results for your data could be
+* `Sizing`: there is test for only ~`500k` prices with ~`8` conditions each. The results for your data could be
   different.
+* `Fair competition`: there are different strategies to improve both `bitmap` and `map` and some of them were applied.
+* `High throughput` vs `Low Latency` - low-latency is expected here
+* `Usage`: this repository is comparing search capabilities,leaving update or inserts behind, which could be as well
+  important use case. Not only timing and memory usage (gc) is important here, but also you mind end up with x2
+  memory requirements (e.g. creating two caches at the same time) or will be forced to add READ lock for concurrency
+  update\read. Map as well doesn't allow concurrent writes, so at least search compare oranges with oranges
+* `Requests`: with bitmaps client were able to send on `1281%` more requests. e.g. `2 244 242` vs `162 471`
+* `Latency`: at the same time for `99% percentile` got better timing on `>900%`, e.g. `911µs` vs `9.534ms` with even
+  better results for all requests before 99% percentile
+* `Memory`: `bitmap` cache occupies less memory? This is only half of the story.
+  First, you should beware why. bitmap and map index part has minimum difference for such sizing (`2MB vs 4MB`). In
+  fact, benefits
+  comes from ability not to store all fields of original entities. If storing original entities is MUST - you may not
+  gain any memory benefits. bitmap takes less for used structures - `90MB vs 180MB total`. Second, read `CPU` section
+  below
+* `CPU`: `bitmap` is way faster (1 order of magnitude), but it comes with the cost of increased memory allocation and GC
+  pressure. This means, that proper GC configuration is MUST, and minimum memory limit might not be an option, e.g.
+  you may need to set memory limit as `1GB` for `100MB` of the actual cache. Those numbers are not something to follow,
+  they are not measured properly after latest fixes and based on used `GOGC=1000`. However, for this cost app will be
+  able to accept `1000%` more requests
 * `Cost`: `bitmap` development and support is way harder than regular `map`. It is about supporting low-level data
   types. In contrast `Map` is like business as usual - you will be able to spend more time on you actual business cases,
   then on
   dealing with performance. More over, you can check issues of
   different `bitmap libraries` and found all sort of issues hard-to-spot, like race conditions. Good testing, even
   for concurrent READ scenarios is must.
-* `Usage`: this repository is comparing search capabilities, at the same time update or inserts could be as well
-  important use case. Not only timing and memory usage (gc) is important here, but also you mind end up with x2
-  memory requirements (e.g. creating two caches at the same time) or will be forced to add READ lock for concurrency
-  update\read. Map as well doesn't allow concurrent writes, so at least search compare oranges with oranges
-* `Language`: `go` is used here. `java` maybe a good alternative, there are different efficient map implementations,
-  32-bit option (less memory \ faster) for free
+* `Language`: `go` is used here. `java` maybe a good alternative, over the years people built different efficient map
+  implementations, and not only that, java's 32-bit support is free
+* `MicroSeconds Latency`: when it comes to bitmaps, you can achieve micro-seconds latency and here every improvement
+  matters. For example,
+  [bitmap. http server fiber vs default](reports/2023-01-21T17-28-56Z/wrk-t2-c20-roaring32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-roaring32-Default-goGC1000-maxProc2.json.md)
+  fiber got `40%` better timings, while when it comes to the map it
+  is [only 1-2%](reports/2023-01-21T17-28-56Z/wrk-t2-c20-map32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-map32-Default-goGC1000-maxProc2.json.md)
+  difference
 
 ## Disclaimer
 
