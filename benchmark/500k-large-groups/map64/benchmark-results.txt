@@ -2,19 +2,12 @@ goos: linux
 goarch: amd64
 pkg: bitmap-usage/benchmark/500k-large-groups/map64
 cpu: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-BenchmarkHttpClientServer_Map_FindPrice                         	    3633	    329777 ns/op	    8333 B/op	     115 allocs/op
-BenchmarkHttpClientServer_Map_FindPrice                         	    3650	    323992 ns/op	    8333 B/op	     115 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_11position                  	    7020	    169480 ns/op	     224 B/op	       2 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_11position                  	    7120	    169692 ns/op	     224 B/op	       2 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_3824position                	    6789	    175741 ns/op	     224 B/op	       2 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_3824position                	    7016	    174874 ns/op	     224 B/op	       2 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_9701position                	    7038	    163399 ns/op	     224 B/op	       2 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_9701position                	    7124	    162943 ns/op	     224 B/op	       2 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr           	    7084	    170466 ns/op	     128 B/op	       1 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr           	    7094	    169360 ns/op	     128 B/op	       1 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_3824position_Optimized      	   18513	     64596 ns/op	     328 B/op	       5 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_3824position_Optimized      	   18396	     65285 ns/op	     328 B/op	       5 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr_Optimized 	    7101	    173938 ns/op	     128 B/op	       1 allocs/op
-BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr_Optimized 	    7170	    168402 ns/op	     128 B/op	       1 allocs/op
+BenchmarkHttpClientServer_Map_FindPrice                         	    5661	    201547 ns/op	    8379 B/op	     114 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_11position                  	   12668	     95781 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_3824position                	   12416	     98641 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_9701position                	   12152	     97649 ns/op	     224 B/op	       2 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr           	   12045	    102727 ns/op	      96 B/op	       1 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_3824position_Optimized      	   29614	     39564 ns/op	     328 B/op	       5 allocs/op
+BenchmarkMapOfferingIndex_FindPrice_MultiplePricesErr_Optimized 	   10000	    116067 ns/op	      96 B/op	       1 allocs/op
 PASS
-ok  	bitmap-usage/benchmark/500k-large-groups/map64	79.881s
+ok  	bitmap-usage/benchmark/500k-large-groups/map64	33.612s

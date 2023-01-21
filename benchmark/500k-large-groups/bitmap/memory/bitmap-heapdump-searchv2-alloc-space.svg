@@ -293,2175 +293,966 @@ function handleMouseUp(evt) {
 		state = '';
 	}
 }
-]]></script><g id="viewport" transform="scale(0.5,0.5) translate(0,0)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 2075)">
+]]></script><g id="viewport" transform="scale(0.5,0.5) translate(0,0)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1465)">
 <title>bitmap.test</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-2075 2436.08,-2075 2436.08,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1465 1090.5,-1465 1090.5,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_L</title>
-<polygon fill="none" stroke="black" points="243.08,-1912 243.08,-2063 819.08,-2063 819.08,-1912 243.08,-1912"/>
+<polygon fill="none" stroke="black" points="197,-1302 197,-1453 835,-1453 835,-1302 197,-1302"/>
 </g>
 <!-- File: bitmap.test -->
 <g id="node1" class="node">
 <title>File: bitmap.test</title>
 <g id="a_node1"><a xlink:title="bitmap.test">
-<polygon fill="#f8f8f8" stroke="black" points="810.58,-2055 251.58,-2055 251.58,-1920 810.58,-1920 810.58,-2055"/>
-<text text-anchor="start" x="259.58" y="-2038.2" font-family="Times,serif" font-size="16.00">File: bitmap.test</text>
-<text text-anchor="start" x="259.58" y="-2020.2" font-family="Times,serif" font-size="16.00">Type: alloc_space</text>
-<text text-anchor="start" x="259.58" y="-2002.2" font-family="Times,serif" font-size="16.00">Time: Feb 7, 2022 at 2:59pm (EST)</text>
-<text text-anchor="start" x="259.58" y="-1984.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 11.82GB, 98.58% of 11.99GB total</text>
-<text text-anchor="start" x="259.58" y="-1966.2" font-family="Times,serif" font-size="16.00">Dropped 92 nodes (cum &lt;= 0.06GB)</text>
-<text text-anchor="start" x="259.58" y="-1929.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
+<polygon fill="#f8f8f8" stroke="black" points="826.5,-1445 205.5,-1445 205.5,-1310 826.5,-1310 826.5,-1445"/>
+<text text-anchor="start" x="213.5" y="-1428.2" font-family="Times,serif" font-size="16.00">File: bitmap.test</text>
+<text text-anchor="start" x="213.5" y="-1410.2" font-family="Times,serif" font-size="16.00">Type: alloc_space</text>
+<text text-anchor="start" x="213.5" y="-1392.2" font-family="Times,serif" font-size="16.00">Time: Jan 21, 2023 at 12:47am (EST)</text>
+<text text-anchor="start" x="213.5" y="-1374.2" font-family="Times,serif" font-size="16.00">Showing nodes accounting for 361787.91kB, 100% of 361864.35kB total</text>
+<text text-anchor="start" x="213.5" y="-1356.2" font-family="Times,serif" font-size="16.00">Dropped 91 nodes (cum &lt;= 1809.32kB)</text>
+<text text-anchor="start" x="213.5" y="-1319.2" font-family="Times,serif" font-size="16.00">See https://git.io/JfYMW for how to read the graph</text>
 </a>
 </g>
 </g>
 <!-- N1 -->
 <g id="node1" class="node">
 <title>N1</title>
-<g id="a_node1"><a xlink:title="testing.tRunner (11.97GB)">
-<polygon fill="#edd5d5" stroke="#b20000" points="937.58,-2005.5 828.58,-2005.5 828.58,-1969.5 937.58,-1969.5 937.58,-2005.5"/>
-<text text-anchor="middle" x="883.08" y="-1994.6" font-family="Times,serif" font-size="8.00">testing</text>
-<text text-anchor="middle" x="883.08" y="-1985.6" font-family="Times,serif" font-size="8.00">tRunner</text>
-<text text-anchor="middle" x="883.08" y="-1976.6" font-family="Times,serif" font-size="8.00">0 of 11.97GB (99.89%)</text>
-</a>
-</g>
-</g>
-<!-- N15 -->
-<g id="node15" class="node">
-<title>N15</title>
-<g id="a_node15"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling (2.82GB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="601.08,-1869 379.08,-1869 379.08,-1833 601.08,-1833 601.08,-1869"/>
-<text text-anchor="middle" x="490.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="490.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestFindPriceV2_3824position_OptStr_CpuProfiling</text>
-<text text-anchor="middle" x="490.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 2.82GB (23.54%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N15 -->
-<g id="edge36" class="edge">
-<title>N1&#45;&gt;N15</title>
-<g id="a_edge36"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling (2.82GB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M874.5,-1969.25C864.7,-1951.57 846.88,-1924.89 823.08,-1912 803.44,-1901.37 745.14,-1905.46 723.08,-1902 671.59,-1893.93 614.35,-1881.69 569.49,-1871.35"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="570.07,-1867.89 559.54,-1869.03 568.48,-1874.7 570.07,-1867.89"/>
-</a>
-</g>
-<g id="a_edge36&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling (2.82GB)">
-<text text-anchor="middle" x="752.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 2.82GB</text>
-</a>
-</g>
-</g>
-<!-- N16 -->
-<g id="node16" class="node">
-<title>N16</title>
-<g id="a_node16"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling (2.12GB)">
-<polygon fill="#ede0d8" stroke="#b25414" points="360.58,-1869 169.58,-1869 169.58,-1833 360.58,-1833 360.58,-1869"/>
-<text text-anchor="middle" x="265.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="265.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestFindPriceV2_3824position_CpuProfiling</text>
-<text text-anchor="middle" x="265.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 2.12GB (17.70%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N16 -->
-<g id="edge44" class="edge">
-<title>N1&#45;&gt;N16</title>
-<g id="a_edge44"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling (2.12GB)">
-<path fill="none" stroke="#b25414" d="M874.82,-1969.3C865.18,-1951.39 847.39,-1924.27 823.08,-1912 799.35,-1900.03 610.53,-1904.58 584.08,-1902 491.48,-1892.95 466.75,-1884.6 370.78,-1869.12"/>
-<polygon fill="#b25414" stroke="#b25414" points="371.07,-1865.62 360.64,-1867.5 369.96,-1872.54 371.07,-1865.62"/>
-</a>
-</g>
-<g id="a_edge44&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling (2.12GB)">
-<text text-anchor="middle" x="613.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 2.12GB</text>
-</a>
-</g>
-</g>
-<!-- N17 -->
-<g id="node17" class="node">
-<title>N17</title>
-<g id="a_node17"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart (3.53GB)">
-<polygon fill="#eddcd5" stroke="#b23600" points="1586.58,-1869 1435.58,-1869 1435.58,-1833 1586.58,-1833 1586.58,-1869"/>
-<text text-anchor="middle" x="1511.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1511.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestGenerateTestData_BuildChart</text>
-<text text-anchor="middle" x="1511.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 3.53GB (29.44%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N17 -->
-<g id="edge26" class="edge">
-<title>N1&#45;&gt;N17</title>
-<g id="a_edge26"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart (3.53GB)">
-<path fill="none" stroke="#b23600" stroke-width="2" d="M937.71,-1974.8C1047.21,-1951.35 1294.25,-1898.44 1425.45,-1870.34"/>
-<polygon fill="#b23600" stroke="#b23600" stroke-width="2" points="1426.42,-1873.71 1435.46,-1868.19 1424.95,-1866.87 1426.42,-1873.71"/>
-</a>
-</g>
-<g id="a_edge26&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart (3.53GB)">
-<text text-anchor="middle" x="1371.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 3.53GB</text>
-</a>
-</g>
-</g>
-<!-- N18 -->
-<g id="node18" class="node">
-<title>N18</title>
-<g id="a_node18"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (1.97GB)">
-<polygon fill="#ede1d9" stroke="#b25c1f" points="973.08,-1869 793.08,-1869 793.08,-1833 973.08,-1833 973.08,-1869"/>
-<text text-anchor="middle" x="883.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="883.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestFindPrice_3824position_CpuProfiling</text>
-<text text-anchor="middle" x="883.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 1.97GB (16.48%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N18 -->
-<g id="edge45" class="edge">
-<title>N1&#45;&gt;N18</title>
-<g id="a_edge45"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (1.97GB)">
-<path fill="none" stroke="#b25c1f" d="M883.08,-1969.47C883.08,-1946.85 883.08,-1906.64 883.08,-1879.64"/>
-<polygon fill="#b25c1f" stroke="#b25c1f" points="886.58,-1879.32 883.08,-1869.32 879.58,-1879.32 886.58,-1879.32"/>
-</a>
-</g>
-<g id="a_edge45&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling (1.97GB)">
-<text text-anchor="middle" x="912.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 1.97GB</text>
-</a>
-</g>
-</g>
-<!-- N20 -->
-<g id="node20" class="node">
-<title>N20</title>
-<g id="a_node20"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search (0.75GB)">
-<polygon fill="#ede9e5" stroke="#b29a7b" points="1136.58,-1869 991.58,-1869 991.58,-1833 1136.58,-1833 1136.58,-1869"/>
-<text text-anchor="middle" x="1064.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1064.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats_Search</text>
-<text text-anchor="middle" x="1064.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 0.75GB (6.22%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N20 -->
-<g id="edge56" class="edge">
-<title>N1&#45;&gt;N20</title>
-<g id="a_edge56"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search (0.75GB)">
-<path fill="none" stroke="#b29a7b" d="M906,-1969.47C938.14,-1945.58 996.71,-1902.06 1032.83,-1875.22"/>
-<polygon fill="#b29a7b" stroke="#b29a7b" points="1035.11,-1877.88 1041.05,-1869.11 1030.94,-1872.26 1035.11,-1877.88"/>
-</a>
-</g>
-<g id="a_edge56&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search (0.75GB)">
-<text text-anchor="middle" x="1045.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 0.75GB</text>
-</a>
-</g>
-</g>
-<!-- N22 -->
-<g id="node22" class="node">
-<title>N22</title>
-<g id="a_node22"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 (0.52GB)">
-<polygon fill="#edebe7" stroke="#b2a38b" points="775.08,-1869 619.08,-1869 619.08,-1833 775.08,-1833 775.08,-1869"/>
-<text text-anchor="middle" x="697.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="697.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats_SearchV2</text>
-<text text-anchor="middle" x="697.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 0.52GB (4.35%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N22 -->
-<g id="edge57" class="edge">
-<title>N1&#45;&gt;N22</title>
-<g id="a_edge57"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 (0.52GB)">
-<path fill="none" stroke="#b2a38b" d="M872.48,-1969.26C861.69,-1952.83 843.66,-1928.27 823.08,-1912 802.78,-1895.97 777.5,-1882.87 754.92,-1873.05"/>
-<polygon fill="#b2a38b" stroke="#b2a38b" points="756.01,-1869.71 745.44,-1869.05 753.29,-1876.16 756.01,-1869.71"/>
-</a>
-</g>
-<g id="a_edge57&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 (0.52GB)">
-<text text-anchor="middle" x="837.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 0.52GB</text>
-</a>
-</g>
-</g>
-<!-- N39 -->
-<g id="node39" class="node">
-<title>N39</title>
-<g id="a_node39"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats (0.26GB)">
-<polygon fill="#edecea" stroke="#b2ac9f" points="1717.58,-1869 1604.58,-1869 1604.58,-1833 1717.58,-1833 1717.58,-1869"/>
-<text text-anchor="middle" x="1661.08" y="-1858.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1661.08" y="-1849.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="1661.08" y="-1840.1" font-family="Times,serif" font-size="8.00">0 of 0.26GB (2.17%)</text>
-</a>
-</g>
-</g>
-<!-- N1&#45;&gt;N39 -->
-<g id="edge69" class="edge">
-<title>N1&#45;&gt;N39</title>
-<g id="a_edge69"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats (0.26GB)">
-<path fill="none" stroke="#b2ac9f" d="M937.86,-1977.79C1032.83,-1962.65 1234.16,-1930.38 1404.08,-1902 1486.39,-1888.25 1509.78,-1887.35 1594.62,-1869.23"/>
-<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1595.38,-1872.65 1604.42,-1867.12 1593.91,-1865.81 1595.38,-1872.65"/>
-</a>
-</g>
-<g id="a_edge69&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats (0.26GB)">
-<text text-anchor="middle" x="1529.08" y="-1890.8" font-family="Times,serif" font-size="14.00"> 0.26GB</text>
-</a>
-</g>
-</g>
-<!-- N2 -->
-<g id="node2" class="node">
-<title>N2</title>
-<g id="a_node2"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerCapacity (2.78GB)">
-<polygon fill="#edddd5" stroke="#b23f00" points="352.58,-1037.5 5.58,-1037.5 5.58,-954.5 352.58,-954.5 352.58,-1037.5"/>
-<text text-anchor="middle" x="179.08" y="-1015.1" font-family="Times,serif" font-size="23.00">roaring</text>
-<text text-anchor="middle" x="179.08" y="-990.1" font-family="Times,serif" font-size="23.00">newArrayContainerCapacity</text>
-<text text-anchor="middle" x="179.08" y="-965.1" font-family="Times,serif" font-size="23.00">2.78GB (23.19%)</text>
-</a>
-</g>
-</g>
-<!-- NN2_0 -->
-<g id="NN2_0" class="node">
-<title>NN2_0</title>
-<g id="a_NN2_0"><a xlink:title="2.74GB">
-<polygon fill="#f8f8f8" stroke="black" points="206.08,-871 156.08,-871 152.08,-867 152.08,-835 202.08,-835 206.08,-839 206.08,-871"/>
-<polyline fill="none" stroke="black" points="202.08,-867 152.08,-867 "/>
-<polyline fill="none" stroke="black" points="202.08,-867 202.08,-835 "/>
-<polyline fill="none" stroke="black" points="202.08,-867 206.08,-871 "/>
-<text text-anchor="middle" x="179.08" y="-851.1" font-family="Times,serif" font-size="8.00">4.75kB</text>
-</a>
-</g>
-</g>
-<!-- N2&#45;&gt;NN2_0 -->
-<g id="edge1" class="edge">
-<title>N2&#45;&gt;NN2_0</title>
-<g id="a_edge1"><a xlink:title="2.74GB">
-<path fill="none" stroke="black" d="M179.08,-954.22C179.08,-930.81 179.08,-902.05 179.08,-881.35"/>
-<polygon fill="black" stroke="black" points="182.58,-881.33 179.08,-871.33 175.58,-881.33 182.58,-881.33"/>
-</a>
-</g>
-<g id="a_edge1&#45;label"><a xlink:title="2.74GB">
-<text text-anchor="middle" x="208.08" y="-923.8" font-family="Times,serif" font-size="14.00"> 2.74GB</text>
-</a>
-</g>
-</g>
-<!-- N3 -->
-<g id="node3" class="node">
-<title>N3</title>
-<g id="a_node3"><a xlink:title="github.com/RoaringBitmap/roaring.newArrayContainerSize (3.38GB)">
-<polygon fill="#eddcd5" stroke="#b23800" points="677.08,-1039 371.08,-1039 371.08,-953 677.08,-953 677.08,-1039"/>
-<text text-anchor="middle" x="524.08" y="-1015.8" font-family="Times,serif" font-size="24.00">roaring</text>
-<text text-anchor="middle" x="524.08" y="-989.8" font-family="Times,serif" font-size="24.00">newArrayContainerSize</text>
-<text text-anchor="middle" x="524.08" y="-963.8" font-family="Times,serif" font-size="24.00">3.38GB (28.23%)</text>
-</a>
-</g>
-</g>
-<!-- NN3_0 -->
-<g id="NN3_0" class="node">
-<title>NN3_0</title>
-<g id="a_NN3_0"><a xlink:title="3.36GB">
-<polygon fill="#f8f8f8" stroke="black" points="551.08,-871 501.08,-871 497.08,-867 497.08,-835 547.08,-835 551.08,-839 551.08,-871"/>
-<polyline fill="none" stroke="black" points="547.08,-867 497.08,-867 "/>
-<polyline fill="none" stroke="black" points="547.08,-867 547.08,-835 "/>
-<polyline fill="none" stroke="black" points="547.08,-867 551.08,-871 "/>
-<text text-anchor="middle" x="524.08" y="-851.1" font-family="Times,serif" font-size="8.00">3.38kB</text>
-</a>
-</g>
-</g>
-<!-- N3&#45;&gt;NN3_0 -->
-<g id="edge2" class="edge">
-<title>N3&#45;&gt;NN3_0</title>
-<g id="a_edge2"><a xlink:title="3.36GB">
-<path fill="none" stroke="black" d="M524.08,-952.7C524.08,-929.59 524.08,-901.65 524.08,-881.41"/>
-<polygon fill="black" stroke="black" points="527.58,-881.31 524.08,-871.31 520.58,-881.31 527.58,-881.31"/>
-</a>
-</g>
-<g id="a_edge2&#45;label"><a xlink:title="3.36GB">
-<text text-anchor="middle" x="553.08" y="-923.8" font-family="Times,serif" font-size="14.00"> 3.36GB</text>
+<g id="a_node1"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 (361837.84kB)">
+<polygon fill="#edd5d5" stroke="#b20000" points="983,-1259 827,-1259 827,-1223 983,-1223 983,-1259"/>
+<text text-anchor="middle" x="905" y="-1248.1" font-family="Times,serif" font-size="8.00">bitmap</text>
+<text text-anchor="middle" x="905" y="-1239.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats_SearchV2</text>
+<text text-anchor="middle" x="905" y="-1230.1" font-family="Times,serif" font-size="8.00">0 of 361837.84kB (100%)</text>
 </a>
 </g>
 </g>
 <!-- N4 -->
 <g id="node4" class="node">
 <title>N4</title>
-<g id="a_node4"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy (4.42GB)">
-<polygon fill="#eddbd5" stroke="#b22e00" points="173.58,-1695 38.58,-1695 38.58,-1622 173.58,-1622 173.58,-1695"/>
-<text text-anchor="middle" x="106.08" y="-1681.4" font-family="Times,serif" font-size="12.00">index&#45;roaring</text>
-<text text-anchor="middle" x="106.08" y="-1668.4" font-family="Times,serif" font-size="12.00">(*Holder)</text>
-<text text-anchor="middle" x="106.08" y="-1655.4" font-family="Times,serif" font-size="12.00">FindPriceIndexBy</text>
-<text text-anchor="middle" x="106.08" y="-1642.4" font-family="Times,serif" font-size="12.00">0.13GB (1.12%)</text>
-<text text-anchor="middle" x="106.08" y="-1629.4" font-family="Times,serif" font-size="12.00">of 4.42GB (36.89%)</text>
+<g id="a_node4"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (99802.14kB)">
+<polygon fill="#edddd5" stroke="#b23900" points="252.5,-1157 29.5,-1157 29.5,-1054 252.5,-1054 252.5,-1157"/>
+<text text-anchor="middle" x="141" y="-1139.4" font-family="Times,serif" font-size="17.00">index&#45;roaring</text>
+<text text-anchor="middle" x="141" y="-1120.4" font-family="Times,serif" font-size="17.00">(*Holder)</text>
+<text text-anchor="middle" x="141" y="-1101.4" font-family="Times,serif" font-size="17.00">IndexPricesV2</text>
+<text text-anchor="middle" x="141" y="-1082.4" font-family="Times,serif" font-size="17.00">49484.88kB (13.67%)</text>
+<text text-anchor="middle" x="141" y="-1063.4" font-family="Times,serif" font-size="17.00">of 99802.14kB (27.58%)</text>
 </a>
 </g>
 </g>
-<!-- NN4_0 -->
-<g id="NN4_0" class="node">
-<title>NN4_0</title>
-<g id="a_NN4_0"><a xlink:title="0.13GB">
-<polygon fill="#f8f8f8" stroke="black" points="135.58,-1567 80.58,-1567 76.58,-1563 76.58,-1531 131.58,-1531 135.58,-1535 135.58,-1567"/>
-<polyline fill="none" stroke="black" points="131.58,-1563 76.58,-1563 "/>
-<polyline fill="none" stroke="black" points="131.58,-1563 131.58,-1531 "/>
-<polyline fill="none" stroke="black" points="131.58,-1563 135.58,-1567 "/>
-<text text-anchor="middle" x="106.08" y="-1547.1" font-family="Times,serif" font-size="8.00">80B..128B</text>
+<!-- N1&#45;&gt;N4 -->
+<g id="edge24" class="edge">
+<title>N1&#45;&gt;N4</title>
+<g id="a_edge24"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (99802.14kB)">
+<path fill="none" stroke="#b23900" stroke-width="2" d="M826.87,-1230.09C777.49,-1223.57 712.4,-1214.51 655,-1205 520.19,-1182.66 366.37,-1152.57 262.41,-1131.55"/>
+<polygon fill="#b23900" stroke="#b23900" stroke-width="2" points="263,-1128.1 252.51,-1129.55 261.61,-1134.96 263,-1128.1"/>
 </a>
 </g>
-</g>
-<!-- N4&#45;&gt;NN4_0 -->
-<g id="edge3" class="edge">
-<title>N4&#45;&gt;NN4_0</title>
-<g id="a_edge3"><a xlink:title="0.13GB">
-<path fill="none" stroke="black" d="M106.08,-1621.7C106.08,-1607.25 106.08,-1590.83 106.08,-1577.36"/>
-<polygon fill="black" stroke="black" points="109.58,-1577.28 106.08,-1567.28 102.58,-1577.28 109.58,-1577.28"/>
-</a>
-</g>
-<g id="a_edge3&#45;label"><a xlink:title="0.13GB">
-<text text-anchor="middle" x="135.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.13GB</text>
-</a>
-</g>
-</g>
-<!-- N6 -->
-<g id="node6" class="node">
-<title>N6</title>
-<g id="a_node6"><a xlink:title="github.com/RoaringBitmap/roaring.And (4.04GB)">
-<polygon fill="#eddcd5" stroke="#b23100" points="576.08,-1440 472.08,-1440 472.08,-1404 576.08,-1404 576.08,-1440"/>
-<text text-anchor="middle" x="524.08" y="-1429.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="524.08" y="-1420.1" font-family="Times,serif" font-size="8.00">And</text>
-<text text-anchor="middle" x="524.08" y="-1411.1" font-family="Times,serif" font-size="8.00">0 of 4.04GB (33.71%)</text>
-</a>
-</g>
-</g>
-<!-- N4&#45;&gt;N6 -->
-<g id="edge46" class="edge">
-<title>N4&#45;&gt;N6</title>
-<g id="a_edge46"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (1.92GB)">
-<path fill="none" stroke="#b26023" d="M51.12,-1621.93C16.77,-1595.3 -16.49,-1558.24 9.08,-1527 16.29,-1518.18 325.93,-1459.78 461.55,-1434.56"/>
-<polygon fill="#b26023" stroke="#b26023" points="462.59,-1437.93 471.78,-1432.66 461.31,-1431.05 462.59,-1437.93"/>
-</a>
-</g>
-<g id="a_edge46&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (1.92GB)">
-<text text-anchor="middle" x="38.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 1.92GB</text>
-</a>
-</g>
-</g>
-<!-- N34 -->
-<g id="node34" class="node">
-<title>N34</title>
-<g id="a_node34"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And (2.32GB)">
-<polygon fill="#eddfd6" stroke="#b24805" points="231.08,-1444 127.08,-1444 127.08,-1400 231.08,-1400 231.08,-1444"/>
-<text text-anchor="middle" x="179.08" y="-1433.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="179.08" y="-1424.6" font-family="Times,serif" font-size="8.00">(*Bitmap)</text>
-<text text-anchor="middle" x="179.08" y="-1415.6" font-family="Times,serif" font-size="8.00">And</text>
-<text text-anchor="middle" x="179.08" y="-1406.6" font-family="Times,serif" font-size="8.00">0 of 2.32GB (19.39%)</text>
-</a>
-</g>
-</g>
-<!-- N4&#45;&gt;N34 -->
-<g id="edge38" class="edge">
-<title>N4&#45;&gt;N34</title>
-<g id="a_edge38"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).And (2.32GB)">
-<path fill="none" stroke="#b24805" d="M153.01,-1621.71C157.76,-1616.26 161.97,-1610.33 165.08,-1604 188.62,-1555.96 187.1,-1492.05 183.4,-1454.44"/>
-<polygon fill="#b24805" stroke="#b24805" points="186.83,-1453.66 182.26,-1444.11 179.88,-1454.43 186.83,-1453.66"/>
-</a>
-</g>
-<g id="a_edge38&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).And (2.32GB)">
-<text text-anchor="middle" x="214.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 2.32GB</text>
-</a>
-</g>
-</g>
-<!-- N37 -->
-<g id="node37" class="node">
-<title>N37</title>
-<g id="a_node37"><a xlink:title="strings.ToLower (0.15GB)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="813.08,-1440 715.08,-1440 715.08,-1404 813.08,-1404 813.08,-1440"/>
-<text text-anchor="middle" x="764.08" y="-1429.1" font-family="Times,serif" font-size="8.00">strings</text>
-<text text-anchor="middle" x="764.08" y="-1420.1" font-family="Times,serif" font-size="8.00">ToLower</text>
-<text text-anchor="middle" x="764.08" y="-1411.1" font-family="Times,serif" font-size="8.00">0 of 0.15GB (1.22%)</text>
-</a>
-</g>
-</g>
-<!-- N4&#45;&gt;N37 -->
-<g id="edge91" class="edge">
-<title>N4&#45;&gt;N37</title>
-<g id="a_edge91"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy ... strings.ToLower (0.04GB)">
-<path fill="none" stroke="#b2b1af" stroke-dasharray="1,5" d="M173.59,-1622.54C198.04,-1608.26 225.03,-1590.51 247.08,-1571 265.79,-1554.44 260.55,-1539.69 282.08,-1527 399.71,-1457.64 452.03,-1506.77 585.08,-1476 625.45,-1466.66 670.16,-1453.43 704.79,-1442.52"/>
-<polygon fill="#b2b1af" stroke="#b2b1af" points="706.26,-1445.72 714.74,-1439.36 704.15,-1439.05 706.26,-1445.72"/>
-</a>
-</g>
-<g id="a_edge91&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy ... strings.ToLower (0.04GB)">
-<text text-anchor="middle" x="311.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 0.04GB</text>
+<g id="a_edge24&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (99802.14kB)">
+<text text-anchor="middle" x="700.5" y="-1186.3" font-family="Times,serif" font-size="14.00"> 99802.14kB</text>
 </a>
 </g>
 </g>
 <!-- N5 -->
 <g id="node5" class="node">
 <title>N5</title>
-<g id="a_node5"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (4.42GB)">
-<polygon fill="#eddbd5" stroke="#b22e00" points="295.08,-1782 179.08,-1782 179.08,-1746 295.08,-1746 295.08,-1782"/>
-<text text-anchor="middle" x="237.08" y="-1771.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="237.08" y="-1762.1" font-family="Times,serif" font-size="8.00">findPrice3824PositionV2</text>
-<text text-anchor="middle" x="237.08" y="-1753.1" font-family="Times,serif" font-size="8.00">0 of 4.42GB (36.89%)</text>
+<g id="a_node5"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (58738.07kB)">
+<polygon fill="#ede1d9" stroke="#b25e21" points="793,-1149.5 433,-1149.5 433,-1061.5 793,-1061.5 793,-1149.5"/>
+<text text-anchor="middle" x="613" y="-1131.1" font-family="Times,serif" font-size="18.00">cache</text>
+<text text-anchor="middle" x="613" y="-1111.1" font-family="Times,serif" font-size="18.00">(*CatalogService)</text>
+<text text-anchor="middle" x="613" y="-1091.1" font-family="Times,serif" font-size="18.00">GeneratePricesByConditionsAndClear</text>
+<text text-anchor="middle" x="613" y="-1071.1" font-family="Times,serif" font-size="18.00">58738.07kB (16.23%)</text>
 </a>
 </g>
 </g>
-<!-- N5&#45;&gt;N4 -->
-<g id="edge24" class="edge">
-<title>N5&#45;&gt;N4</title>
-<g id="a_edge24"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy (4.42GB)">
-<path fill="none" stroke="#b22e00" stroke-width="2" d="M215.44,-1745.91C200.11,-1733.8 178.85,-1717 159.15,-1701.43"/>
-<polygon fill="#b22e00" stroke="#b22e00" stroke-width="2" points="161.13,-1698.54 151.11,-1695.08 156.79,-1704.03 161.13,-1698.54"/>
-</a>
-</g>
-<g id="a_edge24&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).FindPriceIndexBy (4.42GB)">
-<text text-anchor="middle" x="220.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 4.42GB</text>
-</a>
-</g>
-</g>
-<!-- N10 -->
-<g id="node10" class="node">
-<title>N10</title>
-<g id="a_node10"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and (3.85GB)">
-<polygon fill="#eddcd5" stroke="#b23300" points="576.08,-1290 472.08,-1290 472.08,-1246 576.08,-1246 576.08,-1290"/>
-<text text-anchor="middle" x="524.08" y="-1279.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="524.08" y="-1270.6" font-family="Times,serif" font-size="8.00">(*bitmapContainer)</text>
-<text text-anchor="middle" x="524.08" y="-1261.6" font-family="Times,serif" font-size="8.00">and</text>
-<text text-anchor="middle" x="524.08" y="-1252.6" font-family="Times,serif" font-size="8.00">0 of 3.85GB (32.12%)</text>
-</a>
-</g>
-</g>
-<!-- N6&#45;&gt;N10 -->
+<!-- N1&#45;&gt;N5 -->
 <g id="edge25" class="edge">
-<title>N6&#45;&gt;N10</title>
-<g id="a_edge25"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).and (3.85GB)">
-<path fill="none" stroke="#b23300" stroke-width="2" d="M524.08,-1403.86C524.08,-1378.86 524.08,-1331.96 524.08,-1300.59"/>
-<polygon fill="#b23300" stroke="#b23300" stroke-width="2" points="527.58,-1300.21 524.08,-1290.21 520.58,-1300.21 527.58,-1300.21"/>
-</a>
-</g>
-<g id="a_edge25&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).and (3.85GB)">
-<text text-anchor="middle" x="553.08" y="-1331.3" font-family="Times,serif" font-size="14.00"> 3.85GB</text>
-</a>
-</g>
-</g>
-<!-- N32 -->
-<g id="node32" class="node">
-<title>N32</title>
-<g id="a_node32"><a xlink:title="github.com/RoaringBitmap/roaring.NewBitmap (0.13GB)">
-<polygon fill="#edeceb" stroke="#b2b0a9" points="367.08,-1291.5 255.08,-1291.5 255.08,-1244.5 367.08,-1244.5 367.08,-1291.5"/>
-<text text-anchor="middle" x="311.08" y="-1277.9" font-family="Times,serif" font-size="12.00">roaring</text>
-<text text-anchor="middle" x="311.08" y="-1264.9" font-family="Times,serif" font-size="12.00">NewBitmap</text>
-<text text-anchor="middle" x="311.08" y="-1251.9" font-family="Times,serif" font-size="12.00">0.13GB (1.06%)</text>
-</a>
-</g>
-</g>
-<!-- N6&#45;&gt;N32 -->
-<g id="edge81" class="edge">
-<title>N6&#45;&gt;N32</title>
-<g id="a_edge81"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.NewBitmap (0.13GB)">
-<path fill="none" stroke="#b2b0a9" d="M500.06,-1403.86C463.87,-1378.04 394.96,-1328.86 351.11,-1297.57"/>
-<polygon fill="#b2b0a9" stroke="#b2b0a9" points="353.13,-1294.71 342.95,-1291.75 349.06,-1300.41 353.13,-1294.71"/>
-</a>
-</g>
-<g id="a_edge81&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.And &#45;&gt; github.com/RoaringBitmap/roaring.NewBitmap (0.13GB)">
-<text text-anchor="middle" x="453.08" y="-1338.8" font-family="Times,serif" font-size="14.00"> 0.13GB</text>
-<text text-anchor="middle" x="453.08" y="-1323.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N7 -->
-<g id="node7" class="node">
-<title>N7</title>
-<g id="a_node7"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke (2.88GB)">
-<polygon fill="#edddd5" stroke="#b23e00" points="2169.58,-902 1948.58,-902 1948.58,-804 2169.58,-804 2169.58,-902"/>
-<text text-anchor="middle" x="2059.08" y="-885.2" font-family="Times,serif" font-size="16.00">drawing</text>
-<text text-anchor="middle" x="2059.08" y="-867.2" font-family="Times,serif" font-size="16.00">(*RasterGraphicContext)</text>
-<text text-anchor="middle" x="2059.08" y="-849.2" font-family="Times,serif" font-size="16.00">FillStroke</text>
-<text text-anchor="middle" x="2059.08" y="-831.2" font-family="Times,serif" font-size="16.00">0.78GB (6.51%)</text>
-<text text-anchor="middle" x="2059.08" y="-813.2" font-family="Times,serif" font-size="16.00">of 2.88GB (24.01%)</text>
-</a>
-</g>
-</g>
-<!-- NN7_0 -->
-<g id="NN7_0" class="node">
-<title>NN7_0</title>
-<g id="a_NN7_0"><a xlink:title="0.43GB">
-<polygon fill="#f8f8f8" stroke="black" points="1926.58,-753 1871.58,-753 1867.58,-749 1867.58,-717 1922.58,-717 1926.58,-721 1926.58,-753"/>
-<polyline fill="none" stroke="black" points="1922.58,-749 1867.58,-749 "/>
-<polyline fill="none" stroke="black" points="1922.58,-749 1922.58,-717 "/>
-<polyline fill="none" stroke="black" points="1922.58,-749 1926.58,-753 "/>
-<text text-anchor="middle" x="1897.08" y="-733.1" font-family="Times,serif" font-size="8.00">64B..128B</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;NN7_0 -->
-<g id="edge4" class="edge">
-<title>N7&#45;&gt;NN7_0</title>
-<g id="a_edge4"><a xlink:title="0.43GB">
-<path fill="none" stroke="black" d="M1949.82,-803.88C1941.73,-798.4 1934.03,-792.44 1927.08,-786 1919.95,-779.4 1913.96,-770.73 1909.24,-762.47"/>
-<polygon fill="black" stroke="black" points="1912.24,-760.65 1904.47,-753.44 1906.05,-763.91 1912.24,-760.65"/>
-</a>
-</g>
-<g id="a_edge4&#45;label"><a xlink:title="0.43GB">
-<text text-anchor="middle" x="1956.08" y="-774.8" font-family="Times,serif" font-size="14.00"> 0.43GB</text>
-</a>
-</g>
-</g>
-<!-- NN7_1 -->
-<g id="NN7_1" class="node">
-<title>NN7_1</title>
-<g id="a_NN7_1"><a xlink:title="0.12GB">
-<polygon fill="#f8f8f8" stroke="black" points="2005.08,-753 1955.08,-753 1951.08,-749 1951.08,-717 2001.08,-717 2005.08,-721 2005.08,-753"/>
-<polyline fill="none" stroke="black" points="2001.08,-749 1951.08,-749 "/>
-<polyline fill="none" stroke="black" points="2001.08,-749 2001.08,-717 "/>
-<polyline fill="none" stroke="black" points="2001.08,-749 2005.08,-753 "/>
-<text text-anchor="middle" x="1978.08" y="-733.1" font-family="Times,serif" font-size="8.00">32B</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;NN7_1 -->
-<g id="edge5" class="edge">
-<title>N7&#45;&gt;NN7_1</title>
-<g id="a_edge5"><a xlink:title="0.12GB">
-<path fill="none" stroke="black" d="M2009.79,-803.63C2005.17,-797.93 2000.83,-792 1997.08,-786 1992.69,-778.99 1989.06,-770.81 1986.19,-763.13"/>
-<polygon fill="black" stroke="black" points="1989.42,-761.75 1982.85,-753.44 1982.8,-764.04 1989.42,-761.75"/>
-</a>
-</g>
-<g id="a_edge5&#45;label"><a xlink:title="0.12GB">
-<text text-anchor="middle" x="2026.08" y="-774.8" font-family="Times,serif" font-size="14.00"> 0.12GB</text>
-</a>
-</g>
-</g>
-<!-- NN7_2 -->
-<g id="NN7_2" class="node">
-<title>NN7_2</title>
-<g id="a_NN7_2"><a xlink:title="0.11GB">
-<polygon fill="#f8f8f8" stroke="black" points="2086.08,-753 2036.08,-753 2032.08,-749 2032.08,-717 2082.08,-717 2086.08,-721 2086.08,-753"/>
-<polyline fill="none" stroke="black" points="2082.08,-749 2032.08,-749 "/>
-<polyline fill="none" stroke="black" points="2082.08,-749 2082.08,-717 "/>
-<polyline fill="none" stroke="black" points="2082.08,-749 2086.08,-753 "/>
-<text text-anchor="middle" x="2059.08" y="-733.1" font-family="Times,serif" font-size="8.00">16B</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;NN7_2 -->
-<g id="edge6" class="edge">
-<title>N7&#45;&gt;NN7_2</title>
-<g id="a_edge6"><a xlink:title="0.11GB">
-<path fill="none" stroke="black" d="M2059.08,-803.81C2059.08,-789.99 2059.08,-775.41 2059.08,-763.32"/>
-<polygon fill="black" stroke="black" points="2062.58,-763.01 2059.08,-753.01 2055.58,-763.01 2062.58,-763.01"/>
-</a>
-</g>
-<g id="a_edge6&#45;label"><a xlink:title="0.11GB">
-<text text-anchor="middle" x="2088.08" y="-774.8" font-family="Times,serif" font-size="14.00"> 0.11GB</text>
-</a>
-</g>
-</g>
-<!-- NN7_3 -->
-<g id="NN7_3" class="node">
-<title>NN7_3</title>
-<g id="a_NN7_3"><a xlink:title="0.08GB">
-<polygon fill="#f8f8f8" stroke="black" points="2167.08,-753 2117.08,-753 2113.08,-749 2113.08,-717 2163.08,-717 2167.08,-721 2167.08,-753"/>
-<polyline fill="none" stroke="black" points="2163.08,-749 2113.08,-749 "/>
-<polyline fill="none" stroke="black" points="2163.08,-749 2163.08,-717 "/>
-<polyline fill="none" stroke="black" points="2163.08,-749 2167.08,-753 "/>
-<text text-anchor="middle" x="2140.08" y="-733.1" font-family="Times,serif" font-size="8.00">24B</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;NN7_3 -->
-<g id="edge7" class="edge">
-<title>N7&#45;&gt;NN7_3</title>
-<g id="a_edge7"><a xlink:title="0.08GB">
-<path fill="none" stroke="black" d="M2105.32,-803.63C2109.89,-797.88 2114.25,-791.94 2118.08,-786 2122.7,-778.82 2126.79,-770.51 2130.15,-762.75"/>
-<polygon fill="black" stroke="black" points="2133.45,-763.93 2134,-753.34 2126.97,-761.27 2133.45,-763.93"/>
-</a>
-</g>
-<g id="a_edge7&#45;label"><a xlink:title="0.08GB">
-<text text-anchor="middle" x="2155.08" y="-774.8" font-family="Times,serif" font-size="14.00"> 0.08GB</text>
-</a>
-</g>
-</g>
-<!-- N21 -->
-<g id="node21" class="node">
-<title>N21</title>
-<g id="a_node21"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.NewLineStroker (0.48GB)">
-<polygon fill="#edebe8" stroke="#b2a48e" points="2236.58,-680 2093.58,-680 2093.58,-621 2236.58,-621 2236.58,-680"/>
-<text text-anchor="middle" x="2165.08" y="-664" font-family="Times,serif" font-size="15.00">drawing</text>
-<text text-anchor="middle" x="2165.08" y="-647" font-family="Times,serif" font-size="15.00">NewLineStroker</text>
-<text text-anchor="middle" x="2165.08" y="-630" font-family="Times,serif" font-size="15.00">0.48GB (4.01%)</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;N21 -->
-<g id="edge59" class="edge">
-<title>N7&#45;&gt;N21</title>
-<g id="a_edge59"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.NewLineStroker (0.48GB)">
-<path fill="none" stroke="#b2a48e" d="M2169.82,-807.42C2176.9,-801.15 2183.15,-794.05 2188.08,-786 2205.9,-756.86 2196.35,-717.87 2184.6,-689.38"/>
-<polygon fill="#b2a48e" stroke="#b2a48e" points="2187.78,-687.91 2180.57,-680.15 2181.37,-690.71 2187.78,-687.91"/>
-</a>
-</g>
-<g id="a_edge59&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.NewLineStroker (0.48GB)">
-<text text-anchor="middle" x="2226.08" y="-738.8" font-family="Times,serif" font-size="14.00"> 0.48GB</text>
-<text text-anchor="middle" x="2226.08" y="-723.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N52 -->
-<g id="node52" class="node">
-<title>N52</title>
-<g id="a_node52"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.Flatten (1.62GB)">
-<polygon fill="#ede4dd" stroke="#b2703a" points="2359.08,-668.5 2255.08,-668.5 2255.08,-632.5 2359.08,-632.5 2359.08,-668.5"/>
-<text text-anchor="middle" x="2307.08" y="-657.6" font-family="Times,serif" font-size="8.00">drawing</text>
-<text text-anchor="middle" x="2307.08" y="-648.6" font-family="Times,serif" font-size="8.00">Flatten</text>
-<text text-anchor="middle" x="2307.08" y="-639.6" font-family="Times,serif" font-size="8.00">0 of 1.62GB (13.49%)</text>
-</a>
-</g>
-</g>
-<!-- N7&#45;&gt;N52 -->
-<g id="edge51" class="edge">
-<title>N7&#45;&gt;N52</title>
-<g id="a_edge51"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.Flatten (1.62GB)">
-<path fill="none" stroke="#b2703a" d="M2169.78,-815.3C2202.01,-800.2 2234.99,-779.8 2259.08,-753 2278.53,-731.35 2291.62,-700.41 2299.15,-678.4"/>
-<polygon fill="#b2703a" stroke="#b2703a" points="2302.55,-679.27 2302.32,-668.68 2295.89,-677.11 2302.55,-679.27"/>
-</a>
-</g>
-<g id="a_edge51&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.Flatten (1.62GB)">
-<text text-anchor="middle" x="2311.08" y="-731.3" font-family="Times,serif" font-size="14.00"> 1.62GB</text>
-</a>
-</g>
-</g>
-<!-- N8 -->
-<g id="node8" class="node">
-<title>N8</title>
-<g id="a_node8"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).appendVertex (1.62GB)">
-<polygon fill="#ede4dd" stroke="#b2703a" points="2401.08,-183 2213.08,-183 2213.08,-87 2401.08,-87 2401.08,-183"/>
-<text text-anchor="middle" x="2307.08" y="-163" font-family="Times,serif" font-size="20.00">drawing</text>
-<text text-anchor="middle" x="2307.08" y="-141" font-family="Times,serif" font-size="20.00">(*LineStroker)</text>
-<text text-anchor="middle" x="2307.08" y="-119" font-family="Times,serif" font-size="20.00">appendVertex</text>
-<text text-anchor="middle" x="2307.08" y="-97" font-family="Times,serif" font-size="20.00">1.62GB (13.49%)</text>
-</a>
-</g>
-</g>
-<!-- NN8_0 -->
-<g id="NN8_0" class="node">
-<title>NN8_0</title>
-<g id="a_NN8_0"><a xlink:title="0.92GB">
-<polygon fill="#f8f8f8" stroke="black" points="2253.08,-36 2203.08,-36 2199.08,-32 2199.08,0 2249.08,0 2253.08,-4 2253.08,-36"/>
-<polyline fill="none" stroke="black" points="2249.08,-32 2199.08,-32 "/>
-<polyline fill="none" stroke="black" points="2249.08,-32 2249.08,0 "/>
-<polyline fill="none" stroke="black" points="2249.08,-32 2253.08,-36 "/>
-<text text-anchor="middle" x="2226.08" y="-16.1" font-family="Times,serif" font-size="8.00">128B</text>
-</a>
-</g>
-</g>
-<!-- N8&#45;&gt;NN8_0 -->
-<g id="edge8" class="edge">
-<title>N8&#45;&gt;NN8_0</title>
-<g id="a_edge8"><a xlink:title="0.92GB">
-<path fill="none" stroke="black" d="M2258.08,-86.79C2253.35,-81.05 2248.9,-75.07 2245.08,-69 2240.67,-62.01 2237.03,-53.84 2234.16,-46.15"/>
-<polygon fill="black" stroke="black" points="2237.39,-44.77 2230.82,-36.46 2230.77,-47.05 2237.39,-44.77"/>
-</a>
-</g>
-<g id="a_edge8&#45;label"><a xlink:title="0.92GB">
-<text text-anchor="middle" x="2274.08" y="-57.8" font-family="Times,serif" font-size="14.00"> 0.92GB</text>
-</a>
-</g>
-</g>
-<!-- NN8_1 -->
-<g id="NN8_1" class="node">
-<title>NN8_1</title>
-<g id="a_NN8_1"><a xlink:title="0.47GB">
-<polygon fill="#f8f8f8" stroke="black" points="2334.08,-36 2284.08,-36 2280.08,-32 2280.08,0 2330.08,0 2334.08,-4 2334.08,-36"/>
-<polyline fill="none" stroke="black" points="2330.08,-32 2280.08,-32 "/>
-<polyline fill="none" stroke="black" points="2330.08,-32 2330.08,0 "/>
-<polyline fill="none" stroke="black" points="2330.08,-32 2334.08,-36 "/>
-<text text-anchor="middle" x="2307.08" y="-16.1" font-family="Times,serif" font-size="8.00">64B</text>
-</a>
-</g>
-</g>
-<!-- N8&#45;&gt;NN8_1 -->
-<g id="edge9" class="edge">
-<title>N8&#45;&gt;NN8_1</title>
-<g id="a_edge9"><a xlink:title="0.47GB">
-<path fill="none" stroke="black" d="M2307.08,-86.89C2307.08,-73.12 2307.08,-58.53 2307.08,-46.41"/>
-<polygon fill="black" stroke="black" points="2310.58,-46.08 2307.08,-36.08 2303.58,-46.08 2310.58,-46.08"/>
-</a>
-</g>
-<g id="a_edge9&#45;label"><a xlink:title="0.47GB">
-<text text-anchor="middle" x="2336.08" y="-57.8" font-family="Times,serif" font-size="14.00"> 0.47GB</text>
-</a>
-</g>
-</g>
-<!-- NN8_2 -->
-<g id="NN8_2" class="node">
-<title>NN8_2</title>
-<g id="a_NN8_2"><a xlink:title="0.22GB">
-<polygon fill="#f8f8f8" stroke="black" points="2415.08,-36 2365.08,-36 2361.08,-32 2361.08,0 2411.08,0 2415.08,-4 2415.08,-36"/>
-<polyline fill="none" stroke="black" points="2411.08,-32 2361.08,-32 "/>
-<polyline fill="none" stroke="black" points="2411.08,-32 2411.08,0 "/>
-<polyline fill="none" stroke="black" points="2411.08,-32 2415.08,-36 "/>
-<text text-anchor="middle" x="2388.08" y="-16.1" font-family="Times,serif" font-size="8.00">32B</text>
-</a>
-</g>
-</g>
-<!-- N8&#45;&gt;NN8_2 -->
-<g id="edge10" class="edge">
-<title>N8&#45;&gt;NN8_2</title>
-<g id="a_edge10"><a xlink:title="0.22GB">
-<path fill="none" stroke="black" d="M2353.04,-86.78C2357.72,-81 2362.18,-75.01 2366.08,-69 2370.72,-61.84 2374.82,-53.54 2378.18,-45.78"/>
-<polygon fill="black" stroke="black" points="2381.49,-46.94 2382.03,-36.36 2375.01,-44.29 2381.49,-46.94"/>
-</a>
-</g>
-<g id="a_edge10&#45;label"><a xlink:title="0.22GB">
-<text text-anchor="middle" x="2403.08" y="-57.8" font-family="Times,serif" font-size="14.00"> 0.22GB</text>
-</a>
-</g>
-</g>
-<!-- N9 -->
-<g id="node9" class="node">
-<title>N9</title>
-<g id="a_node9"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (1.37GB)">
-<polygon fill="#ede6df" stroke="#b27d4c" points="1468.58,-1567 1309.58,-1567 1309.58,-1531 1468.58,-1531 1468.58,-1567"/>
-<text text-anchor="middle" x="1389.08" y="-1556.1" font-family="Times,serif" font-size="8.00">sample</text>
-<text text-anchor="middle" x="1389.08" y="-1547.1" font-family="Times,serif" font-size="8.00">GenerateTestData5Chars5Offerings</text>
-<text text-anchor="middle" x="1389.08" y="-1538.1" font-family="Times,serif" font-size="8.00">0 of 1.37GB (11.45%)</text>
-</a>
-</g>
-</g>
-<!-- N11 -->
-<g id="node11" class="node">
-<title>N11</title>
-<g id="a_node11"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice (1.37GB)">
-<polygon fill="#ede6df" stroke="#b27d4c" points="1486.58,-1476 1291.58,-1476 1291.58,-1368 1486.58,-1368 1486.58,-1476"/>
-<text text-anchor="middle" x="1389.08" y="-1457.6" font-family="Times,serif" font-size="18.00">sample</text>
-<text text-anchor="middle" x="1389.08" y="-1437.6" font-family="Times,serif" font-size="18.00">(*Holder)</text>
-<text text-anchor="middle" x="1389.08" y="-1417.6" font-family="Times,serif" font-size="18.00">generatePrice</text>
-<text text-anchor="middle" x="1389.08" y="-1397.6" font-family="Times,serif" font-size="18.00">1.17GB (9.77%)</text>
-<text text-anchor="middle" x="1389.08" y="-1377.6" font-family="Times,serif" font-size="18.00">of 1.37GB (11.45%)</text>
-</a>
-</g>
-</g>
-<!-- N9&#45;&gt;N11 -->
-<g id="edge55" class="edge">
-<title>N9&#45;&gt;N11</title>
-<g id="a_edge55"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice (1.37GB)">
-<path fill="none" stroke="#b27d4c" d="M1389.08,-1530.88C1389.08,-1519.14 1389.08,-1502.77 1389.08,-1486.32"/>
-<polygon fill="#b27d4c" stroke="#b27d4c" points="1392.58,-1486.11 1389.08,-1476.11 1385.58,-1486.11 1392.58,-1486.11"/>
-</a>
-</g>
-<g id="a_edge55&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice (1.37GB)">
-<text text-anchor="middle" x="1418.08" y="-1497.8" font-family="Times,serif" font-size="14.00"> 1.37GB</text>
-</a>
-</g>
-</g>
-<!-- N41 -->
-<g id="node41" class="node">
-<title>N41</title>
-<g id="a_node41"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andArray (0.47GB)">
-<polygon fill="#edebe8" stroke="#b2a58f" points="454.08,-1158.5 356.08,-1158.5 356.08,-1114.5 454.08,-1114.5 454.08,-1158.5"/>
-<text text-anchor="middle" x="405.08" y="-1148.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="405.08" y="-1139.1" font-family="Times,serif" font-size="8.00">(*bitmapContainer)</text>
-<text text-anchor="middle" x="405.08" y="-1130.1" font-family="Times,serif" font-size="8.00">andArray</text>
-<text text-anchor="middle" x="405.08" y="-1121.1" font-family="Times,serif" font-size="8.00">0 of 0.47GB (3.89%)</text>
-</a>
-</g>
-</g>
-<!-- N10&#45;&gt;N41 -->
-<g id="edge60" class="edge">
-<title>N10&#45;&gt;N41</title>
-<g id="a_edge60"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andArray (0.47GB)">
-<path fill="none" stroke="#b2a58f" d="M495.28,-1245.82C484.34,-1237.15 472.11,-1226.66 462.08,-1216 447.99,-1201.03 434.37,-1182.5 423.99,-1167.19"/>
-<polygon fill="#b2a58f" stroke="#b2a58f" points="426.73,-1164.99 418.27,-1158.61 420.9,-1168.87 426.73,-1164.99"/>
-</a>
-</g>
-<g id="a_edge60&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andArray (0.47GB)">
-<text text-anchor="middle" x="491.08" y="-1197.3" font-family="Times,serif" font-size="14.00"> 0.47GB</text>
-</a>
-</g>
-</g>
-<!-- N42 -->
-<g id="node42" class="node">
-<title>N42</title>
-<g id="a_node42"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (3.38GB)">
-<polygon fill="#eddcd5" stroke="#b23800" points="576.08,-1158.5 472.08,-1158.5 472.08,-1114.5 576.08,-1114.5 576.08,-1158.5"/>
-<text text-anchor="middle" x="524.08" y="-1148.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="524.08" y="-1139.1" font-family="Times,serif" font-size="8.00">(*bitmapContainer)</text>
-<text text-anchor="middle" x="524.08" y="-1130.1" font-family="Times,serif" font-size="8.00">andBitmap</text>
-<text text-anchor="middle" x="524.08" y="-1121.1" font-family="Times,serif" font-size="8.00">0 of 3.38GB (28.23%)</text>
-</a>
-</g>
-</g>
-<!-- N10&#45;&gt;N42 -->
-<g id="edge27" class="edge">
-<title>N10&#45;&gt;N42</title>
-<g id="a_edge27"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (3.38GB)">
-<path fill="none" stroke="#b23800" stroke-width="2" d="M524.08,-1245.91C524.08,-1225.02 524.08,-1192.8 524.08,-1168.91"/>
-<polygon fill="#b23800" stroke="#b23800" stroke-width="2" points="527.58,-1168.59 524.08,-1158.59 520.58,-1168.59 527.58,-1168.59"/>
-</a>
-</g>
-<g id="a_edge27&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).and &#45;&gt; github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap (3.38GB)">
-<text text-anchor="middle" x="553.08" y="-1197.3" font-family="Times,serif" font-size="14.00"> 3.38GB</text>
-</a>
-</g>
-</g>
-<!-- NN11_0 -->
-<g id="NN11_0" class="node">
-<title>NN11_0</title>
-<g id="a_NN11_0"><a xlink:title="0.77GB">
-<polygon fill="#f8f8f8" stroke="black" points="1335.08,-1286 1285.08,-1286 1281.08,-1282 1281.08,-1250 1331.08,-1250 1335.08,-1254 1335.08,-1286"/>
-<polyline fill="none" stroke="black" points="1331.08,-1282 1281.08,-1282 "/>
-<polyline fill="none" stroke="black" points="1331.08,-1282 1331.08,-1250 "/>
-<polyline fill="none" stroke="black" points="1331.08,-1282 1335.08,-1286 "/>
-<text text-anchor="middle" x="1308.08" y="-1266.1" font-family="Times,serif" font-size="8.00">240B</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;NN11_0 -->
-<g id="edge11" class="edge">
-<title>N11&#45;&gt;NN11_0</title>
-<g id="a_edge11"><a xlink:title="0.77GB">
-<path fill="none" stroke="black" d="M1338.11,-1367.93C1333.99,-1362.13 1330.21,-1356.12 1327.08,-1350 1318.47,-1333.24 1313.71,-1312.53 1311.1,-1296.25"/>
-<polygon fill="black" stroke="black" points="1314.55,-1295.68 1309.68,-1286.27 1307.62,-1296.67 1314.55,-1295.68"/>
-</a>
-</g>
-<g id="a_edge11&#45;label"><a xlink:title="0.77GB">
-<text text-anchor="middle" x="1356.08" y="-1331.3" font-family="Times,serif" font-size="14.00"> 0.77GB</text>
-</a>
-</g>
-</g>
-<!-- NN11_1 -->
-<g id="NN11_1" class="node">
-<title>NN11_1</title>
-<g id="a_NN11_1"><a xlink:title="0.26GB">
-<polygon fill="#f8f8f8" stroke="black" points="1416.08,-1286 1366.08,-1286 1362.08,-1282 1362.08,-1250 1412.08,-1250 1416.08,-1254 1416.08,-1286"/>
-<polyline fill="none" stroke="black" points="1412.08,-1282 1362.08,-1282 "/>
-<polyline fill="none" stroke="black" points="1412.08,-1282 1412.08,-1250 "/>
-<polyline fill="none" stroke="black" points="1412.08,-1282 1416.08,-1286 "/>
-<text text-anchor="middle" x="1389.08" y="-1266.1" font-family="Times,serif" font-size="8.00">80B</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;NN11_1 -->
-<g id="edge12" class="edge">
-<title>N11&#45;&gt;NN11_1</title>
-<g id="a_edge12"><a xlink:title="0.26GB">
-<path fill="none" stroke="black" d="M1389.08,-1367.84C1389.08,-1343.71 1389.08,-1316.2 1389.08,-1296.34"/>
-<polygon fill="black" stroke="black" points="1392.58,-1296.16 1389.08,-1286.16 1385.58,-1296.16 1392.58,-1296.16"/>
-</a>
-</g>
-<g id="a_edge12&#45;label"><a xlink:title="0.26GB">
-<text text-anchor="middle" x="1418.08" y="-1331.3" font-family="Times,serif" font-size="14.00"> 0.26GB</text>
-</a>
-</g>
-</g>
-<!-- N44 -->
-<g id="node44" class="node">
-<title>N44</title>
-<g id="a_node44"><a xlink:title="github.com/google/uuid.NewString (0.20GB)">
-<polygon fill="#edeceb" stroke="#b2aea3" points="1511.08,-1154.5 1413.08,-1154.5 1413.08,-1118.5 1511.08,-1118.5 1511.08,-1154.5"/>
-<text text-anchor="middle" x="1462.08" y="-1143.6" font-family="Times,serif" font-size="8.00">uuid</text>
-<text text-anchor="middle" x="1462.08" y="-1134.6" font-family="Times,serif" font-size="8.00">NewString</text>
-<text text-anchor="middle" x="1462.08" y="-1125.6" font-family="Times,serif" font-size="8.00">0 of 0.20GB (1.68%)</text>
-</a>
-</g>
-</g>
-<!-- N11&#45;&gt;N44 -->
-<g id="edge72" class="edge">
-<title>N11&#45;&gt;N44</title>
-<g id="a_edge72"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice &#45;&gt; github.com/google/uuid.NewString (0.20GB)">
-<path fill="none" stroke="#b2aea3" d="M1438.87,-1367.79C1442.47,-1362.07 1445.64,-1356.1 1448.08,-1350 1473.04,-1287.43 1469.56,-1206.27 1465.48,-1164.69"/>
-<polygon fill="#b2aea3" stroke="#b2aea3" points="1468.93,-1164.1 1464.39,-1154.53 1461.97,-1164.84 1468.93,-1164.1"/>
-</a>
-</g>
-<g id="a_edge72&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.(*Holder).generatePrice &#45;&gt; github.com/google/uuid.NewString (0.20GB)">
-<text text-anchor="middle" x="1497.08" y="-1264.3" font-family="Times,serif" font-size="14.00"> 0.20GB</text>
-</a>
-</g>
-</g>
-<!-- N12 -->
-<g id="node12" class="node">
-<title>N12</title>
-<g id="a_node12"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (2.19GB)">
-<polygon fill="#ede0d7" stroke="#b2500f" points="935.08,-1782 831.08,-1782 831.08,-1746 935.08,-1746 935.08,-1782"/>
-<text text-anchor="middle" x="883.08" y="-1771.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="883.08" y="-1762.1" font-family="Times,serif" font-size="8.00">findPrice3824Position</text>
-<text text-anchor="middle" x="883.08" y="-1753.1" font-family="Times,serif" font-size="8.00">0 of 2.19GB (18.25%)</text>
-</a>
-</g>
-</g>
-<!-- N27 -->
-<g id="node27" class="node">
-<title>N27</title>
-<g id="a_node27"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (2.19GB)">
-<polygon fill="#ede0d7" stroke="#b2500f" points="955.08,-1692.5 811.08,-1692.5 811.08,-1624.5 955.08,-1624.5 955.08,-1692.5"/>
-<text text-anchor="middle" x="883.08" y="-1679.7" font-family="Times,serif" font-size="11.00">index&#45;roaring</text>
-<text text-anchor="middle" x="883.08" y="-1667.7" font-family="Times,serif" font-size="11.00">(*BitmapIndexService)</text>
-<text text-anchor="middle" x="883.08" y="-1655.7" font-family="Times,serif" font-size="11.00">FindPriceIndexBy</text>
-<text text-anchor="middle" x="883.08" y="-1643.7" font-family="Times,serif" font-size="11.00">0.06GB (0.54%)</text>
-<text text-anchor="middle" x="883.08" y="-1631.7" font-family="Times,serif" font-size="11.00">of 2.19GB (18.25%)</text>
-</a>
-</g>
-</g>
-<!-- N12&#45;&gt;N27 -->
-<g id="edge42" class="edge">
-<title>N12&#45;&gt;N27</title>
-<g id="a_edge42"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (2.19GB)">
-<path fill="none" stroke="#b2500f" d="M883.08,-1745.91C883.08,-1734.15 883.08,-1717.98 883.08,-1702.8"/>
-<polygon fill="#b2500f" stroke="#b2500f" points="886.58,-1702.52 883.08,-1692.52 879.58,-1702.52 886.58,-1702.52"/>
-</a>
-</g>
-<g id="a_edge42&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy (2.19GB)">
-<text text-anchor="middle" x="912.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 2.19GB</text>
-</a>
-</g>
-</g>
-<!-- N13 -->
-<g id="node13" class="node">
-<title>N13</title>
-<g id="a_node13"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T (0.70GB)">
-<polygon fill="#edeae6" stroke="#b29c7e" points="538.08,-1782 422.08,-1782 422.08,-1746 538.08,-1746 538.08,-1782"/>
-<text text-anchor="middle" x="480.08" y="-1771.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="480.08" y="-1762.1" font-family="Times,serif" font-size="8.00">prepareBitmapIndexV2T</text>
-<text text-anchor="middle" x="480.08" y="-1753.1" font-family="Times,serif" font-size="8.00">0 of 0.70GB (5.80%)</text>
-</a>
-</g>
-</g>
-<!-- N13&#45;&gt;N9 -->
-<g id="edge62" class="edge">
-<title>N13&#45;&gt;N9</title>
-<g id="a_edge62"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.40GB)">
-<path fill="none" stroke="#b2a794" d="M538.09,-1755.27C564.05,-1752.03 595.06,-1748.45 623.08,-1746 658.77,-1742.88 914.57,-1746.79 945.08,-1728 991.17,-1699.61 959.25,-1650.81 1005.08,-1622 1058.42,-1588.46 1227.47,-1621.27 1288.08,-1604 1301.65,-1600.13 1303.63,-1595.66 1316.08,-1589 1326.46,-1583.44 1337.68,-1577.45 1348.14,-1571.86"/>
-<polygon fill="#b2a794" stroke="#b2a794" points="1349.92,-1574.88 1357.09,-1567.08 1346.62,-1568.7 1349.92,-1574.88"/>
-</a>
-</g>
-<g id="a_edge62&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.40GB)">
-<text text-anchor="middle" x="1034.08" y="-1654.8" font-family="Times,serif" font-size="14.00"> 0.40GB</text>
-</a>
-</g>
-</g>
-<!-- N23 -->
-<g id="node23" class="node">
-<title>N23</title>
-<g id="a_node23"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (0.26GB)">
-<polygon fill="#edecea" stroke="#b2ac9e" points="440.08,-1695 312.08,-1695 312.08,-1622 440.08,-1622 440.08,-1695"/>
-<text text-anchor="middle" x="376.08" y="-1681.4" font-family="Times,serif" font-size="12.00">index&#45;roaring</text>
-<text text-anchor="middle" x="376.08" y="-1668.4" font-family="Times,serif" font-size="12.00">(*Holder)</text>
-<text text-anchor="middle" x="376.08" y="-1655.4" font-family="Times,serif" font-size="12.00">IndexPricesV2</text>
-<text text-anchor="middle" x="376.08" y="-1642.4" font-family="Times,serif" font-size="12.00">0.13GB (1.09%)</text>
-<text text-anchor="middle" x="376.08" y="-1629.4" font-family="Times,serif" font-size="12.00">of 0.26GB (2.20%)</text>
-</a>
-</g>
-</g>
-<!-- N13&#45;&gt;N23 -->
-<g id="edge75" class="edge">
-<title>N13&#45;&gt;N23</title>
-<g id="a_edge75"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (0.18GB)">
-<path fill="none" stroke="#b2aea4" d="M462.9,-1745.91C451,-1734.07 434.6,-1717.74 419.25,-1702.47"/>
-<polygon fill="#b2aea4" stroke="#b2aea4" points="421.39,-1699.66 411.83,-1695.08 416.45,-1704.62 421.39,-1699.66"/>
-</a>
-</g>
-<g id="a_edge75&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (0.18GB)">
-<text text-anchor="middle" x="473.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.18GB</text>
-</a>
-</g>
-</g>
-<!-- N24 -->
-<g id="node24" class="node">
-<title>N24</title>
-<g id="a_node24"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditions (0.22GB)">
-<polygon fill="#edecea" stroke="#b2ada1" points="766.08,-1690.5 560.08,-1690.5 560.08,-1626.5 766.08,-1626.5 766.08,-1690.5"/>
-<text text-anchor="middle" x="663.08" y="-1676.1" font-family="Times,serif" font-size="13.00">cache</text>
-<text text-anchor="middle" x="663.08" y="-1662.1" font-family="Times,serif" font-size="13.00">(*CatalogService)</text>
-<text text-anchor="middle" x="663.08" y="-1648.1" font-family="Times,serif" font-size="13.00">GeneratePricesByConditions</text>
-<text text-anchor="middle" x="663.08" y="-1634.1" font-family="Times,serif" font-size="13.00">0.22GB (1.87%)</text>
-</a>
-</g>
-</g>
-<!-- N13&#45;&gt;N24 -->
-<g id="edge83" class="edge">
-<title>N13&#45;&gt;N24</title>
-<g id="a_edge83"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditions (0.11GB)">
-<path fill="none" stroke="#b2b0aa" d="M510.29,-1745.91C534.41,-1732.27 569.04,-1712.69 599.23,-1695.61"/>
-<polygon fill="#b2b0aa" stroke="#b2b0aa" points="601.04,-1698.6 608.03,-1690.63 597.6,-1692.51 601.04,-1698.6"/>
-</a>
-</g>
-<g id="a_edge83&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditions (0.11GB)">
-<text text-anchor="middle" x="596.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.11GB</text>
+<title>N1&#45;&gt;N5</title>
+<g id="a_edge25"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (58738.07kB)">
+<path fill="none" stroke="#b25e21" d="M855.28,-1222.86C840.57,-1217.47 824.52,-1211.28 810,-1205 774.55,-1189.66 736.41,-1171.1 703.22,-1154.23"/>
+<polygon fill="#b25e21" stroke="#b25e21" points="704.49,-1150.96 693.99,-1149.53 701.31,-1157.19 704.49,-1150.96"/>
+</a>
+</g>
+<g id="a_edge25&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (58738.07kB)">
+<text text-anchor="middle" x="855.5" y="-1193.8" font-family="Times,serif" font-size="14.00"> 58738.07kB</text>
+<text text-anchor="middle" x="855.5" y="-1178.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
 <!-- N14 -->
 <g id="node14" class="node">
 <title>N14</title>
-<g id="a_node14"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart (3.26GB)">
-<polygon fill="#edddd5" stroke="#b23900" points="1875.08,-1782 1771.08,-1782 1771.08,-1746 1875.08,-1746 1875.08,-1782"/>
-<text text-anchor="middle" x="1823.08" y="-1771.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1823.08" y="-1762.1" font-family="Times,serif" font-size="8.00">buildChart</text>
-<text text-anchor="middle" x="1823.08" y="-1753.1" font-family="Times,serif" font-size="8.00">0 of 3.26GB (27.17%)</text>
+<g id="a_node14"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Service).GenerateTestData5Chars50Offerings (203297.62kB)">
+<polygon fill="#edd9d5" stroke="#b21c00" points="999,-1134.5 811,-1134.5 811,-1076.5 999,-1076.5 999,-1134.5"/>
+<text text-anchor="middle" x="905" y="-1123.3" font-family="Times,serif" font-size="9.00">samplev2</text>
+<text text-anchor="middle" x="905" y="-1113.3" font-family="Times,serif" font-size="9.00">(*Service)</text>
+<text text-anchor="middle" x="905" y="-1103.3" font-family="Times,serif" font-size="9.00">GenerateTestData5Chars50Offerings</text>
+<text text-anchor="middle" x="905" y="-1093.3" font-family="Times,serif" font-size="9.00">0.08kB (2.2e&#45;05%)</text>
+<text text-anchor="middle" x="905" y="-1083.3" font-family="Times,serif" font-size="9.00">of 203297.62kB (56.18%)</text>
 </a>
 </g>
 </g>
-<!-- N25 -->
-<g id="node25" class="node">
-<title>N25</title>
-<g id="a_node25"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildGraph (0.33GB)">
-<polygon fill="#edece9" stroke="#b2a999" points="1916.08,-1685 1786.08,-1685 1786.08,-1632 1916.08,-1632 1916.08,-1685"/>
-<text text-anchor="middle" x="1851.08" y="-1669.8" font-family="Times,serif" font-size="14.00">bitmap</text>
-<text text-anchor="middle" x="1851.08" y="-1654.8" font-family="Times,serif" font-size="14.00">buildGraph</text>
-<text text-anchor="middle" x="1851.08" y="-1639.8" font-family="Times,serif" font-size="14.00">0.33GB (2.79%)</text>
+<!-- N1&#45;&gt;N14 -->
+<g id="edge21" class="edge">
+<title>N1&#45;&gt;N14</title>
+<g id="a_edge21"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/benchmark/samplev2.(*Service).GenerateTestData5Chars50Offerings (203297.62kB)">
+<path fill="none" stroke="#b21c00" stroke-width="3" d="M905,-1222.82C905,-1203.2 905,-1170.49 905,-1144.74"/>
+<polygon fill="#b21c00" stroke="#b21c00" stroke-width="3" points="908.5,-1144.55 905,-1134.55 901.5,-1144.55 908.5,-1144.55"/>
+</a>
+</g>
+<g id="a_edge21&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/benchmark/samplev2.(*Service).GenerateTestData5Chars50Offerings (203297.62kB)">
+<text text-anchor="middle" x="955" y="-1186.3" font-family="Times,serif" font-size="14.00"> 203297.62kB</text>
 </a>
 </g>
 </g>
-<!-- N14&#45;&gt;N25 -->
-<g id="edge65" class="edge">
-<title>N14&#45;&gt;N25</title>
-<g id="a_edge65"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildGraph (0.33GB)">
-<path fill="none" stroke="#b2a999" d="M1827.7,-1745.91C1831.44,-1732.09 1836.83,-1712.16 1841.49,-1694.92"/>
-<polygon fill="#b2a999" stroke="#b2a999" points="1844.9,-1695.72 1844.14,-1685.15 1838.15,-1693.89 1844.9,-1695.72"/>
-</a>
-</g>
-<g id="a_edge65&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildGraph (0.33GB)">
-<text text-anchor="middle" x="1865.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.33GB</text>
-</a>
-</g>
-</g>
-<!-- N45 -->
-<g id="node45" class="node">
-<title>N45</title>
-<g id="a_node45"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.Chart.Render (2.92GB)">
-<polygon fill="#edddd5" stroke="#b23d00" points="2038.08,-1680.5 1934.08,-1680.5 1934.08,-1636.5 2038.08,-1636.5 2038.08,-1680.5"/>
-<text text-anchor="middle" x="1986.08" y="-1670.1" font-family="Times,serif" font-size="8.00">go&#45;chart</text>
-<text text-anchor="middle" x="1986.08" y="-1661.1" font-family="Times,serif" font-size="8.00">Chart</text>
-<text text-anchor="middle" x="1986.08" y="-1652.1" font-family="Times,serif" font-size="8.00">Render</text>
-<text text-anchor="middle" x="1986.08" y="-1643.1" font-family="Times,serif" font-size="8.00">0 of 2.92GB (24.38%)</text>
+<!-- N2 -->
+<g id="node2" class="node">
+<title>N2</title>
+<g id="a_node2"><a xlink:title="testing.tRunner (361839.41kB)">
+<polygon fill="#edd5d5" stroke="#b20000" points="965,-1395.5 845,-1395.5 845,-1359.5 965,-1359.5 965,-1395.5"/>
+<text text-anchor="middle" x="905" y="-1384.6" font-family="Times,serif" font-size="8.00">testing</text>
+<text text-anchor="middle" x="905" y="-1375.6" font-family="Times,serif" font-size="8.00">tRunner</text>
+<text text-anchor="middle" x="905" y="-1366.6" font-family="Times,serif" font-size="8.00">0 of 361839.41kB (100%)</text>
 </a>
 </g>
 </g>
-<!-- N14&#45;&gt;N45 -->
-<g id="edge30" class="edge">
-<title>N14&#45;&gt;N45</title>
-<g id="a_edge30"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.Chart.Render (2.92GB)">
-<path fill="none" stroke="#b23d00" stroke-width="2" d="M1864.03,-1745.91C1875.33,-1740.66 1887.41,-1734.52 1898.08,-1728 1917.62,-1716.04 1937.91,-1700.5 1954.07,-1687.24"/>
-<polygon fill="#b23d00" stroke="#b23d00" stroke-width="2" points="1956.67,-1689.63 1962.12,-1680.55 1952.19,-1684.25 1956.67,-1689.63"/>
+<!-- N2&#45;&gt;N1 -->
+<g id="edge20" class="edge">
+<title>N2&#45;&gt;N1</title>
+<g id="a_edge20"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 (361837.84kB)">
+<path fill="none" stroke="#b20000" stroke-width="5" d="M905,-1359.47C905,-1336.85 905,-1296.64 905,-1269.64"/>
+<polygon fill="#b20000" stroke="#b20000" stroke-width="5" points="909.38,-1269.32 905,-1259.32 900.63,-1269.32 909.38,-1269.32"/>
 </a>
 </g>
-<g id="a_edge30&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.Chart.Render (2.92GB)">
-<text text-anchor="middle" x="1947.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 2.92GB</text>
-</a>
-</g>
-</g>
-<!-- N15&#45;&gt;N5 -->
-<g id="edge37" class="edge">
-<title>N15&#45;&gt;N5</title>
-<g id="a_edge37"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (2.49GB)">
-<path fill="none" stroke="#b24300" stroke-width="2" d="M455.57,-1832.88C433.51,-1822.4 404.06,-1809.27 377.08,-1800 354.06,-1792.1 328.36,-1785.15 305.32,-1779.58"/>
-<polygon fill="#b24300" stroke="#b24300" stroke-width="2" points="305.82,-1776.1 295.28,-1777.19 304.2,-1782.91 305.82,-1776.1"/>
-</a>
-</g>
-<g id="a_edge37&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (2.49GB)">
-<text text-anchor="middle" x="445.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 2.49GB</text>
+<g id="a_edge20&#45;label"><a xlink:title="testing.tRunner &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 (361837.84kB)">
+<text text-anchor="middle" x="955" y="-1280.8" font-family="Times,serif" font-size="14.00"> 361837.84kB</text>
 </a>
 </g>
 </g>
-<!-- N15&#45;&gt;N13 -->
-<g id="edge66" class="edge">
-<title>N15&#45;&gt;N13</title>
-<g id="a_edge66"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T (0.33GB)">
-<path fill="none" stroke="#b2aa99" d="M484.78,-1832.71C483.3,-1827.11 481.87,-1820.84 481.08,-1815 480.08,-1807.72 479.63,-1799.78 479.48,-1792.43"/>
-<polygon fill="#b2aa99" stroke="#b2aa99" points="482.98,-1792.19 479.44,-1782.2 475.98,-1792.21 482.98,-1792.19"/>
-</a>
-</g>
-<g id="a_edge66&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_OptStr_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T (0.33GB)">
-<text text-anchor="middle" x="510.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.33GB</text>
-</a>
-</g>
-</g>
-<!-- N16&#45;&gt;N5 -->
-<g id="edge47" class="edge">
-<title>N16&#45;&gt;N5</title>
-<g id="a_edge47"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (1.76GB)">
-<path fill="none" stroke="#b2682f" d="M248.35,-1832.79C244.21,-1827.5 240.32,-1821.37 238.08,-1815 235.57,-1807.88 234.65,-1799.82 234.53,-1792.29"/>
-<polygon fill="#b2682f" stroke="#b2682f" points="238.03,-1792.23 234.81,-1782.14 231.03,-1792.04 238.03,-1792.23"/>
-</a>
-</g>
-<g id="a_edge47&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (1.76GB)">
-<text text-anchor="middle" x="267.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 1.76GB</text>
+<!-- N3 -->
+<g id="node3" class="node">
+<title>N3</title>
+<g id="a_node3"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Holder).generatePrice (203287.34kB)">
+<polygon fill="#edd9d5" stroke="#b21c00" points="770.5,-696 447.5,-696 447.5,-558 770.5,-558 770.5,-696"/>
+<text text-anchor="middle" x="609" y="-672.8" font-family="Times,serif" font-size="24.00">samplev2</text>
+<text text-anchor="middle" x="609" y="-646.8" font-family="Times,serif" font-size="24.00">(*Holder)</text>
+<text text-anchor="middle" x="609" y="-620.8" font-family="Times,serif" font-size="24.00">generatePrice</text>
+<text text-anchor="middle" x="609" y="-594.8" font-family="Times,serif" font-size="24.00">172837.25kB (47.76%)</text>
+<text text-anchor="middle" x="609" y="-568.8" font-family="Times,serif" font-size="24.00">of 203287.34kB (56.18%)</text>
 </a>
 </g>
 </g>
-<!-- N16&#45;&gt;N13 -->
-<g id="edge64" class="edge">
-<title>N16&#45;&gt;N13</title>
-<g id="a_edge64"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T (0.36GB)">
-<path fill="none" stroke="#b2a997" d="M279.39,-1832.64C289.39,-1821.64 303.67,-1808.03 319.08,-1800 347.68,-1785.09 382.31,-1776.53 412.12,-1771.61"/>
-<polygon fill="#b2a997" stroke="#b2a997" points="412.69,-1775.06 422.03,-1770.08 411.62,-1768.15 412.69,-1775.06"/>
+<!-- NN3_0 -->
+<g id="NN3_0" class="node">
+<title>NN3_0</title>
+<g id="a_NN3_0"><a xlink:title="114187.50kB">
+<polygon fill="#f8f8f8" stroke="black" points="472,-488.5 422,-488.5 418,-484.5 418,-452.5 468,-452.5 472,-456.5 472,-488.5"/>
+<polyline fill="none" stroke="black" points="468,-484.5 418,-484.5 "/>
+<polyline fill="none" stroke="black" points="468,-484.5 468,-452.5 "/>
+<polyline fill="none" stroke="black" points="468,-484.5 472,-488.5 "/>
+<text text-anchor="middle" x="445" y="-468.6" font-family="Times,serif" font-size="8.00">240B</text>
 </a>
 </g>
-<g id="a_edge64&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPriceV2_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexV2T (0.36GB)">
-<text text-anchor="middle" x="348.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.36GB</text>
+</g>
+<!-- N3&#45;&gt;NN3_0 -->
+<g id="edge1" class="edge">
+<title>N3&#45;&gt;NN3_0</title>
+<g id="a_edge1"><a xlink:title="114187.50kB">
+<path fill="none" stroke="black" d="M479.03,-557.87C473.2,-552.29 467.79,-546.33 463,-540 454.04,-528.16 449.53,-512.26 447.26,-498.75"/>
+<polygon fill="black" stroke="black" points="450.69,-498 445.88,-488.56 443.76,-498.94 450.69,-498"/>
+</a>
+</g>
+<g id="a_edge1&#45;label"><a xlink:title="114187.50kB">
+<text text-anchor="middle" x="513" y="-528.8" font-family="Times,serif" font-size="14.00"> 114187.50kB</text>
 </a>
 </g>
 </g>
-<!-- N17&#45;&gt;N14 -->
+<!-- NN3_1 -->
+<g id="NN3_1" class="node">
+<title>NN3_1</title>
+<g id="a_NN3_1"><a xlink:title="38062.50kB">
+<polygon fill="#f8f8f8" stroke="black" points="595,-488.5 545,-488.5 541,-484.5 541,-452.5 591,-452.5 595,-456.5 595,-488.5"/>
+<polyline fill="none" stroke="black" points="591,-484.5 541,-484.5 "/>
+<polyline fill="none" stroke="black" points="591,-484.5 591,-452.5 "/>
+<polyline fill="none" stroke="black" points="591,-484.5 595,-488.5 "/>
+<text text-anchor="middle" x="568" y="-468.6" font-family="Times,serif" font-size="8.00">16B..80B</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;NN3_1 -->
+<g id="edge2" class="edge">
+<title>N3&#45;&gt;NN3_1</title>
+<g id="a_edge2"><a xlink:title="38062.50kB">
+<path fill="none" stroke="black" d="M574.25,-557.91C572.16,-551.96 570.36,-545.94 569,-540 565.96,-526.73 565.44,-511.63 565.79,-498.99"/>
+<polygon fill="black" stroke="black" points="569.31,-498.78 566.29,-488.63 562.32,-498.45 569.31,-498.78"/>
+</a>
+</g>
+<g id="a_edge2&#45;label"><a xlink:title="38062.50kB">
+<text text-anchor="middle" x="614.5" y="-528.8" font-family="Times,serif" font-size="14.00"> 38062.50kB</text>
+</a>
+</g>
+</g>
+<!-- NN3_2 -->
+<g id="NN3_2" class="node">
+<title>NN3_2</title>
+<g id="a_NN3_2"><a xlink:title="8200kB">
+<polygon fill="#f8f8f8" stroke="black" points="725,-488.5 643,-488.5 639,-484.5 639,-452.5 721,-452.5 725,-456.5 725,-488.5"/>
+<polyline fill="none" stroke="black" points="721,-484.5 639,-484.5 "/>
+<polyline fill="none" stroke="black" points="721,-484.5 721,-452.5 "/>
+<polyline fill="none" stroke="black" points="721,-484.5 725,-488.5 "/>
+<text text-anchor="middle" x="682" y="-468.6" font-family="Times,serif" font-size="8.00">2.09MB..3.29MB</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;NN3_2 -->
+<g id="edge3" class="edge">
+<title>N3&#45;&gt;NN3_2</title>
+<g id="a_edge3"><a xlink:title="8200kB">
+<path fill="none" stroke="black" d="M651.32,-557.73C654.42,-551.82 657.36,-545.86 660,-540 666.03,-526.61 671.16,-511.07 674.95,-498.18"/>
+<polygon fill="black" stroke="black" points="678.33,-499.08 677.69,-488.5 671.59,-497.17 678.33,-499.08"/>
+</a>
+</g>
+<g id="a_edge3&#45;label"><a xlink:title="8200kB">
+<text text-anchor="middle" x="696" y="-528.8" font-family="Times,serif" font-size="14.00"> 8200kB</text>
+</a>
+</g>
+</g>
+<!-- NN3_3 -->
+<g id="NN3_3" class="node">
+<title>NN3_3</title>
+<g id="a_NN3_3"><a xlink:title="4216kB">
+<polygon fill="#f8f8f8" stroke="black" points="797,-488.5 747,-488.5 743,-484.5 743,-452.5 793,-452.5 797,-456.5 797,-488.5"/>
+<polyline fill="none" stroke="black" points="793,-484.5 743,-484.5 "/>
+<polyline fill="none" stroke="black" points="793,-484.5 793,-452.5 "/>
+<polyline fill="none" stroke="black" points="793,-484.5 797,-488.5 "/>
+<text text-anchor="middle" x="770" y="-468.6" font-family="Times,serif" font-size="8.00">4.12MB</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;NN3_3 -->
+<g id="edge4" class="edge">
+<title>N3&#45;&gt;NN3_3</title>
+<g id="a_edge4"><a xlink:title="4216kB">
+<path fill="none" stroke="black" d="M711.72,-557.94C718.18,-552.18 724.35,-546.18 730,-540 741.37,-527.57 751,-511.38 757.97,-497.86"/>
+<polygon fill="black" stroke="black" points="761.26,-499.1 762.55,-488.58 754.98,-496 761.26,-499.1"/>
+</a>
+</g>
+<g id="a_edge4&#45;label"><a xlink:title="4216kB">
+<text text-anchor="middle" x="771" y="-528.8" font-family="Times,serif" font-size="14.00"> 4216kB</text>
+</a>
+</g>
+</g>
+<!-- N8 -->
+<g id="node8" class="node">
+<title>N8</title>
+<g id="a_node8"><a xlink:title="github.com/google/uuid.NewString (30450.09kB)">
+<polygon fill="#ede8e3" stroke="#b28e67" points="903.5,-383 786.5,-383 786.5,-347 903.5,-347 903.5,-383"/>
+<text text-anchor="middle" x="845" y="-372.1" font-family="Times,serif" font-size="8.00">uuid</text>
+<text text-anchor="middle" x="845" y="-363.1" font-family="Times,serif" font-size="8.00">NewString</text>
+<text text-anchor="middle" x="845" y="-354.1" font-family="Times,serif" font-size="8.00">0 of 30450.09kB (8.41%)</text>
+</a>
+</g>
+</g>
+<!-- N3&#45;&gt;N8 -->
 <g id="edge29" class="edge">
-<title>N17&#45;&gt;N14</title>
-<g id="a_edge29"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart (3.26GB)">
-<path fill="none" stroke="#b23900" stroke-width="2" d="M1586.58,-1834.67C1589.78,-1834.09 1592.96,-1833.53 1596.08,-1833 1652.27,-1823.41 1668.65,-1831.97 1723.08,-1815 1744.79,-1808.23 1767.58,-1797.18 1785.91,-1787.19"/>
-<polygon fill="#b23900" stroke="#b23900" stroke-width="2" points="1787.76,-1790.16 1794.8,-1782.24 1784.36,-1784.05 1787.76,-1790.16"/>
+<title>N3&#45;&gt;N8</title>
+<g id="a_edge29"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Holder).generatePrice &#45;&gt; github.com/google/uuid.NewString (30450.09kB)">
+<path fill="none" stroke="#b28e67" d="M770.5,-571.06C783.37,-562.16 795.16,-551.88 805,-540 840.09,-497.63 845.75,-430.38 845.92,-393.11"/>
+<polygon fill="#b28e67" stroke="#b28e67" points="849.42,-392.97 845.84,-383 842.42,-393.03 849.42,-392.97"/>
 </a>
 </g>
-<g id="a_edge29&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.buildChart (3.26GB)">
-<text text-anchor="middle" x="1789.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 3.26GB</text>
+<g id="a_edge29&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Holder).generatePrice &#45;&gt; github.com/google/uuid.NewString (30450.09kB)">
+<text text-anchor="middle" x="889.5" y="-466.8" font-family="Times,serif" font-size="14.00"> 30450.09kB</text>
+</a>
+</g>
+</g>
+<!-- NN4_0 -->
+<g id="NN4_0" class="node">
+<title>NN4_0</title>
+<g id="a_NN4_0"><a xlink:title="30449.98kB">
+<polygon fill="#f8f8f8" stroke="black" points="54,-1003 4,-1003 0,-999 0,-967 50,-967 54,-971 54,-1003"/>
+<polyline fill="none" stroke="black" points="50,-999 0,-999 "/>
+<polyline fill="none" stroke="black" points="50,-999 50,-967 "/>
+<polyline fill="none" stroke="black" points="50,-999 54,-1003 "/>
+<text text-anchor="middle" x="27" y="-983.1" font-family="Times,serif" font-size="8.00">16B</text>
+</a>
+</g>
+</g>
+<!-- N4&#45;&gt;NN4_0 -->
+<g id="edge5" class="edge">
+<title>N4&#45;&gt;NN4_0</title>
+<g id="a_edge5"><a xlink:title="30449.98kB">
+<path fill="none" stroke="black" d="M62.35,-1053.85C56.39,-1048.25 50.83,-1042.29 46,-1036 40.83,-1029.27 36.93,-1020.97 34.05,-1013.08"/>
+<polygon fill="black" stroke="black" points="37.35,-1011.89 30.94,-1003.45 30.69,-1014.05 37.35,-1011.89"/>
+</a>
+</g>
+<g id="a_edge5&#45;label"><a xlink:title="30449.98kB">
+<text text-anchor="middle" x="91.5" y="-1024.8" font-family="Times,serif" font-size="14.00"> 30449.98kB</text>
+</a>
+</g>
+</g>
+<!-- NN4_1 -->
+<g id="NN4_1" class="node">
+<title>NN4_1</title>
+<g id="a_NN4_1"><a xlink:title="11418.75kB">
+<polygon fill="#f8f8f8" stroke="black" points="168,-1003 118,-1003 114,-999 114,-967 164,-967 168,-971 168,-1003"/>
+<polyline fill="none" stroke="black" points="164,-999 114,-999 "/>
+<polyline fill="none" stroke="black" points="164,-999 164,-967 "/>
+<polyline fill="none" stroke="black" points="164,-999 168,-1003 "/>
+<text text-anchor="middle" x="141" y="-983.1" font-family="Times,serif" font-size="8.00">24B</text>
+</a>
+</g>
+</g>
+<!-- N4&#45;&gt;NN4_1 -->
+<g id="edge6" class="edge">
+<title>N4&#45;&gt;NN4_1</title>
+<g id="a_edge6"><a xlink:title="11418.75kB">
+<path fill="none" stroke="black" d="M141,-1053.9C141,-1040.03 141,-1025.51 141,-1013.48"/>
+<polygon fill="black" stroke="black" points="144.5,-1013.22 141,-1003.22 137.5,-1013.22 144.5,-1013.22"/>
+</a>
+</g>
+<g id="a_edge6&#45;label"><a xlink:title="11418.75kB">
+<text text-anchor="middle" x="186.5" y="-1024.8" font-family="Times,serif" font-size="14.00"> 11418.75kB</text>
+</a>
+</g>
+</g>
+<!-- NN4_2 -->
+<g id="NN4_2" class="node">
+<title>NN4_2</title>
+<g id="a_NN4_2"><a xlink:title="7616kB">
+<polygon fill="#f8f8f8" stroke="black" points="282,-1003 232,-1003 228,-999 228,-967 278,-967 282,-971 282,-1003"/>
+<polyline fill="none" stroke="black" points="278,-999 228,-999 "/>
+<polyline fill="none" stroke="black" points="278,-999 278,-967 "/>
+<polyline fill="none" stroke="black" points="278,-999 282,-1003 "/>
+<text text-anchor="middle" x="255" y="-983.1" font-family="Times,serif" font-size="8.00">7.44MB</text>
+</a>
+</g>
+</g>
+<!-- N4&#45;&gt;NN4_2 -->
+<g id="edge7" class="edge">
+<title>N4&#45;&gt;NN4_2</title>
+<g id="a_edge7"><a xlink:title="7616kB">
+<path fill="none" stroke="black" d="M216.36,-1053.8C222.38,-1048.19 228.04,-1042.23 233,-1036 238.46,-1029.14 242.85,-1020.72 246.22,-1012.76"/>
+<polygon fill="black" stroke="black" points="249.49,-1014 249.84,-1003.41 242.97,-1011.47 249.49,-1014"/>
+</a>
+</g>
+<g id="a_edge7&#45;label"><a xlink:title="7616kB">
+<text text-anchor="middle" x="272" y="-1024.8" font-family="Times,serif" font-size="14.00"> 7616kB</text>
+</a>
+</g>
+</g>
+<!-- N12 -->
+<g id="node12" class="node">
+<title>N12</title>
+<g id="a_node12"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).addToBitmap (12250.70kB)">
+<polygon fill="#edebe9" stroke="#b2a794" points="157.5,-930 32.5,-930 32.5,-872 157.5,-872 157.5,-930"/>
+<text text-anchor="middle" x="95" y="-918.8" font-family="Times,serif" font-size="9.00">index&#45;roaring</text>
+<text text-anchor="middle" x="95" y="-908.8" font-family="Times,serif" font-size="9.00">(*Holder)</text>
+<text text-anchor="middle" x="95" y="-898.8" font-family="Times,serif" font-size="9.00">addToBitmap</text>
+<text text-anchor="middle" x="95" y="-888.8" font-family="Times,serif" font-size="9.00">8.71kB (0.0024%)</text>
+<text text-anchor="middle" x="95" y="-878.8" font-family="Times,serif" font-size="9.00">of 12250.70kB (3.39%)</text>
+</a>
+</g>
+</g>
+<!-- N4&#45;&gt;N12 -->
+<g id="edge31" class="edge">
+<title>N4&#45;&gt;N12</title>
+<g id="a_edge31"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).addToBitmap (12250.70kB)">
+<path fill="none" stroke="#b2a794" d="M252.86,-1079.01C273.83,-1069.05 293.17,-1055.22 306,-1036 309.7,-1030.46 306.9,-1027.61 306,-1021 302.64,-996.32 308.17,-985.04 291,-967 259.03,-933.42 209.34,-917.18 167.99,-909.33"/>
+<polygon fill="#b2a794" stroke="#b2a794" points="168.4,-905.84 157.94,-907.55 167.18,-912.74 168.4,-905.84"/>
+</a>
+</g>
+<g id="a_edge31&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).addToBitmap (12250.70kB)">
+<text text-anchor="middle" x="350.5" y="-981.3" font-family="Times,serif" font-size="14.00"> 12250.70kB</text>
 </a>
 </g>
 </g>
 <!-- N19 -->
 <g id="node19" class="node">
 <title>N19</title>
-<g id="a_node19"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT (0.55GB)">
-<polygon fill="#edebe7" stroke="#b2a289" points="1413.08,-1782 1309.08,-1782 1309.08,-1746 1413.08,-1746 1413.08,-1782"/>
-<text text-anchor="middle" x="1361.08" y="-1771.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1361.08" y="-1762.1" font-family="Times,serif" font-size="8.00">prepareBitmapIndexT</text>
-<text text-anchor="middle" x="1361.08" y="-1753.1" font-family="Times,serif" font-size="8.00">0 of 0.55GB (4.56%)</text>
+<g id="a_node19"><a xlink:title="strings.ToLower (38058.97kB)">
+<polygon fill="#ede6e0" stroke="#b28254" points="478,-919 356,-919 356,-883 478,-883 478,-919"/>
+<text text-anchor="middle" x="417" y="-908.1" font-family="Times,serif" font-size="8.00">strings</text>
+<text text-anchor="middle" x="417" y="-899.1" font-family="Times,serif" font-size="8.00">ToLower</text>
+<text text-anchor="middle" x="417" y="-890.1" font-family="Times,serif" font-size="8.00">0 of 38058.97kB (10.52%)</text>
 </a>
 </g>
 </g>
-<!-- N17&#45;&gt;N19 -->
-<g id="edge68" class="edge">
-<title>N17&#45;&gt;N19</title>
-<g id="a_edge68"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT (0.27GB)">
-<path fill="none" stroke="#b2ab9e" d="M1480.72,-1832.8C1457.47,-1819.62 1425.21,-1801.34 1400.05,-1787.08"/>
-<polygon fill="#b2ab9e" stroke="#b2ab9e" points="1401.55,-1783.92 1391.13,-1782.03 1398.1,-1790.01 1401.55,-1783.92"/>
+<!-- N4&#45;&gt;N19 -->
+<g id="edge26" class="edge">
+<title>N4&#45;&gt;N19</title>
+<g id="a_edge26"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 &#45;&gt; strings.ToLower (38058.97kB)">
+<path fill="none" stroke="#b28254" d="M252.78,-1087.26C305.3,-1073.32 364.12,-1048.2 400,-1003 416.44,-982.29 419.51,-951.57 419.21,-929.45"/>
+<polygon fill="#b28254" stroke="#b28254" points="422.7,-929.23 418.83,-919.37 415.71,-929.49 422.7,-929.23"/>
 </a>
 </g>
-<g id="a_edge68&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestGenerateTestData_BuildChart &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT (0.27GB)">
-<text text-anchor="middle" x="1473.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.27GB</text>
+<g id="a_edge26&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 &#45;&gt; strings.ToLower (38058.97kB)">
+<text text-anchor="middle" x="461.5" y="-981.3" font-family="Times,serif" font-size="14.00"> 38058.97kB</text>
 </a>
 </g>
 </g>
-<!-- N18&#45;&gt;N12 -->
-<g id="edge48" class="edge">
-<title>N18&#45;&gt;N12</title>
-<g id="a_edge48"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (1.70GB)">
-<path fill="none" stroke="#b26c33" d="M883.08,-1832.8C883.08,-1821.16 883.08,-1805.55 883.08,-1792.24"/>
-<polygon fill="#b26c33" stroke="#b26c33" points="886.58,-1792.18 883.08,-1782.18 879.58,-1792.18 886.58,-1792.18"/>
+<!-- NN5_0 -->
+<g id="NN5_0" class="node">
+<title>NN5_0</title>
+<g id="a_NN5_0"><a xlink:title="30450kB">
+<polygon fill="#f8f8f8" stroke="black" points="608,-1003 558,-1003 554,-999 554,-967 604,-967 608,-971 608,-1003"/>
+<polyline fill="none" stroke="black" points="604,-999 554,-999 "/>
+<polyline fill="none" stroke="black" points="604,-999 604,-967 "/>
+<polyline fill="none" stroke="black" points="604,-999 608,-1003 "/>
+<text text-anchor="middle" x="581" y="-983.1" font-family="Times,serif" font-size="8.00">64B</text>
 </a>
 </g>
-<g id="a_edge48&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (1.70GB)">
-<text text-anchor="middle" x="912.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 1.70GB</text>
-</a>
-</g>
-</g>
-<!-- N18&#45;&gt;N19 -->
-<g id="edge67" class="edge">
-<title>N18&#45;&gt;N19</title>
-<g id="a_edge67"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT (0.27GB)">
-<path fill="none" stroke="#b2ab9e" d="M914.6,-1832.88C924.46,-1827.35 935.31,-1821.07 945.08,-1815 955.13,-1808.75 955.92,-1803.94 967.08,-1800 1014.17,-1783.38 1141.34,-1786.48 1191.08,-1782 1226.79,-1778.78 1266.7,-1774.81 1298.86,-1771.51"/>
-<polygon fill="#b2ab9e" stroke="#b2ab9e" points="1299.43,-1774.97 1309.02,-1770.47 1298.71,-1768.01 1299.43,-1774.97"/>
-</a>
-</g>
-<g id="a_edge67&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestFindPrice_3824position_CpuProfiling &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT (0.27GB)">
-<text text-anchor="middle" x="996.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.27GB</text>
-</a>
-</g>
-</g>
-<!-- N19&#45;&gt;N9 -->
-<g id="edge63" class="edge">
-<title>N19&#45;&gt;N9</title>
-<g id="a_edge63"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.40GB)">
-<path fill="none" stroke="#b2a794" d="M1363.32,-1745.93C1368.16,-1709.08 1379.63,-1621.84 1385.49,-1577.26"/>
-<polygon fill="#b2a794" stroke="#b2a794" points="1388.99,-1577.52 1386.82,-1567.15 1382.05,-1576.61 1388.99,-1577.52"/>
-</a>
-</g>
-<g id="a_edge63&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.40GB)">
-<text text-anchor="middle" x="1408.08" y="-1654.8" font-family="Times,serif" font-size="14.00"> 0.40GB</text>
-</a>
-</g>
-</g>
-<!-- N19&#45;&gt;N24 -->
-<g id="edge82" class="edge">
-<title>N19&#45;&gt;N24</title>
-<g id="a_edge82"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditions (0.11GB)">
-<path fill="none" stroke="#b2b0aa" d="M1308.89,-1751.64C1253.78,-1740.08 1164.23,-1722.55 1086.08,-1713 960.53,-1697.66 927,-1714.73 802.08,-1695 793.58,-1693.66 784.86,-1692.03 776.11,-1690.23"/>
-<polygon fill="#b2b0aa" stroke="#b2b0aa" points="776.75,-1686.78 766.24,-1688.11 775.29,-1693.63 776.75,-1686.78"/>
-</a>
-</g>
-<g id="a_edge82&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditions (0.11GB)">
-<text text-anchor="middle" x="1213.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.11GB</text>
-</a>
-</g>
-</g>
-<!-- N33 -->
-<g id="node33" class="node">
-<title>N33</title>
-<g id="a_node33"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.08GB)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1636.58,-1690 1503.58,-1690 1503.58,-1627 1636.58,-1627 1636.58,-1690"/>
-<text text-anchor="middle" x="1570.08" y="-1678" font-family="Times,serif" font-size="10.00">index&#45;roaring</text>
-<text text-anchor="middle" x="1570.08" y="-1667" font-family="Times,serif" font-size="10.00">(*BitmapIndexService)</text>
-<text text-anchor="middle" x="1570.08" y="-1656" font-family="Times,serif" font-size="10.00">IndexPrices</text>
-<text text-anchor="middle" x="1570.08" y="-1645" font-family="Times,serif" font-size="10.00">0.03GB (0.24%)</text>
-<text text-anchor="middle" x="1570.08" y="-1634" font-family="Times,serif" font-size="10.00">of 0.08GB (0.66%)</text>
-</a>
-</g>
-</g>
-<!-- N19&#45;&gt;N33 -->
-<g id="edge92" class="edge">
-<title>N19&#45;&gt;N33</title>
-<g id="a_edge92"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.04GB)">
-<path fill="none" stroke="#b2b2af" d="M1368.91,-1745.92C1374.71,-1735.05 1383.58,-1721.47 1395.08,-1713 1397.27,-1711.38 1447.4,-1696.12 1493.45,-1682.32"/>
-<polygon fill="#b2b2af" stroke="#b2b2af" points="1494.62,-1685.62 1503.19,-1679.4 1492.61,-1678.91 1494.62,-1685.62"/>
-</a>
-</g>
-<g id="a_edge92&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.prepareBitmapIndexT &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.04GB)">
-<text text-anchor="middle" x="1424.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.04GB</text>
-</a>
-</g>
-</g>
-<!-- N20&#45;&gt;N9 -->
-<g id="edge76" class="edge">
-<title>N20&#45;&gt;N9</title>
-<g id="a_edge76"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.18GB)">
-<path fill="none" stroke="#b2aea5" d="M1136.94,-1843.36C1227.96,-1833.86 1377.24,-1813.92 1422.08,-1782 1480.41,-1740.47 1467.52,-1688.55 1441.08,-1622 1434.3,-1604.96 1422.6,-1588.21 1412,-1575.16"/>
-<polygon fill="#b2aea5" stroke="#b2aea5" points="1414.38,-1572.55 1405.27,-1567.15 1409.03,-1577.06 1414.38,-1572.55"/>
-</a>
-</g>
-<g id="a_edge76&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.18GB)">
-<text text-anchor="middle" x="1492.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.18GB</text>
-</a>
-</g>
-</g>
-<!-- N20&#45;&gt;N12 -->
-<g id="edge58" class="edge">
-<title>N20&#45;&gt;N12</title>
-<g id="a_edge58"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (0.49GB)">
-<path fill="none" stroke="#b2a48e" d="M1056.07,-1832.69C1050.12,-1821.71 1040.99,-1808.11 1029.08,-1800 1004.51,-1783.28 972.87,-1774.51 945.33,-1769.93"/>
-<polygon fill="#b2a48e" stroke="#b2a48e" points="945.8,-1766.46 935.39,-1768.42 944.75,-1773.38 945.8,-1766.46"/>
-</a>
-</g>
-<g id="a_edge58&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824Position (0.49GB)">
-<text text-anchor="middle" x="1074.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.49GB</text>
-</a>
-</g>
-</g>
-<!-- N26 -->
-<g id="node26" class="node">
-<title>N26</title>
-<g id="a_node26"><a xlink:title="bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.16GB)">
-<polygon fill="#edeceb" stroke="#b2afa6" points="1352.58,-1688.5 1105.58,-1688.5 1105.58,-1628.5 1352.58,-1628.5 1352.58,-1688.5"/>
-<text text-anchor="middle" x="1229.08" y="-1674.9" font-family="Times,serif" font-size="12.00">cache</text>
-<text text-anchor="middle" x="1229.08" y="-1661.9" font-family="Times,serif" font-size="12.00">(*CatalogService)</text>
-<text text-anchor="middle" x="1229.08" y="-1648.9" font-family="Times,serif" font-size="12.00">GeneratePricesByConditionsAndClear</text>
-<text text-anchor="middle" x="1229.08" y="-1635.9" font-family="Times,serif" font-size="12.00">0.16GB (1.35%)</text>
-</a>
-</g>
-</g>
-<!-- N20&#45;&gt;N26 -->
-<g id="edge87" class="edge">
-<title>N20&#45;&gt;N26</title>
-<g id="a_edge87"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.06GB)">
-<path fill="none" stroke="#b2b1ae" d="M1089.92,-1832.79C1096.19,-1827.65 1102.42,-1821.61 1107.08,-1815 1134.75,-1775.69 1112.97,-1750.48 1143.08,-1713 1148.46,-1706.3 1154.92,-1700.21 1161.85,-1694.74"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1164.2,-1697.35 1170.17,-1688.6 1160.05,-1691.72 1164.2,-1697.35"/>
-</a>
-</g>
-<g id="a_edge87&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.06GB)">
-<text text-anchor="middle" x="1155.08" y="-1760.3" font-family="Times,serif" font-size="14.00"> 0.06GB</text>
-</a>
-</g>
-</g>
-<!-- N20&#45;&gt;N33 -->
-<g id="edge95" class="edge">
-<title>N20&#45;&gt;N33</title>
-<g id="a_edge95"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.02GB)">
-<path fill="none" stroke="#b2b2b1" d="M1136.86,-1847.68C1249.86,-1843.53 1457.54,-1833.48 1486.08,-1815 1496.9,-1807.99 1529.75,-1743.09 1551.02,-1699.38"/>
-<polygon fill="#b2b2b1" stroke="#b2b2b1" points="1554.29,-1700.66 1555.5,-1690.13 1547.99,-1697.61 1554.29,-1700.66"/>
-</a>
-</g>
-<g id="a_edge95&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_Search &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.02GB)">
-<text text-anchor="middle" x="1555.08" y="-1760.3" font-family="Times,serif" font-size="14.00"> 0.02GB</text>
-</a>
-</g>
-</g>
-<!-- NN21_0 -->
-<g id="NN21_0" class="node">
-<title>NN21_0</title>
-<g id="a_NN21_0"><a xlink:title="0.48GB">
-<polygon fill="#f8f8f8" stroke="black" points="2192.08,-570 2142.08,-570 2138.08,-566 2138.08,-534 2188.08,-534 2192.08,-538 2192.08,-570"/>
-<polyline fill="none" stroke="black" points="2188.08,-566 2138.08,-566 "/>
-<polyline fill="none" stroke="black" points="2188.08,-566 2188.08,-534 "/>
-<polyline fill="none" stroke="black" points="2188.08,-566 2192.08,-570 "/>
-<text text-anchor="middle" x="2165.08" y="-550.1" font-family="Times,serif" font-size="8.00">128B</text>
-</a>
-</g>
-</g>
-<!-- N21&#45;&gt;NN21_0 -->
-<g id="edge13" class="edge">
-<title>N21&#45;&gt;NN21_0</title>
-<g id="a_edge13"><a xlink:title="0.48GB">
-<path fill="none" stroke="black" d="M2165.08,-620.81C2165.08,-608.09 2165.08,-593.19 2165.08,-580.6"/>
-<polygon fill="black" stroke="black" points="2168.58,-580.24 2165.08,-570.24 2161.58,-580.24 2168.58,-580.24"/>
-</a>
-</g>
-<g id="a_edge13&#45;label"><a xlink:title="0.48GB">
-<text text-anchor="middle" x="2194.08" y="-591.8" font-family="Times,serif" font-size="14.00"> 0.48GB</text>
-</a>
-</g>
-</g>
-<!-- N22&#45;&gt;N5 -->
-<g id="edge77" class="edge">
-<title>N22&#45;&gt;N5</title>
-<g id="a_edge77"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (0.18GB)">
-<path fill="none" stroke="#b2aea5" d="M618.87,-1834.31C599.87,-1829.25 579.91,-1822.87 562.08,-1815 550.91,-1810.07 550.55,-1804.15 539.08,-1800 517.63,-1792.25 387.55,-1779.02 305.25,-1771.23"/>
-<polygon fill="#b2aea5" stroke="#b2aea5" points="305.5,-1767.74 295.22,-1770.29 304.84,-1774.71 305.5,-1767.74"/>
-</a>
-</g>
-<g id="a_edge77&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.findPrice3824PositionV2 (0.18GB)">
-<text text-anchor="middle" x="591.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.18GB</text>
-</a>
-</g>
-</g>
-<!-- N22&#45;&gt;N9 -->
-<g id="edge71" class="edge">
-<title>N22&#45;&gt;N9</title>
-<g id="a_edge71"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.21GB)">
-<path fill="none" stroke="#b2ada2" d="M697.74,-1832.69C699.68,-1808.91 706.98,-1766.72 734.08,-1746 775.5,-1714.32 917.02,-1738.64 968.08,-1728 979.01,-1725.72 1054.83,-1702.54 1063.08,-1695 1089.36,-1670.98 1066.98,-1642.53 1096.08,-1622 1135.61,-1594.1 1267.63,-1620.6 1313.08,-1604 1331.5,-1597.27 1349.52,-1584.8 1363.38,-1573.55"/>
-<polygon fill="#b2ada2" stroke="#b2ada2" points="1365.63,-1576.23 1371.03,-1567.11 1361.13,-1570.87 1365.63,-1576.23"/>
-</a>
-</g>
-<g id="a_edge71&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.21GB)">
-<text text-anchor="middle" x="1047.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.21GB</text>
-</a>
-</g>
-</g>
-<!-- N22&#45;&gt;N23 -->
-<g id="edge85" class="edge">
-<title>N22&#45;&gt;N23</title>
-<g id="a_edge85"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (0.08GB)">
-<path fill="none" stroke="#b2b1ac" d="M678.98,-1832.87C666.02,-1819.85 648.84,-1801.01 637.08,-1782 619.66,-1753.86 634.27,-1734.46 609.08,-1713 602.85,-1707.7 515.92,-1688.63 450.05,-1674.77"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="450.6,-1671.31 440.09,-1672.68 449.16,-1678.16 450.6,-1671.31"/>
-</a>
-</g>
-<g id="a_edge85&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 (0.08GB)">
-<text text-anchor="middle" x="666.08" y="-1760.3" font-family="Times,serif" font-size="14.00"> 0.08GB</text>
-</a>
-</g>
-</g>
-<!-- N22&#45;&gt;N26 -->
-<g id="edge88" class="edge">
-<title>N22&#45;&gt;N26</title>
-<g id="a_edge88"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.05GB)">
-<path fill="none" stroke="#b2b1ae" d="M710.39,-1832.81C714.58,-1827.21 719.13,-1820.92 723.08,-1815 742.85,-1785.31 733.58,-1764.51 764.08,-1746 824.77,-1709.16 1014.24,-1745.4 1083.08,-1728 1113.18,-1720.39 1144.61,-1706.52 1170.56,-1693.23"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1172.25,-1696.3 1179.5,-1688.57 1169.02,-1690.09 1172.25,-1696.3"/>
-</a>
-</g>
-<g id="a_edge88&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats_SearchV2 &#45;&gt; bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.05GB)">
-<text text-anchor="middle" x="793.08" y="-1760.3" font-family="Times,serif" font-size="14.00"> 0.05GB</text>
-</a>
-</g>
-</g>
-<!-- NN23_0 -->
-<g id="NN23_0" class="node">
-<title>NN23_0</title>
-<g id="a_NN23_0"><a xlink:title="0.08GB">
-<polygon fill="#f8f8f8" stroke="black" points="403.08,-1567 353.08,-1567 349.08,-1563 349.08,-1531 399.08,-1531 403.08,-1535 403.08,-1567"/>
-<polyline fill="none" stroke="black" points="399.08,-1563 349.08,-1563 "/>
-<polyline fill="none" stroke="black" points="399.08,-1563 399.08,-1531 "/>
-<polyline fill="none" stroke="black" points="399.08,-1563 403.08,-1567 "/>
-<text text-anchor="middle" x="376.08" y="-1547.1" font-family="Times,serif" font-size="8.00">16B</text>
-</a>
-</g>
-</g>
-<!-- N23&#45;&gt;NN23_0 -->
-<g id="edge14" class="edge">
-<title>N23&#45;&gt;NN23_0</title>
-<g id="a_edge14"><a xlink:title="0.08GB">
-<path fill="none" stroke="black" d="M376.08,-1621.7C376.08,-1607.25 376.08,-1590.83 376.08,-1577.36"/>
-<polygon fill="black" stroke="black" points="379.58,-1577.28 376.08,-1567.28 372.58,-1577.28 379.58,-1577.28"/>
-</a>
-</g>
-<g id="a_edge14&#45;label"><a xlink:title="0.08GB">
-<text text-anchor="middle" x="405.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.08GB</text>
-</a>
-</g>
-</g>
-<!-- N23&#45;&gt;N37 -->
-<g id="edge84" class="edge">
-<title>N23&#45;&gt;N37</title>
-<g id="a_edge84"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 &#45;&gt; strings.ToLower (0.10GB)">
-<path fill="none" stroke="#b2b0aa" d="M421.52,-1621.84C426.65,-1616.31 431.36,-1610.32 435.08,-1604 452.9,-1573.71 429.41,-1552.98 453.08,-1527 461.86,-1517.35 617.64,-1468.16 705.31,-1441.03"/>
-<polygon fill="#b2b0aa" stroke="#b2b0aa" points="706.35,-1444.37 714.87,-1438.08 704.28,-1437.69 706.35,-1444.37"/>
-</a>
-</g>
-<g id="a_edge84&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 &#45;&gt; strings.ToLower (0.10GB)">
-<text text-anchor="middle" x="482.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 0.10GB</text>
-</a>
-</g>
-</g>
-<!-- N38 -->
-<g id="node38" class="node">
-<title>N38</title>
-<g id="a_node38"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).Add (0.08GB)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1117.08,-1444 1019.08,-1444 1019.08,-1400 1117.08,-1400 1117.08,-1444"/>
-<text text-anchor="middle" x="1068.08" y="-1433.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="1068.08" y="-1424.6" font-family="Times,serif" font-size="8.00">(*Bitmap)</text>
-<text text-anchor="middle" x="1068.08" y="-1415.6" font-family="Times,serif" font-size="8.00">Add</text>
-<text text-anchor="middle" x="1068.08" y="-1406.6" font-family="Times,serif" font-size="8.00">0 of 0.08GB (0.68%)</text>
-</a>
-</g>
-</g>
-<!-- N23&#45;&gt;N38 -->
-<g id="edge93" class="edge">
-<title>N23&#45;&gt;N38</title>
-<g id="a_edge93"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 ... github.com/RoaringBitmap/roaring.(*Bitmap).Add (0.03GB)">
-<path fill="none" stroke="#b2b2b0" stroke-dasharray="1,5" d="M440.22,-1623.4C463.96,-1609.04 490.16,-1591.02 511.08,-1571 528.36,-1554.46 521.92,-1539.88 542.08,-1527 648.66,-1458.89 698.01,-1500.66 822.08,-1476 886.02,-1463.29 959,-1447.39 1008.75,-1436.34"/>
-<polygon fill="#b2b2b0" stroke="#b2b2b0" points="1009.7,-1439.71 1018.7,-1434.12 1008.18,-1432.88 1009.7,-1439.71"/>
-</a>
-</g>
-<g id="a_edge93&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).IndexPricesV2 ... github.com/RoaringBitmap/roaring.(*Bitmap).Add (0.03GB)">
-<text text-anchor="middle" x="571.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 0.03GB</text>
-</a>
-</g>
-</g>
-<!-- NN24_0 -->
-<g id="NN24_0" class="node">
-<title>NN24_0</title>
-<g id="a_NN24_0"><a xlink:title="0.12GB">
-<polygon fill="#f8f8f8" stroke="black" points="744.08,-1567 694.08,-1567 690.08,-1563 690.08,-1531 740.08,-1531 744.08,-1535 744.08,-1567"/>
-<polyline fill="none" stroke="black" points="740.08,-1563 690.08,-1563 "/>
-<polyline fill="none" stroke="black" points="740.08,-1563 740.08,-1531 "/>
-<polyline fill="none" stroke="black" points="740.08,-1563 744.08,-1567 "/>
-<text text-anchor="middle" x="717.08" y="-1547.1" font-family="Times,serif" font-size="8.00">64B</text>
-</a>
-</g>
-</g>
-<!-- N24&#45;&gt;NN24_0 -->
-<g id="edge15" class="edge">
-<title>N24&#45;&gt;NN24_0</title>
-<g id="a_edge15"><a xlink:title="0.12GB">
-<path fill="none" stroke="black" d="M682.84,-1626.26C687.09,-1619.06 691.4,-1611.36 695.08,-1604 699.41,-1595.31 703.59,-1585.56 707.11,-1576.75"/>
-<polygon fill="black" stroke="black" points="710.42,-1577.91 710.79,-1567.32 703.9,-1575.36 710.42,-1577.91"/>
-</a>
-</g>
-<g id="a_edge15&#45;label"><a xlink:title="0.12GB">
-<text text-anchor="middle" x="731.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.12GB</text>
-</a>
-</g>
-</g>
-<!-- NN24_1 -->
-<g id="NN24_1" class="node">
-<title>NN24_1</title>
-<g id="a_NN24_1"><a xlink:title="0.11GB">
-<polygon fill="#f8f8f8" stroke="black" points="663.08,-1567 613.08,-1567 609.08,-1563 609.08,-1531 659.08,-1531 663.08,-1535 663.08,-1567"/>
-<polyline fill="none" stroke="black" points="659.08,-1563 609.08,-1563 "/>
-<polyline fill="none" stroke="black" points="659.08,-1563 659.08,-1531 "/>
-<polyline fill="none" stroke="black" points="659.08,-1563 663.08,-1567 "/>
-<text text-anchor="middle" x="636.08" y="-1547.1" font-family="Times,serif" font-size="8.00">27.62MB</text>
-</a>
-</g>
 </g>
-<!-- N24&#45;&gt;NN24_1 -->
-<g id="edge16" class="edge">
-<title>N24&#45;&gt;NN24_1</title>
-<g id="a_edge16"><a xlink:title="0.11GB">
-<path fill="none" stroke="black" d="M645.17,-1626.38C641.86,-1619.24 638.88,-1611.53 637.08,-1604 635.05,-1595.54 634.36,-1586.11 634.3,-1577.54"/>
-<polygon fill="black" stroke="black" points="637.81,-1577.34 634.52,-1567.26 630.81,-1577.19 637.81,-1577.34"/>
+<!-- N5&#45;&gt;NN5_0 -->
+<g id="edge8" class="edge">
+<title>N5&#45;&gt;NN5_0</title>
+<g id="a_edge8"><a xlink:title="30450kB">
+<path fill="none" stroke="black" d="M590.26,-1061.2C586.88,-1053.03 583.9,-1044.4 582,-1036 580.38,-1028.83 579.72,-1020.94 579.56,-1013.58"/>
+<polygon fill="black" stroke="black" points="583.07,-1013.36 579.64,-1003.33 576.07,-1013.3 583.07,-1013.36"/>
 </a>
 </g>
-<g id="a_edge16&#45;label"><a xlink:title="0.11GB">
-<text text-anchor="middle" x="666.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.11GB</text>
+<g id="a_edge8&#45;label"><a xlink:title="30450kB">
+<text text-anchor="middle" x="616.5" y="-1024.8" font-family="Times,serif" font-size="14.00"> 30450kB</text>
 </a>
 </g>
 </g>
-<!-- NN26_0 -->
-<g id="NN26_0" class="node">
-<title>NN26_0</title>
-<g id="a_NN26_0"><a xlink:title="0.08GB">
-<polygon fill="#f8f8f8" stroke="black" points="1256.08,-1567 1206.08,-1567 1202.08,-1563 1202.08,-1531 1252.08,-1531 1256.08,-1535 1256.08,-1567"/>
-<polyline fill="none" stroke="black" points="1252.08,-1563 1202.08,-1563 "/>
-<polyline fill="none" stroke="black" points="1252.08,-1563 1252.08,-1531 "/>
-<polyline fill="none" stroke="black" points="1252.08,-1563 1256.08,-1567 "/>
-<text text-anchor="middle" x="1229.08" y="-1547.1" font-family="Times,serif" font-size="8.00">64B</text>
+<!-- NN5_1 -->
+<g id="NN5_1" class="node">
+<title>NN5_1</title>
+<g id="a_NN5_1"><a xlink:title="28288kB">
+<polygon fill="#f8f8f8" stroke="black" points="700,-1003 650,-1003 646,-999 646,-967 696,-967 700,-971 700,-1003"/>
+<polyline fill="none" stroke="black" points="696,-999 646,-999 "/>
+<polyline fill="none" stroke="black" points="696,-999 696,-967 "/>
+<polyline fill="none" stroke="black" points="696,-999 700,-1003 "/>
+<text text-anchor="middle" x="673" y="-983.1" font-family="Times,serif" font-size="8.00">27.62MB</text>
 </a>
 </g>
 </g>
-<!-- N26&#45;&gt;NN26_0 -->
-<g id="edge17" class="edge">
-<title>N26&#45;&gt;NN26_0</title>
-<g id="a_edge17"><a xlink:title="0.08GB">
-<path fill="none" stroke="black" d="M1229.08,-1628.41C1229.08,-1612.44 1229.08,-1592.77 1229.08,-1577.13"/>
-<polygon fill="black" stroke="black" points="1232.58,-1577.04 1229.08,-1567.04 1225.58,-1577.04 1232.58,-1577.04"/>
+<!-- N5&#45;&gt;NN5_1 -->
+<g id="edge9" class="edge">
+<title>N5&#45;&gt;NN5_1</title>
+<g id="a_edge9"><a xlink:title="28288kB">
+<path fill="none" stroke="black" d="M637.73,-1061.34C642.28,-1053 646.89,-1044.28 651,-1036 654.73,-1028.47 658.52,-1020.17 661.87,-1012.52"/>
+<polygon fill="black" stroke="black" points="665.1,-1013.87 665.85,-1003.3 658.67,-1011.1 665.1,-1013.87"/>
 </a>
 </g>
-<g id="a_edge17&#45;label"><a xlink:title="0.08GB">
-<text text-anchor="middle" x="1258.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.08GB</text>
+<g id="a_edge9&#45;label"><a xlink:title="28288kB">
+<text text-anchor="middle" x="693.5" y="-1024.8" font-family="Times,serif" font-size="14.00"> 28288kB</text>
 </a>
 </g>
 </g>
-<!-- NN26_1 -->
-<g id="NN26_1" class="node">
-<title>NN26_1</title>
-<g id="a_NN26_1"><a xlink:title="0.08GB">
-<polygon fill="#f8f8f8" stroke="black" points="1175.08,-1567 1125.08,-1567 1121.08,-1563 1121.08,-1531 1171.08,-1531 1175.08,-1535 1175.08,-1567"/>
-<polyline fill="none" stroke="black" points="1171.08,-1563 1121.08,-1563 "/>
-<polyline fill="none" stroke="black" points="1171.08,-1563 1171.08,-1531 "/>
-<polyline fill="none" stroke="black" points="1171.08,-1563 1175.08,-1567 "/>
-<text text-anchor="middle" x="1148.08" y="-1547.1" font-family="Times,serif" font-size="8.00">27.62MB</text>
+<!-- N6 -->
+<g id="node6" class="node">
+<title>N6</title>
+<g id="a_node6"><a xlink:title="strings.(*Builder).grow (38058.97kB)">
+<polygon fill="#ede6e0" stroke="#b28254" points="429.5,-667 232.5,-667 232.5,-587 429.5,-587 429.5,-667"/>
+<text text-anchor="middle" x="331" y="-650.2" font-family="Times,serif" font-size="16.00">strings</text>
+<text text-anchor="middle" x="331" y="-632.2" font-family="Times,serif" font-size="16.00">(*Builder)</text>
+<text text-anchor="middle" x="331" y="-614.2" font-family="Times,serif" font-size="16.00">grow</text>
+<text text-anchor="middle" x="331" y="-596.2" font-family="Times,serif" font-size="16.00">38058.97kB (10.52%)</text>
 </a>
 </g>
 </g>
-<!-- N26&#45;&gt;NN26_1 -->
-<g id="edge18" class="edge">
-<title>N26&#45;&gt;NN26_1</title>
-<g id="a_edge18"><a xlink:title="0.08GB">
-<path fill="none" stroke="black" d="M1188.93,-1628.3C1180.89,-1621.05 1173.08,-1612.81 1167.08,-1604 1161.54,-1595.89 1157.45,-1585.99 1154.51,-1576.9"/>
-<polygon fill="black" stroke="black" points="1157.82,-1575.74 1151.67,-1567.11 1151.1,-1577.69 1157.82,-1575.74"/>
+<!-- NN6_0 -->
+<g id="NN6_0" class="node">
+<title>NN6_0</title>
+<g id="a_NN6_0"><a xlink:title="38058.97kB">
+<polygon fill="#f8f8f8" stroke="black" points="358,-488.5 308,-488.5 304,-484.5 304,-452.5 354,-452.5 358,-456.5 358,-488.5"/>
+<polyline fill="none" stroke="black" points="354,-484.5 304,-484.5 "/>
+<polyline fill="none" stroke="black" points="354,-484.5 354,-452.5 "/>
+<polyline fill="none" stroke="black" points="354,-484.5 358,-488.5 "/>
+<text text-anchor="middle" x="331" y="-468.6" font-family="Times,serif" font-size="8.00">16B</text>
 </a>
 </g>
-<g id="a_edge18&#45;label"><a xlink:title="0.08GB">
-<text text-anchor="middle" x="1196.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.08GB</text>
-</a>
-</g>
-</g>
-<!-- N27&#45;&gt;N6 -->
-<g id="edge43" class="edge">
-<title>N27&#45;&gt;N6</title>
-<g id="a_edge43"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (2.12GB)">
-<path fill="none" stroke="#b25414" d="M844.41,-1624.16C826.96,-1608.55 806.43,-1589.39 789.08,-1571 771.74,-1552.62 773.1,-1542.41 753.08,-1527 702.3,-1487.94 634.5,-1459.49 585.88,-1442.32"/>
-<polygon fill="#b25414" stroke="#b25414" points="587.01,-1439.01 576.42,-1439.04 584.72,-1445.62 587.01,-1439.01"/>
-</a>
-</g>
-<g id="a_edge43&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).FindPriceIndexBy &#45;&gt; github.com/RoaringBitmap/roaring.And (2.12GB)">
-<text text-anchor="middle" x="818.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 2.12GB</text>
-</a>
-</g>
-</g>
-<!-- NN27_0 -->
-<g id="NN27_0" class="node">
-<title>NN27_0</title>
-<g id="a_NN27_0"><a xlink:title="0.06GB">
-<polygon fill="#f8f8f8" stroke="black" points="910.08,-1567 860.08,-1567 856.08,-1563 856.08,-1531 906.08,-1531 910.08,-1535 910.08,-1567"/>
-<polyline fill="none" stroke="black" points="906.08,-1563 856.08,-1563 "/>
-<polyline fill="none" stroke="black" points="906.08,-1563 906.08,-1531 "/>
-<polyline fill="none" stroke="black" points="906.08,-1563 910.08,-1567 "/>
-<text text-anchor="middle" x="883.08" y="-1547.1" font-family="Times,serif" font-size="8.00">128B</text>
-</a>
-</g>
-</g>
-<!-- N27&#45;&gt;NN27_0 -->
-<g id="edge19" class="edge">
-<title>N27&#45;&gt;NN27_0</title>
-<g id="a_edge19"><a xlink:title="0.06GB">
-<path fill="none" stroke="black" d="M883.08,-1624.37C883.08,-1609.33 883.08,-1591.74 883.08,-1577.45"/>
-<polygon fill="black" stroke="black" points="886.58,-1577.26 883.08,-1567.26 879.58,-1577.26 886.58,-1577.26"/>
-</a>
-</g>
-<g id="a_edge19&#45;label"><a xlink:title="0.06GB">
-<text text-anchor="middle" x="912.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.06GB</text>
-</a>
-</g>
-</g>
-<!-- N28 -->
-<g id="node28" class="node">
-<title>N28</title>
-<g id="a_node28"><a xlink:title="github.com/google/uuid.UUID.String (0.15GB)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="1518.08,-1026 1406.08,-1026 1406.08,-966 1518.08,-966 1518.08,-1026"/>
-<text text-anchor="middle" x="1462.08" y="-1012.4" font-family="Times,serif" font-size="12.00">uuid</text>
-<text text-anchor="middle" x="1462.08" y="-999.4" font-family="Times,serif" font-size="12.00">UUID</text>
-<text text-anchor="middle" x="1462.08" y="-986.4" font-family="Times,serif" font-size="12.00">String</text>
-<text text-anchor="middle" x="1462.08" y="-973.4" font-family="Times,serif" font-size="12.00">0.15GB (1.27%)</text>
-</a>
-</g>
 </g>
-<!-- NN28_0 -->
-<g id="NN28_0" class="node">
-<title>NN28_0</title>
-<g id="a_NN28_0"><a xlink:title="0.15GB">
-<polygon fill="#f8f8f8" stroke="black" points="1489.08,-871 1439.08,-871 1435.08,-867 1435.08,-835 1485.08,-835 1489.08,-839 1489.08,-871"/>
-<polyline fill="none" stroke="black" points="1485.08,-867 1435.08,-867 "/>
-<polyline fill="none" stroke="black" points="1485.08,-867 1485.08,-835 "/>
-<polyline fill="none" stroke="black" points="1485.08,-867 1489.08,-871 "/>
-<text text-anchor="middle" x="1462.08" y="-851.1" font-family="Times,serif" font-size="8.00">48B</text>
+<!-- N6&#45;&gt;NN6_0 -->
+<g id="edge10" class="edge">
+<title>N6&#45;&gt;NN6_0</title>
+<g id="a_edge10"><a xlink:title="38058.97kB">
+<path fill="none" stroke="black" d="M331,-586.61C331,-559.17 331,-523.25 331,-498.89"/>
+<polygon fill="black" stroke="black" points="334.5,-498.58 331,-488.58 327.5,-498.58 334.5,-498.58"/>
 </a>
 </g>
-</g>
-<!-- N28&#45;&gt;NN28_0 -->
-<g id="edge20" class="edge">
-<title>N28&#45;&gt;NN28_0</title>
-<g id="a_edge20"><a xlink:title="0.15GB">
-<path fill="none" stroke="black" d="M1462.08,-965.78C1462.08,-941.02 1462.08,-905.77 1462.08,-881.5"/>
-<polygon fill="black" stroke="black" points="1465.58,-881.21 1462.08,-871.21 1458.58,-881.21 1465.58,-881.21"/>
-</a>
-</g>
-<g id="a_edge20&#45;label"><a xlink:title="0.15GB">
-<text text-anchor="middle" x="1491.08" y="-923.8" font-family="Times,serif" font-size="14.00"> 0.15GB</text>
-</a>
-</g>
-</g>
-<!-- N29 -->
-<g id="node29" class="node">
-<title>N29</title>
-<g id="a_node29"><a xlink:title="strings.(*Builder).grow (0.15GB)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="820.08,-1166.5 708.08,-1166.5 708.08,-1106.5 820.08,-1106.5 820.08,-1166.5"/>
-<text text-anchor="middle" x="764.08" y="-1152.9" font-family="Times,serif" font-size="12.00">strings</text>
-<text text-anchor="middle" x="764.08" y="-1139.9" font-family="Times,serif" font-size="12.00">(*Builder)</text>
-<text text-anchor="middle" x="764.08" y="-1126.9" font-family="Times,serif" font-size="12.00">grow</text>
-<text text-anchor="middle" x="764.08" y="-1113.9" font-family="Times,serif" font-size="12.00">0.15GB (1.22%)</text>
-</a>
-</g>
-</g>
-<!-- NN29_0 -->
-<g id="NN29_0" class="node">
-<title>NN29_0</title>
-<g id="a_NN29_0"><a xlink:title="0.15GB">
-<polygon fill="#f8f8f8" stroke="black" points="791.08,-1014 741.08,-1014 737.08,-1010 737.08,-978 787.08,-978 791.08,-982 791.08,-1014"/>
-<polyline fill="none" stroke="black" points="787.08,-1010 737.08,-1010 "/>
-<polyline fill="none" stroke="black" points="787.08,-1010 787.08,-978 "/>
-<polyline fill="none" stroke="black" points="787.08,-1010 791.08,-1014 "/>
-<text text-anchor="middle" x="764.08" y="-994.1" font-family="Times,serif" font-size="8.00">16B</text>
+<g id="a_edge10&#45;label"><a xlink:title="38058.97kB">
+<text text-anchor="middle" x="376.5" y="-528.8" font-family="Times,serif" font-size="14.00"> 38058.97kB</text>
 </a>
 </g>
 </g>
-<!-- N29&#45;&gt;NN29_0 -->
-<g id="edge21" class="edge">
-<title>N29&#45;&gt;NN29_0</title>
-<g id="a_edge21"><a xlink:title="0.15GB">
-<path fill="none" stroke="black" d="M764.08,-1106.47C764.08,-1082.25 764.08,-1048 764.08,-1024.29"/>
-<polygon fill="black" stroke="black" points="767.58,-1024.21 764.08,-1014.21 760.58,-1024.21 767.58,-1024.21"/>
+<!-- N7 -->
+<g id="node7" class="node">
+<title>N7</title>
+<g id="a_node7"><a xlink:title="github.com/google/uuid.UUID.String (22837.50kB)">
+<polygon fill="#ede9e5" stroke="#b2997a" points="926.5,-281 763.5,-281 763.5,-213 926.5,-213 926.5,-281"/>
+<text text-anchor="middle" x="845" y="-265.8" font-family="Times,serif" font-size="14.00">uuid</text>
+<text text-anchor="middle" x="845" y="-250.8" font-family="Times,serif" font-size="14.00">UUID</text>
+<text text-anchor="middle" x="845" y="-235.8" font-family="Times,serif" font-size="14.00">String</text>
+<text text-anchor="middle" x="845" y="-220.8" font-family="Times,serif" font-size="14.00">22837.50kB (6.31%)</text>
 </a>
 </g>
-<g id="a_edge21&#45;label"><a xlink:title="0.15GB">
-<text text-anchor="middle" x="793.08" y="-1068.3" font-family="Times,serif" font-size="14.00"> 0.15GB</text>
-</a>
-</g>
-</g>
-<!-- N30 -->
-<g id="node30" class="node">
-<title>N30</title>
-<g id="a_node30"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC (0.26GB)">
-<polygon fill="#edecea" stroke="#b2ac9f" points="1725.08,-1782 1597.08,-1782 1597.08,-1746 1725.08,-1746 1725.08,-1782"/>
-<text text-anchor="middle" x="1661.08" y="-1771.1" font-family="Times,serif" font-size="8.00">benchmark</text>
-<text text-anchor="middle" x="1661.08" y="-1762.1" font-family="Times,serif" font-size="8.00">ReadMemStatsFuncWithGC</text>
-<text text-anchor="middle" x="1661.08" y="-1753.1" font-family="Times,serif" font-size="8.00">0 of 0.26GB (2.16%)</text>
-</a>
-</g>
 </g>
-<!-- N30&#45;&gt;N26 -->
-<g id="edge90" class="edge">
-<title>N30&#45;&gt;N26</title>
-<g id="a_edge90"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC ... bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.05GB)">
-<path fill="none" stroke="#b2b1ae" stroke-dasharray="1,5" d="M1596.94,-1748.24C1592.26,-1747.4 1587.6,-1746.64 1583.08,-1746 1524.86,-1737.72 1374.12,-1748.68 1319.08,-1728 1299.67,-1720.71 1280.96,-1707.78 1265.67,-1695.1"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1267.87,-1692.38 1258,-1688.53 1263.32,-1697.69 1267.87,-1692.38"/>
+<!-- NN7_0 -->
+<g id="NN7_0" class="node">
+<title>NN7_0</title>
+<g id="a_NN7_0"><a xlink:title="22837.50kB">
+<polygon fill="#f8f8f8" stroke="black" points="872,-135 822,-135 818,-131 818,-99 868,-99 872,-103 872,-135"/>
+<polyline fill="none" stroke="black" points="868,-131 818,-131 "/>
+<polyline fill="none" stroke="black" points="868,-131 868,-99 "/>
+<polyline fill="none" stroke="black" points="868,-131 872,-135 "/>
+<text text-anchor="middle" x="845" y="-115.1" font-family="Times,serif" font-size="8.00">48B</text>
 </a>
 </g>
-<g id="a_edge90&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC ... bitmap&#45;usage/cache.(*CatalogService).GeneratePricesByConditionsAndClear (0.05GB)">
-<text text-anchor="middle" x="1348.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.05GB</text>
-</a>
-</g>
 </g>
-<!-- N30&#45;&gt;N33 -->
-<g id="edge94" class="edge">
-<title>N30&#45;&gt;N33</title>
-<g id="a_edge94"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC ... bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.02GB)">
-<path fill="none" stroke="#b2b2b0" stroke-dasharray="1,5" d="M1636.05,-1745.79C1629.19,-1740.5 1622.02,-1734.37 1616.08,-1728 1607.84,-1719.17 1600.04,-1708.72 1593.28,-1698.69"/>
-<polygon fill="#b2b2b0" stroke="#b2b2b0" points="1596.02,-1696.49 1587.62,-1690.02 1590.16,-1700.31 1596.02,-1696.49"/>
+<!-- N7&#45;&gt;NN7_0 -->
+<g id="edge11" class="edge">
+<title>N7&#45;&gt;NN7_0</title>
+<g id="a_edge11"><a xlink:title="22837.50kB">
+<path fill="none" stroke="black" d="M845,-212.7C845,-191.7 845,-164.92 845,-145.2"/>
+<polygon fill="black" stroke="black" points="848.5,-145.06 845,-135.06 841.5,-145.06 848.5,-145.06"/>
 </a>
-</g>
-<g id="a_edge94&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC ... bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices (0.02GB)">
-<text text-anchor="middle" x="1645.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.02GB</text>
-</a>
-</g>
 </g>
-<!-- N40 -->
-<g id="node40" class="node">
-<title>N40</title>
-<g id="a_node40"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats.func1 (0.19GB)">
-<polygon fill="#edeceb" stroke="#b2aea4" points="1767.58,-1680.5 1654.58,-1680.5 1654.58,-1636.5 1767.58,-1636.5 1767.58,-1680.5"/>
-<text text-anchor="middle" x="1711.08" y="-1670.1" font-family="Times,serif" font-size="8.00">bitmap</text>
-<text text-anchor="middle" x="1711.08" y="-1661.1" font-family="Times,serif" font-size="8.00">TestBitmapMemoryStats</text>
-<text text-anchor="middle" x="1711.08" y="-1652.1" font-family="Times,serif" font-size="8.00">func1</text>
-<text text-anchor="middle" x="1711.08" y="-1643.1" font-family="Times,serif" font-size="8.00">0 of 0.19GB (1.55%)</text>
+<g id="a_edge11&#45;label"><a xlink:title="22837.50kB">
+<text text-anchor="middle" x="890.5" y="-176.3" font-family="Times,serif" font-size="14.00"> 22837.50kB</text>
 </a>
 </g>
 </g>
-<!-- N30&#45;&gt;N40 -->
-<g id="edge73" class="edge">
-<title>N30&#45;&gt;N40</title>
-<g id="a_edge73"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats.func1 (0.19GB)">
-<path fill="none" stroke="#b2aea4" d="M1669.33,-1745.91C1676.7,-1730.65 1687.66,-1707.96 1696.5,-1689.66"/>
-<polygon fill="#b2aea4" stroke="#b2aea4" points="1699.71,-1691.08 1700.9,-1680.55 1693.4,-1688.04 1699.71,-1691.08"/>
+<!-- N8&#45;&gt;N7 -->
+<g id="edge30" class="edge">
+<title>N8&#45;&gt;N7</title>
+<g id="a_edge30"><a xlink:title="github.com/google/uuid.NewString &#45;&gt; github.com/google/uuid.UUID.String (22837.50kB)">
+<path fill="none" stroke="#b2997a" d="M845,-346.88C845,-332.25 845,-310.54 845,-291.19"/>
+<polygon fill="#b2997a" stroke="#b2997a" points="848.5,-291.04 845,-281.04 841.5,-291.04 848.5,-291.04"/>
 </a>
 </g>
-<g id="a_edge73&#45;label"><a xlink:title="bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats.func1 (0.19GB)">
-<text text-anchor="middle" x="1713.08" y="-1716.8" font-family="Times,serif" font-size="14.00"> 0.19GB</text>
+<g id="a_edge30&#45;label"><a xlink:title="github.com/google/uuid.NewString &#45;&gt; github.com/google/uuid.UUID.String (22837.50kB)">
+<text text-anchor="middle" x="890.5" y="-317.8" font-family="Times,serif" font-size="14.00"> 22837.50kB</text>
+<text text-anchor="middle" x="890.5" y="-302.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
-<!-- N31 -->
-<g id="node31" class="node">
-<title>N31</title>
-<g id="a_node31"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.(*rasterRenderer).FillStroke (2.91GB)">
-<polygon fill="#edddd5" stroke="#b23d00" points="2042.58,-1168 1929.58,-1168 1929.58,-1105 2042.58,-1105 2042.58,-1168"/>
-<text text-anchor="middle" x="1986.08" y="-1156" font-family="Times,serif" font-size="10.00">go&#45;chart</text>
-<text text-anchor="middle" x="1986.08" y="-1145" font-family="Times,serif" font-size="10.00">(*rasterRenderer)</text>
-<text text-anchor="middle" x="1986.08" y="-1134" font-family="Times,serif" font-size="10.00">FillStroke</text>
-<text text-anchor="middle" x="1986.08" y="-1123" font-family="Times,serif" font-size="10.00">0.03GB (0.24%)</text>
-<text text-anchor="middle" x="1986.08" y="-1112" font-family="Times,serif" font-size="10.00">of 2.91GB (24.24%)</text>
+<!-- N17 -->
+<g id="node17" class="node">
+<title>N17</title>
+<g id="a_node17"><a xlink:title="github.com/google/uuid.NewRandom (7612.59kB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1057,-265 945,-265 945,-229 1057,-229 1057,-265"/>
+<text text-anchor="middle" x="1001" y="-254.1" font-family="Times,serif" font-size="8.00">uuid</text>
+<text text-anchor="middle" x="1001" y="-245.1" font-family="Times,serif" font-size="8.00">NewRandom</text>
+<text text-anchor="middle" x="1001" y="-236.1" font-family="Times,serif" font-size="8.00">0 of 7612.59kB (2.10%)</text>
 </a>
 </g>
 </g>
-<!-- N31&#45;&gt;N7 -->
+<!-- N8&#45;&gt;N17 -->
 <g id="edge35" class="edge">
-<title>N31&#45;&gt;N7</title>
-<g id="a_edge35"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.(*rasterRenderer).FillStroke &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke (2.88GB)">
-<path fill="none" stroke="#b23e00" stroke-width="2" d="M2031.95,-1104.77C2037.15,-1099.44 2041.76,-1093.5 2045.08,-1087 2072.74,-1032.73 2072.74,-961.87 2068.03,-912.6"/>
-<polygon fill="#b23e00" stroke="#b23e00" stroke-width="2" points="2071.49,-912.01 2066.96,-902.43 2064.53,-912.74 2071.49,-912.01"/>
+<title>N8&#45;&gt;N17</title>
+<g id="a_edge35"><a xlink:title="github.com/google/uuid.NewString &#45;&gt; github.com/google/uuid.NewRandom (7612.59kB)">
+<path fill="none" stroke="#b2ac9f" d="M903.95,-348.24C916.55,-343.29 929.28,-336.97 940,-329 959.73,-314.33 976.09,-291.56 986.88,-273.9"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="989.95,-275.59 992.01,-265.19 983.92,-272.03 989.95,-275.59"/>
 </a>
 </g>
-<g id="a_edge35&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.(*rasterRenderer).FillStroke &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*RasterGraphicContext).FillStroke (2.88GB)">
-<text text-anchor="middle" x="2099.08" y="-992.3" font-family="Times,serif" font-size="14.00"> 2.88GB</text>
-</a>
-</g>
-</g>
-<!-- NN31_0 -->
-<g id="NN31_0" class="node">
-<title>NN31_0</title>
-<g id="a_NN31_0"><a xlink:title="0.03GB">
-<polygon fill="#f8f8f8" stroke="black" points="2013.08,-1014 1963.08,-1014 1959.08,-1010 1959.08,-978 2009.08,-978 2013.08,-982 2013.08,-1014"/>
-<polyline fill="none" stroke="black" points="2009.08,-1010 1959.08,-1010 "/>
-<polyline fill="none" stroke="black" points="2009.08,-1010 2009.08,-978 "/>
-<polyline fill="none" stroke="black" points="2009.08,-1010 2013.08,-1014 "/>
-<text text-anchor="middle" x="1986.08" y="-994.1" font-family="Times,serif" font-size="8.00">16B</text>
+<g id="a_edge35&#45;label"><a xlink:title="github.com/google/uuid.NewString &#45;&gt; github.com/google/uuid.NewRandom (7612.59kB)">
+<text text-anchor="middle" x="1010" y="-310.3" font-family="Times,serif" font-size="14.00"> 7612.59kB</text>
 </a>
 </g>
 </g>
-<!-- N31&#45;&gt;NN31_0 -->
-<g id="edge22" class="edge">
-<title>N31&#45;&gt;NN31_0</title>
-<g id="a_edge22"><a xlink:title="0.03GB">
-<path fill="none" stroke="black" d="M1986.08,-1104.76C1986.08,-1080.68 1986.08,-1047.49 1986.08,-1024.33"/>
-<polygon fill="black" stroke="black" points="1989.58,-1024.16 1986.08,-1014.16 1982.58,-1024.16 1989.58,-1024.16"/>
-</a>
-</g>
-<g id="a_edge22&#45;label"><a xlink:title="0.03GB">
-<text text-anchor="middle" x="2015.08" y="-1068.3" font-family="Times,serif" font-size="14.00"> 0.03GB</text>
-</a>
-</g>
-</g>
-<!-- NN32_0 -->
-<g id="NN32_0" class="node">
-<title>NN32_0</title>
-<g id="a_NN32_0"><a xlink:title="0.13GB">
-<polygon fill="#f8f8f8" stroke="black" points="338.08,-1154.5 288.08,-1154.5 284.08,-1150.5 284.08,-1118.5 334.08,-1118.5 338.08,-1122.5 338.08,-1154.5"/>
-<polyline fill="none" stroke="black" points="334.08,-1150.5 284.08,-1150.5 "/>
-<polyline fill="none" stroke="black" points="334.08,-1150.5 334.08,-1118.5 "/>
-<polyline fill="none" stroke="black" points="334.08,-1150.5 338.08,-1154.5 "/>
-<text text-anchor="middle" x="311.08" y="-1134.6" font-family="Times,serif" font-size="8.00">80B</text>
+<!-- N9 -->
+<g id="node9" class="node">
+<title>N9</title>
+<g id="a_node9"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized (12205.05kB)">
+<polygon fill="#edebe9" stroke="#b2a794" points="233.5,-507 78.5,-507 78.5,-434 233.5,-434 233.5,-507"/>
+<text text-anchor="middle" x="156" y="-493.4" font-family="Times,serif" font-size="12.00">roaring</text>
+<text text-anchor="middle" x="156" y="-480.4" font-family="Times,serif" font-size="12.00">(*arrayContainer)</text>
+<text text-anchor="middle" x="156" y="-467.4" font-family="Times,serif" font-size="12.00">iaddReturnMinimized</text>
+<text text-anchor="middle" x="156" y="-454.4" font-family="Times,serif" font-size="12.00">10100.86kB (2.79%)</text>
+<text text-anchor="middle" x="156" y="-441.4" font-family="Times,serif" font-size="12.00">of 12205.05kB (3.37%)</text>
 </a>
 </g>
 </g>
-<!-- N32&#45;&gt;NN32_0 -->
-<g id="edge23" class="edge">
-<title>N32&#45;&gt;NN32_0</title>
-<g id="a_edge23"><a xlink:title="0.13GB">
-<path fill="none" stroke="black" d="M311.08,-1244.44C311.08,-1222.32 311.08,-1188.57 311.08,-1164.91"/>
-<polygon fill="black" stroke="black" points="314.58,-1164.83 311.08,-1154.83 307.58,-1164.83 314.58,-1164.83"/>
-</a>
-</g>
-<g id="a_edge23&#45;label"><a xlink:title="0.13GB">
-<text text-anchor="middle" x="340.08" y="-1197.3" font-family="Times,serif" font-size="14.00"> 0.13GB</text>
-</a>
-</g>
-</g>
-<!-- N33&#45;&gt;N38 -->
-<g id="edge89" class="edge">
-<title>N33&#45;&gt;N38</title>
-<g id="a_edge89"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices ... github.com/RoaringBitmap/roaring.(*Bitmap).Add (0.05GB)">
-<path fill="none" stroke="#b2b1ae" stroke-dasharray="1,5" d="M1574,-1626.81C1574.26,-1614.48 1572.83,-1600.5 1567.08,-1589 1537.24,-1529.41 1512.54,-1519.73 1451.08,-1494 1381.81,-1465 1357.03,-1489.02 1283.08,-1476 1229.68,-1466.6 1169.88,-1451.48 1126.92,-1439.78"/>
-<polygon fill="#b2b1ae" stroke="#b2b1ae" points="1127.77,-1436.39 1117.2,-1437.12 1125.92,-1443.14 1127.77,-1436.39"/>
-</a>
-</g>
-<g id="a_edge89&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*BitmapIndexService).IndexPrices ... github.com/RoaringBitmap/roaring.(*Bitmap).Add (0.05GB)">
-<text text-anchor="middle" x="1586.08" y="-1545.3" font-family="Times,serif" font-size="14.00"> 0.05GB</text>
+<!-- NN9_0 -->
+<g id="NN9_0" class="node">
+<title>NN9_0</title>
+<g id="a_NN9_0"><a xlink:title="2838kB">
+<polygon fill="#f8f8f8" stroke="black" points="100,-383 50,-383 46,-379 46,-347 96,-347 100,-351 100,-383"/>
+<polyline fill="none" stroke="black" points="96,-379 46,-379 "/>
+<polyline fill="none" stroke="black" points="96,-379 96,-347 "/>
+<polyline fill="none" stroke="black" points="96,-379 100,-383 "/>
+<text text-anchor="middle" x="73" y="-363.1" font-family="Times,serif" font-size="8.00">6kB</text>
 </a>
 </g>
 </g>
-<!-- N43 -->
-<g id="node43" class="node">
-<title>N43</title>
-<g id="a_node43"><a xlink:title="github.com/RoaringBitmap/roaring.(*runContainer16).iand (2.30GB)">
-<polygon fill="#eddfd6" stroke="#b24906" points="231.08,-1290 127.08,-1290 127.08,-1246 231.08,-1246 231.08,-1290"/>
-<text text-anchor="middle" x="179.08" y="-1279.6" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="179.08" y="-1270.6" font-family="Times,serif" font-size="8.00">(*runContainer16)</text>
-<text text-anchor="middle" x="179.08" y="-1261.6" font-family="Times,serif" font-size="8.00">iand</text>
-<text text-anchor="middle" x="179.08" y="-1252.6" font-family="Times,serif" font-size="8.00">0 of 2.30GB (19.22%)</text>
+<!-- N9&#45;&gt;NN9_0 -->
+<g id="edge12" class="edge">
+<title>N9&#45;&gt;NN9_0</title>
+<g id="a_edge12"><a xlink:title="2838kB">
+<path fill="none" stroke="black" d="M107.49,-433.72C101.8,-428.21 96.45,-422.25 92,-416 87.08,-409.09 83.25,-400.73 80.36,-392.85"/>
+<polygon fill="black" stroke="black" points="83.65,-391.66 77.19,-383.27 77,-393.86 83.65,-391.66"/>
+</a>
+</g>
+<g id="a_edge12&#45;label"><a xlink:title="2838kB">
+<text text-anchor="middle" x="122" y="-404.8" font-family="Times,serif" font-size="14.00"> 2838kB</text>
 </a>
 </g>
 </g>
-<!-- N34&#45;&gt;N43 -->
-<g id="edge40" class="edge">
-<title>N34&#45;&gt;N43</title>
-<g id="a_edge40"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*runContainer16).iand (2.30GB)">
-<path fill="none" stroke="#b24906" d="M179.08,-1399.87C179.08,-1374.15 179.08,-1330.48 179.08,-1300.72"/>
-<polygon fill="#b24906" stroke="#b24906" points="182.58,-1300.45 179.08,-1290.45 175.58,-1300.45 182.58,-1300.45"/>
-</a>
-</g>
-<g id="a_edge40&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).And &#45;&gt; github.com/RoaringBitmap/roaring.(*runContainer16).iand (2.30GB)">
-<text text-anchor="middle" x="208.08" y="-1331.3" font-family="Times,serif" font-size="14.00"> 2.30GB</text>
-</a>
-</g>
-</g>
-<!-- N35 -->
-<g id="node35" class="node">
-<title>N35</title>
-<g id="a_node35"><a xlink:title="github.com/RoaringBitmap/roaring.(*runContainer16).andArray (2.31GB)">
-<polygon fill="#eddfd6" stroke="#b24906" points="231.08,-1158.5 127.08,-1158.5 127.08,-1114.5 231.08,-1114.5 231.08,-1158.5"/>
-<text text-anchor="middle" x="179.08" y="-1148.1" font-family="Times,serif" font-size="8.00">roaring</text>
-<text text-anchor="middle" x="179.08" y="-1139.1" font-family="Times,serif" font-size="8.00">(*runContainer16)</text>
-<text text-anchor="middle" x="179.08" y="-1130.1" font-family="Times,serif" font-size="8.00">andArray</text>
-<text text-anchor="middle" x="179.08" y="-1121.1" font-family="Times,serif" font-size="8.00">0 of 2.31GB (19.30%)</text>
+<!-- NN9_1 -->
+<g id="NN9_1" class="node">
+<title>NN9_1</title>
+<g id="a_NN9_1"><a xlink:title="2152kB">
+<polygon fill="#f8f8f8" stroke="black" points="183,-383 133,-383 129,-379 129,-347 179,-347 183,-351 183,-383"/>
+<polyline fill="none" stroke="black" points="179,-379 129,-379 "/>
+<polyline fill="none" stroke="black" points="179,-379 179,-347 "/>
+<polyline fill="none" stroke="black" points="179,-379 183,-383 "/>
+<text text-anchor="middle" x="156" y="-363.1" font-family="Times,serif" font-size="8.00">8kB</text>
 </a>
 </g>
 </g>
-<!-- N35&#45;&gt;N2 -->
-<g id="edge39" class="edge">
-<title>N35&#45;&gt;N2</title>
-<g id="a_edge39"><a xlink:title="github.com/RoaringBitmap/roaring.(*runContainer16).andArray &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerCapacity (2.31GB)">
-<path fill="none" stroke="#b24906" d="M179.08,-1114.46C179.08,-1096.73 179.08,-1070.63 179.08,-1047.53"/>
-<polygon fill="#b24906" stroke="#b24906" points="182.58,-1047.51 179.08,-1037.51 175.58,-1047.51 182.58,-1047.51"/>
+<!-- N9&#45;&gt;NN9_1 -->
+<g id="edge13" class="edge">
+<title>N9&#45;&gt;NN9_1</title>
+<g id="a_edge13"><a xlink:title="2152kB">
+<path fill="none" stroke="black" d="M156,-433.88C156,-420.58 156,-405.71 156,-393.28"/>
+<polygon fill="black" stroke="black" points="159.5,-393.09 156,-383.09 152.5,-393.09 159.5,-393.09"/>
 </a>
 </g>
-<g id="a_edge39&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*runContainer16).andArray &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerCapacity (2.31GB)">
-<text text-anchor="middle" x="208.08" y="-1075.8" font-family="Times,serif" font-size="14.00"> 2.31GB</text>
-<text text-anchor="middle" x="208.08" y="-1060.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N36 -->
-<g id="node36" class="node">
-<title>N36</title>
-<g id="a_node36"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized (0.08GB)">
-<polygon fill="#edecec" stroke="#b2b1ac" points="1137.08,-1302 999.08,-1302 999.08,-1234 1137.08,-1234 1137.08,-1302"/>
-<text text-anchor="middle" x="1068.08" y="-1289.2" font-family="Times,serif" font-size="11.00">roaring</text>
-<text text-anchor="middle" x="1068.08" y="-1277.2" font-family="Times,serif" font-size="11.00">(*arrayContainer)</text>
-<text text-anchor="middle" x="1068.08" y="-1265.2" font-family="Times,serif" font-size="11.00">iaddReturnMinimized</text>
-<text text-anchor="middle" x="1068.08" y="-1253.2" font-family="Times,serif" font-size="11.00">0.07GB (0.59%)</text>
-<text text-anchor="middle" x="1068.08" y="-1241.2" font-family="Times,serif" font-size="11.00">of 0.08GB (0.67%)</text>
+<g id="a_edge13&#45;label"><a xlink:title="2152kB">
+<text text-anchor="middle" x="186" y="-404.8" font-family="Times,serif" font-size="14.00"> 2152kB</text>
 </a>
 </g>
 </g>
-<!-- N54 -->
-<g id="node54" class="node">
-<title>N54</title>
-<g id="a_node54"><a xlink:title="strings.(*Builder).Grow (0.15GB)">
-<polygon fill="#edeceb" stroke="#b2afa7" points="813.08,-1290 715.08,-1290 715.08,-1246 813.08,-1246 813.08,-1290"/>
-<text text-anchor="middle" x="764.08" y="-1279.6" font-family="Times,serif" font-size="8.00">strings</text>
-<text text-anchor="middle" x="764.08" y="-1270.6" font-family="Times,serif" font-size="8.00">(*Builder)</text>
-<text text-anchor="middle" x="764.08" y="-1261.6" font-family="Times,serif" font-size="8.00">Grow</text>
-<text text-anchor="middle" x="764.08" y="-1252.6" font-family="Times,serif" font-size="8.00">0 of 0.15GB (1.22%)</text>
+<!-- NN9_2 -->
+<g id="NN9_2" class="node">
+<title>NN9_2</title>
+<g id="a_NN9_2"><a xlink:title="1896kB">
+<polygon fill="#f8f8f8" stroke="black" points="266,-383 216,-383 212,-379 212,-347 262,-347 266,-351 266,-383"/>
+<polyline fill="none" stroke="black" points="262,-379 212,-379 "/>
+<polyline fill="none" stroke="black" points="262,-379 262,-347 "/>
+<polyline fill="none" stroke="black" points="262,-379 266,-383 "/>
+<text text-anchor="middle" x="239" y="-363.1" font-family="Times,serif" font-size="8.00">4kB</text>
 </a>
 </g>
 </g>
-<!-- N37&#45;&gt;N54 -->
-<g id="edge80" class="edge">
-<title>N37&#45;&gt;N54</title>
-<g id="a_edge80"><a xlink:title="strings.ToLower &#45;&gt; strings.(*Builder).Grow (0.15GB)">
-<path fill="none" stroke="#b2afa7" d="M764.08,-1403.86C764.08,-1378.86 764.08,-1331.96 764.08,-1300.59"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="767.58,-1300.21 764.08,-1290.21 760.58,-1300.21 767.58,-1300.21"/>
+<!-- N9&#45;&gt;NN9_2 -->
+<g id="edge14" class="edge">
+<title>N9&#45;&gt;NN9_2</title>
+<g id="a_edge14"><a xlink:title="1896kB">
+<path fill="none" stroke="black" d="M201.29,-433.9C206.99,-428.28 212.42,-422.25 217,-416 222.18,-408.93 226.49,-400.45 229.88,-392.5"/>
+<polygon fill="black" stroke="black" points="233.14,-393.77 233.56,-383.19 226.63,-391.2 233.14,-393.77"/>
 </a>
 </g>
-<g id="a_edge80&#45;label"><a xlink:title="strings.ToLower &#45;&gt; strings.(*Builder).Grow (0.15GB)">
-<text text-anchor="middle" x="793.08" y="-1338.8" font-family="Times,serif" font-size="14.00"> 0.15GB</text>
-<text text-anchor="middle" x="793.08" y="-1323.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N38&#45;&gt;N36 -->
-<g id="edge86" class="edge">
-<title>N38&#45;&gt;N36</title>
-<g id="a_edge86"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).Add &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized (0.08GB)">
-<path fill="none" stroke="#b2b1ac" d="M1068.08,-1399.87C1068.08,-1377.34 1068.08,-1341.06 1068.08,-1312.4"/>
-<polygon fill="#b2b1ac" stroke="#b2b1ac" points="1071.58,-1312.23 1068.08,-1302.23 1064.58,-1312.23 1071.58,-1312.23"/>
-</a>
-</g>
-<g id="a_edge86&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).Add &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized (0.08GB)">
-<text text-anchor="middle" x="1097.08" y="-1331.3" font-family="Times,serif" font-size="14.00"> 0.08GB</text>
+<g id="a_edge14&#45;label"><a xlink:title="1896kB">
+<text text-anchor="middle" x="256" y="-404.8" font-family="Times,serif" font-size="14.00"> 1896kB</text>
 </a>
 </g>
 </g>
-<!-- N39&#45;&gt;N30 -->
-<g id="edge70" class="edge">
-<title>N39&#45;&gt;N30</title>
-<g id="a_edge70"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC (0.26GB)">
-<path fill="none" stroke="#b2ac9f" d="M1661.08,-1832.8C1661.08,-1821.16 1661.08,-1805.55 1661.08,-1792.24"/>
-<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1664.58,-1792.18 1661.08,-1782.18 1657.58,-1792.18 1664.58,-1792.18"/>
-</a>
-</g>
-<g id="a_edge70&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats &#45;&gt; bitmap&#45;usage/benchmark.ReadMemStatsFuncWithGC (0.26GB)">
-<text text-anchor="middle" x="1690.08" y="-1803.8" font-family="Times,serif" font-size="14.00"> 0.26GB</text>
-</a>
-</g>
-</g>
-<!-- N40&#45;&gt;N9 -->
-<g id="edge74" class="edge">
-<title>N40&#45;&gt;N9</title>
-<g id="a_edge74"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats.func1 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.19GB)">
-<path fill="none" stroke="#b2aea4" d="M1676.03,-1636.47C1666.52,-1631.29 1656.08,-1626.07 1646.08,-1622 1591.46,-1599.77 1527.63,-1581.85 1477.25,-1569.45"/>
-<polygon fill="#b2aea4" stroke="#b2aea4" points="1477.9,-1566 1467.35,-1567.04 1476.24,-1572.8 1477.9,-1566"/>
-</a>
-</g>
-<g id="a_edge74&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/bitmap.TestBitmapMemoryStats.func1 &#45;&gt; bitmap&#45;usage/benchmark/500k&#45;large&#45;groups/sample.GenerateTestData5Chars5Offerings (0.19GB)">
-<text text-anchor="middle" x="1620.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 0.19GB</text>
+<!-- N16 -->
+<g id="node16" class="node">
+<title>N16</title>
+<g id="a_node16"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer (2104.19kB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="370,-269 258,-269 258,-225 370,-225 370,-269"/>
+<text text-anchor="middle" x="314" y="-258.6" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="314" y="-249.6" font-family="Times,serif" font-size="8.00">(*arrayContainer)</text>
+<text text-anchor="middle" x="314" y="-240.6" font-family="Times,serif" font-size="8.00">toBitmapContainer</text>
+<text text-anchor="middle" x="314" y="-231.6" font-family="Times,serif" font-size="8.00">0 of 2104.19kB (0.58%)</text>
 </a>
 </g>
 </g>
-<!-- N41&#45;&gt;N2 -->
-<g id="edge61" class="edge">
-<title>N41&#45;&gt;N2</title>
-<g id="a_edge61"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andArray &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerCapacity (0.47GB)">
-<path fill="none" stroke="#b2a58f" d="M370.75,-1114.46C339.87,-1095.54 293.43,-1067.08 253.99,-1042.91"/>
-<polygon fill="#b2a58f" stroke="#b2a58f" points="255.53,-1039.75 245.17,-1037.51 251.87,-1045.72 255.53,-1039.75"/>
+<!-- N9&#45;&gt;N16 -->
+<g id="edge36" class="edge">
+<title>N9&#45;&gt;N16</title>
+<g id="a_edge36"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer (2104.19kB)">
+<path fill="none" stroke="#b2b1ad" d="M233.68,-453.8C254.9,-445.86 275.91,-433.92 290,-416 320.83,-376.79 321.38,-315.97 318.22,-279.27"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="321.68,-278.75 317.2,-269.15 314.72,-279.45 321.68,-278.75"/>
 </a>
 </g>
-<g id="a_edge61&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andArray &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerCapacity (0.47GB)">
-<text text-anchor="middle" x="355.08" y="-1075.8" font-family="Times,serif" font-size="14.00"> 0.47GB</text>
-<text text-anchor="middle" x="355.08" y="-1060.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
-</a>
-</g>
-</g>
-<!-- N42&#45;&gt;N3 -->
-<g id="edge28" class="edge">
-<title>N42&#45;&gt;N3</title>
-<g id="a_edge28"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerSize (3.38GB)">
-<path fill="none" stroke="#b23800" stroke-width="2" d="M524.08,-1114.46C524.08,-1097.21 524.08,-1072.01 524.08,-1049.38"/>
-<polygon fill="#b23800" stroke="#b23800" stroke-width="2" points="527.58,-1049.2 524.08,-1039.2 520.58,-1049.2 527.58,-1049.2"/>
-</a>
-</g>
-<g id="a_edge28&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*bitmapContainer).andBitmap &#45;&gt; github.com/RoaringBitmap/roaring.newArrayContainerSize (3.38GB)">
-<text text-anchor="middle" x="553.08" y="-1075.8" font-family="Times,serif" font-size="14.00"> 3.38GB</text>
-<text text-anchor="middle" x="553.08" y="-1060.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+<g id="a_edge36&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer (2104.19kB)">
+<text text-anchor="middle" x="358" y="-361.3" font-family="Times,serif" font-size="14.00"> 2104.19kB</text>
 </a>
 </g>
 </g>
-<!-- N43&#45;&gt;N35 -->
-<g id="edge41" class="edge">
-<title>N43&#45;&gt;N35</title>
-<g id="a_edge41"><a xlink:title="github.com/RoaringBitmap/roaring.(*runContainer16).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*runContainer16).andArray (2.29GB)">
-<path fill="none" stroke="#b24a07" d="M179.08,-1245.91C179.08,-1225.02 179.08,-1192.8 179.08,-1168.91"/>
-<polygon fill="#b24a07" stroke="#b24a07" points="182.58,-1168.59 179.08,-1158.59 175.58,-1168.59 182.58,-1168.59"/>
-</a>
-</g>
-<g id="a_edge41&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*runContainer16).iand &#45;&gt; github.com/RoaringBitmap/roaring.(*runContainer16).andArray (2.29GB)">
-<text text-anchor="middle" x="208.08" y="-1197.3" font-family="Times,serif" font-size="14.00"> 2.29GB</text>
-</a>
-</g>
-</g>
-<!-- N44&#45;&gt;N28 -->
-<g id="edge78" class="edge">
-<title>N44&#45;&gt;N28</title>
-<g id="a_edge78"><a xlink:title="github.com/google/uuid.NewString &#45;&gt; github.com/google/uuid.UUID.String (0.15GB)">
-<path fill="none" stroke="#b2afa7" d="M1462.08,-1118.24C1462.08,-1097.88 1462.08,-1063.4 1462.08,-1036.4"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="1465.58,-1036.1 1462.08,-1026.1 1458.58,-1036.1 1465.58,-1036.1"/>
-</a>
-</g>
-<g id="a_edge78&#45;label"><a xlink:title="github.com/google/uuid.NewString &#45;&gt; github.com/google/uuid.UUID.String (0.15GB)">
-<text text-anchor="middle" x="1491.08" y="-1075.8" font-family="Times,serif" font-size="14.00"> 0.15GB</text>
-<text text-anchor="middle" x="1491.08" y="-1060.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+<!-- N10 -->
+<g id="node10" class="node">
+<title>N10</title>
+<g id="a_node10"><a xlink:title="github.com/google/uuid.NewRandomFromReader (7612.59kB)">
+<polygon fill="#edecea" stroke="#b2ac9f" points="1086.5,-147 915.5,-147 915.5,-87 1086.5,-87 1086.5,-147"/>
+<text text-anchor="middle" x="1001" y="-133.4" font-family="Times,serif" font-size="12.00">uuid</text>
+<text text-anchor="middle" x="1001" y="-120.4" font-family="Times,serif" font-size="12.00">NewRandomFromReader</text>
+<text text-anchor="middle" x="1001" y="-107.4" font-family="Times,serif" font-size="12.00">7612.50kB (2.10%)</text>
+<text text-anchor="middle" x="1001" y="-94.4" font-family="Times,serif" font-size="12.00">of 7612.59kB (2.10%)</text>
 </a>
 </g>
 </g>
-<!-- N46 -->
-<g id="node46" class="node">
-<title>N46</title>
-<g id="a_node46"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.Chart.drawSeries (2.91GB)">
-<polygon fill="#edddd5" stroke="#b23d00" points="2038.08,-1571 1934.08,-1571 1934.08,-1527 2038.08,-1527 2038.08,-1571"/>
-<text text-anchor="middle" x="1986.08" y="-1560.6" font-family="Times,serif" font-size="8.00">go&#45;chart</text>
-<text text-anchor="middle" x="1986.08" y="-1551.6" font-family="Times,serif" font-size="8.00">Chart</text>
-<text text-anchor="middle" x="1986.08" y="-1542.6" font-family="Times,serif" font-size="8.00">drawSeries</text>
-<text text-anchor="middle" x="1986.08" y="-1533.6" font-family="Times,serif" font-size="8.00">0 of 2.91GB (24.24%)</text>
+<!-- NN10_0 -->
+<g id="NN10_0" class="node">
+<title>NN10_0</title>
+<g id="a_NN10_0"><a xlink:title="7612.52kB">
+<polygon fill="#f8f8f8" stroke="black" points="1028,-36 978,-36 974,-32 974,0 1024,0 1028,-4 1028,-36"/>
+<polyline fill="none" stroke="black" points="1024,-32 974,-32 "/>
+<polyline fill="none" stroke="black" points="1024,-32 1024,0 "/>
+<polyline fill="none" stroke="black" points="1024,-32 1028,-36 "/>
+<text text-anchor="middle" x="1001" y="-16.1" font-family="Times,serif" font-size="8.00">16B</text>
 </a>
 </g>
 </g>
-<!-- N45&#45;&gt;N46 -->
-<g id="edge31" class="edge">
-<title>N45&#45;&gt;N46</title>
-<g id="a_edge31"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.Chart.Render &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.Chart.drawSeries (2.91GB)">
-<path fill="none" stroke="#b23d00" stroke-width="2" d="M1986.08,-1636.26C1986.08,-1620.65 1986.08,-1599.19 1986.08,-1581.58"/>
-<polygon fill="#b23d00" stroke="#b23d00" stroke-width="2" points="1989.58,-1581.19 1986.08,-1571.19 1982.58,-1581.19 1989.58,-1581.19"/>
+<!-- N10&#45;&gt;NN10_0 -->
+<g id="edge15" class="edge">
+<title>N10&#45;&gt;NN10_0</title>
+<g id="a_edge15"><a xlink:title="7612.52kB">
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1001,-86.9C1001,-74.12 1001,-59.2 1001,-46.6"/>
+<polygon fill="black" stroke="black" points="1004.5,-46.24 1001,-36.24 997.5,-46.24 1004.5,-46.24"/>
 </a>
 </g>
-<g id="a_edge31&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.Chart.Render &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.Chart.drawSeries (2.91GB)">
-<text text-anchor="middle" x="2015.08" y="-1592.8" font-family="Times,serif" font-size="14.00"> 2.91GB</text>
-</a>
-</g>
-</g>
-<!-- N47 -->
-<g id="node47" class="node">
-<title>N47</title>
-<g id="a_node47"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.ContinuousSeries.Render (2.91GB)">
-<polygon fill="#edddd5" stroke="#b23d00" points="2038.08,-1444 1934.08,-1444 1934.08,-1400 2038.08,-1400 2038.08,-1444"/>
-<text text-anchor="middle" x="1986.08" y="-1433.6" font-family="Times,serif" font-size="8.00">go&#45;chart</text>
-<text text-anchor="middle" x="1986.08" y="-1424.6" font-family="Times,serif" font-size="8.00">ContinuousSeries</text>
-<text text-anchor="middle" x="1986.08" y="-1415.6" font-family="Times,serif" font-size="8.00">Render</text>
-<text text-anchor="middle" x="1986.08" y="-1406.6" font-family="Times,serif" font-size="8.00">0 of 2.91GB (24.24%)</text>
+<g id="a_edge15&#45;label"><a xlink:title="7612.52kB">
+<text text-anchor="middle" x="1042" y="-57.8" font-family="Times,serif" font-size="14.00"> 7612.52kB</text>
 </a>
 </g>
 </g>
-<!-- N46&#45;&gt;N47 -->
+<!-- N11 -->
+<g id="node11" class="node">
+<title>N11</title>
+<g id="a_node11"><a xlink:title="github.com/RoaringBitmap/roaring.newBitmapContainer (2104.19kB)">
+<polygon fill="#ededec" stroke="#b2b1ad" points="376.5,-137.5 251.5,-137.5 251.5,-96.5 376.5,-96.5 376.5,-137.5"/>
+<text text-anchor="middle" x="314" y="-125.5" font-family="Times,serif" font-size="10.00">roaring</text>
+<text text-anchor="middle" x="314" y="-114.5" font-family="Times,serif" font-size="10.00">newBitmapContainer</text>
+<text text-anchor="middle" x="314" y="-103.5" font-family="Times,serif" font-size="10.00">2104.19kB (0.58%)</text>
+</a>
+</g>
+</g>
+<!-- NN11_0 -->
+<g id="NN11_0" class="node">
+<title>NN11_0</title>
+<g id="a_NN11_0"><a xlink:title="2096kB">
+<polygon fill="#f8f8f8" stroke="black" points="341,-36 291,-36 287,-32 287,0 337,0 341,-4 341,-36"/>
+<polyline fill="none" stroke="black" points="337,-32 287,-32 "/>
+<polyline fill="none" stroke="black" points="337,-32 337,0 "/>
+<polyline fill="none" stroke="black" points="337,-32 341,-36 "/>
+<text text-anchor="middle" x="314" y="-16.1" font-family="Times,serif" font-size="8.00">8kB</text>
+</a>
+</g>
+</g>
+<!-- N11&#45;&gt;NN11_0 -->
+<g id="edge16" class="edge">
+<title>N11&#45;&gt;NN11_0</title>
+<g id="a_edge16"><a xlink:title="2096kB">
+<path fill="none" stroke="black" d="M314,-96.37C314,-81.98 314,-62.25 314,-46.32"/>
+<polygon fill="black" stroke="black" points="317.5,-46.01 314,-36.01 310.5,-46.01 317.5,-46.01"/>
+</a>
+</g>
+<g id="a_edge16&#45;label"><a xlink:title="2096kB">
+<text text-anchor="middle" x="344" y="-57.8" font-family="Times,serif" font-size="14.00"> 2096kB</text>
+</a>
+</g>
+</g>
+<!-- NN12_0 -->
+<g id="NN12_0" class="node">
+<title>NN12_0</title>
+<g id="a_NN12_0"><a xlink:title="4kB">
+<polygon fill="#f8f8f8" stroke="black" points="122,-802 72,-802 68,-798 68,-766 118,-766 122,-770 122,-802"/>
+<polyline fill="none" stroke="black" points="118,-798 68,-798 "/>
+<polyline fill="none" stroke="black" points="118,-798 118,-766 "/>
+<polyline fill="none" stroke="black" points="118,-798 122,-802 "/>
+<text text-anchor="middle" x="95" y="-782.1" font-family="Times,serif" font-size="8.00">4kB</text>
+</a>
+</g>
+</g>
+<!-- N12&#45;&gt;NN12_0 -->
+<g id="edge17" class="edge">
+<title>N12&#45;&gt;NN12_0</title>
+<g id="a_edge17"><a xlink:title="4kB">
+<path fill="none" stroke="black" d="M95,-871.87C95,-853.72 95,-830.24 95,-812.27"/>
+<polygon fill="black" stroke="black" points="98.5,-812.14 95,-802.14 91.5,-812.14 98.5,-812.14"/>
+</a>
+</g>
+<g id="a_edge17&#45;label"><a xlink:title="4kB">
+<text text-anchor="middle" x="111.5" y="-835.3" font-family="Times,serif" font-size="14.00"> 4kB</text>
+</a>
+</g>
+</g>
+<!-- N15 -->
+<g id="node15" class="node">
+<title>N15</title>
+<g id="a_node15"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).Add (12233.70kB)">
+<polygon fill="#edebe9" stroke="#b2a794" points="214.5,-649 97.5,-649 97.5,-605 214.5,-605 214.5,-649"/>
+<text text-anchor="middle" x="156" y="-638.6" font-family="Times,serif" font-size="8.00">roaring</text>
+<text text-anchor="middle" x="156" y="-629.6" font-family="Times,serif" font-size="8.00">(*Bitmap)</text>
+<text text-anchor="middle" x="156" y="-620.6" font-family="Times,serif" font-size="8.00">Add</text>
+<text text-anchor="middle" x="156" y="-611.6" font-family="Times,serif" font-size="8.00">0 of 12233.70kB (3.38%)</text>
+</a>
+</g>
+</g>
+<!-- N12&#45;&gt;N15 -->
 <g id="edge32" class="edge">
-<title>N46&#45;&gt;N47</title>
-<g id="a_edge32"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.Chart.drawSeries &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.ContinuousSeries.Render (2.91GB)">
-<path fill="none" stroke="#b23d00" stroke-width="2" d="M1986.08,-1526.8C1986.08,-1506.95 1986.08,-1477.06 1986.08,-1454.44"/>
-<polygon fill="#b23d00" stroke="#b23d00" stroke-width="2" points="1989.58,-1454.31 1986.08,-1444.31 1982.58,-1454.31 1989.58,-1454.31"/>
+<title>N12&#45;&gt;N15</title>
+<g id="a_edge32"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).addToBitmap &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).Add (12233.70kB)">
+<path fill="none" stroke="#b2a794" d="M121.62,-871.93C125.71,-866.34 129.42,-860.25 132,-854 158.98,-788.67 159.95,-704.11 158.1,-659.22"/>
+<polygon fill="#b2a794" stroke="#b2a794" points="161.6,-659.03 157.62,-649.22 154.61,-659.37 161.6,-659.03"/>
 </a>
 </g>
-<g id="a_edge32&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.Chart.drawSeries &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.ContinuousSeries.Render (2.91GB)">
-<text text-anchor="middle" x="2015.08" y="-1497.8" font-family="Times,serif" font-size="14.00"> 2.91GB</text>
-</a>
-</g>
-</g>
-<!-- N48 -->
-<g id="node48" class="node">
-<title>N48</title>
-<g id="a_node48"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.draw.LineSeries (2.91GB)">
-<polygon fill="#edddd5" stroke="#b23d00" points="2038.08,-1290 1934.08,-1290 1934.08,-1246 2038.08,-1246 2038.08,-1290"/>
-<text text-anchor="middle" x="1986.08" y="-1279.6" font-family="Times,serif" font-size="8.00">go&#45;chart</text>
-<text text-anchor="middle" x="1986.08" y="-1270.6" font-family="Times,serif" font-size="8.00">draw</text>
-<text text-anchor="middle" x="1986.08" y="-1261.6" font-family="Times,serif" font-size="8.00">LineSeries</text>
-<text text-anchor="middle" x="1986.08" y="-1252.6" font-family="Times,serif" font-size="8.00">0 of 2.91GB (24.24%)</text>
+<g id="a_edge32&#45;label"><a xlink:title="bitmap&#45;usage/index&#45;roaring.(*Holder).addToBitmap &#45;&gt; github.com/RoaringBitmap/roaring.(*Bitmap).Add (12233.70kB)">
+<text text-anchor="middle" x="200.5" y="-780.3" font-family="Times,serif" font-size="14.00"> 12233.70kB</text>
 </a>
 </g>
 </g>
-<!-- N47&#45;&gt;N48 -->
+<!-- N13 -->
+<g id="node13" class="node">
+<title>N13</title>
+<g id="a_node13"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Service).GeneratePrices (203292.25kB)">
+<polygon fill="#edd9d5" stroke="#b21c00" points="825.5,-930 688.5,-930 688.5,-872 825.5,-872 825.5,-930"/>
+<text text-anchor="middle" x="757" y="-918.8" font-family="Times,serif" font-size="9.00">samplev2</text>
+<text text-anchor="middle" x="757" y="-908.8" font-family="Times,serif" font-size="9.00">(*Service)</text>
+<text text-anchor="middle" x="757" y="-898.8" font-family="Times,serif" font-size="9.00">GeneratePrices</text>
+<text text-anchor="middle" x="757" y="-888.8" font-family="Times,serif" font-size="9.00">4.91kB (0.0014%)</text>
+<text text-anchor="middle" x="757" y="-878.8" font-family="Times,serif" font-size="9.00">of 203292.25kB (56.18%)</text>
+</a>
+</g>
+</g>
+<!-- N13&#45;&gt;N3 -->
+<g id="edge23" class="edge">
+<title>N13&#45;&gt;N3</title>
+<g id="a_edge23"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Service).GeneratePrices &#45;&gt; bitmap&#45;usage/benchmark/samplev2.(*Holder).generatePrice (203287.34kB)">
+<path fill="none" stroke="#b21c00" stroke-width="3" d="M690.84,-871.82C663.4,-856.54 634.24,-834.8 618,-806 601.2,-776.2 597.23,-738.94 598.15,-706.22"/>
+<polygon fill="#b21c00" stroke="#b21c00" stroke-width="3" points="601.64,-706.37 598.58,-696.22 594.65,-706.06 601.64,-706.37"/>
+</a>
+</g>
+<g id="a_edge23&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Service).GeneratePrices &#45;&gt; bitmap&#45;usage/benchmark/samplev2.(*Holder).generatePrice (203287.34kB)">
+<text text-anchor="middle" x="668" y="-780.3" font-family="Times,serif" font-size="14.00"> 203287.34kB</text>
+</a>
+</g>
+</g>
+<!-- NN13_0 -->
+<g id="NN13_0" class="node">
+<title>NN13_0</title>
+<g id="a_NN13_0"><a xlink:title="3.91kB">
+<polygon fill="#f8f8f8" stroke="black" points="786.5,-802 731.5,-802 727.5,-798 727.5,-766 782.5,-766 786.5,-770 786.5,-802"/>
+<polyline fill="none" stroke="black" points="782.5,-798 727.5,-798 "/>
+<polyline fill="none" stroke="black" points="782.5,-798 782.5,-766 "/>
+<polyline fill="none" stroke="black" points="782.5,-798 786.5,-802 "/>
+<text text-anchor="middle" x="757" y="-782.1" font-family="Times,serif" font-size="8.00">48B..240B</text>
+</a>
+</g>
+</g>
+<!-- N13&#45;&gt;NN13_0 -->
+<g id="edge18" class="edge">
+<title>N13&#45;&gt;NN13_0</title>
+<g id="a_edge18"><a xlink:title="3.91kB">
+<path fill="none" stroke="black" d="M757,-871.87C757,-853.72 757,-830.24 757,-812.27"/>
+<polygon fill="black" stroke="black" points="760.5,-812.14 757,-802.14 753.5,-812.14 760.5,-812.14"/>
+</a>
+</g>
+<g id="a_edge18&#45;label"><a xlink:title="3.91kB">
+<text text-anchor="middle" x="784.5" y="-835.3" font-family="Times,serif" font-size="14.00"> 3.91kB</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;N13 -->
+<g id="edge22" class="edge">
+<title>N14&#45;&gt;N13</title>
+<g id="a_edge22"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Service).GenerateTestData5Chars50Offerings &#45;&gt; bitmap&#45;usage/benchmark/samplev2.(*Service).GeneratePrices (203292.25kB)">
+<path fill="none" stroke="#b21c00" stroke-width="3" d="M845.72,-1076.48C816.61,-1059.48 784.01,-1034.87 766,-1003 755.43,-984.29 752.89,-960.46 753.13,-940.65"/>
+<polygon fill="#b21c00" stroke="#b21c00" stroke-width="3" points="756.64,-940.53 753.5,-930.41 749.64,-940.28 756.64,-940.53"/>
+</a>
+</g>
+<g id="a_edge22&#45;label"><a xlink:title="bitmap&#45;usage/benchmark/samplev2.(*Service).GenerateTestData5Chars50Offerings &#45;&gt; bitmap&#45;usage/benchmark/samplev2.(*Service).GeneratePrices (203292.25kB)">
+<text text-anchor="middle" x="816" y="-981.3" font-family="Times,serif" font-size="14.00"> 203292.25kB</text>
+</a>
+</g>
+</g>
+<!-- NN14_0 -->
+<g id="NN14_0" class="node">
+<title>NN14_0</title>
+<g id="a_NN14_0"><a xlink:title="0.08kB">
+<polygon fill="#f8f8f8" stroke="black" points="934.5,-1003 879.5,-1003 875.5,-999 875.5,-967 930.5,-967 934.5,-971 934.5,-1003"/>
+<polyline fill="none" stroke="black" points="930.5,-999 875.5,-999 "/>
+<polyline fill="none" stroke="black" points="930.5,-999 930.5,-967 "/>
+<polyline fill="none" stroke="black" points="930.5,-999 934.5,-1003 "/>
+<text text-anchor="middle" x="905" y="-983.1" font-family="Times,serif" font-size="8.00">48B..240B</text>
+</a>
+</g>
+</g>
+<!-- N14&#45;&gt;NN14_0 -->
+<g id="edge19" class="edge">
+<title>N14&#45;&gt;NN14_0</title>
+<g id="a_edge19"><a xlink:title="0.08kB">
+<path fill="none" stroke="black" d="M905,-1076.42C905,-1057.33 905,-1032.22 905,-1013.3"/>
+<polygon fill="black" stroke="black" points="908.5,-1013.24 905,-1003.24 901.5,-1013.24 908.5,-1013.24"/>
+</a>
+</g>
+<g id="a_edge19&#45;label"><a xlink:title="0.08kB">
+<text text-anchor="middle" x="932.5" y="-1024.8" font-family="Times,serif" font-size="14.00"> 0.08kB</text>
+</a>
+</g>
+</g>
+<!-- N15&#45;&gt;N9 -->
 <g id="edge33" class="edge">
-<title>N47&#45;&gt;N48</title>
-<g id="a_edge33"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.ContinuousSeries.Render &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.draw.LineSeries (2.91GB)">
-<path fill="none" stroke="#b23d00" stroke-width="2" d="M1986.08,-1399.87C1986.08,-1374.15 1986.08,-1330.48 1986.08,-1300.72"/>
-<polygon fill="#b23d00" stroke="#b23d00" stroke-width="2" points="1989.58,-1300.45 1986.08,-1290.45 1982.58,-1300.45 1989.58,-1300.45"/>
+<title>N15&#45;&gt;N9</title>
+<g id="a_edge33"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).Add &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized (12205.05kB)">
+<path fill="none" stroke="#b2a794" d="M156,-604.84C156,-582.47 156,-546.47 156,-517.51"/>
+<polygon fill="#b2a794" stroke="#b2a794" points="159.5,-517.2 156,-507.2 152.5,-517.2 159.5,-517.2"/>
 </a>
 </g>
-<g id="a_edge33&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.ContinuousSeries.Render &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.draw.LineSeries (2.91GB)">
-<text text-anchor="middle" x="2015.08" y="-1331.3" font-family="Times,serif" font-size="14.00"> 2.91GB</text>
+<g id="a_edge33&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*Bitmap).Add &#45;&gt; github.com/RoaringBitmap/roaring.(*arrayContainer).iaddReturnMinimized (12205.05kB)">
+<text text-anchor="middle" x="201.5" y="-528.8" font-family="Times,serif" font-size="14.00"> 12205.05kB</text>
 </a>
 </g>
 </g>
-<!-- N48&#45;&gt;N31 -->
+<!-- N16&#45;&gt;N11 -->
+<g id="edge37" class="edge">
+<title>N16&#45;&gt;N11</title>
+<g id="a_edge37"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer &#45;&gt; github.com/RoaringBitmap/roaring.newBitmapContainer (2104.19kB)">
+<path fill="none" stroke="#b2b1ad" d="M314,-224.86C314,-203.93 314,-171.67 314,-148.07"/>
+<polygon fill="#b2b1ad" stroke="#b2b1ad" points="317.5,-147.9 314,-137.9 310.5,-147.9 317.5,-147.9"/>
+</a>
+</g>
+<g id="a_edge37&#45;label"><a xlink:title="github.com/RoaringBitmap/roaring.(*arrayContainer).toBitmapContainer &#45;&gt; github.com/RoaringBitmap/roaring.newBitmapContainer (2104.19kB)">
+<text text-anchor="middle" x="355" y="-183.8" font-family="Times,serif" font-size="14.00"> 2104.19kB</text>
+<text text-anchor="middle" x="355" y="-168.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+</a>
+</g>
+</g>
+<!-- N17&#45;&gt;N10 -->
 <g id="edge34" class="edge">
-<title>N48&#45;&gt;N31</title>
-<g id="a_edge34"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.draw.LineSeries &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.(*rasterRenderer).FillStroke (2.91GB)">
-<path fill="none" stroke="#b23d00" stroke-width="2" d="M1986.08,-1245.91C1986.08,-1227.72 1986.08,-1200.92 1986.08,-1178.52"/>
-<polygon fill="#b23d00" stroke="#b23d00" stroke-width="2" points="1989.58,-1178.26 1986.08,-1168.26 1982.58,-1178.26 1989.58,-1178.26"/>
+<title>N17&#45;&gt;N10</title>
+<g id="a_edge34"><a xlink:title="github.com/google/uuid.NewRandom &#45;&gt; github.com/google/uuid.NewRandomFromReader (7612.59kB)">
+<path fill="none" stroke="#b2ac9f" d="M1001,-228.74C1001,-210.55 1001,-181.28 1001,-157.41"/>
+<polygon fill="#b2ac9f" stroke="#b2ac9f" points="1004.5,-157.21 1001,-147.21 997.5,-157.21 1004.5,-157.21"/>
 </a>
 </g>
-<g id="a_edge34&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2.draw.LineSeries &#45;&gt; github.com/wcharczuk/go&#45;chart/v2.(*rasterRenderer).FillStroke (2.91GB)">
-<text text-anchor="middle" x="2015.08" y="-1197.3" font-family="Times,serif" font-size="14.00"> 2.91GB</text>
-</a>
-</g>
-</g>
-<!-- N49 -->
-<g id="node49" class="node">
-<title>N49</title>
-<g id="a_node49"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).LineTo (1.62GB)">
-<polygon fill="#ede4dd" stroke="#b2703a" points="2359.08,-388 2255.08,-388 2255.08,-344 2359.08,-344 2359.08,-388"/>
-<text text-anchor="middle" x="2307.08" y="-377.6" font-family="Times,serif" font-size="8.00">drawing</text>
-<text text-anchor="middle" x="2307.08" y="-368.6" font-family="Times,serif" font-size="8.00">(*LineStroker)</text>
-<text text-anchor="middle" x="2307.08" y="-359.6" font-family="Times,serif" font-size="8.00">LineTo</text>
-<text text-anchor="middle" x="2307.08" y="-350.6" font-family="Times,serif" font-size="8.00">0 of 1.62GB (13.49%)</text>
+<g id="a_edge34&#45;label"><a xlink:title="github.com/google/uuid.NewRandom &#45;&gt; github.com/google/uuid.NewRandomFromReader (7612.59kB)">
+<text text-anchor="middle" x="1042" y="-176.3" font-family="Times,serif" font-size="14.00"> 7612.59kB</text>
 </a>
 </g>
 </g>
-<!-- N50 -->
-<g id="node50" class="node">
-<title>N50</title>
-<g id="a_node50"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).line (1.62GB)">
-<polygon fill="#ede4dd" stroke="#b2703a" points="2359.08,-293 2255.08,-293 2255.08,-249 2359.08,-249 2359.08,-293"/>
-<text text-anchor="middle" x="2307.08" y="-282.6" font-family="Times,serif" font-size="8.00">drawing</text>
-<text text-anchor="middle" x="2307.08" y="-273.6" font-family="Times,serif" font-size="8.00">(*LineStroker)</text>
-<text text-anchor="middle" x="2307.08" y="-264.6" font-family="Times,serif" font-size="8.00">line</text>
-<text text-anchor="middle" x="2307.08" y="-255.6" font-family="Times,serif" font-size="8.00">0 of 1.62GB (13.49%)</text>
+<!-- N18 -->
+<g id="node18" class="node">
+<title>N18</title>
+<g id="a_node18"><a xlink:title="strings.(*Builder).Grow (38058.97kB)">
+<polygon fill="#ede6e0" stroke="#b28254" points="456,-806 334,-806 334,-762 456,-762 456,-806"/>
+<text text-anchor="middle" x="395" y="-795.6" font-family="Times,serif" font-size="8.00">strings</text>
+<text text-anchor="middle" x="395" y="-786.6" font-family="Times,serif" font-size="8.00">(*Builder)</text>
+<text text-anchor="middle" x="395" y="-777.6" font-family="Times,serif" font-size="8.00">Grow</text>
+<text text-anchor="middle" x="395" y="-768.6" font-family="Times,serif" font-size="8.00">0 of 38058.97kB (10.52%)</text>
 </a>
 </g>
 </g>
-<!-- N49&#45;&gt;N50 -->
-<g id="edge49" class="edge">
-<title>N49&#45;&gt;N50</title>
-<g id="a_edge49"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).LineTo &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).line (1.62GB)">
-<path fill="none" stroke="#b2703a" d="M2307.08,-343.9C2307.08,-331.89 2307.08,-316.62 2307.08,-303.24"/>
-<polygon fill="#b2703a" stroke="#b2703a" points="2310.58,-303.02 2307.08,-293.02 2303.58,-303.02 2310.58,-303.02"/>
+<!-- N18&#45;&gt;N6 -->
+<g id="edge27" class="edge">
+<title>N18&#45;&gt;N6</title>
+<g id="a_edge27"><a xlink:title="strings.(*Builder).Grow &#45;&gt; strings.(*Builder).grow (38058.97kB)">
+<path fill="none" stroke="#b28254" d="M386.24,-761.77C377.22,-739.95 362.88,-705.2 351.06,-676.59"/>
+<polygon fill="#b28254" stroke="#b28254" points="354.22,-675.06 347.17,-667.15 347.75,-677.73 354.22,-675.06"/>
 </a>
 </g>
-<g id="a_edge49&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).LineTo &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).line (1.62GB)">
-<text text-anchor="middle" x="2336.08" y="-314.8" font-family="Times,serif" font-size="14.00"> 1.62GB</text>
-</a>
-</g>
-</g>
-<!-- N50&#45;&gt;N8 -->
-<g id="edge50" class="edge">
-<title>N50&#45;&gt;N8</title>
-<g id="a_edge50"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).line &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).appendVertex (1.62GB)">
-<path fill="none" stroke="#b2703a" d="M2307.08,-248.77C2307.08,-233.81 2307.08,-213.03 2307.08,-193.37"/>
-<polygon fill="#b2703a" stroke="#b2703a" points="2310.58,-193.23 2307.08,-183.23 2303.58,-193.23 2310.58,-193.23"/>
-</a>
-</g>
-<g id="a_edge50&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).line &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).appendVertex (1.62GB)">
-<text text-anchor="middle" x="2336.08" y="-219.8" font-family="Times,serif" font-size="14.00"> 1.62GB</text>
-<text text-anchor="middle" x="2336.08" y="-204.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+<g id="a_edge27&#45;label"><a xlink:title="strings.(*Builder).Grow &#45;&gt; strings.(*Builder).grow (38058.97kB)">
+<text text-anchor="middle" x="423.5" y="-732.8" font-family="Times,serif" font-size="14.00"> 38058.97kB</text>
+<text text-anchor="middle" x="423.5" y="-717.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>
-<!-- N51 -->
-<g id="node51" class="node">
-<title>N51</title>
-<g id="a_node51"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.DemuxFlattener.LineTo (1.62GB)">
-<polygon fill="#ede4dd" stroke="#b2703a" points="2359.08,-483 2255.08,-483 2255.08,-439 2359.08,-439 2359.08,-483"/>
-<text text-anchor="middle" x="2307.08" y="-472.6" font-family="Times,serif" font-size="8.00">drawing</text>
-<text text-anchor="middle" x="2307.08" y="-463.6" font-family="Times,serif" font-size="8.00">DemuxFlattener</text>
-<text text-anchor="middle" x="2307.08" y="-454.6" font-family="Times,serif" font-size="8.00">LineTo</text>
-<text text-anchor="middle" x="2307.08" y="-445.6" font-family="Times,serif" font-size="8.00">0 of 1.62GB (13.49%)</text>
+<!-- N19&#45;&gt;N18 -->
+<g id="edge28" class="edge">
+<title>N19&#45;&gt;N18</title>
+<g id="a_edge28"><a xlink:title="strings.ToLower &#45;&gt; strings.(*Builder).Grow (38058.97kB)">
+<path fill="none" stroke="#b28254" d="M413.66,-882.53C410.29,-864.93 405.02,-837.39 400.94,-816.06"/>
+<polygon fill="#b28254" stroke="#b28254" points="404.36,-815.32 399.05,-806.15 397.49,-816.63 404.36,-815.32"/>
 </a>
 </g>
-</g>
-<!-- N51&#45;&gt;N49 -->
-<g id="edge52" class="edge">
-<title>N51&#45;&gt;N49</title>
-<g id="a_edge52"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.DemuxFlattener.LineTo &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).LineTo (1.62GB)">
-<path fill="none" stroke="#b2703a" d="M2307.08,-438.9C2307.08,-426.89 2307.08,-411.62 2307.08,-398.24"/>
-<polygon fill="#b2703a" stroke="#b2703a" points="2310.58,-398.02 2307.08,-388.02 2303.58,-398.02 2310.58,-398.02"/>
-</a>
-</g>
-<g id="a_edge52&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.DemuxFlattener.LineTo &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.(*LineStroker).LineTo (1.62GB)">
-<text text-anchor="middle" x="2336.08" y="-409.8" font-family="Times,serif" font-size="14.00"> 1.62GB</text>
-</a>
-</g>
-</g>
-<!-- N53 -->
-<g id="node53" class="node">
-<title>N53</title>
-<g id="a_node53"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.TraceQuad (1.62GB)">
-<polygon fill="#ede4dd" stroke="#b2703a" points="2359.08,-570 2255.08,-570 2255.08,-534 2359.08,-534 2359.08,-570"/>
-<text text-anchor="middle" x="2307.08" y="-559.1" font-family="Times,serif" font-size="8.00">drawing</text>
-<text text-anchor="middle" x="2307.08" y="-550.1" font-family="Times,serif" font-size="8.00">TraceQuad</text>
-<text text-anchor="middle" x="2307.08" y="-541.1" font-family="Times,serif" font-size="8.00">0 of 1.62GB (13.49%)</text>
-</a>
-</g>
-</g>
-<!-- N52&#45;&gt;N53 -->
-<g id="edge53" class="edge">
-<title>N52&#45;&gt;N53</title>
-<g id="a_edge53"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.Flatten &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.TraceQuad (1.62GB)">
-<path fill="none" stroke="#b2703a" d="M2307.08,-632.25C2307.08,-617.84 2307.08,-597.03 2307.08,-580.36"/>
-<polygon fill="#b2703a" stroke="#b2703a" points="2310.58,-580.1 2307.08,-570.1 2303.58,-580.1 2310.58,-580.1"/>
-</a>
-</g>
-<g id="a_edge53&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.Flatten &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.TraceQuad (1.62GB)">
-<text text-anchor="middle" x="2336.08" y="-591.8" font-family="Times,serif" font-size="14.00"> 1.62GB</text>
-</a>
-</g>
-</g>
-<!-- N53&#45;&gt;N51 -->
-<g id="edge54" class="edge">
-<title>N53&#45;&gt;N51</title>
-<g id="a_edge54"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.TraceQuad &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.DemuxFlattener.LineTo (1.62GB)">
-<path fill="none" stroke="#b2703a" d="M2307.08,-533.84C2307.08,-522.44 2307.08,-507.13 2307.08,-493.58"/>
-<polygon fill="#b2703a" stroke="#b2703a" points="2310.58,-493.19 2307.08,-483.19 2303.58,-493.19 2310.58,-493.19"/>
-</a>
-</g>
-<g id="a_edge54&#45;label"><a xlink:title="github.com/wcharczuk/go&#45;chart/v2/drawing.TraceQuad &#45;&gt; github.com/wcharczuk/go&#45;chart/v2/drawing.DemuxFlattener.LineTo (1.62GB)">
-<text text-anchor="middle" x="2336.08" y="-504.8" font-family="Times,serif" font-size="14.00"> 1.62GB</text>
-</a>
-</g>
-</g>
-<!-- N54&#45;&gt;N29 -->
-<g id="edge79" class="edge">
-<title>N54&#45;&gt;N29</title>
-<g id="a_edge79"><a xlink:title="strings.(*Builder).Grow &#45;&gt; strings.(*Builder).grow (0.15GB)">
-<path fill="none" stroke="#b2afa7" d="M764.08,-1245.91C764.08,-1227.26 764.08,-1199.57 764.08,-1176.85"/>
-<polygon fill="#b2afa7" stroke="#b2afa7" points="767.58,-1176.81 764.08,-1166.81 760.58,-1176.81 767.58,-1176.81"/>
-</a>
-</g>
-<g id="a_edge79&#45;label"><a xlink:title="strings.(*Builder).Grow &#45;&gt; strings.(*Builder).grow (0.15GB)">
-<text text-anchor="middle" x="793.08" y="-1204.8" font-family="Times,serif" font-size="14.00"> 0.15GB</text>
-<text text-anchor="middle" x="793.08" y="-1189.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
+<g id="a_edge28&#45;label"><a xlink:title="strings.ToLower &#45;&gt; strings.(*Builder).Grow (38058.97kB)">
+<text text-anchor="middle" x="453.5" y="-842.8" font-family="Times,serif" font-size="14.00"> 38058.97kB</text>
+<text text-anchor="middle" x="453.5" y="-827.8" font-family="Times,serif" font-size="14.00"> (inline)</text>
 </a>
 </g>
 </g>

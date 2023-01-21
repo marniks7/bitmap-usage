@@ -9,33 +9,59 @@ import (
 	"errors"
 	codec1978 "github.com/ugorji/go/codec"
 	"runtime"
+	"sort"
 	"strconv"
 )
 
 const (
 	// ----- content types ----
-	codecSelferCcUTF88063 = 1
-	codecSelferCcRAW8063  = 255
+	codecSelferCcUTF87074 = 1
+	codecSelferCcRAW7074  = 255
 	// ----- value types used ----
-	codecSelferValueTypeArray8063     = 10
-	codecSelferValueTypeMap8063       = 9
-	codecSelferValueTypeString8063    = 6
-	codecSelferValueTypeInt8063       = 2
-	codecSelferValueTypeUint8063      = 3
-	codecSelferValueTypeFloat8063     = 4
-	codecSelferValueTypeNil8063       = 1
-	codecSelferBitsize8063            = uint8(32 << (^uint(0) >> 63))
-	codecSelferDecContainerLenNil8063 = -2147483648
+	codecSelferValueTypeArray7074     = 10
+	codecSelferValueTypeMap7074       = 9
+	codecSelferValueTypeString7074    = 6
+	codecSelferValueTypeInt7074       = 2
+	codecSelferValueTypeUint7074      = 3
+	codecSelferValueTypeFloat7074     = 4
+	codecSelferValueTypeNil7074       = 1
+	codecSelferBitsize7074            = uint8(32 << (^uint(0) >> 63))
+	codecSelferDecContainerLenNil7074 = -2147483648
 )
 
 var (
-	errCodecSelferOnlyMapOrArrayEncodeToStruct8063 = errors.New(`only encoded map or array can be decoded into a struct`)
+	errCodecSelferOnlyMapOrArrayEncodeToStruct7074                = errors.New(`only encoded map or array can be decoded into a struct`)
+	_                                              sort.Interface = nil
 )
 
-type codecSelfer8063 struct{}
+type codecSelfer7074 struct{}
 
-func codecSelfer8063False() bool { return false }
-func codecSelfer8063True() bool  { return true }
+func codecSelfer7074False() bool { return false }
+func codecSelfer7074True() bool  { return true }
+
+type codecSelfer7074stringSlice []string
+
+func (p codecSelfer7074stringSlice) Len() int           { return len(p) }
+func (p codecSelfer7074stringSlice) Swap(i, j int)      { p[uint(i)], p[uint(j)] = p[uint(j)], p[uint(i)] }
+func (p codecSelfer7074stringSlice) Less(i, j int) bool { return p[uint(i)] < p[uint(j)] }
+
+type codecSelfer7074uint64Slice []uint64
+
+func (p codecSelfer7074uint64Slice) Len() int           { return len(p) }
+func (p codecSelfer7074uint64Slice) Swap(i, j int)      { p[uint(i)], p[uint(j)] = p[uint(j)], p[uint(i)] }
+func (p codecSelfer7074uint64Slice) Less(i, j int) bool { return p[uint(i)] < p[uint(j)] }
+
+type codecSelfer7074int64Slice []int64
+
+func (p codecSelfer7074int64Slice) Len() int           { return len(p) }
+func (p codecSelfer7074int64Slice) Swap(i, j int)      { p[uint(i)], p[uint(j)] = p[uint(j)], p[uint(i)] }
+func (p codecSelfer7074int64Slice) Less(i, j int) bool { return p[uint(i)] < p[uint(j)] }
+
+type codecSelfer7074float64Slice []float64
+
+func (p codecSelfer7074float64Slice) Len() int           { return len(p) }
+func (p codecSelfer7074float64Slice) Swap(i, j int)      { p[uint(i)], p[uint(j)] = p[uint(j)], p[uint(i)] }
+func (p codecSelfer7074float64Slice) Less(i, j int) bool { return p[uint(i)] < p[uint(j)] }
 
 func init() {
 	if codec1978.GenVersion != 25 {
@@ -47,7 +73,7 @@ func init() {
 
 func (Price) codecSelferViaCodecgen() {}
 func (x *Price) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -73,70 +99,105 @@ func (x *Price) CodecEncodeSelf(e *codec1978.Encoder) {
 			z.EncWriteArrayEnd()
 		} else {
 			z.EncWriteMapStart(4)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"id\"")
+			if z.EncBasicHandle().Canonical {
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"currency\"")
+				} else {
+					r.EncodeString(`currency`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Currency))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Id))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"spec\"")
+				} else {
+					r.EncodeString(`spec`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Spec))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"value\"")
+				} else {
+					r.EncodeString(`value`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeFloat64(float64(x.Value))
 			} else {
-				r.EncodeString(`id`)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Id))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"spec\"")
+				} else {
+					r.EncodeString(`spec`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Spec))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"value\"")
+				} else {
+					r.EncodeString(`value`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeFloat64(float64(x.Value))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"currency\"")
+				} else {
+					r.EncodeString(`currency`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Currency))
 			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.Id))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"spec\"")
-			} else {
-				r.EncodeString(`spec`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.Spec))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"value\"")
-			} else {
-				r.EncodeString(`value`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeFloat64(float64(x.Value))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"currency\"")
-			} else {
-				r.EncodeString(`currency`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.Currency))
 			z.EncWriteMapEnd()
 		}
 	}
 }
 
 func (x *Price) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil8063 {
+	if yyct2 == codecSelferValueTypeNil7074 {
 		*(x) = Price{}
-	} else if yyct2 == codecSelferValueTypeMap8063 {
+	} else if yyct2 == codecSelferValueTypeMap7074 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray8063 {
+	} else if yyct2 == codecSelferValueTypeArray7074 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct8063)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7074)
 	}
 }
 
 func (x *Price) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -169,7 +230,7 @@ func (x *Price) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *Price) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj8 int
@@ -244,7 +305,7 @@ func (x *Price) IsCodecEmpty() bool {
 
 func (CharValue) codecSelferViaCodecgen() {}
 func (x *CharValue) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -266,54 +327,73 @@ func (x *CharValue) CodecEncodeSelf(e *codec1978.Encoder) {
 			z.EncWriteArrayEnd()
 		} else {
 			z.EncWriteMapStart(2)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"char\"")
+			if z.EncBasicHandle().Canonical {
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"char\"")
+				} else {
+					r.EncodeString(`char`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Char))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"value\"")
+				} else {
+					r.EncodeString(`value`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Value))
 			} else {
-				r.EncodeString(`char`)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"char\"")
+				} else {
+					r.EncodeString(`char`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Char))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"value\"")
+				} else {
+					r.EncodeString(`value`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.Value))
 			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.Char))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"value\"")
-			} else {
-				r.EncodeString(`value`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.Value))
 			z.EncWriteMapEnd()
 		}
 	}
 }
 
 func (x *CharValue) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil8063 {
+	if yyct2 == codecSelferValueTypeNil7074 {
 		*(x) = CharValue{}
-	} else if yyct2 == codecSelferValueTypeMap8063 {
+	} else if yyct2 == codecSelferValueTypeMap7074 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray8063 {
+	} else if yyct2 == codecSelferValueTypeArray7074 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct8063)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7074)
 	}
 }
 
 func (x *CharValue) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -342,7 +422,7 @@ func (x *CharValue) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *CharValue) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj6 int
@@ -393,7 +473,7 @@ func (x *CharValue) IsCodecEmpty() bool {
 
 func (FindPriceRequest) codecSelferViaCodecgen() {}
 func (x *FindPriceRequest) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -423,74 +503,113 @@ func (x *FindPriceRequest) CodecEncodeSelf(e *codec1978.Encoder) {
 			z.EncWriteArrayEnd()
 		} else {
 			z.EncWriteMapStart(4)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"offeringId\"")
+			if z.EncBasicHandle().Canonical {
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"charValues\"")
+				} else {
+					r.EncodeString(`charValues`)
+				}
+				z.EncWriteMapElemValue()
+				if x.CharValues == nil {
+					r.EncodeNil()
+				} else {
+					h.encSliceCharValue(([]CharValue)(x.CharValues), e)
+				} // end block: if x.CharValues slice == nil
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"groupId\"")
+				} else {
+					r.EncodeString(`groupId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.GroupId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"offeringId\"")
+				} else {
+					r.EncodeString(`offeringId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.OfferingId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"priceSpecId\"")
+				} else {
+					r.EncodeString(`priceSpecId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.PriceSpecId))
 			} else {
-				r.EncodeString(`offeringId`)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"offeringId\"")
+				} else {
+					r.EncodeString(`offeringId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.OfferingId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"groupId\"")
+				} else {
+					r.EncodeString(`groupId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.GroupId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"priceSpecId\"")
+				} else {
+					r.EncodeString(`priceSpecId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.PriceSpecId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"charValues\"")
+				} else {
+					r.EncodeString(`charValues`)
+				}
+				z.EncWriteMapElemValue()
+				if x.CharValues == nil {
+					r.EncodeNil()
+				} else {
+					h.encSliceCharValue(([]CharValue)(x.CharValues), e)
+				} // end block: if x.CharValues slice == nil
 			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.OfferingId))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"groupId\"")
-			} else {
-				r.EncodeString(`groupId`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.GroupId))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"priceSpecId\"")
-			} else {
-				r.EncodeString(`priceSpecId`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.PriceSpecId))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"charValues\"")
-			} else {
-				r.EncodeString(`charValues`)
-			}
-			z.EncWriteMapElemValue()
-			if x.CharValues == nil {
-				r.EncodeNil()
-			} else {
-				h.encSliceCharValue(([]CharValue)(x.CharValues), e)
-			} // end block: if x.CharValues slice == nil
 			z.EncWriteMapEnd()
 		}
 	}
 }
 
 func (x *FindPriceRequest) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil8063 {
+	if yyct2 == codecSelferValueTypeNil7074 {
 		*(x) = FindPriceRequest{}
-	} else if yyct2 == codecSelferValueTypeMap8063 {
+	} else if yyct2 == codecSelferValueTypeMap7074 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray8063 {
+	} else if yyct2 == codecSelferValueTypeArray7074 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct8063)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7074)
 	}
 }
 
 func (x *FindPriceRequest) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -523,7 +642,7 @@ func (x *FindPriceRequest) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
 }
 
 func (x *FindPriceRequest) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj9 int
@@ -598,7 +717,7 @@ func (x *FindPriceRequest) IsCodecEmpty() bool {
 
 func (FindPriceRequestBulk) codecSelferViaCodecgen() {}
 func (x *FindPriceRequestBulk) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -630,82 +749,129 @@ func (x *FindPriceRequestBulk) CodecEncodeSelf(e *codec1978.Encoder) {
 			z.EncWriteArrayEnd()
 		} else {
 			z.EncWriteMapStart(5)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"offeringId\"")
+			if z.EncBasicHandle().Canonical {
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"charValues\"")
+				} else {
+					r.EncodeString(`charValues`)
+				}
+				z.EncWriteMapElemValue()
+				if x.CharValues == nil {
+					r.EncodeNil()
+				} else {
+					h.encSliceCharValue(([]CharValue)(x.CharValues), e)
+				} // end block: if x.CharValues slice == nil
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"groupId\"")
+				} else {
+					r.EncodeString(`groupId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.GroupId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeUint(uint64(x.Id))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"offeringId\"")
+				} else {
+					r.EncodeString(`offeringId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.OfferingId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"priceSpecId\"")
+				} else {
+					r.EncodeString(`priceSpecId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.PriceSpecId))
 			} else {
-				r.EncodeString(`offeringId`)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"offeringId\"")
+				} else {
+					r.EncodeString(`offeringId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.OfferingId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"groupId\"")
+				} else {
+					r.EncodeString(`groupId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.GroupId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"priceSpecId\"")
+				} else {
+					r.EncodeString(`priceSpecId`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeString(string(x.PriceSpecId))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"charValues\"")
+				} else {
+					r.EncodeString(`charValues`)
+				}
+				z.EncWriteMapElemValue()
+				if x.CharValues == nil {
+					r.EncodeNil()
+				} else {
+					h.encSliceCharValue(([]CharValue)(x.CharValues), e)
+				} // end block: if x.CharValues slice == nil
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeUint(uint64(x.Id))
 			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.OfferingId))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"groupId\"")
-			} else {
-				r.EncodeString(`groupId`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.GroupId))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"priceSpecId\"")
-			} else {
-				r.EncodeString(`priceSpecId`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeString(string(x.PriceSpecId))
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"charValues\"")
-			} else {
-				r.EncodeString(`charValues`)
-			}
-			z.EncWriteMapElemValue()
-			if x.CharValues == nil {
-				r.EncodeNil()
-			} else {
-				h.encSliceCharValue(([]CharValue)(x.CharValues), e)
-			} // end block: if x.CharValues slice == nil
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"id\"")
-			} else {
-				r.EncodeString(`id`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeUint(uint64(x.Id))
 			z.EncWriteMapEnd()
 		}
 	}
 }
 
 func (x *FindPriceRequestBulk) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil8063 {
+	if yyct2 == codecSelferValueTypeNil7074 {
 		*(x) = FindPriceRequestBulk{}
-	} else if yyct2 == codecSelferValueTypeMap8063 {
+	} else if yyct2 == codecSelferValueTypeMap7074 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray8063 {
+	} else if yyct2 == codecSelferValueTypeArray7074 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct8063)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7074)
 	}
 }
 
 func (x *FindPriceRequestBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -740,7 +906,7 @@ func (x *FindPriceRequestBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decode
 }
 
 func (x *FindPriceRequestBulk) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj10 int
@@ -827,7 +993,7 @@ func (x *FindPriceRequestBulk) IsCodecEmpty() bool {
 
 func (FindPriceResponseBulk) codecSelferViaCodecgen() {}
 func (x *FindPriceResponseBulk) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -859,62 +1025,89 @@ func (x *FindPriceResponseBulk) CodecEncodeSelf(e *codec1978.Encoder) {
 			z.EncWriteArrayEnd()
 		} else {
 			z.EncWriteMapStart(2)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"price\"")
-			} else {
-				r.EncodeString(`price`)
-			}
-			z.EncWriteMapElemValue()
-			if yyn3 {
-				r.EncodeNil()
-			} else {
-				if yyxt7 := z.Extension(x.Price); yyxt7 != nil {
-					z.EncExtension(x.Price, yyxt7)
+			if z.EncBasicHandle().Canonical {
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
 				} else {
-					x.Price.CodecEncodeSelf(e)
+					r.EncodeString(`id`)
 				}
-			}
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"id\"")
+				z.EncWriteMapElemValue()
+				r.EncodeUint(uint64(x.Id))
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"price\"")
+				} else {
+					r.EncodeString(`price`)
+				}
+				z.EncWriteMapElemValue()
+				if yyn3 {
+					r.EncodeNil()
+				} else {
+					if yyxt8 := z.Extension(x.Price); yyxt8 != nil {
+						z.EncExtension(x.Price, yyxt8)
+					} else {
+						x.Price.CodecEncodeSelf(e)
+					}
+				}
 			} else {
-				r.EncodeString(`id`)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"price\"")
+				} else {
+					r.EncodeString(`price`)
+				}
+				z.EncWriteMapElemValue()
+				if yyn3 {
+					r.EncodeNil()
+				} else {
+					if yyxt9 := z.Extension(x.Price); yyxt9 != nil {
+						z.EncExtension(x.Price, yyxt9)
+					} else {
+						x.Price.CodecEncodeSelf(e)
+					}
+				}
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeUint(uint64(x.Id))
 			}
-			z.EncWriteMapElemValue()
-			r.EncodeUint(uint64(x.Id))
 			z.EncWriteMapEnd()
 		}
 	}
 }
 
 func (x *FindPriceResponseBulk) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil8063 {
+	if yyct2 == codecSelferValueTypeNil7074 {
 		*(x) = FindPriceResponseBulk{}
-	} else if yyct2 == codecSelferValueTypeMap8063 {
+	} else if yyct2 == codecSelferValueTypeMap7074 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray8063 {
+	} else if yyct2 == codecSelferValueTypeArray7074 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct8063)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7074)
 	}
 }
 
 func (x *FindPriceResponseBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -956,7 +1149,7 @@ func (x *FindPriceResponseBulk) codecDecodeSelfFromMap(l int, d *codec1978.Decod
 }
 
 func (x *FindPriceResponseBulk) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj7 int
@@ -1020,7 +1213,7 @@ func (x *FindPriceResponseBulk) IsCodecEmpty() bool {
 
 func (FindPriceResponseBulkError) codecSelferViaCodecgen() {}
 func (x *FindPriceResponseBulkError) CodecEncodeSelf(e *codec1978.Encoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if z.EncBasicHandle().CheckCircularRef {
@@ -1042,54 +1235,73 @@ func (x *FindPriceResponseBulkError) CodecEncodeSelf(e *codec1978.Encoder) {
 			z.EncWriteArrayEnd()
 		} else {
 			z.EncWriteMapStart(2)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"Error\"")
+			if z.EncBasicHandle().Canonical {
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"Error\"")
+				} else {
+					r.EncodeString(`Error`)
+				}
+				z.EncWriteMapElemValue()
+				z.EncFallback(x.Error)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeUint(uint64(x.Id))
 			} else {
-				r.EncodeString(`Error`)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"Error\"")
+				} else {
+					r.EncodeString(`Error`)
+				}
+				z.EncWriteMapElemValue()
+				z.EncFallback(x.Error)
+				z.EncWriteMapElemKey()
+				if z.IsJSONHandle() {
+					z.WriteStr("\"id\"")
+				} else {
+					r.EncodeString(`id`)
+				}
+				z.EncWriteMapElemValue()
+				r.EncodeUint(uint64(x.Id))
 			}
-			z.EncWriteMapElemValue()
-			z.EncFallback(x.Error)
-			z.EncWriteMapElemKey()
-			if z.IsJSONHandle() {
-				z.WriteStr("\"id\"")
-			} else {
-				r.EncodeString(`id`)
-			}
-			z.EncWriteMapElemValue()
-			r.EncodeUint(uint64(x.Id))
 			z.EncWriteMapEnd()
 		}
 	}
 }
 
 func (x *FindPriceResponseBulkError) CodecDecodeSelf(d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	yyct2 := r.ContainerType()
-	if yyct2 == codecSelferValueTypeNil8063 {
+	if yyct2 == codecSelferValueTypeNil7074 {
 		*(x) = FindPriceResponseBulkError{}
-	} else if yyct2 == codecSelferValueTypeMap8063 {
+	} else if yyct2 == codecSelferValueTypeMap7074 {
 		yyl2 := z.DecReadMapStart()
 		if yyl2 == 0 {
 		} else {
 			x.codecDecodeSelfFromMap(yyl2, d)
 		}
 		z.DecReadMapEnd()
-	} else if yyct2 == codecSelferValueTypeArray8063 {
+	} else if yyct2 == codecSelferValueTypeArray7074 {
 		yyl2 := z.DecReadArrayStart()
 		if yyl2 != 0 {
 			x.codecDecodeSelfFromArray(yyl2, d)
 		}
 		z.DecReadArrayEnd()
 	} else {
-		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct8063)
+		panic(errCodecSelferOnlyMapOrArrayEncodeToStruct7074)
 	}
 }
 
 func (x *FindPriceResponseBulkError) codecDecodeSelfFromMap(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyhl3 bool = l >= 0
@@ -1118,7 +1330,7 @@ func (x *FindPriceResponseBulkError) codecDecodeSelfFromMap(l int, d *codec1978.
 }
 
 func (x *FindPriceResponseBulkError) codecDecodeSelfFromArray(l int, d *codec1978.Decoder) {
-	var h codecSelfer8063
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 	var yyj7 int
@@ -1167,8 +1379,8 @@ func (x *FindPriceResponseBulkError) IsCodecEmpty() bool {
 	return !(x.Error != nil || x.Id != 0 || false)
 }
 
-func (x codecSelfer8063) encSliceCharValue(v []CharValue, e *codec1978.Encoder) {
-	var h codecSelfer8063
+func (x codecSelfer7074) encSliceCharValue(v []CharValue, e *codec1978.Encoder) {
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Encoder(e)
 	_, _, _ = h, z, r
 	if v == nil {
@@ -1188,8 +1400,8 @@ func (x codecSelfer8063) encSliceCharValue(v []CharValue, e *codec1978.Encoder) 
 	z.EncWriteArrayEnd()
 }
 
-func (x codecSelfer8063) decSliceCharValue(v *[]CharValue, d *codec1978.Decoder) {
-	var h codecSelfer8063
+func (x codecSelfer7074) decSliceCharValue(v *[]CharValue, d *codec1978.Decoder) {
+	var h codecSelfer7074
 	z, r := codec1978.GenHelper().Decoder(d)
 	_, _, _ = h, z, r
 

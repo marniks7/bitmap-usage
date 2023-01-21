@@ -39,15 +39,15 @@ func main() {
 }
 
 func generateMarkdownDiff(buffer *bytes.Buffer, fileName1 string, fileName2 string) error {
-	statsBitmap, err := analyze.ReadJsonWrkReport(fileName1)
+	case1, err := analyze.ReadJsonWrkReport(fileName1)
 	if err != nil {
 		return err
 	}
-	statsMap, err := analyze.ReadJsonWrkReport(fileName2)
+	case2, err := analyze.ReadJsonWrkReport(fileName2)
 	if err != nil {
 		return err
 	}
 
-	analyze.MarkdownDiff(statsBitmap, statsMap, buffer)
+	analyze.MarkdownDiff(case1, case2, buffer, fileName1, fileName2)
 	return err
 }

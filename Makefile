@@ -158,7 +158,10 @@ bench-memory: bench-memory-bitmap bench-memory-map bench-memory-map-64 bench-mem
 	bench-memory-kelindar bench-memory-bits-and-blooms
 # TODO works bad when there are >1 test, it includes allocated space from all tests
 bench-memory-bitmap:
-	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... . -run ^*Memory* -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... . -run ^TestBitmapMemoryStats -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... . -run ^TestBitmapMemoryStats_Search -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... . -run ^TestBitmapMemoryStats_SearchV2 -failfast -test.memprofilerate=1
+	go${GOVERSION} test ./benchmark/500k-large-groups/bitmap/... . -run ^TestBitmapMemoryStats_SearchV2_OptStr -failfast -test.memprofilerate=1
 bench-memory-map:
 	go${GOVERSION} test ./benchmark/500k-large-groups/map/... . -run ^*Memory* -failfast -test.memprofilerate=1
 bench-memory-map-64:

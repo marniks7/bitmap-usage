@@ -1,32 +1,22 @@
 File: map.test
 Type: inuse_space
-Time: Feb 7, 2022 at 2:59pm (EST)
-Showing nodes accounting for 174.90MB, 98.81% of 177MB total
-Dropped 28 nodes (cum <= 0.89MB)
+Time: Jan 20, 2023 at 11:56pm (EST)
+Showing nodes accounting for 179.79MB, 100% of 179.80MB total
+Dropped 107 nodes (cum <= 0.90MB)
       flat  flat%   sum%        cum   cum%
-  109.53MB 61.88% 61.88%   109.53MB 61.88%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:185
-      34MB 19.21% 81.09%       34MB 19.21%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:180
-      20MB 11.30% 92.39%       20MB 11.30%  github.com/google/uuid.UUID.String /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
-    4.94MB  2.79% 95.18%     4.94MB  2.79%  bitmap-usage/index-map.(*MapIndexService).IndexPrices /home/malerome/IdeaProjects/bitmap-usage3/index-map/indexer.go:14
-    4.44MB  2.51% 97.68%     4.44MB  2.51%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:197
-       2MB  1.13% 98.81%        2MB  1.13%  runtime.allocm /home/malerome/go/go176/src/runtime/proc.go:1875
-         0     0% 98.81%   172.90MB 97.68%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/IdeaProjects/bitmap-usage3/benchmark/utils.go:98
-         0     0% 98.81%   167.97MB 94.89%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/map/map-memory_test.go:22
-         0     0% 98.81%     4.94MB  2.79%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/map/map-memory_test.go:30
-         0     0% 98.81%   167.97MB 94.89%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func1 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/map/map-memory_test.go:23
-         0     0% 98.81%     4.94MB  2.79%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func2 /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/map/map-memory_test.go:31
-         0     0% 98.81%   167.97MB 94.89%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:178
-         0     0% 98.81%       20MB 11.30%  bitmap-usage/benchmark/500k-large-groups/sample.(*Holder).generatePrice /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:186
-         0     0% 98.81%   167.97MB 94.89%  bitmap-usage/benchmark/500k-large-groups/sample.GenerateTestData5Chars5Offerings /home/malerome/IdeaProjects/bitmap-usage3/benchmark/500k-large-groups/sample/test-data.go:163
-         0     0% 98.81%       20MB 11.30%  github.com/google/uuid.NewString /home/malerome/go/bin/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
-         0     0% 98.81%     1.10MB  0.62%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6475
-         0     0% 98.81%     1.10MB  0.62%  runtime.doInit /home/malerome/go/go176/src/runtime/proc.go:6498
-         0     0% 98.81%     1.10MB  0.62%  runtime.main /home/malerome/go/go176/src/runtime/proc.go:238
-         0     0% 98.81%     1.50MB  0.85%  runtime.mcall /home/malerome/go/go176/src/runtime/asm_amd64.s:307
-         0     0% 98.81%        2MB  1.13%  runtime.newm /home/malerome/go/go176/src/runtime/proc.go:2201
-         0     0% 98.81%        1MB  0.57%  runtime.park_m /home/malerome/go/go176/src/runtime/proc.go:3516
-         0     0% 98.81%        2MB  1.13%  runtime.resetspinning /home/malerome/go/go176/src/runtime/proc.go:3216
-         0     0% 98.81%        2MB  1.13%  runtime.schedule /home/malerome/go/go176/src/runtime/proc.go:3374
-         0     0% 98.81%        2MB  1.13%  runtime.startm /home/malerome/go/go176/src/runtime/proc.go:2485
-         0     0% 98.81%        2MB  1.13%  runtime.wakep /home/malerome/go/go176/src/runtime/proc.go:2584
-         0     0% 98.81%   172.90MB 97.68%  testing.tRunner /home/malerome/go/go176/src/testing/testing.go:1259
+  111.51MB 62.02% 62.02%   111.51MB 62.02%  bitmap-usage/benchmark/samplev2.(*Holder).generatePrice /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:223
+   37.17MB 20.67% 82.69%    37.17MB 20.67%  bitmap-usage/benchmark/samplev2.(*Holder).generatePrice /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:211
+   22.30MB 12.40% 95.10%    22.30MB 12.40%  github.com/google/uuid.UUID.String /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/uuid.go:188 (inline)
+    4.69MB  2.61% 97.70%     4.69MB  2.61%  bitmap-usage/index-map.(*MapIndexService).IndexPrices /home/malerome/projects/bitmap-usage/index-map/indexer.go:14 (inline)
+    4.12MB  2.29%   100%     4.12MB  2.29%  bitmap-usage/benchmark/samplev2.(*Holder).generatePrice /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:235
+         0     0%   100%   179.79MB   100%  bitmap-usage/benchmark.ReadMemStatsFuncWithGC /home/malerome/projects/bitmap-usage/benchmark/utils.go:98
+         0     0%   100%   175.10MB 97.39%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/projects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:21
+         0     0%   100%     4.69MB  2.61%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats /home/malerome/projects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:30
+         0     0%   100%   175.10MB 97.39%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func1 /home/malerome/projects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:23
+         0     0%   100%     4.69MB  2.61%  bitmap-usage/benchmark/500k-large-groups/map.TestMapMemoryStats.func2 /home/malerome/projects/bitmap-usage/benchmark/500k-large-groups/map/map-memory_test.go:31
+         0     0%   100%   175.10MB 97.39%  bitmap-usage/benchmark/samplev2.(*Holder).generatePrice /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:209
+         0     0%   100%    22.30MB 12.40%  bitmap-usage/benchmark/samplev2.(*Holder).generatePrice /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:224
+         0     0%   100%   175.10MB 97.39%  bitmap-usage/benchmark/samplev2.(*Service).GeneratePrices /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:195
+         0     0%   100%   175.10MB 97.39%  bitmap-usage/benchmark/samplev2.(*Service).GenerateTestData5Chars50Offerings /home/malerome/projects/bitmap-usage/benchmark/samplev2/test-data.go:151
+         0     0%   100%    22.30MB 12.40%  github.com/google/uuid.NewString /home/malerome/go/pkg/mod/github.com/google/uuid@v1.3.0/version4.go:22
+         0     0%   100%   179.79MB   100%  testing.tRunner /usr/local/go/src/testing/testing.go:1446

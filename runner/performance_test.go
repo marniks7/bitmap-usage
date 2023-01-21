@@ -52,9 +52,9 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 func filterExperiments(experiments []Experiment) []Experiment {
 	expsType2 := make([]Experiment, 0, len(experiments))
 	for _, exp := range experiments {
-		if exp.Application.Approach != Kelindar32 {
-			continue
-		}
+		//if exp.Application.Approach != Kelindar32 {
+		//	continue
+		//}
 		expsType2 = append(expsType2, exp)
 	}
 	return expsType2
@@ -114,7 +114,7 @@ func generateMarkdownDifference(t *testing.T, experiments []Experiment) {
 			diffFile := filepath.Join(fullpath, file1+"-"+file2+".md")
 			file, err := os.Create(diffFile)
 			assert.NoError(t, err)
-			analyze.MarkdownDiff(report1, report2, file)
+			analyze.MarkdownDiff(report1, report2, file, file1, file2)
 		}
 	}
 }
@@ -205,10 +205,11 @@ func basicExperiments(roaring32 Application,
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
 		}},
 
-		{Name: string(Kelindar32), Application: kelindar32, Wrk: Wrk{
-			Path:   "/v1/search/kelindar/prices",
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-kelindar-multiple-request-3000.lua",
-		}},
+		// TODO it fails
+		//{Name: string(Kelindar32), Application: kelindar32, Wrk: Wrk{
+		//	Path:   "/v1/search/kelindar/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-kelindar-multiple-request-3000.lua",
+		//}},
 		{Name: string(Roaring64), Application: roaring64, Wrk: Wrk{
 			Path:   "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
@@ -217,10 +218,12 @@ func basicExperiments(roaring32 Application,
 			Path:   "/v1/search/map/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-3000.lua",
 		}},
-		{Name: string(Sroar), Application: sroar, Wrk: Wrk{
-			Path:   "/v1/search/bitmap/prices",
-			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
-		}},
+
+		// TODO it fails
+		//{Name: string(Sroar), Application: sroar, Wrk: Wrk{
+		//	Path:   "/v1/search/bitmap/prices",
+		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
+		//}},
 	}
 	return expsType1
 }

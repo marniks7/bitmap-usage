@@ -2,7 +2,7 @@ package bitmapsroar
 
 import (
 	"bitmap-usage/benchmark"
-	"bitmap-usage/benchmark/500k-large-groups/sample64"
+	"bitmap-usage/benchmark/sample64"
 	cache64 "bitmap-usage/cache64"
 	indexsroar "bitmap-usage/index-sroar"
 	"fmt"
@@ -19,7 +19,8 @@ func TestBitmapMemoryStats(t *testing.T) {
 	}
 	cs := cache64.NewCatalogService(cache64.NewCatalog())
 	after, before := benchmark.ReadMemStatsFuncWithGC(func() {
-		err := sample64.GenerateTestData5Chars5Offerings(cs)
+		sampleService := sample64.Service{Cs: cs}
+		err := sampleService.GenerateTestData5Chars50Offerings()
 		assert.NoError(t, err)
 	})
 	fmt.Println("Sample Data mem stats:")

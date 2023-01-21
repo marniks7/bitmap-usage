@@ -31,22 +31,24 @@ func ReadJsonWrkReport(filename string) (*wrk.Stats, error) {
 	return &stats, err
 }
 
-func MarkdownDiff(statsBitmap *wrk.Stats, statsMap *wrk.Stats, buffer io.Writer) {
+func MarkdownDiff(case1 *wrk.Stats, case2 *wrk.Stats, buffer io.Writer, filename1 string, filename2 string) {
 	buffer.Write([]byte("### Difference Report\n"))
+	buffer.Write([]byte("Case1: " + filename1 + "\n"))
+	buffer.Write([]byte("Case2: " + filename2 + "\n\n"))
 	buffer.Write([]byte("|Percentile|Case1|Case2|Case1 vs Case2|\n"))
 	buffer.Write([]byte("|---|---|---|---|\n"))
 
-	keys := make([]string, len(statsBitmap.Latency.Percentiles))
+	keys := make([]string, len(case1.Latency.Percentiles))
 	i := 0
-	for k := range statsBitmap.Latency.Percentiles {
+	for k := range case1.Latency.Percentiles {
 		keys[i] = k
 		i++
 	}
 	sort.Strings(keys)
 	for _, k := range keys {
-		v := statsBitmap.Latency.Percentiles[k]
+		v := case1.Latency.Percentiles[k]
 		vd := time.Duration(v) * time.Microsecond
-		v2 := statsMap.Latency.Percentiles[k]
+		v2 := case2.Latency.Percentiles[k]
 		v2d := time.Duration(v2) * time.Microsecond
 
 		magn1 := int(math.Floor(math.Log10(float64(v))))
@@ -73,15 +75,15 @@ func MarkdownDiff(statsBitmap *wrk.Stats, statsMap *wrk.Stats, buffer io.Writer)
 			" times " +
 			magnMsg + "|\n"))
 	}
-	r := (float64(statsBitmap.Requests) - float64(statsMap.Requests)) / float64(statsMap.Requests)
-	r2 := float64(statsBitmap.Requests) / float64(statsMap.Requests)
+	r := (float64(case1.Requests) - float64(case2.Requests)) / float64(case2.Requests)
+	r2 := float64(case1.Requests) / float64(case2.Requests)
 	moreLess := "more"
 	if r2 < 1 {
 		moreLess = "less"
 	}
 	buffer.Write([]byte("|Requests, count" +
-		"|" + strconv.Itoa(statsBitmap.Requests) +
-		"|" + strconv.Itoa(statsMap.Requests) +
+		"|" + strconv.Itoa(case1.Requests) +
+		"|" + strconv.Itoa(case2.Requests) +
 		"|" + moreLess + ": " +
 		fmt.Sprintf("%.1f", 100*r) + "% " +
 		", in " + fmt.Sprintf("%.1f", r2) + " times " + "|\n"))

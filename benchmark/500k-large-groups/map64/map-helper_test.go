@@ -1,7 +1,7 @@
 package map64
 
 import (
-	"bitmap-usage/benchmark/500k-large-groups/sample64"
+	"bitmap-usage/benchmark/sample64"
 	cache64 "bitmap-usage/cache64"
 	indexmap64 "bitmap-usage/index-map64"
 	validator64 "bitmap-usage/validator64"
@@ -11,7 +11,8 @@ import (
 
 func prepareMapIndex(b *testing.B) (*cache64.CatalogService, *indexmap64.MapIndexService) {
 	cs := cache64.NewCatalogService(cache64.NewCatalog())
-	err := sample64.GenerateTestData5Chars5Offerings(cs)
+	sampleService := sample64.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
 	ind := indexmap64.NewService()
@@ -21,7 +22,8 @@ func prepareMapIndex(b *testing.B) (*cache64.CatalogService, *indexmap64.MapInde
 
 func prepareMapIndexOptimized(b *testing.B) (*cache64.CatalogService, *indexmap64.MapIndexService) {
 	cs := cache64.NewCatalogService(cache64.NewCatalog())
-	err := sample64.GenerateTestData5Chars5Offerings(cs)
+	sampleService := sample64.Service{Cs: cs}
+	err := sampleService.GenerateTestData5Chars50Offerings()
 	assert.NoError(b, err)
 
 	ind := indexmap64.NewService()
