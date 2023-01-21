@@ -9,7 +9,7 @@ jobs:
   Build:
     strategy:
       matrix:
-        go-version: [ 1.17.X ]
+        go-version: [ 1.19.X ]
         platform: [ ubuntu-latest ]
     runs-on: ${{ matrix.platform }}
     steps:
