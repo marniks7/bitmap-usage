@@ -17,12 +17,12 @@ import (
 
 func TestPerformanceWrkExperiments(t *testing.T) {
 	//wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 2 * time.Second}
-	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 4 * time.Second}
+	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: Duration(2 * time.Second)}
 
-	//experiments := BasicExperiments(wrkConfig)
+	experiments := BasicExperiments(wrkConfig)
 	//experiments := DockerBasicExperiments(wrkConfig)
 	//experiments := DockerMemoryLimitExperiments(wrkConfig)
-	experiments := DockerMemoryLimitWithGoMemLimitExperiments(wrkConfig)
+	//experiments := DockerMemoryLimitWithGoMemLimitExperiments(wrkConfig)
 	//experiments := HttpServerExperiments(wrkConfig)
 	//experiments := GoGCExperiments(wrkConfig)
 
@@ -34,9 +34,16 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 		execute(exp.Application, exp.Wrk)
 		path := exp.Wrk.JsonFilePath
 		if path != "" {
-			report, err := analyze.ReadJsonWrkReport(reportFullpath(path))
+			fullpath := reportFullpath(path)
+			report, err := analyze.ReadJsonWrkReport(fullpath)
 			if err != nil {
 				log.Err(err).Msg("unable to read wrk report")
+				t.FailNow()
+			}
+			experimentWrk := Reporting{Stats: *report, Experiment: exp}
+			err = WriteResults(fullpath, experimentWrk)
+			if err != nil {
+				log.Err(err).Msg("unable to write back wrk report")
 				t.FailNow()
 			}
 			assert.Zero(t, report.Errors.Write)
@@ -182,57 +189,6 @@ func generateMarkdownDifference(t *testing.T, experiments []Experiment) {
 	}
 }
 
-func TestPerformanceBulkWrkExperiments(t *testing.T) {
-	wrkConfig := Wrk{Threads: 1, Connections: 1, Duration: 30 * time.Second}
-
-	experiments := generateExperiments(ExperimentsConfig{
-		Wrk:  wrkConfig,
-		Bulk: true,
-	})
-
-	for _, exp := range experiments {
-		wrk := merge(wrkConfig, exp.Wrk)
-		log.Info().Str("name", exp.Name).Interface("app", exp.Application).
-			Interface("wrk", wrk).
-			Msg("Start experiment...")
-		execute(exp.Application, wrk)
-
-	}
-}
-
-func TestPerformanceBulkWrkExperimentsDifferentVersions(t *testing.T) {
-	wrkConfig := Wrk{Threads: 1, Connections: 1, Duration: 10 * time.Second}
-
-	experiments := generateExperiments(ExperimentsConfig{
-		Wrk:               wrkConfig,
-		Bulk:              true,
-		DifferentVersions: true,
-	})
-
-	for _, exp := range experiments {
-		log.Info().Str("name", exp.Name).
-			Interface("app", exp.Application).
-			Interface("wrk", exp.Wrk).
-			Msg("Start experiment...")
-		execute(exp.Application, exp.Wrk)
-		path := exp.Wrk.JsonFilePath
-		if path != "" {
-			report, err := analyze.ReadJsonWrkReport(reportFullpath(path))
-			if err != nil {
-				log.Err(err).Msg("unable to read wrk report")
-				t.FailNow()
-			}
-			assert.Zero(t, report.Errors.Write)
-			assert.Zero(t, report.Errors.Read)
-			assert.Zero(t, report.Errors.Timeout)
-			assert.Zero(t, report.Errors.Status)
-			assert.Zero(t, report.Errors.Connect)
-		}
-	}
-
-	generateMarkdownDifference(t, experiments)
-}
-
 func httpServerAddressable(v handlers.HttpServerType) *handlers.HttpServerType {
 	return &v
 }
@@ -252,7 +208,7 @@ func TestWrkKelindarExperiment(t *testing.T) {
 	for _, app := range apps {
 		log.Info().Interface("app", app).Msg("Application to Test")
 		globalWrkConfig := Wrk{
-			Duration: 30 * time.Second,
+			Duration: Duration(30 * time.Second),
 			Path:     "/v1/search/kelindar/prices",
 			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-kelindar-multiple-request-1000.lua",
 		}
@@ -264,7 +220,7 @@ func TestWrkKelindarExperiment(t *testing.T) {
 		}
 
 		globalWrkConfig2 := Wrk{
-			Duration: 30 * time.Second,
+			Duration: Duration(30 * time.Second),
 			Path:     "/v1/search/map/prices",
 			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-1000.lua",
 		}
@@ -286,7 +242,7 @@ func TestWrkBulkExperiment(t *testing.T) {
 	for _, app := range apps {
 		log.Info().Interface("app", app).Msg("Application to Test")
 		globalWrkConfig := Wrk{
-			Duration: 30 * time.Second,
+			Duration: Duration(30 * time.Second),
 			Path:     "/v5/search/bitmap/bulk/prices",
 			Script:   "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
 		}
@@ -302,8 +258,8 @@ func TestWrkBulkExperiment(t *testing.T) {
 func execute(app Application, wrk Wrk) {
 	wg := sync.WaitGroup{}
 	wg.Add(1)
-	killTime := wrk.Duration + 20*time.Second
-	timeoutCtx, cancelFunc := context.WithTimeout(context.Background(), killTime)
+	killTime := wrk.Duration + Duration(20*time.Second)
+	timeoutCtx, cancelFunc := context.WithTimeout(context.Background(), time.Duration(killTime))
 	defer cancelFunc()
 	var cons *TestApp
 	if app.Docker {
@@ -346,7 +302,7 @@ func execute(app Application, wrk Wrk) {
 
 	//kill the process to avoid hanging in case of problems
 	go func() {
-		<-time.After(killTime)
+		<-time.After(time.Duration(killTime))
 		//doesn't matter the error cause process may be already stopped (in case of properly implemented graceful shutdown)
 		//goland:noinspection GoUnhandledErrorResult
 		cmd.Process.Kill()
@@ -482,7 +438,7 @@ func (app Application) Convert() AppExecArgs {
 func (wrk Wrk) Convert() WrkExecArgs {
 	return WrkExecArgs{Connections: "-c" + strconv.Itoa(wrk.Connections),
 		Threads:         "-t" + strconv.Itoa(wrk.Threads),
-		Duration:        "-d" + strconv.Itoa(int(wrk.Duration.Seconds())),
+		Duration:        "-d" + strconv.Itoa(int(time.Duration(wrk.Duration).Seconds())),
 		Script:          wrk.Script,
 		Path:            "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
 		JsonFilePath:    wrk.JsonFilePath,

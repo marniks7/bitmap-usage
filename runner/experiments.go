@@ -1,7 +1,10 @@
 package runner
 
 import (
+	"bitmap-usage/benchmark/analyze/wrk"
 	"bitmap-usage/handlers"
+	"encoding/json"
+	"errors"
 	"golang.org/x/exp/slices"
 	"strconv"
 	"strings"
@@ -53,13 +56,47 @@ const (
 type Wrk struct {
 	Connections     int
 	Threads         int
-	Duration        time.Duration
+	Duration        Duration
 	Script          string
 	Path            string
 	Port            int
 	JsonFilePath    string
 	SummaryFilepath string
 	Bulk            bool
+}
+
+// Duration - WA for marshal into user friendly format
+type Duration time.Duration
+
+func (d Duration) MarshalJSON() ([]byte, error) {
+	return json.Marshal(time.Duration(d).String())
+}
+
+func (d *Duration) UnmarshalJSON(b []byte) error {
+	var v interface{}
+	if err := json.Unmarshal(b, &v); err != nil {
+		return err
+	}
+	switch value := v.(type) {
+	case float64:
+		*d = Duration(time.Duration(value))
+		return nil
+	case string:
+		tmp, err := time.ParseDuration(value)
+		if err != nil {
+			return err
+		}
+		*d = Duration(tmp)
+		return nil
+	default:
+		return errors.New("invalid duration")
+	}
+}
+
+// Reporting used to write back WRK results with experiment enriched data
+type Reporting struct {
+	Experiment Experiment
+	wrk.Stats
 }
 
 // AppExecArgs - formatted params for application startup
@@ -263,7 +300,7 @@ func generateThreadConnectionExperiments(experiments []Experiment) []Experiment 
 	newExperiments := make([]Experiment, 0, len(experiments))
 	for _, exp := range experiments {
 		for i := 1; i < 6; i++ {
-			newWrk := Wrk{Threads: 2, Connections: i * 5, Duration: 10 * time.Second}
+			newWrk := Wrk{Threads: 2, Connections: i * 5, Duration: Duration(10 * time.Second)}
 			wrk := merge(newWrk, exp.Wrk)
 			newExperiments = append(newExperiments, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
 		}
