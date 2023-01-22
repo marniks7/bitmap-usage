@@ -10,6 +10,8 @@ APP_PORT = 8091
 FIBER = false
 SROAR = false
 ROARING64 = false
+ROARING32 = false
+MAP32 = false
 MAP64 = false
 APP_CMD =# whatever command to add to run
 APP_DOCKER_CMD =# whatever command to add to Docker run
@@ -17,6 +19,7 @@ APP_DOCKER_CMD =# whatever command to add to Docker run
 # Provide on executing manually as `true`.
 # Example: `make wrk -e IN_DOCKER=true`
 IN_DOCKER =
+DOCKER_MEMORY_LIMIT=2GB
 # -----------------------------------------------------------------------------
 # App performance configuration
 # -----------------------------------------------------------------------------
@@ -79,7 +82,7 @@ build: install-dependencies
 update-dependencies:
 	go${GOVERSION} get -u ./...
 run:
-	GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} FIBER=${FIBER} SROAR=${SROAR} ROARING64=${ROARING64} MAP64=${MAP64} ${APP_CMD} ADDR=:${APP_PORT} ./bitmap-usage
+	GOMAXPROCS=${GOMAXPROCS} GOGC=${GOGC} FIBER=${FIBER} ${APP_CMD} ADDR=:${APP_PORT} ./bitmap-usage
 run-64: ROARING64=true
 run-64: MAP64=true
 run-64:
@@ -119,10 +122,13 @@ docker:
 docker-run:
 	docker run -p ${APP_PORT}:8080 --cpus=${GOMAXPROCS} --env GOMAXPROCS=${GOMAXPROCS} \
 		--env GOGC=${GOGC} --env FIBER=${FIBER} --env SROAR=${SROAR} \
-		--env ROARING64=${ROARING64} --env MAP64=${MAP64} ${APP_DOCKER_CMD} bitmap-usage
-docker-run-fiber: FIBER=true
-docker-run-fiber:
-	$(MAKE) -e docker-run
+		--env ROARING32=${ROARING32} ${APP_DOCKER_CMD}-m 2GB bitmap-usage
+docker-run-map32-fiber:
+	docker run -p ${APP_PORT}:8080 --cpus=${GOMAXPROCS} --env GOMAXPROCS=${GOMAXPROCS} \
+    		--env GOGC=${GOGC} --env FIBER=true --env MAP32=true -m=${DOCKER_MEMORY_LIMIT} ${APP_DOCKER_CMD} bitmap-usage
+docker-run-roaring32-fiber:
+	docker run -p ${APP_PORT}:8080 --cpus=${GOMAXPROCS} --env GOMAXPROCS=${GOMAXPROCS} \
+        		--env GOGC=${GOGC} --env FIBER=true --env ROARING32=true -m=${DOCKER_MEMORY_LIMIT} ${APP_DOCKER_CMD} bitmap-usage
 docker-run-profile-gc: APP_DOCKER_CMD=--env GODEBUG=gctrace=1
 docker-run-profile-gc:
 	$(MAKE) -e docker-run
@@ -378,7 +384,7 @@ ab-bulk-map-1:
 	$(MAKE) trigger-gc
 ab:	ab-bitmap-1 ab-bitmap-20 ab-map-1 ab-map-20
 run-wrk-experiments:
-	go${GOVERSION} test ./runner/... -run PerformanceWrkExperiments -covermode=atomic -short -test.v -count=1
+	go${GOVERSION} test ./runner/... -run PerformanceWrkExperiments -covermode=atomic -short -test.v -count=1 -timeout=30m
 # -----------------------------------------------------------------------------
 # Utils
 # -----------------------------------------------------------------------------

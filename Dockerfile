@@ -1,4 +1,4 @@
-FROM golang:1.16.5-alpine3.13 AS build_base
+FROM golang:1.19.5-alpine3.16 AS build_base
 
 ENV CGO_ENABLED=0
 #ENV GO111MODULE=on
@@ -17,7 +17,7 @@ COPY . .
 # build
 RUN CGO_ENABLED=0 go build -o ./out/app .
 
-FROM alpine:3.13
+FROM alpine:3.16
 RUN apk add ca-certificates
 
 WORKDIR /app

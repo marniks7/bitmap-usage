@@ -17,8 +17,119 @@ import (
 
 func TestPerformanceWrkExperiments(t *testing.T) {
 	//wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 2 * time.Second}
-	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 30 * time.Second}
+	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 4 * time.Second}
 
+	//experiments := BasicExperiments(wrkConfig)
+	//experiments := DockerBasicExperiments(wrkConfig)
+	//experiments := DockerMemoryLimitExperiments(wrkConfig)
+	experiments := DockerMemoryLimitWithGoMemLimitExperiments(wrkConfig)
+	//experiments := HttpServerExperiments(wrkConfig)
+	//experiments := GoGCExperiments(wrkConfig)
+
+	for _, exp := range experiments {
+		log.Info().Str("name", exp.Name).
+			Interface("app", exp.Application).
+			Interface("wrk", exp.Wrk).
+			Msg("Start experiment...")
+		execute(exp.Application, exp.Wrk)
+		path := exp.Wrk.JsonFilePath
+		if path != "" {
+			report, err := analyze.ReadJsonWrkReport(reportFullpath(path))
+			if err != nil {
+				log.Err(err).Msg("unable to read wrk report")
+				t.FailNow()
+			}
+			assert.Zero(t, report.Errors.Write)
+			assert.Zero(t, report.Errors.Read)
+			assert.Zero(t, report.Errors.Timeout)
+			assert.Zero(t, report.Errors.Status)
+			assert.Zero(t, report.Errors.Connect)
+		}
+	}
+	generateMarkdownDifference(t, experiments)
+}
+
+func BasicExperiments(wrkConfig Wrk) []Experiment {
+	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000}})
+	return experiments
+}
+
+func DockerBasicExperiments(wrkConfig Wrk) []Experiment {
+	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true}})
+	return experiments
+}
+
+func DockerMemoryLimitExperiments(wrkConfig Wrk) []Experiment {
+	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "2GB"}})
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "1GB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "800MB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "500MB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "200MB"}})...)
+
+	return experiments
+}
+
+func DockerMemoryLimitWithGoMemLimitExperiments(wrkConfig Wrk) []Experiment {
+	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "2GB", GOMEMLIMIT: "1750MiB"}})
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "1.5GB", GOMEMLIMIT: "1250MiB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "1GB", GOMEMLIMIT: "750MiB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "800MB", GOMEMLIMIT: "650MiB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "500MB", GOMEMLIMIT: "400MiB"}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000, Docker: true, DockerMemoryLimit: "200MB", GOMEMLIMIT: "180MiB"}})...)
+	return experiments
+}
+func HttpServerExperiments(wrkConfig Wrk) []Experiment {
+	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000}})
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.DefaultServer),
+			GoGC: 1000}})...)
+	return experiments
+}
+
+func GoGCExperiments(wrkConfig Wrk) []Experiment {
 	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
 		Approaches: []Approach{Map32, Roaring32},
 		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
@@ -43,27 +154,7 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 		Approaches: []Approach{Map32, Roaring32},
 		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
 			GoGC: 100}})...)
-	for _, exp := range experiments {
-		log.Info().Str("name", exp.Name).
-			Interface("app", exp.Application).
-			Interface("wrk", exp.Wrk).
-			Msg("Start experiment...")
-		execute(exp.Application, exp.Wrk)
-		path := exp.Wrk.JsonFilePath
-		if path != "" {
-			report, err := analyze.ReadJsonWrkReport(reportFullpath(path))
-			if err != nil {
-				log.Err(err).Msg("unable to read wrk report")
-				t.FailNow()
-			}
-			assert.Zero(t, report.Errors.Write)
-			assert.Zero(t, report.Errors.Read)
-			assert.Zero(t, report.Errors.Timeout)
-			assert.Zero(t, report.Errors.Status)
-			assert.Zero(t, report.Errors.Connect)
-		}
-	}
-	generateMarkdownDifference(t, experiments)
+	return experiments
 }
 
 func generateMarkdownDifference(t *testing.T, experiments []Experiment) {
@@ -211,16 +302,33 @@ func TestWrkBulkExperiment(t *testing.T) {
 func execute(app Application, wrk Wrk) {
 	wg := sync.WaitGroup{}
 	wg.Add(1)
-	killTime := wrk.Duration + 10*time.Second
+	killTime := wrk.Duration + 20*time.Second
 	timeoutCtx, cancelFunc := context.WithTimeout(context.Background(), killTime)
 	defer cancelFunc()
-	cons := CreateAppCmdWithConsole()
+	var cons *TestApp
+	if app.Docker {
+		cons = CreateAppCmdWithConsoleDocker()
+	} else {
+		cons = CreateAppCmdWithConsole()
+	}
 
 	appConsole := app.Convert()
 	cmd := cons.Cmd
-	cmd.Env = append(cmd.Env, appConsole.HttpServer, appConsole.GoGC, appConsole.GoMaxProc,
-		appConsole.FiberPrefork, appConsole.BitmapOptStats,
-		appConsole.BitmapOptStructure, appConsole.Approach)
+	if app.Docker {
+		newArgs := make([]string, 0, len(cmd.Args))
+		addonce := true
+		for i, arg := range cmd.Args {
+			newArgs = append(newArgs, arg)
+			if addonce && arg == "run" && (i != 0 || i < len(cmd.Args)) && cmd.Args[i-1] == "docker" {
+				newArgs = append(newArgs, appConsole.All...)
+				addonce = false
+			}
+		}
+		cmd.Args = newArgs
+	} else {
+		cmd.Env = append(cmd.Env, appConsole.All...)
+	}
+
 	wrk.Port = cons.Port
 	wrkArgs := wrk.Convert()
 	consoleArgs := make([]string, 0, 10)
@@ -323,6 +431,8 @@ func commandDir() string {
 }
 
 func (app Application) Convert() AppExecArgs {
+	intermediate := make([]string, 0, 16)
+
 	var httpServer string
 	if app.HttpServer != nil && *app.HttpServer == handlers.FiberServer {
 		httpServer = "FIBER=true"
@@ -331,15 +441,42 @@ func (app Application) Convert() AppExecArgs {
 	if approach != "" {
 		approach = approach + "=true"
 	}
-	return AppExecArgs{
-		HttpServer:         httpServer,
-		Approach:           approach,
-		GoGC:               "GOGC=" + strconv.Itoa(app.GoGC),
-		GoMaxProc:          "GOMAXPROCS=" + strconv.Itoa(app.GoMaxProc),
-		FiberPrefork:       "FIBER_PREFORK=" + strconv.FormatBool(app.FiberPrefork),
-		BitmapOptStructure: "BITMAP_OPT_STR=" + strconv.FormatBool(app.BitmapOptStructure),
-		BitmapOptStats:     "BITMAP_OPT_STATS=" + strconv.FormatBool(app.BitmapOptStats),
+	var dockerMemoryLimit string
+	if app.DockerMemoryLimit != "" {
+		dockerMemoryLimit = app.DockerMemoryLimit
 	}
+
+	var env string
+	if app.Docker {
+		env = "--env"
+	}
+	intermediate = append(intermediate, httpServer)
+	intermediate = append(intermediate, approach)
+	intermediate = append(intermediate, "GOGC="+strconv.Itoa(app.GoGC))
+	intermediate = append(intermediate, "GOMAXPROCS="+strconv.Itoa(app.GoMaxProc))
+	intermediate = append(intermediate, "FIBER_PREFORK="+strconv.FormatBool(app.FiberPrefork))
+	intermediate = append(intermediate, "BITMAP_OPT_STR="+strconv.FormatBool(app.BitmapOptStructure))
+	intermediate = append(intermediate, "BITMAP_OPT_STATS="+strconv.FormatBool(app.BitmapOptStats))
+	intermediate = append(intermediate, "BITMAP_OPT_STATS="+strconv.FormatBool(app.BitmapOptStats))
+
+	if app.GOMEMLIMIT != "" {
+		intermediate = append(intermediate, "GOMEMLIMIT="+app.GOMEMLIMIT)
+	}
+
+	all := make([]string, 0, 16)
+	if app.Docker {
+		env = "--env"
+		for _, in := range intermediate {
+			all = append(all, env, in)
+		}
+		if dockerMemoryLimit != "" {
+			all = append(all, "-m", dockerMemoryLimit)
+		}
+	} else {
+		all = intermediate
+	}
+
+	return AppExecArgs{All: all}
 }
 
 func (wrk Wrk) Convert() WrkExecArgs {

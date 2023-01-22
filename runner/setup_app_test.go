@@ -57,6 +57,21 @@ func CreateAppCmdWithConsole() *TestApp {
 	return &TestApp{Cmd: cmd, Port: port, Url: "http://localhost:" + portStr}
 }
 
+func CreateAppCmdWithConsoleDocker() *TestApp {
+	port, err := GetFreePort()
+	if err != nil {
+		panic(err)
+	}
+	portStr := strconv.Itoa(port)
+	cmd := exec.Command("docker", "run", "-p", portStr+":8080", "bitmap-usage")
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	cmd.Env = append(os.Environ(), "TEST_HELPER_PROCESS=1")
+	return &TestApp{Cmd: cmd, Port: port, Url: "http://localhost:" + portStr}
+}
+
 type TestApp struct {
 	Cmd  *exec.Cmd
 	Port int

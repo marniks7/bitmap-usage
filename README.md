@@ -63,6 +63,8 @@ See below
   so, it is `1-3%` (`135µs` for 97%
   percentile) [map](reports/2023-01-21T17-28-56Z-http-server/wrk-t2-c20-map32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-map32-Default-goGC1000-maxProc2.json.md)
   Not many tools support microsecond measurements, `wrk` is among those.
+* `Docker`: with 2 CPU limit and unlimited memory results are pretty
+  similar [docker](reports/2023-01-21T22-20-29Z-docker)
 
 ## Disclaimer
 
@@ -73,7 +75,10 @@ See below
 
 ## Build & Run
 
-* `make build run-fiber`
+* build: `make build`
+* run
+    * map: `make run-map32-fiber`
+    * bitmap: `make run-roaring32-fiber`
 
 ## Usage
 
@@ -117,11 +122,13 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
       See [bitmap memory](benchmark/500k-large-groups/bitmap/memory)
     * `make bench-memory-map`. See [map memory](benchmark/500k-large-groups/map/memory)
 * High-level
-    * Wrk: `make wrk`
     * Wrk new approach: `make run-wrk-experiments` (in 1 click). See [reports](reports)
+    * Wrk: `make wrk`
     * Wrk2: `make wrk2`
 * Docker (beta)
-    * Build & Run app: `make build docker docker-run-fiber`
+    * Build: `make build docker`
+        * Run roaring32: `make docker-run-roaring32-fiber`
+        * Run map32: `make docker-run-map32-fiber`
     * Benchmarks
         * Wrk: `make wrk -e IN_DOCKER=true`
         * Wrk2: `make wrk2 -e IN_DOCKER=true`

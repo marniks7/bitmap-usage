@@ -34,6 +34,9 @@ type Application struct {
 	GoMaxProc          int
 	BitmapOptStructure bool
 	BitmapOptStats     bool
+	Docker             bool
+	DockerMemoryLimit  string
+	GOMEMLIMIT         string
 }
 type Approach string
 
@@ -61,13 +64,7 @@ type Wrk struct {
 
 // AppExecArgs - formatted params for application startup
 type AppExecArgs struct {
-	HttpServer         string
-	Approach           string
-	GoGC               string
-	GoMaxProc          string
-	FiberPrefork       string
-	BitmapOptStructure string
-	BitmapOptStats     string
+	All []string
 }
 
 type ExperimentsConfig struct {
@@ -106,6 +103,9 @@ func generateExperiments(ec ExperimentsConfig) []Experiment {
 	server := handlers.FiberServer
 	goMaxProc := 2
 	goGC := 1000
+	docker := false
+	dockerMemoryLimit := ""
+	goMemLimit := ""
 	if ec.Application != nil {
 		if ec.Application.HttpServer != nil {
 			server = *ec.Application.HttpServer
@@ -117,20 +117,36 @@ func generateExperiments(ec ExperimentsConfig) []Experiment {
 		if ec.Application.GoGC != 0 {
 			goGC = ec.Application.GoGC
 		}
+
+		if ec.Application.Docker {
+			docker = ec.Application.Docker
+		}
+		if ec.Application.DockerMemoryLimit != "" {
+			dockerMemoryLimit = ec.Application.DockerMemoryLimit
+		}
+		if ec.Application.GOMEMLIMIT != "" {
+			goMemLimit = ec.Application.GOMEMLIMIT
+		}
 	}
 
 	roaring32 := Application{GoMaxProc: goMaxProc, GoGC: goGC, HttpServer: &server, BitmapOptStructure: true,
-		Approach: Roaring32}
+		Approach: Roaring32, Docker: docker, DockerMemoryLimit: dockerMemoryLimit,
+		GOMEMLIMIT: goMemLimit}
 	kelindar32 := Application{GoMaxProc: goMaxProc, GoGC: goGC, HttpServer: &server, BitmapOptStructure: true,
-		Approach: Kelindar32}
+		Approach: Kelindar32, Docker: docker, DockerMemoryLimit: dockerMemoryLimit,
+		GOMEMLIMIT: goMemLimit}
 	map32 := Application{GoMaxProc: goMaxProc, GoGC: goGC, HttpServer: &server, BitmapOptStructure: true,
-		Approach: Map32}
+		Approach: Map32, Docker: docker, DockerMemoryLimit: dockerMemoryLimit,
+		GOMEMLIMIT: goMemLimit}
 	sroar := Application{GoMaxProc: goMaxProc, GoGC: goGC, HttpServer: &server, BitmapOptStructure: true,
-		Approach: Sroar}
+		Approach: Sroar, Docker: docker, DockerMemoryLimit: dockerMemoryLimit,
+		GOMEMLIMIT: goMemLimit}
 	map64 := Application{GoMaxProc: goMaxProc, GoGC: goGC, HttpServer: &server, BitmapOptStructure: true,
-		Approach: Map64}
+		Approach: Map64, Docker: docker, DockerMemoryLimit: dockerMemoryLimit,
+		GOMEMLIMIT: goMemLimit}
 	roaring64 := Application{GoMaxProc: goMaxProc, GoGC: goGC, HttpServer: &server, BitmapOptStructure: true,
-		Approach: Roaring64}
+		Approach: Roaring64, Docker: docker, DockerMemoryLimit: dockerMemoryLimit,
+		GOMEMLIMIT: goMemLimit}
 	experiments := []Experiment{
 		//{Name: string(Map32) + "-const", Application: map32, Wrk: Wrk{
 		//	Path:   "/v1/search/map/prices",
@@ -267,8 +283,14 @@ func updateWrkConfigAndReporting(experiments []Experiment, wrkConfig Wrk) []Expe
 			"-" + strings.ToLower(exp.Name) +
 			"-" + string(*exp.Application.HttpServer) +
 			"-goGC" + strconv.Itoa(exp.Application.GoGC) +
-			"-maxProc" + strconv.Itoa(exp.Application.GoMaxProc)
+			"-cpu" + strconv.Itoa(exp.Application.GoMaxProc)
 
+		if exp.Application.DockerMemoryLimit != "" {
+			filename = filename + "-ml" + exp.Application.DockerMemoryLimit
+		}
+		if exp.Application.GOMEMLIMIT != "" {
+			filename = filename + "-gml" + exp.Application.GOMEMLIMIT
+		}
 		wrk.JsonFilePath = "reports/" + dt + "/" + filename + ".json"
 		wrk.SummaryFilepath = "reports/" + dt + "/" + filename + ".txt"
 		enrichedExperiments = append(enrichedExperiments, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
