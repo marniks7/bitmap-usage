@@ -20,11 +20,29 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: 30 * time.Second}
 
 	experiments := generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
-		Approaches: []Approach{Map32, Roaring32}})
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 1000}})
 	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
-		Approaches:  []Approach{Map32, Roaring32},
-		Application: &Application{HttpServer: httpServerAddressable(handlers.DefaultServer)}})...)
-
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 800}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 600}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 400}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 200}})...)
+	experiments = append(experiments, generateExperiments(ExperimentsConfig{Wrk: wrkConfig,
+		Approaches: []Approach{Map32, Roaring32},
+		Application: &Application{HttpServer: httpServerAddressable(handlers.FiberServer),
+			GoGC: 100}})...)
 	for _, exp := range experiments {
 		log.Info().Str("name", exp.Name).
 			Interface("app", exp.Application).
@@ -334,5 +352,3 @@ func (wrk Wrk) Convert() WrkExecArgs {
 		SummaryFilepath: wrk.SummaryFilepath,
 	}
 }
-
-// WrkExecArgs - formatted params for WRK tool

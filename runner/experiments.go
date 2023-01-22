@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// WrkExecArgs - formatted params for WRK tool
 type WrkExecArgs struct {
 	Connections     string
 	Threads         string
@@ -113,7 +114,7 @@ func generateExperiments(ec ExperimentsConfig) []Experiment {
 			goMaxProc = ec.Application.GoMaxProc
 		}
 
-		if ec.Application.GoMaxProc != 0 {
+		if ec.Application.GoGC != 0 {
 			goGC = ec.Application.GoGC
 		}
 	}
