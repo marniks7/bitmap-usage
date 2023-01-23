@@ -26,6 +26,9 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 	//experiments := HttpServerExperiments(wrkConfig)
 	//experiments := GoGCExperiments(wrkConfig)
 
+	experiments = mergeWrkConfig(experiments, wrkConfig)
+	experiments = UpdateDiskStorageInfo(experiments)
+
 	for _, exp := range experiments {
 		log.Info().Str("name", exp.Name).
 			Interface("app", exp.Application).

@@ -5,8 +5,9 @@ import (
 	"bitmap-usage/handlers"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"golang.org/x/exp/slices"
-	"strconv"
+	"reflect"
 	"strings"
 	"time"
 )
@@ -27,6 +28,25 @@ type Experiment struct {
 	Application Application
 	Wrk         Wrk
 }
+
+// NameFieldPath path relative to Experiment
+const NameFieldPath = ".Name"
+
+// ApplicationApproachFieldPath path relative to Experiment
+const ApplicationApproachFieldPath = ".Application.Approach"
+
+// ExcludeKeyExperimentFieldsNaming - for folder and file exclude field name
+var ExcludeKeyExperimentFieldsNaming = []string{NameFieldPath, ApplicationApproachFieldPath}
+
+// WrkPathFieldPath path relative to Experiment
+const WrkPathFieldPath = ".Wrk.Path"
+
+// WrkScriptFieldPath path relative to Experiment
+const WrkScriptFieldPath = ".Wrk.Script"
+
+// ExcludeKeyExperimentFields
+// those fields are long, might be important, but cannot add them as a file name
+var ExcludeKeyExperimentFields = []string{WrkPathFieldPath, WrkScriptFieldPath}
 
 // Application - developer-friendly way to describe params of application
 type Application struct {
@@ -291,8 +311,6 @@ func generateExperiments(ec ExperimentsConfig) []Experiment {
 		experiments = generateThreadConnectionExperiments(experiments)
 	}
 	experiments = filterExperiments(experiments, ec)
-
-	experiments = updateWrkConfigAndReporting(experiments, ec.Wrk)
 	return experiments
 }
 
@@ -309,30 +327,167 @@ func generateThreadConnectionExperiments(experiments []Experiment) []Experiment 
 	return newExperiments
 }
 
-func updateWrkConfigAndReporting(experiments []Experiment, wrkConfig Wrk) []Experiment {
-	dt := time.Now().Format("2006-01-02T15-04-05Z")
+func mergeWrkConfig(experiments []Experiment, wrkConfig Wrk) []Experiment {
 	enrichedExperiments := make([]Experiment, 0, len(experiments))
 	for _, exp := range experiments {
-		wrk := merge(wrkConfig, exp.Wrk)
-		filename := "wrk" +
-			"-t" + strconv.Itoa(wrk.Threads) +
-			"-c" + strconv.Itoa(wrk.Connections) +
-			"-" + strings.ToLower(exp.Name) +
-			"-" + string(*exp.Application.HttpServer) +
-			"-goGC" + strconv.Itoa(exp.Application.GoGC) +
-			"-cpu" + strconv.Itoa(exp.Application.GoMaxProc)
-
-		if exp.Application.DockerMemoryLimit != "" {
-			filename = filename + "-ml" + exp.Application.DockerMemoryLimit
-		}
-		if exp.Application.GOMEMLIMIT != "" {
-			filename = filename + "-gml" + exp.Application.GOMEMLIMIT
-		}
-		wrk.JsonFilePath = "reports/" + dt + "/" + filename + ".json"
-		wrk.SummaryFilepath = "reports/" + dt + "/" + filename + ".txt"
-		enrichedExperiments = append(enrichedExperiments, Experiment{Name: exp.Name, Application: exp.Application, Wrk: wrk})
+		newWrk := merge(wrkConfig, exp.Wrk)
+		enrichedExperiments = append(enrichedExperiments, Experiment{Name: exp.Name, Application: exp.Application, Wrk: newWrk})
 	}
 	return enrichedExperiments
+}
+
+// UpdateDiskStorageInfo - update experiments by providing folder names and file names
+func UpdateDiskStorageInfo(experiments []Experiment) []Experiment {
+	keyExperimentFields := retrieveKeyExperimentFields(experiments)
+
+	dt := time.Now().Format("2006-01-02T15-04-05Z")
+	folderName := generateFolderName(dt, keyExperimentFields)
+
+	enrichedExperiments := make([]Experiment, 0, len(experiments))
+	for _, exp := range experiments {
+		diffArgs := ""
+		for _, v := range keyExperimentFields {
+			trimmedPath := strings.TrimPrefix(v.Path, ".")
+			field := "-" + v.Field
+			// no need to add to file name those field names, only values
+			// e.g. exp-name-map32-approach-map32 should be exp-map32-map32
+			exclude := slices.ContainsFunc(ExcludeKeyExperimentFieldsNaming, func(s string) bool {
+				return strings.EqualFold(v.Path, s)
+			})
+			if exclude {
+				field = ""
+			}
+			diffArgs = diffArgs + field + "-" + fmt.Sprint(getValueByPath(exp, trimmedPath))
+
+		}
+
+		filename := "exp" + strings.ReplaceAll(strings.ToLower(diffArgs), " ", "")
+		newWrk := exp.Wrk
+		newWrk.JsonFilePath = "reports/" + folderName + "/" + filename + ".json"
+		newWrk.SummaryFilepath = "reports/" + folderName + "/" + filename + ".txt"
+		enrichedExperiments = append(enrichedExperiments, Experiment{Name: exp.Name, Application: exp.Application, Wrk: newWrk})
+	}
+	return enrichedExperiments
+}
+
+func generateFolderName(prefix string, keyExperimentFields []StructDiff) string {
+	folderName := prefix
+	for _, v := range keyExperimentFields {
+		// no need to add those field names to folder name
+		// e.g. 2023-01-22t22-45-21z-approach-dockermemorylimit-gomemlimit-name should be 2023-01-22t22-45-21z-dockermemorylimit-gomemlimit
+		exclude := slices.ContainsFunc(ExcludeKeyExperimentFieldsNaming, func(s string) bool {
+			return strings.EqualFold(v.Path, s)
+		})
+		if exclude {
+			continue
+		}
+		folderName = folderName + "-" + v.Field
+	}
+	folderName = strings.ReplaceAll(strings.ToLower(folderName), " ", "")
+	return folderName
+}
+
+// retrieveKeyExperimentFields - main purpose is to find difference between testing fields
+// for example, if the goal to test GOGC change for different Approaches
+// it should return GOGC and APPROACH
+func retrieveKeyExperimentFields(experiments []Experiment) []StructDiff {
+	diff := make([]Result, len(experiments), len(experiments))
+	path := make(map[string]StructDiff)
+	for i := 0; i < len(experiments)-1; i++ {
+		result := compareStructs(experiments[i], experiments[i+1], "")
+		diff[i] = result
+		// it is enough to take field path from any of A or B
+		for _, d := range result.A {
+			if _, ok := path[d.Path]; !ok {
+				path[d.Path] = d
+			}
+
+		}
+	}
+	pathList := make([]StructDiff, 0, len(path))
+	for _, structDiff := range path {
+		// exclude certain fields
+		exclude := slices.ContainsFunc(ExcludeKeyExperimentFields, func(s string) bool {
+			return strings.EqualFold(structDiff.Path, s)
+		})
+		if exclude {
+			continue
+		}
+		pathList = append(pathList, structDiff)
+	}
+	slices.SortFunc(pathList, func(a, b StructDiff) bool {
+		if a.Path == NameFieldPath {
+			return false
+		}
+		return strings.Compare(a.Path, b.Path) < 0
+	})
+	return pathList
+}
+
+type StructDiff struct {
+	Field string
+	Path  string
+	Value interface{}
+}
+
+type Result struct {
+	A []StructDiff
+	B []StructDiff
+}
+
+func compareStructs(a, b interface{}, path string) Result {
+	var result Result
+	av := reflect.ValueOf(a)
+	bv := reflect.ValueOf(b)
+	if av.Kind() == reflect.Ptr {
+		av = av.Elem()
+	}
+	if bv.Kind() == reflect.Ptr {
+		bv = bv.Elem()
+	}
+
+	for i := 0; i < av.NumField(); i++ {
+		af := av.Field(i)
+		bf := bv.Field(i)
+		field := av.Type().Field(i)
+		currentPath := path + "." + field.Name
+
+		if af.Kind() == reflect.Struct {
+			nestedResult := compareStructs(af.Interface(), bf.Interface(), currentPath)
+			result.A = append(result.A, nestedResult.A...)
+			result.B = append(result.B, nestedResult.B...)
+		} else if !reflect.DeepEqual(af.Interface(), bf.Interface()) {
+			result.A = append(result.A, StructDiff{Field: field.Name, Path: currentPath, Value: af.Interface()})
+			result.B = append(result.B, StructDiff{Field: field.Name, Path: currentPath, Value: bf.Interface()})
+		}
+	}
+
+	return result
+}
+func getValueByPath(s interface{}, path string) interface{} {
+	v := reflect.ValueOf(s)
+	if v.Kind() == reflect.Ptr {
+		v = v.Elem()
+	}
+	fields := strings.Split(path, ".")
+	for i, field := range fields {
+		f := v.FieldByName(field)
+		if !f.IsValid() {
+			return nil
+		}
+		if i == len(fields)-1 {
+			return f.Interface()
+		}
+		if f.Kind() == reflect.Struct || f.Kind() == reflect.Ptr {
+			if f.Kind() == reflect.Ptr {
+				f = f.Elem()
+			}
+			v = f
+		} else {
+			return nil
+		}
+	}
+	return nil
 }
 
 func mergeArray(globalWrk Wrk, wrkc []*Wrk) {
