@@ -189,16 +189,31 @@ func retrieveKeyExperimentFields(experiments []Experiment) []StructDiff {
 		}
 		pathList = append(pathList, structDiff)
 	}
-	// keys should be sorted to provide stable results
-	// some fields should be first in the list for better filename readability
+
+	sortStructDiff(pathList)
+	return pathList
+}
+
+// sortStructDiff - sortStructDiff StructDiff's in order to provide stable results for later usage
+// some fields should be first in the list for better filename readability
+func sortStructDiff(pathList []StructDiff) {
 	slices.SortFunc(pathList, func(a, b StructDiff) bool {
-		if a.Path == IdFieldPath || b.Path == IdFieldPath {
+		if a.Path == IdFieldPath {
+			return true
+		}
+		if b.Path == IdFieldPath {
 			return false
 		}
-		if a.Path == ApplicationApproachFieldPath || b.Path == ApplicationApproachFieldPath {
+		if a.Path == ApplicationApproachFieldPath {
+			return true
+		}
+		if b.Path == ApplicationApproachFieldPath {
 			return false
 		}
-		if a.Path == NameFieldPath || b.Path == NameFieldPath {
+		if a.Path == NameFieldPath {
+			return true
+		}
+		if b.Path == NameFieldPath {
 			return false
 		}
 		if a.Path != b.Path {
@@ -206,5 +221,4 @@ func retrieveKeyExperimentFields(experiments []Experiment) []StructDiff {
 		}
 		return a.Path > b.Path
 	})
-	return pathList
 }
