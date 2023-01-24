@@ -1,0 +1,48 @@
+{
+  "Experiment": {
+    "ID": "11",
+    "Name": "",
+    "Application": {
+      "HttpServer": "Fiber",
+      "Approach": "ROARING32",
+      "FiberPrefork": false,
+      "GoGC": 1000,
+      "GoMaxProc": 2,
+      "BitmapOptStructure": true,
+      "BitmapOptStats": false,
+      "Docker": true,
+      "DockerMemoryLimit": "200MB",
+      "GOMEMLIMIT": "180MiB"
+    },
+    "Wrk": {
+      "Connections": 20,
+      "Threads": 2,
+      "Duration": "30s",
+      "Script": "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
+      "Path": "/v1/search/bitmap/prices",
+      "Port": 0,
+      "JsonFilePath": "reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-11-roaring32-dockermemorylimit-200mb-gomemlimit-180mib.json",
+      "SummaryFilepath": "reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-11-roaring32-dockermemorylimit-200mb-gomemlimit-180mib.txt",
+      "Bulk": false
+    }
+  },
+  "latency": {
+    "min": 48,
+    "max": 38493,
+    "stdev": 1204.9840664632,
+    "mean": 980.12063974098,
+    "percentiles": {
+      "50%": 577,
+      "90%": 2320,
+      "95%": 3324,
+      "97%": 4121,
+      "98%": 4768,
+      "99%": 5818,
+      "99.999%": 34963
+    }
+  },
+  "duration": 30077717,
+  "bytes": 174252940,
+  "errors": {},
+  "requests": 851255
+}

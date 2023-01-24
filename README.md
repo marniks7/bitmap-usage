@@ -24,7 +24,7 @@ See below
     * Take into consideration: very few search options are supported, so benchmarks are limited
 * Read [Benchmark Aggregation](docs/benchmark.md) - it may not be up-to-date, but will give you the common understanding
   of the `bitmap` benefits
-* `Sizing`: there is test for only ~`500k` prices with ~`8` conditions each. The results for your data could be
+* `Data sizing`: there is test for only ~`500k` prices with ~`8` conditions each. The results for your data could be
   different.
 * `Fair competition`: there are different strategies to improve both `bitmap` and `map` and some of them were applied.
 * `High throughput` vs `Low Latency` - low-latency is expected here
@@ -36,17 +36,22 @@ See below
 * `Latency`: at the same time for `99% percentile` got better timing on `>900%`, e.g. `911µs` vs `9.534ms` with even
   better results for all requests before 99% percentile
 * `Memory`: `bitmap` cache occupies less memory? This is only half of the story.
-  First, you should beware why. bitmap and map index part has minimum difference for such sizing (`2MB vs 4MB`). In
+  First, you should beware why. bitmap and map index part has minimum difference (`2MB vs 4MB`) for such data sizing. In
   fact, benefits
   comes from ability not to store all fields of original entities. If storing original entities is MUST - you may not
-  gain any memory benefits. bitmap takes less for used structures - `90MB vs 180MB total`. Second, read `CPU` section
-  below
-* `CPU`: `bitmap` is way faster (1 order of magnitude), but it comes with the cost of increased memory allocation and GC
-  pressure. This means, that proper GC configuration is MUST, and minimum memory limit might not be an option, e.g.
-  you may need to set memory limit as `1GB` for `100MB` of the actual cache. Those numbers are based on
-  used `GOGC=1000`. However, for this cost app will be able to accept `1000%` more requests with low latency.
-  Check important of GOGC for example
-  here [bitmap. gogc 1000 vs 100](reports/2023-01-21T20-06-59Z-gogc/wrk-t2-c20-roaring32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-roaring32-Fiber-goGC100-maxProc2.json.md)
+  gain any memory benefits. bitmap takes less for used structures - `90MB vs 180MB total`. However, proper GC
+  configuration is MUST, and minimum possible memory limit will be higher.
+* `GOMEMLIMIT`: You may need to set memory limit as `800MB` for `100MB` of the actual cache to get decent performance
+  for `99%` percentile.
+  See [bitmap 2gb vs 800mb](reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-1-roaring32-dockermemorylimit-2gb-gomemlimit-1750mib.json-vs-exp-7-roaring32-dockermemorylimit-800mb-gomemlimit-650mib.json.md).
+  If degradation further is fine (we are still discussing timings `<5ms`)
+  see [bitmap 2gb vs 500mb](reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-1-roaring32-dockermemorylimit-2gb-gomemlimit-1750mib.json-vs-exp-9-roaring32-dockermemorylimit-500mb-gomemlimit-400mib.json.md).
+  No difference
+  for [map 2gb vs 500mb](reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-0-map32-dockermemorylimit-2gb-gomemlimit-1750mib.json-vs-exp-8-map32-dockermemorylimit-500mb-gomemlimit-400mib.json.md)
+* `CPU`: `bitmap` is way faster (1 order of magnitude, `1000%` more requests), but it comes with the cost of increased
+  memory allocation, which means increased GC pressure.
+* `GoGC`: `1000` looks good. For some background
+  see [bitmap. gogc 1000 vs 100](reports/2023-01-21T20-06-59Z-gogc/wrk-t2-c20-roaring32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-roaring32-Fiber-goGC100-maxProc2.json.md)
 * `Cost`: `bitmap` development and support is way harder than regular `map`. It is about supporting low-level data
   types. In contrast `Map` is like business as usual - you will be able to spend more time on you actual business cases,
   then on
@@ -54,17 +59,17 @@ See below
   different `bitmap libraries` and found all sort of issues hard-to-spot, like race conditions. Good testing, even
   for concurrent READ scenarios is must.
 * `Language`: `go` is used here. `java` maybe a good alternative, over the years people built different efficient map
-  implementations, and not only that, java's 32-bit support is free
-* `MicroSeconds Latency`: when it comes to bitmaps, you can achieve micro-seconds latency and here every improvement
+  implementations, and not only that, java's 32-bit support is free (which means less memory, faster)
+* `Http Server`: when it comes to bitmaps, you can achieve micro-seconds latency and here every improvement
   matters. For example,
   [bitmap. http server fiber vs default](reports/2023-01-21T17-28-56Z-http-server/wrk-t2-c20-roaring32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-roaring32-Default-goGC1000-maxProc2.json.md)
   fiber got `40%` better timings (`319µs` improvement for 97% percentile). Map has fewer requests, and timing from the
   start way higher,
   so, it is `1-3%` (`135µs` for 97%
   percentile) [map](reports/2023-01-21T17-28-56Z-http-server/wrk-t2-c20-map32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-map32-Default-goGC1000-maxProc2.json.md)
-  Not many tools support microsecond measurements, `wrk` is among those.
-* `Docker`: with 2 CPU limit and unlimited memory results are pretty
-  similar [docker](reports/2023-01-21T22-20-29Z-docker)
+* `Micro Second Tooling`: Not many tools support microsecond measurements, `wrk` is among those few.
+* `Docker`: has fewer calls `1 457 261` compare to non-docker option `2 244 242`, but similar timing. It is not yet
+  clear why
 
 ## Disclaimer
 

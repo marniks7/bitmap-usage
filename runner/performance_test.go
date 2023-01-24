@@ -12,7 +12,7 @@ import (
 
 // TestPerformanceWrkExperiments - the main runner
 func TestPerformanceWrkExperiments(t *testing.T) {
-	wrkConfig := wrk.Wrk{Threads: 2, Connections: 20, Duration: wrk.Duration(2 * time.Second)}
+	wrkConfig := wrk.Wrk{Threads: 2, Connections: 20, Duration: wrk.Duration(5 * time.Second)}
 	fec := FilterExperimentsConfig{}
 
 	// uncomment required list of experiments
@@ -101,7 +101,7 @@ func DockerMemoryLimitWithGoMemLimitExperiments(fec FilterExperimentsConfig) []E
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "1GB", GOMEMLIMIT: "750MiB"}}, fec)...)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "800MB", GOMEMLIMIT: "650MiB"}}, fec)...)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "500MB", GOMEMLIMIT: "400MiB"}}, fec)...)
-	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "200MB", GOMEMLIMIT: "180MiB"}}, fec)...)
+	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "200MB", GOMEMLIMIT: "150MiB"}}, fec)...)
 	return experiments
 }
 
