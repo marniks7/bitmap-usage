@@ -58,11 +58,11 @@ func GenerateMarkdownDifference(experiments []Experiment) {
 			fullpath := reportDirFullpath(path1)
 			filename := GenerateMarkdownFilename(file1, file2)
 			fullFilename := filepath.Join(fullpath, filename)
-			file, err := os.Create(fullFilename)
+			results, err := os.Create(fullFilename)
 			if err != nil {
 				panic(err)
 			}
-			analyze.MarkdownDiff(report1, report2, file, file1, file2)
+			analyze.MarkdownDiff(report1, report2, results, file1, file2)
 		}
 	}
 }
@@ -108,39 +108,44 @@ func commandDir() string {
 func updateWrkFilepath(experiments []Experiment) []Experiment {
 	keyExperimentFields := retrieveKeyExperimentFields(experiments)
 
-	dt := time.Now().Format("2006-01-02T15-04-05Z")
-	folderName := generateFolderName(dt, keyExperimentFields)
+	folderName := generateFolderName(keyExperimentFields)
 
 	enrichedExperiments := make([]Experiment, 0, len(experiments))
 	for _, exp := range experiments {
-		diffArgs := ""
-		for _, v := range keyExperimentFields {
-			// no need to add to file name those field names, only values
-			// e.g. exp-name-map32-approach-map32 should be exp-map32-map32
-			exclude := slices.ContainsFunc(ExcludeKeyExperimentFieldsNaming, func(s string) bool {
-				return strings.EqualFold(v.Path, s)
-			})
-			field := "-" + v.Field
-			if exclude {
-				field = ""
-			}
-			trimmedPath := strings.TrimPrefix(v.Path, ".")
-			diffArgs = diffArgs + field + "-" + fmt.Sprint(getValueByPath(exp, trimmedPath))
-
-		}
-
-		filename := "exp" + strings.ReplaceAll(strings.ToLower(diffArgs), " ", "")
+		filename := generateFilename(exp, keyExperimentFields)
 		newWrk := exp.Wrk
-		newWrk.JsonFilePath = "reports/" + folderName + "/" + filename + ".json"
-		newWrk.SummaryFilepath = "reports/" + folderName + "/" + filename + ".txt"
+		newWrk.JsonFilePath = filepath.Join("reports", folderName, filename+".json")
+		newWrk.SummaryFilepath = filepath.Join("reports", folderName, filename+".txt")
 		exp.Wrk = newWrk
 		enrichedExperiments = append(enrichedExperiments, exp)
 	}
 	return enrichedExperiments
 }
 
-func generateFolderName(prefix string, keyExperimentFields []StructDiff) string {
-	folderName := prefix
+// generateFilename - generate filename where to store experiment results
+func generateFilename(exp Experiment, keyExperimentFields []StructDiff) string {
+	diffArgs := ""
+	for _, v := range keyExperimentFields {
+		// no need to add to file name those field names, only values
+		// e.g. exp-name-map32-approach-map32 should be exp-map32-map32
+		exclude := slices.ContainsFunc(ExcludeKeyExperimentFieldsNaming, func(s string) bool {
+			return strings.EqualFold(v.Path, s)
+		})
+		field := "-" + v.Field
+		if exclude {
+			field = ""
+		}
+		trimmedPath := strings.TrimPrefix(v.Path, ".")
+		diffArgs = diffArgs + field + "-" + fmt.Sprint(getValueByPath(exp, trimmedPath))
+	}
+
+	filename := "exp" + strings.ReplaceAll(strings.ToLower(diffArgs), " ", "")
+	return filename
+}
+
+// generateFolderName - generate folder name for the report
+func generateFolderName(keyExperimentFields []StructDiff) string {
+	folderName := time.Now().Format("2006-01-02T15-04-05Z")
 	for _, v := range keyExperimentFields {
 		// no need to add those field names to folder name
 		// e.g. 2023-01-22t22-45-21z-approach-dockermemorylimit-gomemlimit-name should be 2023-01-22t22-45-21z-dockermemorylimit-gomemlimit
@@ -157,7 +162,7 @@ func generateFolderName(prefix string, keyExperimentFields []StructDiff) string 
 }
 
 // retrieveKeyExperimentFields - main purpose is to find difference between testing fields
-// for example, if the goal to test GOGC change for different Approaches
+// for example, if the goal to test GOGC change for different APPROACHES
 // it should return GOGC and APPROACH
 func retrieveKeyExperimentFields(experiments []Experiment) []StructDiff {
 	diff := make([]Result, len(experiments), len(experiments))
@@ -184,6 +189,8 @@ func retrieveKeyExperimentFields(experiments []Experiment) []StructDiff {
 		}
 		pathList = append(pathList, structDiff)
 	}
+	// keys should be sorted to provide stable results
+	// some fields should be first in the list for better filename readability
 	slices.SortFunc(pathList, func(a, b StructDiff) bool {
 		if a.Path == IdFieldPath || b.Path == IdFieldPath {
 			return false
