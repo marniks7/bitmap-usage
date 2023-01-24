@@ -42,7 +42,7 @@ func (wrk Wrk) Convert() WrkExecArgs {
 	}
 }
 
-// Duration - WA for marshal into user friendly format
+// Duration - WA for marshal into user-friendly format
 type Duration time.Duration
 
 func (d Duration) MarshalJSON() ([]byte, error) {

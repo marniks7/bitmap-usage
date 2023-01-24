@@ -35,8 +35,8 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 		execute(exp.Application, exp.Wrk)
 		path := exp.Wrk.JsonFilePath
 		// TODO do we need this check?
-		if path != "" {
-			log.Warn().Str("id", exp.ID).Msg("Wrk JsonFilePath is not provided. Wrk results will not be updated")
+		if path == "" {
+			log.Warn().Str("id", exp.ID).Msg("Wrk JsonFilePath is not provided. Reporting logic is skipped")
 			continue
 		}
 		fullpath := reportFullpath(path)
