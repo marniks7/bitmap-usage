@@ -23,7 +23,8 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 	//experiments := HttpServerExperiments(fec)
 	//experiments := GoGCExperiments(fec)
 
-	experiments = enrichAllExperiments(experiments, Experiment{Wrk: wrkConfig},
+	experiments = enrichAllExperiments(experiments,
+		Experiment{Wrk: wrkConfig},
 		FilterExperimentsConfig{Approaches: []Approach{Roaring32, Map32}})
 
 	for _, exp := range experiments {
@@ -33,25 +34,27 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 			Msg("Start experiment...")
 		execute(exp.Application, exp.Wrk)
 		path := exp.Wrk.JsonFilePath
+		// TODO do we need this check?
 		if path != "" {
-			fullpath := reportFullpath(path)
-			report, err := analyze.ReadJsonWrkReport(fullpath)
-			if err != nil {
-				log.Err(err).Msg("unable to read wrk report")
-				t.FailNow()
-			}
-			experimentWrk := Reporting{Stats: *report, Experiment: exp}
-			err = WriteResults(fullpath, experimentWrk)
-			if err != nil {
-				log.Err(err).Msg("unable to write back wrk report")
-				t.FailNow()
-			}
-			assert.Zero(t, report.Errors.Write)
-			assert.Zero(t, report.Errors.Read)
-			assert.Zero(t, report.Errors.Timeout)
-			assert.Zero(t, report.Errors.Status)
-			assert.Zero(t, report.Errors.Connect)
+			log.Warn().Str("id", exp.ID).Msg("Wrk JsonFilePath is not provided. Wrk results will not be updated")
+			continue
 		}
+		fullpath := reportFullpath(path)
+		report, err := analyze.ReadJsonWrkReport(fullpath)
+		if err != nil {
+			log.Err(err).Msg("unable to read wrk report")
+			t.FailNow()
+		}
+		err = WriteResults(fullpath, Reporting{Stats: *report, Experiment: exp})
+		if err != nil {
+			log.Err(err).Msg("unable to write back wrk report")
+			t.FailNow()
+		}
+		assert.Zero(t, report.Errors.Write)
+		assert.Zero(t, report.Errors.Read)
+		assert.Zero(t, report.Errors.Timeout)
+		assert.Zero(t, report.Errors.Status)
+		assert.Zero(t, report.Errors.Connect)
 	}
 	GenerateMarkdownDifference(experiments)
 }
@@ -60,7 +63,7 @@ func enrichAllExperiments(experiments []Experiment, templateExperiment Experimen
 	experiments = filterExperiments(experiments, fec)
 	experiments = mergeExperiments(experiments, templateExperiment)
 	experiments = generateIds(experiments)
-	experiments = updateDiskStorageInfo(experiments)
+	experiments = updateWrkFilepath(experiments)
 	return experiments
 }
 

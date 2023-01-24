@@ -104,8 +104,8 @@ func commandDir() string {
 	return dir
 }
 
-// updateDiskStorageInfo - update experiments by providing folder names and file names
-func updateDiskStorageInfo(experiments []Experiment) []Experiment {
+// updateWrkFilepath - update wrk filepath where to generate wrk results
+func updateWrkFilepath(experiments []Experiment) []Experiment {
 	keyExperimentFields := retrieveKeyExperimentFields(experiments)
 
 	dt := time.Now().Format("2006-01-02T15-04-05Z")
@@ -133,7 +133,8 @@ func updateDiskStorageInfo(experiments []Experiment) []Experiment {
 		newWrk := exp.Wrk
 		newWrk.JsonFilePath = "reports/" + folderName + "/" + filename + ".json"
 		newWrk.SummaryFilepath = "reports/" + folderName + "/" + filename + ".txt"
-		enrichedExperiments = append(enrichedExperiments, Experiment{Name: exp.Name, Application: exp.Application, Wrk: newWrk})
+		exp.Wrk = newWrk
+		enrichedExperiments = append(enrichedExperiments, exp)
 	}
 	return enrichedExperiments
 }
