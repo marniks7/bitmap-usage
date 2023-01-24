@@ -1,7 +1,7 @@
 package analyze
 
 import (
-	"bitmap-usage/benchmark/analyze/wrk"
+	"bitmap-usage/runner/wrk"
 	"encoding/json"
 	"fmt"
 	"github.com/rs/zerolog/log"

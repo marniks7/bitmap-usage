@@ -2,7 +2,7 @@ package runner
 
 import (
 	"bitmap-usage/benchmark/analyze/analyze"
-	"bitmap-usage/benchmark/analyze/wrk"
+	"bitmap-usage/runner/wrk"
 	"encoding/json"
 	"fmt"
 	"golang.org/x/exp/slices"
@@ -115,16 +115,16 @@ func updateDiskStorageInfo(experiments []Experiment) []Experiment {
 	for _, exp := range experiments {
 		diffArgs := ""
 		for _, v := range keyExperimentFields {
-			trimmedPath := strings.TrimPrefix(v.Path, ".")
-			field := "-" + v.Field
 			// no need to add to file name those field names, only values
 			// e.g. exp-name-map32-approach-map32 should be exp-map32-map32
 			exclude := slices.ContainsFunc(ExcludeKeyExperimentFieldsNaming, func(s string) bool {
 				return strings.EqualFold(v.Path, s)
 			})
+			field := "-" + v.Field
 			if exclude {
 				field = ""
 			}
+			trimmedPath := strings.TrimPrefix(v.Path, ".")
 			diffArgs = diffArgs + field + "-" + fmt.Sprint(getValueByPath(exp, trimmedPath))
 
 		}

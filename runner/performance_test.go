@@ -57,25 +57,28 @@ func TestPerformanceWrkExperiments(t *testing.T) {
 }
 
 func enrichAllExperiments(experiments []Experiment, templateExperiment Experiment, fec FilterExperimentsConfig) []Experiment {
-	experiments = mergeExperiments(experiments, templateExperiment)
 	experiments = filterExperiments(experiments, fec)
+	experiments = mergeExperiments(experiments, templateExperiment)
 	experiments = generateIds(experiments)
 	experiments = updateDiskStorageInfo(experiments)
 	return experiments
 }
 
+//goland:noinspection GoUnusedExportedFunction
 func BasicExperiments(fec FilterExperimentsConfig) []Experiment {
 	experiments := make([]Experiment, 0, 8)
 	experiments = append(experiments, generateExperiments(Experiment{}, fec)...)
 	return experiments
 }
 
+//goland:noinspection GoUnusedExportedFunction
 func DockerBasicExperiments(fec FilterExperimentsConfig) []Experiment {
 	experiments := make([]Experiment, 0, 8)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true}}, fec)...)
 	return experiments
 }
 
+//goland:noinspection GoUnusedExportedFunction
 func DockerMemoryLimitExperiments(fec FilterExperimentsConfig) []Experiment {
 	experiments := make([]Experiment, 0, 8)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "2GB"}}, fec)...)
@@ -87,6 +90,7 @@ func DockerMemoryLimitExperiments(fec FilterExperimentsConfig) []Experiment {
 	return experiments
 }
 
+//goland:noinspection GoUnusedExportedFunction
 func DockerMemoryLimitWithGoMemLimitExperiments(fec FilterExperimentsConfig) []Experiment {
 	experiments := make([]Experiment, 0, 8)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "2GB", GOMEMLIMIT: "1750MiB"}}, fec)...)
@@ -97,6 +101,8 @@ func DockerMemoryLimitWithGoMemLimitExperiments(fec FilterExperimentsConfig) []E
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{Docker: true, DockerMemoryLimit: "200MB", GOMEMLIMIT: "180MiB"}}, fec)...)
 	return experiments
 }
+
+//goland:noinspection GoUnusedExportedFunction
 func HttpServerExperiments(fec FilterExperimentsConfig) []Experiment {
 	experiments := make([]Experiment, 0, 8)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{HttpServer: httpServerAddressable(handlers.FiberServer)}}, fec)...)
@@ -104,6 +110,7 @@ func HttpServerExperiments(fec FilterExperimentsConfig) []Experiment {
 	return experiments
 }
 
+//goland:noinspection GoUnusedExportedFunction
 func GoGCExperiments(fec FilterExperimentsConfig) []Experiment {
 	experiments := make([]Experiment, 0, 8)
 	experiments = append(experiments, generateExperiments(Experiment{Application: Application{GoGC: 1000}}, fec)...)
