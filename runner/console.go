@@ -2,6 +2,7 @@ package runner
 
 import (
 	"bitmap-usage/handlers"
+	"bitmap-usage/runner/wrk"
 	"context"
 	"github.com/rs/zerolog/log"
 	"net"
@@ -20,11 +21,11 @@ type TestApp struct {
 }
 
 // execute - main executor: run application and run WRK load
-func execute(app Application, wrk Wrk) {
+func execute(app Application, wrk wrk.Wrk) {
 	wg := sync.WaitGroup{}
 	wg.Add(1)
-	killTime := wrk.Duration + Duration(20*time.Second)
-	timeoutCtx, cancelFunc := context.WithTimeout(context.Background(), time.Duration(killTime))
+	killTime := time.Duration(wrk.Duration) + 20*time.Second
+	timeoutCtx, cancelFunc := context.WithTimeout(context.Background(), killTime)
 	defer cancelFunc()
 	var cons *TestApp
 	if app.Docker {
@@ -67,7 +68,7 @@ func execute(app Application, wrk Wrk) {
 
 	//kill the process to avoid hanging in case of problems
 	go func() {
-		<-time.After(time.Duration(killTime))
+		<-time.After(killTime)
 		//doesn't matter the error cause process may be already stopped (in case of properly implemented graceful shutdown)
 		//goland:noinspection GoUnhandledErrorResult
 		cmd.Process.Kill()
@@ -180,17 +181,6 @@ func (app Application) Convert() AppExecArgs {
 	}
 
 	return AppExecArgs{All: all}
-}
-
-func (wrk Wrk) Convert() WrkExecArgs {
-	return WrkExecArgs{Connections: "-c" + strconv.Itoa(wrk.Connections),
-		Threads:         "-t" + strconv.Itoa(wrk.Threads),
-		Duration:        "-d" + strconv.Itoa(int(time.Duration(wrk.Duration).Seconds())),
-		Script:          wrk.Script,
-		Path:            "http://localhost:" + strconv.Itoa(wrk.Port) + wrk.Path,
-		JsonFilePath:    wrk.JsonFilePath,
-		SummaryFilepath: wrk.SummaryFilepath,
-	}
 }
 
 // CreateAppCmd

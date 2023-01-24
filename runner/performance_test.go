@@ -3,6 +3,7 @@ package runner
 import (
 	"bitmap-usage/benchmark/analyze/analyze"
 	"bitmap-usage/handlers"
+	"bitmap-usage/runner/wrk"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -11,7 +12,7 @@ import (
 
 // TestPerformanceWrkExperiments - the main runner
 func TestPerformanceWrkExperiments(t *testing.T) {
-	wrkConfig := Wrk{Threads: 2, Connections: 20, Duration: Duration(2 * time.Second)}
+	wrkConfig := wrk.Wrk{Threads: 2, Connections: 20, Duration: wrk.Duration(2 * time.Second)}
 	fec := FilterExperimentsConfig{}
 
 	// uncomment required list of experiments

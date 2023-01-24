@@ -2,21 +2,8 @@ package runner
 
 import (
 	"bitmap-usage/handlers"
-	"encoding/json"
-	"errors"
-	"time"
+	"bitmap-usage/runner/wrk"
 )
-
-// WrkExecArgs - formatted params for WRK tool
-type WrkExecArgs struct {
-	Connections     string
-	Threads         string
-	Duration        string
-	Script          string
-	Path            string
-	JsonFilePath    string
-	SummaryFilepath string
-}
 
 // Experiment experiment to execute
 type Experiment struct {
@@ -27,7 +14,7 @@ type Experiment struct {
 	// Application - main info about app params
 	Application Application
 	// Wrk - load configuration for Wrk
-	Wrk Wrk
+	Wrk wrk.Wrk
 }
 
 // IdFieldPath path relative to Experiment
@@ -76,47 +63,6 @@ const (
 	Kelindar32 Approach = "KELINDAR32"
 	Sroar      Approach = "SROAR"
 )
-
-// Wrk - developer-friendly way to describe params of WRK performance tool
-type Wrk struct {
-	Connections     int
-	Threads         int
-	Duration        Duration
-	Script          string
-	Path            string
-	Port            int
-	JsonFilePath    string
-	SummaryFilepath string
-	Bulk            bool
-}
-
-// Duration - WA for marshal into user friendly format
-type Duration time.Duration
-
-func (d Duration) MarshalJSON() ([]byte, error) {
-	return json.Marshal(time.Duration(d).String())
-}
-
-func (d *Duration) UnmarshalJSON(b []byte) error {
-	var v interface{}
-	if err := json.Unmarshal(b, &v); err != nil {
-		return err
-	}
-	switch value := v.(type) {
-	case float64:
-		*d = Duration(time.Duration(value))
-		return nil
-	case string:
-		tmp, err := time.ParseDuration(value)
-		if err != nil {
-			return err
-		}
-		*d = Duration(tmp)
-		return nil
-	default:
-		return errors.New("invalid duration")
-	}
-}
 
 // AppExecArgs - formatted params for application startup
 type AppExecArgs struct {

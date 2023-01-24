@@ -2,6 +2,7 @@ package runner
 
 import (
 	"bitmap-usage/handlers"
+	"bitmap-usage/runner/wrk"
 	"github.com/imdario/mergo"
 	"golang.org/x/exp/slices"
 	"strconv"
@@ -81,7 +82,7 @@ func generateExperiments(templateExperiment Experiment, ec FilterExperimentsConf
 		//	Path:   "/v1/search/map/prices",
 		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
 		//}},
-		{Application: map32, Wrk: Wrk{
+		{Application: map32, Wrk: wrk.Wrk{
 			Path:   "/v1/search/map/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-3000.lua",
 		}},
@@ -89,36 +90,36 @@ func generateExperiments(templateExperiment Experiment, ec FilterExperimentsConf
 		//	Path:   "/v1/search/bitmap/prices",
 		//	Script: "benchmark/500k-large-groups/sample/wrk-search-price-request.lua",
 		//}},
-		{Application: roaring32, Wrk: Wrk{
+		{Application: roaring32, Wrk: wrk.Wrk{
 			Path:   "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
 		}},
 
-		{Application: kelindar32, Wrk: Wrk{
+		{Application: kelindar32, Wrk: wrk.Wrk{
 			Path:   "/v1/search/kelindar/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-kelindar-multiple-request-3000.lua",
 		}},
-		{Application: roaring64, Wrk: Wrk{
+		{Application: roaring64, Wrk: wrk.Wrk{
 			Path:   "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
 		}},
-		{Application: map64, Wrk: Wrk{
+		{Application: map64, Wrk: wrk.Wrk{
 			Path:   "/v1/search/map/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-map-multiple-request-3000.lua",
 		}},
 
-		{Application: sroar, Wrk: Wrk{
+		{Application: sroar, Wrk: wrk.Wrk{
 			Path:   "/v1/search/bitmap/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bitmap-multiple-request-3000.lua",
 		}},
 	}
 	bulkExperiments := []Experiment{
-		{Application: roaring32, Wrk: Wrk{
+		{Application: roaring32, Wrk: wrk.Wrk{
 			Path:   "/v5/search/bitmap/bulk/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
 			Bulk:   true,
 		}},
-		{Application: map32, Wrk: Wrk{
+		{Application: map32, Wrk: wrk.Wrk{
 			Path:   "/v4/search/map/bulk/prices",
 			Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
 			Bulk:   true,
@@ -144,17 +145,17 @@ func generateExperiments(templateExperiment Experiment, ec FilterExperimentsConf
 
 	if ec.DifferentVersions {
 		bulkExperimentsDifferentVersions := []Experiment{
-			{Name: "V5", Application: roaring32, Wrk: Wrk{
+			{Name: "V5", Application: roaring32, Wrk: wrk.Wrk{
 				Path:   "/v5/search/bitmap/bulk/prices",
 				Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000-nd.lua",
 				Bulk:   true,
 			}},
-			{Name: "V4", Application: roaring32, Wrk: Wrk{
+			{Name: "V4", Application: roaring32, Wrk: wrk.Wrk{
 				Path:   "/v4/search/bitmap/bulk/prices",
 				Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
 				Bulk:   true,
 			}},
-			{Name: "V2", Application: roaring32, Wrk: Wrk{
+			{Name: "V2", Application: roaring32, Wrk: wrk.Wrk{
 				Path:   "/v2/search/bitmap/bulk/prices",
 				Script: "benchmark/500k-large-groups/sample/wrk-search-price-bulk-request-3000.lua",
 				Bulk:   true,
