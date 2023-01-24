@@ -123,6 +123,7 @@ func StartApp() {
 	log.Info().Str("Version", runtime.Version()).
 		Int("GOMAXPROCS", runtime.GOMAXPROCS(0)).
 		Int("GOGC", goGCInt).
+		Str("GOMEMLIMIT", os.Getenv("GOMEMLIMIT")).
 		Msg("Go Runtime")
 	pprofRoutes(r, app)
 
@@ -211,6 +212,7 @@ func httpServerType() handlers.HttpServerType {
 
 // getEnvOrDefault wrapper to provide ability to return default value if not found
 // behavior is similar to flags
+//
 //goland:noinspection GoUnusedParameter
 func getEnvOrDefault(key string, def, description string) string {
 	if getenv, ok := os.LookupEnv(key); ok {
@@ -222,6 +224,7 @@ func getEnvOrDefault(key string, def, description string) string {
 // getEnvOrDefaultBool wrapper to provide ability to parse bool or return default value if not found
 // behavior is similar to flags
 // panic if provided non-boolean value
+//
 //goland:noinspection GoUnusedParameter
 func getEnvOrDefaultBool(key string, def bool, description string) bool {
 	if getenv, ok := os.LookupEnv(key); ok {

@@ -29,6 +29,7 @@ require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/gofiber/utils v1.0.1 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
+	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/kelindar/intmap v1.1.0 // indirect
 	github.com/kelindar/iostream v1.3.0 // indirect
 	github.com/kelindar/simd v1.1.2 // indirect
