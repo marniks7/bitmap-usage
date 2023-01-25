@@ -15,7 +15,11 @@ For data size <2M entities
 
 This repo is comparing `bitmap` and `map` as a cache.
 
-Some criterias to consider: decrease memory requirements? Decrease CPU requirements? Improve latency?
+* `map` is provided by Golang built-in library
+* `bitmap`'s are provided by https://github.com/RoaringBitmap/roaring. Few other bitmap repositories used occasionally,
+  but excluded from results described in this section
+
+Some criterias to consider: decrease memory requirements? improve latency?
 Increase cost of development and support for that?
 See below
 
@@ -24,11 +28,11 @@ See below
     * Take into consideration: very few search options are supported, so benchmarks are limited
 * Read [Benchmark Aggregation](docs/benchmark.md) - it may not be up-to-date, but will give you the common understanding
   of the `bitmap` benefits
-* `Data sizing`: there is test for only ~`500k` prices with ~`8` conditions each. The results for your data could be
+* `Data sizing`: only ~`500k` prices with ~`8` conditions each. The results for your data could be
   different.
 * `Fair competition`: there are different strategies to improve both `bitmap` and `map` and some of them were applied.
 * `High throughput` vs `Low Latency` - low-latency is expected here
-* `Usage`: this repository is comparing search capabilities,leaving update or inserts behind, which could be as well
+* `Usage`: this repository is comparing search capabilities, leaving update or inserts behind, which could be
   important use case. Not only timing and memory usage (gc) is important here, but also you mind end up with x2
   memory requirements (e.g. creating two caches at the same time) or will be forced to add READ lock for concurrency
   update\read. Map as well doesn't allow concurrent writes, so at least search compare oranges with oranges
@@ -48,18 +52,17 @@ See below
   see [bitmap 2gb vs 500mb](reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-1-roaring32-dockermemorylimit-2gb-gomemlimit-1750mib.json-vs-exp-9-roaring32-dockermemorylimit-500mb-gomemlimit-400mib.json.md).
   No difference
   for [map 2gb vs 500mb](reports/2023-01-24t00-49-24z-dockermemorylimit-gomemlimit/exp-0-map32-dockermemorylimit-2gb-gomemlimit-1750mib.json-vs-exp-8-map32-dockermemorylimit-500mb-gomemlimit-400mib.json.md)
-* `CPU`: `bitmap` is way faster (1 order of magnitude, `1000%` more requests), but it comes with the cost of increased
-  memory allocation, which means increased GC pressure.
-* `GoGC`: `1000` looks good. For some background
+* `CPU`: `bitmap` is way faster (1 order of magnitude, `1000%` more requests), but it .
+* `GoGC`: Bitmap comes with the cost of increased memory allocation, which means increased GC pressure. Value `1000`
+  looks good. For some background
   see [bitmap. gogc 1000 vs 100](reports/2023-01-21T20-06-59Z-gogc/wrk-t2-c20-roaring32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-roaring32-Fiber-goGC100-maxProc2.json.md)
 * `Cost`: `bitmap` development and support is way harder than regular `map`. It is about supporting low-level data
   types. In contrast `Map` is like business as usual - you will be able to spend more time on you actual business cases,
-  then on
-  dealing with performance. More over, you can check issues of
-  different `bitmap libraries` and found all sort of issues hard-to-spot, like race conditions. Good testing, even
-  for concurrent READ scenarios is must.
+  then on dealing with performance. More over, you can check issues of
+  different `bitmap libraries` and found all sort of issues hard-to-spot, like race conditions. Add your own changes on top. 
+  Good testing, even for concurrent READ scenarios is must.
 * `Language`: `go` is used here. `java` maybe a good alternative, over the years people built different efficient map
-  implementations, and not only that, java's 32-bit support is free (which means less memory, faster)
+  implementations, and not only that, java's 32-bit support is free (which means less memory, faster).
 * `Http Server`: when it comes to bitmaps, you can achieve micro-seconds latency and here every improvement
   matters. For example,
   [bitmap. http server fiber vs default](reports/2023-01-21T17-28-56Z-http-server/wrk-t2-c20-roaring32-Fiber-goGC1000-maxProc2.json-wrk-t2-c20-roaring32-Default-goGC1000-maxProc2.json.md)
