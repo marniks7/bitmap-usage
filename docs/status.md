@@ -1,5 +1,6 @@
 # Status
 
+* 2024/11/18: build, run with go1.23.X and improve readme
 * 2022/04/15:
   Advanced benchmark-runner is implemented with more detailed statistic. Few experiments conducted. Data generator
   improved
