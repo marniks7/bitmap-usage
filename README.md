@@ -13,24 +13,63 @@ For data size <2 million entities
 
 ## Intro
 
-This repo is comparing `bitmap` and `map` as a cache.
+This repo is comparing `bitmap` and `map` as an index/cache for entities
 
 * `map` is provided by Golang built-in library
-* `bitmap`'s are provided by https://github.com/RoaringBitmap/roaring. Few other bitmap repositories used occasionally,
-  but excluded from the results described in this section
+    * [show me the code for map](handlers-map/search-price.go)
+* `bitmap`'s are provided by https://github.com/RoaringBitmap/roaring
+    * [show me the code for bitmap](handlers-roaring/search-price.go)
+* Few other bitmap repositories used occasionally, but excluded from the results described in this section
 
 Considerations:
 
-* `Data sizing`: ~`500k` prices with ~`8 conditions` each price and the search based on all of them
+* `Data sizing`: there are ~`500k` prices with ~`8 conditions` for each price
 * `Fair competition`: there are different strategies to improve both `bitmap` and `map` and some of them were applied.
 * `High throughput` vs `Low Latency`: low-latency is expected here
-* `Usage`: this repository is comparing `search` capabilities, leaving update or inserts behind including their affect,
-  which can be an important use case for you. Not only timing and memory usage (gc) is important here, but also you mind
-  end up with x2 memory requirements (e.g. creating two caches at the same time) or will be forced to add READ lock for
-  concurrency update\read. Map as well doesn't allow concurrent writes, so at least search compares oranges with oranges
+* `Usage`: this repository is comparing `search` capabilities (e.g. find price by 8 input values/conditions).
+* `Usage excluded`: it doesn't take into consideration update or inserts. It can be an important use case for you
+  depending on the architecture. Not only timing and memory usage (gc) is important here, but also you mind end up with
+  x2 memory requirements (e.g. creating two caches at the same time) or will be forced to add READ lock for concurrency
+  update\read. Map as well doesn't allow concurrent writes, so at least search compares oranges with oranges
 * `Measurement`: timing is measured by the `wrk` tool by calling service's json REST API (wrk is among very few
-  available supports microseconds)
+  available that supports microseconds)
 
+## Search request/response sample
+Request body:
+```json
+{
+  "offeringId": "a38e432c-3965-4c74-8251-aa640002d2b2",
+  "groupId": "group5",
+  "priceSpecId": "MRC",
+  "charValues": [
+    {
+      "char": "Term",
+      "value": "18"
+    },
+    {
+      "char": "B2B Traffic",
+      "value": "10GB"
+    },
+    {
+      "char": "VPN",
+      "value": "ad796998-f1c7-4fcc-9a6b-1b33042fb375"
+    },
+    {
+      "char": "B2B Bandwidth",
+      "value": "1Mbps"
+    },
+    {
+      "char": "Router",
+      "value": "Included"
+    }
+  ]
+}
+```
+
+Response body:
+```json
+{"id":"ed3a1325-9727-4bd0-ba29-a1d1486bf24d","spec":"MRC","value":2320,"currency":""}
+```
 ## Results
 
 | Topic                       | Map                   | Roaring Bitmap                                                                                                                                                        |
@@ -51,10 +90,12 @@ Considerations:
 ## Build & Run
 
 * build: `make build`
-    * with codegen for extra options, might not work: `build-generate`
-* run
+    * with codegen for extra options: `make build-generate` (might not work)
+* run app:
     * map: `make run-map32-fiber`
     * bitmap: `make run-roaring32-fiber`
+* run & benchmark in '1 click': `make run-wrk-experiments`. After the run see [reports](reports)
+    * it runs the app for map, benchmarks for 5s, runs the app for bitmap and benchmarks again for 5s
 
 ## Usage
 
@@ -90,17 +131,17 @@ time curl -H "Content-Type: application/json" -o /dev/null -POST http://localhos
 
 ## Benchmarks
 
-[Benchmark Aggregation](docs/benchmark.md)
+[Benchmark Aggregation Report](docs/benchmark.md)
 
+* High-level
+    * In 1 click: `make run-wrk-experiments`. See [reports](reports)
+    * Wrk: `make wrk`
+    * Wrk2: `make wrk2`
 * Low-level: `make bench` (go tests)
 * Memory:
     * `make bench-memory-bitmap`
       See [bitmap memory](benchmark/500k-large-groups/bitmap/memory)
     * `make bench-memory-map`. See [map memory](benchmark/500k-large-groups/map/memory)
-* High-level
-    * Wrk new approach: `make run-wrk-experiments` (in 1 click). See [reports](reports)
-    * Wrk: `make wrk`
-    * Wrk2: `make wrk2`
 * Docker (beta)
     * Build: `make build docker`
         * Run roaring32: `make docker-run-roaring32-fiber`

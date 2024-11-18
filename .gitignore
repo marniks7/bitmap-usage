@@ -110,3 +110,4 @@ fabric.properties
 *.iml
 
 reports/**
+bitmap-usage
