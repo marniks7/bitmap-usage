@@ -81,20 +81,21 @@ Response body:
 
 ## Results
 
-| Topic                       | Map                   | Roaring Bitmap                                                                                                                                                        |
-|-----------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Client Requests, count      | `162 471`             | ✅ `2 244 242`, which is `1 order of magnitude` more. Note: Absolute numbers might change drastically for different options, but `1` order of magnitude is ~consistent |
-| Latency (99% percentile)    | `9.534ms`             | ✅ `911µs`, which is `1 order of magnitude` faster                                                                                                                     |
-| Cache memory size           | `180mb`               | ✅ `90mb`, 2 times better. ONLY if original entities are not used                                                                                                      |
-| -- Including index size     | `4mb`                 | ✅ `2mb`, 2 times less                                                                                                                                                 |
-| -- Including entities size  | `175mb`               | ✅ `87mb`, 2 times less. ONLY if original entities are not used                                                                                                        |                                                                      |
-| Usage memory (`GOMEMLIMIT`) | ✅ tested with `500mb` | ❌ `800MB` for `100MB` cache for similar latency, which is 1.6 times higher                                                                                            |
+| Topic                                | Map                   | Roaring Bitmap                                                                                                                                                        |
+|--------------------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Client Requests for `30s` run, count | `162 471`             | ✅ `2 244 242`, which is `1 order of magnitude` more. Note: Absolute numbers might change drastically for different options, but `1` order of magnitude is ~consistent |
+| Latency (`90%` percentile)           | `7.083ms`             | ✅ `510µs`, which is `1 order of magnitude` faster                                                                                                                     |
+| Latency (`99%` percentile)           | `9.534ms`             | ✅ `911µs`, which is `1 order of magnitude` faster                                                                                                                     |
+| Cache memory size                    | `180mb`               | ✅ `90mb`, 2 times better. ONLY if original entities are not used                                                                                                      |
+| -- Including index size              | `4mb`                 | ✅ `2mb`, 2 times less                                                                                                                                                 |
+| -- Including entities size           | `175mb`               | ✅ `87mb`, 2 times less. ONLY if original entities are not used                                                                                                        |                                                                      |
+| Usage memory (`GOMEMLIMIT`)          | ✅ tested with `500mb` | ❌ `800MB` for `100MB` cache for similar latency, which is 1.6 times higher                                                                                            |
 
 * ❌ `Cost`: `roaring bitmap` development and especially maintenance is higher than regular `map` because it is about
   supporting low-level data types. In contrast `Map` is like business as usual - you will be able to spend more time on
   you actual business cases, then on dealing with performance. More over, you can check issues of
   different `bitmap libraries` and found issues hard-to-spot, like race conditions. Add your changes on top.
-  Good testing, even for concurrent READ scenarios is required. 
+  Good testing, even for concurrent READ scenarios is required.
 
 ## Build & Run
 
