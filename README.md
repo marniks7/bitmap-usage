@@ -35,7 +35,9 @@ Considerations:
   available that supports microseconds)
 
 ## Search request/response sample
+
 Request body:
+
 ```json
 {
   "offeringId": "a38e432c-3965-4c74-8251-aa640002d2b2",
@@ -67,9 +69,16 @@ Request body:
 ```
 
 Response body:
+
 ```json
-{"id":"ed3a1325-9727-4bd0-ba29-a1d1486bf24d","spec":"MRC","value":2320,"currency":""}
+{
+  "id": "ed3a1325-9727-4bd0-ba29-a1d1486bf24d",
+  "spec": "MRC",
+  "value": 2320,
+  "currency": ""
+}
 ```
+
 ## Results
 
 | Topic                       | Map                   | Roaring Bitmap                                                                                                                                                        |
@@ -84,8 +93,8 @@ Response body:
 * ❌ `Cost`: `roaring bitmap` development and especially maintenance is higher than regular `map` because it is about
   supporting low-level data types. In contrast `Map` is like business as usual - you will be able to spend more time on
   you actual business cases, then on dealing with performance. More over, you can check issues of
-  different `bitmap libraries` and found all sort of issues hard-to-spot, like race conditions. Add your changes on
-  top. Good testing, even for concurrent READ scenarios is required.
+  different `bitmap libraries` and found issues hard-to-spot, like race conditions. Add your changes on top.
+  Good testing, even for concurrent READ scenarios is required. 
 
 ## Build & Run
 
