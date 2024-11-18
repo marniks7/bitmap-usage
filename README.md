@@ -51,6 +51,7 @@ Considerations:
 ## Build & Run
 
 * build: `make build`
+    * with codegen for extra options, might not work: `build-generate`
 * run
     * map: `make run-map32-fiber`
     * bitmap: `make run-roaring32-fiber`

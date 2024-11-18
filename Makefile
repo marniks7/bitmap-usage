@@ -74,9 +74,11 @@ MAKE = make --no-print-directory
 .PHONY: clean trigger-gc
 .DEFAULT_GOAL := build
 install-dependencies:
-	go${GOVERSION} install github.com/ugorji/go/codec/codecgen
+	go${GOVERSION} install github.com/ugorji/go/codec/codecgen@latest
 	go${GOVERSION} install golang.org/x/perf/cmd/benchstat@latest
 build: install-dependencies
+	go${GOVERSION} build .
+build-generate: install-dependencies
 	go${GOVERSION} generate ./...
 	go${GOVERSION} build .
 update-dependencies:
